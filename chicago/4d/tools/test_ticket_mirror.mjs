@@ -44,7 +44,7 @@ const check = (what, ok, detail) => {
 
 const tmp = mkdtempSync(path.join(tmpdir(), 'c4d-ticket-mirror-'));
 const APP = path.join(tmp, 'chicago', '4d');
-const SITE = path.join(tmp, 'site', 'chicago', '4d');
+const SITE = path.join(tmp, 'site', '4d');
 mkdirSync(path.join(APP, 'tools'), { recursive: true });
 mkdirSync(SITE, { recursive: true });
 // The three tools under test, and the ticket files they read. Nothing else: the
@@ -52,7 +52,11 @@ mkdirSync(SITE, { recursive: true });
 for (const f of ['ticket.mjs', 'check_published.mjs', 'publish.sh']) {
   cpSync(path.join(REPO, 'tools', f), path.join(APP, 'tools', f));
 }
-cpSync(path.join(REPO, 'tickets'), path.join(APP, 'tickets'), { recursive: true });
+// The ticket FILES, never a clone's .git: since 2026-09-23 tickets/ is a clone of
+// kevinrhaas/chicago-tickets, and a sandbox carrying its .git would be a tickets repo
+// of its own (REPO MODE) — this test is about the embedded mode's mirror contract.
+cpSync(path.join(REPO, 'tickets'), path.join(APP, 'tickets'),
+  { recursive: true, filter: (src) => path.basename(src) !== '.git' });
 
 const SRC = path.join(APP, 'tickets', 'tickets.json');
 const MIRROR = path.join(SITE, 'tickets.json');

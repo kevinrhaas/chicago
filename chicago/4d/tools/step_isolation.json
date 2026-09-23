@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a stale one, and measures clean here purely because the mirror was current when this ran (T-1341). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-09-21",
+  "measured": "2026-09-23",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 604,
   "exempt": {
@@ -3353,6 +3353,9 @@
     "tools/test_ticket_mirror.mjs": {
       "wrote": []
     },
+    "tools/test_ticket_repo_mode.mjs": {
+      "wrote": []
+    },
     "tools/test_ticket_restamp.mjs": {
       "wrote": []
     },
@@ -3399,6 +3402,9 @@
       "wrote": []
     },
     "tools/verify_fergus_1839_first_ward.py": {
+      "wrote": []
+    },
+    "tools/write_entry_pages.mjs": {
       "wrote": []
     },
     "{\"1242\":\"dirty\",\"1315\":\"blocked\",\"1316\":\"blocked\",\"1319\":\"clean\"}": {

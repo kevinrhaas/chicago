@@ -6417,7 +6417,7 @@ def run_bake_reach_check(structures: dict, scenes: dict, rep: Report) -> None:
 
 
 def run_site_check(rep: Report) -> None:
-    site = ROOT.parent.parent / "site" / "chicago" / "4d"
+    site = ROOT.parent.parent / "site" / "4d"
     if not site.exists():
         rep.note("site check: nothing published yet")
         return

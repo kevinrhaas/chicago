@@ -762,7 +762,7 @@ def round_trip_problems():
         it, and what the gate measures is once again whatever the last run left behind.
     """
     problems = []
-    mirror = (REPO / "site" / "chicago" / "4d").resolve()
+    mirror = (REPO / "site" / "4d").resolve()
     for rel in DRIFT_ROOTS:
         root = (REPO / rel).resolve()
         if root == mirror or mirror in root.parents:
