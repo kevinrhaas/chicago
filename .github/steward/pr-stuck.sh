@@ -68,7 +68,7 @@
 # Every call below is a REST path.
 set -uo pipefail
 
-REPO="${GITHUB_REPOSITORY:-kevinrhaas/custom}"
+REPO="${GITHUB_REPOSITORY:-kevinrhaas/chicago}"
 BASE="${STUCK_BASE:-dev}"
 ONLY="${STUCK_ONLY:-}"
 DRY="${STUCK_DRY_RUN:-}"

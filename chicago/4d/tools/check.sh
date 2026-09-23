@@ -2269,6 +2269,13 @@ selftest "…and its own assertions still fire when broken" \
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
+# The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
+# a <base href> into walk/. Their self-test holds the one thing that can go wrong with
+# that shape: a <base> that is not the first child of <head>, or a planned year with
+# no door.
+step "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
+  node tools/write_entry_pages.mjs --self-test
+
 # …and the one layer in it publish.sh transforms rather than copies. The residents
 # records ship minified for the size budget, so the byte comparison above cannot see
 # them; this asserts the stronger-reading claim on the SHIPPED form — same value, same

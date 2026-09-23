@@ -42,7 +42,7 @@
 # owner's park mechanism and a park that a robot can overrule is not a park.
 set -uo pipefail
 
-REPO="${GITHUB_REPOSITORY:-kevinrhaas/custom}"
+REPO="${GITHUB_REPOSITORY:-kevinrhaas/chicago}"
 BASE="${MERGE_BASE:-dev}"
 ONLY="${MERGE_ONLY:-}"
 DRY="${MERGE_DRY_RUN:-}"

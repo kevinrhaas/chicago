@@ -763,7 +763,15 @@ function readDetailPreference() {
 }
 
 const params = new URLSearchParams(location.search);
-const YEAR = (params.get('year') || '1835').replace(/[^0-9a-z_-]/gi, '');
+/**
+ * The year a visitor asked for. `?year=` wins; otherwise the page's own path
+ * names it — chicago.polecat.live/4d/1812/ and /4d/dev/1880/ are front doors that
+ * `tools/write_entry_pages.mjs` writes for each year — and a bare /4d/ opens on
+ * the target date. Other state (a structure to open, a camera) belongs in further
+ * query parameters beside `year`, never in more path segments.
+ */
+const PATH_YEAR = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [])[1];
+const YEAR = (params.get('year') || PATH_YEAR || '1835').replace(/[^0-9a-z_-]/gi, '');
 const DEBUG = params.get('debug') === '1';
 
 const canvas = document.getElementById('view');
@@ -830,7 +838,14 @@ boot().catch((err) => {
   bootController.fail(active?.id || 'scene', err);
   api.error = String(err?.message || err);
   problems.push(`boot: ${api.error}`);
-  if (gateSub) gateSub.textContent = `Could not load the scene — ${api.error}`;
+  // A year with no scene yet (a door such as /4d/1812/ that is ahead of the data)
+  // is not a broken build, and should not read like one.
+  const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`);
+  if (gateSub) {
+    gateSub.textContent = unbuilt
+      ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.`
+      : `Could not load the scene — ${api.error}`;
+  }
   if (gateBtn) gateBtn.textContent = 'Failed to load';
   console.error('[4D Chicago] boot failed', err);
 });

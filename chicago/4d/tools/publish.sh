@@ -362,46 +362,6 @@ if [ -d data/fauna ]; then
   cp -a data/fauna "$SITE/data/fauna"
 fi
 
-# every URL-targeted directory needs an index.html or Pages 404s the bare path.
-# The document keeps its <head> and </body> ON PURPOSE, minimal as it is:
-# .github/chicago-4d-dev-preview.mjs marks every preview page by regex — a robots
-# meta after <head>, the DEV PREVIEW banner before </body> — and an opener with
-# no <head> or </body> at all slipped past all three markings (measured 2026-09-16
-# by T-0968's URL smoke: /4d/dev/ returned 200 unmarked). Structure is
-# what makes the preview honest at the door.
-[ -f "$SITE/index.html" ] || cat > "$SITE/index.html" <<'HTML'
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>4D Chicago — opening the walkthrough</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="canonical" href="walk/">
-<style>
-  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0d1117;
-       color:#e6edf3;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-       text-align:center;padding:24px}
-  a{color:#58a6ff}
-</style>
-</head>
-<body>
-<div>
-  <p>Opening the <strong>4D Chicago</strong> walkthrough…</p>
-  <p><a id="go" href="walk/?year=1835">Continue to the walkthrough</a></p>
-</div>
-<script>
-  (function () {
-    var p = location.pathname; if (p.slice(-1) !== '/') p += '/';
-    var t = p + 'walk/' + (location.search || '?year=1835') + location.hash;
-    document.getElementById('go').setAttribute('href', t);
-    location.replace(t);
-  })();
-</script>
-<noscript><meta http-equiv="refresh" content="0; url=walk/?year=1835"></noscript>
-</body>
-</html>
-HTML
-
 # The build stamp the gate shows. Written here because publish IS the build: the
 # one moment that knows which commit became which deployed tree. Central Time,
 # because that is the clock the project's dates are quoted in everywhere else.
@@ -422,6 +382,16 @@ s = s.replace('<p class="gate-build" id="gate-build" hidden><!--BUILD_STAMP--></
 p.write_text(s)
 PYEOF
 fi
+# THE FRONT DOORS (chicago.polecat.live). The renderer lives at walk/, but nobody is
+# sent there: /4d/ and /4d/<year>/ are copies of the STAMPED walk/index.html carrying a
+# <base href> into walk/, so the address bar keeps the short path and every relative
+# URL still resolves from walk/. This replaces the old opener page that bounced /4d/
+# to walk/?year=1835. It runs after the stamp so every door shows the same build.
+# Each door keeps walk/index.html's <head> and </body>, which is what
+# .github/chicago-4d-dev-preview.mjs marks (robots meta, DEV PREVIEW banner).
+rm -f "$SITE/index.html"
+node tools/write_entry_pages.mjs "$SITE"
+
 # build.json — the machine-readable twin of the stamp above. It was written ONCE,
 # by hand, and then never again: the gate added in R-BUG3c-b's wake found it
 # claiming version 8909332 built 2026-08-13 while the mirror beside it was two

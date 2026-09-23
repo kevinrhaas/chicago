@@ -155,7 +155,7 @@ if (m) {
   const g = pr && pr.gate;
   if (!g) process.exit(0);
   out(g.status + ':' + (g.conclusion == null ? 'none' : g.conclusion) +
-      '\\t' + 'https://github.com/kevinrhaas/custom/actions/runs/7/job/' + (g.job == null ? 42 : g.job));
+      '\\t' + 'https://github.com/kevinrhaas/chicago/actions/runs/7/job/' + (g.job == null ? 42 : g.job));
 }
 // the job behind that check run, for the step names
 m = pathArg.match(/^repos\\/[^/]+\\/[^/]+\\/actions\\/jobs\\/(\\d+)$/);
@@ -180,7 +180,7 @@ process.exit(0);
     env: { ...process.env, PATH: `${bin}:${process.env.PATH}`,
            GH_TOKEN: 'fake', STUCK_ONLY: only, STUCK_DRY_RUN: dry,
            STUCK_RETRY_SLEEP: '0', STUCK_SOFT_FAIL: soft,
-           GITHUB_REPOSITORY: 'kevinrhaas/custom' },
+           GITHUB_REPOSITORY: 'kevinrhaas/chicago' },
   });
   const did = existsSync(acted) ? readFileSync(acted, 'utf8') : '';
   rmSync(box, { recursive: true, force: true });

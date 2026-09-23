@@ -96,7 +96,7 @@ CONTROL = ROOT / "data" / "traces" / "street_control.json"
 OUT = ROOT / "data" / "traces" / "vectors" / "street_corridors_1834.json"
 
 FT = 0.3048
-UA = "chicago-4d street corridor measurement (kevinrhaas/custom)"
+UA = "chicago-4d street corridor measurement (kevinrhaas/chicago)"
 
 PARAMS = dict(
     reach_m=380.0,        # how far along a traverse boundary lines are collected
