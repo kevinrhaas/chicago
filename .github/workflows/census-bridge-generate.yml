@@ -28,7 +28,7 @@ jobs:
             chicago/4d/data/residents/households/hh_adams_william_h.json \
             chicago/4d/data/research/residents/synthesis_2026_09_02.json \
             chicago/4d/docs/RESEARCH/resident-household-synthesis-2026-09-02.md
-      # The four site/chicago/4d/data/residents/ paths this used to pack came off the
+      # The four site/4d/data/residents/ paths this used to pack came off the
       # list with T-0938: the published mirror is untracked and generated, this
       # generator no longer writes it (tools/publish.sh is its one writer), and `tar`
       # would fail outright on paths a checkout does not contain.

@@ -43,7 +43,7 @@ AND THE FIX, DEMONSTRATED THE SAME HOUR on the same branch in a clone:
     bash tools/publish.sh                          -> published
     python3 tools/rebuild_closing_set.py --build   -> wrote docs/RESEARCH/closing-convergence-2026-09.md
 
-`site/chicago/4d/` is GENERATED and untracked since T-0938, so a fresh checkout has no
+`site/4d/` is GENERATED and untracked since T-0938, so a fresh checkout has no
 mirror at all. `rebuild_closing_set.py` reads the published resident count and refuses
 rather than write a number it did not take — which is right. `rederive.mjs --run` does
 not publish, and neither does the lap. `tools/check.sh` publishes FIRST, before anything

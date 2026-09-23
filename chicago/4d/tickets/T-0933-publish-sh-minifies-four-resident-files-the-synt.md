@@ -25,10 +25,10 @@ is involved. Reproduced at `f581e15b9`:
 git checkout dev && git status --short        # clean
 bash chicago/4d/tools/publish.sh              # exit 0
 python3 chicago/4d/tools/synthesize_resident_research.py --drift
-  FAIL site/chicago/4d/data/residents/households/hh_adams_william_h.json has drifted …
-  FAIL site/chicago/4d/data/residents/households/hh_miller_john.json      has drifted …
-  FAIL site/chicago/4d/data/residents/households/hh_murphy_john.json      has drifted …
-  FAIL site/chicago/4d/data/residents/index.json                          has drifted …
+  FAIL site/4d/data/residents/households/hh_adams_william_h.json has drifted …
+  FAIL site/4d/data/residents/households/hh_miller_john.json      has drifted …
+  FAIL site/4d/data/residents/households/hh_murphy_john.json      has drifted …
+  FAIL site/4d/data/residents/index.json                          has drifted …
 ```
 
 **The four files are semantically identical either way.** Parsed and compared as JSON, the
@@ -72,11 +72,11 @@ built to catch.
 red on a tree whose only change was five ticket files.
 
 **NOTE FROM T-0938, 2026-09-07 — the reproduction above no longer reproduces. Verify and
-close rather than re-fixing.** T-0938 took `site/chicago/4d/` off the PR surface and this
+close rather than re-fixing.** T-0938 took `site/4d/` off the PR surface and this
 fell out with it: the mirror has ONE writer now, `tools/publish.sh`.
 `synthesize_resident_research.py` and `apply_census_1840_bridges.py` both stopped writing
 it and say so in their docstrings (acceptance 1 — the publisher won, and the reason is
-that a generated tree should not have three authors); `site/chicago/4d/data` came off
+that a generated tree should not have three authors); `site/4d/data` came off
 `DRIFT_ROOTS`, because a tree that is not committed is not what the T-0838 ratchet
 compares a fresh writer run against — and `_scratch`'s `copytree` would have raised on a
 clone that has not published; and `apply_census_1840_bridges.py --check` stopped asserting
@@ -115,7 +115,7 @@ FAIL lines. Against the list:
    rather than argued: `round_trip_problems()` runs inside `--drift-self-test`, which
    `check.sh` already runs. It does not re-run the round trip — the fault is structural,
    not a value in a file — it holds the two shapes the fault took. A DRIFT_ROOT under
-   `site/chicago/4d/` fails (that is exactly the 2026-09-06 configuration), and so does a
+   `site/4d/` fails (that is exactly the 2026-09-06 configuration), and so does a
    `check.sh` that stops running `publish.sh`, or runs `--drift` before it, which is what
    makes every gate run the round trip in the first place. All four directions were shown
    firing against doctored copies before this was committed.

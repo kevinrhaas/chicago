@@ -3,7 +3,7 @@
 
 ROADMAP K36(a). The geometry a visitor downloads reaches them along four links:
 
-    data/  ->  assets/gltf/  ->  assets/web/  ->  site/chicago/4d/assets/web/
+    data/  ->  assets/gltf/  ->  assets/web/  ->  site/4d/assets/web/
 
 Link 1 is gated: `validate.py --stale` recomputes every master's input hash, so a
 record edited into a different building fails. Link 3 is gated: `check_published.mjs`

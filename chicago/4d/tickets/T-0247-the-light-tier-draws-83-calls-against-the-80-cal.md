@@ -31,7 +31,7 @@ FAILURES:
 
 **Found while working T-0193** (PR #421), whose branch changes one JSON string and no geometry at
 all. It reproduced identically against the untouched `dev` mirror
-(`git archive origin/dev site/chicago/4d`, then `SMOKE_ROOT` pointed at it), so it is
+(`git archive origin/dev site/4d`, then `SMOKE_ROOT` pointed at it), so it is
 neither that branch's nor any branch's — it is the state of `dev`.
 
 **Why this is fresh rather than long-standing.** T-0300 restored this floor YESTERDAY,

@@ -18,7 +18,7 @@
 //
 // THE MEASUREMENT, and why each choice is made:
 //   * REAL RESPONSES, not a file list: a static server hands the published
-//     mirror (site/chicago/4d, built by tools/publish.sh) to a real headless
+//     mirror (site/4d, built by tools/publish.sh) to a real headless
 //     Chromium, and every byte the server writes is counted per request. What
 //     the browser ACTUALLY asked for, byte for byte — the smoke's own layout.
 //   * GZIP ON EVERYTHING: the live origin (checked 2026-09-16) answers
@@ -39,7 +39,7 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const SITE = path.resolve(HERE, '../../../site/chicago/4d');
+const SITE = path.resolve(HERE, '../../../site/4d');
 const SETTLE_MS = 3000;
 
 async function loadPlaywright() {

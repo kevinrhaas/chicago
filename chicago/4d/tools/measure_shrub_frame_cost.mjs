@@ -128,7 +128,7 @@ if (!VIEWPORTS.length) {
 
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/chicago/4d');
+  : path.resolve(HERE, '../../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.SHRUB_PORT || 4193);
 const YEAR = process.env.SHRUB_YEAR || '1835';

@@ -55,7 +55,7 @@ and re-proposing one is re-paying #940.
 
 **What DID work, twice.** Taking the artifacts off the PR surface: `tickets/BOARD.md`
 and `tickets/tickets.json` (T-0937), then the whole published mirror
-`site/chicago/4d/**` (T-0938). Untracked and .gitignored — a file that is not tracked
+`site/4d/**` (T-0938). Untracked and .gitignored — a file that is not tracked
 cannot conflict, in a clone or on the server — and still written, because every
 consumer regenerates before it reads.
 

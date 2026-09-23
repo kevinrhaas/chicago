@@ -3,8 +3,8 @@
   "urls": [
     { "path": "/", "must_contain": "<title>Custom — a workshop of made things" },
     { "path": "/chicago/4d/", "must_contain": "Opening the <strong>4D Chicago</strong> walkthrough" },
-    { "path": "/chicago/4d/walk/", "must_contain": "id=\"gate-build\">build " },
-    { "path": "/chicago/4d/dev/", "must_contain": "id=\"__dev\"" },
-    { "path": "/chicago/4d/dev/walk/", "must_contain": "id=\"gate-build\">DEV PREVIEW · dev@" }
+    { "path": "/4d/", "must_contain": "id=\"gate-build\">build " },
+    { "path": "/4d/dev/", "must_contain": "id=\"__dev\"" },
+    { "path": "/4d/dev/", "must_contain": "id=\"gate-build\">DEV PREVIEW · dev@" }
   ]
 }

@@ -382,8 +382,8 @@ jobs:
       # T-0180 — ASK THE CONTENT, NOT THE TREE. This read
       # `[ -z "$(git status --porcelain)" ]`, and that test can never say no:
       # publish.sh IS the build and its last act is to write the build stamp —
-      # the head sha and a wall clock — into site/chicago/4d/build.json and the
-      # gate paragraph of site/chicago/4d/walk/index.html. Both move every run by
+      # the head sha and a wall clock — into site/4d/build.json and the
+      # gate paragraph of site/4d/walk/index.html. Both move every run by
       # construction, so the tree was always dirty, `changed=0` was unreachable,
       # and every bake opened a PR whose entire diff was those two files. Four
       # were open at once on 2026-08-24 and the signal the PR carries — this bake
@@ -411,7 +411,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          # `chicago/4d` alone: site/chicago/4d is untracked and generated (T-0938),
+          # `chicago/4d` alone: site/4d is untracked and generated (T-0938),
           # so there is nothing there to add and the bake's diff is the geometry and
           # the records it rebuilt rather than 30 MB of mirror beside them.
           git add -A chicago/4d
@@ -452,7 +452,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: published-mirror
-          path: site/chicago/4d
+          path: site/4d
           retention-days: 3
           if-no-files-found: error
 
@@ -589,12 +589,12 @@ jobs:
       # never existed. Clearing it means what runs below is exactly the bytes the bake
       # published, which is the whole point of the artifact.
       - name: Clear the mirror directory
-        run: rm -rf site/chicago/4d && mkdir -p site/chicago/4d
+        run: rm -rf site/4d && mkdir -p site/4d
       - name: Take the mirror the bake published
         uses: actions/download-artifact@v4
         with:
           name: published-mirror
-          path: site/chicago/4d
+          path: site/4d
       # T-1156: one fresh desktop boot of the exact baked artifact. Run in the
       # short first leg, before smoke, so a 12 MB breach fails `needs: smoke`
       # and withholds the bake PR. Do not republish from the source checkout.
@@ -682,7 +682,7 @@ jobs:
           if out=$(bash .github/steward/pr-rest.sh create \
             --title "chore: content bake (run ${GITHUB_RUN_ID})" \
             --base "$BASE" \
-            --body "Automated bake from \`tools/bake.sh\`. Regenerated glTF, web derivatives and sidecars. \`check.sh\` ran green at the end of the bake, and the published mirror passed the smoke at BOTH viewports in the \`smoke\` job before this PR was opened (T-0165). Targets \`$BASE\` — the ref this bake was built from (T-0454). Merging a \`dev\` bake publishes the /chicago/4d/dev/ preview only, and production moves on owner dispatch." \
+            --body "Automated bake from \`tools/bake.sh\`. Regenerated glTF, web derivatives and sidecars. \`check.sh\` ran green at the end of the bake, and the published mirror passed the smoke at BOTH viewports in the \`smoke\` job before this PR was opened (T-0165). Targets \`$BASE\` — the ref this bake was built from (T-0454). Merging a \`dev\` bake publishes the /4d/dev/ preview only, and production moves on owner dispatch." \
             --head "$BRANCH"); then
             PR_NUM="$out"
           else

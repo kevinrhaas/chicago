@@ -20,7 +20,7 @@ Three conflict markers reached production inside two liberty cards, and every ga
 
 `docs/LIBERTIES.md` carried three literal git conflict-marker lines from commit
 **e2056e97** (T-0117, the poplar rows) onward. They compiled into
-`data/liberties.json`, published to `site/chicago/4d/`, merged to `dev`, and were
+`data/liberties.json`, published to `site/4d/`, merged to `dev`, and were
 **promoted to `main` in promotion run #13** (`f09db144`, tagged `release-v269`).
 A visitor opening the Evidence panel on either of two liberties was shown:
 
@@ -56,7 +56,7 @@ liberties, unchanged count), and the mirror republished.
 
 **Closed here.** `tools/test_no_conflict_markers.py`, wired into `check.sh` at
 the top where it costs milliseconds: a deliberately dumb TEXT scan over every
-tracked file under `chicago/4d` and `site/chicago/4d`. It asks nothing about
+tracked file under `chicago/4d` and `site/4d`. It asks nothing about
 structure, because structure is what missed it. It refuses `<<<<<<< `, a whole
 line of `=======`, and `>>>>>>> ` — and deliberately does NOT refuse a markdown
 heading underline, a table rule, an indented divider, or prose that mentions a

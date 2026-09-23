@@ -35,13 +35,13 @@ ticket.mjs --check REPAIRS the mirror it is checking, so on any branch that adds
 
 T-1339's measurement ran twice. The first run reported `tools/ticket.mjs` writing
 `chicago/4d/tickets/BOARD.md`, `chicago/4d/tickets/tickets.json` and
-`site/chicago/4d/tickets.json`; the second, on an otherwise identical tree, reported
+`site/4d/tickets.json`; the second, on an otherwise identical tree, reported
 nothing. That looked like contamination from the first run being taken while the tree
 moved, and it was not:
 
     consistent tree   node tools/ticket.mjs check  →  wrote: []
     stale mirror      node tools/ticket.mjs check  →  wrote: ['chicago/4d/tickets/tickets.json',
-                                                              'site/chicago/4d/tickets.json']
+                                                              'site/4d/tickets.json']
 
 It repairs when it finds drift. The first run was taken on a branch that had just added a
 ticket — which is exactly when the mirror is stale — so the repair fired.

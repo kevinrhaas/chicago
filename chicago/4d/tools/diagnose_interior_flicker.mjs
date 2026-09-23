@@ -87,7 +87,7 @@ const stArg = process.argv.indexOf('--station');
 const WANT_STATION = stArg > -1 ? process.argv[stArg + 1] : 'from_above';
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/chicago/4d');
+  : path.resolve(HERE, '../../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.TIE_PORT || 4195);
 const YEAR = process.env.TIE_YEAR || '1835';

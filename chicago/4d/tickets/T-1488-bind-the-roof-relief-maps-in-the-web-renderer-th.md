@@ -50,7 +50,7 @@ path (`bake_ao`, off by default today) and with `docs/GLB-CONTRACT.md`.
   convention nobody promised to keep. So either the contract PROPOSES pinning the substrate
   name — bilaterally, per that document — or the substrate travels in the material's
   `extras`. Pick one and say why.
-- The two roof maps are **published** into `site/chicago/4d/` by `publish.sh`, or the
+- The two roof maps are **published** into `site/4d/` by `publish.sh`, or the
   reason they are not is written down.
 - **The draw count is measured at the critic stations, both viewports, before and after**,
   and lands in the ticket. One shared shingle material across every shingled roof should

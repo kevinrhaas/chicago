@@ -81,7 +81,7 @@ extracted yet.
 5. **A check.sh step**: every corpus entry's text path resolves; dates parse and
    are strictly increasing per publication; the issue count is stated (~103) and
    asserted, so a silently dropped issue is loud; `data/research/` reaches
-   NOTHING under `site/chicago/4d/` (the corpus is research, not payload — the
+   NOTHING under `site/4d/` (the corpus is research, not payload — the
    publish-sync gate must stay green without it).
 
 ## What NOT to do
@@ -101,5 +101,5 @@ extracted yet.
   checked in the PR.
 - Both source records pass check.sh and carry ruling 2 and the corpus-wide
   traps.
-- check.sh is green with the corpus committed, and `site/chicago/4d/` is
+- check.sh is green with the corpus committed, and `site/4d/` is
   byte-identical to before this branch.

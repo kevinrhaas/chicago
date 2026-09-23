@@ -33,7 +33,7 @@ import path from 'node:path';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const REPO = path.resolve(HERE, '..');
-const SITE = path.resolve(REPO, '../../site/chicago/4d');
+const SITE = path.resolve(REPO, '../../site/4d');
 
 /**
  * Published path prefix -> where its source lives. Mirrors publish.sh's own

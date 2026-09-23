@@ -53,4 +53,4 @@ tools/bake.sh --help    # the content build. pinned Blender. on demand + nightly
 Read **`AGENTS.md`** before doing anything — it is one page and it carries a standing
 constraint about Indigenous history that applies to every session.
 
-Published at `site/chicago/4d/` (walk app at `walk/?year=1835`).
+Published at `site/4d/` (walk app at `walk/?year=1835`).

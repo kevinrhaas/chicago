@@ -31,7 +31,7 @@ those three and nothing else. They are also the cheap ones — pure functions of
 `tickets/*.md`, with no renderer, no bake and no byte-identity invariant behind them.
 
 **Acceptance:** `chicago/4d/tickets/BOARD.md`, `chicago/4d/tickets/tickets.json` and
-`site/chicago/4d/tickets.json` are untracked and ignored; every reader that needs one
+`site/4d/tickets.json` are untracked and ignored; every reader that needs one
 materialises it (`ticket.mjs check`/`board` locally and in the gate, `publish.sh` before its
 copy, `deploy.yml` before the Pages upload and before the dev-preview assembly); the three
 `merge=generated` lines for them are gone from `.gitattributes` and the note there says what
@@ -39,5 +39,5 @@ was taken and why; `tools/test_ticket_mirror.mjs` still proves the second half o
 mirror somebody else made stale fails, and a no-op regeneration does not launder it — plus the
 new half, that a tree which carries no board at all gets one.
 
-**What stays:** `build.json` and `site/chicago/4d/walk/index.html` keep `merge=generated`;
+**What stays:** `build.json` and `site/4d/walk/index.html` keep `merge=generated`;
 they are publish-stamp files and they belong to T-0938 with the rest of the mirror.

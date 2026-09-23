@@ -29,7 +29,7 @@ states rather than two:
               absent case is tested wholesale rather than per-file.
 
 Merging `main` into `dev` today is NOT the fix: main carries sixty Finder-duplicate
-`... 2.json`/`... 2.glb` files under `site/chicago/4d/data/`, and merging it turns
+`... 2.json`/`... 2.glb` files under `site/4d/data/`, and merging it turns
 this repo's gate red in twenty-three places. T-0275 carries that.
 
 DERIVED TEXT. Twenty-three of the deposit's transcriptions exist only as .docx —
@@ -43,7 +43,7 @@ divergeable transcript of the same issue in the repo.
 
 `data/research/` IS RESEARCH, NOT PAYLOAD. `tools/publish.sh` copies named
 subdirectories of `data/` and this is not one of them; the gate asserts that
-nothing under `data/research/` has reached `site/chicago/4d/`, so the corpus can
+nothing under `data/research/` has reached `site/4d/`, so the corpus can
 grow without touching the 14 MB the walkthrough actually ships.
 """
 import argparse
@@ -496,11 +496,11 @@ def check(corpus_path=CORPUS, deposit=DEPOSIT, site=SITE, repo=REPO, quiet=False
                     and not on_disk(a["path"]).exists():
                 bad.append("%s: deposit artifact %s is absent" % (e.get("id"), a["path"]))
 
-    # 4. data/research/ reaches NOTHING under site/chicago/4d/. The corpus is
+    # 4. data/research/ reaches NOTHING under site/4d/. The corpus is
     #    research; the published tree has a size budget and a purpose.
     if site.exists():
         if (site / "data" / "research").exists():
-            bad.append("site/chicago/4d/data/research/ exists — the corpus is research, "
+            bad.append("site/4d/data/research/ exists — the corpus is research, "
                        "not payload, and publish.sh must never copy it")
         names = {p.name for p in TEXT.glob("*.txt")} | {CORPUS.name}
         leaked = sorted(p for p in site.rglob("*") if p.is_file() and p.name in names)

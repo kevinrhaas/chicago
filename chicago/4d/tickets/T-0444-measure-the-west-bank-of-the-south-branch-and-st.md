@@ -104,7 +104,7 @@ deposit, and `docs/RESEARCH/thompson_plat_grid.md` refuses to trace the 1834 she
 plat sheet could go into the deposit given that rule, the owner answered with a path, recorded
 verbatim:
 
-> `https://github.com/kevinrhaas/custom/blob/dev/chicago/pre_fire_v1/maps/images/1830_thompson_plat.png`
+> `https://github.com/kevinrhaas/chicago/blob/dev/chicago/pre_fire_v1/maps/images/1830_thompson_plat.png`
 
 **What it means.** The Thompson plat of 1830 is ALREADY in the repository, at
 `chicago/pre_fire_v1/maps/images/1830_thompson_plat.png` (7.3 MB, committed to `dev`), and the

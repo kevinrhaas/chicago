@@ -375,7 +375,7 @@ claim.
 The renderer reads the index, never a directory listing.
 
 **Paths.** `asset` and `sidecar` are relative to the published `data/` root
-(`site/chicago/4d/data/`). In the source tree the same files sit at `assets/web/` and
+(`site/4d/data/`). In the source tree the same files sit at `assets/web/` and
 `data/sidecars/`, so a dev server needs a base override — the renderer accepts `?assets=`.
 
 ## What the renderer must implement

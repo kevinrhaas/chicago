@@ -36,13 +36,13 @@ data/residents/households/hh_murphy_john.json
 data/residents/index.json
 ```
 
-On `dev` the ratchet is green, because `site/chicago/4d/data/residents/` is STALE — it
+On `dev` the ratchet is green, because `site/4d/data/residents/` is STALE — it
 still holds the pre-drift copies. The moment any PR runs `./tools/publish.sh`, which
 every publishing PR must, the mirror is refreshed with the drifted content and four new
-`FAIL`s appear under `site/chicago/4d/…`, on files whose `data/` originals are declared:
+`FAIL`s appear under `site/4d/…`, on files whose `data/` originals are declared:
 
 ```
-FAIL site/chicago/4d/data/residents/households/hh_adams_william_h.json has drifted
+FAIL site/4d/data/residents/households/hh_adams_william_h.json has drifted
      from the writer and is not on the T-0838 baseline
 ```
 

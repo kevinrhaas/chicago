@@ -33,7 +33,7 @@ FAIL  site: published tree is 32.1 MB, over the 32 MB budget — GitHub Pages
 
 ## The measurement, and why it is not one PR's fault
 
-Blob bytes under `site/chicago/4d/`, measured with `git ls-tree -r -l`:
+Blob bytes under `site/4d/`, measured with `git ls-tree -r -l`:
 
 | tree | size |
 |---|---|
@@ -54,7 +54,7 @@ to buy 60 KB would be exactly the wrong trade. The ceiling needs a real answer, 
 
 ## The ask
 
-1. **Say where the 32 MB actually is.** A report over `site/chicago/4d/` by directory
+1. **Say where the 32 MB actually is.** A report over `site/4d/` by directory
    and by file type — GLBs against JSON against textures — so the decision is made on
    numbers. It has never been printed.
 2. **Decide what the mirror owes a visitor.** The likely candidates are the baked GLBs
@@ -79,8 +79,8 @@ that says where the bytes are is committed, and `./tools/check.sh` passes on dev
 - **Ask 1, the report that has never been printed:** `docs/SITE-BUDGET.md` is committed —
   the published tree by directory and by kind, GLBs against JSON against textures.
 - **Ask 2, what the mirror owes a visitor:** the changelog was being published twice.
-  `site/chicago/4d/walk/js/changelog.js` is now an 898-byte re-export of the single copy
-  at `site/chicago/4d/js/changelog.js`, which is the contract path Manager and the
+  `site/4d/walk/js/changelog.js` is now an 898-byte re-export of the single copy
+  at `site/4d/js/changelog.js`, which is the contract path Manager and the
   launcher parse and which did not move.
 - **Ask 3, headroom:** answered by the 32 -> 36 re-budget in #823 (T-0593). The tree
   measures 31,889,319 bytes = 30.41 MiB of 36, so 5.59 MiB of slack.

@@ -31,7 +31,7 @@ a queue with nobody in it.
 | file | job |
 |---|---|
 | `.github/workflows/chicago-4d-pipeline-setup.yml` | one-button: creates `dev` from `main` if absent, then dispatches a deploy. Idempotent. |
-| `.github/workflows/deploy.yml` | the single deploy authority. Assembles ONE Pages artifact: `main` at the root, plus the `dev` branch's `site/chicago/4d/` folded in at `site/chicago/4d/dev/`. Since T-0938 it PUBLISHES both trees first — `site/chicago/4d/` is generated, not committed — and it triggers on `chicago/4d/**` rather than only `site/**`, because a 4D change no longer touches `site/`. |
+| `.github/workflows/deploy.yml` | the single deploy authority. Assembles ONE Pages artifact: `main` at the root, plus the `dev` branch's `site/4d/` folded in at `site/4d/dev/`. Since T-0938 it PUBLISHES both trees first — `site/4d/` is generated, not committed — and it triggers on `chicago/4d/**` rather than only `site/**`, because a 4D change no longer touches `site/`. |
 | `.github/chicago-4d-dev-preview.mjs` | assembles that preview — copy, `noindex`, banner, dev build stamp, `build.json`, robots disallow. |
 | `.github/workflows/chicago-4d-check.yml` | **the dev gate.** Runs on PRs into `dev` and on pushes to `dev` and `main`. The push trigger was unfiltered until T-1288 measured what that cost: a steward branch with an open PR satisfies BOTH triggers, so every push started the suite twice on one commit and the PR waited on the slower of the pair. |
 | `.github/workflows/chicago-4d-promote-to-prod.yml` | **dispatch-only.** Back-merges `main`→`dev`, merges `dev`→`main` `--no-ff`, tags `release-vNNN`, then dispatches the deploy. |
@@ -113,7 +113,7 @@ whole artifact from both refs.
 every root-absolute `/x` URL because its app is served from the domain root. This app has
 **zero** root-absolute URLs: `walk/index.html` uses `./css/…` and `./js/…`, and `scene-loader.js`
 resolves data by page path (`walk/` → `../data/`). Mirroring the whole published
-`site/chicago/4d/` tree under `dev/` therefore preserves every path by construction — which is
+`site/4d/` tree under `dev/` therefore preserves every path by construction — which is
 exactly why the whole tree is mirrored and not just `walk/`. If a root-absolute URL is ever
 introduced, this stops being true and the preview script needs the pilot's rewriting.
 
@@ -258,7 +258,7 @@ git switch -c steward/<topic>
 ./tools/check.sh && node tools/smoke_renderer.mjs      # both, foreground
 ./tools/preflight.sh                                   # the questions CI asks only on the PR
 gh pr create --base dev
-#   merge when the dev gate is green → /chicago/4d/dev/ updates
+#   merge when the dev gate is green → /4d/dev/ updates
 
 # production, owner only
 gh workflow run chicago-4d-promote-to-prod.yml -f dry_run=true   # what would move

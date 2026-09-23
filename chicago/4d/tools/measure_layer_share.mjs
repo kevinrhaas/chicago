@@ -73,7 +73,7 @@ const VIEWPORTS = [
 
 const root = wantSource
   ? path.join(ROOT4D, 'renderers/web')
-  : path.resolve(ROOT4D, '../../site/chicago/4d');
+  : path.resolve(ROOT4D, '../../site/4d');
 const entry = wantSource ? '/index.html' : '/walk/index.html';
 if (!fs.existsSync(root)) {
   console.error(`no tree at ${root}${wantSource ? '' : ' — run tools/publish.sh first'}`);

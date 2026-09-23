@@ -13,7 +13,7 @@
 //     ZERO root-absolute URLs — measured, not assumed: `walk/index.html` uses
 //     `./css/…` and `./js/…`, and the data layer resolves by page path
 //     (`scene-loader.js` computes `../data/` from `walk/`). Copying the whole
-//     published `site/chicago/4d/` tree under `dev/` therefore preserves every
+//     published `site/4d/` tree under `dev/` therefore preserves every
 //     path by construction, which is exactly why the whole tree is mirrored
 //     rather than just `walk/`.
 //   • NO SERVICE-WORKER STUB. The pilot must neutralise an installed SW so a
@@ -21,7 +21,7 @@
 //     no service worker at all, so there is nothing to neutralise and a stub
 //     would be a file that exists only to be confusing.
 //   • NO CNAME / releases handling. `custom` is a monorepo of unrelated tenants
-//     published from `site/`; this script touches ONLY `site/chicago/4d/`, and
+//     published from `site/`; this script touches ONLY `site/4d/`, and
 //     the other tenants must never appear under a 4D preview.
 //
 // What it does do: copy, mark the copy as a preview so nobody mistakes it for
@@ -55,7 +55,7 @@ function ct(iso) {
   }).replace(/[  ]/g, ' ')} CT`;
 }
 
-const APP = 'site/chicago/4d';
+const APP = 'site/4d';
 const SRC = join(srcRoot, APP);
 const OUT = join(APP, 'dev');
 
@@ -137,14 +137,14 @@ await writeFile(join(OUT, 'build.json'), `${JSON.stringify({
 const ROBOTS = 'site/robots.txt';
 if (existsSync(ROBOTS)) {
   let robots = await readFile(ROBOTS, 'utf8');
-  if (!robots.includes('Disallow: /chicago/4d/dev/')) {
+  if (!robots.includes('Disallow: /4d/dev/')) {
     robots = /User-agent: \*/.test(robots)
-      ? robots.replace(/(User-agent: \*\n)/, '$1Disallow: /chicago/4d/dev/\n')
-      : `${robots.trimEnd()}\n\nUser-agent: *\nDisallow: /chicago/4d/dev/\n`;
+      ? robots.replace(/(User-agent: \*\n)/, '$1Disallow: /4d/dev/\n')
+      : `${robots.trimEnd()}\n\nUser-agent: *\nDisallow: /4d/dev/\n`;
     await writeFile(ROBOTS, robots);
   }
 } else {
-  await writeFile(ROBOTS, 'User-agent: *\nDisallow: /chicago/4d/dev/\n');
+  await writeFile(ROBOTS, 'User-agent: *\nDisallow: /4d/dev/\n');
 }
 
 console.log(`dev-preview: assembled ${OUT} from ${SRC}${sha ? ` (${sha})` : ''}`);

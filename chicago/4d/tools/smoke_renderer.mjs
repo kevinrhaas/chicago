@@ -176,7 +176,7 @@ const wantPublished = process.argv.includes('--published')
   || process.env.SMOKE_TARGET === 'published';
 const ROOT = process.env.SMOKE_ROOT
   || (wantPublished
-    ? path.resolve(HERE, '../../../site/chicago/4d')
+    ? path.resolve(HERE, '../../../site/4d')
     : path.resolve(HERE, '..'));
 const ENTRY = process.env.SMOKE_ENTRY || (wantPublished ? '/walk/' : '/renderers/web/index.html');
 const MODULE_BASE = wantPublished ? '/walk/js/' : '/renderers/web/js/';

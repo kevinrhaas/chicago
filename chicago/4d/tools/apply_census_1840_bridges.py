@@ -328,7 +328,7 @@ def apply():
     index = rebuild_index(load(INDEX), docs); dump(INDEX, index, 1)
     update_ledger(rows, all_rows); update_summary(rows, all_rows)
     # THIS WRITER DOES NOT WRITE THE PUBLISHED MIRROR (T-0938, fixing T-0933).  It used
-    # to carry the four paths it touches into `site/chicago/4d/data/residents/`
+    # to carry the four paths it touches into `site/4d/data/residents/`
     # PRETTY-PRINTED, while `synthesize_resident_research.py` and `tools/publish.sh`
     # both wrote the same paths MINIFIED — so `bash tools/publish.sh` on an untouched
     # `dev` turned `tools/check.sh` red on four files whose parsed values were identical,
@@ -376,7 +376,7 @@ def check():
     summary=SUMMARY.read_text(encoding="utf-8")
     if "**210 named 1840 household-head rows" not in summary: problems.append("summary census coverage is stale")
     # THE MIRROR IS NOT THIS TOOL'S TO ASSERT ANY MORE (T-0938).  These four lines used
-    # to check that `site/chicago/4d/data/residents/` carried the same parsed value as
+    # to check that `site/4d/data/residents/` carried the same parsed value as
     # the cards — a real claim, but one this tool could only make because it was also a
     # writer of the mirror, and being both is what made T-0933 possible.  The mirror is
     # untracked and generated now; `tools/check.sh` publishes it and then asks

@@ -6,7 +6,7 @@ name: Chicago 4D — gate
 #
 # THIS IS THE DEV GATE (chicago/4d/docs/PIPELINE.md). It runs on PRs INTO dev and
 # on pushes TO dev. Merging into dev is STAGE, not ship — it publishes only the
-# /chicago/4d/dev/ preview, and production moves only when the owner dispatches
+# /4d/dev/ preview, and production moves only when the owner dispatches
 # chicago-4d-promote-to-prod.yml.
 #
 # THE PUSH TRIGGER IS FILTERED TO dev AND main, AND THE COMMENT THAT USED TO STAND

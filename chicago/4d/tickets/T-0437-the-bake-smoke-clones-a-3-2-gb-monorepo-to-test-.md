@@ -72,7 +72,7 @@ T-0181 raised the cap to 45 minutes, which absorbs five of the seven. **It canno
 The smoke job needs exactly two things: `chicago/4d/tools/` and its imports (it runs
 `node tools/smoke_renderer.mjs --published` with `working-directory: chicago/4d`), and the
 published mirror — **which it does not take from the checkout at all**. The job explicitly does
-`rm -rf site/chicago/4d && mkdir -p site/chicago/4d` and then downloads the mirror as an artifact,
+`rm -rf site/4d && mkdir -p site/4d` and then downloads the mirror as an artifact,
 precisely so it tests the bytes the bake published. So the ~3 GB outside `chicago/4d` is fetched
 and then never read, eight times per bake, twice per viewport.
 

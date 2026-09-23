@@ -73,4 +73,4 @@ login is INACCESSIBLE FROM HERE and must be recorded as that, never as "no recor
 found". The two read very differently to the next run.
 
 **This is research, not payload.** Nothing under `data/research/` reaches
-`site/chicago/4d/`, and the gate asserts it.
+`site/4d/`, and the gate asserts it.

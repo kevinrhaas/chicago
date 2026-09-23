@@ -58,7 +58,7 @@ check is circular.
 and in a 226-page scan, a hole is the difference between "read" and "opened".
 
 **This is research, not payload.** Nothing under `data/research/` reaches
-`site/chicago/4d/`.
+`site/4d/`.
 
 ---
 

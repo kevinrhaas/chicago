@@ -21,7 +21,7 @@ claimed_run: null
 Minifying the published mirror's JSON is a measured 1.99 MB: decide whether the record must stay readable at its own URL.
 
 **Acceptance:** the owner's decision, recorded — and if it is yes, `tools/publish.sh` writes
-minified JSON into `site/chicago/4d/` while `data/` stays authored as it is, with the gate
+minified JSON into `site/4d/` while `data/` stays authored as it is, with the gate
 comparing the two by parsed content rather than by bytes.
 
 **Why (T-0722, 2026-09-05).** Measured across the 1,831 published JSON files: 18.90 MB as

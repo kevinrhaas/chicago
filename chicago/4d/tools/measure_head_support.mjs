@@ -72,7 +72,7 @@ const SOURCE = has('--source');
 // in each tree, not the renderer folder. Serving `renderers/web` directly 404s
 // every dataset and the boot hangs on the gate, which is what `tools/shoot.mjs`
 // records in its own header.
-const ROOT = SOURCE ? APP : path.resolve(APP, '../../site/chicago/4d');
+const ROOT = SOURCE ? APP : path.resolve(APP, '../../site/4d');
 const ENTRY = SOURCE ? '/renderers/web/' : '/walk/';
 const DETAIL = val('--detail', 'full');
 const SHOT = val('--shot', null);

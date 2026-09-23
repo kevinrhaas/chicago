@@ -49,5 +49,5 @@ claim happened but not WHICH of five parallel slices holds the ticket or where i
 - `tickets/README.md` and `AGENTS.md` state both fields and why the day alone was not enough.
 
 **What reads this next:** Manager's 4D queue screen (custom T-0030), which fetches
-`custom.polecat.live/chicago/4d/dev/tickets.json` and shows Up next / In flight / Finished newest first;
+`chicago.polecat.live/4d/dev/tickets.json` and shows Up next / In flight / Finished newest first;
 and the steward journal, which will name the ticket each run picked up.

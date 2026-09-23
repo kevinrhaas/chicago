@@ -121,7 +121,7 @@ FAIL  150 resident research reviews reach resident cards — 375:
 ```
 
 **The A/B that proves whose red it is.** The same command was run twice on the same
-tree, the second time with `site/chicago/4d` checked out from `origin/dev` — that is,
+tree, the second time with `site/4d` checked out from `origin/dev` — that is,
 against the mirror as `dev` itself committed it. **Identical six failures, and
 identical numbers**: 824, 848, 97/727, 769/42, 375. So the smoke's expectations and
 the shipped data have parted company on `dev`, and no branch did it.
@@ -135,7 +135,7 @@ re-derived from what PR #670 actually intends to ship rather than nudged to matc
 ## 3. The mirror was left stale, and T-0450's PR carries the repair
 
 `tools/publish.sh` on an otherwise untouched `dev` regenerates three files nobody
-published: `site/chicago/4d/data/residents/households/hh_miller_john.json` and
+published: `site/4d/data/residents/households/hh_miller_john.json` and
 `hh_murphy_john.json` gain their `later_census` blocks, and `hh_adams_william_h.json`
 did not exist in the mirror at all. `deploy.yml` only fires on `site/**`, so that
 evidence was merged but not shipped. **This half is already fixed** — T-0450's PR runs

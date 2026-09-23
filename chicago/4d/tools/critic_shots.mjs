@@ -104,7 +104,7 @@ const NO_MASK = flag('--no-mask');
 const PORT = Number(process.env.CRITIC_PORT || 4191);
 const YEAR = process.env.CRITIC_YEAR || '1835';
 
-const ROOT = PUBLISHED ? path.resolve(APP, '../../site/chicago/4d') : APP;
+const ROOT = PUBLISHED ? path.resolve(APP, '../../site/4d') : APP;
 const ENTRY = PUBLISHED ? '/walk/' : '/renderers/web/index.html';
 
 /**

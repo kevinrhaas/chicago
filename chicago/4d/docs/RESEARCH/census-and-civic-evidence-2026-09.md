@@ -352,7 +352,7 @@ Every artifact named on this page lives in the repository and nowhere else. Two 
   is published”** (`python3 tools/newspaper_corpus.py --check`). That is the absolute
   assertion, and it is why a reader can be told these directories exist without being told to
   look for them on the live site.
-- `tools/publish.sh` copies a named payload to `site/chicago/4d/`; neither `data/research/` nor
+- `tools/publish.sh` copies a named payload to `site/4d/`; neither `data/research/` nor
   `chicago/reference/` is in it, and `tools/check_published.mjs` re-derives the mirror from its
   source, so an extra file in the mirror is a red gate rather than a silent publication.
 

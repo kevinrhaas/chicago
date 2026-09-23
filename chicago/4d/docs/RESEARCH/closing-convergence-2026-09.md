@@ -18,7 +18,7 @@ The order is read out of `tools/derived_manifest.json`, which holds the whole de
 | 2 | the 1835 sidecars, `data/sidecars/1835/` | `tools/compile_scene.py` | 122 | 1 |
 | 3 | the town census, `data/town_census.json` | `tools/town_census.py` | 141 | 1 |
 | 4 | the final resident audit, `chicago/reference/resident-research/final/audit/` | `tools/export_resident_audit.py` | 143 | 3 |
-| 5 | the published residents, `site/chicago/4d/data/residents/` | `tools/publish.sh` | **none** — see §2 | 0 |
+| 5 | the published residents, `site/4d/data/residents/` | `tools/publish.sh` | **none** — see §2 | 0 |
 
 ## 2. What the manifest does not own
 

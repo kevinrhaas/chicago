@@ -1,6 +1,6 @@
 ---
 id: T-0968
-title: A green deploy is not proof the site is reachable: /chicago/4d/dev/ served a 404 for hours while every deploy reported success, and nothing checks a URL after publishing
+title: A green deploy is not proof the site is reachable: /4d/dev/ served a 404 for hours while every deploy reported success, and nothing checks a URL after publishing
 state: done
 epic: PIPELINE
 requested_by: owner
@@ -18,14 +18,14 @@ closed_at: 2026-09-17T01:49:31.671Z
 claimed_run: null
 ---
 
-**OWNER-REPORTED, 2026-09-07.** `https://custom.polecat.live/chicago/4d/dev/` served a
+**OWNER-REPORTED, 2026-09-07.** `https://chicago.polecat.live/4d/dev/` served a
 **404** while every deploy in the run list reported success. Production was fine throughout,
 so nothing in the repository, the workflow log or the Actions UI said anything was wrong.
 It was found by a person opening the page.
 
 ## How it went silent
 
-The preview is assembled from `site/chicago/4d/` in a worktree of `dev`. T-0937/T-0938 made
+The preview is assembled from `site/4d/` in a worktree of `dev`. T-0937/T-0938 made
 that tree generated and untracked — correctly; it was the file every branch conflicted on —
 and `.github/chicago-4d-dev-preview.mjs` had this:
 
@@ -67,8 +67,8 @@ does not gate the deploy.
 ## Acceptance
 
 1. After the artifact deploys, the live origin is requested and the status recorded for at
-   minimum: `/`, `/chicago/4d/`, `/chicago/4d/walk/`, `/chicago/4d/dev/`,
-   `/chicago/4d/dev/walk/`. The list is data, not code, so a new tenant is one line.
+   minimum: `/`, `/chicago/4d/`, `/4d/`, `/4d/dev/`,
+   `/4d/dev/`. The list is data, not code, so a new tenant is one line.
 2. **A non-200 raises a `::error::` annotation naming the URL and the status, and does NOT
    fail the deploy job.** State that reasoning in the step, with the 21-hour freeze named,
    so the next person does not "improve" it into a gate.

@@ -11,7 +11,7 @@
 
 WHY THIS EXISTS. Five files close the resident layer — `data/residents/index.json` with
 its `merged` redirect table, the 1835 sidecars, `data/town_census.json`, the published
-residents under `site/chicago/4d/data/residents/`, and the final resident audit workbook.
+residents under `site/4d/data/residents/`, and the final resident audit workbook.
 Every one of them is derived, every one of them has a tool, and until this file there was
 no place that said they were ONE SET or what order they go in. A run that moved the town
 tree rebuilt whichever of the five it happened to remember, and the ones it forgot stayed
@@ -37,7 +37,7 @@ later branch that moves the town tree and leaves this report alone turns the gat
 instead of shipping a stale page that still reads clean.
 
 THE MIRROR IS A MEMBER AND IS DELIBERATELY NOT IN THE MANIFEST, which is a finding this
-file states rather than hides: `site/chicago/4d/` is generated and untracked (T-0938), so
+file states rather than hides: `site/4d/` is generated and untracked (T-0938), so
 the PR lap can never be handed a conflict in it and has nothing to resolve. `tools/
 publish.sh` owns it, `tools/check.sh` publishes it as its first step and
 `check_published_residents.mjs` gates the shipped value. `--check` holds that exemption to
@@ -120,7 +120,7 @@ MEMBERS = (
     },
     {
         "key": "published_residents",
-        "what": "the published residents, `site/chicago/4d/data/residents/`",
+        "what": "the published residents, `site/4d/data/residents/`",
         "owner": "tools/publish.sh",
         "claims": (),
         "footprint": None,   # untracked; the mirror is not a tracked footprint at all
@@ -235,7 +235,7 @@ def measure() -> dict:
         },
         "audit": {"rows": audit_rows},
         # AN ABSENCE IS NOT A MEASUREMENT OF ZERO, and this row is the one place in the
-        # set where the two are easy to confuse. `site/chicago/4d/` is generated and
+        # set where the two are easy to confuse. `site/4d/` is generated and
         # untracked (T-0938), so a fresh clone has no mirror at all until
         # `tools/publish.sh` runs — and a run that rebuilds this report before
         # publishing used to write "0 files, -1336 against the baseline" as though it
@@ -293,7 +293,7 @@ BANKED = (
 
 MIRROR_UNPUBLISHED = (
     "the mirror is not published, so the published-resident count was not taken. "
-    "site/chicago/4d/ is generated and untracked (T-0938) — run `bash tools/publish.sh` "
+    "site/4d/ is generated and untracked (T-0938) — run `bash tools/publish.sh` "
     "(or `./tools/check.sh`, which publishes first) and try again.")
 
 

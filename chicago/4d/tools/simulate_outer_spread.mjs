@@ -82,7 +82,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const wantSource = process.argv.includes('--source');
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/chicago/4d');
+  : path.resolve(HERE, '../../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.SWARD_PORT || 4194);
 const YEAR = process.env.SWARD_YEAR || '1835';

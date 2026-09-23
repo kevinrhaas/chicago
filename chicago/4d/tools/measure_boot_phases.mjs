@@ -14,7 +14,7 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { CENSUS } from './drawn_placement_census.mjs';
 const here = path.dirname(fileURLToPath(import.meta.url));
-export async function environment(root = path.resolve(here, '../../../site/chicago/4d')) {
+export async function environment(root = path.resolve(here, '../../../site/4d')) {
   let pw;
   try { pw = await import('playwright'); } catch {
     pw = await import(path.join(execSync('npm root -g', { encoding: 'utf8' }).trim(), 'playwright/index.mjs'));

@@ -232,7 +232,7 @@ items 1–13 — is retirable inside Track 1.**
 ### Track 2 — a second, high-fidelity web renderer: `renderers/web-hd/` → `walk-hd/` (phases H0–H3)
 
 A separate app with a build step (Vite + TypeScript, built bundle committed under
-`site/chicago/4d/walk-hd/`, the Joliet precedent). **Recommended engine: three.js
+`site/4d/walk-hd/`, the Joliet precedent). **Recommended engine: three.js
 WebGPURenderer with TSL node materials**, for these reasons:
 
 - The genuinely portable modules — scene/sidecar loading, ENU↔world math, the NOAA solar
@@ -300,7 +300,7 @@ Each renderer is its own URL directory: `walk/` (baseline, permanent), `walk-hd/
 native builds linked for download. Deep links keep working forever; the two web apps are
 separately budget-accounted.
 
-The chooser is `site/chicago/4d/index.html`. Today `tools/publish.sh` writes it only if
+The chooser is `site/4d/index.html`. Today `tools/publish.sh` writes it only if
 absent (a redirect stub straight to `walk/`); at phase H1 that heredoc becomes an
 unconditional write — a real generated mirror artifact like everything else in `site/` —
 rendering one card per renderer with a one-line honesty note each ("runs anywhere" /
@@ -598,7 +598,7 @@ criteria written before the code.
 
 **Workstreams**
 - `renderers/web-hd/`: Vite + TypeScript, vendored-in-lockfile deps, **built bundle
-  committed to `site/chicago/4d/walk-hd/`** (the deploy workflow stays build-free, the
+  committed to `site/4d/walk-hd/`** (the deploy workflow stays build-free, the
   Joliet way). Copies of the portable modules (loader, ENU, solar, heightfield, walker,
   intent) — copy, don't couple.
 - **Conformance trio first**, before any glamour: confidence view (with K17's modes),
@@ -798,7 +798,7 @@ You are picking up ONE phase. The generic entry checklist:
 4. **Work inside the phase's file list.** A unit that needs new geometry ships the
    data/archetype half and says so — the nightly `chicago-4d-bake.yml` bakes and PRs the
    rest. Never install Blender on the improve runner. Anything outside `chicago/4d/` +
-   `site/chicago/4d/` (workflow files included) goes through an interactive, owner-visible
+   `site/4d/` (workflow files included) goes through an interactive, owner-visible
    PR.
 5. **Definition of done**, every phase: its milestone criteria measured and quoted in the PR;
    both gates green in the foreground; `tools/publish.sh` run in the same commit as any
@@ -811,7 +811,7 @@ You are picking up ONE phase. The generic entry checklist:
    history shows what a round that "reported re-toning" while regressing 21 % → 0.9 % costs.
 
 **Track 2 delta**: `walk-hd` has its own smoke (`tools/smoke_hd.mjs`) and its own budget
-accounting; its built bundle is committed under `site/chicago/4d/walk-hd/`; `walk/` must
+accounting; its built bundle is committed under `site/4d/walk-hd/`; `walk/` must
 pass its own unchanged smoke in the same PR — the baseline renderer is never collateral.
 
 **Track 3 delta**: work happens on a native workstation in an interactive session, consumes

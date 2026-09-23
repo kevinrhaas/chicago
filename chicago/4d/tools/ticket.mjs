@@ -79,7 +79,7 @@ const JSON_OUT = path.join(DIR, 'tickets.json');
  *  - `check` pins the copy line in publish.sh, below, so the destination cannot
  *    drift into two disagreeing copies of one fact.
  */
-const MIRROR = path.resolve(ROOT, '../../site/chicago/4d/tickets.json');
+const MIRROR = path.resolve(ROOT, '../../site/4d/tickets.json');
 /** The line in publish.sh this mirror is the twin of. `check` asserts it survives. */
 const PUBLISH_SH = path.join(ROOT, 'tools/publish.sh');
 const PUBLISH_PIN = 'cp -f tickets/tickets.json "$SITE/tickets.json"';
@@ -1159,7 +1159,7 @@ function generateBoard(tickets) {
 }
 
 /**
- * Carry tickets.json to `site/chicago/4d/tickets.json`, the verbatim copy
+ * Carry tickets.json to `site/4d/tickets.json`, the verbatim copy
  * `tools/publish.sh` makes and `tools/check_published.mjs` compares byte for
  * byte. Returns true when it moved bytes, so the caller can say so.
  */
@@ -1168,7 +1168,7 @@ function mirrorTickets() {
   const src = readFileSync(JSON_OUT);
   if (existsSync(MIRROR) && readFileSync(MIRROR).equals(src)) return false;
   writeFileSync(MIRROR, src);
-  console.log('   tickets.json mirrored to site/chicago/4d/ (T-0154)');
+  console.log('   tickets.json mirrored to site/4d/ (T-0154)');
   return true;
 }
 

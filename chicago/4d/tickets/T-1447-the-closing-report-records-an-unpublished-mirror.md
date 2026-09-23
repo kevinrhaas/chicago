@@ -26,7 +26,7 @@ The closing report records an unpublished mirror as a measurement of zero, so th
 "files": len(list(PUBLISHED_RESIDENTS.rglob("*.json"))) if PUBLISHED_RESIDENTS.exists() else 0,
 ```
 
-`site/chicago/4d/` is generated and untracked (T-0938), so a fresh clone HAS no mirror
+`site/4d/` is generated and untracked (T-0938), so a fresh clone HAS no mirror
 until `tools/publish.sh` runs. A run that rebuilt this report before publishing therefore
 wrote `| 1336 | 0 | -1336 |` — a delta of minus everything — as though it had counted an
 empty mirror. It had counted nothing. The absence was recorded as a measurement.
@@ -59,7 +59,7 @@ uncounted mirror is the same thing one layer down.
 
 **Acceptance:**
 
-- `measure()` returns `None`, not `0`, when `site/chicago/4d/data/residents/` is not on
+- `measure()` returns `None`, not `0`, when `site/4d/data/residents/` is not on
   disk. A mirror that IS published and holds nothing still reads `0`: a count of zero and
   no count at all are different readings and the code must be able to tell them apart.
 - `--build` and `--rebuild` REFUSE to write the report when the mirror was not counted,
