@@ -11,12 +11,18 @@ production.*
 
 ---
 
+
+> **2026-09-23: this project moved to its own repository, kevinrhaas/chicago,** served
+> at chicago.polecat.live (landing `/`, app `/4d/`, dev preview `/4d/dev/`). The
+> pipeline below is unchanged; where it says "this monorepo" or "other tenants", read
+> it as the history of how it was built inside kevinrhaas/custom. Tickets moved to
+> kevinrhaas/chicago-tickets — see AGENTS.md § THE QUEUE.
 ## The two tiers
 
 | tier | branch | URL | who moves it |
 |---|---|---|---|
-| production | `main` | `/custom/chicago/4d/walk/?year=1835` | the owner, by dispatch |
-| integration | `dev` | `/custom/chicago/4d/dev/walk/?year=1835` | any green PR into `dev` |
+| production | `main` | `chicago.polecat.live/4d/` (year doors `/4d/1835/`) | the owner, by dispatch |
+| integration | `dev` | `chicago.polecat.live/4d/dev/` (year doors `/4d/dev/1835/`) | any green PR into `dev` |
 
 There is **no stage tier and no scheduled promotion**. The pilot has three tiers because it
 promotes on a nightly cron; this app promotes on a human asking, so the middle tier would be
@@ -270,7 +276,7 @@ gh workflow run chicago-4d-promote-to-prod.yml                   # move it
 ## Proof of life
 
 **2026-08-14** — this line was added on `dev` and nowhere else, as the pipeline's first
-end-to-end proof: it must appear at `/custom/chicago/4d/dev/` while production at
-`/custom/chicago/4d/walk/` is byte-for-byte unchanged. If you are reading it in a file that
+end-to-end proof: it must appear at `/4d/dev/` while production at
+`/4d/` is byte-for-byte unchanged. If you are reading it in a file that
 also exists on `main`, the first promotion has since carried it across, which is the other
 half of the proof.

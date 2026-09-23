@@ -2023,7 +2023,7 @@ def ticket_states(directory: Path = TICKETS) -> dict[str, str]:
     out = {}
     if not directory.is_dir():
         return out
-    for path in sorted(directory.glob("T-*.md")):
+    for path in sorted(directory.rglob("T-*.md")):
         head = path.read_text(encoding="utf-8").split("---")
         if len(head) < 3:
             continue

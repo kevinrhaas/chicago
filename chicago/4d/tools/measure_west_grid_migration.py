@@ -92,7 +92,7 @@ def load(path: pathlib.Path):
 
 def ticket_state(ticket_id: str) -> str | None:
     """A named ticket's state, off its own file's front matter."""
-    for path in sorted((ROOT / "tickets").glob(f"{ticket_id}-*.md")):
+    for path in sorted((ROOT / "tickets").rglob(f"{ticket_id}-*.md")):
         head = path.read_text().split("---")[1]
         for line in head.splitlines():
             if line.startswith("state:"):

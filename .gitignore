@@ -78,6 +78,8 @@ chicago/reference/ipums/nhgis0001_shape.zip
 # (T-0938, from T-0857 point 5): it sits in the same conflict set and looks like a build
 # product, but it is an append-only register of smoke readings that nothing regenerates.
 # Evidence is not regenerable. It keeps its merge driver instead — see /.gitattributes.
-chicago/4d/tickets/BOARD.md
-chicago/4d/tickets/tickets.json
+# THE TICKETS ARE THEIR OWN REPOSITORY (2026-09-23): kevinrhaas/chicago-tickets, cloned
+# here by `chicago/4d/tools/tickets.sh`. Nothing under tickets/ is tracked in this repo —
+# that is the point: a ticket or queue edit can no longer ride, or conflict on, a code PR.
+chicago/4d/tickets/
 site/4d/

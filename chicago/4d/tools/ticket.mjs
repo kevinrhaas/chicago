@@ -38,13 +38,129 @@
  * between two `---` fences, values read as string | null | true | false. What
  * tickets/README.md documents is exactly what parses; nothing else does.
  */
-import { readFileSync, writeFileSync, readdirSync, existsSync, renameSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync, renameSync, mkdirSync, realpathSync } from 'node:fs';
 import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const ROOT = path.resolve(HERE, '..');
-const DIR = path.join(ROOT, 'tickets');
+/**
+ * THE TICKETS LIVE IN THEIR OWN REPOSITORY (2026-09-23) — kevinrhaas/chicago-tickets,
+ * cloned at `chicago/4d/tickets/` (gitignored in the code repo; `tools/tickets.sh`
+ * clones or pulls it). The owner's reasoning was the one this file's history argues on
+ * every page: a ticket or queue edit riding a code PR made that PR conflict on every
+ * lap, and GitHub's merge runs none of our drivers. Out of the code repo, the files
+ * cannot be on the PR surface at all.
+ *
+ * TWO MODES, told apart by looking rather than by a flag:
+ *   REPO MODE      DIR is the top of its own git repository (the clone). Every
+ *                  command that changes a ticket COMMITS AND PUSHES to its `main`
+ *                  directly, pulling and retrying when main has moved; new tickets
+ *                  land in folders of 250 by number (T-1500-1749/). A claim is a
+ *                  pushed commit, so it is visible to every run the moment it
+ *                  lands, and two runs racing for one ticket cannot both push it.
+ *                  `done` sets `review`; `settle` (the tickets repo's workflow)
+ *                  makes it `done` when the PR merges.
+ *   EMBEDDED MODE  DIR is an ordinary folder inside the code repo — the layout
+ *                  before the move, and the one every test_ticket_*.mjs sandbox
+ *                  builds. Behaviour there is exactly what it was.
+ * `CHICAGO_TICKETS_DIR` points the tool at a clone somewhere else (the tickets repo's
+ * own workflows run it that way).
+ */
+const DIR = process.env.CHICAGO_TICKETS_DIR ? path.resolve(process.env.CHICAGO_TICKETS_DIR) : path.join(ROOT, 'tickets');
+const TICKETS_REMOTE = 'https://github.com/kevinrhaas/chicago-tickets.git';
+const CHUNK = 250;
+let repoMode = null;
+function inRepoMode() {
+  if (repoMode !== null) return repoMode;
+  try {
+    const top = execFileSync('git', ['-C', DIR, 'rev-parse', '--show-toplevel'],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout: 10_000 }).trim();
+    repoMode = realpathSync(top) === realpathSync(DIR);
+  } catch { repoMode = false; }
+  return repoMode;
+}
+/** The folder a ticket number belongs in: T-1519 → T-1500-1749. */
+export function chunkOf(id) {
+  const n = Number(String(id).replace(/^T-/, ''));
+  const lo = Math.floor(n / CHUNK) * CHUNK;
+  const pad = (x) => String(x).padStart(4, '0');
+  return `T-${pad(lo)}-${pad(lo + CHUNK - 1)}`;
+}
+/** Where a ticket file goes: its chunk folder in repo mode, flat as before otherwise. */
+function ticketPath(id, title) {
+  const name = `${id}-${slugOf(title)}.md`;
+  if (!inRepoMode()) return path.join(DIR, name);
+  const dir = path.join(DIR, chunkOf(id));
+  mkdirSync(dir, { recursive: true });
+  return path.join(dir, name);
+}
+const tgit = (args, opts = {}) => spawnSync('git', ['-C', DIR, ...args],
+  { encoding: 'utf8', timeout: 60_000, ...opts });
+/** Bring the clone up to its remote's main before reading. Best-effort: offline, the
+ *  local copy is read and the push below is where it will be caught. */
+function pullTickets() {
+  if (!inRepoMode()) return;
+  const r = tgit(['pull', '--rebase', '--quiet', 'origin', 'main']);
+  if (r.status !== 0) {
+    console.error(`  note: could not pull ${TICKETS_REMOTE} (${(r.stderr || '').trim().split('\n').pop() || 'no network'}) — reading the local copy`);
+  }
+}
+/**
+ * Commit everything in the clone and push it to main. On a rejected push, pull
+ * --rebase and push again (up to five times). A rebase that CONFLICTS means another
+ * writer changed the same lines — the same ticket, or the same queue line — and
+ * nothing here may guess which of the two is right: the local commit is dropped, the
+ * clone is reset to the remote, and the caller is told so it can say what to re-run.
+ * `afterRebase` runs on each successful rebase (new tickets use it to renumber an id
+ * another writer took in the meantime).
+ */
+function pushTickets(message, { afterRebase = null } = {}) {
+  if (!inRepoMode()) return { ok: true, skipped: true };
+  tgit(['add', '-A']);
+  if (tgit(['diff', '--cached', '--quiet']).status === 0) return { ok: true, nothing: true };
+  const who = process.env.GITHUB_ACTIONS ? ['-c', 'user.name=chicago-steward', '-c', 'user.email=steward@polecat.live'] : [];
+  const c = spawnSync('git', ['-C', DIR, ...who, 'commit', '-q', '-m', message], { encoding: 'utf8' });
+  if (c.status !== 0) return { ok: false, why: (c.stderr || c.stdout || 'commit failed').trim() };
+  for (let attempt = 1; attempt <= 5; attempt += 1) {
+    const p = tgit(['push', '-q', 'origin', 'HEAD:main']);
+    if (p.status === 0) return { ok: true };
+    const err = `${p.stderr || ''}`;
+    if (!/rejected|non-fast-forward|fetch first|stale info/i.test(err)) {
+      return { ok: false, local: true, why: err.trim().split('\n').pop() || 'push failed' };
+    }
+    const r = tgit(['pull', '--rebase', '-q', 'origin', 'main']);
+    if (r.status !== 0) {
+      tgit(['rebase', '--abort']);
+      tgit(['reset', '-q', '--hard', 'origin/main']);
+      return { ok: false, conflict: true, why: 'another writer changed the same ticket or queue line' };
+    }
+    if (afterRebase) {
+      afterRebase();
+      tgit(['add', '-A']);
+      if (tgit(['diff', '--cached', '--quiet']).status !== 0) {
+        spawnSync('git', ['-C', DIR, ...who, 'commit', '-q', '--amend', '--no-edit'], { encoding: 'utf8' });
+      }
+    }
+    spawnSync('sleep', [String(attempt)]);
+  }
+  return { ok: false, local: true, why: 'main kept moving; five pushes were rejected' };
+}
+/** Push after a command, and say plainly what happened when it did not work. */
+function publishChange(message, opts) {
+  const r = pushTickets(message, opts);
+  if (r.skipped || r.nothing) return true;
+  if (r.ok) { console.log(`   pushed to ${TICKETS_REMOTE.replace(/\.git$/, '')} main — ${message}`); return true; }
+  if (r.conflict) {
+    console.error(`ticket.mjs: NOT SAVED — ${r.why}. The tickets clone was reset to the remote;\n`
+      + '  read the ticket again (`node tools/ticket.mjs list`) and re-run the command if it still applies.');
+    process.exit(1);
+  }
+  console.error(`ticket.mjs: committed in the tickets clone but NOT PUSHED (${r.why}).\n`
+    + '  Nobody else can see this change until it is pushed: `bash tools/tickets.sh --push`.');
+  process.exitCode = 1;
+  return false;
+}
 const QUEUE = path.join(DIR, 'QUEUE.md');
 const BOARD = path.join(DIR, 'BOARD.md');
 const JSON_OUT = path.join(DIR, 'tickets.json');
@@ -155,11 +271,25 @@ function parseTicket(file) {
   return t;
 }
 
-function loadAll() {
+/** Every ticket file: flat in DIR (the embedded layout) and in the folders of 250
+ *  (`T-0000-0249/`, … — the tickets repo's layout). Both are read, so a clone
+ *  mid-migration still sees everything. */
+function ticketFiles() {
   if (!existsSync(DIR)) return [];
-  return readdirSync(DIR)
-    .filter((f) => /^T-\d{4}.*\.md$/.test(f))
-    .map((f) => parseTicket(path.join(DIR, f)));
+  const out = [];
+  for (const e of readdirSync(DIR, { withFileTypes: true })) {
+    if (e.isFile() && /^T-\d{4}.*\.md$/.test(e.name)) out.push(path.join(DIR, e.name));
+    else if (e.isDirectory() && /^T-\d{4}-\d{4}$/.test(e.name)) {
+      for (const f of readdirSync(path.join(DIR, e.name))) {
+        if (/^T-\d{4}.*\.md$/.test(f)) out.push(path.join(DIR, e.name, f));
+      }
+    }
+  }
+  return out.sort((a, b) => path.basename(a).localeCompare(path.basename(b)));
+}
+
+function loadAll() {
+  return ticketFiles().map((f) => parseTicket(f));
 }
 
 function writeTicket(t) {
@@ -167,7 +297,11 @@ function writeTicket(t) {
     'legacy_id', 'parent', 'opened', 'closed', 'pr', 'claimed_by', 'blocked_on', 'needs_bake',
     // Appended, never inserted: a ticket file written by an older checkout is
     // still valid, and these two are read as null when absent.
-    'closed_at', 'claimed_run'];
+    'closed_at', 'claimed_run',
+    // …and these for the tickets repository (2026-09-23): when a claim was taken (so a
+    // dead run's claim can be stolen by age), and an owner decision the ticket is
+    // waiting on (`ask`) — `pending` until answered, then the chosen option's key.
+    'claimed_at', 'decision', 'decision_answer'];
   const fm = keys.map((k) => `${k}: ${t[k] ?? 'null'}`).join('\n');
   writeFileSync(t.file, `---\n${fm}\n---\n${t.body ?? ''}`);
 }
@@ -1018,8 +1152,9 @@ function queueAppend(t) {
 // did not choose and the owner cannot see.
 function queueInsertAfter(t, afterId) {
   const lines = queueLines();
-  const at = lines.findIndex((l) => queueId(l) === afterId);
+  let at = lines.findIndex((l) => queueId(l) === afterId);
   if (at < 0) return false;
+  while (at + 1 < lines.length && isDecisionComment(lines[at + 1], afterId)) at += 1;   // keep its question with it
   lines.splice(at + 1, 0, `${t.id} — ${t.title}`);
   writeFileSync(QUEUE, lines.join('\n').replace(/\n+$/, '\n'));
   return true;
@@ -1086,8 +1221,20 @@ function queueReplace(id, rows, title) {
 function queueRemove(id) {
   if (!existsSync(QUEUE)) return;
   const kept = readFileSync(QUEUE, 'utf8').split('\n')
-    .filter((l) => !l.trim().startsWith(id)).join('\n');
+    .filter((l) => !l.trim().startsWith(id) && !isDecisionComment(l, id)).join('\n');
   writeFileSync(QUEUE, kept.replace(/\n+$/, '\n'));
+}
+
+/** `#   ? T-1157 DECISION: …` — the question an `ask` writes under its ticket's queue
+ *  line. It is a comment, so the queue parser never reads it as an entry; it travels
+ *  with the ticket (Manager's reorder keeps it attached) and goes when the ticket does. */
+function isDecisionComment(line, id = null) {
+  const m = String(line).match(/^#\s*\?\s*(T-\d{4})\b/);
+  return !!m && (id === null || m[1] === id);
+}
+function decisionComment(id, question, options, rec) {
+  const opts = options.map((o) => `(${o.key}) ${o.label}`).join('  ');
+  return `#   ? ${id} DECISION: ${question} — ${opts}${rec ? ` — recommended: (${rec})` : ''}`;
 }
 
 function queueHeader() {
@@ -1158,6 +1305,12 @@ function generateBoard(tickets) {
 
   const strip = tickets.map(({ file, body, error, ...rest }) => ({
     ...rest, queue_rank: WORKABLE.includes(rest.state) ? rank(rest) : null,
+    // Where the file is (relative to the tickets root — folders of 250 in the tickets
+    // repo) and the PR's own URL (pre-move PRs are kevinrhaas/custom's), so a reader
+    // such as Manager's board needs no directory listing and no repo arithmetic.
+    path: file ? path.relative(DIR, file).split(path.sep).join('/') : null,
+    pr_url: rest.pr ? prUrl(rest) : null,
+    ...(rest.decision === 'pending' ? decisionOf(body) : {}),
   }));
   const wrote = settle(JSON_OUT, JSON.stringify({ project: 'chicago-4d',
     generated_ct: at, tickets: strip }, null, 2) + '\n');
@@ -1382,11 +1535,94 @@ function check(tickets) {
   return problems;
 }
 
+/* ----------------------------------------------- the tickets repository */
+
+/** One PR by number, or null — the object-shaped twin of restGet. */
+function restGetOne(pathAndQuery) {
+  const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
+  const attempts = [
+    ['gh', ['api', '-H', 'Accept: application/vnd.github+json', pathAndQuery]],
+    ['curl', ['-sS', '--max-time', '25', '-H', 'Accept: application/vnd.github+json',
+      ...(token ? ['-H', `Authorization: Bearer ${token}`] : []),
+      `https://api.github.com/${pathAndQuery}`]],
+  ];
+  for (const [bin, argv] of attempts) {
+    const r = spawnSync(bin, argv, { encoding: 'utf8', timeout: 30_000, maxBuffer: 16 * 1024 * 1024 });
+    if (r.error || r.status !== 0 || !r.stdout) continue;
+    try {
+      const body = JSON.parse(r.stdout);
+      if (body && typeof body === 'object' && !Array.isArray(body) && body.number) return normalizePull(body);
+    } catch { /* not JSON — try the next transport */ }
+  }
+  return null;
+}
+
+/** How old a claim is, in hours, or null when nothing says. `claimed_at` is exact;
+ *  a claim written before it existed carries only `claimed_by`'s Central-time text. */
+function claimAgeHours(t) {
+  let at = t.claimed_at ? Date.parse(t.claimed_at) : NaN;
+  if (!Number.isFinite(at) && t.claimed_by) {
+    const m = String(t.claimed_by).match(/(\d{1,2}\/\d{1,2}\/\d{4}, \d{1,2}:\d{2}(?::\d{2})? [AP]M)/);
+    if (m) at = Date.parse(`${m[1]} GMT-0500`);   // CDT; an hour's error either way is inside RUN_HOURS' slack
+  }
+  return Number.isFinite(at) ? (Date.now() - at) / 3.6e6 : null;
+}
+
+/** The owner question an `ask` wrote into a ticket body, read back for the board. */
+export function decisionOf(body) {
+  const sec = /\n## Decision needed\n([\s\S]*?)(?=\n## |$)/.exec(`\n${body ?? ''}`)?.[1] ?? '';
+  const question = /\*\*Question:\*\*\s*(.+)/.exec(sec)?.[1]?.trim() ?? null;
+  const decision_options = [...sec.matchAll(/^- \(([a-z])\)\s+(.+)$/gm)].map((m) => ({ key: m[1], label: m[2].trim() }));
+  const decision_rec = /\*\*Recommendation:\*\*\s*(.+)/.exec(sec)?.[1]?.trim() ?? null;
+  return { decision_question: question, decision_options, decision_rec };
+}
+
+/** Write (or rewrite) the `#   ? T-NNNN DECISION:` line directly under the ticket's
+ *  queue line. Returns false when the ticket has no queue line to sit under. */
+function queueSetDecisionComment(id, comment) {
+  const lines = queueLines().filter((l) => !isDecisionComment(l, id));
+  const at = lines.findIndex((l) => queueId(l) === id);
+  if (at < 0) return false;
+  if (comment) lines.splice(at + 1, 0, comment);
+  writeFileSync(QUEUE, lines.join('\n').replace(/\n+$/, '\n'));
+  return true;
+}
+
+/** After a rebase, a ticket id this command minted may have been taken by another
+ *  writer in the meantime (the files differ by slug, so git saw no conflict). Give
+ *  ours the next free number, and carry its queue line with it. */
+function renumberCollisions(mintedFiles) {
+  for (const [i, file] of mintedFiles.entries()) {
+    if (!existsSync(file)) continue;
+    const mine = parseTicket(file);
+    const all = loadAll();
+    if (all.filter((t) => t.id === mine.id).length < 2) continue;
+    const next = idOf(Math.max(...all.map((t) => Number(String(t.id).slice(2)) || 0)) + 1);
+    const old = mine.id;
+    mine.id = next;
+    const dest = ticketPath(next, mine.title);
+    writeTicket({ ...mine, file });
+    renameSync(file, dest);
+    const lines = queueLines().map((l) => (queueId(l) === old && queueLabel(l) === mine.title
+      ? l.replace(old, next) : l));
+    writeFileSync(QUEUE, lines.join('\n').replace(/\n+$/, '\n'));
+    mintedFiles[i] = dest;
+    console.log(`   ${old} was taken by another writer meanwhile — this ticket is ${next} now`);
+  }
+}
+
 /* ------------------------------------------------------------------ main */
 
 const [cmd, ...args] = process.argv.slice(2);
 const flag = (name) => { const i = args.indexOf(`--${name}`); return i < 0 ? null : (args[i + 1] ?? true); };
 const has = (name) => args.includes(`--${name}`);
+// Commands that change a ticket, and so must end on the tickets repo's main (repo mode).
+const MUTATING = new Set(['new', 'claim', 'done', 'block', 'unblock', 'withdraw', 'restamp',
+  'split', 'prune', 'ask', 'settle', 'sync']);
+let commitMessage = null;     // a case may name its own commit; the default names the command
+let mintedFiles = [];         // tickets this command created, for renumberCollisions
+let published = false;        // a case that pushed for itself (claim) sets this
+if (inRepoMode() && (MUTATING.has(cmd) || ['list', 'inflight'].includes(cmd))) pullTickets();
 const tickets = loadAll();
 
 // CLOSING THE LAST CHILD OF A SPLIT KILLS THE PARENT, AND NOTHING SAID SO.
@@ -1496,7 +1732,7 @@ switch (cmd) {
     }
     const [id] = mintIds(tickets);
     const t = {
-      file: path.join(DIR, `${id}-${slugOf(title)}.md`),
+      file: ticketPath(id, title),
       id, title, state: 'open',
       epic: (flag('epic') ?? 'META').toUpperCase(),
       requested_by: flag('by') ?? 'steward',
@@ -1525,6 +1761,8 @@ switch (cmd) {
         : 'appended to QUEUE bottom — the owner orders it; a run should pass --after T-NNNN';
     }
     generateBoard(loadAll());
+    mintedFiles.push(t.file);
+    commitMessage = `${id}: new — ${title.slice(0, 72)}`;
     console.log(`${id} created → ${path.relative(ROOT, t.file)} (${where})`);
     break;
   }
@@ -1558,6 +1796,26 @@ switch (cmd) {
         + `  node tools/ticket.mjs claim ${t.id} --force`);
       process.exit(1);
     }
+    // A ticket waiting on the owner is not work yet: its question is on the board.
+    if (t.decision === 'pending' && !has('force')) {
+      console.error(`${t.id} is waiting on an owner decision — see its "## Decision needed" section.\n`
+        + `Take the next workable ticket: node tools/ticket.mjs list --workable`);
+      process.exit(1);
+    }
+    // REPO MODE: the claim is the pushed commit. A live claim refuses; a dead one
+    // (older than RUN_HOURS) is stolen, exactly as the marker branches were.
+    if (inRepoMode() && t.state === 'claimed' && !has('force')) {
+      const age = claimAgeHours(t);
+      if (age === null || age < RUN_HOURS) {
+        console.error(`${t.id} IS ALREADY CLAIMED — ${t.claimed_by ?? 'by another run'}`
+          + `${t.claimed_run ? `\n  ${t.claimed_run}` : ''}\n`
+          + `Take the next workable ticket instead:  node tools/ticket.mjs list --workable\n`
+          + `A claim older than ${RUN_HOURS}h is a dead run and is stolen automatically. To override now:\n`
+          + `  node tools/ticket.mjs claim ${t.id} --force`);
+        process.exit(1);
+      }
+      console.log(`  stealing a dead claim (${sinceWords(age)}) — ${t.claimed_by}`);
+    }
     const claimedBy = `${flag('by') ?? 'run'} ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CT`;
     // WHICH run holds it. `claimed_by` says when; when five slices run at once
     // that is not enough to tell whose ticket this is, or to open the log of the
@@ -1568,7 +1826,7 @@ switch (cmd) {
     // branch scan alone could never have caught the six duplicates of 2026-09-11.
     // `--no-lock` is for a checkout with no remote at all; it is not a way past a
     // live claim, which is what `--force` is for.
-    if (!has('no-lock')) {
+    if (!has('no-lock') && !inRepoMode()) {
       const lock = takeClaimLock(t.id, claimedBy, claimedRun, { steal: has('force') });
       if (lock.unknown) {
         console.error(`  note: claim lock not taken (${lock.unknown}) — proceeding, as the branch scan does`);
@@ -1591,12 +1849,42 @@ switch (cmd) {
     t.state = 'claimed';
     t.claimed_by = claimedBy;
     t.claimed_run = claimedRun;
-    writeTicket(t); generateBoard(loadAll());
+    t.claimed_at = nowIso();
+    writeTicket(t);
+    if (t.decision === 'answered') queueSetDecisionComment(t.id, null);   // the question is settled
+    generateBoard(loadAll());
+    if (inRepoMode()) {
+      const r = pushTickets(`${t.id}: claim — ${claimedBy}`);
+      published = true;
+      if (r.conflict) {
+        console.error(`${t.id}: ANOTHER RUN CLAIMED IT WHILE THIS ONE LOOKED — its commit reached the\n`
+          + `tickets repo first. Take the next workable ticket:  node tools/ticket.mjs list --workable`);
+        process.exit(1);
+      }
+      if (!r.ok) {
+        console.error(`${t.id}: claim NOT PUSHED (${r.why}) — no other run can see it. Push before working:\n`
+          + '  bash tools/tickets.sh --push');
+        process.exit(1);
+      }
+    }
     console.log(`${t.id} claimed`);
     break;
   }
   case 'done': {
     const t = find(tickets, args[0]);
+    // REPO MODE: `done` is said when the PR is OPEN, and a ticket must never read done
+    // for work that has not landed. So it goes to `review` with its PR, keeps its queue
+    // line, and `settle` (the tickets repo's workflow, every few minutes) marks it done
+    // when the PR merges — or reopens it if the PR is closed unmerged.
+    if (inRepoMode()) {
+      const pr = flag('pr');
+      if (!pr || pr === true) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
+      t.state = 'review'; t.pr = String(pr).replace(/^#/, '');
+      writeTicket(t); generateBoard(loadAll());
+      commitMessage = `${t.id}: review — PR #${t.pr}`;
+      console.log(`${t.id} in review (PR #${t.pr}) — it becomes done when that PR merges (settle)`);
+      break;
+    }
     t.state = 'done'; t.closed = today(); t.closed_at = nowIso(); t.pr = flag('pr');
     if (!t.pr) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
     writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
@@ -1730,7 +2018,7 @@ switch (cmd) {
     // AND label, so the line that moves is the one written from THIS file.
     const { i: line, byLabel } = queueIndexOf(old, t.title);
     [t.id] = mintIds(tickets);
-    const dest = path.join(DIR, `${t.id}-${slugOf(t.title)}.md`);
+    const dest = ticketPath(t.id, t.title);
     writeTicket(t); renameSync(t.file, dest); t.file = dest;
     if (line >= 0) queueReplaceAt(line, [`${t.id} — ${t.title}`]);
     else if (WORKABLE.includes(t.state)) queueAppend(t);
@@ -1794,7 +2082,7 @@ switch (cmd) {
     titles.forEach((title, n) => {
       const id = minted[n];
       const child = {
-        file: path.join(DIR, `${id}-${slugOf(title)}.md`),
+        file: ticketPath(id, title),
         id, title, state: 'open', epic: t.epic, requested_by: t.requested_by,
         seen: t.seen, effort: 'S', legacy_id: t.legacy_id, parent: t.id,
         opened: today(), closed: null, closed_at: null, pr: null,
@@ -1848,11 +2136,20 @@ switch (cmd) {
   }
   case 'list': {
     const want = flag('state');
-    const shown = tickets.filter((t) => has('workable') ? WORKABLE.includes(t.state) : (!want || t.state === want));
+    const shown = tickets.filter((t) => has('workable')
+      ? WORKABLE.includes(t.state) && t.decision !== 'pending'
+      : (!want || t.state === want));
     const order = queueIds();
     shown.sort((a, b) => (order.indexOf(a.id) + 1 || 9999) - (order.indexOf(b.id) + 1 || 9999));
     for (const t of shown) {
       console.log(`${t.id}  ${String(t.state).padEnd(13)} ${t.requested_by === 'owner' ? 'OWNER ' : '      '}${t.title}`);
+    }
+    if (has('workable')) {
+      const waiting = tickets.filter((t) => WORKABLE.includes(t.state) && t.decision === 'pending');
+      if (waiting.length) {
+        console.log(`\n${waiting.length} more in the queue WAITING ON THE OWNER (decision: pending — not workable):`);
+        for (const t of waiting) console.log(`${t.id}  ${t.title}`);
+      }
     }
     break;
   }
@@ -1923,6 +2220,10 @@ switch (cmd) {
    *   node tools/ticket.mjs reconcile [--base origin/dev] [--dry-run]
    */
   case 'reconcile': {
+    // REPO MODE: there is nothing to reconcile. This existed because a code branch
+    // carried a SNAPSHOT of QUEUE.md that `dev` moved under it; the tickets repo has no
+    // branches to go stale — every write is rebased onto its main before it lands.
+    if (inRepoMode()) { console.log('queue reconcile: the queue is its own repository — nothing to reconcile'); break; }
     const base = flag('base') ?? 'origin/dev';
     let baseLines;
     try {
@@ -2255,6 +2556,19 @@ switch (cmd) {
     break;
   }
   case 'check': {
+    // No QUEUE.md means no tickets were read at all — the tickets clone is missing, and
+    // a gate that checks nothing must not read as a gate that passed.
+    if (!existsSync(QUEUE)) {
+      console.error(`ticket queue FAILED: no ${path.relative(ROOT, QUEUE)} — the tickets are not here.\n`
+        + '  They live in kevinrhaas/chicago-tickets: `bash tools/tickets.sh` clones them into tickets/.');
+      process.exit(1);
+    }
+    if (inRepoMode()) {
+      const dirty = tgit(['status', '--porcelain', '--untracked-files=all']).stdout?.trim();
+      const ahead = tgit(['rev-list', '--count', '@{u}..HEAD']).stdout?.trim();
+      if (dirty) console.error(`  WARNING: the tickets clone has changes nobody else can see yet:\n${dirty.split('\n').map((l) => `    ${l}`).join('\n')}\n  push them: node tools/ticket.mjs sync -m "what changed"`);
+      if (ahead && ahead !== '0') console.error(`  WARNING: the tickets clone is ${ahead} commit(s) ahead of its remote — push: bash tools/tickets.sh --push`);
+    }
     const problems = check(tickets);
     if (problems.length) {
       console.error('ticket queue FAILED:');
@@ -2335,7 +2649,104 @@ switch (cmd) {
     }
     break;
   }
+  /**
+   * ASK — put a question to the owner WITHOUT taking the ticket out of the queue.
+   *
+   * Owner, 2026-09-23: decisions were piling up in PR bodies and chat, and he had to
+   * prompt for each one. "Leave them in the queue and add a comment with the question
+   * and options." So the ticket keeps its rank, gains `decision: pending` and a
+   * `## Decision needed` section (question, lettered options, recommendation), and a
+   * `#   ? T-NNNN DECISION:` comment line under its queue entry. `list --workable` and
+   * `claim` step over it until it is answered — on Manager's board (one click), or by
+   * editing the ticket to `decision: answered` + `decision_answer: <key>`.
+   *
+   *   ticket.mjs ask T-NNNN --question "…" --option a="…" --option b="…" [--rec a --why "…"]
+   */
+  case 'ask': {
+    const t = find(tickets, args[0]);
+    const question = flag('question');
+    const options = [];
+    for (let i = 0; i < args.length; i += 1) {
+      if (args[i] !== '--option') continue;
+      const m = /^([a-z])\s*=\s*([\s\S]+)$/i.exec(String(args[i + 1] ?? ''));
+      if (m) options.push({ key: m[1].toLowerCase(), label: m[2].trim().replace(/\s+/g, ' ') });
+    }
+    if (!question || question === true || options.length < 2) {
+      console.error('usage: ticket.mjs ask T-NNNN --question "…" --option a="…" --option b="…" [--rec a --why "…"]\n'
+        + '  A decision needs a question and at least two lettered options.');
+      process.exit(1);
+    }
+    if (new Set(options.map((o) => o.key)).size !== options.length) { console.error('ask: two options share a letter'); process.exit(1); }
+    const rec = flag('rec') ? String(flag('rec')).toLowerCase() : null;
+    if (rec && !options.some((o) => o.key === rec)) { console.error(`ask: --rec ${rec} is not one of the options`); process.exit(1); }
+    const why = flag('why') && flag('why') !== true ? String(flag('why')).trim() : '';
+    const q = String(question).trim().replace(/\s+/g, ' ');
+    const section = `## Decision needed\n\n**Question:** ${q}\n\n`
+      + options.map((o) => `- (${o.key}) ${o.label}`).join('\n') + '\n'
+      + (rec ? `\n**Recommendation:** (${rec}) ${options.find((o) => o.key === rec).label}${why ? ` — ${why}` : ''}\n` : '')
+      + `\n**Asked:** ${today()}${runUrl() ? ` by ${runUrl()}` : ''}. Answer on Manager's 4D Board, or set `
+      + '`decision: answered` and `decision_answer: <letter>` in this file.\n';
+    const body = String(t.body ?? '').replace(/\n## Decision needed\n[\s\S]*?(?=\n## |$)/, '');
+    t.body = `${body.replace(/\s*$/, '')}\n\n${section}`;
+    t.decision = 'pending'; t.decision_answer = null;
+    // A ticket parked as blocked-owner is brought BACK into the queue: the point is
+    // that the question is visible where the work is ranked, not in a side band.
+    if (t.state === 'blocked-owner') { t.state = 'open'; t.blocked_on = null; }
+    writeTicket(t);
+    if (!queueIds().includes(t.id)) queueAppend(t);
+    queueSetDecisionComment(t.id, decisionComment(t.id, q, options, rec));
+    generateBoard(loadAll());
+    commitMessage = `${t.id}: ask the owner — ${q.slice(0, 64)}`;
+    console.log(`${t.id} is waiting on the owner (decision: pending) — it keeps its place in QUEUE`);
+    break;
+  }
+  /**
+   * SETTLE — the tickets repo's closer (repo mode). For every ticket in `review` with a
+   * PR: merged → `done` (closed on the merge instant, queue line removed); closed
+   * unmerged → back to `open` with a dated note. Anything else is left alone. Run by
+   * the tickets repo's own workflow on a schedule, so a ticket's state follows its PR
+   * without a single code PR touching a ticket file.
+   */
+  case 'settle': {
+    let n = 0;
+    for (const t of tickets.filter((x) => x.state === 'review' && x.pr)) {
+      if (prUrl(t).startsWith(LEGACY_REPO_URL)) continue;   // a pre-move PR: a person settles those
+      const pr = restGetOne(`repos/${REPO}/pulls/${String(t.pr).replace(/^#/, '')}`);
+      if (!pr) { console.log(`  ${t.id}: PR #${t.pr} unreadable — left in review`); continue; }
+      if (pr.merged_at) {
+        t.state = 'done'; t.closed_at = pr.merged_at;
+        t.closed = new Date(pr.merged_at).toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+        writeTicket(t); queueRemove(t.id); n += 1;
+        console.log(`  ${t.id} done — PR #${t.pr} merged ${pr.merged_at}`);
+        warnIfThisClosedASplit(t, loadAll());
+      } else if (pr.state === 'closed') {
+        const prNo = t.pr;
+        t.state = 'open'; t.pr = null; t.claimed_by = null; t.claimed_run = null; t.claimed_at = null;
+        t.body = `${String(t.body ?? '').replace(/\s*$/, '')}\n\n**Reopened ${today()}:** PR #${prNo} was closed without merging.\n`;
+        writeTicket(t); n += 1;
+        console.log(`  ${t.id} reopened — PR #${prNo} closed unmerged`);
+      }
+    }
+    if (n) generateBoard(loadAll());
+    commitMessage = `settle: ${n} ticket(s) follow their PRs`;
+    console.log(`settle: ${n} ticket(s) changed`);
+    break;
+  }
+  /** SYNC — push hand edits made in the tickets clone (a finding added to a ticket's
+   *  body, say). Every other command pushes for itself. */
+  case 'sync': {
+    if (!inRepoMode()) { console.log('sync: the tickets are not a repository of their own here — nothing to push'); break; }
+    commitMessage = flag('m') && flag('m') !== true ? String(flag('m')) : 'tickets: hand edits';
+    break;
+  }
   default:
-    console.log('usage: ticket.mjs new|claim|done|block|unblock|withdraw|restamp|split|list|inflight|landed|claims|prune|reconcile|board|check');
+    console.log('usage: ticket.mjs new|claim|done|block|unblock|withdraw|restamp|split|list|ask|settle|sync|inflight|landed|claims|prune|reconcile|board|check');
     process.exit(cmd ? 1 : 0);
+}
+
+// REPO MODE: a change is only real once it is on the tickets repo's main.
+if (inRepoMode() && MUTATING.has(cmd) && !published) {
+  const id = args.find((a) => /^T-\d{4}$/i.test(a));
+  publishChange(commitMessage ?? `${id ? `${id.toUpperCase()}: ` : ''}${cmd}`,
+    { afterRebase: mintedFiles.length ? () => renumberCollisions(mintedFiles) : null });
 }

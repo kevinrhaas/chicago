@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1076, title: '4D Chicago has its own address: chicago.polecat.live/4d', kind: 'change', ts: '2026-09-23T22:55:33.097Z', date: 'Sep 23, 2026, 5:55 PM CT',
+    items: [
+      'The walkthrough now lives at chicago.polecat.live/4d/. The old custom.polecat.live/chicago/ addresses still work: they forward here, keeping any year or other setting in the link.',
+      'Each year has its own door: /4d/1835/ opens the summer of 1835. /4d/1812/ and /4d/1880/ are reserved for the next towns and say plainly that they are not built yet.',
+      'The dev preview follows the same pattern at /4d/dev/ and /4d/dev/1835/. Settings still ride on the link: /4d/?year=1835 works as it always has.',
+      'Nothing in the town changed. Same buildings, same people, same sources.',
+    ] },
   { v: 1075, title: 'The weakest seat in the town is now watched by a test', kind: 'add', ts: '2026-09-21T23:40:05.721Z', date: 'Sep 21, 2026, 6:40 PM CT',
     items: [
       'Five of every six households in this town have no address of any kind. Most are names off the post office\u2019s lists of letters waiting to be called for, which prove somebody was writing to that name at Chicago and say nothing about where they lived. A recent change gave all 1,186 of them a place anyway \u2014 a division and a class DEALT from this project\u2019s own models, because a town has to put its people somewhere.',

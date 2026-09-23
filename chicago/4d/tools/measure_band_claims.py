@@ -171,7 +171,7 @@ WAITING_ON = {
 
 def ticket_state(tid: str) -> str | None:
     """The `state:` of a ticket file, or None when no file carries that id."""
-    for path in TICKETS.glob(f"{tid}-*.md"):
+    for path in TICKETS.rglob(f"{tid}-*.md"):
         for line in path.read_text(encoding="utf-8").split("\n"):
             if line.startswith("state:"):
                 return line.split(":", 1)[1].strip()

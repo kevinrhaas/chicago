@@ -232,6 +232,31 @@ it to the attested instances.
 
 ## THE QUEUE — how work is chosen (since 2026-08-17)
 
+> **SINCE 2026-09-23 THE TICKETS ARE THEIR OWN REPOSITORY — read this first; it
+> supersedes the claim-lock and close mechanics described below.** This project moved
+> out of kevinrhaas/custom into **kevinrhaas/chicago** (chicago.polecat.live/4d/), and
+> `tickets/` became a clone of **kevinrhaas/chicago-tickets** — gitignored here, fetched
+> by `bash tools/tickets.sh` (which `check.sh` and `publish.sh` run). Tickets sit in
+> folders of 250 (`tickets/T-1500-1749/T-1519-….md`); `tickets/QUEUE.md` is unchanged.
+>
+> - **Every `ticket.mjs` change is committed and pushed straight to that repo's `main`.**
+>   A code PR never contains a ticket file or QUEUE.md, so it cannot conflict on them —
+>   the conflict source this section's history keeps returning to is gone.
+> - **`claim` is the pushed commit.** Every other run sees it on its next pull; two
+>   runs racing for one ticket cannot both push it (the loser is told, and takes the
+>   next one). A claim older than 3 h is a dead run and is stolen. There are no
+>   `claim/t-NNNN` marker branches in this mode.
+> - **`done --pr N` sets `review`**, not `done`. The tickets repo's settle workflow
+>   marks it `done` (and removes its queue line) when the PR MERGES, or reopens it if
+>   the PR is closed unmerged. So a ticket cannot read done for work that never landed.
+> - **A question only the owner can answer stays in the queue**: `ticket.mjs ask T-NNNN
+>   --question "…" --option a="…" --option b="…" --rec a --why "…"`. The ticket keeps
+>   its rank with `decision: pending`, a `## Decision needed` section and a
+>   `#   ? T-NNNN DECISION:` line under its queue entry; `list --workable` and `claim`
+>   skip it until it is answered (on Manager's 4D Board, one click). Prefer this to
+>   `block --owner`, which took the ticket out of the queue where nobody saw it.
+> - Edited a ticket body by hand (a finding added)? `node tools/ticket.mjs sync -m "…"`.
+
 **`tickets/` is the single operational answer to "what next".** The owner asked for it
 directly: his requests were getting lost inside an 11,000-line ROADMAP, and he could not
 reorder priorities without editing prose. Read `tickets/README.md` — it is one page and it
@@ -383,16 +408,18 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     corrupted it on five consecutive merges in one day. So expect to rebase, and **finish
     the PR you open inside your own run** rather than leaving it to be swept.
 - **Merging into `dev` is STAGE, not ship.** It publishes only the integration preview at
-  `/custom/chicago/4d/dev/walk/?year=1835` — noindex, banner-marked, `build.json` says
+  `chicago.polecat.live/4d/dev/` — noindex, banner-marked, `build.json` says
   `tier: dev`. Production is untouched.
 - **Production moves ONLY when the owner dispatches `chicago-4d-promote-to-prod.yml`.**
   No schedule, no agent. `walk/` changes reach `main` by that dispatch and no other route.
   The hotfix exception stands: a production emergency PRs straight into `main`, and the
   next promotion's back-merge folds it into `dev`.
-- **Scope is `chicago/4d/` and its published mirror `site/4d/`. Nothing else.**
-  `kevinrhaas/custom` is a monorepo of unrelated personal projects — CAD, print models,
-  the Joliet game, a landing site. A run that edits any of them is out of bounds, and the
-  workflow files are outside scope too: changing one needs an interactive, owner-visible PR.
+- **Scope is `chicago/4d/` and its published mirror `site/4d/`.** Since 2026-09-23
+  this project has its own repository (kevinrhaas/chicago); the rest of it —
+  `chicago/reference/`, the Atlas datasets and viewers, the landing page at `site/` —
+  is the 4D project's source material and front door, touched only when a ticket asks.
+  The workflow files are outside a run's scope: changing one needs an interactive,
+  owner-visible PR.
 - **Before you re-run a stage to find out whose red it is, ASK THE RECORD**: `node
   tools/dev-smoke-state.mjs ask --viewport desktop --stage 8` answers "was dev already red
   here, and when did it last pass" from `tools/dev-smoke-state.json` without running

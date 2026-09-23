@@ -38,6 +38,14 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
 # It costs about a second (measured: 1.0 s on a warm tree), and it is a REAL publish
 # rather than a `--dry-run`, so publish.sh's own refusals — a derivative that no longer
 # answers for its master — fail the gate here rather than at deploy time.
+# THE TICKETS ARE A SEPARATE REPOSITORY (2026-09-23) — kevinrhaas/chicago-tickets,
+# cloned at tickets/. Fetched first because the publish below builds tickets.json from
+# them and `ticket.mjs check` gates them; a missing clone fails that check loudly rather
+# than letting an empty queue read as a clean one.
+step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
+  bash tools/tickets.sh
+check_flush   # the publish below reads the clone; never race it under CHECK_JOBS>1
+
 step "publish the mirror the gate measures (site/4d/ is generated, T-0938)" \
   bash tools/publish.sh
 
@@ -2480,6 +2488,13 @@ step "a claim that outlived the window is work, a merged branch is litter, and a
 # has. The litter that made `split` release is collected by age instead.
 step "a split keeps its claim, and the queue drops only finished work and regains what a merge lost" \
   node tools/test_ticket_claim_split.mjs
+
+# THE TICKETS REPOSITORY (2026-09-23). Since the move to kevinrhaas/chicago-tickets a
+# claim is a pushed commit, `done` is `review` until `settle` sees the PR merge, new ids
+# are renumbered when another writer took them first, and `ask` keeps a decision in the
+# queue. Every one of those is run for real here: two clones of one bare repository.
+step "the tickets repo: claim is a pushed lock, done waits on the merge, ask stays in the queue" \
+  node tools/test_ticket_repo_mode.mjs
 
 # A GATED WRITER BELONGS IN THE MANIFEST (T-1282, owner 2026-09-18). A tool this gate runs
 # with --check, and that can also write, produces DERIVED content by definition — so if

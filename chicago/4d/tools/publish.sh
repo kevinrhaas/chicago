@@ -117,6 +117,7 @@ fi
 # neither file, and the old `[ -f ]` guard would have published nothing at all and
 # said nothing about it. `board` is a pure function of tickets/*.md and costs
 # milliseconds; running it here is what keeps /4d/tickets.json a real URL.
+[ -f tickets/QUEUE.md ] || bash tools/tickets.sh || true   # the tickets are their own repo (2026-09-23)
 node tools/ticket.mjs board >/dev/null
 cp -f tickets/tickets.json "$SITE/tickets.json"
 

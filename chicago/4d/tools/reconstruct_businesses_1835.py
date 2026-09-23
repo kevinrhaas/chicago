@@ -1559,7 +1559,7 @@ def record_for_trade(group, bucket, head, ordinal, communities, streets):
 
 def ticket_state(number):
     """The state a ticket file carries, or None if the tree holds no such ticket."""
-    for path in (ROOT / "tickets").glob("%s-*.md" % number):
+    for path in (ROOT / "tickets").rglob("%s-*.md" % number):
         for line in path.read_text(encoding="utf-8").splitlines():
             if line.startswith("state:"):
                 return line.split(":", 1)[1].strip()

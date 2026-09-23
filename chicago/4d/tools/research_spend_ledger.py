@@ -89,7 +89,7 @@ def ticket_states(root: Path = ROOT) -> dict[str, str]:
     to happen. What changes is that re-filing work no longer reads as finishing it.
     """
     states, parents = {}, {}
-    for path in sorted((root / "tickets").glob("T-*.md")):
+    for path in sorted((root / "tickets").rglob("T-*.md")):
         text = path.read_text(encoding="utf-8", errors="replace")
         tid = re.search(r"(?m)^id:\s*(T-\d+)\s*$", text)
         state = re.search(r"(?m)^state:\s*([^\s#]+)", text)
