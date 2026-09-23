@@ -1588,6 +1588,42 @@ function queueSetDecisionComment(id, comment) {
   return true;
 }
 
+/** Band 8b's commented `# BLOCKED-OWNER T-NNNN …` line and its indented continuation
+ *  lines — taken out when the ticket is asked instead of blocked. */
+function queueDropBlockedLines(id) {
+  const lines = queueLines();
+  const out = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    if (new RegExp(`^#\\s*BLOCKED-(?:OWNER|TECH)\\s+${id}\\b`).test(lines[i])) {
+      while (i + 1 < lines.length && /^#\s{3,}\S/.test(lines[i + 1]) && !/^#\s*BLOCKED-/.test(lines[i + 1])) i += 1;
+      continue;
+    }
+    out.push(lines[i]);
+  }
+  writeFileSync(QUEUE, out.join('\n').replace(/\n+$/, '\n'));
+}
+
+const DECISION_BAND = '# --- 0. WAITING ON THE OWNER — answer on Manager\'s 4D Board; runs skip these until answered';
+/** A ticket with no place in the queue (it was blocked) goes into band 0, at the very
+ *  top where the owner looks first. Its `decision: pending` keeps it out of the
+ *  workable list, so being at the top never makes it the next run's work. */
+function queueInsertDecisionBand(t) {
+  const lines = queueLines();
+  let at = lines.indexOf(DECISION_BAND);
+  if (at < 0) {
+    // Just above the first band heading, or the first ticket line if there is none.
+    let first = lines.findIndex((l) => /^#\s*---/.test(l));
+    if (first < 0) first = lines.findIndex((l) => queueId(l));
+    if (first < 0) first = lines.length;
+    lines.splice(first, 0, DECISION_BAND);
+    at = first;
+  }
+  let end = at + 1;
+  while (end < lines.length && (queueId(lines[end]) || isDecisionComment(lines[end]))) end += 1;
+  lines.splice(end, 0, `${t.id} — ${t.title}`);
+  writeFileSync(QUEUE, lines.join('\n').replace(/\n+$/, '\n'));
+}
+
 /** After a rebase, a ticket id this command minted may have been taken by another
  *  writer in the meantime (the files differ by slug, so git saw no conflict). Give
  *  ours the next free number, and carry its queue line with it. */
@@ -2693,7 +2729,8 @@ switch (cmd) {
     // that the question is visible where the work is ranked, not in a side band.
     if (t.state === 'blocked-owner') { t.state = 'open'; t.blocked_on = null; }
     writeTicket(t);
-    if (!queueIds().includes(t.id)) queueAppend(t);
+    queueDropBlockedLines(t.id);
+    if (!queueIds().includes(t.id)) queueInsertDecisionBand(t);
     queueSetDecisionComment(t.id, decisionComment(t.id, q, options, rec));
     generateBoard(loadAll());
     commitMessage = `${t.id}: ask the owner — ${q.slice(0, 64)}`;
