@@ -36,7 +36,7 @@
 # is not a merge. Those PRs are left alone with one comment saying which files.
 set -uo pipefail
 
-REPO="${GITHUB_REPOSITORY:-kevinrhaas/custom}"
+REPO="${GITHUB_REPOSITORY:-kevinrhaas/chicago}"
 BASE="${LAP_BASE:-dev}"
 ONLY="${LAP_ONLY:-}"
 DRIVERS="$(mktemp -d)"

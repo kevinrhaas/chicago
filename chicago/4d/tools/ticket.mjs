@@ -89,7 +89,18 @@ const PUBLISH_PIN = 'cp -f tickets/tickets.json "$SITE/tickets.json"';
 const CLOSED_AT_SINCE = '2026-09-04';
 
 /** This repository on GitHub — the board links its PRs, and `inflight` its pulls page. */
-const REPO_URL = 'https://github.com/kevinrhaas/custom';
+const REPO = 'kevinrhaas/chicago';
+const REPO_URL = `https://github.com/${REPO}`;
+// THE PROJECT MOVED REPOSITORIES ON 2026-09-23 (it was a tenant of kevinrhaas/custom).
+// Every `pr:` a ticket recorded before then is a kevinrhaas/custom pull request, and
+// the numbers restart here — so a pre-move ticket's receipt must keep pointing at the
+// repository that actually holds it, or #1630 would link to some unrelated new PR.
+const LEGACY_REPO_URL = 'https://github.com/kevinrhaas/custom';
+const MOVED_AT = '2026-09-23T00:00:00Z';
+export function prUrl(t) {
+  const legacy = t.closed_at ? t.closed_at < MOVED_AT : (t.closed ? t.closed < MOVED_AT.slice(0, 10) : false);
+  return `${legacy ? LEGACY_REPO_URL : REPO_URL}/pull/${t.pr}`;
+}
 
 const STATES = ['open', 'claimed', 'review', 'done', 'blocked-owner', 'blocked-tech',
   'withdrawn', 'split'];
@@ -573,7 +584,7 @@ function closedPulls({ since = null, maxPages = 6, perPage = 100 } = {}) {
   let pages = 0;
   let horizon = null;
   for (let page = 1; page <= maxPages; page += 1) {
-    const batch = restGet(`repos/kevinrhaas/custom/pulls?state=closed&sort=created`
+    const batch = restGet(`repos/${REPO}/pulls?state=closed&sort=created`
       + `&direction=desc&per_page=${perPage}&page=${page}`);
     if (batch === null) return { ok: pages > 0, pulls, pages, horizon, truncated: true };
     pages += 1;
@@ -1025,7 +1036,7 @@ function generateBoard(tickets) {
     + sec(`Finished, newest first${finished.length > shown.length
       ? ` — ${shown.length} of ${finished.length}; the older ones are in the ticket files` : ''}`,
     shown, (t) => `${row(t)} · ${t.closed_at ? ctFmt(t.closed_at) : t.closed}`
-      + `${t.pr ? ` · [PR #${t.pr}](${REPO_URL}/pull/${t.pr})` : ''}`);
+      + `${t.pr ? ` · [PR #${t.pr}](${prUrl(t)})` : ''}`);
   // Idempotent on purpose: only touch the files when the CONTENT changed, so a
   // regenerated-but-identical board stays byte-stable and the published mirror
   // (check_published.mjs compares it verbatim) does not go stale merely because

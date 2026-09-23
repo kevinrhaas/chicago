@@ -15,7 +15,8 @@
  * means the smoke test cannot tell a healthy boot from a broken one):
  *
  *   dev        renderers/web/index.html   ->  ../../data/   ../../assets/
- *   published  chicago/4d/walk/index.html ->  ../data/      ../data/
+ *   published  4d/walk/index.html         ->  ../data/      ../data/
+ *              4d/, 4d/1835/ (front doors, `<base href>` into walk/) -> same
  *
  * `?data=` and `?assets=` override either.
  */
@@ -26,7 +27,11 @@ const GLB_MAGIC = 0x46546c67;   // 'glTF', little-endian
 
 export function resolveBases(loc = window.location) {
   const params = new URLSearchParams(loc.search);
-  const here = new URL('.', loc.href);
+  // The DOCUMENT's base, not the address bar: the published front doors
+  // (/4d/, /4d/1835/) are copies of walk/index.html carrying
+  // `<base href="…walk/">`, so they resolve from walk/ exactly as walk/ does.
+  const base = (loc === globalThis.window?.location && globalThis.document?.baseURI) || loc.href;
+  const here = new URL('.', base);
   const dev = /\/renderers\/web\/$/.test(here.pathname);
   return {
     dev,

@@ -83,7 +83,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CONTROL = ROOT / "data" / "traces" / "street_control.json"
 API = "https://api.openstreetmap.org/api/0.6"
-UA = "chicago-4d control re-fetch (kevinrhaas/custom)"
+UA = "chicago-4d control re-fetch (kevinrhaas/chicago)"
 
 # Surface roadways only. `construction` and `proposed` are excluded because a way
 # that is not a street yet is not the street the plat laid out; `cycleway`,

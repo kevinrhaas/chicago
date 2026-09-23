@@ -1,36 +1,40 @@
 name: Deploy to GitHub Pages
 
-# Static site — no build step. Publishes the curated site/ folder (custom
-# landing + the Hosta guide app), NOT the whole repo: the repo also holds
-# ~2 GB of CAD source (.blend/.stl/.3mf) that must stay OUT of the Pages
-# artifact. Mirrors the Polecat platform deploy pattern (upload-pages-artifact
-# path: site) — the fleet's single-deploy-authority convention.
+# Static site — no build step in the usual sense. Publishes the curated site/
+# folder — the chicago.polecat.live landing page, the pre-fire and rebuilding-1870s
+# viewers, and the 4D app's generated mirror at site/4d/ — NOT the whole repo: the
+# repo also holds the uncompressed GLB masters, the research dossiers and the
+# reference corpus, which must stay OUT of the Pages artifact. Mirrors the Polecat
+# platform deploy pattern (upload-pages-artifact path: site) — the fleet's
+# single-deploy-authority convention.
 #
-# ONE artifact, TWO tiers, and only for the 4D app (chicago/4d/docs/PIPELINE.md):
-#   /                     production = main, every tenant, untouched, indexed
-#   /4d/dev/      integration = the `dev` branch's site/4d/,
+# This repository was split out of kevinrhaas/custom on 2026-09-23 (the project
+# used to be one tenant of that monorepo, at custom.polecat.live/chicago/). The
+# custom domain is site/CNAME; custom.polecat.live/chicago/** now redirects here.
+#
+# ONE artifact, TWO tiers (chicago/4d/docs/PIPELINE.md):
+#   /4d/                  production = main, indexed
+#   /4d/dev/              integration = the `dev` branch's site/4d/,
 #                         noindex, banner-marked, assembled by
 #                         .github/chicago-4d-dev-preview.mjs
-#
-# The dev tier is SCOPED TO chicago/4d ALONE. Every other tenant in this monorepo
-# is main-only and must never appear under a 4D preview. The artifact path stays
-# `site` regardless, so the CAD source can never enter it.
+# Both tiers have the same front doors: /4d/<year>/ for every scene and planned
+# year (chicago/4d/tools/write_entry_pages.mjs), with ?year= and other query
+# parameters layered on top.
 #
 # The dev step no-ops while the `dev` ref does not exist, so this file is safe to
 # merge before the pipeline is activated — chicago-4d-pipeline-setup.yml creates
 # the branch. Whichever ref triggers a run, MAIN is always assembled at the root.
 #
-# THE 4D TRIGGER IS `chicago/4d/**`, NOT `site/**` (T-0938). The published mirror
-# `site/4d/` is untracked and generated now — this job publishes it below —
-# so a 4D change never touches `site/**` and a `site/**`-only filter would have made
-# every 4D merge a silent no-deploy. The other tenants in this monorepo are still
-# committed under `site/` and keep the `site/**` trigger.
+# THE 4D TRIGGER IS `chicago/4d/**`, NOT ONLY `site/**` (T-0938). The published
+# mirror `site/4d/` is untracked and generated — this job publishes it below — so a
+# 4D change never touches `site/**`, and a `site/**`-only filter would make every
+# 4D merge a silent no-deploy.
 on:
   push:
     branches: [main, dev]
     paths:
       - 'site/**'
-      - 'chicago/4d/**'
+      - 'chicago/**'
       - '.github/workflows/deploy.yml'
       - '.github/chicago-4d-dev-preview.mjs'
   workflow_dispatch:
@@ -201,6 +205,9 @@ jobs:
               p.write_text(new)
               print(f"stamped: {stamp}")
           PY
+          # The front doors (/4d/, /4d/<year>/) are copies of walk/index.html, so they
+          # are re-written from the page just stamped rather than stamped one by one.
+          node chicago/4d/tools/write_entry_pages.mjs site/4d
       # The 4D ticket board (T-0937, T-0030 — the URL Manager's queue card reads) needs
       # no step of its own: `tools/publish.sh` above runs `ticket.mjs board` and copies
       # the result to site/4d/tickets.json. One writer, one place it is run.

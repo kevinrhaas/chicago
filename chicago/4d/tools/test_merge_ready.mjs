@@ -85,7 +85,7 @@ exit 0
     encoding: 'utf8',
     env: { ...process.env, PATH: `${bin}:${process.env.PATH}`,
            GH_TOKEN: 'fake', MERGE_ONLY: only, MERGE_DRY_RUN: dry,
-           GITHUB_REPOSITORY: 'kevinrhaas/custom' },
+           GITHUB_REPOSITORY: 'kevinrhaas/chicago' },
   });
   let did = '';
   try { did = readFileSync(merges, 'utf8'); } catch { did = ''; }
