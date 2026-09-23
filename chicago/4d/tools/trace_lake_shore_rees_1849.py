@@ -177,7 +177,7 @@ def raster_path() -> Path:
         p.parent.mkdir(parents=True, exist_ok=True)
         req = urllib.request.Request(
             gcp["raster"]["url"],
-            headers={"User-Agent": "chicago4d-trace/1.0 (+kevinrhaas/chicago)"})
+            headers={"User-Agent": "chicago4d-trace/1.0 (+kevinrhaas/custom)"})
         with urllib.request.urlopen(req, timeout=300) as r, p.open("wb") as f:
             f.write(r.read())
     got = hashlib.sha256(p.read_bytes()).hexdigest()

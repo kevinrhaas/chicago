@@ -27,12 +27,12 @@ publish.sh and the resident synthesizer write four mirror files in two different
 
 Two writers disagree about the same four paths in the mirror:
 
-    site/4d/data/residents/households/hh_adams_william_h.json
-    site/4d/data/residents/households/hh_miller_john.json
-    site/4d/data/residents/households/hh_murphy_john.json
-    site/4d/data/residents/index.json
+    site/chicago/4d/data/residents/households/hh_adams_william_h.json
+    site/chicago/4d/data/residents/households/hh_miller_john.json
+    site/chicago/4d/data/residents/households/hh_murphy_john.json
+    site/chicago/4d/data/residents/index.json
 
-`tools/synthesize_resident_research.py` writes them INDENTED — `site/4d/data` is one
+`tools/synthesize_resident_research.py` writes them INDENTED — `site/chicago/4d/data` is one
 of its `DRIFT_ROOTS`, so it writes the mirror as well as the source — and `tools/publish.sh`
 writes them MINIFIED, which is the shape the other 1,335 mirrored household files are in.
 The T-0838 drift ratchet compares the committed tree against a fresh run of the synthesizer

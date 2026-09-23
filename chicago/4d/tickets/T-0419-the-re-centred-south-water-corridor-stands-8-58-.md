@@ -1,7 +1,7 @@
 ---
 id: T-0419
 title: The re-centred South Water corridor stands 8.58 m off its own block faces, and the strip between belongs to neither
-state: blocked-owner
+state: open
 epic: META
 requested_by: loop
 seen: false
@@ -12,7 +12,7 @@ opened: 2026-08-29
 closed: null
 pr: 1240
 claimed_by: run 9/13/2026, 3:28:25 AM CT
-blocked_on: Is the platted BLOCK grid on the South Water reach offset from the control too — branch A, which re-cuts 32 lots carrying 53 committed roofs and drops blk_south_water_lasalle (8 lots, 18 roofs, all of T-0429) into the river — or is the drawn line the block grid's own control, branch B, in which case the corridor and the blocks answer two different questions and 10 corridor readers each declare which? Measured 2026-08-30, re-measured 2026-09-13: the abandoned band is 6,132 m2 and 99.1% dry, the band the corridor claims instead is 54.0% river, and branch A's price rose from 43 to 53 roofs in the fortnight the question waited. See docs/ROADMAP.md K30(f).
+blocked_on: null
 needs_bake: false
 closed_at: null
 claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/34747491256
@@ -117,3 +117,27 @@ counts and not the built town standing on them. `roofs_on_moved_blocks` and `roo
 are pinned from today.
 
 **Nothing moves until the owner answers**, per this ticket's own acceptance.
+
+## THE OWNER'S RULING, 2026-09-21: branch B — the drawn line is the block grid's own control
+
+The corridor and the blocks answer two different questions, and the platted block grid is
+NOT re-cut. Branch A is refused: it would drop blk_south_water_lasalle (8 lots, 18 roofs,
+the whole of T-0429) into the river and re-cut 32 lots carrying 53 committed roofs, and the
+evidence does not carry that price. The 6,132 m2 band it would abandon is 99.1% DRY, which
+is the wrong shape for ground a survey put in a river.
+
+THE TEN CORRIDOR READERS EACH DECLARE WHICH THEY FOLLOW. That is the substance of this
+ruling and the work it leaves: a reader answering a question about the CORRIDOR follows the
+drawn line; one answering a question about a BLOCK, a lot or a roof follows the block grid.
+Neither is the other's control, and a reader that does not say which it took is the fault
+this ticket found, arriving again under a rule instead of by accident.
+
+AND THE ODD NUMBER IS WRITTEN DOWN RATHER THAN RESOLVED. The band the corridor claims is
+54.0% river. Under this ruling that stands, and it stands ON THE RECORD: the corridor's own
+documentation says that its line and the block faces disagree by 8.58 m on this reach, that
+the disagreement is unexplained, and that it is not evidence either line is wrong. A number
+that reads oddly and is stated plainly is worth more than a tidy one bought with 53 roofs.
+
+IF THE SHEET IS EVER RE-READ and the drawn line turns out to be survey control rather than
+draughtsmanship, branch A comes back with evidence behind it. Nothing here forecloses that;
+the price is recorded so a future reading knows what it is buying.

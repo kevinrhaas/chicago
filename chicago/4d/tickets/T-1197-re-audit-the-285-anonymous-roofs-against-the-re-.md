@@ -1,7 +1,7 @@
 ---
 id: T-1197
 title: Re-audit the 285 anonymous roofs against the re-derived programme: keep the ones the order book can occupy, re-family the ones of the wrong kind, retire the ones that no longer fit — 214 stand empty today — and record every change as a substitution, not a demolition
-state: open
+state: split
 epic: TOWN
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-20
 pr: null
-claimed_by: null
+claimed_by: run 9/20/2026, 6:43:25 AM CT
 blocked_on: null
 needs_bake: true
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-20T11:46:08.562Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35508393032
 ---
 
 The owner: *"review and replace any previous reconstructed buildings that do not fit your current

@@ -104,7 +104,7 @@ const argAt = (name) => {
 const WANT_SOURCE = process.argv.includes('--source');
 const AS_JSON = process.argv.includes('--json');
 const OUT = argAt('--out');
-const ROOT = WANT_SOURCE ? APP : path.resolve(APP, '../../site/4d');
+const ROOT = WANT_SOURCE ? APP : path.resolve(APP, '../../site/chicago/4d');
 const ENTRY = WANT_SOURCE ? '/renderers/web/' : '/walk/';
 
 // ONE reach per shot, and the reason there is not a pair the way the plate has

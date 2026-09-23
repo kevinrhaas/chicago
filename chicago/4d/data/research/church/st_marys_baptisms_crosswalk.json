@@ -5,12 +5,12 @@
   "domain": "church",
   "source_id": "st_marys_baptismal_register_1833_1835",
   "pass": "T-0503",
-  "what": "Every ADULT named in the eleven page images — parents, godparents, sponsors, witnesses, spouses and the officiant — held against the 1282 people data/residents/ holds today. That count is DERIVED and it moves: the layer stood at 849 when T-0503 wrote this pass, and a crosswalk built against a layer that has since grown is stale rather than wrong — which is what T-1110 found and why --check now says which of the three it is.",
+  "what": "Every ADULT named in the eleven page images — parents, godparents, sponsors, witnesses, spouses and the officiant — held against the 1285 people data/residents/ holds today. That count is DERIVED and it moves: the layer stood at 849 when T-0503 wrote this pass, and a crosswalk built against a layer that has since grown is stale rather than wrong — which is what T-1110 found and why --check now says which of the three it is.",
   "the_rule": "A merge needs a written rule naming BOTH spellings verbatim; a surname-only merge is always a refusal; an EXACT name with no written rule is neither, and is held in exact_name_unruled[] rather than filed under a refusal whose stated ground is untrue of it; a refusal is declared as explicitly as a merge. Nothing here mints or regrades a resident — T-0514 and T-0515 spend this file.",
   "counts": {
     "adult_readings": 211,
     "distinct_adult_names": 143,
-    "residents_examined": 1282,
+    "residents_examined": 1285,
     "all_places": {
       "merged": 9,
       "refused": 20,

@@ -1,7 +1,7 @@
 ---
 id: T-1180
 title: An authored business layer: one record per business with tiered proprietors, partners, staff, dated primary and secondary locations and sources — compiled into the register beside the newspaper-derived firms, with the structure function vocabulary normalised
-state: open
+state: split
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-18
 pr: null
-claimed_by: null
+claimed_by: run 9/18/2026, 3:01:17 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T08:01:29.856Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35321895713
 ---
 
 There is no `data/businesses/`. The business layer is three derived files —

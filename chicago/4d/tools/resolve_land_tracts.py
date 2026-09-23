@@ -1442,7 +1442,7 @@ def self_test():
                if e["aliquot_or_lot_as_read"] in {q["as_read"] for q in bare})
     assert tl["distinct_parcels"] > tl["distinct_parcels_if_the_town_code_is_not_the_plat"]
     assert float(tl["purchase_money_over_the_parsed_rows"]) == round(
-        sum(float(e["total_price"]) for e in lots), 2)
+        math.fsum(float(e["total_price"]) for e in lots), 2)
     checks.append("the residual-quarter reading stays arithmetic: no row gained a "
                   "fraction, and the town lots' purchase money is the sum of the rows")
 

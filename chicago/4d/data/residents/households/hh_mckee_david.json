@@ -7,9 +7,10 @@
   "value": "1823",
   "confidence": "attested",
   "sources": [
-   "andreas_1884_v1"
+   "andreas_1884_v1",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "The building record states that McKee was hired under the treaty obligation and arrived in 1823, and Andreas's chapter on the early settlement carries him from that period.",
+  "note": "The building record states that McKee was hired under the treaty obligation and arrived in 1823, and Andreas's chapter on the early settlement carries him from that period. Row bk_mose1_as_025 of the settlers table prints the year 1823 against his name, agreeing with the hiring this field already records; it corroborates and does not promote.",
   "precision": "year"
  },
  "party_size_on_arrival": {
@@ -18,14 +19,28 @@
   "note": "Not attested in anything this project holds."
  },
  "origin": {
-  "value": null,
-  "confidence": "reconstructed",
-  "note": "Not attested in anything this project holds."
+  "value": "Virginia",
+  "confidence": "inferred",
+  "sources": [
+   "moses_kirkland_history_of_chicago_v1"
+  ],
+  "note": "A DRAWN REGION IS REPLACED BY A PRINTED NATIVITY. This field held 'New England', drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a survivorship sample carrying `replaceable_by` 'a source that says where this household came from'. This is that source. Moses and Kirkland, History of Chicago vol. 1 (1895), printed pages 78-79, the table headed LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830 (data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json). It is an 1895 compilation crediting Hurlbut's Chicago Antiquities pp. 37-8 three lines above itself, every row transcription_mediated and none scan_verified, so NOTHING READ OFF IT IS GRADED ABOVE `inferred` HERE. Row bk_mose1_as_025 reads 'McKee, David', nativity Va, YEAR 1823, remarks 'Paid taxes in 1825, voted in 1826'. THE YEAR IS THE CHECK ON THE NATIVITY: 1823 is the year this card already carries for his hiring under the treaty obligation, so the row is right about the one column the layer can test it on. INFERRED AND NOT ATTESTED: 1895, at second hand, transcription_mediated, and the crosswalk's own merge rests on both records putting a David McKee at Chicago in the 1820s in a settlement this table sizes at thirty-six households. WHAT DOES NOT FOLLOW: the table's own preamble bounds it BEFORE 1830 and its remarks are civic acts of 1825-1830. A man on it is not thereby at Chicago on 1835-07-01, and this edit moves no residence, no `present_on_scene_date` and no grade. The identity is the books crosswalk's landed merge (T-0961) and is not re-opened here."
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "A mechanic's trade in a town that had few of it",
   "confidence": "reconstructed",
-  "note": "Not attested in anything this project holds."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as blacksmith, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_recorded_trade",
+   "note": "arrival_fill.trade_reasons.a_mechanics_trade — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -46,6 +61,20 @@
   "sources": [
    "andreas_1884_v1"
   ],
+  "last_dated_appearance": {
+   "as_read": "1673/1857",
+   "precision": "source_span",
+   "reaches": "1857-12-31",
+   "includes_scene_date": true,
+   "days_before_scene_date": null,
+   "leg": "source_span",
+   "person": "mckee_david",
+   "record": null,
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "NO SIGHTING, SO THE LEG IS A SOURCE'S SPAN. The card holds no dated reading of this person at or before the scene date; the date here is the far end of what a cited source COVERS, which the role's own note calls the source's bound and not the man's. Read from `roles[] (source_span)` as `1673/1857`, which reaches 1857-12-31 — a window that covers 1835-07-01 itself, so it pins no last sighting before the day and cannot be read as one. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
   "note": "THE AGENCY ITSELF IS THE PROBLEM. Andreas's list of the establishment is written for the period of Owen's agency generally and not for 1835, and the treaty obligation that created the post was superseded by the cession of 1833. Whether a government smith for the Potawatomi was still at his anvil on 1 July 1835, six weeks before the removal, is not stated anywhere reached, and the value says so."
  },
  "persons": [
@@ -72,6 +101,50 @@
     "kinzie_waubun_1856",
     "chicago_tribune_1882_04_25_old_settler_deaths",
     "isa_public_domain_land_tract_sales"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls1359",
+     "as_read": "MCKEE DAVID",
+     "locator": "purchase 0365140, volume L5A page 002, lot 1 block 5 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "MCKEE DAVID matches David McKee: the forename names David McKee of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins MCKEE DAVID to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls1360",
+     "as_read": "MCKEE DAVID",
+     "locator": "purchase 0365141, volume L5A page 002, lot 7 block 4 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "MCKEE DAVID matches David McKee: the forename names David McKee of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins MCKEE DAVID to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "HE IS THE NAMED OCCUPANT THIS DATASET'S GOVERNMENT SMITHY HAS BEEN MISSING. data/structures/blacksmith_shop_state_st.json describes 'a building known only as a clause in other people's sentences' with an empty occupants field; McKee is the man in the clause. Andreas's list of the settlement's residents puts 'small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' in the vicinity of Cobweb Castle, and he signed the 1832 militia agreement. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “David McKee, April 9, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “MCKEE DAVID”, 1830-09-27: 2 lots in the platted town — lot 1 of block 5 in the town the register codes CHIOT (L1BL5CHIOT, as printed); lot 7 of block 4 in the town the register codes CHIOT (L7BL4CHIOT, as printed), 0.00 acres stated in all, for $61.00 (ls1359, ls1360). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $61.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: MCKEE DAVID matches David McKee: the forename names David McKee of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
@@ -104,14 +177,42 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   },
+   "birth_year": {
+    "value": 1800,
+    "precision": "band",
+    "band": [
+     1800,
+     1801
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "A BIRTH INTERVAL OUT OF A DEATH NOTICE, NOT A RECORD OF A BIRTH. The page prints the death as 'April 9, 1881' and the age as 'aged 80¼'. An age of 80 years and 3 months means at least that and less than 80 years and 4 months, so the birth falls between 1800-12-10 and 1801-01-09: the birth year is 1800 or 1801. The subtraction is this project's; the page states no year of birth. Fergus's 1843 directory (1896) prints the entry \"McKee, David, died near Aurora, Ill., April 9, 1881, aged 80¼\", and its header admits the list also names citizens who arrived after 1843 and others merely prominently connected with Illinois history — so a match here is never evidence of residence in 1835 and never moves a grade. The match to this person was adjudicated in data/research/old_settlers/death_notices_crosswalk_1835.json and written onto this card by tools/spend_old_settlers.py; this pass only spends its arithmetic into a birth year. Both sides of the match spell a forename out — the crosswalk's thin matches, where a single initial is the whole of the discriminator, are refused rather than spent."
+   }
   }
  ],
  "touches_removal": true,

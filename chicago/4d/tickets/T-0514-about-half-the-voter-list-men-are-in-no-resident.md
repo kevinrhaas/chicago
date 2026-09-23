@@ -67,7 +67,7 @@ says, per identity, what the ratified ladder makes of them; this ticket writes t
    then `node tools/stamp-changelog.mjs`); `check.sh` steps for `--check`/`--self-test`.
 3. Every refusal printed by `--report`: an identity the proposal grades but the ladder's evidence does
    not reach, an arrival after 1835-07-01, a merge the consolidation refused.
-4. Payload: report `du -sh site/4d/data/residents` before and after (T-0438 already found the
+4. Payload: report `du -sh site/chicago/4d/data/residents` before and after (T-0438 already found the
    letter-list cohort is 2.54 MiB of the published tree).
 
 Nothing is minted from an 1839 directory or an 1840 census appearance alone; no reconstructed person is

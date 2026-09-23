@@ -65,6 +65,7 @@ MASTER = DATA / "research" / "residents" / "identity_master.json"
 SPEND = DATA / "research" / "residents" / "ladder_spend.json"
 
 sys.path.insert(0, str(ROOT / "tools"))
+from reconstructed_person import is_reconstructed  # noqa: E402
 from consolidate_resident_evidence import GRADE_RULES  # noqa: E402  (one ladder, not two)
 
 GENERATED_BY = "tools/spend_ladder_rungs.py --build"
@@ -155,6 +156,11 @@ def decide(docs: dict, proposal: dict, master: dict):
     for path in sorted(docs):
         doc = docs[path]
         for person in doc.get("persons") or []:
+            # T-1171: a person the reconstruction programme DREW is not a name any source printed.
+            # Matching one to a printed name would be this project reading its own invention
+            # back as evidence. reconstructed_person.py holds the rule.
+            if is_reconstructed(person):
+                continue
             person_id = person.get("id")
             if not person_id:
                 continue
@@ -302,6 +308,10 @@ def invariants(spent, conflicts, foreign, docs, proposal, master) -> list:
     stranded = []
     for doc in docs.values():
         for person in doc.get("persons") or []:
+            # T-1171: the ladder rules on people the SOURCES name. A drawn person carries
+            # no evidence for a rung to weigh, so they are not stranded by being skipped.
+            if is_reconstructed(person):
+                continue
             pid = person.get("id")
             if not pid or person.get("civic_mint"):
                 continue

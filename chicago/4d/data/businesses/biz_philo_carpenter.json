@@ -1,0 +1,203 @@
+{
+  "id": "biz_philo_carpenter",
+  "register_id": "business_philo_carpenter",
+  "name": "Philo Carpenter",
+  "provenance": "compiled_from_register",
+  "type": [
+    "druggist"
+  ],
+  "trade": "drugs and medicines",
+  "occupation": "druggist",
+  "goods": [
+    "Bedford crown glass",
+    "Boots and Shoes",
+    "Cough lozenges",
+    "Drugs",
+    "Dry Groceries",
+    "Dye Stuffs",
+    "Dye Woods",
+    "Dye stuffs",
+    "Dye woods",
+    "Dye-Stuffs",
+    "Glass",
+    "Glassware",
+    "Grass Scythes",
+    "Hay Forks",
+    "Liniment",
+    "Manure Forks",
+    "Medicines",
+    "Nails",
+    "Oils",
+    "Paints",
+    "Panacea",
+    "Patent medicines",
+    "Perfumery",
+    "Rifles",
+    "School Books",
+    "Scythe Stones",
+    "Shovels",
+    "Surgical Instruments",
+    "Trusses",
+    "Vermifuge",
+    "White lead",
+    "quinine",
+    "ready made clothing",
+    "temperance almanacs",
+    "window glass"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Philo Carpenter",
+      "person_id": "carpenter_philo",
+      "register_person_id": "person_philo_carpenter",
+      "role": "proprietor",
+      "from": "1833-11-26",
+      "to": "1835-07-22",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card carpenter_philo (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_27#c013",
+        "chicago_american_1835_07_18#c004",
+        "chicago_democrat_1833_11_26#c011",
+        "chicago_democrat_1833_12_17#c002",
+        "chicago_democrat_1834_04_08#c009",
+        "chicago_democrat_1834_05_07#c010",
+        "chicago_democrat_1834_06_25#c003",
+        "chicago_democrat_1834_07_02#c054",
+        "chicago_democrat_1835_06_04#c011",
+        "chicago_democrat_1835_07_08#c011",
+        "chicago_democrat_1835_07_22#c015"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Orrin Dickinson",
+      "person_id": "rc_dickinson_orrin",
+      "role": "clerk",
+      "occupation": "clerk",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a drug store at the typical band and 1 at the high end, on directory_1839. 13 druggists in 1839 and the commerce clerk share over them. The druggist's clerk is often reading medicine, which is why he boards in the house. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#drug_store.clerk; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_dickinson_orrin:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "drug_store",
+    "reads_as": "a drug store",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "clerk",
+        "occupation": "clerk",
+        "household_relationship": "clerk",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "directory_1839"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 1,
+      "seats_against_the_band": 1,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 1. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "carpenter_south_water_store",
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1833-11-26",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure carpenter_south_water_store on its occupants. carpenter_south_water_store already stands and its occupants carries carpenter — 'Philo Carpenter; druggist'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1833-11-26",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-11-26, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-11-26",
+    "last_issue": "1835-07-22",
+    "copy_dates": [
+      "1833-11-22",
+      "1833-12-16",
+      "1834-06-25",
+      "1835-06-03"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Philo Carpenter (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "carpenter_philo",
+        "name": "Philo Carpenter",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_27#c013",
+    "chicago_american_1835_07_18#c004",
+    "chicago_democrat_1833_11_26#c011",
+    "chicago_democrat_1833_12_17#c002",
+    "chicago_democrat_1834_04_08#c009",
+    "chicago_democrat_1834_05_07#c010",
+    "chicago_democrat_1834_06_25#c003",
+    "chicago_democrat_1834_07_02#c054",
+    "chicago_democrat_1835_06_04#c011",
+    "chicago_democrat_1835_07_08#c011",
+    "chicago_democrat_1835_07_22#c015"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

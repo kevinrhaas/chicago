@@ -16,7 +16,7 @@ tree at any commit, so it does not go stale as prose.
 Printed at the fix commit, after the de-duplication in § 3:
 
 ```
-PUBLISHED TREE  site/4d
+PUBLISHED TREE  site/chicago/4d
    30.690 MB in 2273 files — 95.9 % of the 32 MB budget,   1.310 MB of headroom
 
 BY DIRECTORY (two levels)

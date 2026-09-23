@@ -145,6 +145,40 @@ export function printedOn(iso) {
 }
 
 /** A `<dt>/<dd>` pair, omitted entirely when the record carries nothing. */
+/**
+ * The birth year as its arithmetic left it (T-1303). Every interval this project derives
+ * from an age — an age at death in Fergus's obituary list, an age a man gave at the
+ * Calumet Club in 1879 — leaves the birth in ONE year or in TWO, and `precision` says
+ * which. A card printing only the lower year would state a precision the page does not
+ * have, which is the direction this project is careful never to lie in.
+ */
+function bornYears(born) {
+  if (!born) return null;
+  if (born.precision === 'band' && Array.isArray(born.band)) {
+    return `${born.band[0]} or ${born.band[1]}`;
+  }
+  return born.value;
+}
+
+/**
+ * An age band as a reader should meet it (T-1304). The 1840 schedule's bands are decadal
+ * above twenty and the block carries their edges, so the card prints the interval rather
+ * than the machine-readable `20-29` — and the top band, which has no upper edge, prints
+ * as "70 or older" rather than as a range with a hole in it.
+ *
+ * NOTHING HERE TURNS A BAND INTO A YEAR. The whole point of the band is that the project
+ * does not know the year; a card that printed a midpoint would undo that in one line.
+ */
+function bandYears(band) {
+  if (!band || band.value === null || band.value === undefined) return null;
+  const low = band.low;
+  const high = band.high;
+  if (typeof low !== 'number') return String(band.value);
+  if (typeof high !== 'number') return `${low} or older`;
+  if (low === 0) return `under ${high + 1}`;
+  return `${low} to ${high}`;
+}
+
 function row(label, value) {
   if (value === null || value === undefined || value === '') return '';
   return `<dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd>`;
@@ -165,6 +199,50 @@ function row(label, value) {
  * way `fauna.js` does it and for the same reason: a figure read through a
  * generic accessor is a figure a read census cannot see in this file's text.
  */
+/**
+ * The dated evidence leg under an `uncertain` presence (T-1144, acceptance 9).
+ *
+ * A card that says "here on 1 July 1835: uncertain" is making a finding, and the thing
+ * that makes it one is a date — the last day the corpus can still see this person. That
+ * date is derived onto the record by `tools/derive_presence_evidence_leg.py`, so the
+ * card can print it instead of leaving a reader to infer it from the paragraph above.
+ *
+ * WHAT THE ROW WILL NOT DO is let a date read as a sighting when it is not one. The leg
+ * says which kind it is — a dated reading, the far end of a cited source's SPAN, or an
+ * arrival bound — and a reading whose own window covers 1 July 1835 (a source that says
+ * only `1835`) pins no day before it and says so here.
+ */
+function presenceLegRow(hh, citationsById) {
+  const presence = hh.present_on_scene_date || {};
+  const leg = presence.last_dated_appearance;
+  if (!leg || presence.value !== 'uncertain') return '';
+  const kind = {
+    sighting: 'a dated reading of this person',
+    source_span: "the far end of a cited source's span, which is not a sighting",
+    arrival_bound: 'an arrival bound, which is not a sighting',
+  }[leg.leg];
+  if (!leg.as_read) {
+    return `<dt>Last dated evidence before that day</dt>
+      <dd>${swatch('unknown')}none${
+        leg.note ? `<br><span class="res-why">${escapeHtml(leg.note)}</span>` : ''}</dd>`;
+  }
+  // A COARSE READING SAYS SO. `precision` is how exact the source was — a day, a
+  // month, a year — and `reaches` the latest day that reading can still mean. A year
+  // whose window covers 1 July 1835 pins nothing before it, and the row says which.
+  const exactness = { day: 'to the day', month: 'to the month', year: 'to the year' }[
+    leg.precision] || leg.precision;
+  const reach = leg.includes_scene_date
+    ? `read ${exactness}, so it can mean any day up to ${leg.reaches} — a window that `
+      + 'covers 1 July 1835 itself, and pins nothing before it'
+    : `read ${exactness}, reaching ${leg.reaches} — ${leg.days_before_scene_date} `
+      + 'day(s) before the scene date';
+  const cites = (leg.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
+  const list = cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : '';
+  return `<dt>Last dated evidence before that day</dt>
+    <dd>${escapeHtml(leg.as_read)} — ${escapeHtml(kind || leg.leg)}, ${escapeHtml(reach)}${
+      leg.note ? `<br><span class="res-why">${escapeHtml(leg.note)}</span>` : ''}${list}</dd>`;
+}
+
 function claimRow(label, value, block, citationsById) {
   if (!block) return '';
   // T-1158. The chip is the TIER now, not the raw confidence, and the two part company
@@ -1119,6 +1197,13 @@ export function associationsHtml(links, citationsById, label) {
  *
  * A role carries no PLACE and no employer yet — that is T-1254's migration — so
  * this block makes no claim about where the work was done. The location half of
+ * AND WHETHER THE TRADE HAD PREMISES (T-1404). `premises` is the half of the
+ * workplace question that is not a business record: a clerk keeps somebody
+ * else's counter and a teamster drives on the road, so the role itself says
+ * `no_fixed_premises` and the row prints that chip. An `own_premises` role needs
+ * no chip — the house it implies is a record of its own in the business layer,
+ * and the card's Works-at row is where it shows.
+ *
  * T-1240 waits on the same data: no record in the layer carries a dated location
  * link or a location limit, and the household's `lives_at`/`works_at` are single
  * undated claims, rendered as such by `householdHtml` above.
@@ -1152,16 +1237,30 @@ function roleRowHtml(role, citationsById) {
   const at = Boolean(role.covers_scene_date);
   const precision = role.precision && role.precision !== 'unknown'
     ? ` to the ${escapeHtml(words(role.precision))}` : '';
+  // T-1299 — WHERE THE ROLE WAS WORKED, AND FOR WHOM. Both figures have been on every
+  // row since T-1254 and banked unread since T-1255 shipped this renderer beside it;
+  // 164 roles state a place and 56 a body. `not_stated` is the record's assertion that
+  // its source does not say, and it prints as nothing rather than as an empty line.
+  const place = role.place && role.place !== 'not_stated' ? String(role.place) : '';
+  const body = role.employer_or_body && role.employer_or_body !== 'not_stated'
+    ? String(role.employer_or_body) : '';
+  const where = place || body
+    ? `<span class="res-why">${place ? `Worked at ${escapeHtml(place)}` : 'Worked'}${
+        body ? `${place ? ', ' : ' '}for ${escapeHtml(body)}` : ''}, as the record that
+        prints this role states it.</span>`
+    : '';
   return `<li class="res-role-row${at ? ' res-role-at' : ''}">
     <span class="res-role-when">${escapeHtml(roleBound(role))}</span>
     ${swatch(role.confidence)}${said}
     <span class="res-chips">${role.kind
       ? `<span class="res-chip">${escapeHtml(words(role.kind))}</span>` : ''}<span
       class="res-chip ${at ? 'res-role-scene' : 'res-role-off'}">${at
-        ? 'reaches 1 July 1835' : 'not on 1 July 1835'}</span>${role.role
+        ? 'reaches 1 July 1835' : 'not on 1 July 1835'}</span>${role.premises === 'no_fixed_premises'
+      ? '<span class="res-chip res-role-off">no premises of its own</span>' : ''}${role.role
       ? '' : '<span class="res-chip res-role-off">wording not adjudicated</span>'}</span>
     <span class="res-why">Dated by ${escapeHtml(words(role.dated_by || 'undated'))}${precision}.${
       role.note ? ` ${escapeHtml(role.note)}` : ''}</span>
+    ${where}
     ${cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</li>`;
 }
 
@@ -1179,13 +1278,243 @@ export function rolesHtml(roles, citationsById) {
         bound its own sources permit. This is the record; the <q>Occupation</q> row
         above is a generated view of the roles that cover 1 July 1835, which is why a
         role printed in another year does not fill it. A role outside the window is
-        kept and marked, not dropped — and nothing here says where the work was done,
-        because a role carries no place yet.</span>
+        kept and marked, not dropped. Where a source states the place a role was worked
+        or the body it was worked for, the row says so. The houses a source names this
+        person IN are the row below.</span>
       <ol class="res-roles">${ordered.map((r) => roleRowHtml(r, citationsById)).join('')}</ol></dd>`;
 }
 
+/**
+ * Why a person nobody named is standing in this town, on their own card (T-1314).
+ *
+ * A `reconstructed` person is the one kind of record here that a visitor could
+ * mistake for a finding, so the card says the opposite out loud: which stage of the
+ * reconstruction programme wrote them, what counted them, what age the count puts
+ * them at, and what would retire them. `basisHtml` already prints the basis, the
+ * seed that redraws a model draw and the replacement rule — the same three parts a
+ * reconstructed ATTRIBUTE shows — so the person reuses it rather than growing a
+ * second vocabulary for the same idea.
+ */
+function reconstructionHtml(person) {
+  const rc = person && person.reconstruction;
+  if (!rc || typeof rc !== 'object') return '';
+  const age = rc.age_on_scene_date || null;
+  const span = age
+    ? (age.high === null || age.high === undefined ? `${age.low} or older` : `${age.low}–${age.high}`)
+    : '';
+  return `<dt>Why this person is here</dt><dd>${swatch('reconstructed')}No source names them.
+    They are written by the <code>${escapeHtml(String(rc.stage || ''))}</code> stage of
+    ${escapeHtml(String(rc.programme || 'the reconstruction programme'))}${
+    rc.counted_by ? `, counted by ${escapeHtml(String(rc.counted_by))}` : ''}.${
+    rc.band_1840 ? `<br><span class="res-why">The record that counts them reads
+      “${escapeHtml(String(rc.band_1840))}”${span ? `, which is ${escapeHtml(span)} on 1 July 1835` : ''}.
+      </span>` : ''}${
+    rc.community ? `<br><span class="res-why">The invented forename is drawn from the
+      ${escapeHtml(String(rc.community))} pool.</span>` : ''}
+    ${basisHtml(person)}</dd>`;
+}
+
+/**
+ * A BIRTH INTERVAL THE CARD REFUTED (T-1179).
+ *
+ * `tools/spend_person_sex_age.py` spends an obituary's arithmetic into a `birth_year`,
+ * and until T-1179 it spent it without ever reading the rest of the card. George Smith
+ * advertised the Exchange Coffee House in the Democrat through 1834 and 1835 and his
+ * card said he was born in 1831, so the town held a coffee-house keeper of four.
+ *
+ * The match is not withdrawn and no age is put in its place — the refusal is of the
+ * SPEND, and the block that records it lives in `birth_year` like any other, asserting
+ * no value. It takes the Born row rather than leaving it blank, because a card that
+ * simply stopped printing a birth year would tell a reader nothing about the obituary
+ * still sitting further down the same card. The `unknown` chip is the right one: after
+ * the refusal this project asserts no birth year for the person at all.
+ */
+function birthRefusedHtml(block, citationsById) {
+  const cites = (block.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
+  const [from, to] = block.refused_interval || [];
+  const years = from === to ? `${from}` : `${from} or ${to}`;
+  return `<dt>Born</dt>
+    <dd>${swatch('unknown')}${tierWord('unknown')}not recorded — an obituary matched to
+      this name puts the birth in ${escapeHtml(years)}, and this card refuses it
+      <br><span class="res-why">${escapeHtml(block.note || '')}</span>${
+      block.as_read ? `<br><span class="res-why">The page reads <q>${
+        escapeHtml(String(block.as_read))}</q>, record ${
+        escapeHtml(String(block.record_id ?? ''))}.</span>` : ''}${
+      cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</dd>`;
+}
+
+/**
+ * WHERE THIS PERSON WORKED (T-1432, piece 1 of T-1189).
+ *
+ * The business layer has always known: 144 of its person rows carry a `person_id` and
+ * 110 town cards answer to them. The cards did not — `persons[]` held no workplace at
+ * all, so a man who kept a store and a card that said nothing about a store were the
+ * same person read from two ends. `tools/staff_businesses_1835.py` writes the join
+ * down and `tools/check.sh` holds it from both ends; this prints it.
+ *
+ * It is `workplaces` and NOT `works_at` deliberately. `works_at` is the BUILDING: a
+ * singular, undated structure id that `validate.py` polices as a link, and the card
+ * prints it on the household above. This is the FIRM, plural and dated, one entry a
+ * (house, role). Two questions, two words.
+ *
+ * NOTHING IS UPGRADED BY BEING SHOWN. Each row wears the tier the business record gave
+ * it and opens on that record's own citation, which is why a partner the register read
+ * out of a firm style and a partner matched to a card do not read alike here.
+ */
+function workplacesHtml(rows, citationsById) {
+  const list = (rows || []).filter(Boolean);
+  if (!list.length) return '';
+  const item = (w) => {
+    // The citation join is keyed by SOURCE id; `claim_ids` are the individual
+    // notices inside that source, which the row counts rather than lists.
+    const cites = [w.source_id].filter(Boolean).map((id) => citationsById.get(id)).filter(Boolean);
+    const notices = (w.claim_ids || []).length;
+    const from = w.from ? printedOn(w.from) : '';
+    const to = w.to ? printedOn(w.to) : '';
+    const when = from && to && from !== to ? `${from} – ${to}` : (from || to || '');
+    return `<li>${swatch(w.tier)}${tierWord(w.tier)}<b>${escapeHtml(w.business_name || w.business_id)}</b>
+      <span class="res-role">${escapeHtml(words(w.role || ''))}</span>${
+      w.business_present_at_scene_date ? '' : '<span class="res-chip res-role-off">not trading on 1 July 1835</span>'}
+      ${when ? `<br><span class="res-why">The ${notices ? `${notices} ` : ''}${
+  notices === 1 ? 'notice' : 'notices'} that carry this run ${escapeHtml(when)}. They bound
+        the READING and do not date the employment.</span>` : ''}
+      ${w.printed_as && w.printed_as !== (w.business_name || '')
+    ? `<br><span class="res-why">Printed as <q>${escapeHtml(w.printed_as)}</q>.</span>` : ''}
+      ${w.basis ? `<br><span class="res-why">${escapeHtml(w.basis)}</span>` : ''}
+      ${cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</li>`;
+  };
+  return `<dt>Where they worked</dt>
+    <dd>${swatch(null)}<span class="res-chip res-research">${list.length} ${
+  list.length === 1 ? 'house' : 'houses'} the sources name them in</span>
+      <br><span class="res-why">Carried from the business layer, which is where the
+        evidence for it lives, at that record\u2019s own grade — nothing is upgraded by
+        being joined. A house nobody named them in is not here: the hands the staffing
+        model says a house of this kind employed are reconstructed work and are not
+        written onto anybody\u2019s card by this row.</span>
+      <ul class="res-workplaces">${list.map(item).join('')}</ul></dd>`;
+}
+
+
+/**
+ * WHERE A RECONSTRUCTED TRADE WAS FOLLOWED, OR WHY NOWHERE (T-1433, piece 2 of T-1189).
+ *
+ * The row above prints the houses a SOURCE names this person in. This one is the other
+ * half of the town: 524 residents this project reconstructed, each given a trade by the
+ * town model and, until now, nowhere to follow it. `tools/seat_reconstructed_trades_1835.py`
+ * seats the ones the staffing model can seat and states, for every one it cannot, the
+ * reason in the words of the ruling that decided it.
+ *
+ * IT IS A JOIN BESIDE THE LAYER, NOT A FIELD ON THE CARD, and that is not a detail of
+ * plumbing. Two thirds of these people stand on cards a reconstruction STAGE derives
+ * whole and compares byte for byte, so a key appended to one of those cards breaks that
+ * stage's gate rather than adding a field. The seating is loaded the way
+ * `residents/directories.json` is, keyed on person_id, and a load that fails costs this
+ * block and never the card.
+ *
+ * IT IS DRAWN AND IT SAYS SO, EVERY TIME. The chip is the `reconstructed` hatch, the
+ * block carries the seed it was drawn from, and `chosen_by` names which term of the
+ * order rule actually decided the seat — because two of the three terms the rule states
+ * are inert against the layer as it stands, and a card that hid that would be claiming
+ * a precision the data does not have.
+ */
+function employmentHtml(seatingByPerson, personId) {
+  const e = seatingByPerson && seatingByPerson.get(personId);
+  if (!e) return '';
+  const basis = e.basis && e.basis.note ? e.basis.note : '';
+  const drawn = {
+    seated: 'Seated by the staffing model',
+    class_held_no_house: 'No house of this kind has room',
+    keeps_their_own_house: 'Owed a house of their own',
+    no_employer_named: 'No employer can be named',
+    no_ruling: 'No ruling on this trade yet',
+  }[e.kind] || e.kind;
+  const term = {
+    division_match: 'the house stands in their own division',
+    nearest: 'it is the nearest house of the trade to where they live',
+    seeded_draw: 'a seeded draw — no division and no distance separated the candidates',
+  };
+  const how = (e.chosen_by || []).map((t) => term[t] || t).join('; ');
+  return `<dt>Where this reconstructed trade was followed</dt>
+    <dd>${swatch('reconstructed')}${tierWord('reconstructed')}<span class="res-chip res-research">${
+  escapeHtml(drawn)}</span>
+      ${e.business_id ? `<br><b>${escapeHtml(e.business_name || e.business_id)}</b>${
+        e.role ? `<span class="res-role">${escapeHtml(words(e.role))}</span>` : ''}` : ''}
+      ${how ? `<br><span class="res-why">Chosen because ${escapeHtml(how)}${
+        e.candidates_considered ? ` — ${e.candidates_considered} house${
+          e.candidates_considered === 1 ? '' : 's'} of the trade were open to them` : ''}.</span>` : ''}
+      ${basis ? `<br><span class="res-why">${escapeHtml(basis)}</span>` : ''}
+      ${e.replaceable_by && e.replaceable_by.match
+    ? `<br><span class="res-why">Withdrawn by ${escapeHtml(e.replaceable_by.match)}.</span>` : ''}
+      <br><span class="res-why">Drawn, not read. No source places this person at work
+        anywhere; the seat is a pointer at a house the business layer already holds,
+        reproducible from the seed <code>${escapeHtml(e.seed || '')}</code>. Nothing is
+        written onto the house itself until the staffing shortfall is minted.</span></dd>`;
+}
+
+
+/**
+ * WAS THIS PERSON AT WORK, AND IF NOT, WHY NOT (T-1461, piece 1 of T-1449).
+ *
+ * The two blocks above are both true and neither covers the town. `workplaces` prints
+ * the 112 cards a SOURCE names in a house; the seating prints the 524 reconstructed
+ * trade-holders. That is 636 people of 3,243, and the other 2,607 carried no workplace,
+ * no seat and no reason — a card that had never been asked the question looked exactly
+ * like a card that had been asked and answered no.
+ *
+ * `tools/employment_coverage_1835.py` gives every person ONE answer from a closed set of
+ * five, and this prints it on every card, including the ones the blocks above already
+ * detail. That is deliberate: the guarantee is that a reader who opens any card finds
+ * the question answered, and a guarantee with exceptions is not one. Where a block above
+ * carries the houses, this carries the sentence and points at them.
+ *
+ * IT SAYS "AT WORK" AND "NOT PLACED" AS TWO DIFFERENT THINGS. The soldier at the post
+ * and the laundress over her own tub follow a trade and have no employer in the business
+ * layer. Printing them as unemployed would be false; printing them as placed would be an
+ * invention. `at_a_trade_with_no_house_to_join` is neither, and the sentence says which.
+ *
+ * Its own loader, degrading like every other join here: a miss costs this block on a
+ * card and never the card.
+ */
+const COVERAGE_HEADLINE = {
+  at_a_named_house: 'At a house a source names',
+  at_a_seat_this_project_drew: 'At a seat this project drew',
+  on_their_own_account: 'On their own account',
+  at_a_trade_with_no_house_to_join: 'At a trade with no house to join them to',
+  no_trade_recorded: 'No trade recorded',
+};
+
+const COVERAGE_AGE = {
+  below_working_age: 'The age band on this card lies wholly below the youngest age the '
+    + 'staffing model puts anybody to work at, so no employment is looked for.',
+  age_is_not_settled: 'The age band on this card does not settle whether this person was '
+    + 'of working age — it straddles the model\u2019s floor, or the card carries none. '
+    + 'They are answered anyway, and counted apart so a reader can take them out again.',
+};
+
+function employmentCoverageHtml(coverage, personId) {
+  const row = coverage && coverage.byPerson && coverage.byPerson.get(personId);
+  if (!row) return '';
+  const headline = COVERAGE_HEADLINE[row.status] || words(row.status || '');
+  const placed = !!(coverage.placed && coverage.placed.has(row.status));
+  const sentence = (coverage.words && coverage.words[row.reason]) || '';
+  const age = COVERAGE_AGE[row.age_scope] || '';
+  return `<dt>Were they at work?</dt>
+    <dd><span class="res-chip ${placed ? 'res-research' : 'res-role-off'}">${
+  escapeHtml(headline)}</span>
+      ${sentence ? `<br><span class="res-why">${escapeHtml(sentence)}</span>` : ''}
+      ${age ? `<br><span class="res-why">${escapeHtml(age)}</span>` : ''}
+      ${row.decided_by ? `<br><span class="res-why">Decided by <code>${
+    escapeHtml(row.decided_by)}</code>.</span>` : ''}
+      <br><span class="res-why">One answer, from a closed set of five, for every person in
+        the layer \u2014 so a card that has never been asked cannot read like a card that
+        was asked and answered no. Nothing here supplies a trade, seats anybody or writes
+        a byte onto a business record.</span></dd>`;
+}
+
+
 export function personHtml(person, citationsById, researchByPerson, directoryByPerson,
-  directoriesOnRecord, ladderRules, withheldByPerson = new Map(), oldSettlerDeaths = null) {
+  directoriesOnRecord, ladderRules, withheldByPerson = new Map(), oldSettlerDeaths = null,
+  seatingByPerson = new Map(), coverage = null) {
   const occ = person.occupation || {};
   // The roles are the record and `occupation` is the view of them that covers the
   // scene date (T-1255): the summary says how many there are so a card with a
@@ -1197,6 +1526,18 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
   const born = person.birth_year || null;
   const aged = person.age_on_scene_date || null;
   const named = person.name_basis || null;
+  // T-1303. Where a sex was READ — off a gendered title, off a forename that stands in
+  // one sex's naming only — the reasoning travels with it and the row is a graded claim
+  // like every other. Where it came off a source with the rest of the record, the mints
+  // wrote the bare string and there is no reasoning of ours to print.
+  //
+  // T-1304 writes the same block for a sex it DREW, graded `reconstructed`, and that is
+  // the whole reason no new rendering was needed for it: `claimRow` already prints the
+  // tier, the reasoning, the model the value was drawn from, the seed that redraws it and
+  // the evidence that would retire it. A drawn value that rendered like a read one would
+  // be the misrepresentation; a drawn value that renders THROUGH the same graded row,
+  // wearing the reconstructed chip and opening on its own seed, is the opposite.
+  const basis = person.sex_basis || null;
   return `<details class="lib res-person">
     <summary><span class="lib-title">${swatch(person.grade)}${escapeHtml(person.name || 'unnamed')}</span>
       <span class="res-role">${escapeHtml(words(person.relationship))}${
@@ -1207,9 +1548,18 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
           rolesAtScene ? '' : ', none on 1 July 1835'}` : ''}</span></summary>
     <dl class="lib-body">
       ${row('In the household as', words(person.relationship))}
-      ${row('Sex', words(person.sex))}
+      ${basis
+        ? claimRow('Sex', words(basis.value), basis, citationsById)
+        : row('Sex', words(person.sex))}
       ${claimRow('Age on 1 July 1835', aged && aged.value, aged, citationsById)}
-      ${claimRow('Born', born && born.value, born, citationsById)}
+      ${born && born.refused_because
+        ? birthRefusedHtml(born, citationsById)
+        : claimRow('Born', bornYears(born), born, citationsById)}
+      ${born && born.contradicted_by_the_card
+        ? `<dd><span class="res-why">${escapeHtml(born.contradicted_by_the_card)}</span></dd>`
+        : ''}
+      ${claimRow('Age band on 1 July 1835', bandYears(person.age_band),
+        person.age_band, citationsById)}
       ${occ.value ? `<dt>Occupation</dt><dd>${swatch(tierOf(occ))}${tierWord(tierOf(occ))}${
         isNotAsserted(occ) ? 'not recorded' : escapeHtml(words(occ.value))}${
         occ.later_occupation ? ' for 1835' : ''}${
@@ -1217,9 +1567,13 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
         laterOccupationHtml(occ.later_occupation, citationsById)}${
         occCites.length ? `<ol class="cites">${citationItems(occCites)}</ol>` : ''}</dd>` : ''}
       ${rolesHtml(roles, citationsById)}
+      ${workplacesHtml(person.workplaces, citationsById)}
+      ${employmentHtml(seatingByPerson, person.id)}
+      ${employmentCoverageHtml(coverage, person.id)}
       ${associationsHtml(person.associated_with, citationsById,
         'Where this person was, and when')}
       ${claimRow('How this person is named', named && named.value, named, citationsById)}
+      ${reconstructedHtml(person)}
       ${person.letter_list_only
         ? `<dt>How this person is known</dt><dd>${swatch('attested')}Only from the post office's lists of uncalled-for letters. A name on one of those lists is somebody a correspondent believed was reachable at Chicago; it gives no trade, no street and no household, and it is the weakest evidence this project accepts for a resident. A shopkeeper who advertised his stock is a different claim, and this row is here so the two never read as the same one.</dd>` : ''}
       ${person.letter_list_only && (person.letter_list_returns || []).length
@@ -1231,6 +1585,7 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
           and one waiting eighteen months earlier is a different claim about the same
           person.</span></dd>` : ''}
       ${person.note ? `<dt>What the sources say</dt><dd>${escapeHtml(person.note)}</dd>` : ''}
+      ${reconstructionHtml(person)}
       ${nameRulingHtml(person.name_ruling, citationsById)}
       ${profileFactsHtml(person.profile_facts, citationsById)}
       ${withheldFactsHtml(withheldByPerson.get(person.id), citationsById)}
@@ -1287,8 +1642,50 @@ function householdSummary(entry, { orphanChip = true } = {}) {
 }
 
 /** The household record itself, rendered into an opened row. */
+/**
+ * Why a reconstructed person is in the town, on their own row (T-1171).
+ *
+ * The attribute tiers reach a card through `claimRow` because they sit on a value. A
+ * RECONSTRUCTED PERSON has no value to hang the disclosure off — the person IS the drawn
+ * thing — so the same disclosure is printed about them: the stage of the programme that
+ * wrote them, the model row it drew from, the seed a reader can retype to redraw them and
+ * the evidence that would retire them. `basisHtml` takes the person record itself, which
+ * carries `basis`, `seed` and `replaceable_by` in exactly the shape it reads.
+ *
+ * A drawn person shipped to a browser looking like a found one is the misrepresentation
+ * this whole layer is against; a drawn person wearing the reconstructed swatch and opening
+ * on their own seed is the opposite.
+ */
+function reconstructedHtml(person) {
+  const rc = person && person.reconstruction;
+  if (!rc || typeof rc !== 'object') return '';
+  return `<dt>Why this person is in the town</dt><dd>${swatch('reconstructed')}Nobody a source
+    names. Drawn by the <code>${escapeHtml(String(rc.stage || ''))}</code> stage of the 1835
+    resident reconstruction programme${rc.ticket ? ` (${escapeHtml(String(rc.ticket))})` : ''}${
+    rc.community ? `, named from the ${escapeHtml(words(rc.community))} pool` : ''}.${
+    rc.review_required ? ' This reconstruction carries a standing review.' : ''}
+    ${basisHtml(person)}</dd>`;
+}
+
+/**
+ * The household block the modelled-families stage writes: what size the 1840 histogram
+ * drew this house at, how much of it is kin, and what the stage deliberately did not seat.
+ */
+function modelledFamilyHtml(block) {
+  if (!block || typeof block !== 'object') return '';
+  return `<dt>The family the household model drew</dt><dd>${swatch('reconstructed')}A
+    ${escapeHtml(words(block.household_type))} of ${escapeHtml(String(block.size_drawn))},
+    drawn at the head's own size band from the 1840 city's household histogram;
+    ${escapeHtml(String(block.kin_seated))} of them are seated here as kin.
+    <br><span class="res-why">Drawn by stage <code>${escapeHtml(String(block.stage))}</code>
+    of the 1835 resident reconstruction programme, ${escapeHtml(String(block.ticket))}.
+    ${escapeHtml(String(block.note || ''))}${
+    block.seed ? ` Redrawn with the seed <code>${escapeHtml(String(block.seed))}</code>.` : ''}
+    </span></dd>`;
+}
+
 export function householdHtml(hh, citationsById, researchByPerson, directoryByPerson, ladderRules,
-  agencies = null, withheldByPerson = new Map()) {
+  agencies = null, withheldByPerson = new Map(), seatingByPerson = new Map(), coverage = null) {
   // T-0632's block on the record: `directories.note` states what a later volume is
   // worth and `directories.sources` names every one that met this household.
   const onRecord = hh.directories || {};
@@ -1297,6 +1694,8 @@ export function householdHtml(hh, citationsById, researchByPerson, directoryByPe
   return `<dl class="lib-body res-fields">
       ${claimRow('Came to Chicago', (hh.arrival || {}).value, hh.arrival, citationsById)}
       ${row('How exact that year is', words((hh.arrival || {}).precision))}
+      ${claimRow('The year they are carried at', (hh.arrival_year || {}).value,
+        hh.arrival_year, citationsById)}
       ${claimRow('In a party of', party && party.value, party, citationsById)}
       ${claimRow('Came from', (hh.origin || {}).value, hh.origin, citationsById)}
       ${claimRow('Why they came', (hh.reason_for_coming || {}).value,
@@ -1305,13 +1704,21 @@ export function householdHtml(hh, citationsById, researchByPerson, directoryByPe
       ${claimRow('Worked at', (hh.works_at || {}).value, hh.works_at, citationsById)}
       ${claimRow('Here on 1 July 1835', (hh.present_on_scene_date || {}).value,
         hh.present_on_scene_date, citationsById)}
+      ${presenceLegRow(hh, citationsById)}
       ${associationsHtml(hh.associated_with, citationsById,
         'Where this household was, and when')}
       ${kinRows(hh, citationsById)}
+      ${modelledFamilyHtml(hh.modelled_family)}
       ${hh.touches_removal
         ? `<dt>Touches the removal of 1835</dt><dd>Yes — read the standing constraint in
            <code>AGENTS.md</code>. This record is published as research; nothing about the
            removal is depicted or staged in the scene.</dd>` : ''}
+      ${hh.surname_collision
+        ? `<dt>Another card holds this family name</dt><dd>${
+            escapeHtml(hh.surname_collision.refusal)} — ${
+            escapeHtml((hh.surname_collision.holds_the_surname || []).join('; '))}.
+           Nothing is retired: ${escapeHtml(hh.surname_collision.ruling)}.
+           ${escapeHtml(hh.surname_collision.note)}</dd>` : ''}
       ${hh.research_note
         ? `<dt>What this record is worth</dt><dd>${escapeHtml(hh.research_note)}</dd>` : ''}
     </dl>
@@ -1319,7 +1726,7 @@ export function householdHtml(hh, citationsById, researchByPerson, directoryByPe
         escapeHtml((onRecord.sources || []).join(', '))}.</p>` : ''}
     ${agencySectionHtml(agencies, 'household_id', hh.id, escapeHtml)}
     <div class="res-people">${persons.map((p) => personHtml(p, citationsById, researchByPerson, directoryByPerson, onRecord.people, ladderRules,
-      withheldByPerson, hh.old_settler_deaths)).join('')}</div>`;
+      withheldByPerson, hh.old_settler_deaths, seatingByPerson, coverage)).join('')}</div>`;
 }
 
 /**
@@ -1536,6 +1943,41 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
   // later trade and street and cites the volume, and this layer carries the printed
   // lines, the match rule and the arithmetic the card has no room for. Its absence
   // costs the section this block and nothing else.
+  // T-1433. WHERE A RECONSTRUCTED TRADE WAS FOLLOWED — the seats and the stated
+  // absences `tools/seat_reconstructed_trades_1835.py` draws for the 524 residents this
+  // project reconstructed with a trade and no attested workplace. Beside the layer and
+  // not on the cards, because two thirds of those cards are the byte-compared output of
+  // a reconstruction stage. Its own loader, degrading like every other join here: a miss
+  // costs the block on a card and never the card.
+  const seatingByPerson = new Map();
+  try {
+    const seating = await getJson('residents/reconstructed_seating.json');
+    for (const row of seating.rows || []) seatingByPerson.set(row.person_id, row);
+  } catch (err) {
+    problems.push(`residents: ${err.message} — the reconstructed trade seatings are not shown`);
+  }
+
+  // T-1461. THE EMPLOYMENT COVERAGE ANSWER — one answer per person for all 3,243 of
+  // them, where the two joins above between them reach 636. Loaded and degraded exactly
+  // as the seating is: a miss costs the block on every card and never a card.
+  let coverage = null;
+  try {
+    const found = await getJson('residents/employment_coverage.json');
+    const byPerson = new Map();
+    for (const row of found.rows || []) byPerson.set(row.person_id, row);
+    const statuses = (found.vocabulary || {}).statuses || {};
+    coverage = {
+      byPerson,
+      words: (found.vocabulary || {}).reasons || {},
+      placed: new Set(Object.entries(statuses)
+        .filter(([, v]) => v && v.places_them_at_work).map(([k]) => k)),
+      counts: found.counts || {},
+      model: found.against_the_town_model || {},
+    };
+  } catch (err) {
+    problems.push(`residents: ${err.message} — the employment coverage answers are not shown`);
+  }
+
   const directoryByPerson = new Map();
   let directoryCounts = {};
   let directoryVolumes = [];
@@ -1636,6 +2078,25 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
           + `a door where the trade would go and ${
               directoryCounts.split_refused_addresses || 0} give an address that is only a `
           + `ditto, so those fields do not cross and the line is quoted instead. ` : '')
+      + (coverage && coverage.counts && coverage.counts.people
+        // T-1461. THE EMPLOYMENT COVER. Every person in the layer now carries one
+        // employment answer, and the number worth putting in front of a reader is not
+        // how many are at work but how many are NOT ACCOUNTED FOR — because until this
+        // pass ran, a card nobody had asked the question of and a card that had been
+        // asked and answered no were the same blank. The sentence leads with the cover
+        // and follows with what it is worth against the town model's own band.
+        ? `Every one of the ${coverage.counts.people} people here now carries one `
+          + `employment answer and none of them carries none: `
+          + `${coverage.counts.placed_at_work} are placed at work — at a house a source `
+          + `names, at a seat this project drew, or on their own account — and the rest `
+          + `carry a stated reason they are not, in the words of the rule that decided `
+          + `it. ${coverage.counts.working_age_with_no_trade_recorded} of those reasons `
+          + `are the same one: no source records a trade for them and no stage has given `
+          + `them one, which is a statement about the evidence rather than about the `
+          + `person. The town model puts ${coverage.model?.employed_persons?.model_low} `
+          + `to ${coverage.model?.employed_persons?.model_high} people of this town in `
+          + `work, so the cover falls inside the band — which is where the argument `
+          + `starts and not where it finishes. ` : '')
       + `Nobody is drawn: this is the research, not a population.`;
     noteMount.removeAttribute('aria-busy');
   }
@@ -1660,7 +2121,7 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
       try {
         const hh = await getJson(`residents/${el.dataset.file}`);
         if (body) body.innerHTML = householdHtml(hh, citationsById, researchByPerson, directoryByPerson,
-          vocab.ladder_rules, agencies, withheldByPerson);
+          vocab.ladder_rules, agencies, withheldByPerson, seatingByPerson, coverage);
       } catch (err) {
         el.dataset.loaded = '0';
         problems.push(`residents: ${err.message} — one household record is missing`);
@@ -1713,7 +2174,7 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
  * @param {string[]} [problems] the shared collector
  * @returns {Promise<{citationsById: Map, researchByPerson: Map, directoryByPerson: Map,
  *   withheldByPerson: Map, ladderRules: object[], agencies: object|null,
- *   getJson: (rel: string) => Promise<any>}>}
+ *   seatByHousehold: Map, getJson: (rel: string) => Promise<any>}>}
  */
 const residentJoinCache = new Map();
 export function loadResidentJoins(dataBase, sceneId, problems = []) {
@@ -1730,7 +2191,12 @@ export function loadResidentJoins(dataBase, sceneId, problems = []) {
     const directoryByPerson = new Map();
     const withheldByPerson = new Map();
     let ladderRules = [];
-    const [joined, pilot, found, index, agencies, withheld] = await Promise.all([
+    const seatByHousehold = new Map();
+  // …and the same book's firms, keyed by the REGISTER id the business index
+  // crosswalks to (`register_id`), which is the id the address book files them
+  // under. T-1493: the business card reads this the way the person card does.
+  const seatByBusiness = new Map();
+    const [joined, pilot, found, index, agencies, withheld, addressBook] = await Promise.all([
       getJson(`sidecars/${sceneId}/residents_sources.json`).catch((err) => {
         problems.push(`people: ${err.message} — person cards are shown without their citations`);
         return null;
@@ -1755,6 +2221,14 @@ export function loadResidentJoins(dataBase, sceneId, problems = []) {
         problems.push(`people: ${err.message} — the withheld research facts are not shown`);
         return null;
       }),
+      // T-1491. The address book: one row per household and per firm, at the rung its
+      // evidence reaches. A card WITHOUT it falls back to "No known address", which is
+      // the sentence this join exists to replace — so its absence costs the sentence
+      // and never the card.
+      getJson('reconstruction/1835_address_book.json').catch((err) => {
+        problems.push(`people: ${err.message} — the address book's seats are not shown on person cards`);
+        return null;
+      }),
     ]);
     for (const [id, record] of Object.entries(joined?.citations || {})) citationsById.set(id, record);
     for (const review of pilot?.reviews || []) researchByPerson.set(review.person_id, review);
@@ -1766,8 +2240,12 @@ export function loadResidentJoins(dataBase, sceneId, problems = []) {
       directoryByPerson.set(row.person_id, { ...row, standard: found.standard });
     }
     ladderRules = index?.vocabulary?.ladder_rules || [];
+    for (const row of addressBook?.rows || []) {
+      if (row.kind === 'household') seatByHousehold.set(row.id, row);
+      else if (row.kind === 'business') seatByBusiness.set(row.id, row);
+    }
     return { citationsById, researchByPerson, directoryByPerson, withheldByPerson, ladderRules,
-      agencies, getJson };
+      agencies, seatByHousehold, seatByBusiness, getJson };
   })();
   residentJoinCache.set(key, promise);
   return promise;

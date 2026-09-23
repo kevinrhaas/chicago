@@ -112,15 +112,15 @@ Asked for on 2026-09-06 after the lap shipped. Reading the deploy to design it f
 premise was wrong in the project's favour: **the mirror never needed to be tracked at all.**
 
 **The evidence.** `deploy.yml` already ASSEMBLES into `site/` on the runner — it builds the
-`/4d/dev/` preview there from a worktree — and then uploads with
+`/chicago/4d/dev/` preview there from a worktree — and then uploads with
 `actions/upload-pages-artifact` `path: site`. Pages serves what the RUNNER holds, not what the
 commit holds. And `publish.sh` is a pure copy: its own header says "copy the publishable tree
-into site/". So `site/4d/` — **2,280 tracked files** — is a build output that happens
+into site/". So `site/chicago/4d/` — **2,280 tracked files** — is a build output that happens
 to be committed.
 
 **The design, then, is not "take five files off the PR surface" but:**
 
-1. **Untrack `site/4d/**` and run `tools/publish.sh` in `deploy.yml` before the upload.**
+1. **Untrack `site/chicago/4d/**` and run `tools/publish.sh` in `deploy.yml` before the upload.**
 2. `check_published.mjs` changes from *"the committed mirror matches the dataset"* to
    *"publish.sh PRODUCES a mirror that matches"*. That is STRICTER, not weaker, and it keeps
    R-BUG3c-b's sentence — *do not measure the file you built, measure the file you ship* —

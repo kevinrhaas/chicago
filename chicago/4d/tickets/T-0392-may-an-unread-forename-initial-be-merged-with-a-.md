@@ -1,7 +1,7 @@
 ---
 id: T-0392
 title: May an unread forename initial be merged with a read one at the same entry of the same list — the owner's ruling
-state: blocked-owner
+state: open
 epic: PAPERS
 requested_by: loop
 seen: false
@@ -12,8 +12,10 @@ opened: 2026-08-29
 closed: null
 pr: null
 claimed_by: null
-blocked_on: May a merge be declared where one side's forename initial is [?] (unread) and the other's is read, at the same entry of the same list? No = eighteen known duplicates are an accepted cost; Yes = a bounded exception, same list, same entry, no competing letter.
+blocked_on: null
 needs_bake: false
+closed_at: null
+claimed_run: null
 ---
 
 The question T-0348 was opened for, kept whole and separated from the parser repair that
@@ -75,3 +77,25 @@ Merges were written for both and the compiler refused both, correctly and by its
 rule. So the readings stand in `normalized` and the gazetteer keeps two people with no
 forename that it could name. **No = two more accepted duplicates on top of the eighteen
 below; Yes = two more closed by the same bounded exception.** Nothing was changed here.
+
+## THE OWNER'S RULING, 2026-09-21: yes — merge, and record it as UNDOABLE
+
+A merge may be declared where one side's forename initial is `[?]` (unread) and the other's
+is read, at the same entry of the same list, with no competing letter. Same entry of the
+same list is the same physical ink, and refusing there costs eighteen known duplicates for
+a scruple that does not apply to the page in front of us.
+
+BUT THE MERGE CARRIES ITS OWN UNDO, and that condition is the ruling, not a nicety. Each
+such merge records: the unread side, the entry and list it was read at, and the fact that
+the agreement is POSITIONAL — the two readings are of one line — rather than evidential.
+Nothing about the letter itself was read, and the record must not come to say it was.
+
+WHY UNDOABLE RATHER THAN SIMPLY ALLOWED. These pages get re-read. When somebody does read
+that initial, one of two things is true: it agrees, and the merge gains a real basis; or it
+does not, and two men have to come apart again. A merge whose basis is recorded can be
+split in one step by whoever reads the page. A merge that dissolved into the identity graph
+cannot, and the second case is the one that quietly corrupts a town.
+
+SCOPE, unchanged from the question as asked: same list, same entry, no competing letter. A
+merge across two lists, or across two entries of one list, is not this ruling and is not
+made under it.

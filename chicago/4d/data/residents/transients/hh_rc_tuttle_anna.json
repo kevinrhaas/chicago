@@ -1,0 +1,159 @@
+{
+ "id": "hh_rc_tuttle_anna",
+ "name": "The Tuttle party — a household of the summer's crowd",
+ "division": "unplaced",
+ "head": "rc_tuttle_anna",
+ "source_pass": "reconstructed_transient",
+ "transient": {
+  "ticket": "T-1353",
+  "parent_ticket": "T-1178",
+  "stage": "transients",
+  "household_kind": "party",
+  "cohort_row": "immigrant families awaiting lots",
+  "sleeping_class": "the_floor_of_that_room",
+  "sleeping_place": "the floor of that room",
+  "slot": "transients:the_floor_of_that_room:016",
+  "point_adopted": 384,
+  "point_reading": "twice the 1843 rate",
+  "class_quota": 51,
+  "ordinal_in_class": 16,
+  "stands_on": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 persons and prints two candidate points without adopting one. This stage adopts 384 ('twice the 1843 rate'), reserves 77 slots for the land-sale purchasers the register names, and deals the remainder equally across the six sleeping-place classes the sources name and do not rank.",
+  "withdrawn_if": "a source that ranks the sleeping-place classes, a re-reading of T-1352's bracket that adopts the other candidate point, or a source naming a real member of the crowd; the retirement runs through --build, never by hand"
+ },
+ "presence_kind": {
+  "value": "transient",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "counted_apart_from_the_residents",
+   "note": "Argued, not drawn. The Chicago American of 13 June 1835 puts the strangers OUTSIDE its own population estimate, and Chicago's own enumerator printed `Transient persons` as a row of its own in 1843. A transient is in the town on the day and is not a resident; the town census reports the two apart for that reason."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source placing this household in the town before or after the season, which would make them residents and not visitors"
+  }
+ },
+ "lodged_at": [
+  {
+   "kind": "roofed_in_the_town",
+   "place_id": "the_floor_of_that_room",
+   "resolves_to": "sleeping_class",
+   "sleeping_class": "the_floor_of_that_room",
+   "tier": "reconstructed",
+   "confidence": "conjectural",
+   "basis": {
+    "kind": "source",
+    "id": "1835_transient_cohort",
+    "note": "The class, not the house. the Democrat, 17 June 1835: “'even to the extent of sleeping on the floor'”"
+   },
+   "replaceable_by": {
+    "kind": "place",
+    "match": "T-1371 and T-1372, which deal the lodging model's surge beds to the named and reconstructed lodging places; until they do, no inn is named here, because a bed dealt twice is a bed invented once"
+   },
+   "note": "NO HOUSE IS NAMED. The lodging places' beds belong to the lodging model and are dealt by T-1371; this row reaches the rung the sources reach, which is the class of place and not the place."
+  }
+ ],
+ "arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "NOT DRAWN, AND NOT THE SAME QUESTION. The arrival model dates when a household CAME TO STAY, and this one did not stay. The vessels landed passengers on 28 and 29 June and on 2 and 3 July; which boat this party came off is not recorded and is not derivable.",
+  "seated_by": "nothing — a visitor of the season has no arrival year to fill"
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "A VISITOR OF THE SEASON KEPT NO RESIDENCE. `lives_at` is the house a household lived in and the town census counts a person as housed through it; writing one here would move the resident count, which is the one thing this cohort must not do. Where they slept is in `lodged_at`, at the rung the sources reach."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not seated. No trade is drawn for a visitor, so there is no workplace to name; the harbour-works gang, which would have had one, is refused for want of a strength (see the ledger's refusals)."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "bounded_by_the_transient_cohort",
+   "note": "Ordered, not argued: T-1352's bracket is a count of people IN the town on 1 July 1835, so presence is the bound rather than a draw made over it."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a re-reading of T-1352's bracket that no longer counts this person"
+  }
+ },
+ "persons": [
+  {
+   "id": "rc_tuttle_anna",
+   "name": "Anna Tuttle",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "40-49",
+    "low": 40,
+    "high": 49,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's free-white age columns, folded to the order book's six bands. Nothing here is a reading of anybody's age."
+    },
+    "seed": "transients:the_floor_of_that_room:016:head:rc_tuttle_anna:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. This project writes no year it cannot read."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "NO TRADE IS DRAWN FOR A VISITOR. The occupation model counts the town's working people and this person is not one of them; a trade written here would be spent out of a quota that belongs to the residents."
+   },
+   "name_basis": {
+    "value": "Anna Tuttle",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Both parts are drawn from the New England and New York pool, which is seeded from the attested residents of this town. The pool is chosen by the pools' own default weighting, restricted to the two eastern communities the emigrant trade of 1835 brought off the lake vessels."
+    },
+    "seed": "transients:the_floor_of_that_room:016:head:rc_tuttle_anna:name",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a real visitor of this town in the summer of 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn visitor from another, and it is checked against every name the layer already bears."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_transient_cohort",
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'the floor of that room' and so sleeping under a roof in the town."
+   },
+   "seed": "transients:the_floor_of_that_room:016:head:rc_tuttle_anna",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a real member of the summer crowd of 1835, or a re-reading of T-1352's bracket that no longer counts this person"
+   },
+   "reconstruction": {
+    "stage": "transients",
+    "community": "yankee",
+    "cohort_row": "immigrant families awaiting lots",
+    "sleeping_class": "the_floor_of_that_room"
+   },
+   "note": "A VISITOR OF THE SEASON, NOT A RESIDENT. Counted apart from the town's own population, because the Chicago American counted them apart: it put the population at 2,500 to 3,000 and the strangers at 'some hundreds more'."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "RECONSTRUCTED VISITORS, NOT RESIDENTS. Nobody here is named by a source. They are the summer crowd of 1835 the newspapers describe and nobody counted, minted so the town's own population can be read without them and the crowd can be read at all."
+}

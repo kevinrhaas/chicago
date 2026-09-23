@@ -1,0 +1,92 @@
+name: Chicago 4D — stuck PR report
+
+# Says so when a pull request into `dev` is one no automation in this repository
+# can move. It merges nothing, pushes nothing and resolves nothing —
+# .github/steward/pr-stuck.sh holds the whole reading of why (T-1368).
+#
+# THE TRIGGER IS A PUSH TO A STEWARD BRANCH, AND THAT IS NOT A STYLE CHOICE.
+# `schedule` fires ONLY from the repository's DEFAULT branch, which is `main`;
+# this file lives on `dev` and reaches `main` only through promote-to-prod, so a
+# `schedule` written here would never fire once — not late, not rarely: never.
+# That is measured, not assumed, and chicago-4d-merge-ready.yml states the
+# measurement in full.
+#
+# A push to `dev` is the trigger the lap and the merger use, and it is the WRONG
+# one for this job on its own. The deadlock's defining property is that the queue
+# has STOPPED: nothing merges, so nothing pushes to `dev`, so a reporter hung on
+# that trigger goes quiet exactly when it is needed. The four PRs of 2026-09-20
+# sat through that silence.
+#
+# A steward branch push is the loop's own heartbeat. It happens whenever any slice
+# is alive, whether or not the queue is draining, and every run sweeps the WHOLE
+# queue — so one healthy slice is enough to report on a PR that belongs to a run
+# that died hours ago. `dev` is kept as well: a merge is a moment the queue's shape
+# changes, and a sweep there costs seconds.
+#
+# AND IT MUST NOT POISON THE PULL REQUEST IT WAS PUSHED FROM. A run started by a
+# push creates a check run on that head sha, which on a steward branch is an open
+# PR's head; a failing non-required check makes the PR `unstable`, and
+# merge-ready.sh merges only on `clean`. A blind sweep would therefore stall an
+# unrelated, finished pull request for ever. `STUCK_SOFT_FAIL` is set on exactly
+# that trigger and on no other, and pr-stuck.sh states the whole trade.
+#
+# IT IS NOT THE GATE AND IT DOES NOT DOUBLE ONE. T-1288's measurement — one commit
+# must never get two `gate` runs, and a PR must never wait on the slower of a pair
+# — is untouched: chicago-4d-check.yml's triggers are not changed by this ticket,
+# and nothing here produces a check run on anybody's head sha.
+on:
+  push:
+    branches:
+      - 'steward/**'
+      - dev
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Report on a single PR number (blank = every open PR)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Say what it would report, label and comment on nothing'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+# One sweep at a time, and the newest one wins. Three slices push often; a sweep
+# is a read of the queue as it stands, so an older one in flight has nothing to
+# say that the newer one will not say better. This is the one workflow in the repo
+# where cancelling in progress is right, and it is why this is cheap to trigger
+# so freely.
+concurrency:
+  group: chicago-4d-pr-stuck
+  cancel-in-progress: true
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check the secret before doing anything
+        env:
+          P: ${{ secrets.STEWARD_PAT }}
+        run: |
+          [ -n "$P" ] || {
+            echo "::error::STEWARD_PAT is missing. GITHUB_TOKEN cannot read the run that"
+            echo "::error::owns a claim — it lives in polecat-platform — so every PR would"
+            echo "::error::read as mid-run and nothing would ever be reported."
+            exit 1; }
+
+      # Shallow: this reads the queue over REST and needs the script, nothing else.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Report every pull request nothing can move
+        env:
+          GH_TOKEN: ${{ secrets.STEWARD_PAT }}
+          STUCK_ONLY: ${{ inputs.only }}
+          STUCK_DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+          STUCK_SOFT_FAIL: ${{ startsWith(github.ref, 'refs/heads/steward/') && '1' || '' }}
+        run: bash .github/steward/pr-stuck.sh

@@ -18,7 +18,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1280
+   "n": 1283
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -40,7 +40,7 @@
   "residents_matched_one_entry": 90,
   "residents_ambiguous": 31,
   "residents_contested": 18,
-  "residents_surname_only_refused": 216,
+  "residents_surname_only_refused": 219,
   "residents_further_initial_disagreed_refused": 4,
   "residents_letter_list_bucket_refused": 1,
   "voters_matched_one_entry": 81,
@@ -3850,6 +3850,11 @@
     "rule": "The surname 'Adams' stands in the 1837 poll and no man under it carries the initial 'E' of 'Elizabeth Adams'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Ellen Hamilton",
+    "candidates_under_that_surname": 3,
+    "rule": "The surname 'Hamilton' stands in the 1837 poll and no man under it carries the initial 'E' of 'Ellen Hamilton'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Emeline Egan",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Egan' stands in the 1837 poll and no man under it carries the initial 'E' of 'Emeline Egan'. A surname-only agreement is a refusal."
@@ -4495,6 +4500,11 @@
     "rule": "The surname 'Morrison' stands in the 1837 poll and no man under it carries the initial 'T' of 'T. M. Morrison'. A surname-only agreement is a refusal."
    },
    {
+    "name": "The Harmon daughter later known as Mrs A. G. Burley",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Burley' stands in the 1837 poll and no man under it carries the initial 'T' of 'The Harmon daughter later known as Mrs A. G. Burley'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Thomas Andrews",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Andrews' stands in the 1837 poll and no man under it carries the initial 'T' of 'Thomas Andrews'. A surname-only agreement is a refusal."
@@ -4538,6 +4548,11 @@
     "name": "Watson M Snow",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Snow' stands in the 1837 poll and no man under it carries the initial 'W' of 'Watson M Snow'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Welthyan Loomis Harmon",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Harmon' stands in the 1837 poll and no man under it carries the initial 'W' of 'Welthyan Loomis Harmon'. A surname-only agreement is a refusal."
    },
    {
     "name": "Willard Jones",

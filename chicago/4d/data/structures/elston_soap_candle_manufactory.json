@@ -90,6 +90,22 @@
     ],
     "note": "The firm names itself in its own advertisement, which is the strongest form this evidence takes. Who else was in the partnership, and whether anyone was working the premises on 1835-07-01, is not attested."
   },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "north_division_tier",
+    "plat": "thompson_plat_1830",
+    "layer": "data/traces/vectors/north_division_tier_lots.json",
+    "block_id": "blk_kinzie_north_branch",
+    "lot_index": 1,
+    "lot_number": 4,
+    "lot_number_withheld": null,
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": "inferred",
+    "confidence": "inferred",
+    "footprint_share": 1.0,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 4 of blk_kinzie_north_branch in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
+  },
   "research_note": "THE FIRST STRUCTURE IN THIS DATASET BUILT FROM A CONTEMPORARY NEWSPAPER RATHER THAN A RETROSPECTIVE HISTORY, AND ITS POSITION IS THE PRICE. The Chicago Democrat of 26 November 1833 is the earliest Chicago document this project holds and the only tier-1 textual source in it; what it gives is a town describing itself in its own week. What it does not give is an address, and this record's placement is therefore an argument rather than a derivation — Elston's later association with the North Branch and the ordinary siting of a nuisance trade, against the fact that every locatable advertiser in the same issue was on South Water Street. Both readings are written into the position note so the next agent can overturn this one on evidence. WHY IT WAS BUILT AT ALL, under the project owner's instruction of 2026-08-11: a manufactory is what makes a town look like it works, and an absent building is invisible to a visitor while a conjectural one is legible and correctable. THREE OTHER TRADES IN THE SAME ISSUE WERE JUDGED NOT PLACEABLE AND ARE NOT MODELLED HERE — Goss & Cobb, saddle and harness makers; Matthias Mason & Co., blacksmiths; and Peter Cohen, winter clothing, groceries, table salt and tin ware. All three are retail or shop trades with no attested location, whose natural ground is the South Water Street frontage that another parcel is building; putting them at invented points on that street would collide with better-evidenced work. Note also that this dataset already carries a documented blacksmith shop near the Agency House at the foot of State Street, so the town does not lack a smithy for want of Mason's. WHAT WOULD UPGRADE THIS RECORD: more of the Chicago Democrat. Its advertising columns are where a manufactory says where to find it, and further issues are the single highest-value next source for this record, for both warehouses, and for the three trades left unbuilt.",
   "review_required": false
 }

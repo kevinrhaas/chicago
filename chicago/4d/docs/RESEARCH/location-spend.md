@@ -32,10 +32,10 @@ Unchanged by this pass and restated because it is the other half of the axis T-1
 
 | class | households |
 |---|---:|
-| structure | 20 |
+| structure | 31 |
 | lot | 0 |
 | face | 0 |
-| division | 52 |
+| division | 176 |
 | none | 1186 |
 
 ## The four retentions

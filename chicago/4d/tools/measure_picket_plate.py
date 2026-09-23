@@ -327,7 +327,7 @@ def cap_line(px, x0, x1, ylo, yhi, dark=130, pale=155, run=3):
     return {
         "columns_offered": x1 - x0, "columns_resolved": raw, "columns_kept": n,
         "slope": round(slope, 4), "intercept": round(icpt, 2),
-        "rms_px": round(math.sqrt(sum(r * r for r in res) / n), 2),
+        "rms_px": round(math.sqrt(math.fsum(r * r for r in res) / n), 2),
         "peak_to_peak_px": round(max(res) - min(res), 1),
     }
 

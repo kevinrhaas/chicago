@@ -1,7 +1,7 @@
 ---
 id: T-0135
 title: The draw-call ceiling is checked at one camera, and it is not the worst one
-state: blocked-owner
+state: open
 epic: META
 requested_by: owner
 seen: true
@@ -12,8 +12,10 @@ opened: 2026-08-21
 closed: null
 pr: null
 claimed_by: run 8/21/2026, 11:05:00 PM CT
-blocked_on: The gate now reads the worst of five named stands and it is RED: 1,320,377 tris of 1,000,000 at full, 1,144,787 of 900,000 at balanced, 992,617 of 600,000 at light, and 200 draw calls of 140 — all at Lake Street looking east from Canal. Raise the ceilings to carry it (which puts light above the ceiling full carries today, so the ladder and the weak-machine floor both stop meaning anything), or trim the axial view to fit them (a rendering programme: distance culling or LOD down a long street)? Measured 2026-08-22; nothing regressed, this is the first honest reading.
+blocked_on: null
 needs_bake: false
+closed_at: null
+claimed_run: null
 ---
 
 The draw-call ceiling is checked at one camera, and it is not the worst one.
@@ -83,3 +85,28 @@ the new reading, with whatever moves recorded at its definition site.
 **Links:** T-0115 (closed; this is its item 1, with the numbers) · T-0064 (the measurement of
 the axial view) · `renderers/web/js/main.js` `BUDGET` / `DETAIL` · `tools/smoke_renderer.mjs`
 (the scene-detail block) · AGENTS.md § the frame-budget ruling.
+
+## THE OWNER'S RULING, 2026-09-21: RAISE THE CEILINGS to carry the worst stand
+
+The reading is honest — nothing regressed, this is what the scene costs — and the answer is
+to say so in the numbers rather than to cull the view until the old numbers are true. The
+ceilings rise to carry Lake Street looking east from Canal: 1,320,377 tris at full,
+1,144,787 at balanced, 992,617 at light, 200 draw calls.
+
+AND THE LADDER HAS TO BE REBUILT IN THE SAME COMMIT, because this is the objection the
+ticket itself raises and the ruling does not dismiss it. Raising `light` to 992,617 puts it
+above what `full` carries today, and three rungs that no longer ascend are not a quality
+ladder — they are three numbers. So the whole ladder is re-derived from the measured worst
+stand, monotonic by construction, with each rung stating what it is FOR (full: the machine
+we target; balanced: the median visitor; light: the weak-machine floor) and what measurement
+set it. A rung that cannot say what it protects is the next version of this ticket.
+
+THE WEAK-MACHINE FLOOR IS A PROMISE AND MUST STAY ONE. If `light` at its new value no longer
+runs on the machine the floor was written for, raising it has moved the promise instead of
+the number, and that is a different decision from this one. Measure the floor rung on the
+target it names before committing the ladder; if it does not hold, come back rather than
+ship a floor that is a floor in name only.
+
+A RENDERING PROGRAMME IS NOT FOREGONE. Distance culling and LOD down a long street remain
+worth doing on their merits, and the raised ceilings make them an optimisation rather than a
+prerequisite. File them separately if they are wanted; do not fold them into this.

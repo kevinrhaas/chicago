@@ -23,7 +23,7 @@ import { fileURLToPath } from 'node:url';
 
 const REPO = resolve(fileURLToPath(new URL('../../..', import.meta.url)));
 const SCRIPT = join(REPO, '.github', 'chicago-4d-dev-preview.mjs');
-const APP = 'site/4d';
+const APP = 'site/chicago/4d';
 
 let failed = 0;
 const ok = (label, cond, detail = '') => {
@@ -75,7 +75,7 @@ ok('the preview is kept out of the index',
   /<meta name="robots" content="noindex,nofollow">/.test(full.html));
 ok('the preview carries its banner', full.html.includes('id="__dev"'));
 ok('robots.txt disallows the preview path',
-  full.robots.includes('Disallow: /4d/dev/'), full.robots.trim());
+  full.robots.includes('Disallow: /chicago/4d/dev/'), full.robots.trim());
 
 ok('build.json marks the tier', full.build.tier === 'dev');
 ok('build.json carries the commit date, machine-readable',

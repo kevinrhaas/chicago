@@ -1,0 +1,84 @@
+{
+ "id": "biz_beaubien_jean_baptiste_merchant",
+ "register_id": null,
+ "name": "Col. Jean Baptiste Beaubien, merchant and trader",
+ "provenance": "authored",
+ "type": [
+  "store"
+ ],
+ "trade": "merchant and trader",
+ "occupation": "merchant",
+ "goods": [],
+ "firm_styles": [],
+ "proprietors": [
+  {
+   "name": "Col. Jean Baptiste Beaubien",
+   "person_id": "beaubien_jean_baptiste",
+   "register_person_id": null,
+   "role": "proprietor",
+   "from": null,
+   "to": null,
+   "tier": "inferred",
+   "basis": "THE TRADE IS THE SOURCE'S; THE HOUSE IS THE INFERENCE. Col. Jean Baptiste Beaubien carries dated role(s) of `merchant, trader` that cover 1835-07-01, graded inferred on chicago_democrat_1833_1835. That the trade was followed at Chicago in window is what the source says; that it was followed in a house of this keeper's own is this record's inference, and it is graded `inferred` for that reason and never promoted. The keeper held no workplace in the business layer before T-1404.",
+   "source_id": "chicago_democrat_1833_1835",
+   "claim_ids": []
+  }
+ ],
+ "partners": [],
+ "staff": [],
+ "locations": [
+  {
+   "kind": "unplaceable",
+   "structure_id": null,
+   "street_id": null,
+   "face": null,
+   "primary": true,
+   "from": null,
+   "to": null,
+   "tier": "inferred",
+   "basis": "NO READING PLACES THIS HOUSE. The evidence is a trade on a card, not a printed address, so the record carries its limit rather than a guess.",
+   "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+  }
+ ],
+ "dates": {
+  "opened": null,
+  "closed": null,
+  "precision": "unbounded",
+  "tier": "inferred",
+  "basis": "The role's bound is the SOURCE's span and not the house's: nothing says when this shop opened or closed. The record stands on the scene date because the role covers it, and bounds neither end."
+ },
+ "evidence": {
+  "first_issue": null,
+  "last_issue": null,
+  "copy_dates": []
+ },
+ "present_at_scene_date": true,
+ "exclusion": null,
+ "exclusion_note": null,
+ "proprietor_community": {
+  "value": "french_canadian",
+  "tier": "inferred",
+  "rule": "proprietors_agree",
+  "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read french_canadian: Col. Jean Baptiste Beaubien (french_canadian). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+  "from": [
+   {
+    "person_id": "beaubien_jean_baptiste",
+    "name": "Col. Jean Baptiste Beaubien",
+    "role": "proprietor",
+    "community": "french_canadian",
+    "tier": "attested"
+   }
+  ]
+ },
+ "customers": [],
+ "sources": [
+  "chicago_democrat_1833_1835"
+ ],
+ "claim_ids": [],
+ "liberties": {
+  "survival_required": false,
+  "backdating_required": false
+ },
+ "review_required": false,
+ "replaceable_by": "raised_for_an_in_window_trade: raised by tools/complete_inwindow_trades.py because the keeper's dated role covers 1835-07-01 and the layer held no workplace for them. Retired or rewritten by any printing that names this house — a notice, a directory line or a biography giving its style, its street or its partners — and by an identity ruling that makes this keeper one of the 52 printed keepers the register could not match to a card."
+}

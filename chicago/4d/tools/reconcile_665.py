@@ -140,6 +140,25 @@ ANCILLARY_PER_PRINCIPAL = 154 / 508
 ROW_UNITS_PER_LOT = 3
 
 
+# The plats whose blocks reach the grid with lots but with nobody recorded on them, and
+# the committed reading that says so. See the block comment in `programme_document`.
+UNSCHEDULED_PLATS = {
+    "michigan_st_tract": ("data/traces/michigan_st_tract_seated.json § open, where the "
+                          "tract's own name and platter are still unsettled (T-1080)"),
+    "wabansia": ("data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one "
+                 "unplaced household in the whole survey"),
+    # T-1455. The West Division's own grid, and it is unscheduled for a different reason
+    # from the two above: this district is not short of evidence, it is already spoken
+    # for. `west_wolf_point_outer` holds the West recipe's remaining reviewed placements
+    # and T-1444 is the open ticket that instantiates them; dealing this district's
+    # remainder onto new lot lines would bid against placements already written. And the
+    # density is not measured here either — see the block comment in `programme_document`.
+    "west_division": ("data/reconstruction/1835_phase2_west_wolf_point_approaches.json, "
+                      "whose reviewed placements already hold this district's remainder, "
+                      "with T-1444 open to instantiate them"),
+}
+
+
 def block_capacity(lots: int) -> int:
     """The roofs a platted block's ground can hold: its frontage, plus its yard buildings.
 
@@ -193,7 +212,29 @@ NEVER_PLATTED_OMISSIONS = {"blk_south_water_clinton"}
 # any placement with centre E < -300 m until the heightfield, collision surface,
 # vegetation sampler, minimap and water mask share the extended box." Read as a number
 # here only to cross-check the recipe's remainder against the records actually emitted.
+#
+# T-1444 RETIRED IT. The recipe now carries the text under `instantiation_block_retired`
+# and holds nothing back, so the cross-check below asks the recipe which state it is in
+# rather than assuming the block is live: a schedule that kept subtracting 35 roofs the
+# parcel had already built would report a remainder that does not exist.
 WEST_INSTANTIATION_BLOCK_E = -300.0
+
+
+def west_held_back(recipe: dict) -> int:
+    """How many of the West recipe's placements its own gate still withholds."""
+    gate = recipe["terrain_and_hydrology_gate"]
+    held = 0
+    if gate.get("instantiation_block"):
+        held += sum(1 for p in recipe["placements"]
+                    if p["center_local_enu_m"][0] < WEST_INSTANTIATION_BLOCK_E)
+    # T-1444. The terrain block is retired and a second one took its place, on a question
+    # terrain cannot answer: five slots stand inside the drift band of the corporate
+    # boundary's extrapolated west leg, so which side of the 1833 town limits they were on
+    # is not knowable until Jefferson Street is traced north (T-1490). A hold is a hold —
+    # the schedule counts what the parcel still owes, not why it owes it — and the count
+    # is read off the recipe rather than retyped here.
+    held += len((gate.get("boundary_hold") or {}).get("slots") or {})
+    return held
 
 # What the balance of each district is waiting on. The West entry is the street control
 # ROADMAP S9 records as owed; the North entry is the coverage the North parcel's own
@@ -808,10 +849,47 @@ def standing_roofs(grid, datum, taken):
     return rows
 
 
+# Which division a plat's ground is in, where the grid's own geometry cannot say.
+# Named per plat rather than per block: it is a fact about the survey, not about a cell.
+DIVISION_BY_PLAT = {
+    "kinzies_addition": "north",
+    "michigan_st_tract": "north",
+    "wabansia": "west",
+    # T-1455. The easting test would read these nine cells `west` and be right, but for
+    # the reason the docstring gives below it would be right by arithmetic rather than by
+    # evidence. This grid is the West Division — the sheet's own name for the ground it
+    # reads — so the survey answers instead of the origin.
+    "west_division": "west",
+}
+
+
 def district_of_block(block) -> str:
     """A block is West Division ground when it lies west of the South Branch, which at
     this datum is local easting 0 — the origin IS the forks. No block in the grid
-    straddles a division line."""
+    straddles a division line.
+
+    T-1437. The grid reaches north of the main stem now, and the east/west test above
+    cannot see that: Kinzie's Addition stands east of the forks and would read `south`.
+    The survey-tract layer is what says which survey a block stands in, and a block in
+    the Addition's tract is North Division ground by definition — that is what the
+    Addition IS. Asked of the Original Town's tract the question is the old one.
+
+    T-1454. Two more grids arrived and the same blindness caught one of them. The
+    Michigan Street tract stands north of the main stem at POSITIVE easting, so the
+    east/west test read its four blocks `south` and the South Division's named units then
+    held 153 roofs against a remainder of 143 — the district balance refused, which is
+    the assertion doing its job. Wabansia reads `west` off the easting test and is right,
+    but it is right by accident rather than by evidence. So the plat answers for both: a
+    block of Kinzie's Addition or the Michigan Street tract is North Division ground and
+    a block of Wabansia is West Division ground, because that is where those surveys are,
+    and the easting test is left to the one grid whose two sides it was written for.
+    """
+    named = DIVISION_BY_PLAT.get(block.get("grid"))
+    if named:
+        return named
+    tract = (block.get("survey_tract") or {}).get("tract")
+    if tract == "kinzies_addition":
+        return "north"
     return "west" if max(p[0] for p in block["boundary_local_enu_m"]) < 0 else "south"
 
 
@@ -1025,6 +1103,63 @@ def programme_document():
         # arithmetic above already gives it nothing; what this does is stop it reading
         # as a block that happens to be full. `at_capacity` would be a claim that the
         # square was built out, which is the opposite of what the evidence says.
+        # A block nobody has drawn a lot line inside is not headroom either, and it is
+        # not `at_capacity`: that would say the block was built out, when what is true
+        # is that this project has never read its subdivision. Kinzie's Addition's
+        # twenty-seven blocks reach here that way (T-1437) — street control has arrived
+        # and the lot rule has not.
+        withheld = block.get("subdivision_withheld")
+        if withheld and not lots:
+            unit["kind"] = "platted_block_unsubdivided"
+            unit["state"] = "unsubdivided"
+            unit["waiting_on"] = (
+                f"this plat's own lot rule: {withheld}. The block stands on the grid with "
+                "its boundary, its numeral and its ground; what it has no line to deal a "
+                "roof onto is a lot.")
+        # T-1454. A PLAT WITH LOTS IS STILL NOT A SCHEDULE. The Michigan Street tract
+        # and Wabansia arrived with the lot lines Wright rules inside them, so unlike
+        # Kinzie's Addition above they do not fall out of the arithmetic at zero — and
+        # dealt on the Original Town's units-per-lot they proposed 114 roofs into a
+        # North Division whose whole remainder is 67, which the district balance refused
+        # outright. That refusal is right twice over. `ROW_UNITS_PER_LOT` is a density
+        # read off Original Town ground and these are not Original Town lots: the
+        # Michigan tract's run 15 m on the front and Wabansia's 46-115 m. And neither
+        # survey has anybody on it. Wabansia's own seating reads its occupancy as "ONE
+        # household, unplaced ... a survey over prairie with one doctor's house somewhere
+        # in it" (data/traces/wabansia_seating.json § occupancy_before_1835_07_01), and
+        # the Michigan tract does not yet have a settled NAME, let alone a resident
+        # (data/traces/michigan_st_tract_seated.json § open, T-1080).
+        #
+        # So the ground is carried and the headroom is not. Scheduling roofs onto it
+        # would put a density nothing measured onto a survey nobody is recorded on, and
+        # move the 665 target's district split on the strength of it. What the seats are
+        # worth is T-1198's and T-1199's question, with the placement policy behind it.
+        # T-1455. AND THE WEST DIVISION'S OWN GRID JOINS THEM, for a reason of its own.
+        # Its nine cut cells arrived with the lot lines three of them print figures for,
+        # and dealt on the Original Town's units-per-lot they proposed 136 roofs into a
+        # West Division whose whole remainder is 87 — refused, and rightly. Twice over
+        # again. `ROW_UNITS_PER_LOT` is a density read off Original Town lots, which are
+        # four to a ~320 ft face with an east-west alley; the West Division lot is 75 3/5
+        # ft on the front and 180 ft deep in two columns backing onto a north-south one
+        # (data/traces/thompson_west_division_lots.json § the_west_division_block), a
+        # different arrangement and not a density anybody has measured on it. And this
+        # district's remainder is not unspoken for: `west_wolf_point_outer` below holds
+        # the West recipe's reviewed placements, T-1444 is the open ticket that releases
+        # them onto the extended ground, and T-1207/T-1208 are the tickets that seat the
+        # West Division's own households. Ground carried, headroom withheld.
+        if block["grid"] in UNSCHEDULED_PLATS:
+            unit["kind"] = "platted_block_unscheduled"
+            unit["state"] = "gated"
+            unit["capacity_roofs"] = 0
+            unit["principal_room"] = 0
+            unit["ancillary_room"] = 0
+            unit["headroom"] = 0
+            unit["waiting_on"] = (
+                "a placement policy for this survey. The lot lines are the sheet's and "
+                "they are on the grid; what is missing is any evidence of who stood on "
+                f"them — see {UNSCHEDULED_PLATS[block['grid']]}. Dealing this district's "
+                "remainder onto them at the Original Town's units-per-lot would be a "
+                "density read off other ground, and these lots are not that size.")
         hold = block.get("reserved")
         if hold:
             unit["kind"] = "platted_block_reserved"
@@ -1131,21 +1266,23 @@ def programme_document():
     # its records carry, so the question can be asked exactly.
     west_built = sum(1 for r in rows if r.get("programme_phase") == west_recipe["id"])
     west_outer = west_recipe["roof_totals"]["all"] - west_built
-    beyond_box = sum(1 for p in west_recipe["placements"]
-                     if p["center_local_enu_m"][0] < WEST_INSTANTIATION_BLOCK_E)
-    if west_outer != beyond_box:
+    held_back = west_held_back(west_recipe)
+    if west_outer != held_back:
         raise SystemExit(
-            f"the West recipe has {west_outer} placements left to emit but {beyond_box} "
-            "standing beyond its instantiation block — the parcel has been instantiated "
-            "out of order and this schedule cannot say what is left")
+            f"the West recipe has {west_outer} placements left to emit but {held_back} "
+            "held back by its own gate — the parcel has been instantiated out of order "
+            "and this schedule cannot say what is left")
     units.append({
         "id": "west_wolf_point_outer", "kind": "reviewed_recipe_remainder",
         "district": "west", "capacity_roofs": west_outer,
         "standing_roofs": 0, "headroom": west_outer,
-        "state": "gated",
-        "waiting_on": "unified terrain, hydrology, collision, flora and map coverage west "
-                      "to local E -700 m; the recipe's placements are already written and "
-                      "reviewed",
+        "state": "gated" if west_outer else "complete",
+        "waiting_on": ("unified terrain, hydrology, collision, flora and map coverage west "
+                       "to local E -700 m; the recipe's placements are already written and "
+                       "reviewed") if west_outer else
+                      ("nothing — T-1416 carried the modelled ground to E -705 m and "
+                       "T-1444 released the 35 slots this unit was holding. Every one of "
+                       "the recipe's 55 reviewed placements now stands as a record."),
         "recipe": "data/reconstruction/1835_phase2_west_wolf_point_approaches.json",
     })
 

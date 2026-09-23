@@ -66,7 +66,12 @@ def build(params: PalisadeParams, name: str):
         # in the town traces to one row of docs/RESEARCH/materials.md.
         simple_material("log", HEWN_RGBA,
                         roughness=materials.SUBSTRATES["hewn_log"].roughness),
-        simple_material("roof", GATE_RGBA, roughness=0.88),
+        # NOT A ROOF, and it never was: this slot draws the two gate leaves. It was
+        # called `roof` because `M_ROOF` is the index the shared mesh helpers use for
+        # a second material, and the name came along for the ride. Renamed at T-1487,
+        # when every other `roof` material in the town started stating its covering —
+        # a gate that claims to be a roof would be the one exception to that sentence.
+        simple_material("gate", GATE_RGBA, roughness=0.88),
         # ONE DARK (T-0126) — the sheet's `DARK` row. Here it is the two shut gate
         # leaves, drawn dark so the gate reads as closed rather than as a gap; the
         # row's note records that use alongside the openings it is named for.

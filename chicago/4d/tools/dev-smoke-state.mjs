@@ -36,7 +36,7 @@
  *
  * AND WHAT MAKES A READING *YOURS*. Every reading records `treeHash`, a digest
  * of everything the smoke actually exercises — `renderers/`, `data/`, `assets/`,
- * `tools/smoke_renderer.mjs` and the published mirror `site/4d/`. If
+ * `tools/smoke_renderer.mjs` and the published mirror `site/chicago/4d/`. If
  * your tree hashes the same as a reading, that reading is a reading OF YOUR
  * TREE: a red in it is inherited, full stop, with no re-run needed. If it does
  * not, the record says so instead of pretending. That is the whole of the
@@ -98,7 +98,7 @@ const SMOKE_INPUTS = [
   'chicago/4d/data',
   'chicago/4d/assets',
   'chicago/4d/tools/smoke_renderer.mjs',
-  'site/4d',
+  'site/chicago/4d',
   // THE EXCLUSIONS BELOW ARE LOAD-BEARING, and getting them wrong is how this
   // whole idea fails silently rather than loudly. Each of these files changes on
   // EVERY branch BY CONSTRUCTION, so a hash that included them would differ from
@@ -119,19 +119,19 @@ const SMOKE_INPUTS = [
   //    runs, which is once per PR minimum. build.json is stamp and nothing else;
   //    the gate page is real smoke input carrying a stamp, so it is hashed with
   //    the stamp normalised out rather than dropped.
-  ':(exclude)site/4d/tickets.json',
+  ':(exclude)site/chicago/4d/tickets.json',
   ':(exclude)chicago/4d/renderers/web/js/changelog.js',
-  ':(exclude)site/4d/js/changelog.js',
-  ':(exclude)site/4d/walk/js/changelog.js',
-  ':(exclude)site/4d/build.json',
-  ':(exclude)site/4d/walk/index.html',
+  ':(exclude)site/chicago/4d/js/changelog.js',
+  ':(exclude)site/chicago/4d/walk/js/changelog.js',
+  ':(exclude)site/chicago/4d/build.json',
+  ':(exclude)site/chicago/4d/walk/index.html',
 ];
 
 /** The release notes, hashed on their own — see the note above. */
 const CHANGELOG_INPUTS = [
   'chicago/4d/renderers/web/js/changelog.js',
-  'site/4d/js/changelog.js',
-  'site/4d/walk/js/changelog.js',
+  'site/chicago/4d/js/changelog.js',
+  'site/chicago/4d/walk/js/changelog.js',
 ];
 
 /** The parts whose checks actually read the release notes. Part 8 until T-0346
@@ -143,7 +143,7 @@ const CHANGELOG_PARTS = [12];
  * Smoke inputs carrying a publish stamp: hashed by CONTENT with the stamp
  * normalised out, so two publishes of the same tree hash the same.
  */
-const STAMPED_INPUTS = ['site/4d/walk/index.html'];
+const STAMPED_INPUTS = ['site/chicago/4d/walk/index.html'];
 const STAMP_PATTERN = /build\s+[0-9a-f]{6,}\s+·[^<\n]*/g;
 
 const git = (args, cwd = REPO) =>

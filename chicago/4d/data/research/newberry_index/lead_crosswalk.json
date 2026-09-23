@@ -44,17 +44,17 @@
   }
  ],
  "counts": {
-  "leads_ruled": 1008,
+  "leads_ruled": 1006,
   "cards_ruled": 1414,
   "by_outcome": {
-   "refused": 747,
+   "refused": 745,
    "candidate": 261
   },
   "by_class": {
-   "ocr_variant_only": 360,
+   "ocr_variant_only": 359,
    "testable_in_a_held_work": 261,
    "locality_absent": 287,
-   "surname_only_chicago": 100
+   "surname_only_chicago": 99
   },
   "matched": 0,
   "discriminators_found": 0
@@ -17221,44 +17221,6 @@
    "discriminators": []
   },
   {
-   "lead_id": "lead_v02_hall_structures",
-   "surname_key": "hall",
-   "spellings_as_printed": [
-    "Hall"
-   ],
-   "layer": "structures",
-   "outcome": "refused",
-   "class": "surname_only_chicago",
-   "reason": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Reconstructed I2 schoolhouse or meeting hall #015 exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Reconstructed I2 schoolhouse or meeting hall #015 is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold.",
-   "record_ids": [
-    "nbi_v02_0595",
-    "nbi_v02_0596",
-    "nbi_v02_0597",
-    "nbi_v02_0598",
-    "nbi_v02_0599",
-    "nbi_v02_0600",
-    "nbi_v02_0601",
-    "nbi_v02_0602",
-    "nbi_v02_0603",
-    "nbi_v02_0604",
-    "nbi_v02_0605"
-   ],
-   "candidates": [
-    {
-     "id": "recon_1835_north_i2_015",
-     "name": "Reconstructed I2 schoolhouse or meeting hall #015",
-     "rule": "exact surname"
-    }
-   ],
-   "person_ids": [],
-   "works_cited": [
-    "county_histories_kett_and_co",
-    "moses_kirkland_history_of_chicago"
-   ],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
    "lead_id": "lead_v03_hally_census_1840",
    "surname_key": "hally",
    "spellings_as_printed": [
@@ -17312,31 +17274,6 @@
     "hall_george",
     "hall_benjamin"
    ],
-   "works_cited": [],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
-   "lead_id": "lead_v03_hally_structures",
-   "surname_key": "hally",
-   "spellings_as_printed": [
-    "Hally"
-   ],
-   "layer": "structures",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Hally' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Hally' at all. And if it were, a heading against Reconstructed I2 schoolhouse or meeting hall #015 would still be a surname against a person, which is always a refusal here.",
-   "record_ids": [
-    "nbi_v03_0875"
-   ],
-   "candidates": [
-    {
-     "id": "recon_1835_north_i2_015",
-     "name": "Reconstructed I2 schoolhouse or meeting hall #015",
-     "rule": "OCR variant (0.89 similarity to 'hall')"
-    }
-   ],
-   "person_ids": [],
    "works_cited": [],
    "held_works": [],
    "discriminators": []
@@ -17404,7 +17341,7 @@
    "layer": "residents",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "reason": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody.",
+   "reason": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; Ellen Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody.",
    "record_ids": [
     "nbi_v02_0625",
     "nbi_v02_0626",
@@ -17426,12 +17363,18 @@
      "id": "hamilton_richard_j",
      "name": "Richard Jones Hamilton",
      "rule": "exact surname"
+    },
+    {
+     "id": "hamilton_ellen",
+     "name": "Ellen Hamilton",
+     "rule": "exact surname"
     }
    ],
    "person_ids": [
     "hamilton_amos_c",
     "hamilton_diana",
-    "hamilton_richard_j"
+    "hamilton_richard_j",
+    "hamilton_ellen"
    ],
    "works_cited": [
     "andreas_history_of_chicago",
@@ -17723,7 +17666,7 @@
    "layer": "residents",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "reason": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody.",
+   "reason": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody.",
    "record_ids": [
     "nbi_v02_0690",
     "nbi_v02_0691",
@@ -17755,6 +17698,11 @@
      "rule": "exact surname"
     },
     {
+     "id": "harmon_welthyan",
+     "name": "Welthyan Loomis Harmon",
+     "rule": "exact surname"
+    },
+    {
      "id": "harmon_m_d",
      "name": "M D Harmon",
      "rule": "exact surname"
@@ -17765,6 +17713,7 @@
     "harmon_isaac_d",
     "harmon_d",
     "harmon_elijah_d",
+    "harmon_welthyan",
     "harmon_m_d"
    ],
    "works_cited": [
@@ -31365,7 +31314,7 @@
    "layer": "structures",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Shoup' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Shoup' at all. And if it were, a heading against Government Blacksmith Shop; Fort Dearborn — the shop; Reconstructed W1 blacksmith shop #018; Reconstructed W2 carpenter or joiner shop #005; Reconstructed W1 blacksmith shop #023; Reconstructed W2 carpenter or joiner shop #026; Reconstructed W3 cooper, wagon, or wheelwright shop #029; Reconstructed W4 small artisan shop #032; Reconstructed W1 blacksmith shop #007; Reconstructed W2 carpenter or joiner shop #008; Reconstructed W3 cooper, wagon or wheelwright shop #017; Reconstructed W4 small artisan shop #018 would still be a surname against a person, which is always a refusal here.",
+   "reason": "Refused twice over. No candidate reaches 'Shoup' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Shoup' at all. And if it were, a heading against Government Blacksmith Shop; Fort Dearborn — the shop would still be a surname against a person, which is always a refusal here.",
    "record_ids": [
     "nbi_v04_0079"
    ],
@@ -31378,56 +31327,6 @@
     {
      "id": "fort_dearborn_shop",
      "name": "Fort Dearborn — the shop",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_north_w1_018",
-     "name": "Reconstructed W1 blacksmith shop #018",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_north_w2_005",
-     "name": "Reconstructed W2 carpenter or joiner shop #005",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_south_w1_023",
-     "name": "Reconstructed W1 blacksmith shop #023",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_south_w2_026",
-     "name": "Reconstructed W2 carpenter or joiner shop #026",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_south_w3_029",
-     "name": "Reconstructed W3 cooper, wagon, or wheelwright shop #029",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_south_w4_032",
-     "name": "Reconstructed W4 small artisan shop #032",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_west_008",
-     "name": "Reconstructed W1 blacksmith shop #007",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_west_009",
-     "name": "Reconstructed W2 carpenter or joiner shop #008",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_west_021",
-     "name": "Reconstructed W3 cooper, wagon or wheelwright shop #017",
-     "rule": "OCR variant (0.89 similarity to 'shop')"
-    },
-    {
-     "id": "recon_1835_west_022",
-     "name": "Reconstructed W4 small artisan shop #018",
      "rule": "OCR variant (0.89 similarity to 'shop')"
     }
    ],
@@ -46695,10 +46594,10 @@
   {
    "record_id": "nbi_v02_0625",
    "a": "Hamilton | Chicago, III., Directory, 1839. (Terpes Hit w",
-   "b": "R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton",
+   "b": "R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; Ellen Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Hamilton | Chicago, III., Directory, 1839. (Terpes Hit w' against R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Hamilton | Chicago, III., Directory, 1839. (Terpes Hit w' against R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; Ellen Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton.",
    "layers": [
     "census_1840",
     "residents",
@@ -46712,6 +46611,7 @@
    "person_ids": [
     "hamilton_amos_c",
     "hamilton_diana",
+    "hamilton_ellen",
     "hamilton_richard_j"
    ],
    "person_id": null,
@@ -46734,10 +46634,10 @@
   {
    "record_id": "nbi_v02_0626",
    "a": "Hamilton | x — Chicago, III. (Andreat, A. T.) 1884-6: i l v",
-   "b": "R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton",
+   "b": "R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; Ellen Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Hamilton | x — Chicago, III. (Andreat, A. T.) 1884-6: i l v' against R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Hamilton | x — Chicago, III. (Andreat, A. T.) 1884-6: i l v' against R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; Ellen Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton.",
    "layers": [
     "census_1840",
     "residents",
@@ -46751,6 +46651,7 @@
    "person_ids": [
     "hamilton_amos_c",
     "hamilton_diana",
+    "hamilton_ellen",
     "hamilton_richard_j"
    ],
    "person_id": null,
@@ -46773,10 +46674,10 @@
   {
    "record_id": "nbi_v02_0627",
    "a": "Hamilton | Chicago, III. Second Pretb. Ch., 1842-92. (Crmnri,",
-   "b": "R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton",
+   "b": "R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; Ellen Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Hamilton | Chicago, III. Second Pretb. Ch., 1842-92. (Crmnri,' against R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Hamilton | Chicago, III. Second Pretb. Ch., 1842-92. (Crmnri,' against R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; Ellen Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton.",
    "layers": [
     "census_1840",
     "residents",
@@ -46790,6 +46691,7 @@
    "person_ids": [
     "hamilton_amos_c",
     "hamilton_diana",
+    "hamilton_ellen",
     "hamilton_richard_j"
    ],
    "person_id": null,
@@ -46812,10 +46714,10 @@
   {
    "record_id": "nbi_v02_0630",
    "a": "Hamilton | Pit, Co., III. (Chapman, C. C. a Co., Putt.) 1880,",
-   "b": "R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton",
+   "b": "R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; Ellen Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Hamilton | Pit, Co., III. (Chapman, C. C. a Co., Putt.) 1880,' against R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Hamilton' name Chicago or Cook County, the heading is the surname of R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton exactly, and the cards under it cite andreas_history_of_chicago, fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Hamilton | Pit, Co., III. (Chapman, C. C. a Co., Putt.) 1880,' against R. J. Hamilton; Mrs. E. Hamilton; Robert S. Hamilton; Alexander C. Hamilton; Robert Hamilton; Amos C Hamilton; Diana Hamilton; Richard Jones Hamilton; Ellen Hamilton; R. J. Hamilton; Richard J. Hamilton; Richard J. Hamilton; Amos C. Hamilton.",
    "layers": [
     "census_1840",
     "residents",
@@ -46829,6 +46731,7 @@
    "person_ids": [
     "hamilton_amos_c",
     "hamilton_diana",
+    "hamilton_ellen",
     "hamilton_richard_j"
    ],
    "person_id": null,
@@ -46851,10 +46754,10 @@
   {
    "record_id": "nbi_v02_0690",
    "a": "Harmon | Chicago, Iii. (Andreas, A. T.) 1384-6, 1-3.",
-   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
+   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Harmon | Chicago, Iii. (Andreas, A. T.) 1384-6, 1-3.' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Harmon | Chicago, Iii. (Andreas, A. T.) 1384-6, 1-3.' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
    "layers": [
     "census_1840",
     "residents",
@@ -46872,7 +46775,8 @@
     "harmon_d",
     "harmon_elijah_d",
     "harmon_isaac_d",
-    "harmon_m_d"
+    "harmon_m_d",
+    "harmon_welthyan"
    ],
    "person_id": null,
    "evidence": [
@@ -46894,10 +46798,10 @@
   {
    "record_id": "nbi_v02_0691",
    "a": "Harmon | Ceok Ce,, III, (Andreat, A. T.) 1004",
-   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
+   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Harmon | Ceok Ce,, III, (Andreat, A. T.) 1004' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Harmon | Ceok Ce,, III, (Andreat, A. T.) 1004' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
    "layers": [
     "census_1840",
     "residents",
@@ -46915,7 +46819,8 @@
     "harmon_d",
     "harmon_elijah_d",
     "harmon_isaac_d",
-    "harmon_m_d"
+    "harmon_m_d",
+    "harmon_welthyan"
    ],
    "person_id": null,
    "evidence": [
@@ -46937,10 +46842,10 @@
   {
    "record_id": "nbi_v02_0692",
    "a": "Harmon r | 0uP e Co., III. (Blanchard, R.) 1382: '",
-   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
+   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Harmon r | 0uP e Co., III. (Blanchard, R.) 1382: '\" against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Harmon r | 0uP e Co., III. (Blanchard, R.) 1382: '\" against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
    "layers": [
     "census_1840",
     "residents",
@@ -46958,7 +46863,8 @@
     "harmon_d",
     "harmon_elijah_d",
     "harmon_isaac_d",
-    "harmon_m_d"
+    "harmon_m_d",
+    "harmon_welthyan"
    ],
    "person_id": null,
    "evidence": [
@@ -46980,10 +46886,10 @@
   {
    "record_id": "nbi_v02_0693",
    "a": "Harmon | Co., III. (leBoron.W.. k .ttCo., PublJIl",
-   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
+   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Harmon | Co., III. (leBoron.W.. k .ttCo., PublJIl' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Harmon | Co., III. (leBoron.W.. k .ttCo., PublJIl' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
    "layers": [
     "census_1840",
     "residents",
@@ -47001,7 +46907,8 @@
     "harmon_d",
     "harmon_elijah_d",
     "harmon_isaac_d",
-    "harmon_m_d"
+    "harmon_m_d",
+    "harmon_welthyan"
    ],
    "person_id": null,
    "evidence": [
@@ -47023,10 +46930,10 @@
   {
    "record_id": "nbi_v02_0694",
    "a": "Harmon | Ogle Co., III. (Kelt, H. F., 4 Co.) 1878: B47.",
-   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
+   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Harmon | Ogle Co., III. (Kelt, H. F., 4 Co.) 1878: B47.' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Harmon | Ogle Co., III. (Kelt, H. F., 4 Co.) 1878: B47.' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
    "layers": [
     "census_1840",
     "residents",
@@ -47044,7 +46951,8 @@
     "harmon_d",
     "harmon_elijah_d",
     "harmon_isaac_d",
-    "harmon_m_d"
+    "harmon_m_d",
+    "harmon_welthyan"
    ],
    "person_id": null,
    "evidence": [
@@ -47066,10 +46974,10 @@
   {
    "record_id": "nbi_v02_0695",
    "a": "Harmon | 'i Sangamon Co,, III. (Power, J. C.) 1876.",
-   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
+   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Harmon | 'i Sangamon Co,, III. (Power, J. C.) 1876.\" against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Harmon | 'i Sangamon Co,, III. (Power, J. C.) 1876.\" against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
    "layers": [
     "census_1840",
     "residents",
@@ -47087,7 +46995,8 @@
     "harmon_d",
     "harmon_elijah_d",
     "harmon_isaac_d",
-    "harmon_m_d"
+    "harmon_m_d",
+    "harmon_welthyan"
    ],
    "person_id": null,
    "evidence": [
@@ -47486,10 +47395,10 @@
   {
    "record_id": "nbi_v02_0900",
    "a": "J Harmon | _ _ Sangamon Co., III. (Power, J. C.) 1876.",
-   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
+   "b": "William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'J Harmon | _ _ Sangamon Co., III. (Power, J. C.) 1876.' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 7 card(s) heading 'Harmon/Harmon r/J Harmon' name Chicago or Cook County, the heading is the surname of William Harmon exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'J Harmon | _ _ Sangamon Co., III. (Power, J. C.) 1876.' against William Harmon; Charles Loomis Harmon; Isaac Dewey Harmon; D Harmon; Dr Elijah Dewey Harmon; Welthyan Loomis Harmon; M D Harmon; Dr Elijah Harmon's Cabin; Isaac Harmon; C. L. Harmon; M. D. Harmon.",
    "layers": [
     "census_1840",
     "residents",
@@ -47507,7 +47416,8 @@
     "harmon_d",
     "harmon_elijah_d",
     "harmon_isaac_d",
-    "harmon_m_d"
+    "harmon_m_d",
+    "harmon_welthyan"
    ],
    "person_id": null,
    "evidence": [
@@ -70719,19 +70629,17 @@
   {
    "record_id": "nbi_v02_0595",
    "a": "Hall | „,, Chicago, Nl. luietet, J._and Kirkland, J.) IC95:",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | „,, Chicago, Nl. luietet, J._and Kirkland, J.) IC95:' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | „,, Chicago, Nl. luietet, J._and Kirkland, J.) IC95:' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -70757,19 +70665,17 @@
   {
    "record_id": "nbi_v02_0596",
    "a": "Hall | 79.6 Fulton Co, III. (Chapman, C. C. £1 Co.) I879t",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | 79.6 Fulton Co, III. (Chapman, C. C. £1 Co.) I879t' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | 79.6 Fulton Co, III. (Chapman, C. C. £1 Co.) I879t' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -70795,19 +70701,17 @@
   {
    "record_id": "nbi_v02_0597",
    "a": "Hall | — f d f t r Co., III. (UBwen, tf., »., A Co., Pubi I 1313; ll",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | — f d f t r Co., III. (UBwen, tf., »., A Co., Pubi I 1313; ll' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | — f d f t r Co., III. (UBwen, tf., »., A Co., Pubi I 1313; ll' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -70833,19 +70737,17 @@
   {
    "record_id": "nbi_v02_0598",
    "a": "Hall | 684.6 leáelle Co., Ill, (Baldwin, £,, 13,1, 395.",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | 684.6 leáelle Co., Ill, (Baldwin, £,, 13,1, 395.' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | 684.6 leáelle Co., Ill, (Baldwin, £,, 13,1, 395.' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -70871,19 +70773,17 @@
   {
    "record_id": "nbi_v02_0599",
    "a": "Hall | Ogle Co., III. (Kett, H. F., 4 Co.) 1878: 02",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Ogle Co., III. (Kett, H. F., 4 Co.) 1878: 02' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Ogle Co., III. (Kett, H. F., 4 Co.) 1878: 02' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -70909,19 +70809,17 @@
   {
    "record_id": "nbi_v02_0600",
    "a": "Hall | Pika Co., III. (Oxextxa, C. C. 6. Co., Pub,.) 1880: Hal",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Pika Co., III. (Oxextxa, C. C. 6. Co., Pub,.) 1880: Hal' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Pika Co., III. (Oxextxa, C. C. 6. Co., Pub,.) 1880: Hal' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -70947,19 +70845,17 @@
   {
    "record_id": "nbi_v02_0601",
    "a": "Hall | —— R o c k f o r d und n l n n a b a g o C o . , 1 1 1 . lla",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | —— R o c k f o r d und n l n n a b a g o C o . , 1 1 1 . lla' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | —— R o c k f o r d und n l n n a b a g o C o . , 1 1 1 . lla' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -70985,19 +70881,17 @@
   {
    "record_id": "nbi_v02_0602",
    "a": "Hall | Winnebago Co., Ill, (Kelt, H. F„ 4 Co., Pub) —",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Winnebago Co., Ill, (Kelt, H. F„ 4 Co., Pub) —' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | Winnebago Co., Ill, (Kelt, H. F„ 4 Co., Pub) —' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71023,19 +70917,17 @@
   {
    "record_id": "nbi_v02_0603",
    "a": "Hall | _o Sangamon Co., Ill, (Power,), C.) 1876. —",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | _o Sangamon Co., Ill, (Power,), C.) 1876. —' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card 'Hall | _o Sangamon Co., Ill, (Power,), C.) 1876. —' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71061,19 +70953,17 @@
   {
    "record_id": "nbi_v02_0604",
    "a": "Hall | laWfirkfJat.).6ae.r 'o. , ' , l I i . u l - l l f l . (t'..n. Hall fami",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card \"Hall | laWfirkfJat.).6ae.r 'o. , ' , l I i . u l - l l f l . (t'..n. Hall fami\" against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card \"Hall | laWfirkfJat.).6ae.r 'o. , ' , l I i . u l - l l f l . (t'..n. Hall fami\" against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -71099,19 +70989,17 @@
   {
    "record_id": "nbi_v02_0605",
    "a": "Hall | -±~2.' la letk» te,'», 111.19",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card \"Hall | -±~2.' la letk» te,'», 111.19\" against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused. 1 of the 11 card(s) heading 'Hall' do name Chicago or Cook County and the heading is the surname of Henry Hall exactly, but the index files every family of a surname under one heading and gives no forename, so 'Hall' against Henry Hall is a surname against a person. It waits on county_histories_kett_and_co, moses_kirkland_history_of_chicago, which this project does not hold. Ruled on the card \"Hall | -±~2.' la letk» te,'», 111.19\" against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v02_hall_census_1840",
-    "lead_v02_hall_residents",
-    "lead_v02_hall_structures"
+    "lead_v02_hall_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -78148,19 +78036,17 @@
   {
    "record_id": "nbi_v03_0875",
    "a": "Hally | Fulton Co , III. (Chapman, C. C. & Co.) 187ll",
-   "b": "Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015",
+   "b": "Henry Hall; George Hall; Benjamin Hall",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Hally' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Hally' at all. And if it were, a heading against Henry Hall would still be a surname against a person, which is always a refusal here. Ruled on the card 'Hally | Fulton Co , III. (Chapman, C. C. & Co.) 187ll' against Henry Hall; George Hall; Benjamin Hall; Reconstructed I2 schoolhouse or meeting hall #015.",
+   "rule": "Refused twice over. No candidate reaches 'Hally' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Hally' at all. And if it were, a heading against Henry Hall would still be a surname against a person, which is always a refusal here. Ruled on the card 'Hally | Fulton Co , III. (Chapman, C. C. & Co.) 187ll' against Henry Hall; George Hall; Benjamin Hall.",
    "layers": [
     "census_1840",
-    "residents",
-    "structures"
+    "residents"
    ],
    "leads": [
     "lead_v03_hally_census_1840",
-    "lead_v03_hally_residents",
-    "lead_v03_hally_structures"
+    "lead_v03_hally_residents"
    ],
    "person_ids": [
     "hall_benjamin",
@@ -81870,10 +81756,10 @@
   {
    "record_id": "nbi_v04_0079",
    "a": "Shoup | — Sangamon Co,, Ill, (Power, J. C.) 1876.",
-   "b": "Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop; Reconstructed W1 blacksmith shop #018; Reconstructed W2 carpenter or joiner shop #005; Reconstructed W1 blacksmith shop #023; Reconstructed W2 carpenter or joiner shop #026; Reconstructed W3 cooper, wagon, or wheelwright shop #029; Reconstructed W4 small artisan shop #032; Reconstructed W1 blacksmith shop #007; Reconstructed W2 carpenter or joiner shop #008; Reconstructed W3 cooper, wagon or wheelwright shop #017; Reconstructed W4 small artisan shop #018",
+   "b": "Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 1 card(s) heading 'Shoup' name Illinois and neither Chicago nor Cook County, so the lead against Michael Shoup stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Shoup | — Sangamon Co,, Ill, (Power, J. C.) 1876.' against Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop; Reconstructed W1 blacksmith shop #018; Reconstructed W2 carpenter or joiner shop #005; Reconstructed W1 blacksmith shop #023; Reconstructed W2 carpenter or joiner shop #026; Reconstructed W3 cooper, wagon, or wheelwright shop #029; Reconstructed W4 small artisan shop #032; Reconstructed W1 blacksmith shop #007; Reconstructed W2 carpenter or joiner shop #008; Reconstructed W3 cooper, wagon or wheelwright shop #017; Reconstructed W4 small artisan shop #018.",
+   "rule": "Refused. All 1 card(s) heading 'Shoup' name Illinois and neither Chicago nor Cook County, so the lead against Michael Shoup stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Shoup | — Sangamon Co,, Ill, (Power, J. C.) 1876.' against Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop.",
    "layers": [
     "residents",
     "structures"

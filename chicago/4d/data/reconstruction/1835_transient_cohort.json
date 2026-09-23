@@ -1,0 +1,445 @@
+{
+  "$schema_note": "DERIVED — regenerate with tools/model_transients_1835.py --build; tools/check.sh re-derives it. Do not hand-edit: every figure is a function of a committed file named in its own `derived_from`.",
+  "id": "chicago_july_1835_transient_cohort",
+  "ticket": "T-1352",
+  "parent": "T-1178",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/model_transients_1835.py --build",
+  "not_a_reading": "an adjudication over committed claim records and committed derived files — no scan is opened here, and nobody is named, aged or housed",
+  "writes_no_person": "T-1353 mints the cohort; this file bounds it. Nothing here is evidence about any person, household or building, and no card may cite it.",
+  "spent_by": "T-1353, which mints the cohort, and T-1214, which places the camps",
+  "tolerance": "Every figure is a range with a stated method and a named comparandum, and where the record bounds nothing the row says so instead of carrying an invented number. The headline figure has NO point reading on purpose: the evidence supports a band and not a number, and a band is the answer.",
+  "inputs": [
+    "data/reconstruction/1835_camp_grounds.json",
+    "data/reconstruction/1835_vessels_in_port.json",
+    "data/reconstruction/1835_town_model.json",
+    "data/research/directories/claims/fergus_1843_civic.json",
+    "data/research/directories/claims/norris_1844_town_findings.json",
+    "data/research/land_sales/entries.json",
+    "data/research/land_sales/resident_crosswalk.json",
+    "data/research/newspapers/extracted/chicago_american_1835_06_13.json",
+    "data/research/newspapers/extracted/chicago_american_1835_06_20.json",
+    "data/research/newspapers/extracted/chicago_american_1835_07_04.json",
+    "data/research/newspapers/extracted/chicago_democrat_1835_06_17.json",
+    "data/research/newspapers/extracted/chicago_democrat_1835_07_01.json",
+    "data/residents/households/hh_brown_rufus.json"
+  ],
+  "sections": [
+    {
+      "key": "size",
+      "title": "How many",
+      "figures": [
+        {
+          "figure": "residents_on_1_july_1835",
+          "low": 2353,
+          "high": 3265,
+          "point": 2536,
+          "is_a_count": false,
+          "method": "CARRIED, not derived. The town model's own reading, repeated here because the transient bracket is stated against it and a reader must not have to hold two files open to see what it is a fraction of.",
+          "comparanda": [
+            "andreas_1884_v1"
+          ],
+          "derived_from": [
+            "data/reconstruction/1835_town_model.json"
+          ]
+        },
+        {
+          "figure": "the_papers_own_estimate_13_june_1835",
+          "low": 2500,
+          "high": 3000,
+          "point": null,
+          "is_a_count": false,
+          "method": "The Chicago American of 13 June 1835, eighteen days before the scene: the actual population 'we cannot estimate with any degree of accuracy, but it is now supposed to be between 2500 and 3000'. An estimate that says it is one. The town model's point reading of 2,536 — built five years later out of a November census and an arrival distribution, and knowing nothing of this sentence — falls inside it.",
+          "comparanda": [
+            "chicago_american_1835_06_13"
+          ],
+          "derived_from": [
+            "data/research/newspapers/extracted/chicago_american_1835_06_13.json"
+          ]
+        },
+        {
+          "figure": "strangers_the_american_counts_separately",
+          "low": 200,
+          "high": 900,
+          "point": null,
+          "is_a_count": false,
+          "method": "The same sentence goes on: 'Strangers, to the amount of some hundreds more, fill our public houses and streets'. MORE — the paper puts the strangers OUTSIDE its own population estimate, which is the whole distinction this model is built on. The band is the phrase's own arithmetic: 200 is the least a plural of hundreds can carry and 900 the most, because an editor with a thousand strangers in his streets writes 'a thousand'. Turning the phrase into a band is a liberty and is recorded as docs/LIBERTIES.md L245.",
+          "comparanda": [
+            "chicago_american_1835_06_13"
+          ],
+          "derived_from": [
+            "data/research/newspapers/extracted/chicago_american_1835_06_13.json"
+          ]
+        },
+        {
+          "figure": "transient_persons_counted_at_chicago_1843",
+          "low": 533,
+          "high": 533,
+          "point": null,
+          "is_a_count": true,
+          "method": "The census of 1 August 1843, taken by Jas. W. Norris under the authority of the Common Council, prints `Transient persons` as a row of its own: 533 across six wards, in a printed total of 7,580. The only time Chicago's own enumerator counted the two populations apart, and the reason this model exists as a separate file.",
+          "comparanda": [
+            "fergus_chicago_directory_1843"
+          ],
+          "derived_from": [
+            "data/research/directories/claims/fergus_1843_civic.json"
+          ]
+        },
+        {
+          "figure": "transient_rate_of_a_chicago_summer_1843",
+          "low": 0.07564,
+          "high": 0.20619,
+          "point": null,
+          "is_a_count": false,
+          "method": "TWO READINGS OF ONE CENSUS. The printed table puts 533 transient persons against 7,047 permanent ones, which is 7.56%; Norris's own remarks on the same census say every person not permanently residing was excluded and that counting them would have made the town 'undoubtedly 8,500', which is 920 more again and 20.62%. Whether those are the same people counted twice is not settled here. It is a rate and not a population, and it is taken on 1 August 1843 — a boom year, mid-season, and no land sale.",
+          "comparanda": [
+            "fergus_chicago_directory_1843",
+            "norris_directory_1844"
+          ],
+          "derived_from": [
+            "data/research/directories/claims/fergus_1843_civic.json",
+            "data/research/directories/claims/norris_1844_town_findings.json"
+          ]
+        },
+        {
+          "figure": "named_purchasers_at_the_sale_the_layer_cannot_place",
+          "low": 77,
+          "high": 109,
+          "point": null,
+          "is_a_count": false,
+          "method": "MEASURED, and a floor three times over. The Public Domain Land Tract Sales register enters 232 purchases at Chicago on 26 and 27 June 1835 — four days before the scene — from 105 distinct purchasers, of whom the resident crosswalk can place only 28 in this town's own layer. Over June as a whole the figures are 141 and 32. It is a floor because a purchaser the crosswalk refuses is one the layer cannot NAME rather than one proved absent, because a man at a land sale travelled with agents and family, and because most of a land-sale crowd buys nothing at all.",
+          "comparanda": [
+            "illinois_state_archives_land_tract_sales"
+          ],
+          "derived_from": [
+            "data/research/land_sales/entries.json",
+            "data/research/land_sales/resident_crosswalk.json"
+          ]
+        },
+        {
+          "figure": "transients_on_1_july_1835",
+          "low": 192,
+          "high": 900,
+          "point": null,
+          "is_a_count": false,
+          "method": "FLOOR: 7.56% — the LOWER of the two 1843 rates above, the one Chicago's own enumerator printed — applied to this model's resident point of 2,536, which gives 192. The higher reading of the same census would give 523. It is a floor and not an estimate because 1 July 1835 is not an ordinary day: the federal land sale closed four days earlier, the navigation season was at its height, and the same enumerator says the crowd of 1835 inflated the town's own reckoning of itself by thousands. CEILING: 900, the most the American's 'some hundreds more' will carry, written in the town in the month itself. NO POINT READING: see the section's open questions — a draining sale crowd and a landing immigrant stream cross on this day in opposite directions, no committed source measures either, and a midpoint would be a number nobody could defend dressed as an answer.",
+          "comparanda": [
+            "chicago_american_1835_06_13",
+            "fergus_chicago_directory_1843"
+          ],
+          "derived_from": [
+            "data/research/newspapers/extracted/chicago_american_1835_06_13.json",
+            "data/research/directories/claims/fergus_1843_civic.json",
+            "data/reconstruction/1835_town_model.json"
+          ]
+        }
+      ],
+      "not_claiming": "This section does not say that any named person was a transient, and the land-sale purchasers it counts are a measurement of the register rather than a roll of the crowd.",
+      "open_questions": [
+        "This model declines a point reading, and that is a refusal rather than an omission. The sale closed on 27 June and the Democrat of 1 July says it 'has passed', so the sale crowd is leaving; the Marine Journal has vessels in with passengers on 28 and 29 June and again on 2 and 3 July, so the immigrant stream is still landing. Nothing committed measures the rate of either, and the answer is a band.",
+        "The two readings of the same 1843 census disagree. The printed table carries 533 transient persons INSIDE a total of 7,580; Norris's own remarks on that census say every person not permanently residing was excluded and that including them would have made the town 'undoubtedly 8,500'. Whether the 533 and the ~920 are the same people counted twice or two different exclusions is not settled here, and the second reading would put the floor at 523 instead of 192.",
+        "The floor derived from the 1843 rate sits just below the least value the American's phrase can carry (192 against 200). Two arguments that share no evidence landing that close together is the best corroboration this model has, and it is not a confirmation: both could be low.",
+        "The register's residence column reads UNKNOWN on every June 1835 row, so a purchaser the crosswalk cannot place is a purchaser this project cannot name at Chicago — never a purchaser shown to have come from elsewhere."
+      ],
+      "tables": {
+        "the_two_candidate_points": {
+          "unit": "persons, on 1 July 1835 — NEITHER is adopted here",
+          "note": "T-1353 must spend a number and this model will not pick one for it. These are the two that can be argued from committed evidence; whichever it takes, it cites this table and says which.",
+          "rows": [
+            {
+              "reading": "twice the 1843 rate",
+              "persons": 384,
+              "argument": "1 July 1835 is a land-sale week and 1 August 1843 was not, so the measured rate is doubled. The multiplier is invented and nothing in the record sets it."
+            },
+            {
+              "reading": "the midpoint of the American's phrase",
+              "persons": 550,
+              "argument": "'Some hundreds more' read at the middle of its own band. An editor's impression, printed eighteen days before the scene and before the sale crowd arrived."
+            }
+          ]
+        },
+        "the_land_sale_as_the_register_prints_it": {
+          "unit": "entries and distinct purchasers, Chicago land office",
+          "rows": [
+            {
+              "window": "June 1835, whole month",
+              "entries": 274,
+              "purchasers": 141,
+              "in the resident layer": 32,
+              "not in it": 109
+            },
+            {
+              "window": "26-27 June 1835, the sale days",
+              "entries": 232,
+              "purchasers": 105,
+              "in the resident layer": 28,
+              "not in it": 77
+            }
+          ]
+        },
+        "the_ceiling_this_model_refuses": {
+          "line": "n1844_tf_029",
+          "what_it_says": "Norris, writing in 1844: in 1835 'the population of the place was said to amount to 5,500, a computation which probably included transitory persons, a great many of whom were here at the time. The actual population, however, that year, could not have been much less than 3000.'",
+          "the_arithmetic_it_offers": "5,500 less 3,000 is 2,500 transients, which would be a ceiling four times the one adopted here.",
+          "why_it_is_refused": "Norris does not stand behind the 5,500 — it is what the population 'was said to amount to', nine years before he wrote — and the Chicago American, printing in the town in the month itself, put the WHOLE population at 2,500 to 3,000 with the strangers counted on top of it. A recollected rumour does not outrank a contemporary estimate, and the figure is recorded here rather than dropped so that a reader can disagree."
+        }
+      }
+    },
+    {
+      "key": "composition",
+      "title": "Who they were",
+      "figures": [
+        {
+          "figure": "vessels_lying_at_chicago_on_1_july_1835",
+          "low": 4,
+          "high": 6,
+          "point": null,
+          "is_a_count": false,
+          "method": "The Marine Journal of the Chicago American, 4 July 1835, three days after the scene. 6 vessels had arrived on 27, 28 and 29 June and were not entered as cleared before 1 July; two of them, the Philips and the Jesse Smith, cleared on the day itself, so 4 lay at Chicago at nightfall. The hulls are SEATED — 6 records in data/reconstruction/1835_vessels_in_port.json, each with the master, last port and cargo the column prints and a mooring that resolves to the reach and never to a deck — and this figure is re-derived from them. THE MODEL COUNTS VESSELS AND NOT MEN: no committed source gives the crew of a Great Lakes schooner of 1835, and multiplying a hull by a guessed complement would turn a reading into an invention.",
+          "comparanda": [
+            "chicago_american_1835_07_04"
+          ],
+          "derived_from": [
+            "data/reconstruction/1835_vessels_in_port.json",
+            "data/research/newspapers/extracted/chicago_american_1835_07_04.json"
+          ]
+        },
+        {
+          "figure": "named_land_sale_purchasers_still_owed_a_bed",
+          "low": 77,
+          "high": 109,
+          "point": null,
+          "is_a_count": false,
+          "method": "The same measurement as the size section's floor, carried here as the one row of the composition that has a number at all. Every other row below is bounded by nothing committed and says so.",
+          "comparanda": [
+            "illinois_state_archives_land_tract_sales"
+          ],
+          "derived_from": [
+            "data/research/land_sales/entries.json",
+            "data/research/land_sales/resident_crosswalk.json"
+          ]
+        }
+      ],
+      "not_claiming": "This section apportions nobody between its rows and no row here is a quota.",
+      "open_questions": [
+        "Four of the five rows have no size and this model does not give them one. The harbour works were the largest employer in the town and their 1835 strength is not in any file this project holds; the Chief Engineer's annual report for 1835 would settle it and is named in docs/research/01-terrain-hydrology as the thing to find.",
+        "A crew complement for an 1830s lake schooner would turn the port reading into a number of men. This model refuses to supply one from general knowledge; T-1353 seated no crews, and T-1372 seated the hulls and left them empty. Everything but the number is now in place — the vessels file names the hulls and the transient cards carry a `lodged_at` rung of kind `vessel` — so an enrolment return, a shipping article or a marine list that prints hands as well as hulls would finish it without anything being unpicked.",
+        "The steamboat that arrived on 29 June is unnamed in the extraction; the Democrat of 1 July has Lewis Cass arriving that day in the steamer Michigan, and the American has the Michigan clearing on the 26th. The likeliest reading is that the two entries are the same vessel returned, and the model neither merges them nor claims they are distinct."
+      ],
+      "tables": {
+        "who_the_cohort_was": {
+          "unit": "rows of the cohort — `bounded` says whether anything committed sets a size",
+          "rows": [
+            {
+              "row": "land-sale visitors and their agents",
+              "bounded": "floor only",
+              "evidence": "the register's own purchasers, 26-27 June 1835",
+              "at the scene date": "draining — the Democrat of 1 July says the sale has passed"
+            },
+            {
+              "row": "immigrant families awaiting lots",
+              "bounded": "no",
+              "evidence": "the American, 13 June 1835: 'men, women and children just landed from the vessels', 'the unsheltered emigrants'",
+              "at the scene date": "still landing — vessels in with passengers 28, 29 June, 2, 3 July"
+            },
+            {
+              "row": "the harbour-works gang",
+              "bounded": "no",
+              "evidence": "the federal harbour improvement was at work through 1835; no committed source gives its strength in any month",
+              "at the scene date": "at work"
+            },
+            {
+              "row": "crews ashore",
+              "bounded": "hulls only",
+              "evidence": "the Marine Journal of 4 July 1835, seated hull by hull in data/reconstruction/1835_vessels_in_port.json, and joined to the two packets the newspaper register already carried as houses of trade (T-1425)",
+              "at the scene date": "4 to 6 vessels in port, named and mastered; nobody aboard"
+            },
+            {
+              "row": "travellers of business and of state",
+              "bounded": "no",
+              "evidence": "the Democrat of 1 July 1835 names Lewis Cass, Secretary of War, arrived on the 29th in the steamer Michigan, 'among the numerous visitors to Chicago'",
+              "at the scene date": "present"
+            }
+          ]
+        },
+        "the_port_on_the_scene_date": {
+          "unit": "vessels, from the Marine Journal of 4 July 1835, re-derived from the seated hulls in data/reconstruction/1835_vessels_in_port.json",
+          "rows": [
+            {
+              "arrived": "1835-06-27",
+              "vessel": "Jesse Smith",
+              "rig": "schooner",
+              "master": "Drurian",
+              "from": "Green Bay",
+              "cargo": "lumber",
+              "cleared 1 July": "yes",
+              "house in the register": "none"
+            },
+            {
+              "arrived": "1835-06-27",
+              "vessel": "Philips",
+              "rig": "schooner",
+              "master": "Howe",
+              "from": "Milwaukee",
+              "cargo": "not stated",
+              "cleared 1 July": "yes",
+              "house in the register": "biz_the_chicago_and_st_joseph_packet_schooner_phillips"
+            },
+            {
+              "arrived": "1835-06-28",
+              "vessel": "Llewelling",
+              "rig": "schooner",
+              "master": "Clark",
+              "from": "cut from the column",
+              "cargo": "passengers",
+              "cleared 1 July": "no",
+              "house in the register": "biz_chicago_st_joseph_packet_schooner_llewellyn"
+            },
+            {
+              "arrived": "1835-06-28",
+              "vessel": "Hiram",
+              "rig": "schooner",
+              "master": "Rathbourn",
+              "from": "Michigan",
+              "cargo": "lumber",
+              "cleared 1 July": "no",
+              "house in the register": "none"
+            },
+            {
+              "arrived": "1835-06-29",
+              "vessel": "Whig",
+              "rig": "schooner",
+              "master": "Day",
+              "from": "cut from the column",
+              "cargo": "merchandize",
+              "cleared 1 July": "no",
+              "house in the register": "none"
+            },
+            {
+              "arrived": "1835-06-29",
+              "vessel": "an unnamed steamboat",
+              "rig": "steamboat",
+              "master": "not read",
+              "from": "cut from the column",
+              "cargo": "passengers",
+              "cleared 1 July": "no",
+              "house in the register": "none"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "where_they_slept",
+      "title": "Where they slept",
+      "figures": [
+        {
+          "figure": "sleeping_place_classes_the_sources_name",
+          "low": 6,
+          "high": 6,
+          "point": null,
+          "is_a_count": true,
+          "method": "Six, and each is a sentence in a committed source rather than a class this model invented: a room in a public house; the floor of that room; the floor of a private house; a store house thrown open; the open sky upon the wharves; a tent pitched at the landing. The vessels in port are a seventh place and are counted in the composition section instead, because a hull is a hull whether or not anybody slept in it.",
+          "comparanda": [
+            "chicago_american_1835_06_13",
+            "chicago_democrat_1835_06_17"
+          ],
+          "derived_from": [
+            "data/research/newspapers/extracted/chicago_american_1835_06_13.json",
+            "data/research/newspapers/extracted/chicago_democrat_1835_06_17.json"
+          ]
+        },
+        {
+          "figure": "camp_ground_candidates",
+          "low": 5,
+          "high": 5,
+          "point": null,
+          "is_a_count": true,
+          "method": "The authored candidates file offers 5 grounds, of which 1 is graded documented — the landing place, where the American says the tents were pitched — and the rest conjectural. The file authors no coordinate: each candidate names the committed geometry its extent resolves from, and T-1214 places the camps.",
+          "comparanda": [],
+          "derived_from": [
+            "data/reconstruction/1835_camp_grounds.json"
+          ]
+        }
+      ],
+      "not_claiming": "This section places no camp and gives no ground a capacity.",
+      "open_questions": [
+        "A refusal in 1835_no_build_ground.json is a refusal to a BUILDER and this model does not read it as a refusal to a camp: the United States Reservation carried no lot line and no street, and a crowd sleeping rough on it for a fortnight asked nobody's leave. Whether that reading is right is T-1214's to settle on the ground.",
+        "Four of the five candidate grounds are conjectural and would stay conjectural even if T-1214 placed a camp on every one of them — placing a thing does not raise the evidence for it.",
+        "Two of the candidates stand on ground the terrain and lot layers have not reached (T-1193, T-1194). Until they do, those candidates are a direction rather than an extent, and T-1214 may find it has nowhere to put them."
+      ],
+      "tables": {
+        "where_they_slept": {
+          "unit": "one row per class, with the sentence that establishes it",
+          "rows": [
+            {
+              "place": "a room in a public house",
+              "source": "the Democrat, 17 June 1835",
+              "says": "'the immense congregation of strangers crowding every room of our public houses, and every room in which they can obtain accommodations'"
+            },
+            {
+              "place": "the floor of that room",
+              "source": "the Democrat, 17 June 1835",
+              "says": "'even to the extent of sleeping on the floor'"
+            },
+            {
+              "place": "the floor of a private house",
+              "source": "hh_brown_rufus, on Mrs Rufus Brown's boarding house",
+              "says": "'full meant three in a bed sometimes, with the floor covered besides'"
+            },
+            {
+              "place": "a store house thrown open",
+              "source": "the American, 13 June 1835",
+              "says": "'even some store houses have been thrown open to receive the unsheltered emigrants'"
+            },
+            {
+              "place": "the open sky upon the wharves",
+              "source": "the American, 13 June 1835",
+              "says": "'who had else remained under the open sky upon the wharves'"
+            },
+            {
+              "place": "a tent at the landing place",
+              "source": "the American, 13 June 1835",
+              "says": "'Some build tents upon the spot they were landed from the boats'"
+            }
+          ]
+        },
+        "camp_ground_candidates": {
+          "unit": "grounds offered to T-1214 — a candidate is not a placement",
+          "rows": [
+            {
+              "id": "the_landing_place",
+              "name": "The wharves and the bank where the vessels discharged",
+              "confidence": "documented",
+              "refused to a builder": "—"
+            },
+            {
+              "id": "the_lake_shore_south_of_the_fort",
+              "name": "The lake shore south of Fort Dearborn",
+              "confidence": "conjectural",
+              "refused to a builder": "fort_dearborn_reservation, river_mouth_sand_bar"
+            },
+            {
+              "id": "the_prairie_edge_west_of_the_canal_street_approach",
+              "name": "The prairie edge west of the Canal Street approach",
+              "confidence": "conjectural",
+              "refused to a builder": "—"
+            },
+            {
+              "id": "wolf_point",
+              "name": "Wolf Point, at the forks",
+              "confidence": "conjectural",
+              "refused to a builder": "—"
+            },
+            {
+              "id": "the_north_side_commons",
+              "name": "The North Division ground beyond the dealt parcel",
+              "confidence": "conjectural",
+              "refused to a builder": "—"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

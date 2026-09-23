@@ -48,6 +48,11 @@ import argparse
 import json
 import re
 import sys
+import shutil
+from pathlib import Path as _ToolsPath
+
+sys.path.insert(0, str(_ToolsPath(__file__).resolve().parent))
+from reconstructed_person import is_reconstructed  # noqa: E402
 import tempfile
 from pathlib import Path
 
@@ -283,6 +288,11 @@ def town_people():
     for path in sorted(HOUSEHOLDS.glob("hh_*.json")):
         doc = json.loads(path.read_text(encoding="utf-8"))
         for person in doc.get("persons") or []:
+            # T-1171: a person the reconstruction programme DREW is not a name any source printed.
+            # Matching one to a printed name would be this project reading its own invention
+            # back as evidence. reconstructed_person.py holds the rule.
+            if is_reconstructed(person):
+                continue
             name = str(person.get("name") or "").strip()
             parts = name_parts(name)
             if not parts:
@@ -558,6 +568,7 @@ def check(quiet: bool = False) -> int:
 
 def self_test() -> int:
     """--check must stay non-destructive, and must still catch a real drift."""
+    global DOMAIN
     failures = []
     before = {rel: (DOMAIN / rel).read_bytes() for rel in GENERATED}
 
@@ -568,21 +579,44 @@ def self_test() -> int:
             failures.append("--check REWROTE %s: a gate that repairs what it checks "
                             "reports green on the second run" % rel)
 
-    # A real drift, made and put back. The crosswalk is the file that moved under
-    # T-0856, so it is the one the fixture edits.
-    victim = DOMAIN / "resident_crosswalk.json"
-    doc = json.loads(victim.read_text(encoding="utf-8"))
-    doc["counts"]["matched"] = doc["counts"]["matched"] + 1
-    try:
-        victim.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n",
-                          encoding="utf-8")
-        if check(quiet=True) == 0:
-            failures.append("--check passed a hand-edited resident_crosswalk.json")
-        if victim.read_bytes() == before["resident_crosswalk.json"]:
-            failures.append("--check REPAIRED the hand-edit it was asked to report")
-    finally:
-        for rel, blob in before.items():
-            (DOMAIN / rel).write_bytes(blob)
+    # A real drift — MADE IN A COPY OF THE DOMAIN, NOT IN THE DOMAIN (T-1336).
+    #
+    # This fixture used to write the drift into the live resident_crosswalk.json and
+    # put it back in a `finally`. Serially that is invisible. Under check.sh's job
+    # pool it is not: the step declared immediately above this one is
+    # `read_census_1830.py --check` over that same file, the pool runs the two
+    # together, and the check reads the drift this fixture is holding. That is a red
+    # gate on a green tree, and it was observed — a branch went red here and the
+    # identical tree went green on the next run.
+    #
+    # `check()` reads the module-level DOMAIN, and a self-test runs in its own
+    # process, so pointing DOMAIN at a copy is enough: this process checks the copy
+    # while every other process still sees the committed files, untouched. The
+    # `finally` restores the binding rather than the bytes, because no byte of the
+    # real domain is written any more.
+    live = DOMAIN
+    with tempfile.TemporaryDirectory() as td:
+        scratch = Path(td) / "census_1830"
+        shutil.copytree(live, scratch)
+        victim = scratch / "resident_crosswalk.json"
+        doc = json.loads(victim.read_text(encoding="utf-8"))
+        doc["counts"]["matched"] = doc["counts"]["matched"] + 1
+        try:
+            DOMAIN = scratch
+            victim.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n",
+                              encoding="utf-8")
+            if check(quiet=True) == 0:
+                failures.append("--check passed a hand-edited resident_crosswalk.json")
+            if victim.read_bytes() == before["resident_crosswalk.json"]:
+                failures.append("--check REPAIRED the hand-edit it was asked to report")
+        finally:
+            DOMAIN = live
+
+    # And the live domain is byte-for-byte what it was, which is now a property of
+    # this fixture rather than of its `finally` running.
+    for rel, blob in before.items():
+        if (DOMAIN / rel).read_bytes() != blob:
+            failures.append("the drift fixture wrote %s in the LIVE domain" % rel)
 
     for f in failures:
         print("FAIL %s" % f)

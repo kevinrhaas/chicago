@@ -30,8 +30,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 from generate_plat_lots import (  # noqa: E402
-    DATA, EW_STREETS, NS_STREETS, corridor_rings, load, point_in_polygon,
-    point_to_ring_m, street_lines,
+    CORRIDOR_EW, CORRIDOR_NS, DATA, corridor_rings, load,
+    point_in_polygon, point_to_ring_m, street_lines,
 )
 
 # Footprint edges are sampled at this pitch before the point test. A corridor is 24 m
@@ -127,9 +127,9 @@ def control_offsets(lines: dict | None = None, control: dict | None = None) -> d
             if sid in (point.get("not_corridor_control_for") or []):
                 refused[sid].append(point_id)
                 continue
-            if sid in EW_STREETS:
+            if sid in CORRIDOR_EW:
                 axis, along, control_cross = "ew", local_e, local_n
-            elif sid in NS_STREETS:
+            elif sid in CORRIDOR_NS:
                 axis, along, control_cross = "ns", local_n, local_e
             else:
                 continue
@@ -156,9 +156,9 @@ def control_offsets(lines: dict | None = None, control: dict | None = None) -> d
             elif abs(offsets[0]) <= QUOTED_M:
                 verdict, offset = "centred", 0.0
             else:
-                verdict, offset = "recentred", round(sum(offsets) / len(offsets), 2)
+                verdict, offset = "recentred", round(math.fsum(offsets) / len(offsets), 2)
         out[sid] = {
-            "axis": "ew" if sid in EW_STREETS else "ns" if sid in NS_STREETS else None,
+            "axis": "ew" if sid in CORRIDOR_EW else "ns" if sid in CORRIDOR_NS else None,
             "points": points,
             "spread_m": (round(max(p["offset_m"] for p in points if p["offset_m"] is not None)
                                - min(p["offset_m"] for p in points
@@ -202,7 +202,7 @@ def corridors(from_control: bool = False) -> dict:
     out = {}
     for sid, ring in corridor_rings(lines, half_width).items():
         shift = float(offsets.get(sid, {}).get("offset_m") or 0.0)
-        i = 1 if sid in EW_STREETS else 0
+        i = 1 if sid in CORRIDOR_EW else 0
         if shift:
             ring = [(e, n + shift) if i else (e + shift, n) for e, n in ring]
         drawn = lines[sid]["points"]

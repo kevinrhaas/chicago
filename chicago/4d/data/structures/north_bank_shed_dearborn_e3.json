@@ -90,6 +90,22 @@
   "confidence": "reconstructed",
   "note": "The use comes from the plate and from the place. Image 3 of the owner's brief of 2026-08-18 draws low warehouses on the banks of the reach below the drawbridge, and this reach is where the river traffic and the town's only crossing of the main stem met in July 1835. The specific goods, the trade and the operator are not inferred and are not recorded: an occupant would be a person, and this record claims a building."
  },
+ "stands_on_lot": {
+  "claims_lot": false,
+  "grid": "north_division_tier",
+  "plat": "thompson_plat_1830",
+  "layer": "data/traces/vectors/north_division_tier_lots.json",
+  "block_id": "blk_kinzie_dearborn_north",
+  "lot_index": 3,
+  "lot_number": 3,
+  "lot_number_withheld": null,
+  "lot_lines_confidence": "inferred",
+  "lot_numbers_confidence": "inferred",
+  "confidence": "inferred",
+  "footprint_share": 0.571,
+  "derived_by": "tools/record_lot_seating.py",
+  "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 57% on lot 3 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
+ },
  "research_note": "A RECONSTRUCTED BUILDING, BUILT UNDER THE OWNER'S STANDING RULING OF 2026-08-18 — 'you are totally fine to be liberal with adding reconstructed items when i ask for things, you can just label and mark them as such' — and ticket T-0133, the second half of T-0071. WHAT IS HELD: image 3 of the brief (data/sources/assets/owner_brief_2026_08_18/README.md), an engraving of the reach below the Dearborn drawbridge showing low warehouses on the banks; and image 11, the retrospective painting of South Water Street in 1834, which shows what a working river frontage in this town looked like. Both are tier-5 pictorial and neither is yet held as a source record — T-0075 owns that — so this record cites committed paths rather than a source_id, and `sources` is deliberately empty rather than filled with a citation that would not resolve. WHAT IS CONJECTURAL: the building, its station, its size, its construction, its roof, its opening and its date. All of it. The record is graded `reconstructed` on every line for that reason, and docs/LIBERTIES.md L164 claims the invention. WHAT WOULD UPGRADE IT: a lot record for the north bank below Dearborn, a forwarding merchant's advertisement giving an address on this reach, or a contemporary view of the north bank. THE SOUTH BANK IS ABSENT FOR A MEASURED REASON, not an oversight: the plate shows warehouses on both banks, and on the south bank the platted South Water Street corridor reaches to within about 1.7 m of the traced 1834 waterline at the Dearborn reach, so there is no ground there for a building that is not standing in the platted street. That measurement is its own ticket.",
  "review_required": false
 }

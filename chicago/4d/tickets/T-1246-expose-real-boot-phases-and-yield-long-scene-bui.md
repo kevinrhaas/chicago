@@ -1,7 +1,7 @@
 ---
 id: T-1246
 title: Expose real boot phases and yield long scene-building tasks
-state: open
+state: done
 epic: RENDERING
 requested_by: owner
 seen: true
@@ -9,12 +9,12 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-17
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-20
+pr: 1586
+claimed_by: run 9/20/2026, 12:51:17 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
+closed_at: 2026-09-20T18:36:30.706Z
 claimed_run: null
 ---
 
@@ -49,3 +49,9 @@ Make the boot **measurable and responsive** before anything is done to its looks
 **Out of scope:** new copy, the year ticker, the flip cards, the welcome (T-1247, T-1275, T-1278). Do not put Three.js objects in a worker for this.
 
 **Visible-progress note:** the visitor sees statuses that repaint during the prairie phase instead of a frozen line — say so in the changelog entry. Contract: [architecture §A](../docs/ARRIVAL-JAUNTS-ARCHITECTURE.md#a-boot-phases-and-readiness) · [plan](../docs/ARRIVAL-JAUNTS-EXECUTION.md). One PR into `dev`; claim with `ticket.mjs`; meet this acceptance before closing; a genuine leftover becomes one successor placed `--after` this ticket, never a tail line.
+
+## Completion receipt — PR #1586
+
+Published matrix: all 12 device/tier/cache cells preserve geometry bytes, flora/tree stats, roll and drawn-placement census against c8c11eabe. Mobile/light flora repaint gaps: **123.8 ms cold / 116.5 ms warm**, versus **974.5 ms** cold before slicing. Measured defaults, machine/date and digests: `tools/boot_phase_measurements.json`; reproduction and browser-rendering limits: `docs/performance/BOOT-PHASES.md`.
+
+Published failure stubs (people/census soft, terrain fatal), first-render barrier, hidden-tab resume and controller/history tests pass. Final isolated smoke: desktop stages 1/6/13 **196/0**, mobile stages 1/6 **91/0**. Full stages 1–13 also ran: mobile **538/4**, desktop **533/6**; inherited household/card/people expectations and desktop draw-budget failures are retained in the smoke ledger. The full desktop run's pointer-lock error did not recur in isolated baseline 1/6 or final 1/6/13. Boot payload **7.915 MB / 12 MB**. Local Mac gate limitations and the required final Linux CI result are recorded in the PR; no existing assertions or mesh inputs were weakened.

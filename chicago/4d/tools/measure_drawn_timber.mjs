@@ -56,7 +56,7 @@ const JSON_OUT = process.argv.includes('--json');
 const GATE = process.argv.includes('--gate');
 const SOURCE = process.argv.includes('--source');
 const REFUTE = process.argv.includes('--refute');
-const ROOT = SOURCE ? path.resolve(HERE, '..') : path.resolve(HERE, '../../../site/4d');
+const ROOT = SOURCE ? path.resolve(HERE, '..') : path.resolve(HERE, '../../../site/chicago/4d');
 const ENTRY = SOURCE ? '/renderers/web/index.html' : '/walk/';
 
 const TYPES = {

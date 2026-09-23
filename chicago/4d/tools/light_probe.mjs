@@ -69,7 +69,7 @@ const WITH_SUN = flag('--sun');
 const PORT = Number(process.env.PROBE_PORT || 4193);
 const YEAR = process.env.CRITIC_YEAR || '1835';
 
-const ROOT = PUBLISHED ? path.resolve(APP, '../../site/4d') : APP;
+const ROOT = PUBLISHED ? path.resolve(APP, '../../site/chicago/4d') : APP;
 const ENTRY = PUBLISHED ? '/walk/' : '/renderers/web/index.html';
 
 const TYPES = {

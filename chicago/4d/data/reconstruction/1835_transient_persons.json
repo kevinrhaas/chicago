@@ -1,0 +1,811 @@
+{
+ "$schema_note": "DERIVED - regenerate with tools/reconstruct_transients_1835.py --build; tools/check.sh re-derives it. Do not hand-edit: every figure is a function of a committed file named in `inputs`.",
+ "id": "chicago_july_1835_transient_persons",
+ "ticket": "T-1353",
+ "parent": "T-1178",
+ "stage": "transients",
+ "target_date": "1835-07-01",
+ "generated_by": "tools/reconstruct_transients_1835.py --build",
+ "spends": "data/reconstruction/1835_transient_cohort.json, which bounds the cohort and adopts no point. This file adopts one and says which.",
+ "inputs": [
+  "data/reconstruction/1835_transient_cohort.json",
+  "data/reconstruction/1835_camp_grounds.json",
+  "data/reconstruction/1835_lodging_model.json",
+  "data/reconstruction/1835_invented_name_pools.json",
+  "data/research/census_1840/composition_1840.json"
+ ],
+ "the_point_adopted": {
+  "persons": 384,
+  "reading": "twice the 1843 rate",
+  "read_from": "data/reconstruction/1835_transient_cohort.json#size.tables.the_two_candidate_points",
+  "why_this_one": "It stands on the only figure Chicago's own enumerator ever printed for transients - 533 of them, a row of his own, in the census of 1 August 1843 - doubled because 1 July 1835 was a land-sale week and 1 August 1843 was not. The multiplier is invented and T-1352 says so; the rate under it is measured. The alternative, 550, is the midpoint of a newspaper's 'some hundreds more', printed eighteen days before the scene and before the sale crowd arrived, and offered as a phrase rather than as a count.",
+  "why_not_the_other": "A measured comparandum with one invented step is preferred to a rhetorical band read at its middle. Both sit inside T-1352's 192-900 bracket; this is the lower."
+ },
+ "the_capacity_argument_this_file_refuses": {
+  "built_surge_beds": 318,
+  "programme_surge_beds": 764,
+  "persons_minted": 307,
+  "why_it_is_refused": "The BUILT lodging places carry a surge close to the minted cohort, which reads as a confirmation of the point adopted. It is not one. The town had 42 boarding houses and this reconstruction has built five; the programme's full surge is the figure above it, and the fit measures how far the structure band has got rather than anything the crowd did. Letting it choose a population would be reading this project's own incompleteness as evidence."
+ },
+ "refusals": [
+  {
+   "row": "land-sale visitors and their agents",
+   "slots_reserved": 77,
+   "why": "The Public Domain register enters 232 purchases at Chicago on 26-27 June 1835 from 105 distinct purchasers, of whom the resident crosswalk can place only 28 in the town - a floor of 77 visitors the register NAMES. A drawn person may never stand in for a person a source names, so the slots are reserved and left empty.",
+   "owed_to": "a reading of the tract-sales register against the resident layer"
+  },
+  {
+   "row": "crews ashore",
+   "slots_reserved": 0,
+   "why": "T-1352 records 4 to 6 hulls lying at Chicago on the scene date and no committed source in this corpus gives a crew complement for an 1830s lake schooner. Without one a crew is a number invented whole, so the hulls carry nobody. T-1372 has since SEATED those hulls — data/reconstruction/1835_vessels_in_port.json names each one, her master, her last port and her cargo, and moors her to the reach — and left every one of them empty.",
+   "owed_to": "a committed source that gives an 1830s Great Lakes schooner its complement. The hulls are seated and the `lodged_at` rung of kind `vessel` is gated and read; only the number is missing"
+  },
+  {
+   "row": "the harbour-works gang",
+   "slots_reserved": 0,
+   "why": "The federal harbour improvement was at work through 1835 and no committed source gives its strength in any month.",
+   "owed_to": "T-1372, and a reading that gives the works a strength"
+  },
+  {
+   "row": "travellers of business and of state",
+   "slots_reserved": 0,
+   "why": "The papers name these one at a time - the Democrat of 1 July 1835 has Lewis Cass, Secretary of War, arrived on the 29th in the steamer Michigan. A man a newspaper names is a reading waiting to be made, and an invented traveller drawn beside him would bury him.",
+   "owed_to": "a reading of the 1835 papers' visitor notices"
+  }
+ ],
+ "the_liberty_this_stage_takes": {
+  "what": "An EQUAL deal of the minted cohort across the six sleeping-place classes T-1352 names, remainder to the first class in its printed order.",
+  "why": "No source in this corpus gives a share, and T-1352 ranks none of the six. An equal deal is the only apportionment that adds no ranking the record does not carry.",
+  "retired_by": "a source that ranks the classes, or gives any one of them a count",
+  "recorded_in": "docs/LIBERTIES.md"
+ },
+ "totals": {
+  "point_adopted": 384,
+  "reserved_not_minted": 77,
+  "persons_minted": 307,
+  "households_minted": 83,
+  "persons_by_household_kind": {
+   "camp": 102,
+   "party": 205
+  },
+  "households_by_household_kind": {
+   "camp": 28,
+   "party": 55
+  },
+  "resident_counts_this_file_moves": 0
+ },
+ "classes": [
+  {
+   "key": "a_room_in_a_public_house",
+   "place": "a room in a public house",
+   "household_kind": "party",
+   "source": "the Democrat, 17 June 1835",
+   "says": "'the immense congregation of strangers crowding every room of our public houses, and every room in which they can obtain accommodations'",
+   "quota": 52,
+   "households": 13,
+   "persons": 52,
+   "lodged_at_rung": "sleeping_class"
+  },
+  {
+   "key": "the_floor_of_that_room",
+   "place": "the floor of that room",
+   "household_kind": "party",
+   "source": "the Democrat, 17 June 1835",
+   "says": "'even to the extent of sleeping on the floor'",
+   "quota": 51,
+   "households": 16,
+   "persons": 51,
+   "lodged_at_rung": "sleeping_class"
+  },
+  {
+   "key": "the_floor_of_a_private_house",
+   "place": "the floor of a private house",
+   "household_kind": "party",
+   "source": "hh_brown_rufus, on Mrs Rufus Brown's boarding house",
+   "says": "'full meant three in a bed sometimes, with the floor covered besides'",
+   "quota": 51,
+   "households": 12,
+   "persons": 51,
+   "lodged_at_rung": "sleeping_class"
+  },
+  {
+   "key": "a_store_house_thrown_open",
+   "place": "a store house thrown open",
+   "household_kind": "party",
+   "source": "the American, 13 June 1835",
+   "says": "'even some store houses have been thrown open to receive the unsheltered emigrants'",
+   "quota": 51,
+   "households": 14,
+   "persons": 51,
+   "lodged_at_rung": "sleeping_class"
+  },
+  {
+   "key": "the_open_sky_upon_the_wharves",
+   "place": "the open sky upon the wharves",
+   "household_kind": "camp",
+   "source": "the American, 13 June 1835",
+   "says": "'who had else remained under the open sky upon the wharves'",
+   "quota": 51,
+   "households": 13,
+   "persons": 51,
+   "lodged_at_rung": "camp_ground_candidate"
+  },
+  {
+   "key": "a_tent_at_the_landing_place",
+   "place": "a tent at the landing place",
+   "household_kind": "camp",
+   "source": "the American, 13 June 1835",
+   "says": "'Some build tents upon the spot they were landed from the boats'",
+   "quota": 51,
+   "households": 15,
+   "persons": 51,
+   "lodged_at_rung": "camp_ground_candidate"
+  }
+ ],
+ "minted": [
+  {
+   "id": "hh_rc_wilcox_david",
+   "file": "transients/hh_rc_wilcox_david.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:001",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_sheldon_anna",
+   "file": "transients/hh_rc_sheldon_anna.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:002",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_rice_orrin",
+   "file": "transients/hh_rc_rice_orrin.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:003",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_sullivan_bridget",
+   "file": "transients/hh_rc_sullivan_bridget.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:004",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_stebbins_silas",
+   "file": "transients/hh_rc_stebbins_silas.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:005",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_reilly_patrick",
+   "file": "transients/hh_rc_reilly_patrick.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:006",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_fitzgerald_john",
+   "file": "transients/hh_rc_fitzgerald_john.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:007",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_goodrich_hannah",
+   "file": "transients/hh_rc_goodrich_hannah.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:008",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_corrigan_bridget",
+   "file": "transients/hh_rc_corrigan_bridget.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:009",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_brady_james",
+   "file": "transients/hh_rc_brady_james.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:010",
+   "persons": 7
+  },
+  {
+   "id": "hh_rc_parmelee_levi",
+   "file": "transients/hh_rc_parmelee_levi.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:011",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_leland_samuel",
+   "file": "transients/hh_rc_leland_samuel.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:012",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_hale_luther",
+   "file": "transients/hh_rc_hale_luther.json",
+   "household_kind": "party",
+   "sleeping_class": "a_room_in_a_public_house",
+   "slot": "transients:a_room_in_a_public_house:013",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_stiles_mary",
+   "file": "transients/hh_rc_stiles_mary.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:001",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_lyman_lucy",
+   "file": "transients/hh_rc_lyman_lucy.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:002",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_fisk_sarah",
+   "file": "transients/hh_rc_fisk_sarah.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:003",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_metcalf_jared",
+   "file": "transients/hh_rc_metcalf_jared.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:004",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_gilbert_martha",
+   "file": "transients/hh_rc_gilbert_martha.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:005",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_burke_cornelius",
+   "file": "transients/hh_rc_burke_cornelius.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:006",
+   "persons": 1
+  },
+  {
+   "id": "hh_rc_woodruff_betsey",
+   "file": "transients/hh_rc_woodruff_betsey.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:007",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_thayer_levi",
+   "file": "transients/hh_rc_thayer_levi.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:008",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_bacon_nancy",
+   "file": "transients/hh_rc_bacon_nancy.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:009",
+   "persons": 8
+  },
+  {
+   "id": "hh_rc_keegan_hugh",
+   "file": "transients/hh_rc_keegan_hugh.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:010",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_crandall_rhoda",
+   "file": "transients/hh_rc_crandall_rhoda.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:011",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_ingalls_nathaniel",
+   "file": "transients/hh_rc_ingalls_nathaniel.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:012",
+   "persons": 1
+  },
+  {
+   "id": "hh_rc_nichols_alanson",
+   "file": "transients/hh_rc_nichols_alanson.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:013",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_nash_harvey",
+   "file": "transients/hh_rc_nash_harvey.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:014",
+   "persons": 1
+  },
+  {
+   "id": "hh_rc_pratt_horace",
+   "file": "transients/hh_rc_pratt_horace.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:015",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_tuttle_anna",
+   "file": "transients/hh_rc_tuttle_anna.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_that_room",
+   "slot": "transients:the_floor_of_that_room:016",
+   "persons": 1
+  },
+  {
+   "id": "hh_rc_fairbanks_hannah",
+   "file": "transients/hh_rc_fairbanks_hannah.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:001",
+   "persons": 7
+  },
+  {
+   "id": "hh_rc_donnelly_john",
+   "file": "transients/hh_rc_donnelly_john.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:002",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_hastings_alanson",
+   "file": "transients/hh_rc_hastings_alanson.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:003",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_sawyer_esther",
+   "file": "transients/hh_rc_sawyer_esther.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:004",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_newell_almira",
+   "file": "transients/hh_rc_newell_almira.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:005",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_eastman_maria",
+   "file": "transients/hh_rc_eastman_maria.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:006",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_wadsworth_horace",
+   "file": "transients/hh_rc_wadsworth_horace.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:007",
+   "persons": 7
+  },
+  {
+   "id": "hh_rc_whitcomb_anna",
+   "file": "transients/hh_rc_whitcomb_anna.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:008",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_bardwell_orrin",
+   "file": "transients/hh_rc_bardwell_orrin.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:009",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_hubbard_james",
+   "file": "transients/hh_rc_hubbard_james.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:010",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_kelly_thomas",
+   "file": "transients/hh_rc_kelly_thomas.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:011",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_barnes_joseph",
+   "file": "transients/hh_rc_barnes_joseph.json",
+   "household_kind": "party",
+   "sleeping_class": "the_floor_of_a_private_house",
+   "slot": "transients:the_floor_of_a_private_house:012",
+   "persons": 1
+  },
+  {
+   "id": "hh_rc_dickinson_james",
+   "file": "transients/hh_rc_dickinson_james.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:001",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_kellogg_amanda",
+   "file": "transients/hh_rc_kellogg_amanda.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:002",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_lynch_james",
+   "file": "transients/hh_rc_lynch_james.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:003",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_chapin_sarah",
+   "file": "transients/hh_rc_chapin_sarah.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:004",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_cobb_samuel",
+   "file": "transients/hh_rc_cobb_samuel.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:005",
+   "persons": 7
+  },
+  {
+   "id": "hh_rc_ingalls_erastus",
+   "file": "transients/hh_rc_ingalls_erastus.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:006",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_bardwell_sophronia",
+   "file": "transients/hh_rc_bardwell_sophronia.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:007",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_hale_harvey",
+   "file": "transients/hh_rc_hale_harvey.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:008",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_newell_joseph",
+   "file": "transients/hh_rc_newell_joseph.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:009",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_sawyer_nancy",
+   "file": "transients/hh_rc_sawyer_nancy.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:010",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_hale_phebe",
+   "file": "transients/hh_rc_hale_phebe.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:011",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_kellogg_erastus",
+   "file": "transients/hh_rc_kellogg_erastus.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:012",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_bardwell_betsey",
+   "file": "transients/hh_rc_bardwell_betsey.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:013",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_whitcomb_maria",
+   "file": "transients/hh_rc_whitcomb_maria.json",
+   "household_kind": "party",
+   "sleeping_class": "a_store_house_thrown_open",
+   "slot": "transients:a_store_house_thrown_open:014",
+   "persons": 1
+  },
+  {
+   "id": "hh_rc_lyman_otis",
+   "file": "transients/hh_rc_lyman_otis.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:001",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_kellogg_willard",
+   "file": "transients/hh_rc_kellogg_willard.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:002",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_rice_benjamin",
+   "file": "transients/hh_rc_rice_benjamin.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:003",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_newell_ira",
+   "file": "transients/hh_rc_newell_ira.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:004",
+   "persons": 1
+  },
+  {
+   "id": "hh_rc_gilbert_william",
+   "file": "transients/hh_rc_gilbert_william.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:005",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_dickinson_polly",
+   "file": "transients/hh_rc_dickinson_polly.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:006",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_leland_henry",
+   "file": "transients/hh_rc_leland_henry.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:007",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_goodrich_maria",
+   "file": "transients/hh_rc_goodrich_maria.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:008",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_kellogg_chauncey",
+   "file": "transients/hh_rc_kellogg_chauncey.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:009",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_sheldon_almira",
+   "file": "transients/hh_rc_sheldon_almira.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:010",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_hubbard_levi",
+   "file": "transients/hh_rc_hubbard_levi.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:011",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_kellogg_charles",
+   "file": "transients/hh_rc_kellogg_charles.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:012",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_tuttle_lydia",
+   "file": "transients/hh_rc_tuttle_lydia.json",
+   "household_kind": "camp",
+   "sleeping_class": "the_open_sky_upon_the_wharves",
+   "slot": "transients:the_open_sky_upon_the_wharves:013",
+   "persons": 6
+  },
+  {
+   "id": "hh_rc_woodruff_abigail",
+   "file": "transients/hh_rc_woodruff_abigail.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:001",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_pratt_betsey",
+   "file": "transients/hh_rc_pratt_betsey.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:002",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_ingalls_sophronia",
+   "file": "transients/hh_rc_ingalls_sophronia.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:003",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_crandall_phebe",
+   "file": "transients/hh_rc_crandall_phebe.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:004",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_carroll_edward",
+   "file": "transients/hh_rc_carroll_edward.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:005",
+   "persons": 1
+  },
+  {
+   "id": "hh_rc_sawyer_warren",
+   "file": "transients/hh_rc_sawyer_warren.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:006",
+   "persons": 4
+  },
+  {
+   "id": "hh_rc_kellogg_horace",
+   "file": "transients/hh_rc_kellogg_horace.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:007",
+   "persons": 8
+  },
+  {
+   "id": "hh_rc_cavanagh_dennis",
+   "file": "transients/hh_rc_cavanagh_dennis.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:008",
+   "persons": 5
+  },
+  {
+   "id": "hh_rc_chapin_asa",
+   "file": "transients/hh_rc_chapin_asa.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:009",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_chapin_martha",
+   "file": "transients/hh_rc_chapin_martha.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:010",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_fairbanks_amos",
+   "file": "transients/hh_rc_fairbanks_amos.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:011",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_doyle_daniel",
+   "file": "transients/hh_rc_doyle_daniel.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:012",
+   "persons": 3
+  },
+  {
+   "id": "hh_rc_mcguire_cornelius",
+   "file": "transients/hh_rc_mcguire_cornelius.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:013",
+   "persons": 6
+  },
+  {
+   "id": "hh_rc_stiles_nancy",
+   "file": "transients/hh_rc_stiles_nancy.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:014",
+   "persons": 2
+  },
+  {
+   "id": "hh_rc_gilbert_esther",
+   "file": "transients/hh_rc_gilbert_esther.json",
+   "household_kind": "camp",
+   "sleeping_class": "a_tent_at_the_landing_place",
+   "slot": "transients:a_tent_at_the_landing_place:015",
+   "persons": 4
+  }
+ ]
+}

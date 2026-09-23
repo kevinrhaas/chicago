@@ -23,7 +23,7 @@ publish.sh minifies four resident mirror files that the T-0838 synthesizer ratch
 **Acceptance:** (state it before working — the definition of done, never weakened to pass)
 
 FOUND WHILE LANDING T-0694 (PR #973), 2026-09-06. `./tools/publish.sh` rewrites
-`site/4d/data/residents/index.json` and the three household cards
+`site/chicago/4d/data/residents/index.json` and the three household cards
 `hh_adams_william_h.json`, `hh_miller_john.json`, `hh_murphy_john.json` from
 pretty-printed JSON to one minified line. The bytes are semantically identical —
 verified with a `json.loads` comparison against `HEAD` — but `check.sh`'s step

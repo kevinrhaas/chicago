@@ -1,7 +1,7 @@
 ---
 id: T-1166
 title: The reconstruction order book: known minus model, per bucket and per division — exactly how many persons, households, businesses and structures of each kind to reconstruct, in the order the bands below will build them, published as a card
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-18
+pr: 1443
+claimed_by: run 9/18/2026, 1:22:07 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T07:01:17.862Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35314301150
 ---
 
 This closes the 1835 TOWN ANALYSIS band. Every model above (T-1161, T-1162,

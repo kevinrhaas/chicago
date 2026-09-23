@@ -102,3 +102,56 @@ Parcel-specific evidence would require contemporary tax or assessment lists, dee
 improvements, construction notices, account books, insurance records, surveyed building plans,
 or sufficiently close contemporary views. A later retrospective map may orient research but
 cannot by itself upgrade an anonymous roof to documented.
+
+## The programme re-derived against the order book
+
+*Appended 2026-09-20 (T-1196). The programme reasoning above is the 2026-08 record and is
+left as it was written; the quantitative target table near the top still prints the 665/511
+figures of that date, which T-0032, T-0283, T-0881, T-0883 and T-1036 have since moved to
+668/510. The live numbers are `1835_building_inventory.json`'s and are gated.*
+
+The 668-roof schedule was calibrated before this project had a population layer. It has one
+now — the town model (T-1293), the lodging model (T-1370) and the reconstruction order book
+(T-1166) — and the order book carries five `programme_deltas` rows stamped
+`owning_ticket: T-1196` so that the comparison would be made deliberately rather than
+discovered halfway through a district. `tools/reprogramme_roofs_1835.py` makes it, every
+group, every gate run. The full record is
+`docs/RESEARCH/1835_roof_programme_rederivation.md`.
+
+**No group moved, and the total stays at 668** — inside the inventory's own defensible range
+of 565–765. That is a result rather than an absence of one, because the largest delta on the
+book is 308:
+
+- **The order book orders 643 households and the programme schedules 335 ordinary
+  dwellings.** Building 308 more roofs to close that would seat one family per roof, which is
+  the exact error the town model was written to refuse: *"a roof programme that seats one
+  family per roof undercounts the town."* It closes on **occupancy**. The programme's 377
+  dwelling roofs (335 ordinary plus the 42 larger houses and boarding houses) hold 643
+  households at **1.706 households to a dwelling** — and the November 1835 town census
+  brackets that rate at **1.636–2.051**, being 8.204 people to a dwelling over a household
+  size of 4.0 to 5.015. The rate the order book needs is inside the band the census implies,
+  so the dwelling half of the programme holds the town it is ordered for without a roof being
+  added.
+- **The census's 398 dwellings.** The programme's 377 stand 5.3% below the count taken in
+  November — four months after the scene, in the fastest-growing months the town had. That
+  gap is growth across the interval, and it is the same date caution the trade-census
+  crosswalk applies to every class it compares.
+- **The delta of 10 on institutional and public roofs is a unit mismatch.** The town model's
+  high end of 19 is *"9 institutional or public roofs outside the fort and 10 principal roofs
+  inside it"*; the programme schedules those ten under `fort_principal`, not under
+  `institutional_public`. 9 + 10 = 19. The two files already agree; only the comparison in
+  `build_order_book_1835.programme_deltas` reads one group against a figure spanning two.
+- **The delta of 0 on boarding houses is circular.** `model_town_1835.build_lodging` takes
+  that figure straight off `district_group_matrix`, so it cannot disagree with the programme.
+  A figure that cannot fail is not a check on 42 roofs, and it is recorded as a tautology
+  rather than banked as corroboration.
+- **The delta of 6 on inns and taverns compares roofs with printed notices.** The structure
+  layer holds ten standing public houses and the programme schedules ten. The model's 16 is
+  the business register's count of *records* at the scene date, of which four name
+  Wentworth's house on Flag Creek and three name the Eagle; the trade-census crosswalk folds
+  none of them, and folding a notice into a house is an identity ruling. None is made here.
+  The delta is owed out to T-1190's convergence of the business layer by id.
+
+The one thing that did move is the family-archetype crosswalk's own count fields, which had
+drifted to 662 roofs and nine misplaced priority ranks. See that file's report for the 13
+values and the dates they should have followed.

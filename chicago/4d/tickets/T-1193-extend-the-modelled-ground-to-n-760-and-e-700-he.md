@@ -1,7 +1,7 @@
 ---
 id: T-1193
 title: Extend the modelled ground to N +760 and E −700: heightfield, collision, water mask, North and South Branch banks, flora and minimap together, so the North Division's second parcel and the West Division's held slots have ground to stand on
-state: open
+state: split
 epic: GROUND
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-19
 pr: null
-claimed_by: null
+claimed_by: run 9/19/2026, 7:28:07 PM CT
 blocked_on: null
 needs_bake: true
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-20T00:28:25.893Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35478371061
 ---
 
 The ground box binds before any rule does: modelled ground ends at local N +400, E −320, N −400,

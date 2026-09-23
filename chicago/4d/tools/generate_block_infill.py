@@ -56,6 +56,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 # T-E2's refused ground is resolved from the committed traces rather than stored, so the
 # generator asks the same command the gate does instead of keeping its own copy.
 from band_notes import split_notes  # noqa: E402
+from placement_policy_1835 import constant  # noqa: E402
 from measure_no_build_ground import inside as point_in_ring  # noqa: E402
 from measure_no_build_ground import region_ring as no_build_ring  # noqa: E402
 # T-0112. The clapboard stock is dealt at the end of the parcel — over all fourteen
@@ -63,6 +64,9 @@ from measure_no_build_ground import region_ring as no_build_ring  # noqa: E402
 # next block's — since it is the one form value that depends on where a building's
 # neighbours stand. See tools/siding_stock.py.
 from siding_stock import deal_records as deal_siding  # noqa: E402
+# T-1311. A band the FUNCTIONS table below has no row for takes its term from the same
+# folding rule the migration used, so a new band cannot reopen the free string.
+from normalise_structure_function import canonical as canonical_function  # noqa: E402
 
 
 def no_build_rings() -> dict[str, list[tuple[float, float]]]:
@@ -289,18 +293,50 @@ REFUSED_FAMILIES = {
 
 
 FUNCTIONS = {
-    "D1": "older log dwelling", "D2": "rough plank dwelling or shanty",
-    "D3": "one-room frame cottage", "D4": "two-room frame cottage",
-    "D5": "deep-plan frame cottage", "D6": "one-and-a-half-story frame cottage",
+    "D1": "older_log_dwelling", "D2": "rough_plank_dwelling_or_shanty",
+    "D3": "one_room_frame_cottage", "D4": "two_room_frame_cottage",
+    "D5": "deep_plan_frame_cottage", "D6": "one_and_a_half_story_frame_cottage",
+    "D7": "small_two_story_frame_house",
+    "H1": "larger_one_and_a_half_story_house", "H2": "merchant_or_professional_house",
+    "C1": "small_shop_or_office", "C2": "store_residence",
+    "C3": "narrow_two_story_store",
+    "W1": "blacksmith_shop", "W2": "carpenter_or_joiner_shop",
+    "W3": "cooper_wagon_or_wheelwright_shop", "W4": "small_artisan_shop",
+    "F1": "freight_or_storage_shed", "F2": "narrow_two_story_warehouse",
+    "A1": "stable", "A2": "barn_or_carriage_shed", "A3": "privy",
+    "A4": "woodshed_or_storage_shed", "A5": "small_utility_building",
+}
+
+# The prose the record's human-facing `name` has always used. Split from FUNCTIONS
+# by T-1311, which closed the `function` vocabulary: the value is now a term from
+# `data/structures.schema.json`, and a term is not a phrase to put in front of a
+# visitor. Both tables are keyed by the same band, and this one keeps the names
+# these records already carry - migrating a vocabulary is not licence to rename
+# 120 buildings.
+LABELS = {
+    "D1": "older log dwelling",
+    "D2": "rough plank dwelling or shanty",
+    "D3": "one-room frame cottage",
+    "D4": "two-room frame cottage",
+    "D5": "deep-plan frame cottage",
+    "D6": "one-and-a-half-story frame cottage",
     "D7": "small two-story frame house",
-    "H1": "larger one-and-a-half-story house", "H2": "merchant or professional house",
-    "C1": "small shop or office", "C2": "store-residence",
+    "H1": "larger one-and-a-half-story house",
+    "H2": "merchant or professional house",
+    "C1": "small shop or office",
+    "C2": "store-residence",
     "C3": "narrow two-story store",
-    "W1": "blacksmith shop", "W2": "carpenter or joiner shop",
-    "W3": "cooper, wagon, or wheelwright shop", "W4": "small artisan shop",
-    "F1": "freight or storage shed", "F2": "narrow two-story warehouse",
-    "A1": "stable", "A2": "barn or carriage shed", "A3": "privy",
-    "A4": "woodshed or storage shed", "A5": "small utility building",
+    "W1": "blacksmith shop",
+    "W2": "carpenter or joiner shop",
+    "W3": "cooper, wagon, or wheelwright shop",
+    "W4": "small artisan shop",
+    "F1": "freight or storage shed",
+    "F2": "narrow two-story warehouse",
+    "A1": "stable",
+    "A2": "barn or carriage shed",
+    "A3": "privy",
+    "A4": "woodshed or storage shed",
+    "A5": "small utility building",
 }
 
 
@@ -665,7 +701,9 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
         local_e, local_n, bearing = place(edge_mid, inward, setback, lateral, width, depth)
 
     finish_key, paint = finish_for(sid)
-    function = FUNCTIONS.get(family) or (spec["label"] or family).lower()
+    fallback = (spec["label"] or family).lower()
+    function = FUNCTIONS.get(family) or canonical_function(fallback)
+    label = LABELS.get(family) or fallback
     ancillary = slot["inventory_class"] == "ancillary"
     bounded = block["bounded_by"]
     faces = bounded["south"] if fronts_alley else slot["fronts"]
@@ -761,7 +799,7 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
                if family.startswith("H") else "")
     return {
         "id": sid,
-        "name": f"Reconstructed {family} {function} #{seq:02d}",
+        "name": f"Reconstructed {family} {label} #{seq:02d}",
         "archetype": spec["archetype"],
         "phases": [{
             "id": PHASE_ID,
@@ -897,11 +935,17 @@ def build_block(block: dict, table: dict[str, dict], lots_by_id: dict[str, dict]
 # two readings agree — the store takes Randolph either way — so nothing that stands moves
 # on account of the ranking, and that agreement is why the question could be settled at
 # all rather than being settled on the block where it first bites.
-NON_DWELLING_LETTERS = "CFTWI"
+#
+# BOTH LETTER SETS COME FROM THE PLACEMENT POLICY SINCE T-1195. They were typed here, and
+# under other names in measure_face_rule and measure_frontage_fabric, and three copies of
+# one reading is how a reading drifts. `data/reconstruction/1835_placement_policy.json`
+# holds them with the clause each one serves; its assertion 5 reads these two lines.
+NON_DWELLING_LETTERS = "".join(constant("non_dwelling_letters"))
 
 # The letters the documented record puts a zero on for light streets, re-derivable with
-# `tools/measure_face_rule.py`: stores 0 of 15, warehouses 0 of 9, workshops 0 of 7.
-LIGHT_STREET_ZERO = "CFW"
+# `tools/measure_face_rule.py`: stores 0 of 15, warehouses 0 of 9, workshops 0 of 7. The
+# same three the policy calls the trade letters.
+LIGHT_STREET_ZERO = "".join(constant("trade_letters"))
 
 # The traffic classes data/streets/1835.json authors, worst to best.
 TRAFFIC_RANK = {"light": 0, "ordinary": 1, "principal": 2}
@@ -1141,7 +1185,7 @@ def adopted_line(block: dict, face: dict, adopts: list[str], records: list[dict]
         raise SystemExit(f"{block['block_id']}: the records the run adopts do not stand "
                          f"on one line — " + ", ".join(f"{k} at {v:.3f} m"
                                                        for k, v in sorted(walls.items())))
-    return round(sum(walls.values()) / len(walls), 3)
+    return round(math.fsum(walls.values()) / len(walls), 3)
 
 
 def check_frontage(block: dict, face: dict, strip: dict, records: list[dict],

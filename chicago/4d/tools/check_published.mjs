@@ -33,7 +33,7 @@ import path from 'node:path';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const REPO = path.resolve(HERE, '..');
-const SITE = path.resolve(REPO, '../../site/4d');
+const SITE = path.resolve(REPO, '../../site/chicago/4d');
 
 /**
  * Published path prefix -> where its source lives. Mirrors publish.sh's own
@@ -51,6 +51,8 @@ const COPIES = [
   ['data/reconstruction/1835_hay_limits.json', 'data/reconstruction/1835_hay_limits.json'],
   ['data/reconstruction/1835_agencies.json', 'data/reconstruction/1835_agencies.json'],
   ['data/reconstruction/1835_population_profile.json', 'data/reconstruction/1835_population_profile.json'],
+  ['data/reconstruction/1835_reconstruction_order_book.json', 'data/reconstruction/1835_reconstruction_order_book.json'],
+  ['data/reconstruction/1835_address_book.json', 'data/reconstruction/1835_address_book.json'],
   ['data/terrain/', 'data/terrain/'],
   ['data/sidecars/', 'data/sidecars/'],
   ['data/residents/', 'data/residents/'],
@@ -63,6 +65,13 @@ const COPIES = [
   ['data/frontage/', 'data/frontage/'],
   ['data/flora/', 'data/flora/'],
   ['data/fauna/', 'data/fauna/'],
+  ['data/businesses/', 'data/businesses/'],
+  // The two roof coverings' relief maps (T-1488). The mirror's asset base is
+  // data/ where the dev tree's is assets/, which is the whole of the rename;
+  // the files themselves are the vendored library's, byte for byte, so this
+  // is a verbatim copy under a different prefix and belongs here rather than
+  // in TRANSFORMED.
+  ['data/textures/', 'assets/textures/'],
 ];
 
 /**
@@ -71,13 +80,10 @@ const COPIES = [
  * because it is the list of places where what ships is not what was checked.
  */
 const TRANSFORMED = [
-  { re: /^(?:\d{4}\/)?index\.html$/,
-    what: 'the front doors — /4d/ and /4d/<year>/ on chicago.polecat.live. tools/write_entry_pages.mjs '
-        + 'writes each as the STAMPED walk/index.html plus one `<base href>` into walk/, so the address '
-        + 'bar keeps the short path and every relative URL resolves from walk/',
-    gate: 'write_entry_pages.mjs --self-test (check.sh) asserts the <base> is the first child of '
-        + '<head> and that every planned year gets a door; the deploy URL smoke '
-        + '(.github/chicago-4d-url-check.json) requests /4d/, /4d/1835/ and /4d/dev/1835/ live.' },
+  { re: /^index\.html$/,
+    what: 'publish.sh writes the mirror landing page once, if absent (`[ -f ] ||`), from a heredoc',
+    gate: 'none, and it does not need one: it is a redirect stub with no claim in it. Recorded so '
+        + 'that if it ever grows a claim, the absence of a gate is visible here.' },
   { re: /^build\.json$/,
     what: 'publish.sh writes it each run from the same BUILD_VERSION and BUILD_CT as the visible stamp',
     gate: 'tools/test_dev_preview.mjs reads it. Until 2026-08-15 it was written ONCE by hand and never '

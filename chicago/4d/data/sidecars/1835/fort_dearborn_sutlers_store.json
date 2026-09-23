@@ -103,7 +103,7 @@
       "note": "Not attested. One stack is the minimum for a shop kept through a Chicago winter. The COUNT is the inference; everything else about the stack is the archetype's."
     },
     "function": {
-      "value": "sutler's store",
+      "value": "sutlers_store",
       "confidence": "attested",
       "sources": [
         "andreas_1884_v1",
@@ -120,7 +120,27 @@
       "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 24 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_rc_metcalf_david",
+      "name": "The post sutler's household — David Metcalf",
+      "division": "fort",
+      "relation": "lived here",
+      "why": "SEATED IN THE BUILDING WHOSE FUNCTION HE IS. `fort_dearborn_sutlers_store` carries an `attested` function of `sutlers_store` on Andreas and Wentworth. A sutler at a post lived at his store; the building exists in the record and no coordinate is invented.",
+      "sources": [],
+      "basis": "",
+      "persons": [
+        {
+          "name": "David Metcalf",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "sutler",
+          "note": "THE POST TRADER, DRAWN. A man stands here because a building of this function stood at a held post; his name is invented and his household is not claimed at all."
+        }
+      ],
+      "research_note": "THE POST SUTLER. NOBODY HERE IS NAMED BY ANY SOURCE. `fort_dearborn_sutlers_store` is an attested building with an attested function and its own record says who held the sutlership at Chicago on 1835-07-01 was not established. This card fills the function and claims nothing else: no family, no partners, no stock. A source naming the sutler of 1835 retires it. No figure is drawn (docs/LIBERTIES.md L1)."
+    }
+  ],
   "citations": [
     {
       "source_id": "andreas_1884_v1",

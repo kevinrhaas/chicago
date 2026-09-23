@@ -572,6 +572,7 @@ def write_package(rows, counts):
         })
     try:
         import openpyxl
+        from deterministic_xlsx import settle
     except ImportError:
         return False
     wb = openpyxl.Workbook()
@@ -591,7 +592,12 @@ def write_package(rows, counts):
     mt.append([])
     for k, v in sorted(counts.items()):
         mt.append([k, v])
-    wb.save(PACKAGE / f"{TICKET}_resident_research_working.xlsx")
+    out = PACKAGE / f"{TICKET}_resident_research_working.xlsx"
+    wb.save(out)
+    # A workbook must be a function of its DATA, not of the clock. A zip stamps every member
+    # with the write time, so identical rows gave different bytes and this COMMITTED binary
+    # conflicted on every merge with no content behind it (T-1282).
+    settle(out)
     return True
 
 

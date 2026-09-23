@@ -107,10 +107,12 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from reconstructed_person import is_reconstructed  # noqa: E402
 
 from compile_gazetteer import (  # noqa: E402  — the identity policy has one home
     REPO, ROOT, RESEARCH, GAZETTEER,
-    SCENE_DATE, dumps, firm_surnames, initials, load_json, slug, surname, unmarked,
+    SCENE_DATE, UNREAD, dumps, firm_surnames, forename_readings, initials, load_json, slug,
+    surname, unmarked,
 )
 # THE MINTING KEYS, imported from the passes that own them rather than re-derived here
 # (T-0866). A card minted from a printed name is keyed by that pass's `plain_fragment`
@@ -558,6 +560,7 @@ def read_town(structures_dir=STRUCTURES, streets_file=STREETS, residents_dir=RES
     on the order a filesystem hands back.
     """
     town = {"structures": [], "streets": {}, "street_paths": {}, "residents": [],
+            "merged_cards": [],
             "invented": {}, "has_creek": False}
 
     for path in sorted(Path(structures_dir).glob("*.json")):
@@ -638,6 +641,11 @@ def read_town(structures_dir=STRUCTURES, streets_file=STREETS, residents_dir=RES
     for path in sorted(Path(residents_dir, "households").glob("*.json")):
         d = load_json(path)
         for p in d.get("persons", []):
+            # T-1171: a person the reconstruction programme DREW is not a name any source printed.
+            # Matching one to a printed name would be this project reading its own invention
+            # back as evidence. reconstructed_person.py holds the rule.
+            if is_reconstructed(p):
+                continue
             occ = p.get("occupation")
             town["residents"].append({
                 "household": d["id"],
@@ -650,6 +658,31 @@ def read_town(structures_dir=STRUCTURES, streets_file=STREETS, residents_dir=RES
                 # an id, and the register's rename-proof link turns on that (T-0866).
                 "source_pass": d.get("source_pass"),
             })
+
+    # THE CARDS THAT WERE FOLDED, AND WHO THEY ARE NOW (T-1440). `households/` holds
+    # the town's LIVE cards, and a card the merge rulings folded is not among them: its
+    # record is kept whole under `merged/` and `index.json`'s `merged` table redirects
+    # its id. That table is a matching table and nothing here read it, so the printed
+    # names the folds were made ON — 'J. H. Kinzie', 'John S. Kinzie', 'J. S. C. Hogan'
+    # — arrived at the matcher with the one card that could answer them removed, and
+    # were given to whatever else shared the surname.
+    #
+    # A folded card is therefore offered here as an ALIAS of its survivor: it matches on
+    # its own printed name and resolves to the person the ruling says it is. It is not a
+    # new inference — `data/residents/card_merge_rulings.json` states each one, with its
+    # rule and its evidence — it is the register finally being told.
+    index_path = Path(residents_dir, "index.json")
+    if index_path.exists():
+        by_person = {r["person"]: r for r in town["residents"]}
+        for row in load_json(index_path).get("merged", []):
+            survivor = by_person.get(row.get("merged_into_person"))
+            # A redirect onto a card this compiler does not carry — a reconstructed
+            # person is skipped above — is no alias. The index's own gate is what
+            # refuses a redirect that does not arrive at all.
+            if survivor and row.get("name"):
+                town["merged_cards"].append({**survivor, "alias_name": row["name"],
+                                             "alias_of": row["person"],
+                                             "alias_rule": row.get("rule")})
 
     # The invented layer, per trade: how many households the town raised because no
     # documented person was available for that trade. This is the ceiling on what the
@@ -1365,6 +1398,22 @@ def minted_link_problems(persons, minted_card):
     return out
 
 
+def business_record_id(register_id):
+    """The data/businesses/ record this row compiles (T-1310).
+
+    A pure function of the register id and nothing else, so the register does not have to
+    read the business layer to name it and the two cannot drift. The layer's own
+    `--check` is what proves the record on the other end actually exists.
+    """
+    prefix = "business_"
+    # The self-test's fixtures are named `b1`, `b2` — they are not gazetteer ids and were
+    # never meant to be — so the prefix is stripped where it is there and the id stands
+    # where it is not. A real register id always carries it; refusing the fixture here
+    # would only prove that a fixture is a fixture.
+    stem = register_id[len(prefix):] if register_id.startswith(prefix) else register_id
+    return "biz_" + stem
+
+
 def compile_register(gazetteer, town, quiet=True):
     """Derive the register. Returns (doc, problems). Nothing here reads the clock."""
     problems = []
@@ -1403,6 +1452,13 @@ def compile_register(gazetteer, town, quiet=True):
 
         entry = {
             "id": b["id"],
+            # T-1310. THE ROW POINTS AT ITS RECORD. data/businesses/ is where a business
+            # gets a tier, a staff list, dated locations and sources; this register row is
+            # the reading the record compiles. The id is a pure function of this one —
+            # `business_` swapped for `biz_` — so the register can name it without reading
+            # the layer, and tools/compile_businesses.py --check refuses the pair the
+            # moment the layer stops holding a row's record.
+            "business_record_id": business_record_id(b["id"]),
             "name": b["name"],
             "trade": b.get("trade"),
             "occupation": occupation_of(b.get("trade")),
@@ -1619,7 +1675,12 @@ def compile_register(gazetteer, town, quiet=True):
     # papers' own abbreviating habit requires.
     resident_by_key = {}
     for r in town["residents"]:
-        key = (surname(r["name"] or ""), initials(r["name"] or ""))
+        key = (surname(r["name"] or ""), forename_readings(r["name"] or ""))
+        if key[0]:
+            resident_by_key.setdefault(key, []).append(r)
+    # A folded card answers to its own printed name and resolves to its survivor.
+    for r in town.get("merged_cards", []):
+        key = (surname(r["alias_name"]), forename_readings(r["alias_name"]))
         if key[0]:
             resident_by_key.setdefault(key, []).append(r)
 
@@ -1656,21 +1717,97 @@ def compile_register(gazetteer, town, quiet=True):
                 return card
         return None
 
+    # THE FULLEST AGREEMENT WINS, AND RIVALS ARE REFUSED (T-1440, of T-1190).
+    #
+    # The prefix rule was right about the papers' abbreviating habit and silent about
+    # the case it creates. Where the town holds BOTH a short card and the longer one a
+    # printing actually spells, both are prefix-compatible, and the loop this replaces
+    # returned whichever `sorted` reached first — the SHORTER key every time, because a
+    # tuple sorts before its own extension. The least specific card swallowed every
+    # fuller printing of its surname, and there was nowhere for a tie to be refused.
+    #
+    # `data/residents/card_merge_rulings.json` had already ruled every card it took:
+    #
+    #   C2  kinzie_j_h → kinzie_john_h: "the Kinzie surname holds a James as well as a
+    #       John, so the bare initial J would be two rivals and refused, but 'J. H.'
+    #       agrees with John Harris and no card and no source reached reads James Kinzie
+    #       with a middle initial at all."
+    #   C3  kinzie_john_s → kinzie_john_h (T-0844, folding T-0854's reading).
+    #   D1  kinzie_james and kinzie_juliette: "John H. Kinzie and James Kinzie are
+    #       brothers, not a duplicate."
+    #   C2  hogan_j_s_c → hogan_john_s_c (T-0839).
+    #
+    # And the register gave J. H. Kinzie, John H. Kinzie and John S. Kinzie — three
+    # houses, twelve claims, all of them seated on `jh_kinzie_forwarding_store`, whose
+    # own occupants line reads "J. H. Kinzie; forwarding and commission merchant" — to
+    # `kinzie_james`, the half-brother those rulings say is another man; and John S. C.
+    # Hogan's two houses to `hogan_john`, a card with no trade recorded, while the
+    # postmaster's own card stood empty. T-1432's staffing join is what made it visible:
+    # it put each card's own name beside every name the register printed for it, and
+    # three cards disagreed. They are `questions_for_the_convergence` and these are the
+    # answers.
+    #
+    # BOTH HALVES OF C2'S SENTENCE ARE IMPLEMENTED HERE; before, only the first was.
+    # Every surname-sharing card still has to be prefix-compatible to be a candidate at
+    # all — that rule does not move — and the candidates are then RANKED, by:
+    #
+    #   1. an exact reading: the card spells the same forenames the printing spells, and
+    #      no more. Nothing outranks a printing and a card that say the same thing.
+    #   2. fewest spelled forenames that DISAGREE. 'James' against 'John' is a
+    #      disagreement the initials cannot see and a reader can.
+    #   3. most spelled forenames that agree, then most initials that agree — the
+    #      fuller reading of the two, which is what 'J. H. agrees with John Harris' is.
+    #
+    # If one card stands at the top, it is the match. If two do, the printing names no
+    # one card and the match is REFUSED — `person_id: null`, which is this layer's own
+    # way of saying a printed name has no town card. Refusing loses no evidence: the row
+    # keeps its name, its claims and its dates, and declines only to say whose they are.
     def resident_match(name):
         minted = minted_card(name)
         if minted:
             return minted
-        sn, ini = surname(name), initials(name)
+        sn, mine = surname(name), forename_readings(name)
         if not sn:
             return None
+        ranked = []
         for key, rs in sorted(resident_by_key.items()):
             if key[0] != sn:
                 continue
-            other = key[1]
-            n = min(len(ini), len(other))
-            if ini[:n] == other[:n] and (n > 0 or not ini and not other):
-                return rs[0]
-        return None
+            theirs = key[1]
+            n = min(len(mine), len(theirs))
+            if n == 0 and not (not mine and not theirs):
+                continue
+            agree = disagree = spelled = 0
+            for (my_letter, my_spelled, my_word), (their_letter, their_spelled,
+                                                   their_word) in zip(mine, theirs):
+                # THE COMPATIBILITY RULE IS UNCHANGED and is asked first: the letters
+                # of a compared position must agree, and an UNREAD initial agrees with
+                # nothing. Nothing below can admit a pair this refuses.
+                if my_letter != their_letter or my_letter == UNREAD:
+                    break
+                if my_spelled and their_spelled:
+                    # Both sides SPELL this forename, so the reading is finer than the
+                    # letter: 'James' and 'John' share a J and are two men.
+                    if my_word == their_word:
+                        spelled += 1
+                    else:
+                        disagree += 1
+                else:
+                    agree += 1
+            else:
+                exact = (len(mine) == len(theirs) and spelled == len(mine))
+                ranked.append(((0 if exact else 1, disagree, -spelled, -agree), key, rs))
+        if not ranked:
+            return None
+        best = min(rank for rank, _, _ in ranked)
+        winners = [rs for rank, _, rs in ranked if rank == best]
+        # One RANK may still be reached by several cards — two keys that tie, or one key
+        # two people share. They are one answer only when they are one person: a folded
+        # card and its survivor are both carried here and both resolve to the survivor.
+        people = {r["person"] for rs in winners for r in rs}
+        if len(people) != 1:
+            return None
+        return winners[0][0]
 
     # Two tables, asked in order, and the order is the whole of T-0418's promise that
     # its sixteen new words fill a null rather than displacing a reading: a man printed
@@ -1873,6 +2010,27 @@ def check():
         if not p["action_note"]:
             bad.append("%s: an action with no note" % p["id"])
 
+    # T-1310. EVERY ROW HAS A RECORD. The row points at data/businesses/ by id, and a
+    # pointer nothing answers is exactly the state the layer was built to make
+    # impossible — so the register refuses a business the layer lacks, here, rather
+    # than leaving it to whoever reads the field next. The layer is required: an absent
+    # data/businesses/ is a red gate and not a skip, because a register that stopped
+    # carrying records would otherwise pass by having none at all.
+    layer = ROOT / "data" / "businesses"
+    held = {p.stem for p in layer.glob("biz_*.json")} | {p.stem for p in layer.glob("rcb_*.json")}
+    held |= {p.stem for p in (layer / "authored").glob("*.json")} if (layer / "authored").is_dir() else set()
+    if not layer.is_dir():
+        bad.append("data/businesses/ is missing — the register points at it; run "
+                   "tools/compile_businesses.py --build")
+    else:
+        for b in on_disk.get("businesses", []):
+            pointed = b.get("business_record_id")
+            if not pointed:
+                bad.append("%s: carries no business_record_id" % b["id"])
+            elif pointed not in held:
+                bad.append("%s: points at data/businesses/%s.json, which the layer lacks"
+                           % (b["id"], pointed))
+
     # The two T-0257 fixtures, named in the ticket's acceptance: they resolve to an
     # action with a committed target, or the register says precisely why not. Pinned
     # here so a change that quietly drops them out of the town cannot pass.
@@ -1975,7 +2133,7 @@ def self_test():
              "occupant_text": "John Bates Jr.; auctioneer", "function": "store",
              "identity_text": "Bates's Auction Room ; John Bates Jr.; auctioneer",
              "occupation": None, "anonymous": False},
-            {"id": "recon_1835_north_i2_015", "name": "Reconstructed meeting hall #015",
+            {"id": "recon_1835_north_d4_015", "name": "Reconstructed meeting hall #015",
              "name_words": [{"reconstructed", "meeting", "hall", "015"}],
              "aka_head_words": [], "aka_texts": [], "occupant_words": set(),
              "occupant_words_all": set(),
@@ -2011,7 +2169,36 @@ def self_test():
                       # it and a Mr C. to the documented pass's reading of the same words.
                       {"household": "hh_mills_joel_c", "person": "mills_joel_c",
                        "name": "Joel C. Mills", "grade": "inferred",
-                       "occupation": None, "source_pass": "letter_list"}],
+                       "occupation": None, "source_pass": "letter_list"},
+                      # T-1440's own shape, and it is the Kinzie one: two brothers of
+                      # one surname, one of whom the town spells with a middle name and
+                      # the other with none. Every printing of 'J. H.' is compatible
+                      # with BOTH under the prefix rule, and the shorter key sorts
+                      # first — which is how three of John Harris's houses came to sit
+                      # on James's card.
+                      {"household": "hh_kinzie_james", "person": "kinzie_james",
+                       "name": "James Kinzie", "grade": "attested",
+                       "occupation": "merchant", "source_pass": None},
+                      {"household": "hh_kinzie_john_h", "person": "kinzie_john_h",
+                       "name": "John Harris Kinzie", "grade": "attested",
+                       "occupation": "forwarding_and_commission", "source_pass": None},
+                      # Two doctors of one surname: the case where the town itself can
+                      # answer a printing two ways and the honest answer is neither.
+                      {"household": "hh_temple_john_t", "person": "temple_john_t",
+                       "name": "Dr John Taylor Temple", "grade": "attested",
+                       "occupation": "physician", "source_pass": None},
+                      {"household": "hh_temple_peter", "person": "temple_peter",
+                       "name": "Dr Peter Temple", "grade": "attested",
+                       "occupation": "physician", "source_pass": None}],
+        # The folded cards, offered as aliases of their survivors exactly as `read_town`
+        # builds them from `index.json`'s merged table (T-1440). 'J H Kinzie' is a card
+        # the C2 ruling folded onto John Harris; without it the printing it was folded
+        # ON reaches the matcher with its own card removed.
+        "merged_cards": [{"household": "hh_kinzie_john_h", "person": "kinzie_john_h",
+                          "name": "John Harris Kinzie", "grade": "attested",
+                          "occupation": "forwarding_and_commission", "source_pass": None,
+                          "alias_name": "J H Kinzie", "alias_of": "kinzie_j_h",
+                          "alias_rule": "C2"}],
         "invented": {"baker": ["hh_inf_baker"]},
         "has_creek": False,
     }
@@ -2585,6 +2772,36 @@ def self_test():
          gaz(persons=[person("p1", "P. Cohen")]),
          lambda d: True if "surname plus forename initials" in d["persons"][0]["action_note"]
          else "note=%r" % d["persons"][0]["action_note"])
+
+    # T-1440: the two halves of the C2 ruling — the fuller agreement wins, and rivals
+    # are refused. Each of these was a wrong answer or a coin toss before.
+    def target(d):
+        return (d["persons"][0]["action"], d["persons"][0]["action_target"])
+
+    case("the fuller agreement takes the printing, not the shorter card sorted first",
+         gaz(persons=[person("p1", "J. H. Kinzie")]),
+         lambda d: True if target(d) == ("enrich", "kinzie_john_h")
+         else "got %r" % (target(d),))
+    case("a spelled forename outranks a longer card it disagrees with",
+         gaz(persons=[person("p1", "James Kinzie")]),
+         lambda d: True if target(d) == ("enrich", "kinzie_james")
+         else "got %r" % (target(d),))
+    case("and the card that spells the same forename takes it over the one that adds to it",
+         gaz(persons=[person("p1", "John H. Kinzie")]),
+         lambda d: True if target(d) == ("enrich", "kinzie_john_h")
+         else "got %r" % (target(d),))
+    case("a bare initial two cards answer to is REFUSED, not given to the first",
+         gaz(persons=[person("p1", "J. Kinzie")]),
+         lambda d: True if target(d) == ("new_resident", None)
+         else "got %r" % (target(d),))
+    case("two doctors of one surname refuse the printing that names neither",
+         gaz(persons=[person("p1", "Dr. Temple")]),
+         lambda d: True if target(d) == ("new_resident", None)
+         else "got %r" % (target(d),))
+    case("a folded card answers to its own printed name and resolves to its survivor",
+         gaz(persons=[person("p1", "J H Kinzie")]),
+         lambda d: True if target(d) == ("enrich", "kinzie_john_h")
+         else "got %r" % (target(d),))
 
     # …and the gate over it fires on both halves, asked of rows the matcher above can no
     # longer produce — which is the whole reason it is a separate function (T-0866).

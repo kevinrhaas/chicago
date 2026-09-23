@@ -144,7 +144,7 @@ if (RATIOS.some((r) => r !== null && !(r > 0))) {
 
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/4d');
+  : path.resolve(HERE, '../../../site/chicago/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.AA_PORT || 4196);
 const YEAR = process.env.AA_YEAR || '1835';

@@ -1,7 +1,7 @@
 ---
 id: T-1191
 title: Seat the North Division's streets and alleys as platted corridors: Kinzie's Addition and the Kinzie–Michigan tier off Wright and Hathaway, with block faces, mid-block alleys and corridor control, so a north-side roof can be dealt to a lot
-state: open
+state: done
 epic: GROUND
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-20
+pr: 1552
+claimed_by: run 9/19/2026, 12:27:10 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-20T06:31:49.634Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35457966596
 ---
 
 The owner: *"there are a number of streets on the north side, and north west of the river from
@@ -59,3 +59,37 @@ which block face it fronts.
 `docs/RESEARCH/1835_north_division_extent_and_infill.md` · `docs/RESEARCH/kinzie_alignment_1835.md`
 · `docs/RESEARCH/north_water_street_and_the_bank.md` · `data/sources/wright_1834.json` ·
 `data/sources/hathaway_1834.json`.
+
+---
+
+## Finding, 2026-09-20: the river is not in the reading
+
+Putting the north bank's corridors into `plat_corridors.corridors()` changed which street
+seventeen documented roofs are measured against, and sixteen of those changes are the point
+of this ticket — the Steamboat Hotel stops being 203 m off State across the water and comes
+to 20.47 m off Kinzie, the north-side school to 4.32 m off Clark, the Watkins school house
+onto Michigan Street's own corridor. One change is an artefact, and it is recorded here
+rather than fixed here because fixing it is a different ticket.
+
+`measure_frontage_fabric.nearest_frontage()` measures a straight line from a footprint to
+every committed corridor and takes the smallest. **It has no water in it.** So now that
+both banks carry corridors, a roof on one bank can be credited with a street on the other,
+in both directions:
+
+- `fort_dearborn_out_building_a` and `_b` stand inside the unplatted military reservation
+  on the SOUTH bank. They were outliers at 312 m and 323 m off Lake, a principal street
+  the ancillary clause avoids. They now read 198.31 m and 195.52 m off Kinzie, which is
+  ordinary, so no clause fires and `placement_policy_1835` reads both as CONFORMING. The
+  reservation still has no street to front. Their two authored reasons had to be deleted
+  because assertion 3 is a measurement and the measurement no longer supports them.
+- `fort_dearborn_shop` and `fort_dearborn_us_factors_house` moved the same way and stayed
+  outliers, so their reasons survive with re-measured prose.
+
+The repair is a bank test in `nearest_frontage`: a corridor on the far side of the main
+stem or a branch is not a frontage, and the project already commits the water it would
+test against. That is a town-wide change to every setback reading in the tree — it would
+move `measure_frontage_fabric`, `measure_face_rule`, `placement_policy_1835` and the
+frontage baselines together — so it is its own unit of work and not a rider on this one.
+
+Until it is taken, `1835_placement_policy.json` credits two reservation out-buildings with
+a conformance they have not earned. Nothing is drawn differently and no building moved.

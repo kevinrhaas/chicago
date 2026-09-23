@@ -344,5 +344,8 @@
       ]
     }
   ],
-  "count": null
+  "count": null,
+  "retired_reconstruction_doc": "Reconstructed roofs the order book no longer has an occupant for, retired by an adjudication over the committed programme (T-1197/T-1445) and carried out by tools/execute_roof_redeal.py. An entry here is a SUBSTITUTION and not a demolition: it names the bucket the roof left and the liberty tokens it resolved, so the count it vacated can be seen. The validator refuses anything named here that still resolves into a scene, exactly as it refuses an excluded building. THE LIST IS EMPTY TODAY and that is a measurement: the programme wants 668 roofs and 371 stand, so there is almost nowhere a standing roof is surplus to what the town can occupy, and T-1445 returned 0 retirements out of 285 roofs audited.",
+  "retired_reconstruction": [],
+  "retired_reconstruction_count": 0
 }

@@ -1,0 +1,114 @@
+{
+  "id": "biz_cook_george",
+  "register_id": "business_cook_george",
+  "name": "Cook & George",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "bakery",
+  "occupation": "baker",
+  "goods": [
+    "bread"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "J. B. Cook",
+      "person_id": "cook_j_b",
+      "register_person_id": "person_j_b_cook",
+      "role": "partner",
+      "from": "1834-11-05",
+      "to": "1834-11-05",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card cook_j_b (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_11_05#c009"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "C. George",
+      "person_id": "george_c",
+      "register_person_id": "person_c_george",
+      "role": "partner",
+      "from": "1834-11-05",
+      "to": "1834-11-05",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card george_c (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_11_05#c009"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-11-05",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_11_05#c009 (business, 1834-11-05). No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1834-11-05",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-11-05, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-11-05",
+    "last_issue": "1834-11-05",
+    "copy_dates": []
+  },
+  "present_at_scene_date": false,
+  "exclusion": "contradicted_before_scene_date",
+  "exclusion_note": "Contradicted on or before the scene date by chicago_democrat_1834_11_05#c009 (business, 1834-11-05).",
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 2 keeper(s) this record names and the resident layer holds a card for all read yankee: J. B. Cook (yankee), C. George (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "cook_j_b",
+        "name": "J. B. Cook",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      },
+      {
+        "person_id": "george_c",
+        "name": "C. George",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_11_05#c009"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

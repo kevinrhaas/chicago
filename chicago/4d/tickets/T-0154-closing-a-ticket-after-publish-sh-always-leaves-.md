@@ -16,7 +16,7 @@ blocked_on: null
 needs_bake: false
 ---
 
-`site/4d/tickets.json` is a verbatim copy of `chicago/4d/tickets/tickets.json`,
+`site/chicago/4d/tickets.json` is a verbatim copy of `chicago/4d/tickets/tickets.json`,
 and `check.sh`'s *published mirror matches its source* step compares them byte for byte.
 `ticket.mjs done` rewrites `tickets/tickets.json`. So a run that follows the documented
 order lands in a state the gate refuses, every time:

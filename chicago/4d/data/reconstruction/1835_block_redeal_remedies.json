@@ -1,0 +1,450 @@
+{
+  "$schema_note": "Derived. Re-derive with tools/measure_block_redeal_remedies.py --build; tools/check.sh runs --check.",
+  "id": "1835_block_redeal_remedies",
+  "ticket": "T-1482",
+  "target_date": "1835",
+  "generated_by": "tools/measure_block_redeal_remedies.py --build",
+  "not_a_reading": "No page of any source is read here. This measures committed files against each other and adjudicates nothing.",
+  "inputs": [
+    "data/reconstruction/1835_roof_redeal.json",
+    "data/reconstruction/1835_platted_block_parcels.json",
+    "data/reconstruction/1835_placement_policy.json"
+  ],
+  "method": {
+    "the_class_is_read_off_the_group": "`generate_block_infill` writes a roof's `inventory_class` from its slot, and the North Division's executor derives the class a refamily lands in from the group it joins: the two ancillary groups are barns_stables and small_outbuildings, everything else is principal_functional. Both are imported here rather than retyped.",
+    "the_refusal_is_the_generator_s_own": "The parcel gate collects the lots its principal roofs stand on — the frontage run counting against the lots it was dealt — and refuses the set holding a lot twice: `two principal roofs on one lot`. This tool asks that same question of each roof at its standing position, and names the roof already there.",
+    "every_offered_family_is_asked": "The adjudication ranks the families each roof could become. A remedy inside the verdict would be an offered family whose group is ancillary, so the class does not move; every one of them is asked and the count of ancillary offers is the answer.",
+    "the_ground_is_counted_not_estimated": "The `move them instead` remedy is priced against the lots the recipe itself calls open, with the recipe's own stated reason for each one carried into the report — a lot declared open on the programme's alternating-vacancy assumption is not free ground, it is a statement about the town.",
+    "the_clause_is_asked_its_own_question": "The six were refused for standing nearest a principal street, which is the one term the clause scores. The same term is put to the four documented buildings the clause cites as its evidence. This adjudicates nothing: it is the measurement that decides whether the third remedy is even available.",
+    "nothing_is_written_to": "No verdict is rewritten, no recipe slot moves, no record or asset is touched and no confidence changes. These roofs are inferred_anonymous before and after."
+  },
+  "counts": {
+    "outstanding_verdicts": 6,
+    "refused_by_the_parcel_gate": 6,
+    "inventory_class_moves": 6,
+    "families_offered": 36,
+    "ancillary_families_offered": 0,
+    "open_lots_across_the_three_blocks": 2,
+    "clause_evidence_records": 4,
+    "clause_evidence_breaching_their_own_clause": 3
+  },
+  "roofs": [
+    {
+      "id": "recon_1835_blk_randolph_market_a1_07",
+      "would_become": "recon_1835_blk_randolph_market_d4_07",
+      "sequence": 7,
+      "block_id": "blk_randolph_market",
+      "programme_phase": "phase3_platted_block_randolph_market",
+      "stands_on": "alley",
+      "lot": 3,
+      "fronts": "washington",
+      "setback_m": 5.0,
+      "setback_class": "yard",
+      "was_family": "A1",
+      "was_group": "barns_stables",
+      "was_inventory_class": "ancillary",
+      "to_family": "D4",
+      "to_group": "ordinary_dwellings",
+      "implied_inventory_class": "principal_functional",
+      "class_moves": true,
+      "lot_already_carries": "recon_1835_blk_randolph_market_d4_03",
+      "refused_by_the_parcel_gate": "blk_randolph_market: two principal roofs on one lot — lot 3 already carries recon_1835_blk_randolph_market_d4_03",
+      "families_offered": [
+        {
+          "family": "D4",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D1",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D5",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D3",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D6",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D7",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        }
+      ],
+      "ancillary_families_offered": 0,
+      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_a1_12",
+      "would_become": "recon_1835_blk_randolph_market_d4_12",
+      "sequence": 12,
+      "block_id": "blk_randolph_market",
+      "programme_phase": "phase3_platted_block_randolph_market_second_deal",
+      "stands_on": "alley",
+      "lot": 1,
+      "fronts": "washington",
+      "setback_m": 5.0,
+      "setback_class": "yard",
+      "was_family": "A1",
+      "was_group": "barns_stables",
+      "was_inventory_class": "ancillary",
+      "to_family": "D4",
+      "to_group": "ordinary_dwellings",
+      "implied_inventory_class": "principal_functional",
+      "class_moves": true,
+      "lot_already_carries": "the frontage run phase3_platted_block_randolph_market_second_deal was dealt",
+      "refused_by_the_parcel_gate": "blk_randolph_market: two principal roofs on one lot — lot 1 already carries the frontage run phase3_platted_block_randolph_market_second_deal was dealt",
+      "families_offered": [
+        {
+          "family": "D4",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D5",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D6",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D7",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D1",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D3",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        }
+      ],
+      "ancillary_families_offered": 0,
+      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_a3_05",
+      "would_become": "recon_1835_blk_randolph_market_d2_05",
+      "sequence": 5,
+      "block_id": "blk_randolph_market",
+      "programme_phase": "phase3_platted_block_randolph_market",
+      "stands_on": "alley",
+      "lot": 0,
+      "fronts": "randolph",
+      "setback_m": 5.0,
+      "setback_class": "yard",
+      "was_family": "A3",
+      "was_group": "small_outbuildings",
+      "was_inventory_class": "ancillary",
+      "to_family": "D2",
+      "to_group": "ordinary_dwellings",
+      "implied_inventory_class": "principal_functional",
+      "class_moves": true,
+      "lot_already_carries": "recon_1835_blk_randolph_market_d5_01",
+      "refused_by_the_parcel_gate": "blk_randolph_market: two principal roofs on one lot — lot 0 already carries recon_1835_blk_randolph_market_d5_01",
+      "families_offered": [
+        {
+          "family": "D2",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D3",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D1",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D4",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D5",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D6",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        }
+      ],
+      "ancillary_families_offered": 0,
+      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_a4_06",
+      "would_become": "recon_1835_blk_randolph_market_d2_06",
+      "sequence": 6,
+      "block_id": "blk_randolph_market",
+      "programme_phase": "phase3_platted_block_randolph_market",
+      "stands_on": "alley",
+      "lot": 2,
+      "fronts": "randolph",
+      "setback_m": 4.5,
+      "setback_class": "yard",
+      "was_family": "A4",
+      "was_group": "small_outbuildings",
+      "was_inventory_class": "ancillary",
+      "to_family": "D2",
+      "to_group": "ordinary_dwellings",
+      "implied_inventory_class": "principal_functional",
+      "class_moves": true,
+      "lot_already_carries": "recon_1835_blk_randolph_market_d6_02",
+      "refused_by_the_parcel_gate": "blk_randolph_market: two principal roofs on one lot — lot 2 already carries recon_1835_blk_randolph_market_d6_02",
+      "families_offered": [
+        {
+          "family": "D2",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D3",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D1",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D4",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D5",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D6",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        }
+      ],
+      "ancillary_families_offered": 0,
+      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_a1_06",
+      "would_become": "recon_1835_blk_south_water_lasalle_d3_06",
+      "sequence": 6,
+      "block_id": "blk_south_water_lasalle",
+      "programme_phase": "phase3_platted_block_south_water_lasalle",
+      "stands_on": "alley",
+      "lot": 3,
+      "fronts": "lake",
+      "setback_m": 5.0,
+      "setback_class": "yard",
+      "was_family": "A1",
+      "was_group": "barns_stables",
+      "was_inventory_class": "ancillary",
+      "to_family": "D3",
+      "to_group": "ordinary_dwellings",
+      "implied_inventory_class": "principal_functional",
+      "class_moves": true,
+      "lot_already_carries": "recon_1835_blk_south_water_lasalle_d2_05",
+      "refused_by_the_parcel_gate": "blk_south_water_lasalle: two principal roofs on one lot — lot 3 already carries recon_1835_blk_south_water_lasalle_d2_05",
+      "families_offered": [
+        {
+          "family": "D3",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D1",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D2",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D4",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D5",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D6",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        }
+      ],
+      "ancillary_families_offered": 0,
+      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_a1_07",
+      "would_become": "recon_1835_blk_south_water_wells_d1_07",
+      "sequence": 7,
+      "block_id": "blk_south_water_wells",
+      "programme_phase": "phase3_platted_block_south_water_wells",
+      "stands_on": "alley",
+      "lot": 3,
+      "fronts": "lake",
+      "setback_m": 5.0,
+      "setback_class": "yard",
+      "was_family": "A1",
+      "was_group": "barns_stables",
+      "was_inventory_class": "ancillary",
+      "to_family": "D1",
+      "to_group": "ordinary_dwellings",
+      "implied_inventory_class": "principal_functional",
+      "class_moves": true,
+      "lot_already_carries": "recon_1835_blk_south_water_wells_d2_06",
+      "refused_by_the_parcel_gate": "blk_south_water_wells: two principal roofs on one lot — lot 3 already carries recon_1835_blk_south_water_wells_d2_06",
+      "families_offered": [
+        {
+          "family": "D1",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D4",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D3",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D2",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D5",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        },
+        {
+          "family": "D6",
+          "group": "ordinary_dwellings",
+          "inventory_class": "principal_functional"
+        }
+      ],
+      "ancillary_families_offered": 0,
+      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+    }
+  ],
+  "ground": {
+    "blk_randolph_market": {
+      "roofs_needing_ground": 4,
+      "open_lots": [
+        {
+          "lot": 5,
+          "declared_open_because": "A Washington-tier interior lot, left open in alternation with the two this parcel builds on, which is the pattern the phase-one parcel already assumes and the only face of this block with room left to express it: the Randolph face arrived with two of its four lots already carrying a roof and the schedule's headroom fills the other two."
+        }
+      ]
+    },
+    "blk_south_water_lasalle": {
+      "roofs_needing_ground": 1,
+      "open_lots": []
+    },
+    "blk_south_water_wells": {
+      "roofs_needing_ground": 1,
+      "open_lots": [
+        {
+          "lot": 1,
+          "declared_open_because": "The Lake-and-Wells corner, left open. Wells is the end of this block that runs back toward the lumber yards and the wharves and Lake is its back street, so the corner where the two meet is the least attractive residential lot the block has — the same tier reasoning the South Water and Franklin parcel applied to its own back-street corner one block west, and the Randolph and Market parcel before it. Which lot within the tier is arbitrary; that a block on the business front is not a completed terrace one street back is the programme's own assumption of alternating vacancy, and the schedule's capacity is a ceiling rather than a target."
+        }
+      ]
+    }
+  },
+  "clause_witness": {
+    "clause": "ancillary_behind_its_own_roof",
+    "scored_term": "class:principal in `avoids`, against the traffic class of the street each record stands nearest",
+    "rows": [
+      {
+        "id": "western_hotel_stable",
+        "standing_with_a_street": true,
+        "family": "A1",
+        "street": "canal",
+        "street_class": "ordinary",
+        "setback_m": 0.59,
+        "breaches_its_own_clause": false
+      },
+      {
+        "id": "wolf_point_tavern_stable",
+        "standing_with_a_street": true,
+        "family": "A1",
+        "street": "lake",
+        "street_class": "principal",
+        "setback_m": 36.7,
+        "breaches_its_own_clause": true
+      },
+      {
+        "id": "fort_dearborn_big_barn",
+        "standing_with_a_street": true,
+        "family": "A2",
+        "street": "lake",
+        "street_class": "principal",
+        "setback_m": 270.75,
+        "breaches_its_own_clause": true
+      },
+      {
+        "id": "fort_dearborn_wash_house",
+        "standing_with_a_street": true,
+        "family": "A5",
+        "street": "lake",
+        "street_class": "principal",
+        "setback_m": 420.22,
+        "breaches_its_own_clause": true
+      }
+    ],
+    "reading": "3 of the 4 documented buildings this clause cites as its evidence stand nearest a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it."
+  },
+  "remedies": [
+    {
+      "id": "clause_a_dwelling_in_the_yard",
+      "what": "Admit a dwelling-family roof at a yard setback behind its lot's principal roof — a rear cottage — as ANCILLARY, and write the clause that covers it.",
+      "what_it_changes": "The town gains a building class it has never stated. `ancillary_behind_its_own_roof` applies to A1–A5 only, so a D-family roof in the yard is covered by no clause, and `refusals_of` returns a family with no clause as its own refusal. The adoption gate would also have to rule on whether such a roof may house anybody: it refuses an ancillary roof today on the reasoning that a yard building is a shed.",
+      "costs": "6 roofs keep their position; one new policy clause; one ruling on adoption."
+    },
+    {
+      "id": "move_them_onto_open_ground",
+      "what": "Deal the six onto free lots as principal roofs.",
+      "what_it_changes": "The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 2 open lot(s) against 6 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.",
+      "costs": "4 roof(s) with nowhere to stand even after both open lots are spent."
+    },
+    {
+      "id": "leave_them_where_they_are",
+      "what": "Let the six stand as the A-family yard buildings they are and record the refusal against the adjudication.",
+      "what_it_changes": "It re-opens T-1445's scoring for this clause, because the reason these six were refused refuses 3 of the clause's own 4 evidence records too. That is the owner's call and not this tool's: a scored term that its own evidence breaches is either the wrong term or the wrong evidence.",
+      "costs": "0 roofs move; the adjudication's block verdicts are withdrawn and the clause is re-read."
+    }
+  ]
+}

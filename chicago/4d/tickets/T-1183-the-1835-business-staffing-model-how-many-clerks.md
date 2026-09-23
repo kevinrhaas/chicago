@@ -1,7 +1,7 @@
 ---
 id: T-1183
 title: The 1835 business staffing model: how many clerks, journeymen, apprentices, printers, bar-keepers, hostlers, cooks and teachers each kind of business employed, from the sources the project holds — the rule every business is staffed by
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: S
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-19
+pr: 1529
+claimed_by: run 9/19/2026, 11:23:23 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-19T17:25:19.521Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35454647645
 ---
 
 Zero of 196 businesses carry a staff member; the residents layer has 5 partners and no clerk,

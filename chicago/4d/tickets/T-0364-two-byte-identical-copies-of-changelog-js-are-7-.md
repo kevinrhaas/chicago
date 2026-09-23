@@ -26,7 +26,7 @@ ticket is the question that raise deliberately did NOT answer.
     dev      26,110,827 bytes   24.901 MB   changelog copies 1,895,776 (7.3 %)
     branch   26,249,226 bytes   25.033 MB   changelog copies 1,899,254 (7.2 %)
 
-`site/4d/js/changelog.js` and `site/4d/walk/js/changelog.js` are the same
+`site/chicago/4d/js/changelog.js` and `site/chicago/4d/walk/js/changelog.js` are the same
 949,627 bytes twice. Both paths are contracts and neither may simply move: the first is the URL
 Manager and the polecat.live launcher parse live, the second is what the walkthrough's What's-new
 tab imports out of the copied renderer tree (AGENTS.md § changelog).

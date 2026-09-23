@@ -1,0 +1,99 @@
+{
+  "id": "biz_b_jones_grocery_and_provision_store",
+  "register_id": "business_b_jones_grocery_and_provision_store",
+  "name": "B. Jones, grocery and provision store",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "grocery and provision store",
+  "occupation": "grocer",
+  "goods": [
+    "Provisions",
+    "Sugar",
+    "coffee",
+    "provisions",
+    "sugar",
+    "tea"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "B. Jones",
+      "person_id": "jones_benjamin",
+      "register_person_id": "person_b_jones",
+      "role": "proprietor",
+      "from": "1833-11-26",
+      "to": "1834-03-04",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card jones_benjamin (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_11_26#c018",
+        "chicago_democrat_1834_03_04#c022"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "h_jones_store",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-11-26",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure h_jones_store on its occupants. h_jones_store already stands and its occupants carries jones — 'Jones; grocer and provision merchant'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1833-11-26",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-11-26, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-11-26",
+    "last_issue": "1834-03-04",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: B. Jones (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "jones_benjamin",
+        "name": "B. Jones",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1833_11_26#c018",
+    "chicago_democrat_1834_03_04#c022"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

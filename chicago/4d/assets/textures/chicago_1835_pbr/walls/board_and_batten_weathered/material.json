@@ -1,0 +1,36 @@
+{
+  "id": "board_and_batten_weathered",
+  "group": "walls",
+  "span_m": 4.272,
+  "confidence": "reconstructed",
+  "mean_roughness": 0.88,
+  "kind": "batten",
+  "colors": [
+    [
+      117,
+      106,
+      88
+    ],
+    [
+      82,
+      78,
+      68
+    ]
+  ],
+  "note": "12 battens at the committed 0.356 m set-out.",
+  "resolution_px": 1024,
+  "px_per_m": 239.7,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18351089,
+  "generation_method": "deterministic procedural synthesis"
+}

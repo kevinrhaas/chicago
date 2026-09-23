@@ -24,8 +24,8 @@ Four bake PRs open at once on 2026-08-24 — #349 (run 32688616908), #351 (32690
 #353 (32696112597), #354 (32696836806) — spanning 04:41 to 06:56 UTC. Every one of them
 changes exactly TWO files and no geometry, no assets, no data:
 
-    site/4d/build.json      | 6 +++---
-    site/4d/walk/index.html | 2 +-
+    site/chicago/4d/build.json      | 6 +++---
+    site/chicago/4d/walk/index.html | 2 +-
 
 and the whole of that diff is the stamp:
 
@@ -99,9 +99,9 @@ gate page never opens a PR again, which is the same dead signal pointing the oth
 a dirty path is stamp-only when it is one of the two paths `publish.sh` stamps AND the
 only thing that moved inside it is the stamp:
 
-- `site/4d/build.json` — parsed as JSON both sides; stamp-only when the keys that
+- `site/chicago/4d/build.json` — parsed as JSON both sides; stamp-only when the keys that
   differ are within `{version, built_utc, built_ct}` and the key SET has not changed.
-- `site/4d/walk/index.html` — both sides normalised by putting the rendered
+- `site/chicago/4d/walk/index.html` — both sides normalised by putting the rendered
   `gate-build` paragraph back to the `<!--BUILD_STAMP-->` placeholder `publish.sh` found
   there; stamp-only when they are then identical.
 
@@ -115,7 +115,7 @@ stamp self-consistent with the commit that carries it, which it cannot be.
 **What was demonstrated in this run.**
 
 - *The real case, on this checkout.* `tools/publish.sh` on an otherwise-clean tree leaves
-  exactly `site/4d/build.json` and `site/4d/walk/index.html` dirty — the
+  exactly `site/chicago/4d/build.json` and `site/chicago/4d/walk/index.html` dirty — the
   two files, and the whole diff, this ticket was filed about — and the verdict is
   `bake produced no CONTENT`.
 - *The positive control.* One byte appended to a file under `chicago/4d/` and the same

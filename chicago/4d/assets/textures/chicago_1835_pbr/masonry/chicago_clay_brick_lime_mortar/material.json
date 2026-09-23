@@ -1,0 +1,36 @@
+{
+  "id": "chicago_clay_brick_lime_mortar",
+  "group": "masonry",
+  "span_m": 4.2,
+  "confidence": "fabric attested; module reconstructed",
+  "mean_roughness": 0.9,
+  "kind": "brick",
+  "colors": [
+    [
+      132,
+      71,
+      54
+    ],
+    [
+      190,
+      178,
+      151
+    ]
+  ],
+  "note": "Locally fired red-brown brick with pale lime mortar; brick dimensions are reconstructed, not Chicago-attested.",
+  "resolution_px": 1024,
+  "px_per_m": 243.81,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18351865,
+  "generation_method": "deterministic procedural synthesis"
+}

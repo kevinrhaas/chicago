@@ -53,7 +53,7 @@
       "description": "Dated states of this structure. For a scene date, exactly one phase must cover it."
     },
     "function": {
-      "$ref": "#/$defs/attested"
+      "$ref": "#/$defs/structure_function"
     },
     "occupants": {
       "$ref": "#/$defs/attested"
@@ -366,6 +366,110 @@
         }
       }
     },
+    "stands_on_lot": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Which lot of the NEW north-and-west lot grid this record's committed footprint turned out to stand on. A MEASUREMENT AND NOT A CLAIM, and that is the whole point of the block existing: `lot_claim` says a source named no lot and `lot_address` says a source named one, while this says only that the grid T-1194 drew AFTER these buildings were placed — Thompson's North Division tier, the West Division, the Michigan Street tract, Wabansia, the School Section tier — has a lot under this footprint. Derived and gated by tools/record_lot_seating.py (T-1478), which imports tools/plat_occupancy.py's seat rule rather than carrying a second copy of it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. Documented (`research`-layer) records only — a reconstruction record already carries the programme's own block_id/lot_index, and a derived plat seat on one would let this project's output read back as evidence. Nothing here moves a coordinate, a footprint, a form value or a confidence, and the gate re-reads each seated record to prove it.",
+      "required": [
+        "claims_lot",
+        "grid",
+        "plat",
+        "layer",
+        "block_id",
+        "lot_index",
+        "lot_number",
+        "lot_number_withheld",
+        "lot_lines_confidence",
+        "lot_numbers_confidence",
+        "confidence",
+        "footprint_share",
+        "derived_by",
+        "note"
+      ],
+      "properties": {
+        "claims_lot": {
+          "const": false,
+          "description": "Always false. Nobody claimed this lot: the block records where a committed footprint fell on a grid drawn later. A record may carry both `lot_claim` and this without contradiction, and the measurement never relaxes the claim."
+        },
+        "grid": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Which of the north-and-west grids the lot belongs to."
+        },
+        "plat": {
+          "type": "string",
+          "description": "The plat that grid is cut from, read off the block."
+        },
+        "layer": {
+          "type": "string",
+          "description": "The committed lot layer the seat was measured against, repo-relative."
+        },
+        "block_id": {
+          "type": "string",
+          "pattern": "^blk_[a-z0-9_]+$",
+          "description": "The block of that grid the footprint stands in."
+        },
+        "lot_index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Position in that block's committed lot list. An index into the layer, never a lot number."
+        },
+        "lot_number": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "The numeral the sheet or the register puts on this lot, or null where the grid puts none on it. Read from the layer's own `plat_lot_number` or `lot`; a lot's ORDER along a face is not a number and is never read as one."
+        },
+        "lot_number_withheld": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Why there is no numeral, where there is none. Null when `lot_number` is set; the two are never both empty."
+        },
+        "lot_lines_confidence": {
+          "enum": [
+            "documented",
+            "inferred",
+            "conjectural"
+          ],
+          "description": "How well attested the lot lines the footprint fell inside are, read off the block or its layer."
+        },
+        "lot_numbers_confidence": {
+          "enum": [
+            "documented",
+            "inferred",
+            "conjectural",
+            null
+          ],
+          "description": "How well attested the numeral is. Null where the lot carries none."
+        },
+        "confidence": {
+          "enum": [
+            "documented",
+            "inferred",
+            "conjectural"
+          ],
+          "description": "The seat's own grade: the WEAKER of the lot lines and the numeral. A documented numeral on inferred lot lines gives an inferred seat — the numeral does not carry the line."
+        },
+        "footprint_share": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The fraction of the footprint's area that lies on this lot. Below 1 where the building laps a lot line, which several of these do: they were placed before the grid existed."
+        },
+        "derived_by": {
+          "type": "string",
+          "description": "The tool that measured and gates this block."
+        },
+        "note": {
+          "type": "string",
+          "minLength": 40,
+          "description": "What was measured, against which layer, and what the seat does not assert."
+        }
+      }
+    },
     "land_owner": {
       "type": "object",
       "additionalProperties": false,
@@ -511,6 +615,152 @@
       "additionalProperties": false,
       "properties": {
         "value": {},
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "source_id values that must resolve in data/sources/"
+        },
+        "note": {
+          "type": "string",
+          "description": "Required for inferred. State the reasoning, and record original historical units here."
+        },
+        "geometry": {
+          "enum": [
+            "absent",
+            "simplified",
+            "record_only"
+          ],
+          "description": "What the generated mesh does with this value, for attributes the archetype does not read. 'absent': the thing is attested and nothing of it is built. 'simplified': something stands in its place but this value does not drive it. 'record_only': not a build instruction at all — a rejected reading or a negative finding. Required by tools/validate.py on every attribute outside its archetype's CONSUMED set; 'absent' and 'simplified' must be claimed by a liberty in docs/LIBERTIES.md. Its absence asserts nothing on its own: an attribute the archetype does read is built from the value by construction."
+        }
+      }
+    },
+    "structure_function": {
+      "type": "object",
+      "description": "A structure's use on the scene date, from the closed vocabulary below (T-1311). It was a free string until 2026-09-18 and 384 records had spelled it 109 ways, three of them the same word twice - `blacksmith_shop` and `blacksmith shop`, `store_residence` and `store-residence`, two spellings of the cooper/wheelwright shop. The signage rule, the yard goods, the building-material rule and the register's occupation crosswalk all match this value EXACTLY, so a second spelling is a trade those rules cannot see. This enum is the single source of truth for the vocabulary: tools/normalise_structure_function.py reads it rather than holding a copy, and its --check also refuses a signage trade name the vocabulary cannot spell. To add a term, add it here - and say in the commit what building carries it.",
+      "required": [
+        "value",
+        "confidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "enum": [
+            "agency_house_residence",
+            "artillery_house",
+            "auction_room",
+            "bakery",
+            "barber_shop",
+            "barn",
+            "barn_or_carriage_shed",
+            "blacksmith_shop",
+            "block_house",
+            "boarding_house",
+            "brickyard",
+            "butcher_shop",
+            "carpenter_or_joiner_shop",
+            "church",
+            "commanding_officers_quarters",
+            "company_gardens",
+            "cooper_wagon_or_wheelwright_shop",
+            "cooperage",
+            "council_house",
+            "county_court_house",
+            "deep_plan_frame_cottage",
+            "drug_store",
+            "dwelling",
+            "dwelling_and_store",
+            "dwelling_and_trading_house",
+            "dwelling_farmstead",
+            "dwelling_former_school_use_unattested",
+            "dwelling_to_let",
+            "enlisted_mens_barracks",
+            "forwarding_and_commission_store",
+            "forwarding_commission_warehouse",
+            "freight_or_storage_shed",
+            "freight_shed",
+            "garrison_flagstaff",
+            "grocery_and_provision_store",
+            "guard_house",
+            "gunsmith_shop",
+            "harbour_light",
+            "harbour_works",
+            "harness_shop",
+            "hotel",
+            "hotel_stable",
+            "hotel_under_construction",
+            "jail",
+            "large_boarding_house",
+            "large_workshop",
+            "larger_one_and_a_half_story_house",
+            "livestock_pound",
+            "log_cabin_former_store_and_school_use_unattested",
+            "log_house_former_school_use_unattested",
+            "medium_boarding_house",
+            "meeting_house_and_school",
+            "meeting_house_school",
+            "merchant_or_professional_house",
+            "military_barn",
+            "military_post_enclosure",
+            "narrow_two_story_store",
+            "narrow_two_story_warehouse",
+            "office_and_lodging",
+            "officers_quarters",
+            "older_log_dwelling",
+            "one_and_a_half_story_frame_cottage",
+            "one_room_frame_cottage",
+            "outbuilding",
+            "packing_house",
+            "parade_and_drill_ground",
+            "physicians_office",
+            "powder_magazine",
+            "printing_office",
+            "printing_office_and_store",
+            "privy",
+            "provision_store",
+            "residence",
+            "river_crossing",
+            "root_cellar",
+            "rough_plank_dwelling_or_shanty",
+            "saddlery_and_harness_shop",
+            "sawpit_shed",
+            "school",
+            "schoolhouse_or_meeting_hall",
+            "shoemaker_shop",
+            "shop",
+            "slaughterhouse_packing",
+            "small_artisan_shop",
+            "small_boarding_house",
+            "small_inn_or_tavern",
+            "small_shop_or_office",
+            "small_two_story_frame_house",
+            "small_utility_building",
+            "soap_candle_manufactory",
+            "stable",
+            "stable_and_wagon_yard",
+            "store",
+            "store_and_dwelling",
+            "store_residence",
+            "street_crossing",
+            "sutlers_store",
+            "tailor_shop",
+            "tannery",
+            "tavern_inn",
+            "tavern_stable",
+            "trading_house",
+            "two_room_frame_cottage",
+            "warehouse_and_slaughter_yard",
+            "wash_house",
+            "wheelwright_shop",
+            "woodshed_or_storage_shed",
+            "workshop"
+          ],
+          "description": "The closed function vocabulary. Terms are lower-case with `_` between words; tools/normalise_structure_function.py --self-test holds the folding rule."
+        },
         "confidence": {
           "$ref": "#/$defs/confidence"
         },

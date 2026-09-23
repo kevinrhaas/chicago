@@ -219,7 +219,27 @@ const boxes = [];
     markerSha(s.clones[0], s.origin, 'T-0001') === now);
 }
 
-/* 6. `done` LETS GO, so the id is not locked forever. */
+/* 6. `done` KEEPS ITS MARKER — REVERSED on 2026-09-18, the same fault as case 9.
+ *
+ * It used to release, and the reason was stated in ticket.mjs itself: "`done` and
+ * `withdraw` end a run: rule 7 has its PR merging minutes later, so the window where
+ * `dev` disagrees is short." That is an assumption about how fast a PR merges, and
+ * T-1333 is the bill for it:
+ *
+ *   21:02:57  run A claims T-1333, works it, runs `done --pr 1477`, and the release
+ *             deletes claim/t-1333 while #1477 is still unmerged.
+ *   22:10     #1477 opens and can never gate — it is `dirty`, and GitHub builds no
+ *             merge commit for a conflicted PR, so no check runs at all.
+ *   22:45:27  run B reads `dev`, where T-1333 is still `open` because #1477 has not
+ *             landed, finds no lock, and claims the same ticket.
+ *
+ * Both built the acceptance, two different ways, and one PR was closed as a duplicate.
+ * The claims were 1h42m apart — both legitimate, both inside RUN_HOURS. A run cannot
+ * know when its PR merges, so a handback at `done` is a bet on that interval, and it
+ * is lost exactly when the queue is congested and a duplicate costs most.
+ *
+ * So the marker outlives the run here too, and AGE collects it — the second half of
+ * this case, and the same footing `split` has stood on since T-1145. */
 {
   const s = sandbox(); boxes.push(s.root);
   claim(s.clones[0], 'T-0001');
@@ -227,8 +247,27 @@ const boxes = [];
     markerSha(s.clones[0], s.origin, 'T-0001') !== '');
   spawnSync('node', [path.join(s.clones[0], 'chicago', '4d', 'tools', 'ticket.mjs'),
     'done', 'T-0001', '--pr', '1'], { cwd: s.clones[0], encoding: 'utf8' });
-  check('`done` releases it', markerSha(s.clones[0], s.origin, 'T-0001') === '');
-  check('so the ticket can be claimed again', claim(s.clones[1], 'T-0001', ['--force']).code === 0);
+  check('`done` KEEPS it, because the PR it names has not merged yet',
+    markerSha(s.clones[0], s.origin, 'T-0001') !== '');
+  const second = claim(s.clones[1], 'T-0001');
+  check('so a second run in the merge window is REFUSED — the T-1333 case',
+    second.code !== 0, `exit ${second.code}`);
+  check('and is told who holds it', /ALREADY CLAIMED/.test(second.out));
+}
+
+/* 6b. …and the marker `done` now leaves behind is swept by age, so an id is never
+ *     locked for ever — which is what case 6 was protecting and still holds. */
+{
+  const s = sandbox(); boxes.push(s.root);
+  claim(s.clones[0], 'T-0001');
+  spawnSync('node', [path.join(s.clones[0], 'chicago', '4d', 'tools', 'ticket.mjs'),
+    'done', 'T-0001', '--pr', '1'], { cwd: s.clones[0], encoding: 'utf8' });
+  ageMarker(s.clones[0], s.origin, 'T-0001', RUN_HOURS + 1);
+  const r = spawnSync('node', [path.join(s.clones[0], 'chicago', '4d', 'tools', 'ticket.mjs'),
+    'claims', '--sweep'], { cwd: s.clones[0], encoding: 'utf8' });
+  check('`claims --sweep` collects a done ticket\'s marker once it is past the window',
+    r.status === 0 && markerSha(s.clones[0], s.origin, 'T-0001') === '',
+    (r.stdout || '').trim().split('\n').pop());
 }
 
 /* 7. NO CONFIGURED GIT IDENTITY — the pr-lap bug, asserted so it cannot return. */

@@ -1,6 +1,6 @@
 {
-  "$note": "ROADMAP K30(a). Every committed structure phase whose footprint laps a platted street corridor, with the depth in metres from the corridor's own edge. DERIVED \u2014 regenerate with tools/measure_corridor_intrusion.py --write-baseline, and only ever to record a repair. This file is a RATCHET: tools/check.sh fails on an intruder that is not here and on a listed one whose depth has grown. It is NOT an allowance \u2014 K30(b) owns the fix, and these are the numbers it takes as its baseline. Never move a documented building to make an entry smaller: a position with a source outranks a corridor this project derived. `refused` is the other half of that sentence (T-0195): a lap whose only escape would move a source-argued coordinate is refused IN WRITING, per record, here and in the record's own position.note \u2014 not tolerated by silence. A refusal may not outlive the lap it refuses; the gate says so and --write-baseline drops the stale ones. T-0009, 2026-08-29, ON THE OWNER'S RULING: the corridor these depths are measured against is DERIVED FROM THE STREET CONTROL and no longer from the drawn line \u2014 `--control` prints where every street's corridor is centred and why. One street moves, south_water, whose committed line is drawn 8.58 m inside its own corridor for the dry-ground reason its record states; `--drawn` re-runs every mode against the pre-ruling corridor. No building moved and data/streets/1835.json did not move: this table changed because the question did.",
-  "corridors": 13,
+  "$note": "ROADMAP K30(a). Every committed structure phase whose footprint laps a platted street corridor, with the depth in metres from the corridor's own edge. DERIVED \u2014 regenerate with tools/measure_corridor_intrusion.py --write-baseline, and only ever to record a repair. This file is a RATCHET: tools/check.sh fails on an intruder that is not here and on a listed one whose depth has grown. It is NOT an allowance \u2014 K30(b) owns the fix, and these are the numbers it takes as its baseline. Never move a documented building to make an entry smaller: a position with a source outranks a corridor this project derived. `refused` is the other half of that sentence (T-0195): a lap whose only escape would move a source-argued coordinate is refused IN WRITING, per record, here and in the record's own position.note \u2014 not tolerated by silence. A refusal may not outlive the lap it refuses; the gate says so and --write-baseline drops the stale ones. T-0009, 2026-08-29, ON THE OWNER'S RULING: the corridor these depths are measured against is DERIVED FROM THE STREET CONTROL and no longer from the drawn line \u2014 `--control` prints where every street's corridor is centred and why. One street moves, south_water, whose committed line is drawn 8.58 m inside its own corridor for the dry-ground reason its record states; `--drawn` re-runs every mode against the pre-ruling corridor. No building moved and data/streets/1835.json did not move: this table changed because the question did. T-1191, 2026-09-19, AND FOR THE SAME REASON: the corridor layer now reaches the north bank. Until then `plat_corridors.corridors()` returned nothing north of the main stem \u2014 one pair of street lists decided both which streets a BLOCK may be cut between and which streets a BUILDING may be reported standing in \u2014 so every north-side lap was unmeasurable rather than absent. Eleven invented roofs turned out to be in the road and were moved out of it by tools/clear_north_corridors.py, which is a repair. The three that stayed are the other half of the rule above: `north_branch_bridge` is a bridge in a street, and `north_bank_shed_dearborn_e1` and `watkins_school_house` hold positions a source argues, which outrank a corridor this project derived. They are DEBT, entered here as found and owned by T-1197 and T-1198, not an allowance.",
+  "corridors": 33,
   "lapping": {
     "bates_auction_room:frame_1834": {
       "anchor_in": [],
@@ -195,6 +195,38 @@
       "street": "franklin",
       "structure": "newberry_dole_warehouse"
     },
+    "north_bank_shed_dearborn_e1:shed_1835": {
+      "anchor_in": [],
+      "anchor_offset_m": 12.99,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "dearborn_north"
+      ],
+      "depth_m": 6.63,
+      "layer": "research",
+      "phase": "shed_1835",
+      "position_confidence": "reconstructed",
+      "street": "dearborn_north",
+      "structure": "north_bank_shed_dearborn_e1"
+    },
+    "north_branch_bridge:log_1832": {
+      "anchor_in": [
+        "kinzie"
+      ],
+      "anchor_offset_m": 3.9,
+      "body_toward_street": true,
+      "category": "furniture",
+      "centroid_in": [
+        "kinzie"
+      ],
+      "depth_m": 11.91,
+      "layer": "research",
+      "phase": "log_1832",
+      "position_confidence": "inferred",
+      "street": "kinzie",
+      "structure": "north_branch_bridge"
+    },
     "peck_store:frame_1833": {
       "anchor_in": [],
       "anchor_offset_m": 24.22,
@@ -262,6 +294,23 @@
       "street": "dearborn",
       "structure": "tremont_house_1"
     },
+    "watkins_school_house:house_1833": {
+      "anchor_in": [
+        "michigan_north"
+      ],
+      "anchor_offset_m": 3.79,
+      "body_toward_street": false,
+      "category": "building",
+      "centroid_in": [
+        "michigan_north"
+      ],
+      "depth_m": 8.4,
+      "layer": "research",
+      "phase": "house_1833",
+      "position_confidence": "reconstructed",
+      "street": "michigan_north",
+      "structure": "watkins_school_house"
+    },
     "western_hotel:frame_1834": {
       "anchor_in": [
         "canal"
@@ -278,7 +327,7 @@
       "structure": "western_hotel"
     }
   },
-  "measured": "2026-09-12",
+  "measured": "2026-09-19",
   "placed_phases": 384,
   "refused": {
     "harmon_loomis_store:frame_1833": {

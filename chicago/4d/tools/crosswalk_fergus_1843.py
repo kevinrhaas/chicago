@@ -43,6 +43,7 @@ import json, os, re, sys
 from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from reconstructed_person import is_reconstructed  # noqa: E402
 import name_agreement as na  # the forename rule, imported rather than restated
 import printed_twice as pt  # one man, two printings (T-0987 stretch 7), likewise
 import tiebreak            # the tie discriminator (T-0696), likewise
@@ -95,6 +96,11 @@ def residents():
             continue
         doc = json.load(open(os.path.join(HH, fn), encoding="utf-8"))
         for p in doc.get("persons") or []:
+            # T-1171: a person the reconstruction programme DREW is not a name any source printed.
+            # Matching one to a printed name would be this project reading its own invention
+            # back as evidence. reconstructed_person.py holds the rule.
+            if is_reconstructed(p):
+                continue
             name = (p.get("name") or "").strip()
             if not name or p.get("id", "").endswith("_household"):
                 continue

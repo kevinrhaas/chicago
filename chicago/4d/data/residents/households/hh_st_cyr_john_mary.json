@@ -121,6 +121,77 @@
    "sources": [
     "andreas_1884_v1"
    ],
+   "appearance_bounds": [
+    {
+     "bound_kind": "presence",
+     "corpus": "st_marys_baptisms",
+     "source_title": "St Mary's baptismal register, Chicago, 1833-1835, read off the deposited page images",
+     "record_id": "st_marys_bapt_1834_19_4_godfather",
+     "as_read": "Jean Marie Irénée Saint Cyr",
+     "role": "godfather",
+     "locator": "image S3HT-DHG9-S1C, page 12, entry 19 of the 1834 series",
+     "describes_date": "1834-08-06",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-06",
+     "here_by": "1834-08-06",
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "st_marys_baptismal_register_1833_1835"
+     ],
+     "identity_rule": "data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'John Mary Irenaeus Saint Cyr' into the residents layer's 'Rev. John Mary Irenaeus St Cyr' under a written rule naming both spellings verbatim; the rule is read there and is not copied here.",
+     "identity_rule_source": "data/research/church/st_marys_baptisms_crosswalk.json — merges[] into 'Rev. John Mary Irenaeus St Cyr'",
+     "note": "A BOUND ON PRESENCE AT CHICAGO, AND NOTHING FURTHER. The entry is dated 1834-08-06 at Chicago, Cook County, Illinois and this person stood at the font as godfather, so the register places a body in the town no later than 1834-08-06. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The entry is read scan_verified off the page image at `documented` confidence. What no source states is that the sponsor the register names is the person on this card: data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'John Mary Irenaeus Saint Cyr' into the residents layer's 'Rev. John Mary Irenaeus St Cyr' under a written rule, and a bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "presence",
+     "corpus": "st_marys_baptisms",
+     "source_title": "St Mary's baptismal register, Chicago, 1833-1835, read off the deposited page images",
+     "record_id": "st_marys_bapt_1834_21_4_sponsor",
+     "as_read": "John Mary I. Saint Cyr",
+     "role": "sponsor",
+     "locator": "image S3HT-DHG9-S1C, page 13, entry 21 of the 1834 series",
+     "describes_date": "1834-12-24",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-12-24",
+     "here_by": "1834-12-24",
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "st_marys_baptismal_register_1833_1835"
+     ],
+     "identity_rule": "data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'John Mary Irenaeus Saint Cyr' into the residents layer's 'Rev. John Mary Irenaeus St Cyr' under a written rule naming both spellings verbatim; the rule is read there and is not copied here.",
+     "identity_rule_source": "data/research/church/st_marys_baptisms_crosswalk.json — merges[] into 'Rev. John Mary Irenaeus St Cyr'",
+     "note": "A BOUND ON PRESENCE AT CHICAGO, AND NOTHING FURTHER. The entry is dated 1834-12-24 at Chicago, Cook County, Illinois and this person stood at the font as sponsor, so the register places a body in the town no later than 1834-12-24. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The entry is read scan_verified off the page image at `documented` confidence. What no source states is that the sponsor the register names is the person on this card: data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'John Mary Irenaeus Saint Cyr' into the residents layer's 'Rev. John Mary Irenaeus St Cyr' under a written rule, and a bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "presence",
+     "corpus": "st_marys_baptisms",
+     "source_title": "St Mary's baptismal register, Chicago, 1833-1835, read off the deposited page images",
+     "record_id": "st_marys_bapt_1835_09_5_godfather",
+     "as_read": "J. M. I. St Cyr",
+     "role": "godfather",
+     "locator": "image S3HT-DHG9-SJ8, page 17, entry 9 of the 1835 series",
+     "describes_date": "1835-09-25",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-09-25",
+     "here_by": null,
+     "side_of_scene_date": "later",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "st_marys_baptismal_register_1833_1835"
+     ],
+     "identity_rule": "data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'John Mary Irenaeus Saint Cyr' into the residents layer's 'Rev. John Mary Irenaeus St Cyr' under a written rule naming both spellings verbatim; the rule is read there and is not copied here.",
+     "identity_rule_source": "data/research/church/st_marys_baptisms_crosswalk.json — merges[] into 'Rev. John Mary Irenaeus St Cyr'",
+     "note": "AN APPEARANCE LATER THAN THE SCENE DATE, WHICH BOUNDS NOTHING AT IT. The entry is dated 1835-09-25 at Chicago, Cook County, Illinois — after 1 July 1835 — and this person stood at the font as godfather. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. So this row dates and corroborates an appearance and `here_by` is null: it cannot put a body in the town on the scene date, and back-projecting it would be the promotion the ladder forbids. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The entry is read scan_verified off the page image at `documented` confidence. What no source states is that the sponsor the register names is the person on this card: data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'John Mary Irenaeus Saint Cyr' into the residents layer's 'Rev. John Mary Irenaeus St Cyr' under a written rule, and a bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
    "note": "BORN AT LYONS, FRANCE, 2 NOVEMBER 1803, AND EDUCATED THERE. Andreas: 'He left France in June, 1831, reached St. Louis August 1, of the same year, and was there made a subdeacon. He was ordained at St. Mary's the Barrens by Bishop Rosatti in 1832, and on April 6, 1833, was by the same Bishop ordained priest.' He was sent to Chicago because 'Catholics were increasing in numbers in Chicago, and were becoming desirous' of a priest - a petition answered, not a migration chosen. He was succeeded by Father O'Meara only after 1837, so he is the pastor across the whole scene window.",
    "resident_research": {
     "programme": "resident-research-2026",
@@ -144,14 +215,29 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "no_fixed_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "attested",
+    "tier": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   }
   }
  ],
  "touches_removal": false,

@@ -79,6 +79,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
+import pinned_sources  # noqa: E402  — the sha256 pin every remote region is held to
+
 OUT_DIR = ROOT / "data" / "terrain" / "epochs" / "e1834_harbor_cut"
 OUT = OUT_DIR / "shoreline.geojson"
 
@@ -201,17 +203,18 @@ def die(msg: str, code: int = 2):
 
 
 def fetch_region(cache: Path):
-    x, y, w, h = REGION
-    url = f"{IIIF}/{x},{y},{w},{h}/full/0/default.jpg"
-    if cache.exists():
-        raw = cache.read_bytes()
-    else:
-        print(f"fetching {url}")
-        with urllib.request.urlopen(url, timeout=180) as r:  # noqa: S310
-            raw = r.read()
-        cache.parent.mkdir(parents=True, exist_ok=True)
-        cache.write_bytes(raw)
-    return raw, hashlib.sha256(raw).hexdigest()
+    """The east-edge region, held to its pin before it is segmented (T-1397).
+
+    Same unpinned fetch that let a re-encode upstream rewrite the river on two
+    unrelated branches; the shoreline reads a far bigger region of the same sheet.
+    """
+    try:
+        return pinned_sources.fetch_pinned(IIIF, REGION, cache)
+    except pinned_sources.SourceMoved as e:
+        # A move the register has already ruled on is not a failure of this run:
+        # the committed reading stands, nothing is left to re-derive, and red here
+        # would abort every lap in the queue. A move nobody has ruled on IS red.
+        die(str(e), 0 if e.recorded else 1)
 
 
 def close_lettering(water, np):

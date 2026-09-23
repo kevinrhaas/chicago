@@ -15,8 +15,7 @@
  * means the smoke test cannot tell a healthy boot from a broken one):
  *
  *   dev        renderers/web/index.html   ->  ../../data/   ../../assets/
- *   published  4d/walk/index.html         ->  ../data/      ../data/
- *              4d/, 4d/1835/ (front doors, `<base href>` into walk/) -> same
+ *   published  chicago/4d/walk/index.html ->  ../data/      ../data/
  *
  * `?data=` and `?assets=` override either.
  */
@@ -27,11 +26,7 @@ const GLB_MAGIC = 0x46546c67;   // 'glTF', little-endian
 
 export function resolveBases(loc = window.location) {
   const params = new URLSearchParams(loc.search);
-  // The DOCUMENT's base, not the address bar: the published front doors
-  // (/4d/, /4d/1835/) are copies of walk/index.html carrying
-  // `<base href="…walk/">`, so they resolve from walk/ exactly as walk/ does.
-  const base = (loc === globalThis.window?.location && globalThis.document?.baseURI) || loc.href;
-  const here = new URL('.', base);
+  const here = new URL('.', loc.href);
   const dev = /\/renderers\/web\/$/.test(here.pathname);
   return {
     dev,
@@ -122,7 +117,7 @@ async function fetchAsset(url) {
  *   registry: Map<string, object>, problems: string[], bytes: number
  * }>}
  */
-export async function loadScene(year, bases = resolveBases()) {
+export async function loadScene(year, bases = resolveBases(), { onProgress = () => {} } = {}) {
   const { dataBase, assetBase } = bases;
   const problems = [];
 
@@ -156,6 +151,8 @@ export async function loadScene(year, bases = resolveBases()) {
   const registry = new Map();
   let bytes = 0;
 
+  let completed = 0;
+  onProgress(0, entries.length);
   const loads = entries.map(async ({ id, sidecar: sidecarPath }) => {
     const sidecarUrl = new URL(sidecarPath ?? `sidecars/${year}/${id}.json`, dataBase);
     let sidecar;
@@ -273,6 +270,6 @@ export async function loadScene(year, bases = resolveBases()) {
     });
   });
 
-  await Promise.all(loads);
+  await Promise.all(loads.map(p => p.finally(() => onProgress(++completed, entries.length))));
   return { year, scene, datum, registry, problems, bytes, index };
 }

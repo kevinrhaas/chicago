@@ -1,0 +1,94 @@
+{
+  "id": "rcb_robillard_lawyer",
+  "register_id": null,
+  "name": "B. Robillard, attorney and counsellor at law, and solicitor in chancery",
+  "provenance": "reconstructed",
+  "type": [
+    "lawyer"
+  ],
+  "trade": "attorney and counsellor at law",
+  "occupation": "attorney",
+  "goods": [
+    "attorney and counsellor at law, and solicitor in chancery"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Baptiste Robillard",
+      "person_id": "rc_robillard_baptiste",
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "ADOPTED, NOT MINTED. Baptiste Robillard is the reconstructed trade head the resident band's `trade_households` stage drew at attorney in the north division (slot trade_households:persons/male/20_29/north/family/trade:attorney:001), and that card says itself that the business band adopts these heads rather than minting its own. One quota, filled once: this house is the establishment that head keeps.",
+      "source_id": null,
+      "claim_ids": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "north_water",
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "A FACE, NOT A PREMISES. The placement rule for a lawyer kept by a north-division household deals this house onto North Water Street; the face is drawn on the seed printed in `reconstruction.seed` from the faces that rule allows, and no lot, roof or coordinate is claimed. T-1195 writes the placement policy with its evidence and T-1199 seats this house on the lot grid.",
+      "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "reconstructed",
+    "basis": "NOTHING DATES THIS HOUSE. The census that orders it was taken in December 1835 and counts a standing trade, not an opening; the record claims that the house was trading on 1835-07-01 and nothing about either end."
+  },
+  "evidence": {},
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "french_canadian",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read french_canadian: Baptiste Robillard (french_canadian). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "rc_robillard_baptiste",
+        "name": "Baptiste Robillard",
+        "role": "proprietor",
+        "community": "french_canadian",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A register, directory or deed naming a real house of this class in the north division in 1835 — that house takes this slot and this record is withdrawn.",
+  "reconstruction": {
+    "programme": "chicago_1835_business_reconstruction",
+    "group": "professions_and_services",
+    "ticket": "T-1418",
+    "bucket": "businesses/lawyer",
+    "slot": "professions_and_services:businesses/lawyer:001",
+    "seed": "professions_and_services:businesses/lawyer:001",
+    "basis": {
+      "kind": "model",
+      "id": "1835_reconstruction_order_book",
+      "note": "the December 1835 State census prints 22 — a line that counts MEN and not premises (T-1007). The town holds 14 of them at the scene date against 18 register records, and the scene date's population brackets the class between 15 and 21. The book orders to the low end, 15. The book leaves 2 of this class to reconstruct and this is one of them. The style is dealt on the seed printed beside it from the period forms the register itself carries: the form 'J. Curtiss, Attorney and Counsellor at Law', 'R. Stewart, attorney' and 'S. Abell, attorney and counsellor' print — an initial, the surname, and the practice's own line. The goods line is the fullest of the three, and the commonest: G. Spring, H. C. Bennett, J. Curtiss, Henry Moore and John Dean Caton all print it."
+    },
+    "withdrawn_if": "a source naming a real house of this class, or a re-cut of the order book that no longer orders this bucket; the retirement runs through --build, never by hand"
+  }
+}

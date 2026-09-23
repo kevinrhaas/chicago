@@ -1,0 +1,379 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chicago4d/schemas/business.schema.json",
+  "title": "4D Chicago Business",
+  "description": "One business, one file, under data/businesses/. A business is an identity — a house of trade that persists across the window the sources cover — and this record is the place its people, its premises and its dates are written with a tier on each. The 196 records compiled from the newspaper register are DERIVED (tools/compile_businesses.py --build) and must not be hand-edited; --check re-derives them and refuses one that has been. Records authored by hand live under data/businesses/authored/ and are merged in by the same compiler. Semantic rules — a tier that requires sources, a person id that must resolve, a location that must name what it points at — are enforced by the compiler's self-test and by tools/validate.py.",
+  "type": "object",
+  "required": ["id", "name", "provenance", "type", "proprietors", "partners", "staff", "locations", "dates", "sources"],
+  "additionalProperties": false,
+  "$defs": {
+    "tier": {
+      "type": "string",
+      "enum": ["attested", "inferred", "reconstructed"],
+      "description": "The grade ladder of data/residents/index.json .vocabulary.grades, unchanged. `attested` requires at least one source_id; `inferred` and `reconstructed` require a basis stating the reasoning."
+    },
+    "date": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$",
+      "description": "ISO, to whatever precision the source gives. Null where the record does not bound that end."
+    },
+    "role": {
+      "type": "string",
+      "enum": ["proprietor", "partner", "clerk", "journeyman", "apprentice", "servant",
+               "boarder", "lodger", "bar_keeper", "hostler", "printer", "teacher",
+               "cook", "porter", "labourer", "household_member",
+               "postmaster", "land_office_register", "land_office_receiver", "county_clerk",
+               "minister", "priest",
+               "indian_agent", "sub_agent", "interpreter", "blacksmith"],
+      "description": "Agrees with data/residents/index.json .vocabulary.relationships wherever a word appears in both, so a person's household role and their workplace role are the same word. The workplace-only additions (proprietor, bar_keeper, hostler, printer, teacher, cook, porter, labourer) are the roles T-1183's staffing model will fill. THE FOUR CIVIC OFFICES (T-1410) are not new words either: `postmaster`, `land_office_register`, `land_office_receiver` and `county_clerk` are already in .vocabulary.occupations, held there as what a man WAS, and a civic establishment needs them as what he DID at a place. One word for the office on the person and on the seat is the same rule this enum already follows for `clerk`. THE TWO CHURCH OFFICES (T-1421) arrive the same way: `minister` and `priest` are already in .vocabulary.occupations, where the resident layer holds them as what Rev. Jeremiah Porter and Rev. John Mary Irenaeus St Cyr WERE, and a church establishment needs them as what each man DID at a meeting house. There is deliberately no word for `sexton`, and that absence is a finding rather than an oversight: the only sexton any trade table this project holds ever prints is the single 'sexton, St. James\u2019 Church' of Fergus 1839, four years and some three thousand people after the scene, so July 1835 is given no such office and needs no word for one until a source names the man.THE FOUR AGENCY OFFICES (T-1374) arrive by the same door and the door is the only reason they are allowed through: `indian_agent`, `sub_agent`, `interpreter` and `blacksmith` all already stand in .vocabulary.occupations, where the resident layer holds them as what Col. T. J. V. Owen, Gholson Kercheval, Billy Caldwell and David McKee WERE, and the United States Indian agency at Chicago needs them as what each man DID at a place. THERE IS DELIBERATELY NO WORD FOR `striker`, and that absence is the same kind of finding as `sexton` above rather than an oversight: Andreas's roster of the agency ends 'and Joseph Porthier as striker', which is a distinct office at a forge, and his own resident card already ruled that 'the occupation vocabulary has no separate entry for a striker and blacksmith is the trade he was in'. Minting a role word for one man on one line of one source would put a word in this enum that the residents' vocabulary does not hold, which is precisely what the rule above forbids."
+    },
+    "person": {
+      "type": "object",
+      "required": ["name", "person_id", "role", "tier", "basis"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "description": "The name as the source reads it. Never normalised away — the printed string is the evidence."},
+        "person_id": {"type": ["string", "null"], "pattern": "^[a-z0-9_]+$",
+          "description": "A town resident id (data/residents/), or null where the register could not match the printed name to a card. Null is a statement about the evidence, not a placeholder: `basis` says which."},
+        "register_person_id": {"type": ["string", "null"], "pattern": "^person_[a-z0-9_]+$",
+          "description": "The register's own id for the printed name, kept so a reader can walk back to the notice."},
+        "role": {"$ref": "#/$defs/role"},
+        "occupation": {"type": ["string", "null"],
+          "description": "THE TRADE THIS HAND WORKS, where `role` is what they ARE at the house. The 1835 business staffing model carries both words for every hand it gives a class \u2014 `role`, the trade (a baker, a dressmaker), and `household_relationship`, the standing (a journeyman, an apprentice, a servant) \u2014 and the enum above is the second vocabulary, held in common with the resident layer's relationships so that a person's household role and their workplace role are one word. So the standing goes in `role`, the trade goes here, and the row reads as what it is: a journeyman baker at this bakery. Null on every row the register printed, which names a man and not his craft. Written by tools/staff_the_houses_1835.py (T-1462)."},
+        "seed": {"type": ["string", "null"],
+          "description": "The seed a reader retypes to redraw a RECONSTRUCTED row \u2014 asked of one by T-1158, which wants a tier, a basis, a seed and what would replace it on every reconstructed value. Null on an attested or an inferred row: a printed name was not drawn and has no seed to give."},
+        "replaceable_by": {"type": ["string", "null"],
+          "description": "What would retire this row, in prose \u2014 the fourth of T-1158's four. On a reconstructed hand it is the source that would name the real one, after which the draw is withdrawn rather than corrected."},
+        "from": {"$ref": "#/$defs/date"},
+        "to": {"$ref": "#/$defs/date"},
+        "tier": {"$ref": "#/$defs/tier"},
+        "basis": {"type": "string", "minLength": 1},
+        "source_id": {"type": ["string", "null"]},
+        "claim_ids": {"type": "array", "items": {"type": "string"}},
+        "also_printed_as": {"type": "array", "items": {"type": "string"},
+          "description": "The OTHER styles the same paper printed this same person under, folded onto this row by compile_businesses.fold_printed_styles on `person_id` \u2014 never on the name. \"J. D. Caton\" and \"J. Dean Caton\" are one partner of Collins & Caton, and Giles Spring was printed three ways. The typography is evidence and is kept here rather than deleted; what the fold removes is only the second COUNT of one man. Empty on every row but the twelve the register double-printed."}
+      }
+    },
+    "staffing": {
+      "type": ["object", "null"],
+      "required": ["class", "reads_as", "hands", "writes_no_person", "basis", "replaceable_by"],
+      "additionalProperties": false,
+      "description": "WHAT THE STAFFING MODEL SAYS THIS KIND OF HOUSE EMPLOYED, NAMING NOBODY. `staff` above is a list of PEOPLE, filled from a source that names one or \u2014 at T-1189 \u2014 from the reconstruction programme. This block is the layer between the model and that list, and it exists because splitting T-1411 found there was nowhere else to put the answer: the register COMPILES the schools and the printing offices, so a reading about their hands had no home at all \u2014 data/businesses/authored/ holds whole records and not additions to compiled ones. It is carried onto a record from data/businesses/rulings/establishment_staffing.json, and onto the 84 houses the reconstructed seating seats a hand in from data/reconstruction/1835_business_staff_overlay.json, which is DERIVED rather than ruled; where both name a house the derived overlay carries the ruling's rows and block forward and the compiler asserts that it did. It is null on every record neither covers. IT IS NOT A ROSTER AND MAY NOT BECOME ONE BY ITSELF: a hand a source names goes in `staff` with its citation; a hand only the model implies stands here, undrawn, with `drawn: false` and the name of whoever would have to print it first.",
+      "properties": {
+        "class": {"type": "string", "minLength": 1,
+          "description": "The establishment class of data/reconstruction/1835_business_staffing_model.json, so a reader can join the two."},
+        "reads_as": {"type": "string", "minLength": 1,
+          "description": "The model's own prose for that class."},
+        "principal_role": {"type": ["string", "null"],
+          "description": "The role the KEEPER fills himself, where the trade is one a keeper works \u2014 `teacher` at a one-room school. Null where the keeper is not a hand at the trade. A principal is NEVER repeated into `staff`: the record already names them among the proprietors or partners, and a second row would count one person twice."},
+        "principal_is": {"type": ["string", "null"],
+          "description": "Which row of this record the principal is, in prose, so the reader is not left to work it out."},
+        "hands": {"type": "array",
+          "description": "One entry per role the model gives this class, drawn or not.",
+          "items": {
+            "type": "object",
+            "required": ["role", "household_relationship", "count_low", "count_typical", "count_high", "drawn", "basis"],
+            "additionalProperties": false,
+            "properties": {
+              "role": {"$ref": "#/$defs/role"},
+              "occupation": {"type": ["string", "null"],
+                "description": "The staffing model's own word for the TRADE of this hand, where `role` above is the standing it holds at the house. Null on a hand a ruling wrote before the two words were kept apart."},
+              "household_relationship": {"type": "string", "minLength": 1},
+              "count_low": {"type": "integer", "minimum": 0},
+              "count_typical": {"type": "integer", "minimum": 0},
+              "count_high": {"type": "integer", "minimum": 0},
+              "drawn": {"type": "boolean",
+                "description": "True only when a row of `staff` stands for this hand. False is the ordinary answer and it is a statement rather than a gap."},
+              "seats_drawn": {"type": ["integer", "null"], "minimum": 0,
+                "description": "How many rows of `staff` stand for this hand. `drawn` says WHETHER and this says HOW MANY, which is the whole difference between a house carrying one of the two hands its class wants and a house carrying both. Null where nobody has counted."},
+              "basis": {"type": "string", "minLength": 1},
+              "why_not_drawn": {"type": ["string", "null"], "minLength": 1,
+                "description": "Required whenever `drawn` is false: who would have to name this hand before it is written down."}
+            }
+          }},
+        "attendance": {
+          "type": ["object", "null"],
+          "required": ["value", "kind", "tier", "basis"],
+          "additionalProperties": false,
+          "description": "The pupils of a school, or the custom of any other house, where a source gives a figure. `kind` says WHAT was counted, because a subscription target, an enrolment and a head-count on one day are three different numbers and only one of them is a roll.",
+          "properties": {
+            "value": {"type": ["integer", "null"], "minimum": 0},
+            "kind": {"type": "string", "enum": ["enrolled", "subscribed_for", "attending", "none_printed"]},
+            "tier": {"anyOf": [{"$ref": "#/$defs/tier"}, {"type": "null"}]},
+            "on_date": {"type": ["string", "null"],
+              "description": "What the figure is a figure FOR. A count off the scene date is carried with its own date rather than quietly read as July 1835."},
+            "basis": {"type": "string", "minLength": 1}
+          }
+        },
+        "shortfall": {
+          "type": ["object", "null"],
+          "required": ["typical_wanted", "seats_taken", "short_by", "by_role", "statement"],
+          "additionalProperties": false,
+          "description": "WHAT THIS HOUSE STILL WANTS, STATED RATHER THAN LEFT TO BE COMPUTED (T-1462). `hands` says what the model puts about the class and `staff` says who is actually here; until this block, a house standing at half its band and a house standing at all of it printed the same card, and the difference was recoverable only by a reader willing to subtract one list from the other. Measured against the model's TYPICAL band and never its high end \u2014 the ceiling is what a house of the class COULD carry, and a shortfall read off it would report every ordinary house as short. The keeper is never counted: the model's bands exclude the principal, which is the shop-household rule it states for itself. Written by tools/staff_the_houses_1835.py, laid on by tools/compile_businesses.py, and null on every record no overlay covers.",
+          "properties": {
+            "typical_wanted": {"type": "integer", "minimum": 0},
+            "seats_taken": {"type": "integer", "minimum": 0},
+            "seats_against_the_band": {"type": "integer", "minimum": 0,
+              "description": "How many of `seats_taken` fall inside a role's own typical band. The shortfall is summed PER ROLE and never off the totals \u2014 a second dressmaker does not stand in for the clerk this house has not got \u2014 so a house can carry the model's number of hands and still be short, and this is the figure that makes that arithmetic legible: typical_wanted minus this is short_by, always."},
+            "short_by": {"type": "integer", "minimum": 0},
+            "by_role": {"type": "array",
+              "description": "One row per hand above, so the shortfall reads by role and not only as a total.",
+              "items": {
+                "type": "object",
+                "required": ["household_relationship", "count_typical", "seats_drawn", "short_by"],
+                "additionalProperties": false,
+                "properties": {
+                  "occupation": {"type": ["string", "null"]},
+                  "household_relationship": {"type": "string", "minLength": 1},
+                  "count_low": {"type": "integer", "minimum": 0},
+                  "count_typical": {"type": "integer", "minimum": 0},
+                  "count_high": {"type": "integer", "minimum": 0},
+                  "seats_drawn": {"type": "integer", "minimum": 0},
+                  "short_by": {"type": "integer", "minimum": 0}
+                }
+              }},
+            "statement": {"type": "string", "minLength": 1,
+              "description": "The same answer in a sentence, so a card can print it without doing the arithmetic itself."},
+            "counted_here": {"type": ["string", "null"]},
+            "replaceable_by": {"type": ["string", "null"]}
+          }
+        },
+        "writes_no_person": {"const": true,
+          "description": "Held true by tools/compile_businesses.py, which refuses a block carrying a person id or a name. The staffing model writes no person and neither does this; the field is here so that promise is checkable rather than merely asserted in a comment."},
+        "basis": {"type": "string", "minLength": 1},
+        "replaceable_by": {"type": "string", "minLength": 1}
+      }
+    },
+    "anchor": {
+      "type": ["object", "null"],
+      "required": ["kind", "id", "title", "streets"],
+      "additionalProperties": false,
+      "description": "THE LANDMARK AN `anchored` LOCATION STANDS AGAINST, as an id rather than as a sentence. The register's `action_target`, resolved by compile_businesses.anchor_of: a committed structure (15), another house in this layer (7), or a crossing of two platted streets (4). It does NOT place the house \u2014 `structure_id` stays null on an anchored location, because the anchor is what the house stood next to and a roof of its own is precisely what the register could not give it.",
+      "properties": {
+        "kind": {"type": "string", "enum": ["structure", "business", "corner"]},
+        "id": {"type": ["string", "null"], "pattern": "^[a-z0-9_]+$",
+          "description": "A committed structure id or a `biz_` id. Null on a corner, which names two streets and no one thing."},
+        "title": {"type": "string", "minLength": 1,
+          "description": "What a card prints: the roof's name, the firm's name, or the two street names joined."},
+        "streets": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+          "description": "The two street ids of a corner; empty otherwise."}
+      }
+    },
+    "location": {
+      "type": "object",
+      "required": ["kind", "primary", "tier", "basis"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["premises", "yard", "warehouse", "office", "stand", "anchored", "street_only", "unplaceable"],
+          "description": "`anchored` is the register's `new_building`: the paper anchors the house against a landmark the town holds and the town holds no roof of the house's own, so the location is real and stops at the anchor. `street_only` and `unplaceable` are LIMITS, not places: the register found a street and no house, or no anchor at all. They are carried as locations so that the 61 street-only and 62 unplaceable businesses of the 1835 register are data a query can count, rather than prose in an action note."
+        },
+        "structure_id": {"type": ["string", "null"], "pattern": "^[a-z0-9_]+$"},
+        "street_id": {"type": ["string", "null"], "pattern": "^[a-z0-9_]+$"},
+        "face": {"type": ["string", "null"]},
+        "primary": {"type": "boolean", "description": "Exactly one location per record is primary."},
+        "from": {"$ref": "#/$defs/date"},
+        "to": {"$ref": "#/$defs/date"},
+        "tier": {"$ref": "#/$defs/tier"},
+        "basis": {"type": "string", "minLength": 1},
+        "limit_reason": {"type": ["string", "null"],
+          "description": "Required on `street_only` and `unplaceable`: WHY the record stops where it does, in the register's own words."},
+        "anchor": {"$ref": "#/$defs/anchor"}
+      }
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(biz|rcb)_[a-z0-9_]+$",
+      "description": "Stable slug, matching the filename. `biz_` for an attested or inferred house, `rcb_` for a reconstructed one. The 196 compiled records take the register's own id with its `business_` prefix replaced, which is 1:1 with the printed notice; the parent ticket's `biz_<surname>_<trade>` form is reserved for records a human authors, because derived over the register it collides 27 times and every collision is an identity question tools/compile_businesses.py must not answer by itself."
+    },
+    "register_id": {"type": ["string", "null"], "description": "The data/research/newspapers/register_1835.json business this record compiles, or null for an authored record with no printed notice."},
+    "name": {"type": "string", "description": "The firm style as printed, or — for a reconstruction — a period form."},
+    "provenance": {
+      "type": "string",
+      "enum": ["compiled_from_register", "authored", "reconstructed"],
+      "description": "Where the record came from. `compiled_from_register` records are rewritten on every --build and a hand edit is refused."
+    },
+    "type": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["store", "book_store", "druggist", "silversmith_jeweller", "tin_and_copper_manufactory",
+                 "printing_office", "brewery", "steam_saw_mill", "iron_foundry", "storage_and_forwarding",
+                 "tavern", "lottery_office", "bank", "church", "school", "lawyer", "physician",
+                 "lyceum_and_reading_room", "civic", "other", "not_stated"]
+      },
+      "description": "The census classes of data/research/newspapers/trade_class_rulings.json — the ONE taxonomy, so a business counts against the December 1835 State census without a second crosswalk. A house may hold more than one. `civic` (T-1410) is the one class here the census does NOT enumerate, and that is the point of it: the State count of late 1835 runs through the trades and never reaches the post office, the land office or the county's own rooms, so a civic establishment counts against no census line and the crosswalk does not compare it. It is kept out of `other` because `other` means *the register printed a trade this enumeration has no line for*, and these three were never in the register at all."
+    },
+    "trade": {"type": ["string", "null"], "description": "The printed trade, verbatim. Never replaced by the class."},
+    "occupation": {"type": ["string", "null"], "description": "The finer trade from data/residents/index.json .vocabulary.occupations, where the register derived one."},
+    "goods": {"type": "array", "items": {"type": "string"}},
+    "firm_styles": {"type": "array", "items": {"type": "string"},
+      "description": "The house's own trading styles as printed — 'Clark, Filer & Co.' — kept apart from the people, because a style carries surnames and a surname pass that reads it as a person invents one."},
+    "proprietors": {"type": "array", "items": {"$ref": "#/$defs/person"}},
+    "partners": {"type": "array", "items": {"$ref": "#/$defs/person"}},
+    "staff": {"type": "array", "items": {"$ref": "#/$defs/person"},
+      "description": "The newspapers name proprietors and partners and almost never a clerk, so the register itself fills this on one record in 196 \u2014 the Democrat's advertised apprentice. Everything else here is laid on by an overlay and says which: T-1422's ruling for a hand a source outside the notice attests, and T-1462's derived overlay for the 124 reconstructed hands T-1433's seating seated, each at its own tier with its own seed and basis. A row here is a PERSON; what the model says the class employed, naming nobody, is `staffing` below."},
+    "staffing": {"$ref": "#/$defs/staffing"},
+    "locations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/location"}},
+    "dates": {
+      "type": "object",
+      "required": ["opened", "closed", "precision", "tier"],
+      "additionalProperties": false,
+      "properties": {
+        "opened": {"$ref": "#/$defs/date"},
+        "closed": {"$ref": "#/$defs/date"},
+        "precision": {"type": "string", "enum": ["exact", "not_later_than", "not_earlier_than", "bracketed", "unbounded"]},
+        "tier": {"$ref": "#/$defs/tier"},
+        "basis": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "first_issue": {"$ref": "#/$defs/date"},
+        "last_issue": {"$ref": "#/$defs/date"},
+        "copy_dates": {"type": "array", "items": {"$ref": "#/$defs/date"}}
+      },
+      "description": "The printing window, kept as it was: the dates the notice ran, which bound the record and are not the same claim as when the house opened."
+    },
+    "present_at_scene_date": {"type": "boolean"},
+    "exclusion": {"type": ["string", "null"], "description": "The register's exclusion, if the house is not in the July 1835 town."},
+    "exclusion_note": {"type": ["string", "null"]},
+    "proprietor_community": {
+      "type": "object",
+      "required": ["value", "tier", "rule", "basis", "from"],
+      "additionalProperties": false,
+      "description": "DERIVED FROM THE PEOPLE THE RECORD NAMES, never from a surname (T-1378, from T-1177). The vocabulary is now literally the resident layer's — data/residents/community_rules.json — rather than a second list that said it was shared and was not: that one folded New England, New York, British and Southern into one `anglo_american` and said `black` where the resident layer says `free_black`. Every record read `unattested` under it, so ending the divergence cost no record a reading. One set of terms for a house and for its keeper is what makes the Indian trade, the Metis houses and the Black-owned firms identifiable on one field. `unknown` is the honest answer where no keeper on the record carries a community, and it is a pill in the Businesses view rather than a hidden row.",
+      "properties": {
+        "value": { "enum": ["native", "potawatomi", "ottawa", "ojibwe", "metis", "french_canadian", "free_black", "yankee", "new_york", "irish", "german", "british", "southern", "other", "unknown"] },
+        "tier": {
+          "type": ["string", "null"],
+          "enum": [null, "inferred", "reconstructed"],
+          "description": "The weakest of the contributing keepers' own tiers, CAPPED AT `inferred`: a person's community is evidence about the person, and a house is not its keeper. Null where the value is `unknown`."
+        },
+        "rule": {
+          "type": "string",
+          "enum": ["proprietors_agree", "proprietors_disagree", "no_community_on_the_people_named", "no_person_linked"],
+          "description": "Which of the four cases fired. Two of them are silences and are told apart on purpose: `no_community_on_the_people_named` is a gap in the resident layer, `no_person_linked` a gap in the register."
+        },
+        "basis": { "type": "string", "minLength": 1 },
+        "from": {
+          "type": "array",
+          "description": "Every proprietor or partner the resident layer holds a card for, with the community that card carries — the whole of what the value was read off. Staff are not read: a clerk's community is evidence about the clerk, not about the house that employed him.",
+          "items": {
+            "type": "object",
+            "required": ["person_id", "name", "role", "community", "tier"],
+            "additionalProperties": false,
+            "properties": {
+              "person_id": { "type": "string" },
+              "name": { "type": ["string", "null"] },
+              "role": { "type": ["string", "null"] },
+              "community": { "enum": ["native", "potawatomi", "ottawa", "ojibwe", "metis", "french_canadian", "free_black", "yankee", "new_york", "irish", "german", "british", "southern", "other", "unknown"] },
+              "tier": { "type": ["string", "null"], "enum": [null, "attested", "inferred", "reconstructed"] }
+            }
+          }
+        }
+      }
+    },
+    "customers": {"type": "array", "items": {"type": "string"}},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "claim_ids": {"type": "array", "items": {"type": "string"},
+      "description": "The newspaper claim ids the record rests on, so every line walks back to a quoted printing."},
+    "liberties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "survival_required": {"type": "boolean", "description": "Documented before the scene date and assumed still standing on it."},
+        "backdating_required": {"type": "boolean", "description": "Documented only after the scene date and assumed already open on it."}
+      }
+    },
+    "review_required": {"type": "boolean"},
+    "replaceable_by": {"type": ["string", "null"],
+      "description": "What evidence would retire this record or this reading — the standing instruction to the next researcher."},
+    "reconstruction": {
+      "type": "object",
+      "required": ["programme", "group", "ticket", "seed", "basis", "withdrawn_if"],
+      "additionalProperties": false,
+      "description": "PRESENT ON A RECONSTRUCTED HOUSE AND ON NOTHING ELSE (T-1184). The contract the reconstruction programme puts on a reconstructed PERSON, asked of a firm: WHAT BOUGHT THIS HOUSE, which group of which programme wrote it, the seed string a reader can retype to redraw every drawn value on it, and what retires it. A record carrying `provenance: \"reconstructed\"` and no block here cannot say where it came from. FOUR ways a house is bought, and a record states exactly one: a QUOTA ROW (`bucket` + `slot`), where the order book counted a shortfall against the register; a DOCUMENTED FLOOR (`floor`), where the corpus states the count directly and no bucket exists to name — T-1377's Black-owned firms stand on Andreas's 1833 certificates of freedom, and the programme that would mint a barber bucket (T-1186) has not run (owner, 2026-09-19); a STANDING ROOF (`roof`), where the building is already committed and the firm is what is missing (T-1408); or a TRADE HEAD (`trade_head`), where the PERSON is already committed and neither a printed count nor a committed building exists to buy his house (T-1424). The third form exists because the order book orders against PRINTED COUNTS or not at all and the December 1835 State census enumerates taverns and not boarding houses, so a boarding house the lodging model has given beds and the lodgers stage has given a keeper can never have a bucket to point at. The fourth exists because the roof form does not rescue every such class: a livery stable is as uncounted as a boarding house and this project stands no building that is one, so the only thing committed is the man the resident band drew to keep it. tools/compile_businesses.py refuses a record naming more than one of the three or none of them, holds a floor to its own count, sources and argument, holds a roof to a premises location in the very building it names, and holds a trade head to a street-only face kept by the very person it names; tools/reconstruct_businesses_1835.py --check re-derives every one of them from its seed and refuses a hand edit.",
+      "properties": {
+        "programme": {"type": "string",
+          "description": "The writing programme's id — `chicago_1835_business_reconstruction`."},
+        "group": {"type": "string",
+          "description": "The reconstruction group: one of the five the business band cuts the order book into, and the unit one ticket builds."},
+        "ticket": {"type": "string", "pattern": "^T-[0-9]{4}$",
+          "description": "The ticket that owns the order-book rows this group fills — the book's own `owning_ticket`, never restated by hand."},
+        "bucket": {"type": "string",
+          "description": "The order-book bucket key that ordered this house."},
+        "slot": {"type": "string",
+          "description": "The slot within that bucket. Stable across builds because the book's order is, which is what makes the seed reproducible."},
+        "floor": {"type": "object",
+          "description": "A DOCUMENTED FLOOR, in place of a quota row: a count the corpus makes directly, which this house stands for. It carries its own evidence, because nothing upstream counted it — there is no order-book row to point at.",
+          "required": ["count", "of", "as_of", "sources", "note"],
+          "additionalProperties": false,
+          "properties": {
+            "count": {"type": "integer", "minimum": 1,
+              "description": "The floor the sources state."},
+            "of": {"type": "string", "description": "What is counted."},
+            "as_of": {"type": "string", "description": "The date the reading is of."},
+            "sources": {"type": "array", "minItems": 1, "items": {"type": "string"},
+              "description": "Source ids. A floor nothing states is an estimate, not a floor."},
+            "note": {"type": "string",
+              "description": "The argument that carries the count to the scene date."},
+            "why_a_firm_and_not_only_a_person": {"type": "string",
+              "description": "Why the floor buys a FIRM and not only the person it counts."}}},
+        "roof": {"type": "object",
+          "description": "A STANDING ROOF, in place of a quota row: a building this project has ALREADY committed, which the lodging model (T-1370) gave beds and the lodgers stage (T-1371) gave a keeper, and which carries no firm. Nothing upstream counted a house of this class, because the December 1835 State census did not enumerate one — so there is no order-book row to point at and no documented floor to stand on. What IS documented is this project's own commitment to the building, and that is what the roof cites. The firm is withdrawn with the roof.",
+          "required": ["structure_id", "class", "beds_ordinary", "keeper_person_id", "note"],
+          "additionalProperties": false,
+          "properties": {
+            "structure_id": {"type": "string", "minLength": 1,
+              "description": "The committed structure this firm is the trade of. The record's PRIMARY location is the premises of this same building, and the compiler refuses a roof seated anywhere else — a house of trade bought by a roof and standing somewhere else has bought nothing."},
+            "class": {"type": "string", "minLength": 1,
+              "description": "The lodging model's own class for the place, which is the reason this roof wants a KEEPER rather than a household."},
+            "beds_ordinary": {"type": "integer", "minimum": 1,
+              "description": "The ordinary-night capacity the lodging model apportioned to this place. A roof with no beds is not a lodging house and buys no firm."},
+            "keeper_person_id": {"type": "string", "minLength": 1,
+              "description": "The keeper the lodgers stage named. ADOPTED, never minted: this programme writes no person."},
+            "keeper_household_id": {"type": ["string", "null"],
+              "description": "The lodging household that keeper heads, where the stage wrote one."},
+            "note": {"type": "string", "minLength": 1,
+              "description": "The argument that carries a standing roof to a firm."}}},
+        "trade_head": {"type": "object",
+          "description": "A TRADE HEAD, in place of a quota row: a reconstructed PERSON this project has ALREADY committed, drawn by the resident band's `trade_households` stage at a trade whose own word names the establishment he keeps — a `livery_stable_keeper` keeps a livery stable, a `lumber_merchant` keeps a yard. Nothing upstream counted a house of the class, because the December 1835 State census's eighteen lines never reach it; and unlike a standing roof there is no committed building either, since data/structures/ holds no livery stable and no lumber yard. The head is what was committed and the head is what buys the firm. The house takes a street-only face off a stated placement rule — there is nothing to seat it on — and it is withdrawn with him (T-1424).",
+          "required": ["person_id", "household_id", "trade", "head_slot", "note"],
+          "additionalProperties": false,
+          "properties": {
+            "person_id": {"type": "string", "minLength": 1,
+              "description": "The reconstructed head. ADOPTED, never minted: this programme writes no person, and the compiler refuses a record whose sole proprietor is not this same id — a trade head that buys a house somebody else keeps has bought nothing."},
+            "household_id": {"type": "string", "minLength": 1,
+              "description": "The trade household he heads, in data/residents/reconstructed_trades/."},
+            "trade": {"type": "string", "minLength": 1,
+              "description": "The resident layer's own occupation word for the trade — the word that names the house."},
+            "head_slot": {"type": "string", "minLength": 1,
+              "description": "The `trade_households` slot that drew him, so the order behind the house can be retyped."},
+            "note": {"type": "string", "minLength": 1,
+              "description": "The argument that carries a drawn head to a firm."}}},
+        "seed": {"type": "string",
+          "description": "The seed STRING every drawn value on this record hashes with blake2s — a reader can retype it and redraw the firm style, the goods line and the street face."},
+        "basis": {
+          "type": "object",
+          "required": ["kind", "id", "note"],
+          "additionalProperties": false,
+          "description": "The shape T-1158 fixed on every reconstructed value: `model` where a table decided it, `rule` where a stated rule did.",
+          "properties": {
+            "kind": {"type": "string", "enum": ["model", "rule"]},
+            "id": {"type": "string"},
+            "note": {"type": "string", "minLength": 1}
+          }
+        },
+        "withdrawn_if": {"type": "string", "minLength": 1,
+          "description": "What retires this house. The same standing instruction the reconstructed trade heads carry, in the same words."}
+      }
+    }
+  }
+}

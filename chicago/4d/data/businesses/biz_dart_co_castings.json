@@ -1,0 +1,71 @@
+{
+  "id": "biz_dart_co_castings",
+  "register_id": "business_dart_co_castings",
+  "name": "Dart & Co., castings",
+  "provenance": "compiled_from_register",
+  "type": [
+    "iron_foundry"
+  ],
+  "trade": "iron castings",
+  "occupation": "founder",
+  "goods": [
+    "Cast Iron Ploughs",
+    "Castings"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-07-25",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The anchor 'the Fulton Market' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1835-07-25",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-07-25, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-07-25",
+    "last_issue": "1835-07-25",
+    "copy_dates": [
+      "1835-07-25"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_07_25#c001"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": true
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

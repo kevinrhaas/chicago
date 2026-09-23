@@ -264,7 +264,7 @@ A project row flagged `private: true` short-circuits to a synthetic 404 without 
 
 ### Important context you should know before deciding
 
-**`kevinrhaas/custom` already hosts Chicago work.** `/home/user/custom/chicago/` contains `pre_fire_v1` and `postfire_1870s_v1` (CSV data, schema, docs, maps, research, viewer, xlsx). `/home/user/custom/site/` publishes them at `site/{pre-fire,rebuilding-1870s}/viewer/app.js` with a shared `index.html`. A **"Chicago 1835 walkthrough" is a natural third sibling**, not a new repo.
+**`kevinrhaas/custom` already hosts Chicago work.** `/home/user/custom/chicago/` contains `pre_fire_v1` and `postfire_1870s_v1` (CSV data, schema, docs, maps, research, viewer, xlsx). `/home/user/custom/site/chicago/` publishes them at `site/chicago/{pre-fire,rebuilding-1870s}/viewer/app.js` with a shared `index.html`. A **"Chicago 1835 walkthrough" is a natural third sibling**, not a new repo.
 
 Also relevant: `custom` is **already partly fleet-shaped**. Its `README.md` says *"Not part of the Polecat app fleet, but it follows the platform's static-first / aurora-backdrop / light-dark conventions."* Two of its subfolder projects — `site/compass/` and `site/hosta/` — **already vendor `polecat-shell`** (`vendor/polecat-shell/{shell,ui,icons,theme,catalog,views}.js`). Its `.github/workflows/deploy.yml` already mirrors the fleet's single-deploy-authority pattern (`upload-pages-artifact` with `path: site`, publishing only the curated `site/` folder so ~2 GB of CAD source stays out) and already runs a **JS syntax sanity check** that is a de-facto proto-`validate.mjs`.
 
@@ -274,12 +274,12 @@ A new standalone repo buys nothing here and costs a Pages site, a CNAME, a deplo
 
 ### Adopt NOW (cheap, and expensive to retrofit)
 
-1. **The changelog contract — this is the one non-negotiable.** Ship `site/1835/js/changelog.js` in fleet format from commit one: literal JS, newest-first, `ts: ''` on new entries, no `//` inside item text, `export const LATEST_VERSION = CHANGELOG[0].v`. Copy `/home/user/jobtracker.polecat.live/.github/stamp-changelog.mjs` (~30 lines, zero deps) and point `FILE` at the new path. Retrofitting version history you never recorded is impossible; everything else here is mechanical later.
+1. **The changelog contract — this is the one non-negotiable.** Ship `site/chicago/1835/js/changelog.js` in fleet format from commit one: literal JS, newest-first, `ts: ''` on new entries, no `//` inside item text, `export const LATEST_VERSION = CHANGELOG[0].v`. Copy `/home/user/jobtracker.polecat.live/.github/stamp-changelog.mjs` (~30 lines, zero deps) and point `FILE` at the new path. Retrofitting version history you never recorded is impossible; everything else here is mechanical later.
 2. **Vendor `polecat-shell` and use its tokens/theme/icons** — follow the `site/compass/` and `site/hosta/` precedent. Keeps `vendor/` read-only from day one so a future sha256 drift check passes, and means the aurora backdrop / light-dark / icon conventions come free.
-3. **A Chromium-only smoke script** at `site/1835/smoke.mjs` (or repo-level `.github/smoke-test.mjs`): static server + Playwright, **390×780 AND 1280×800, zero pageerrors, both themes**, honoring `PW_EXECUTABLE` and `SMOKE_PREFIX`. Add WebKit only in CI. The 390×780 mobile gate is the one that's genuinely painful to retrofit into a 3D/map walkthrough — design for it now.
+3. **A Chromium-only smoke script** at `site/chicago/1835/smoke.mjs` (or repo-level `.github/smoke-test.mjs`): static server + Playwright, **390×780 AND 1280×800, zero pageerrors, both themes**, honoring `PW_EXECUTABLE` and `SMOKE_PREFIX`. Add WebKit only in CI. The 390×780 mobile gate is the one that's genuinely painful to retrofit into a 3D/map walkthrough — design for it now.
 4. **Branch + PR discipline**: `steward/<topic>` branches, PR, self-merge on green, never push to main, `hold` label for anything architectural. Costs nothing, and it's what makes the janitor and the improve loop safe to point at the repo later.
 5. **`docs/` with a stated playbook** — a `ROADMAP.md` (or `BUILD_LOOP.md`/`STATUS.md`). The steward's picking logic in `improve.md` explicitly reads these; without one, a focus lane has nothing to work from.
-6. **Register a Manager `projects` row** — `{ name: 'Chicago 1835', repo: 'kevinrhaas/custom', site: 'https://chicago.polecat.live/1835/', status: 'building', cadence: 'manual' }`. One row, and Manager starts tracking health, releases, steward PRs, and sweep issues.
+6. **Register a Manager `projects` row** — `{ name: 'Chicago 1835', repo: 'kevinrhaas/custom', site: 'https://kevinrhaas.github.io/custom/chicago/1835/', status: 'building', cadence: 'manual' }`. One row, and Manager starts tracking health, releases, steward PRs, and sweep issues.
 
 ### Can WAIT
 

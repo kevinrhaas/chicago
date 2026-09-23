@@ -9,23 +9,23 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "e07d2b46a1eab801004dea6571eb81fa78dfb3f8c653fa75651c53598a096f29",
+    "fingerprint": "db4d6b9876759b3758dba0e63a0abd4823512ef13b2eb11d9cb2022134cd9dd6",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
-      "residents": 1282,
-      "structures": 384,
+      "residents": 1285,
+      "structures": 414,
       "voters": 345
     }
   },
   "counts": {
     "cards": 6635,
     "distinct_surname_keys": 4530,
-    "leads": 1008,
+    "leads": 1006,
     "leads_by_layer": {
       "census_1840": 355,
       "residents": 466,
-      "structures": 36,
+      "structures": 34,
       "voters": 151
     }
   },
@@ -13645,39 +13645,6 @@
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {
-      "id": "lead_v02_hall_structures",
-      "surname_key": "hall",
-      "spellings_as_printed": [
-        "Hall"
-      ],
-      "layer": "structures",
-      "candidates": [
-        {
-          "id": "recon_1835_north_i2_015",
-          "name": "Reconstructed I2 schoolhouse or meeting hall #015",
-          "rule": "exact surname"
-        }
-      ],
-      "entries": [
-        "nbi_v02_0595",
-        "nbi_v02_0596",
-        "nbi_v02_0597",
-        "nbi_v02_0598",
-        "nbi_v02_0599",
-        "nbi_v02_0600",
-        "nbi_v02_0601",
-        "nbi_v02_0602",
-        "nbi_v02_0603",
-        "nbi_v02_0604",
-        "nbi_v02_0605"
-      ],
-      "works_cited": [
-        "county_histories_kett_and_co",
-        "moses_kirkland_history_of_chicago"
-      ],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
       "id": "lead_v03_hally_census_1840",
       "surname_key": "hally",
       "spellings_as_printed": [
@@ -13713,26 +13680,6 @@
         {
           "id": "hall_benjamin",
           "name": "Benjamin Hall",
-          "rule": "OCR variant (0.89 similarity to 'hall')"
-        }
-      ],
-      "entries": [
-        "nbi_v03_0875"
-      ],
-      "works_cited": [],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
-      "id": "lead_v03_hally_structures",
-      "surname_key": "hally",
-      "spellings_as_printed": [
-        "Hally"
-      ],
-      "layer": "structures",
-      "candidates": [
-        {
-          "id": "recon_1835_north_i2_015",
-          "name": "Reconstructed I2 schoolhouse or meeting hall #015",
           "rule": "OCR variant (0.89 similarity to 'hall')"
         }
       ],
@@ -13809,6 +13756,11 @@
         {
           "id": "hamilton_richard_j",
           "name": "Richard Jones Hamilton",
+          "rule": "exact surname"
+        },
+        {
+          "id": "hamilton_ellen",
+          "name": "Ellen Hamilton",
           "rule": "exact surname"
         }
       ],
@@ -14066,6 +14018,11 @@
         {
           "id": "harmon_elijah_d",
           "name": "Dr Elijah Dewey Harmon",
+          "rule": "exact surname"
+        },
+        {
+          "id": "harmon_welthyan",
+          "name": "Welthyan Loomis Harmon",
           "rule": "exact surname"
         },
         {
@@ -24888,56 +24845,6 @@
         {
           "id": "fort_dearborn_shop",
           "name": "Fort Dearborn — the shop",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_north_w1_018",
-          "name": "Reconstructed W1 blacksmith shop #018",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_north_w2_005",
-          "name": "Reconstructed W2 carpenter or joiner shop #005",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_south_w1_023",
-          "name": "Reconstructed W1 blacksmith shop #023",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_south_w2_026",
-          "name": "Reconstructed W2 carpenter or joiner shop #026",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_south_w3_029",
-          "name": "Reconstructed W3 cooper, wagon, or wheelwright shop #029",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_south_w4_032",
-          "name": "Reconstructed W4 small artisan shop #032",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_west_008",
-          "name": "Reconstructed W1 blacksmith shop #007",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_west_009",
-          "name": "Reconstructed W2 carpenter or joiner shop #008",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_west_021",
-          "name": "Reconstructed W3 cooper, wagon or wheelwright shop #017",
-          "rule": "OCR variant (0.89 similarity to 'shop')"
-        },
-        {
-          "id": "recon_1835_west_022",
-          "name": "Reconstructed W4 small artisan shop #018",
           "rule": "OCR variant (0.89 similarity to 'shop')"
         }
       ],

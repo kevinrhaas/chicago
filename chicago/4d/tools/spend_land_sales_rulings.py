@@ -39,6 +39,9 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import research_spend_ledger as L  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 RECORDS = ROOT / "data" / "research" / "land_sales" / "records"
 CROSSWALK = ROOT / "data" / "research" / "land_sales" / "resident_crosswalk.json"
@@ -58,6 +61,34 @@ OUTSIDE_COOK = {
     "VIRGINIA": "the state of Virginia",
     "ST. LOUIS": "St. Louis, Missouri",
 }
+
+TWO_HAND_OFF_SHAPES = (
+    "A hand-off is not a spend, and it has two honest shapes (T-1423): a unit waiting "
+    "on WORK names the open ticket whose field owns the finding, and that ticket "
+    "closing turns this file red, which is the point; a unit waiting on EVIDENCE names "
+    "no ticket at all and states `awaiting_evidence` — the document that would reopen "
+    "it — because no ticket can produce a source nobody holds, and a pointer renamed at "
+    "every closure records nothing but the closures.")
+
+# T-1172 closed on 2026-09-18 having re-admitted the roster, so on this file's own
+# rule — a hand-off names the OPEN ticket whose field owns the finding — the hand-off
+# moves on again rather than pointing at finished work.
+# AND THEN IT MOVED TWICE MORE, WHICH IS THE ANSWER (T-1423, 2026-09-20). T-1179 was
+# split, so the pointer went to T-1394; T-1394's children closed, so it would have gone to
+# T-1423; and these 40 rows were no nearer settled at any point in that chain. They ask
+# whether a purchaser the register places in COOK COUNTY was in the TOWN on 1 July 1835,
+# and no ticket can answer it — only a document can. So the rule names no ticket now. It
+# states `awaiting_evidence` instead, which is what would reopen the unit, and
+# `research_spend_ledger.py` gates that: one owner, and a wait must say what it waits for.
+HANDED_ON = (
+    " T-1172 SPENT THE RE-ADMISSION (2026-09-18): the name is on the town at the "
+    "reconstructed tier, under its own read name, in "
+    "data/reconstruction/1835_readmissions.json, with its own `withdrawn_if` clause — and "
+    "that settles nothing about the evidence, which is why this unit stays `unresolved`. "
+    "It waits on a document and not on a ticket: the hand-off was renamed three times "
+    "(T-1159, T-1172, T-1179/T-1394) as each named ticket closed, and none of those "
+    "closures brought a source any nearer. A county is not a town, and what would close "
+    "the gap is stated in this rule's `awaiting_evidence`.")
 
 RULES = {
     "the_purchaser_is_a_corporate_body": {
@@ -112,29 +143,27 @@ RULES = {
             "none of the fields that test reads. A purchase is in any case a transaction "
             "and not a residence, so the later row says nothing about the scene either way."),
     },
-    "the_purchase_bounds_a_held_residents_presence": {
-        "disposition": "unresolved",
-        "ticket": "T-1169",
-        "statement": (
-            "The tract was entered on or before 1 July 1835 and the crosswalk's "
-            "adjudication under T-0700 / T-0850 UPHELD the join between this purchaser and "
-            "a person this town holds a card for. A purchase is never a residence, but a "
-            "dated entry by a named person is a dated appearance, and the earliest dated "
-            "appearance is the bound T-1169 works from. This ruling hands the date on and "
-            "asserts nothing: it does not move the person's grade, write an arrival, or "
-            "reopen an identity the crosswalk has already ruled."),
-    },
     "the_cook_residence_names_a_withheld_person": {
         "disposition": "unresolved",
-        "ticket": "T-1159",
+        "awaiting_evidence": (
+            "A source that narrows COOK to the town: a deed, plat or tax entry putting this "
+            "purchaser on a Chicago lot, a directory or church register line naming them "
+            "there, or a town roll under a name reading the crosswalk can reach."),
+        # T-1159 BUILT THE ROSTER, SO THE HAND-OFF MOVED ON — four times, and the fourth
+        # move is the one that admits what the first three were. These rows are each a row
+        # of data/reconstruction/1835_borderline_roster.json in class
+        # `R2_in_window_single_source`, and T-1172 re-admitted every one of them. Carrying
+        # is not spending and re-admitting is not evidence, so the unit stayed unresolved
+        # through T-1159, T-1172, T-1179 and T-1394 alike. It is not waiting on a ticket.
         "statement": (
             "The tract was entered on or before 1 July 1835, the register's Residence "
             "column reads COOK, and no upheld crosswalk join puts this purchaser on a card "
             "this town holds — either the identity was weighed and refused, or the layer has "
             "never seen the name. A county is not a town and this row mints nobody, but it "
             "is a dated document stating that a named person lived in Cook County inside "
-            "the scene window. That is exactly the read-and-withheld name T-1159's "
-            "borderline roster exists to carry, with its source and its re-admission class."),
+            "the scene window. T-1159's borderline roster carries exactly this name, with "
+            "its source and its re-admission class; T-1172 is the ticket that re-admits "
+            "it, so the finding is handed there and asserted nowhere." + HANDED_ON),
     },
     "a_sale_is_never_a_residence": {
         "disposition": "refused",
@@ -146,6 +175,40 @@ RULES = {
             "purchase is a transaction and not a residence — the row evidences that this "
             "name entered this tract on this day and nothing further. It asserts no 1835 "
             "person, and the refusal is the finished answer rather than a deferral."),
+    },
+}
+
+
+# T-1332 SPENT THIS RULE'S UNITS, AND A SPENT UNIT MAY NOT ALSO BE RULED.
+# `the_purchase_bounds_a_held_residents_presence` stood here with `disposition: unresolved`
+# and `ticket: T-1332` — 313 tracts entered on or before 1 July 1835 whose purchaser the
+# T-0700 / T-0850 adjudication upheld against a card this town holds. The register said of
+# itself that a hand-off is not a spend and that the ticket closing would turn it red, and
+# this is that: `tools/spend_land_sale_bounds.py` writes every one of the 313 onto the card
+# it names as `persons[].dated_bounds[]`, so `tools/research_spend_ledger.py` now closes
+# them as `asserted` off the card. Its `ruling_coverage_faults` FAILS a ruling on a unit
+# something else already closed — "a ruling on a unit something else already closed reads as
+# work done and is not" — so leaving the 313 rulings in this file would go red on all 313.
+#
+# `classify()` below is UNCHANGED and still names the rule: it is the one classifier, and
+# the spending pass imports it and selects exactly these rows with it, so the set this file
+# hands over and the set that pass writes cannot come apart. What changes is that the rows
+# are recorded under `spent` instead of `rulings` — the register still says what became of
+# them, and it no longer claims to be what closed them.
+SPENT = {
+    "the_purchase_bounds_a_held_residents_presence": {
+        "spent_by": "T-1332",
+        "generator": "tools/spend_land_sale_bounds.py",
+        "where": "data/residents/households/*.json — persons[].dated_bounds[]",
+        "statement": (
+            "The tract was entered on or before 1 July 1835 and the crosswalk's "
+            "adjudication under T-0700 / T-0850 UPHELD the join between this purchaser and "
+            "a person this town holds a card for. A purchase is never a residence, but a "
+            "dated entry by a named person is a dated appearance, and T-1332 writes it onto "
+            "the card as one: `bound_kind` `appearance`, or `residence_in_cook` for the "
+            "eighteen rows whose Residence column states COOK, and `here_by` null on every "
+            "one of them because this register never puts a body in the town. No grade "
+            "moved, no arrival was written and no identity was reopened."),
     },
 }
 
@@ -260,10 +323,14 @@ def build_document() -> dict:
     crosswalk = read_json(CROSSWALK)
     index = crosswalk_index(crosswalk)
     rulings = []
+    spent = {name: 0 for name in SPENT}
     for path in record_files():
         relative = path.relative_to(ROOT).as_posix()
         for row in read_json(path).get("records") or []:
             rule, note = classify(row, index.get(row["id"]))
+            if rule in SPENT:
+                spent[rule] += 1
+                continue
             rulings.append({
                 "unit": f"land_sales:{relative}#records/{row['id']}",
                 "rule": rule,
@@ -281,12 +348,15 @@ def build_document() -> dict:
             "otherwise leave a unit open, so a ruling here can only close a unit nothing "
             "else has closed and can never overturn an assertion, a later_only or a refusal "
             "the readings themselves carry. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON, "
-            "MOVES A CONFIDENCE OR REOPENS AN IDENTITY THE CROSSWALK RULED. A hand-off is "
-            "not a spend: it names the open ticket whose field owns the finding, and that "
-            "ticket closing turns this file red, which is the point."),
+            "MOVES A CONFIDENCE OR REOPENS AN IDENTITY THE CROSSWALK RULED. "
+            + TWO_HAND_OFF_SHAPES + " `spent` is that "
+            "having happened: a rule whose units a later pass wrote onto the cards is "
+            "recorded there and is NOT ruled here, because a ruling on a unit something "
+            "else already closed reads as work done and is not."),
         "ticket": TICKET,
         "generated_by": "tools/spend_land_sales_rulings.py",
         "counts": {rule: tally[rule] for rule in sorted(tally)},
+        "spent": {name: dict(SPENT[name], units=spent[name]) for name in sorted(SPENT)},
         "rules": RULES,
         "rulings": rulings,
     }
@@ -332,6 +402,7 @@ def self_test() -> int:
          "the_register_places_the_purchaser_outside_cook")
     held("a purchase after the scene date", with_sale(date_purchased="1836-06-28"), None,
          "the_purchase_is_later_than_the_scene_date")
+    # The spent rule still CLASSIFIES — it is what the spending pass selects on (T-1332).
     held("an upheld identity before the scene date", base,
          ("upheld", {"resident_name": "John Doe", "resident_id": "doe_john", "match": "forename_agrees"}),
          "the_purchase_bounds_a_held_residents_presence")
@@ -351,8 +422,8 @@ def self_test() -> int:
     for name, rule in sorted(RULES.items()):
         if len(rule["statement"].strip()) < 40:
             failures.append(f"rule {name}: states no rule")
-        if rule["disposition"] == "unresolved" and not rule.get("ticket"):
-            failures.append(f"rule {name}: hands the unit on and names no ticket")
+        if rule["disposition"] == "unresolved":
+            failures.extend(L.unresolved_owner_faults(f"rule {name}", rule))
 
     doc = build_document()
     if len(doc["rulings"]) != len({r["unit"] for r in doc["rulings"]}):
@@ -360,6 +431,15 @@ def self_test() -> int:
     unfired = sorted(set(RULES) - set(doc["counts"]))
     if unfired:
         failures.append("rules that never fire over the committed register: " + ", ".join(unfired))
+    # A spent rule may not also be ruled here, and it may not be quietly emptied either:
+    # if it stops matching rows the spending pass has nothing to write and says so too.
+    for name in sorted(SPENT):
+        if name in RULES:
+            failures.append(f"{name} is spent by {SPENT[name]['spent_by']} and still stated as a rule")
+        if any(r["rule"] == name for r in doc["rulings"]):
+            failures.append(f"{name} is spent by {SPENT[name]['spent_by']} and still ruled here")
+        if not doc["spent"][name]["units"]:
+            failures.append(f"{name} matches no row in the committed register")
 
     for line in failures:
         print(f"FAIL {line}")

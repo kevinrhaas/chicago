@@ -1,0 +1,36 @@
+{
+  "id": "vertical_sawn_board",
+  "group": "walls",
+  "span_m": 4.58,
+  "confidence": "reconstructed",
+  "mean_roughness": 0.9,
+  "kind": "vertical",
+  "colors": [
+    [
+      135,
+      116,
+      88
+    ],
+    [
+      89,
+      81,
+      68
+    ]
+  ],
+  "note": "20 boards at the committed 0.229 m set-out.",
+  "resolution_px": 1024,
+  "px_per_m": 223.58,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18351186,
+  "generation_method": "deterministic procedural synthesis"
+}

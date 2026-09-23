@@ -38,6 +38,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from reconstructed_person import is_reconstructed  # noqa: E402
 import namesake  # noqa: E402  (the namesake rule this imports rather than restates)
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -643,6 +644,11 @@ def resident_names() -> list:
             continue
         hh = load(path)
         for person in hh.get("persons") or []:
+            # T-1171: a person the household model DREW is not a name this crosswalk may
+            # match a source's printed name to. No source names them, so a match would be
+            # a reading of this project's own invention.
+            if is_reconstructed(person):
+                continue
             if person.get("name"):
                 out.append((person.get("id"), person["name"], hh.get("id")))
     return out
@@ -691,6 +697,11 @@ def merged_card_surnames() -> list:
         if not path.exists():
             continue
         for person in load(path).get("persons") or []:
+            # T-1171: a person the household model DREW is not a name this crosswalk may
+            # match a source's printed name to. No source names them, so a match would be
+            # a reading of this project's own invention.
+            if is_reconstructed(person):
+                continue
             if person.get("id") and (person.get("name") or "").split():
                 live[person["id"]] = person["name"].split()[-1].upper()
     out = []

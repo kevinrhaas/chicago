@@ -595,17 +595,17 @@
    "id": "os1879r020",
    "as_read": "Burley, Arthur G.",
    "source_id": "calumet_club_early_chicago_1879",
-   "rule": "OS5",
-   "outcome": "unmatched",
-   "why": "no bearer of the surname 'burley' in the residents layer"
+   "rule": "OS3",
+   "outcome": "refused",
+   "why": "the residents layer has 1 bearer(s) of 'burley', none with the forename initial 'a'; same surname, different forename initial never merges"
   },
   {
    "id": "os1879r021",
    "as_read": "Burley, Augustus H.",
    "source_id": "calumet_club_early_chicago_1879",
-   "rule": "OS5",
-   "outcome": "unmatched",
-   "why": "no bearer of the surname 'burley' in the residents layer"
+   "rule": "OS3",
+   "outcome": "refused",
+   "why": "the residents layer has 1 bearer(s) of 'burley', none with the forename initial 'a'; same surname, different forename initial never merges"
   },
   {
    "id": "os1879r023",
@@ -907,7 +907,7 @@
    "source_id": "calumet_club_early_chicago_1879",
    "rule": "OS3",
    "outcome": "refused",
-   "why": "the residents layer has 3 bearer(s) of 'hamilton', none with the forename initial 'p'; same surname, different forename initial never merges"
+   "why": "the residents layer has 4 bearer(s) of 'hamilton', none with the forename initial 'p'; same surname, different forename initial never merges"
   },
   {
    "id": "os1879r066",
@@ -1946,7 +1946,7 @@
    "source_id": "chicago_tribune_1882_05_19_fourth_reception",
    "rule": "OS3",
    "outcome": "refused",
-   "why": "the residents layer has 3 bearer(s) of 'hamilton', none with the forename initial 'p'; same surname, different forename initial never merges"
+   "why": "the residents layer has 4 bearer(s) of 'hamilton', none with the forename initial 'p'; same surname, different forename initial never merges"
   },
   {
    "id": "os1882g056",
@@ -1968,9 +1968,12 @@
    "id": "os1882g058",
    "as_read": "Harmon, William",
    "source_id": "chicago_tribune_1882_05_19_fourth_reception",
-   "rule": "OS3",
-   "outcome": "refused",
-   "why": "the residents layer has 5 bearer(s) of 'harmon', none with the forename initial 'w'; same surname, different forename initial never merges"
+   "rule": "OS4",
+   "outcome": "candidate",
+   "why": "1 bearers of 'harmon' share the forename initial 'w'; the roster does not discriminate between them",
+   "candidates": [
+    "harmon_welthyan"
+   ]
   },
   {
    "id": "os1882g059",

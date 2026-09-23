@@ -30,7 +30,7 @@ the same ticket and read the file afterwards. The entry was written retroactivel
 run that did not do the work — which is the wrong shape: whoever made the change is the
 only one who knows what to say about it.
 
-What makes this worse than a missed line of prose: `site/4d/js/changelog.js` is
+What makes this worse than a missed line of prose: `site/chicago/4d/js/changelog.js` is
 the URL Manager and the polecat.live launcher parse live to build this project's release
 feed. A change that ships no entry is invisible to both of them, and the What's-new tab
 inside the walkthrough shows the town's last change as something older than it is.

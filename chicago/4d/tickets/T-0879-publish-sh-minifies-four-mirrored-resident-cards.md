@@ -28,13 +28,13 @@ Found while working T-0797, and it costs every publishing run a hand-revert.
 are one line, and the published-residents gate says so in its own words: "1389 file(s)
 carry their source's value exactly, 1385 of them shipped on one line". Four are not:
 
-    site/4d/data/residents/households/hh_adams_william_h.json
-    site/4d/data/residents/households/hh_miller_john.json
-    site/4d/data/residents/households/hh_murphy_john.json
-    site/4d/data/residents/index.json
+    site/chicago/4d/data/residents/households/hh_adams_william_h.json
+    site/chicago/4d/data/residents/households/hh_miller_john.json
+    site/chicago/4d/data/residents/households/hh_murphy_john.json
+    site/chicago/4d/data/residents/index.json
 
 They stand pretty-printed on `dev`, and `publish.sh` minifies them on every run. That is
-the correct published form and the value is unchanged — but `site/4d/data` is one
+the correct published form and the value is unchanged — but `site/chicago/4d/data` is one
 of `synthesize_resident_research.py`'s `DRIFT_ROOTS`, that ratchet compares BYTES against a
 fresh run of the writer, and the writer writes these four pretty. So the moment a run
 publishes, four files "drift from the writer" and `check.sh` goes red on a parcel that

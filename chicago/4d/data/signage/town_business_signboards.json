@@ -3511,6 +3511,26 @@
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
     },
     {
+      "structure_id": "recon_1835_blk_randolph_clark_c2_01",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_west_020",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
       "structure_id": "wolf_point_tavern",
       "trade": "tavern_inn",
       "why": "it already has one. This is the single record in the dataset that ATTESTS a sign, and the board hangs in its GLB already (phase log_frame_1828, docs/LIBERTIES.md L25). A second board here would be this layer duplicating the only real one."

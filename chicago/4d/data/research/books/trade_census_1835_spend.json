@@ -27,13 +27,6 @@
       "not_reached": 1,
       "spent_from_resident_cards": [
         {
-          "key": "kimberly_edmund_s",
-          "name": "Dr Edmund Stoughton Kimberly",
-          "person_id": "kimberly_edmund_s",
-          "establishment": "Pruyne & Kimberly's drug store",
-          "basis": "SPENT HERE, ON TWO LINES. Kimberly moved to Chicago in 1832 and practised medicine; he was also the other half of the town's second drug store. The census counts physicians and druggists separately and a man may stand on both lines — the drug store is one establishment and is counted once."
-        },
-        {
           "key": "pruyne_peter",
           "name": "Peter Pruyne",
           "person_id": "pruyne_peter",
@@ -92,12 +85,20 @@
       "unit": "person",
       "unit_basis": "'Lawyers' and 'physicians' are the two lines of the enumeration that count PEOPLE and not premises, which is why the register's record count cannot be set against them directly: nineteen lawyer records are fourteen men, five of them second printings of one office.",
       "register_records": 18,
-      "named_practitioners": 13,
-      "named_establishments": 13,
-      "held_in_the_counted_unit": 13,
+      "named_practitioners": 14,
+      "named_establishments": 14,
+      "held_in_the_counted_unit": 14,
       "unnamed_records_held": 0,
-      "not_reached": 9,
-      "spent_from_resident_cards": [],
+      "not_reached": 8,
+      "spent_from_resident_cards": [
+        {
+          "key": "curtiss_l_g",
+          "name": "L. G. Curtiss",
+          "person_id": "curtiss_l_g",
+          "establishment": "L. G. Curtiss's practice",
+          "basis": "SPENT HERE (T-1299). The Chicago Democrat prints L. G. Curtiss an attorney over a run of his own mentions that contains 1 July 1835 — the issue of the scene date itself — and his card carries `attorney` in the 1835 field from that reading. No law office of his is in the register: his two records there are his own name and his deputy surveyorship of Cook County, so the line gains the MAN and no shop, which is what a line counted in people asks for. Whether he is the J. Curtiss the register advertises as attorney and counsellor at law is an open question below and is NOT decided by counting him."
+        }
+      ],
       "practitioner_keys": [
         "collins_j_h",
         "caton_john_dean",
@@ -111,7 +112,8 @@
         "grant_james",
         "heacock_russel_e",
         "stewart_r",
-        "abell_s"
+        "abell_s",
+        "curtiss_l_g"
       ],
       "residual_rule": "A measured gap. No lawyer is minted from a number."
     },
@@ -121,49 +123,13 @@
       "census_count": 14,
       "unit": "person",
       "unit_basis": "As for the lawyers: the line counts men.",
-      "register_records": 3,
+      "register_records": 8,
       "named_practitioners": 7,
       "named_establishments": 7,
       "held_in_the_counted_unit": 8,
       "unnamed_records_held": 1,
       "not_reached": 6,
-      "spent_from_resident_cards": [
-        {
-          "key": "egan_william_b",
-          "name": "Dr William Bradshaw Egan",
-          "person_id": "egan_william_b",
-          "establishment": "Dr Egan's practice",
-          "basis": "SPENT HERE. One of the eight physicians Andreas counts at the close of 1833, trained in Lancashire and Dublin, on a resident card since long before this ticket — and carrying no business record, because he never advertised. The census counts him and the register never could."
-        },
-        {
-          "key": "harmon_elijah_d",
-          "name": "Dr Elijah Dewey Harmon",
-          "person_id": "harmon_elijah_d",
-          "establishment": "Dr Harmon's practice",
-          "basis": "SPENT HERE. 'The Father of Medicine in Chicago' in Andreas's phrase, arrived May 1830. His card's presence on the scene date is `uncertain` and this file does not change that."
-        },
-        {
-          "key": "goodhue_josiah_c",
-          "name": "Dr. Josiah C. Goodhue",
-          "person_id": "inf_physician_south_01",
-          "establishment": "Dr Goodhue's practice",
-          "basis": "SPENT HERE. Read as physician out of the Democrat of 4 February 1834, column 1."
-        },
-        {
-          "key": "kimberly_edmund_s",
-          "name": "Dr Edmund Stoughton Kimberly",
-          "person_id": "kimberly_edmund_s",
-          "establishment": "Pruyne & Kimberly's drug store",
-          "basis": "SPENT HERE, ON TWO LINES. Kimberly moved to Chicago in 1832 and practised medicine; he was also the other half of the town's second drug store. The census counts physicians and druggists separately and a man may stand on both lines — the drug store is one establishment and is counted once."
-        },
-        {
-          "key": "temple_john_t",
-          "name": "Dr John Taylor Temple",
-          "person_id": "temple_john_t",
-          "establishment": "Dr Temple's practice",
-          "basis": "SPENT HERE. One of the eight physicians Andreas counts at the close of 1833; he performed the town's first autopsy."
-        }
-      ],
+      "spent_from_resident_cards": [],
       "practitioner_keys": [
         "barnard_j_h",
         "austin_w_g",
@@ -305,16 +271,22 @@
       "question": "Who is the 'G.' of Fullerton & G., attorneys and counsellors?",
       "why_it_matters": "An unexpanded initial is a fifteenth named lawyer this project cannot name, standing inside an office it already holds.",
       "not_decided_here": "No expansion of the initial is in the corpus. The office counts one named lawyer."
+    },
+    {
+      "id": "curtiss_one_letter",
+      "question": "Are L. G. Curtiss (resident card `hh_curtiss_l_g`, printed an attorney in the Chicago Democrat and a deputy surveyor of Cook County in the register) and J. Curtiss (resident card `hh_curtiss_j`, the register's attorney and counsellor at law) one man?",
+      "why_it_matters": "Both now stand on the lawyer line, which is counted in PEOPLE. If they are one man the line is one fewer than this file reports and the shortfall is one larger.",
+      "not_decided_here": "The corpus distinguishes them: the register advertises the two names separately and the residents layer holds two cards. Merging them would close a census gap by arithmetic, which is the one thing this file may not do. It is the same shape as the Mulford pair above and as the one-letter pairs T-1027 holds."
     }
   ],
   "totals": {
     "classes_spent": 5,
     "census_counted_across_them": 44,
-    "held_after_the_spend": 26,
-    "not_reached": 18,
-    "practitioners_ruled": 25,
-    "class_rows_spent_from_resident_cards": 7,
-    "people_spent_from_resident_cards": 6,
+    "held_after_the_spend": 27,
+    "not_reached": 17,
+    "practitioners_ruled": 26,
+    "class_rows_spent_from_resident_cards": 2,
+    "people_spent_from_resident_cards": 2,
     "institutions_recorded": 2,
     "documented_absences": 2,
     "refusals": 4

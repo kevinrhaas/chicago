@@ -1,0 +1,98 @@
+{
+  "id": "rcb_barnes_boarding_house",
+  "register_id": null,
+  "name": "Barnes's boarding house",
+  "provenance": "reconstructed",
+  "type": [
+    "other"
+  ],
+  "trade": "boarding house",
+  "occupation": "boarding_house_keeper",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Ezra Barnes",
+      "person_id": "rc_barnes_ezra",
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "ADOPTED, NOT MINTED. Ezra Barnes is the keeper the lodgers stage (T-1371) drew for this house and printed in data/reconstruction/1835_lodgers_seated.json § keepers; that card reads the trade off the building it stands in and heads hh_lodging_recon_1835_north_h2_022. One quota, filled once: this record is the house they keep, not a second person.",
+      "source_id": null,
+      "claim_ids": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "recon_1835_north_h2_022",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "THE ROOF IS THE PREMISES, and it is the one thing here that was not dealt. This firm exists because recon_1835_north_h2_022 stands in data/structures/ with 10 ordinary-night beds in it; the building came first and the house of trade is what the building was missing. No street is claimed beyond the one the roof already stands on, and no coordinate is written here at all.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "reconstructed",
+    "basis": "NOTHING DATES THIS HOUSE. The roof it occupies is an anonymous count-unit dated to the year and to nothing narrower, and a keeping is not an opening; the record claims that the house was letting beds on 1835-07-01 and nothing about either end."
+  },
+  "evidence": {},
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_community_on_the_people_named",
+    "basis": "This record names 1 person/people the resident layer holds a card for and the layer knows no community for any of them. The silence is in the resident layer, not in the register.",
+    "from": [
+      {
+        "person_id": "rc_barnes_ezra",
+        "name": "Ezra Barnes",
+        "role": "proprietor",
+        "community": "unknown",
+        "tier": null
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A source naming whoever kept a boarding house in the north division in 1835 — that keeper takes this roof and this record is withdrawn with the drawn one.",
+  "reconstruction": {
+    "programme": "chicago_1835_business_reconstruction",
+    "group": "lodging_river_and_transport",
+    "ticket": "T-1408",
+    "roof": {
+      "structure_id": "recon_1835_north_h2_022",
+      "class": "boarding_house",
+      "beds_ordinary": 10,
+      "keeper_person_id": "rc_barnes_ezra",
+      "keeper_household_id": "hh_lodging_recon_1835_north_h2_022",
+      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_north_h2_022 stands, the lodging model apportioned it 10 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Ezra Barnes their keeper. The firm is what was missing, and it is withdrawn with the roof."
+    },
+    "seed": "lodging_river_and_transport:lodging/boarding_house/north:002",
+    "basis": {
+      "kind": "model",
+      "id": "1835_lodging_model",
+      "note": "the lodging model gives 5 standing boarding house roof(s) in the north division their beds and the lodgers stage named a keeper for each. the keeper is a man. The style is dealt on the seed printed beside it from the keeper's possessive, form 5 of the naming guide: the possessive with the forename cut, as *Ingersoll's tavern stand* and *Stuart's confectionary and perfumery* print it in the register. No honorific is dealt, because nothing on this keeper's card says whether they were married, widowed or single and a sign that said so would be inventing it."
+    },
+    "withdrawn_if": "the retirement of the roof itself, a re-cut lodging model that gives this house no beds, or a source naming whoever really kept it; the retirement runs through --build, never by hand"
+  }
+}

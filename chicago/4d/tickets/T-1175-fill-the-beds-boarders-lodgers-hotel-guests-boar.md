@@ -1,7 +1,7 @@
 ---
 id: T-1175
 title: Fill the beds: boarders, lodgers, hotel guests, boarding-house keepers' households, the crews of the vessels in port and the hands at the works, seated in the named and reconstructed lodging places to the lodging model's capacities
-state: open
+state: split
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-19
 pr: null
-claimed_by: null
+claimed_by: run 9/19/2026, 12:24:32 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-19T05:24:46.859Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35423674899
 ---
 
 No boarder or lodger exists in the layer; the eight public houses, Brown's boarding house and the

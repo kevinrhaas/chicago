@@ -1,7 +1,7 @@
 ---
 id: T-1241
 title: Run the T-1143 ledger over the final resident, household, business and structure layers and publish the closing research audit at zero unclassified units
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: true
@@ -9,20 +9,35 @@ effort: S
 legacy_id: null
 parent: T-1147
 opened: 2026-09-17
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-17
+pr: 1434
+claimed_by: run 9/17/2026, 8:59:37 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T02:36:39.542Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35297188435
 ---
 
 Run the T-1143 ledger over the final resident, household, business and structure layers and publish the closing research audit at zero unclassified units.
 
 Piece 5 of 5 of **T-1147 — Spend every defensible home, workplace and business-location finding, preserve the 123 location limits, and close research with zero unclassified attested or inferred fact**, split because the parent needed more than one run's demonstration to be done. The parent keeps the full ask and its links; this ticket owns one slice of it.
 
-**Acceptance:** (state it before working — one demonstration, never weakened to pass)
+**Acceptance** (stated before working, PR #1434):
+
+1. `tools/report_research_closing_audit.py --build` writes
+   `docs/RESEARCH/research-closing-audit-2026-09.md`: the closed ledger read ONTO the
+   resident, household, business and structure layers, then each layer read directly, with
+   every figure derived and none typed. `--check` re-derives it and is wired into
+   `tools/check.sh` beside the ledger steps, with a mutation self-test.
+2. The report ends at zero unclassified units, zero dead asserted targets and zero units
+   deferred to work that is not live — and names the gaps it does NOT close, each with the
+   ticket that carries it. It makes no GO/NO-GO judgement; that is T-1157's signature and
+   this is the evidence under it.
+3. The deferral trap recorded below is defused, because otherwise this ticket cannot close
+   at all: the place-and-enterprise remainder is repointed off the exhausted T-1147 onto the
+   pieces that still have that corpus to spend — 494 enterprise units to T-1180, 269 place
+   units to T-1198 — by the same routing `EPIC_PIECES` already performs. No unit was
+   reclassified and no disposition moved; only the owner did.
 
 
 ## IT WAS FOLDED INTO T-1157 AND THE GATE REFUSED IT (2026-09-17)

@@ -1,0 +1,127 @@
+{
+  "id": "biz_tuttle_brown",
+  "register_id": "business_tuttle_brown",
+  "name": "Tuttle & Brown",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "groceries",
+  "occupation": "grocer",
+  "goods": [
+    "Cigars",
+    "Coffee",
+    "Raisins",
+    "Sugar",
+    "Tea",
+    "Tobacco",
+    "Window Glass",
+    "Wines and Liquors"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "J. B. Tuttle",
+      "person_id": "tuttle_j_b",
+      "register_person_id": "person_j_b_tuttle",
+      "role": "partner",
+      "from": "1834-06-04",
+      "to": "1834-06-25",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card tuttle_j_b (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_06_04#c011",
+        "chicago_democrat_1834_06_25#c006"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Wm. H. Brown",
+      "person_id": "brown_william_h",
+      "register_person_id": "person_wm_h_brown",
+      "role": "partner",
+      "from": "1834-06-04",
+      "to": "1834-06-25",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card brown_william_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_06_04#c011",
+        "chicago_democrat_1834_06_25#c006"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-06-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_06_25#c006 (business, 1834-06-25). No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1834-06-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-06-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-06-04",
+    "last_issue": "1834-06-25",
+    "copy_dates": [
+      "1834-05-27",
+      "1834-06-21"
+    ]
+  },
+  "present_at_scene_date": false,
+  "exclusion": "contradicted_before_scene_date",
+  "exclusion_note": "Contradicted on or before the scene date by chicago_democrat_1834_06_25#c006 (business, 1834-06-25).",
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "proprietors_disagree",
+    "basis": "The keepers this record names do not read as one community (new_york, yankee), and nothing in the record chooses between them. Each is named above.",
+    "from": [
+      {
+        "person_id": "brown_william_h",
+        "name": "Wm. H. Brown",
+        "role": "partner",
+        "community": "new_york",
+        "tier": "reconstructed"
+      },
+      {
+        "person_id": "tuttle_j_b",
+        "name": "J. B. Tuttle",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_06_04#c011",
+    "chicago_democrat_1834_06_25#c006"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

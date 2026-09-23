@@ -22,7 +22,7 @@
  * measuring something else, so that check is the reason to trust the numbers below.
  *
  * `--against DIR` is the whole point of it. Point it at a second published mirror —
- * `git archive <ref> site/4d | tar -x -C /tmp/somewhere` is enough — and it
+ * `git archive <ref> site/chicago/4d | tar -x -C /tmp/somewhere` is enough — and it
  * prints both trees side by side with the delta per stand per tier. THAT is the
  * question a red ceiling actually asks: not "is the town over?" but "did THIS
  * branch put it over?", and the two are answered by different numbers.
@@ -210,7 +210,7 @@ const browser = await chromium.launch({
 
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/4d');
+  : path.resolve(HERE, '../../../site/chicago/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 if (!wantSource && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
   console.error(`no published mirror at ${ROOT} — run tools/publish.sh first`);

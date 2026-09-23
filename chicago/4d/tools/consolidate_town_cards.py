@@ -80,6 +80,7 @@ TICKET = "T-0839"
 RULED_ON = "2026-09-05"
 
 sys.path.insert(0, str(ROOT / "tools"))
+from reconstructed_person import is_reconstructed  # noqa: E402
 from consolidate_resident_evidence import split_name_or_reason  # noqa: E402
 
 # A rank is not a forename. `consolidate_resident_evidence.HONORIFICS` already drops the
@@ -157,6 +158,12 @@ def read_town(root: Path | None = None) -> list:
         path = root / entry["file"]
         doc = json.loads(path.read_text(encoding="utf-8"))
         for person in doc.get("persons") or []:
+            # T-1171. A person a stage of the reconstruction programme wrote is not a card
+            # claiming an identity: no source names them and their forename came out of a
+            # name pool. Clustering one against a real card would ask a reader to rule on
+            # whether this dataset's own invention is the man it was drawn beside.
+            if is_reconstructed(person):
+                continue
             rows.append({"household": doc["id"], "person": person["id"],
                          "name": person.get("name") or "", "doc": doc, "record": person})
     return rows
@@ -628,7 +635,6 @@ def apply(write: bool = True) -> dict:
     stub_home = {row["person"]: row["household"] for row in index.get("merged", [])}
 
     files: dict = {}
-    redirects: list = []
     folded_households: set = set()
 
     for ruling in merges(rulings):
@@ -673,29 +679,11 @@ def apply(write: bool = True) -> dict:
                                                ticket=ruling.get("ticket") or TICKET,
                                                repointed_from=landed.get("person"))
                     files[MERGED / f"{hid}.json"] = dump(stub)
-                    redirects.append({
-                        "person": folded, "household": hid,
-                        "name": person.get("name") or "",
-                        "merged_into_person": ruling["survivor"],
-                        "merged_into_household": survivor_home,
-                        "record_file": f"merged/{hid}.json",
-                        "rule": ruling["rule"], "cluster": ruling["cluster"],
-                        "ticket": ruling.get("ticket") or TICKET,
-                    })
             else:
                 doc = docs[hid]
                 person = next(p for p in doc["persons"] if p["id"] == folded)
                 files[MERGED / f"{hid}.json"] = dump(
                     stub_doc(doc, folded, ruling, survivor_home))
-                redirects.append({
-                    "person": folded, "household": hid,
-                    "name": person.get("name") or "",
-                    "merged_into_person": ruling["survivor"],
-                    "merged_into_household": survivor_home,
-                    "record_file": f"merged/{hid}.json",
-                    "rule": ruling["rule"], "cluster": ruling["cluster"],
-                    "ticket": ruling.get("ticket") or TICKET,
-                })
                 folded_households.add(hid)
             gained_sources |= set(person.get("sources") or [])
             for key in BLOCK_KEYS:
@@ -780,35 +768,49 @@ def apply(write: bool = True) -> dict:
                                                 key=lambda b: b["cluster"])
                 files[HOUSEHOLDS / f"{hid}.json"] = dump(doc)
 
-    # the index: the folded rows out, the redirect table in
+    # the index: the folded rows out, the redirect table left to its owner
     index["households"] = [r for r in index["households"]
                            if r["id"] not in folded_households]
-    prior = {}
-    for row in index.get("merged", []):
-        if "record" in row:            # the key this table shipped with before it was
-            row = dict(row)            # renamed off a collision with the renderer's own
-            row["record_file"] = row.pop("record")
-        prior[row["person"]] = row
-    for row in redirects:
-        prior[row["person"]] = row
-    if prior:
-        index["merged"] = sorted(prior.values(), key=lambda r: r["person"])
-        index.setdefault("counts", {})["merged_away"] = len(index["merged"])
-        index["_merged_doc"] = (
-            "T-0839. THE REDIRECT TABLE. One row per town card folded onto another "
-            "because the two named one person. The record is not deleted: it is kept "
-            "whole at the `record` path with a `merged_into` block, and this table is "
-            "what lets every consumer that cites the folded `person` — the crosswalks, "
-            "identity_master.json, the smoke cohorts, the placed-resident parcels — "
-            "still resolve it to somebody. The ruling and its reasoning are in "
-            "data/residents/card_merge_rulings.json.")
+    index["_merged_doc"] = (
+        "T-0839. THE REDIRECT TABLE. One row per town card folded onto another "
+        "because the two named one person. The record is not deleted: it is kept "
+        "whole at the `record` path with a `merged_into` block, and this table is "
+        "what lets every consumer that cites the folded `person` — the crosswalks, "
+        "identity_master.json, the smoke cohorts, the placed-resident parcels — "
+        "still resolve it to somebody. The ruling and its reasoning are in "
+        "data/residents/card_merge_rulings.json. T-1144 acceptance 6: THIS TABLE IS "
+        "DERIVED, from the `merged_into` block of each record under "
+        "data/residents/merged/ and from nothing else — tools/"
+        "rebuild_resident_index.py writes it and tools/check.sh re-derives it, the "
+        "same rule T-0715 put on `households` and `counts`. It is not a place to "
+        "patch a redirect: the record is. The gate also refuses a redirect that does "
+        "not ARRIVE — a `merged_into_household` or `merged_into_person` that is in no "
+        "household card, a redirect onto another retired card, or a retired id that "
+        "is also a live one.")
     # THE MANIFEST HAS AN OWNER (T-0715) and this pass is not it. Every row and every
     # derived count comes back from the cards through that tool, over the whole layer as
-    # this pass will leave it; what is written here is only the `merged` redirect table,
-    # which is a claim about the cards that are GONE and which nothing derives.
+    # this pass will leave it.
+    #
+    # THAT NOW INCLUDES THE REDIRECT TABLE (T-1144 acceptance 6). This pass used to
+    # write `merged` itself, by carrying the manifest's own previous rows forward and
+    # laying this run's redirects on top:
+    #
+    #     prior = {row["person"]: row for row in index.get("merged", [])}
+    #
+    # A row that was never right was therefore right for ever, and a record retired by
+    # any other route got no row at all — which is exactly what `dev` was carrying:
+    # `hh_blanchard_gantry` under the rule letter T-0993 superseded in the same ticket,
+    # and `hh_vanderbogart_h` with no row, resolving to nothing. The table is derived
+    # from the retired records now, so the map below hands the owner BOTH halves of the
+    # layer as this pass will leave it: the households it keeps, and the retired
+    # records — the ones already committed, plus the ones this run is about to write,
+    # which are not on disk yet and would otherwise be missing from their own table.
     import rebuild_resident_index
     after = {HOUSEHOLDS / f"{hid}.json": doc for hid, doc in docs.items()
              if hid not in folded_households}
+    after.update(rebuild_resident_index.load_retired())
+    after.update({path: doc for path, doc in files.items()
+                  if path.parent.name == "merged"})
     files[INDEX] = dump(rebuild_resident_index.rebuild(index, after))
 
     if write:

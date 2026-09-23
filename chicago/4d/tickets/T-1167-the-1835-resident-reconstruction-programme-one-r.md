@@ -1,7 +1,7 @@
 ---
 id: T-1167
 title: The 1835 resident reconstruction programme: one recipe file, one generator, the `reconstructed` grade turned on — superseding the retired programme without restoring it, and stating the owner's 2026-09-17 override of the no-estimation rule
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: S
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-18
+pr: 1444
+claimed_by: run 9/18/2026, 2:07:36 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T07:45:39.048Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35317651225
 ---
 
 **The owner, 2026-09-17:** *"create reconstructed residents households businesses structures and

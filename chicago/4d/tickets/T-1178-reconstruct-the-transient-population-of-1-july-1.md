@@ -1,7 +1,7 @@
 ---
 id: T-1178
 title: Reconstruct the transient population of 1 July 1835 as a bounded cohort: the land-sale visitors, the immigrants awaiting lots, the harbour-works gang and the crews ashore — who they were, how many, and where they slept (tents, wagons, floors, vessels) — for the camps the structure band will build
-state: open
+state: split
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: S
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-18
 pr: null
-claimed_by: null
+claimed_by: run 9/18/2026, 7:34:43 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-19T00:36:09.893Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35409558514
 ---
 
 The owner: *"there may be people who are completely transient and living in a tent or on the

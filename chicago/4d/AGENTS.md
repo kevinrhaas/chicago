@@ -252,7 +252,11 @@ is the contract. The short form:
 - **Claim** in your first commit: `node tools/ticket.mjs claim T-NNNN`. `ticket.mjs
   inflight` shows what other branches are already carrying a ticket number, which is the
   only live view of work the merged files cannot show yet. It reads each branch as
-  **live**, **held** or **cold**, and `held` is the one to read carefully: the branch is
+  **live**, **held**, **open_pr**, **recoverable** or **cold**. A branch under
+  **open_pr** has a pull request up right now and is printed with its number and labels
+  — `hold` there means a run parked that work for the owner on purpose, so do not
+  rebuild it, do not take the ticket and do not delete the branch (T-1427). `held` is the
+  other one to read carefully: the branch is
   older than a run but the ticket's claim lock still stands, so it is either a run reading
   sources for hours or a run that died after its merge. Check its PR before you take it —
   age alone used to file that branch under "finished or litter", and two runs read cohort
@@ -288,7 +292,7 @@ is the contract. The short form:
   in a PR at all).
 - **The build products are GENERATED AND UNTRACKED, so there is nothing to stage**
   (T-0937 for the board, T-0938 for the rest). `tickets/BOARD.md`,
-  `tickets/tickets.json` and the whole of `site/4d/` are .gitignored. They used to be the repository's worst conflict source, and for a reason
+  `tickets/tickets.json` and the whole of `site/chicago/4d/` are .gitignored. They used to be the repository's worst conflict source, and for a reason
   worth knowing: `claim` is a run's FIRST act and rewrites all three, so two branches
   conflicted before either had done any work — and GitHub's server-side merge runs none of
   this repo's merge drivers, so `merge=generated` never reached the merge that decides
@@ -385,7 +389,7 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
   No schedule, no agent. `walk/` changes reach `main` by that dispatch and no other route.
   The hotfix exception stands: a production emergency PRs straight into `main`, and the
   next promotion's back-merge folds it into `dev`.
-- **Scope is `chicago/4d/` and its published mirror `site/4d/`. Nothing else.**
+- **Scope is `chicago/4d/` and its published mirror `site/chicago/4d/`. Nothing else.**
   `kevinrhaas/custom` is a monorepo of unrelated personal projects — CAD, print models,
   the Joliet game, a landing site. A run that edits any of them is out of bounds, and the
   workflow files are outside scope too: changing one needs an interactive, owner-visible PR.
@@ -424,7 +428,7 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
   page errors). Mobile is a release gate. **Never weaken an assertion to pass.** The
   `--published` run is the one that matters: the source tree loads uncompressed masters and
   the site loads compressed derivatives, and bugs have shipped in the gap twice.
-- **You no longer publish in the same commit — `site/4d/` is not committed at
+- **You no longer publish in the same commit — `site/chicago/4d/` is not committed at
   all (T-0938).** The mirror is a build product with one writer, `tools/publish.sh`,
   and it is untracked and .gitignored. `tools/check.sh` runs publish.sh first and then
   asks `check_published.mjs` whether what it produced matches its source; `deploy.yml`
@@ -434,7 +438,7 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
   ship an invisible change — there is nothing left for it to forget. Run publish.sh
   when you want to LOOK at the published tree (`--published` measurements, a local
   serve); the gate runs it for you either way.
-  `site/4d/` is a generated mirror and `deploy.yml` only fires on `site/**`, so
+  `site/chicago/4d/` is a generated mirror and `deploy.yml` only fires on `site/**`, so
   skipping it ships nothing while looking merged.
 - **Changelog**: prepend one entry to `renderers/web/js/changelog.js` with all three
   authored fields blank — `v: null, ts: '', date: ''` — then run
@@ -453,9 +457,9 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     `tools/check.sh` runs the contract check as a step, so a plain `./tools/check.sh` after
     merging covers it.
   - Nothing stamps after merge. The file is authored inside the app because the What's-new
-    tab imports it; `publish.sh` mirrors it to `site/4d/js/changelog.js`, the URL
+    tab imports it; `publish.sh` mirrors it to `site/chicago/4d/js/changelog.js`, the URL
     Manager and the polecat.live launcher parse live, which must not move — and to
-    `site/4d/walk/js/changelog.js` inside the copied renderer tree.
+    `site/chicago/4d/walk/js/changelog.js` inside the copied renderer tree.
   - **Stamping after `publish.sh` is safe (T-0155).** Both mirrors are compared byte for
     byte by `tools/check_published.mjs`, and the stamper rewrites the source, so that order
     used to leave the gate red with no documented remedy but a remembered second publish.

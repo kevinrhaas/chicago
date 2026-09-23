@@ -1,0 +1,99 @@
+{
+  "id": "rcb_hubbard_lumber_yard",
+  "register_id": null,
+  "name": "A. Hubbard, lumber yard and store house",
+  "provenance": "reconstructed",
+  "type": [
+    "other"
+  ],
+  "trade": "lumber yard",
+  "occupation": "lumber_merchant",
+  "goods": [
+    "lumber yard and store house"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Asa Hubbard",
+      "person_id": "rc_hubbard_asa",
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "ADOPTED, NOT MINTED. Asa Hubbard is the reconstructed trade head the resident band's `trade_households` stage drew at lumber_merchant in the south division (slot trade_households:persons/male/20_29/south/family/trade:lumber_merchant:047), and that card says itself that the business band adopts these heads rather than minting its own. Here the head is not merely the proprietor of the house — the head IS what bought it, because no count of this class was ever printed to be short of.",
+      "source_id": null,
+      "claim_ids": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "market",
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "A FACE, NOT A PREMISES. The placement rule for a lumber yard kept by a south-division household deals this house onto Market Street; the face is drawn on the seed printed in `reconstruction.seed` from the faces that rule allows, and no lot, roof or coordinate is claimed. T-1195 writes the placement policy with its evidence and T-1199 seats this house on the lot grid.",
+      "limit_reason": "No source places this house, because no source names it: it exists because the resident band drew a lumber merchant the town was short of, and the trade names the house he keeps. The street is the reconstruction's own deal and stops there."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "reconstructed",
+    "basis": "NOTHING DATES THIS HOUSE. The head who keeps it is ordered onto the scene date and to nothing narrower, and a keeping is not an opening; the record claims that the house was trading on 1835-07-01 and nothing about either end."
+  },
+  "evidence": {},
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Asa Hubbard (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "rc_hubbard_asa",
+        "name": "Asa Hubbard",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A register, directory or deed naming a real lumber yard in the south division in 1835 — that house takes this slot and this record is withdrawn with the head.",
+  "reconstruction": {
+    "programme": "chicago_1835_business_reconstruction",
+    "group": "lodging_river_and_transport",
+    "ticket": "T-1424",
+    "trade_head": {
+      "person_id": "rc_hubbard_asa",
+      "household_id": "hh_rc_hubbard_asa",
+      "trade": "lumber_merchant",
+      "head_slot": "trade_households:persons/male/20_29/south/family/trade:lumber_merchant:047",
+      "note": "A TRADE HEAD, NOT A SHORTFALL AND NOT A ROOF. The December 1835 State census's eighteen lines never reach this class, so the order book holds no bucket to point at and no count of it can be short; and nothing in data/structures/ is a lumber yard, so there is no committed building to buy the firm either. What IS committed is the man: the resident band drew Asa Hubbard at lumber merchant because the 1839 trade table says the town was short of the trade, and a lumber merchant in this town keeps a YARD: the register's one printed house of the trade is a lumber yard and warehouse announced for the opening of navigation, 1834, and the census enumerates no yard at all. The house is withdrawn with the head."
+    },
+    "seed": "lodging_river_and_transport:trade/lumber_yard/south:001",
+    "basis": {
+      "kind": "rule",
+      "id": "the_trade_names_the_house",
+      "note": "the resident band drew 1 head(s) at lumber merchant in the south division and a lumber merchant in this town keeps a YARD: the register's one printed house of the trade is a lumber yard and warehouse announced for the opening of navigation, 1834, and the census enumerates no yard at all. The style is dealt on the seed printed beside it from the period forms the register itself carries: the sole trader's signature, form 1 of the naming guide: 'B. Jones, grocery and provision store', 'J. C. Goodhue, land agent'. The goods line is that same house's trade line — 'lumber yard and store house, on sale and commission' — cut to its two heads, the third being a commission the reconstruction does not claim."
+    },
+    "withdrawn_if": "the retirement of the head himself, a re-cut of the order book that no longer orders his person bucket, or a source naming a real house of this class; the retirement runs through --build, never by hand"
+  }
+}

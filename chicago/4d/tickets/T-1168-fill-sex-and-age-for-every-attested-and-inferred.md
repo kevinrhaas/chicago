@@ -1,7 +1,7 @@
 ---
 id: T-1168
 title: Fill sex and age for every attested and inferred person: recorded where a source says, inferred from forename, office or register role where the evidence about that person allows, reconstructed from the population model otherwise — each value with its tier and reason
-state: open
+state: split
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-18
 pr: null
-claimed_by: null
+claimed_by: run 9/18/2026, 2:25:44 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T07:26:24.605Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35319074035
 ---
 
 99 of 1,287 persons carry a sex (84 m / 15 f); 10 carry a birth year; 9 an age. The owner asks

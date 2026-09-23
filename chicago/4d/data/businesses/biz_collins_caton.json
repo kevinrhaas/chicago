@@ -1,0 +1,155 @@
+{
+  "id": "biz_collins_caton",
+  "register_id": "business_collins_caton",
+  "name": "Collins & Caton",
+  "provenance": "compiled_from_register",
+  "type": [
+    "lawyer"
+  ],
+  "trade": "attorneys and counsellors at law, and solicitors in chancery",
+  "occupation": "attorney",
+  "goods": [],
+  "firm_styles": [
+    "J. H. Collins & J. D. C[aton]"
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "J. H. Collins",
+      "person_id": "collins_j_h",
+      "register_person_id": "person_j_h_collins",
+      "role": "partner",
+      "from": "1834-01-28",
+      "to": "1835-05-20",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card collins_j_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_01_28#c007",
+        "chicago_democrat_1834_02_04#c009",
+        "chicago_democrat_1834_02_11#c005",
+        "chicago_democrat_1834_03_04#c009",
+        "chicago_democrat_1834_04_01#c011",
+        "chicago_democrat_1834_06_04#c003",
+        "chicago_democrat_1834_06_18#c017",
+        "chicago_democrat_1834_07_02#c016",
+        "chicago_democrat_1834_08_13#c021",
+        "chicago_democrat_1835_05_20#c014"
+      ],
+      "also_printed_as": [
+        "James H. Collins"
+      ]
+    },
+    {
+      "name": "J. D. Caton",
+      "person_id": "caton_john_dean",
+      "register_person_id": "person_j_d_caton",
+      "role": "partner",
+      "from": "1834-01-28",
+      "to": "1835-05-20",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card caton_john_dean (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_01_28#c007",
+        "chicago_democrat_1834_02_04#c009",
+        "chicago_democrat_1834_02_11#c005",
+        "chicago_democrat_1834_03_04#c009",
+        "chicago_democrat_1834_04_01#c011",
+        "chicago_democrat_1834_06_04#c003",
+        "chicago_democrat_1834_06_18#c017",
+        "chicago_democrat_1834_07_02#c016",
+        "chicago_democrat_1834_08_13#c021",
+        "chicago_democrat_1835_05_20#c014"
+      ],
+      "also_printed_as": [
+        "J. Dean Caton"
+      ]
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1834-01-28",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. The landmark is another documented business (business_brewster_hogan_co), which places this one exactly as well as that one is placed.",
+      "limit_reason": "The register places this house against business_brewster_hogan_co and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "business",
+        "id": "biz_brewster_hogan_co",
+        "title": "Brewster, Hogan & Co.",
+        "streets": []
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1834-01-28",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-01-28, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-01-28",
+    "last_issue": "1835-05-20",
+    "copy_dates": [
+      "1834-01-20",
+      "1834-06-04",
+      "1834-07-08"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "proprietors_disagree",
+    "basis": "The keepers this record names do not read as one community (irish, new_york), and nothing in the record chooses between them. Each is named above.",
+    "from": [
+      {
+        "person_id": "caton_john_dean",
+        "name": "J. D. Caton",
+        "role": "partner",
+        "community": "new_york",
+        "tier": "inferred"
+      },
+      {
+        "person_id": "collins_j_h",
+        "name": "J. H. Collins",
+        "role": "partner",
+        "community": "irish",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_01_28#c007",
+    "chicago_democrat_1834_02_04#c009",
+    "chicago_democrat_1834_02_11#c005",
+    "chicago_democrat_1834_03_04#c009",
+    "chicago_democrat_1834_04_01#c011",
+    "chicago_democrat_1834_06_04#c003",
+    "chicago_democrat_1834_06_18#c017",
+    "chicago_democrat_1834_07_02#c016",
+    "chicago_democrat_1834_08_13#c021",
+    "chicago_democrat_1835_05_20#c014"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

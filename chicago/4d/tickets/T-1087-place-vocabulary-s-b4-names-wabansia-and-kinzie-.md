@@ -1,7 +1,7 @@
 ---
 id: T-1087
 title: place_vocabulary's B4 names Wabansia and Kinzie's Addition as surveys this project commits none of, and it commits both: the owner's ruling, at a cost of one person
-state: blocked-owner
+state: open
 epic: META
 requested_by: loop
 seen: false
@@ -12,7 +12,7 @@ opened: 2026-09-12
 closed: null
 pr: null
 claimed_by: null
-blocked_on: resolution and basis for Wabansia and Kinzie's Addition: both surveys are committed now, so B4's stated reason has expired — outside, inside, or B4 with a new reason? It moves exactly one person in the register.
+blocked_on: null
 needs_bake: false
 closed_at: null
 claimed_run: null
@@ -68,3 +68,20 @@ to prevent." The two tracts may not want the same answer.
 
 **Links:** T-1086 · T-1060 · T-1070 · T-1077 · T-1048 (the vocabulary) · T-0789 · T-0790 ·
 `data/research/newspapers/place_vocabulary.json` § boundaries B4
+
+## THE OWNER'S RULING, 2026-09-21: INSIDE — the reason expired, so the places come in
+
+B4 kept Wabansia and Kinzie's Addition out because this project committed neither survey. It
+commits both now. The stated reason is gone, and a rule kept alive past its reason is a rule
+nobody can check — so the two additions come inside the vocabulary, and the one person the
+register moves, moves.
+
+B4 IS RETIRED RATHER THAN REWRITTEN, and the difference matters for the next reader. Leaving
+a B4 in place with fresh wording would suggest a second reason was found; there was none, and
+the honest record is that the rule answered a question this project has since answered
+differently. The vocabulary says B4 was withdrawn on this date, that both surveys are now
+committed, and that the one register row moved with it.
+
+ONE PERSON IS THE WHOLE BLAST RADIUS, and the run states which person and where they land
+before and after. A change this small is exactly the kind that gets waved through without a
+count; the count is what makes it checkable.

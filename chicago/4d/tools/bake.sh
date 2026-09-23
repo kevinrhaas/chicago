@@ -4,6 +4,7 @@
 #
 #   tools/bake.sh                 build everything
 #   tools/bake.sh --only <id>     build one structure
+#   tools/bake.sh --only a,b,c    build several, in one Blender start-up
 #   tools/bake.sh --no-bake       skip the UV unwrap (fast iteration)
 #
 # AO is NOT baked here and never has been in the nightly: `--ao` is opt-in on

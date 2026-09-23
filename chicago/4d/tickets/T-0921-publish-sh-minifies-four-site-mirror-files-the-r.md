@@ -20,7 +20,7 @@ claimed_run: null
 
 publish.sh minifies four site mirror files the resident synthesizer writes pretty, so whichever ran last flips the T-0838 drift ratchet.
 
-`tools/publish.sh` writes `site/4d/data/**` minified. `tools/synthesize_resident_research.py`
+`tools/publish.sh` writes `site/chicago/4d/data/**` minified. `tools/synthesize_resident_research.py`
 also writes four of those files — `data/residents/households/hh_adams_william_h.json`,
 `hh_miller_john.json`, `hh_murphy_john.json` and `data/residents/index.json` — and writes them
 INDENTED. The two disagree on bytes and not on content, so whichever tool ran last decides what is

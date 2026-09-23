@@ -1,0 +1,43 @@
+{
+ "_doc": "THE TREE T-1333 OPENED ON, measured once and frozen. tools/rebuild_closing_set.py renders docs/RESEARCH/closing-convergence-2026-09.md as a delta against this, because a count with no baseline is not a delta and T-1144 banked three acceptances to this pass to be stated as deltas rather than re-asserted from a spot reading. NEVER regenerate this file to make a delta read zero: that is the one edit that would turn the report back into the spot reading it replaced. A later ticket that legitimately re-bases it says so in its own entry below.",
+ "commit": "07605197356ccd8d8b4f547eccb2d1dc619ef06f",
+ "branch": "dev",
+ "taken_on": "2026-09-18",
+ "taken_by": "tools/rebuild_closing_set.py --measure",
+ "ticket": "T-1333",
+ "measurement": {
+  "layer": {
+   "households": 1258,
+   "household_cards": 1258,
+   "persons": 1288,
+   "retired_redirects": 66,
+   "redirect_faults": 0
+  },
+  "grades": {
+   "attested": 410,
+   "inferred": 875,
+   "reconstructed": 3
+  },
+  "sidecars": {
+   "files": 391,
+   "people": 1288
+  },
+  "town_census": {
+   "buildings_standing": 371,
+   "people_housed": 34,
+   "households_housed": 20
+  },
+  "audit": {
+   "rows": 1288
+  },
+  "published_residents": {
+   "files": 1336
+  },
+  "standing": {
+   "refused_names_in_layer": 0,
+   "scene_window_trade_rows": 0,
+   "uncertain_presences": 820,
+   "uncertain_presences_with_leg": 820
+  }
+ }
+}

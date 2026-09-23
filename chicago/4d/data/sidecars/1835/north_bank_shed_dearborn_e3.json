@@ -91,6 +91,12 @@
       "value": "freight_shed",
       "confidence": "reconstructed",
       "note": "The use comes from the plate and from the place. Image 3 of the owner's brief of 2026-08-18 draws low warehouses on the banks of the reach below the drawbridge, and this reach is where the river traffic and the town's only crossing of the main stem met in July 1835. The specific goods, the trade and the operator are not inferred and are not recorded: an occupant would be a person, and this record claims a building."
+    },
+    "stands_on_lot": {
+      "value": "lot 3, north division tier",
+      "confidence": "inferred",
+      "sources": [],
+      "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 57% on lot 3 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
     }
   },
   "residents": [],

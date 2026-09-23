@@ -35,11 +35,19 @@
  * from any case here, which is the point: this command stands between a run and its work
  * and must never be able to stop one.
  *
+ * AND WHY A FIXTURE CAN BE TOO KIND (T-1427). Cases 14-18 pass a constructed PR list, and
+ * for three days they passed over a guard that could not work at all: `restGet` projected a
+ * pull request down to four fields, `head.ref` not among them, while the fixture rows here
+ * carried `head.ref` by hand. The fixture was richer than production and the gate reported
+ * on the fixture. Both now go through `normalizePull`, so a row written in GitHub's own
+ * shape is read exactly as GitHub's answer is read, and case 23 says the one thing no
+ * fixture can reach — that the fetch asks for open pull requests at all.
+ *
  * The sandbox is test_ticket_landed.mjs's: ticket.mjs resolves its paths from its own
  * location, so a temporary tree beside a copy of the tool is a whole world for it to be
  * wrong in, and the real queue is never touched.
  */
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync, cpSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync, readFileSync, cpSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -91,6 +99,7 @@ const TICKETS = [
   ['T-0266', 'The ticket whose branch tip this clone does not hold', 'open'],
   ['T-0662', 'The ticket a run put up for review and is still on', 'review'],
   ['T-0800', 'The ticket whose branch did get a pull request, and it was closed', 'open'],
+  ['T-0900', 'The ticket whose branch is up for review right now, and parked on hold', 'open'],
 ];
 
 // name, age_hours. `null` = the object is not in this clone and the age is unknowable.
@@ -121,6 +130,9 @@ const BRANCHES = [
   // lock. Offline they are indistinguishable, and the PR list separates them —
   // T-0800's PR was opened and closed, T-0055's never existed.
   { name: 'steward/t-0800-had-a-pr', age_hours: 50 },
+  // 19. T-1427's shape: an OPEN pull request on a branch older than a run. Every age
+  // reading here calls it cold; the PR list is the only thing that knows better.
+  { name: 'steward/t-0900-north-corridors', age_hours: 10 },
 ];
 
 function sandbox() {
@@ -262,6 +274,15 @@ const PULLS = [
   { number: 1200, title: 'T-0987: stretch 10, the Norris surnames',
     merged_at: '2026-09-08T00:00:00Z', created_at: '2026-09-07T00:00:00Z',
     head: { ref: 'steward/t-0987-stretch-10-norris' } },
+  // T-1427, and the row is written in GITHUB'S OWN SHAPE — `state`, `labels` as objects
+  // with a `name`, `head.ref` — because the fixture and the API now arrive through one
+  // projection (`normalizePull`). That is the point of the case as much as the reading
+  // is: when the projection dropped `head.ref`, the fixture supplied it by hand and the
+  // gate stayed green over a guard that was dead in production.
+  { number: 1533, title: 'T-0900: the corridor layer reaches the north bank',
+    state: 'open', merged_at: null, created_at: '2026-09-19T18:38:40Z',
+    labels: [{ name: 'hold' }],
+    head: { ref: 'steward/t-0900-north-corridors' } },
 ];
 
 {
@@ -300,6 +321,41 @@ const PULLS = [
       && read('steward/t-0987-stretch-11-hidden-surnames') === 'cold',
       'one PR naming the ticket accounts for every branch carrying it');
 
+    // ---------------------------------------------- 19-22: the OPEN pull request
+    //
+    // T-1427, 2026-09-20. `inflight` printed `steward/t-1191-north-corridors` under
+    // "carrying work NOBODY CAN SEE ... no PR ever carried this branch" while PR #1533
+    // was open on that exact branch and labelled `hold` — parked for the owner on
+    // purpose, its gate not green. The one reading that exists to stop a duplicate
+    // rebuild was pointing a run at the owner's parked work and telling it to rebuild.
+    const openLines = out.split('\n');
+    const sectionFrom = (re) => {
+      const i = openLines.findIndex((l) => re.test(l));
+      if (i < 0) return [];
+      const j = openLines.findIndex((l, k) => k > i && /^[A-Z][A-Za-z ]+ — /.test(l));
+      return openLines.slice(i, j < 0 ? openLines.length : j);
+    };
+    check('19. THE FAULT: a branch with an OPEN pull request is not "work nobody can see"',
+      read('steward/t-0900-north-corridors') === 'open_pr',
+      read('steward/t-0900-north-corridors'));
+    check('   …it is printed with its PR number, under a heading of its own',
+      /OPEN PULL REQUESTS — 1 branch\(es\) whose work is already up for review/.test(out)
+      && sectionFrom(/^OPEN PULL REQUESTS —/).some((l) => /PR #1533 is OPEN/.test(l)));
+    check('20. a `hold` label is said out loud: parked for the owner, do not rebuild it',
+      sectionFrom(/^OPEN PULL REQUESTS —/).some((l) => /labelled hold/.test(l))
+      && /PARKED it for the owner on purpose/.test(out));
+    check('21. and it is in NEITHER list that would have a run overwrite or delete it',
+      !sectionFrom(/^RECOVERABLE —/).some((l) => l.includes('steward/t-0900-north-corridors'))
+      && !sectionFrom(/^Cold —/).some((l) => l.includes('steward/t-0900-north-corridors')),
+      'the cold list\'s standing advice is `git push origin --delete <branch>`');
+    check('22. the RECOVERABLE reading still finds the branch that really is invisible',
+      read('steward/t-0055-kinzie-view-plate-source') === 'recoverable'
+      && /RECOVERABLE — 1 branch\(es\)/.test(out),
+      'one open PR must not swallow the reading it sits beside');
+    check('   …and --json carries the PR number for a caller that is not reading prose',
+      rows.find((r) => r.branch === 'steward/t-0900-north-corridors')?.open_pr === 1533
+      && rows.find((r) => r.branch === 'steward/t-0055-kinzie-view-plate-source')?.open_pr === null);
+
     check('   …and it still exits 0', status === 0, `status ${status}`);
   } finally {
     rmSync(tmp, { recursive: true, force: true });
@@ -324,5 +380,24 @@ const PULLS = [
   }
 }
 
-console.log(failures ? `\n  ${failures} failure(s)\n` : '\n  inflight reads a long claim as work, a merged branch as litter, and an unseen branch as recoverable\n');
+/* ------------------------------- 23: the one assertion no fixture can carry */
+
+/**
+ * THE HALF OF T-1427 THAT LIVES IN THE FETCH. Every case above runs on a constructed
+ * PR list, which is what makes them stable — and it is also why none of them can see
+ * the query string. `closedPulls` asked GitHub for `state=closed`, so an open pull
+ * request was never in the collection at all and a perfectly repaired classifier would
+ * still have called #1533 invisible. A fixture cannot fail on that; only the source can
+ * say it, so this says it, and says plainly that it is reading the source and not the
+ * behaviour.
+ */
+{
+  console.log('\n  the query the fixtures cannot reach');
+  const src = readFileSync(path.join(REPO, 'tools', 'ticket.mjs'), 'utf8');
+  const q = /repos\/kevinrhaas\/custom\/pulls\?state=(\w+)/.exec(src)?.[1] ?? null;
+  check('23. the PR fetch asks for open pull requests as well as closed ones',
+    q === 'all', `the query asks state=${q} (read from the source, not from a run)`);
+}
+
+console.log(failures ? `\n  ${failures} failure(s)\n` : '\n  inflight reads a long claim as work, a merged branch as litter, an unseen branch as recoverable, and a branch under review as neither\n');
 process.exit(failures ? 1 : 0);

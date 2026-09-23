@@ -1,0 +1,130 @@
+{
+  "id": "biz_daniel_elston_co",
+  "register_id": "business_daniel_elston_co",
+  "name": "Daniel Elston & [Co.]",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "soap and candle manufactory",
+  "occupation": "soap_and_candle_maker",
+  "goods": [
+    "Bacon",
+    "Candles",
+    "Hams",
+    "Hard Soap",
+    "Mess and Prime Pork",
+    "Pork",
+    "Soap",
+    "Soft Soap",
+    "Wax Candles",
+    "bacon",
+    "candles",
+    "flitches of bacon",
+    "hams",
+    "hard soap",
+    "mess pork",
+    "other candles",
+    "prime pork",
+    "smoking and drying",
+    "soft soap",
+    "wax candles"
+  ],
+  "firm_styles": [
+    "Daniel Elston & Co.",
+    "D. Elston & Co."
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Daniel Elston",
+      "person_id": "elston_daniel",
+      "register_person_id": "person_daniel_elston",
+      "role": "partner",
+      "from": "1833-11-26",
+      "to": "1834-07-02",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card elston_daniel (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_11_26#c030",
+        "chicago_democrat_1834_02_18#c002",
+        "chicago_democrat_1834_02_18#c009",
+        "chicago_democrat_1834_03_04#c013",
+        "chicago_democrat_1834_04_01#c007",
+        "chicago_democrat_1834_06_04#c026",
+        "chicago_democrat_1834_07_02#c007",
+        "chicago_democrat_1834_07_02#c027"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "elston_soap_candle_manufactory",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-11-26",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure elston_soap_candle_manufactory on its occupants. elston_soap_candle_manufactory already stands and its occupants carries elston — 'Daniel Elston & Co.'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1833-11-26",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-11-26, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-11-26",
+    "last_issue": "1834-07-02",
+    "copy_dates": [
+      "1834-02-15"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "british",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read british: Daniel Elston (british). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "elston_daniel",
+        "name": "Daniel Elston",
+        "role": "partner",
+        "community": "british",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1833_11_26#c030",
+    "chicago_democrat_1834_02_18#c002",
+    "chicago_democrat_1834_02_18#c009",
+    "chicago_democrat_1834_03_04#c013",
+    "chicago_democrat_1834_04_01#c007",
+    "chicago_democrat_1834_06_04#c026",
+    "chicago_democrat_1834_07_02#c007",
+    "chicago_democrat_1834_07_02#c027"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

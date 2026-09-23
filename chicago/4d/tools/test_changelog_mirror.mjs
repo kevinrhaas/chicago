@@ -24,7 +24,7 @@
  *
  * EVERYTHING RUNS IN A SANDBOX, for the reason test_ticket_mirror.mjs gives: the
  * tools resolve their paths from their own location, so a temporary tree of the
- * shape they expect — `<tmp>/chicago/4d/…` beside `<tmp>/site/4d/` —
+ * shape they expect — `<tmp>/chicago/4d/…` beside `<tmp>/site/chicago/4d/` —
  * gives them a whole world to be wrong in without touching the repository.
  */
 import { mkdtempSync, mkdirSync, cpSync, rmSync, readFileSync, writeFileSync,

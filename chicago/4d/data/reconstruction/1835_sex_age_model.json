@@ -1,0 +1,381 @@
+{
+ "$schema_note": "DERIVED. Rebuild with tools/reconstruct_sex_age.py --build; tools/check.sh re-derives it. Never hand-edit.",
+ "id": "chicago_july_1835_sex_age_draw_model",
+ "ticket": "T-1304",
+ "stage": "attribute_fill_sex_age",
+ "target_date": "1835-07-01",
+ "generated_by": "tools/reconstruct_sex_age.py",
+ "_doc": "The distribution stage `attribute_fill_sex_age` draws a sex and an age band from, and the measurement that sets its rates. Nothing here names anybody. The sex rates are measured on THIS layer's own settled people, roll by roll; the age bands are the 1840 Chicago schedule's, which is the only committed sex x age band distribution this project holds.",
+ "the_measurement_and_its_bias": {
+  "what_was_measured": "the male share of every roll this layer was minted from, counted over the people whose sex T-1303 settled off a source, a gendered title or a forename",
+  "the_letter_lists": "351 of 372 settled letter-list names are men - 94.3%. This is the measured adult-male rate of a letter list the ticket asks for, and it is a measurement of these lists rather than a figure borrowed from the period.",
+  "the_bias_runs_one_way": "The forename table T-1303 derived was built mostly on this layer's men, so a woman's forename is likelier than a man's to be missing from it and to fall into the unsettled group being drawn for. Every rate here is therefore a CEILING on its roll's male share rather than a point reading, and every draw made from it leans male by an amount this pass cannot bound. Stated, not smoothed; docs/LIBERTIES.md L-rc-sex-rate.",
+  "floor": 50,
+  "pooled": {
+   "settled_by_the_evidence": 695,
+   "of_those_male": 648,
+   "male_rate": 0.9324
+  },
+  "rolls": [
+   {
+    "roll": "civic",
+    "settled_by_the_evidence": 208,
+    "of_those_male": 197,
+    "own_male_rate": 0.9471,
+    "measured_on_its_own": true,
+    "drawn_at": 0.9471,
+    "drawn_for": 184,
+    "why": "its own 208 settled names are enough to measure it"
+   },
+   {
+    "roll": "documented",
+    "settled_by_the_evidence": 15,
+    "of_those_male": 14,
+    "own_male_rate": 0.9333,
+    "measured_on_its_own": false,
+    "drawn_at": 0.9324,
+    "drawn_for": 24,
+    "why": "only 15 of its names are settled - below the floor of 50, so it draws at the pooled rate of every roll"
+   },
+   {
+    "roll": "letter_list",
+    "settled_by_the_evidence": 372,
+    "of_those_male": 351,
+    "own_male_rate": 0.9435,
+    "measured_on_its_own": true,
+    "drawn_at": 0.9435,
+    "drawn_for": 371,
+    "why": "its own 372 settled names are enough to measure it"
+   },
+   {
+    "roll": "placed",
+    "settled_by_the_evidence": 2,
+    "of_those_male": 2,
+    "own_male_rate": 1.0,
+    "measured_on_its_own": false,
+    "drawn_at": 0.9324,
+    "drawn_for": 3,
+    "why": "only 2 of its names are settled - below the floor of 50, so it draws at the pooled rate of every roll"
+   },
+   {
+    "roll": "unclaimed",
+    "settled_by_the_evidence": 98,
+    "of_those_male": 84,
+    "own_male_rate": 0.8571,
+    "measured_on_its_own": true,
+    "drawn_at": 0.8571,
+    "drawn_for": 5,
+    "why": "its own 98 settled names are enough to measure it"
+   }
+  ]
+ },
+ "the_rolls_are_not_the_town": {
+  "the_rolls": "93.2% male, measured above",
+  "the_town": "120.9-150.0 (point reading 146.8) males per 100 females - a 55-60% male town",
+  "why_they_differ": "A roll of correspondents, voters and subscribers names adult men; the town's women and children are named nowhere in it. Nothing here is drawn at the town's ratio, because none of these people is a draw from the town - they are people a roll already named. The gap IS the reconstruction's brief: T-1174 writes the women and children the pyramid lacks, to its own quota.",
+  "under_ten_in_the_town": "the town model's `share_under_ten`, 0.2-0.2702, which this stage draws for nobody: a person named on a roll is not a child under ten."
+ },
+ "age_bands": {
+  "source": "data/research/census_1840/composition_1840.json#age_bands.free_white",
+  "what_it_licenses": [
+   "household size: the mean, median and the whole histogram, as the distribution a 1835 roof programme's occupancy should be tested against",
+   "the sex ratio, overall and among adults, as the shape of a frontier port",
+   "the child share, as a check on how many under-tens a reconstructed household may carry",
+   "the trade split across the seven industry columns, as the relative weight of manufactures, commerce, agriculture and river navigation in the same town"
+  ],
+  "what_it_forbids": [
+   "name anybody, or supply a person to any 1835 household",
+   "supply the members of any specific 1835 household, however well the sizes match",
+   "date a residence: a household counted in 1840 says nothing about 1 July 1835",
+   "stand as evidence for a trade attached to a named man — the columns count persons in families, not occupations of individuals",
+   "be read as a growth rate for one place; see beside_the_town.growth.note"
+  ],
+  "no_birth_year_is_written": "A draw yields the band the schedule prints. An exact year drawn from a decadal band would read as a record of a birth; T-1303 refused six thin death-notice matches for less.",
+  "bands": [
+   {
+    "band": "0-4",
+    "low": 0,
+    "high": 4,
+    "sex": "male",
+    "census_band": "free white males Under 5",
+    "persons": 394
+   },
+   {
+    "band": "5-9",
+    "low": 5,
+    "high": 9,
+    "sex": "male",
+    "census_band": "free white males 5 under 10",
+    "persons": 223
+   },
+   {
+    "band": "10-14",
+    "low": 10,
+    "high": 14,
+    "sex": "male",
+    "census_band": "free white males 10 under 15",
+    "persons": 179
+   },
+   {
+    "band": "15-19",
+    "low": 15,
+    "high": 19,
+    "sex": "male",
+    "census_band": "free white males 15 under 20",
+    "persons": 188
+   },
+   {
+    "band": "20-29",
+    "low": 20,
+    "high": 29,
+    "sex": "male",
+    "census_band": "free white males 20 under 30",
+    "persons": 887
+   },
+   {
+    "band": "30-39",
+    "low": 30,
+    "high": 39,
+    "sex": "male",
+    "census_band": "free white males 30 under 40",
+    "persons": 520
+   },
+   {
+    "band": "40-49",
+    "low": 40,
+    "high": 49,
+    "sex": "male",
+    "census_band": "free white males 40 under 50",
+    "persons": 151
+   },
+   {
+    "band": "50-59",
+    "low": 50,
+    "high": 59,
+    "sex": "male",
+    "census_band": "free white males 50 under 60",
+    "persons": 48
+   },
+   {
+    "band": "60-69",
+    "low": 60,
+    "high": 69,
+    "sex": "male",
+    "census_band": "free white males 60 under 70",
+    "persons": 15
+   },
+   {
+    "band": "70-79",
+    "low": 70,
+    "high": 79,
+    "sex": "male",
+    "census_band": "free white males 70 under 80",
+    "persons": 7
+   },
+   {
+    "band": "80-89",
+    "low": 80,
+    "high": 89,
+    "sex": "male",
+    "census_band": "free white males 80 under 90",
+    "persons": 0
+   },
+   {
+    "band": "90-99",
+    "low": 90,
+    "high": 99,
+    "sex": "male",
+    "census_band": "free white males 90 under 100",
+    "persons": 0
+   },
+   {
+    "band": "100+",
+    "low": 100,
+    "high": null,
+    "sex": "male",
+    "census_band": "free white males 100 and upwards",
+    "persons": 0
+   },
+   {
+    "band": "0-4",
+    "low": 0,
+    "high": 4,
+    "sex": "female",
+    "census_band": "free white females Under 5",
+    "persons": 418
+   },
+   {
+    "band": "5-9",
+    "low": 5,
+    "high": 9,
+    "sex": "female",
+    "census_band": "free white females 5 under 10",
+    "persons": 255
+   },
+   {
+    "band": "10-14",
+    "low": 10,
+    "high": 14,
+    "sex": "female",
+    "census_band": "free white females 10 under 15",
+    "persons": 191
+   },
+   {
+    "band": "15-19",
+    "low": 15,
+    "high": 19,
+    "sex": "female",
+    "census_band": "free white females 15 under 20",
+    "persons": 196
+   },
+   {
+    "band": "20-29",
+    "low": 20,
+    "high": 29,
+    "sex": "female",
+    "census_band": "free white females 20 under 30",
+    "persons": 633
+   },
+   {
+    "band": "30-39",
+    "low": 30,
+    "high": 39,
+    "sex": "female",
+    "census_band": "free white females 30 under 40",
+    "persons": 296
+   },
+   {
+    "band": "40-49",
+    "low": 40,
+    "high": 49,
+    "sex": "female",
+    "census_band": "free white females 40 under 50",
+    "persons": 109
+   },
+   {
+    "band": "50-59",
+    "low": 50,
+    "high": 59,
+    "sex": "female",
+    "census_band": "free white females 50 under 60",
+    "persons": 43
+   },
+   {
+    "band": "60-69",
+    "low": 60,
+    "high": 69,
+    "sex": "female",
+    "census_band": "free white females 60 under 70",
+    "persons": 21
+   },
+   {
+    "band": "70-79",
+    "low": 70,
+    "high": 79,
+    "sex": "female",
+    "census_band": "free white females 70 under 80",
+    "persons": 6
+   },
+   {
+    "band": "80-89",
+    "low": 80,
+    "high": 89,
+    "sex": "female",
+    "census_band": "free white females 80 under 90",
+    "persons": 0
+   },
+   {
+    "band": "90-99",
+    "low": 90,
+    "high": 99,
+    "sex": "female",
+    "census_band": "free white females 90 under 100",
+    "persons": 1
+   },
+   {
+    "band": "100+",
+    "low": 100,
+    "high": null,
+    "sex": "female",
+    "census_band": "free white females 100 and upwards",
+    "persons": 0
+   }
+  ]
+ },
+ "conditionings": {
+  "civic_list_20_and_over": {
+   "low_edge": 20,
+   "high_edge": null,
+   "when": "the person stands on a poll, a tax list or a muster roll",
+   "assumes": "that a poll, tax or muster list names a person 20 or over - the 1840 schedule's own adult line. THE FRANCHISE'S AGE RULE IS NOT IN ANY SOURCE RECORD THIS PROJECT HOLDS; this is the model's conditioning and not a reading (T-1303's finding, handed to T-1304).",
+   "liberty": "L-rc-age-conditioning"
+  },
+  "named_on_a_roll_15_and_over": {
+   "low_edge": 15,
+   "high_edge": null,
+   "when": "the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood",
+   "assumes": "that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule.",
+   "liberty": "L-rc-age-conditioning"
+  },
+  "dependent_child_under_15": {
+   "low_edge": 0,
+   "high_edge": 15,
+   "when": "the church register calls the person an infant or a baptised child, or the household record calls them a son, a daughter or a child",
+   "assumes": "nothing beyond what the record already says: the band is drawn from the schedule's child bands because the record calls them a child.",
+   "liberty": "L-rc-age-conditioning"
+  }
+ },
+ "seeds": {
+  "sex": "<person_id>:sex_ratio",
+  "age": "<person_id>:age_bands_1840",
+  "algorithm": "blake2s(seed.encode('utf-8'), digest_size=8) read as a big-endian integer, taken modulo 1,000,000 over 1,000,000",
+  "why_the_person_and_not_the_household": "The programme's seed_rule writes <household_id>:<bucket>. Two people share a household id and would draw the same sex and the same band, so an ATTRIBUTE fill seeds by the person."
+ },
+ "counts": {
+  "sex_drawn": {
+   "letter_list": 371,
+   "civic": 184,
+   "documented": 24,
+   "placed": 3,
+   "unclaimed": 5
+  },
+  "sex_refused": {
+   "a_group_not_a_person": 6
+  },
+  "sex_already": {
+   "civic": 208,
+   "unclaimed": 95,
+   "letter_list": 372,
+   "documented": 15,
+   "placed": 2
+  },
+  "age_drawn": {
+   "named_on_a_roll_15_and_over": 1024,
+   "civic_list_20_and_over": 192,
+   "dependent_child_under_15": 1
+  },
+  "age_read": {
+   "another_stage_drew_them": 977,
+   "birth_year": 61,
+   "unclaimed": 3
+  },
+  "age_refused": {
+   "a_group_not_a_person": 6,
+   "a_married_style_over_a_kinship_word": 1
+  },
+  "drawn_sex_is": {
+   "male": 551,
+   "female": 36
+  },
+  "drawn_band_is": {
+   "20-29": 592,
+   "30-39": 341,
+   "15-19": 106,
+   "40-49": 113,
+   "50-59": 41,
+   "70-79": 8,
+   "60-69": 15,
+   "5-9": 1
+  }
+ }
+}

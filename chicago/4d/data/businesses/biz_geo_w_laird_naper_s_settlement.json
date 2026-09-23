@@ -1,0 +1,92 @@
+{
+  "id": "biz_geo_w_laird_naper_s_settlement",
+  "register_id": "business_geo_w_laird_naper_s_settlement",
+  "name": "Geo. W. Laird, Naper's Settlement",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "general store",
+  "occupation": "merchant",
+  "goods": [
+    "New Goods"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Geo. W. Laird",
+      "person_id": "laird_george_w",
+      "register_person_id": "person_geo_w_laird",
+      "role": "proprietor",
+      "from": "1834-07-02",
+      "to": "1834-07-02",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card laird_george_w (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_02#c050"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-07-02",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-02",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-02, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-02",
+    "last_issue": "1834-07-02",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Geo. W. Laird (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "laird_george_w",
+        "name": "Geo. W. Laird",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_02#c050"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

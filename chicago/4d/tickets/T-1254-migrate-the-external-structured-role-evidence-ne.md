@@ -1,7 +1,7 @@
 ---
 id: T-1254
 title: Migrate the external structured role evidence — newspaper gazetteer, 1839 directory and civic register, 1843/1844 identity master — with each role's stated place and employer, and publish the migration table
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: S
 legacy_id: null
 parent: T-1145
 opened: 2026-09-17
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-17
+pr: 1422
+claimed_by: run 9/17/2026, 4:48:47 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-17T23:30:35.562Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35278251655
 ---
 
 Migrate the external structured role evidence — newspaper gazetteer, 1839 directory and civic register, 1843/1844 identity master — with each role's stated place and employer, and publish the migration table.

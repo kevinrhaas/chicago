@@ -1,0 +1,36 @@
+{
+  "id": "river_stone_gravel_fill",
+  "group": "ground",
+  "span_m": 4.0,
+  "confidence": "inferred",
+  "mean_roughness": 0.98,
+  "kind": "gravel",
+  "colors": [
+    [
+      111,
+      108,
+      98
+    ],
+    [
+      63,
+      65,
+      62
+    ]
+  ],
+  "note": "Mixed river stone and gravel crib/bridge fill.",
+  "resolution_px": 1024,
+  "px_per_m": 256.0,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18352544,
+  "generation_method": "deterministic procedural synthesis"
+}

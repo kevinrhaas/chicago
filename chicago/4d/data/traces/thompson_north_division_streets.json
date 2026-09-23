@@ -176,5 +176,250 @@
     "south_division_names_where": "Lettered once each, upright in the corridor, in the tier between Randolph and Washington (sheet y about 1400-1500). Note the spelling CLARKE, with an E, which is not how this project or the modern street spells it.",
     "north_division_names": "NONE. Every one of the six North Division corridors carries the same two marks and nothing else: the figure 80 at its head, on the Kinzie line, and a vertical ST. between the two lot rows. The corridors were read one at a time at 5x and no name is written in any of them.",
     "east_boundary": "The line closing block 1 on the east is lettered Due North / True Meridian / Magnetic Variation, not with a street name. What stands on it is committed as wolcott, and this reading does not reopen that."
+  },
+  "north_tier_horizontals_px": {
+    "$note": "AUTHORED FROM A READING (T-1457), the same shape as this file's north_tier_strokes_px and its opposite: those are the sheet's VERTICAL strokes, read by a column scan, and these are its HORIZONTAL ones, read by a row scan. Four lines stand in every North Division block \u2014 the tier's north face, the south edge of the upper lot row, the north edge of the lower lot row, and the tier's south face \u2014 and the two middle ones are an alley. Nothing here is geometry: the numbers are sheet coordinates. tools/measure_north_division_tier_depth.py turns them into metres through a px-to-northing fit anchored on the South Division corridors in south_division_control_px, and re-measures them with --reread (needs Pillow + numpy).",
+    "ticket": "T-1457",
+    "read_on": "2026-09-20",
+    "publishes": "DEPTHS \u2014 each block's south face as a distance below its own north face. That is a difference taken at one easting, and the sheet's own lettered 180 ft lower row confirms it to 0.2 ft in the mean.",
+    "does_not_publish": "ABSOLUTE NORTHINGS for anything in this tier. The fit is anchored 400-700 px below it and, held out of the fit, the committed Kinzie line is missed by +16.8 m at Franklin falling to +0.4 m at Wolcott. A miss that runs with easting is a SHEAR in the sheet, not scatter, and it would be laundered into a false precision by any northing published from up here. The tier is seated off committed Kinzie; only its depth comes from this reading.",
+    "method": {
+      "ink_threshold": 165,
+      "lean_search": [
+        0.02,
+        0.095,
+        0.002
+      ],
+      "coverage": 0.88,
+      "control_coverage": 0.9,
+      "inset_px": 8,
+      "refit_half_px": 9,
+      "merge_px": 8,
+      "min_columns": 40,
+      "tier_rows": [
+        350,
+        800
+      ],
+      "reread_tolerance_px": 1.0,
+      "which_four": "The FIRST FOUR lines in ascending y inside tier_rows, per block. Blocks 5, 4, 3, 2, 1 and 7 each return exactly those four before anything else; what the scan returns below them is the river bank, the North Water lettering and, under block 7, the West Division's own tier.",
+      "lean_note": "The sheet's east-west lines are NOT horizontal on it and do not share one lean: the South Division corridors lean about +0.017 to +0.024, the tier's north face +0.041, its south face +0.071 and block 7's +0.088. That spread IS the shear this reading reports, and it is why a row scan has to search lean per line where T-0451's column scan could fit one lean per band."
+    },
+    "x_ref_px": 2079.0,
+    "block_1_east_px": 2620.0,
+    "blocks": {
+      "5": {
+        "x_mid_px": 1620.0,
+        "north_face": 390.94,
+        "lean_north_face": 0.0361,
+        "upper_row_south": 492.8,
+        "lean_upper_row_south": 0.0699,
+        "lower_row_north": 504.41,
+        "lean_lower_row_north": 0.0725,
+        "south_face": 609.7,
+        "lean_south_face": 0.0643
+      },
+      "4": {
+        "x_mid_px": 1850.5,
+        "north_face": 400.32,
+        "lean_north_face": 0.0387,
+        "upper_row_south": 509.75,
+        "lean_upper_row_south": 0.0677,
+        "lower_row_north": 521.39,
+        "lean_lower_row_north": 0.0697,
+        "south_face": 624.98,
+        "lean_south_face": 0.0707
+      },
+      "3": {
+        "x_mid_px": 2079.0,
+        "north_face": 409.85,
+        "lean_north_face": 0.0368,
+        "upper_row_south": 527.87,
+        "lean_upper_row_south": 0.0732,
+        "lower_row_north": 540.28,
+        "lean_lower_row_north": 0.0769,
+        "south_face": 642.39,
+        "lean_south_face": 0.0717
+      },
+      "2": {
+        "x_mid_px": 2309.5,
+        "north_face": 418.91,
+        "lean_north_face": 0.0302,
+        "upper_row_south": 545.06,
+        "lean_upper_row_south": 0.0687,
+        "lower_row_north": 557.0,
+        "lean_lower_row_north": 0.0702,
+        "south_face": 658.97,
+        "lean_south_face": 0.062
+      },
+      "1": {
+        "x_mid_px": 2539.5,
+        "north_face": 428.93,
+        "lean_north_face": 0.0379,
+        "upper_row_south": 561.63,
+        "lean_upper_row_south": 0.0809,
+        "lower_row_north": 573.65,
+        "lean_lower_row_north": 0.0788,
+        "south_face": 674.62,
+        "lean_south_face": 0.0754
+      },
+      "7": {
+        "x_mid_px": 1156.5,
+        "north_face": 371.31,
+        "lean_north_face": 0.048,
+        "upper_row_south": 456.4,
+        "lean_upper_row_south": 0.0883,
+        "lower_row_north": 469.48,
+        "lean_lower_row_north": 0.0901,
+        "south_face": 573.07,
+        "lean_south_face": 0.0881
+      }
+    },
+    "blocks_not_read": {
+      "6": "Only two of the four lines are returned \u2014 the north face at 381.44 and one middle line at 486.7. Block 6 is the block the plat draws its watercourse across, and the two freehand banks cross the lot lines there (T-0452, docs/RESEARCH/thompson_plat_sloughs.md); the same block is already noted in north_tier_blocks for the vertical stroke it swallows. Its depth is carried on the tier line, not read."
+    },
+    "block_7_note": "Block 7 returns all four lines, and is reported but HELD OUT of the straight-line south face: its south face sits 3.2 px (1.7 m) off the line blocks 5-1 share and leans +0.088 against their +0.071. Block 7 fronts the North Branch, not the main stem, and there is no reason to expect it on the same line.",
+    "lettering": {
+      "$note": "Read at 4x on 2026-09-20. The plat letters its lot dimensions, and they are what makes this reading checkable against the sheet rather than only against other committed files.",
+      "lower_row_depth_ft": 180,
+      "lower_row_depth_where": "Down the west edge of lot 4 \u2014 the lower row's west lot \u2014 in every block read: 5, 4, 3, 2 and 1. The figure 80 is lettered across the same lot's head, which is the lot width T-0451's vertical strokes already measure.",
+      "block_1_east_line_ft": [
+        260,
+        180
+      ],
+      "block_1_east_line_where": "Down block 1's east line, against the Due North / True Meridian line: 260 in the upper row, 180 in the lower. The 260 is NOT the upper row alone, which is drawn 237 ft there \u2014 it is the upper row plus the alley, drawn 258.9. The chain 260 + 180 = 440 ft from the section line to the tier's south face; the sheet draws 435.6.",
+      "no_upper_row_figure_elsewhere": "Block 1's is the only upper-row figure on the tier. That is consistent with the wedge: the upper row is a different depth in every block, so there is no one figure to letter, and the surveyor lettered the row that IS constant instead."
+    }
+  },
+  "south_division_control_px": {
+    "$note": "The px-to-northing fit's control (T-1457): both edges of three South Division corridors whose centrelines are committed in data/streets/1835.json, measured on this same sheet by the same row scan, one sample per South Division block that returns the edge. The fit is taken at x_ref_px. These are the northing counterpart of the four corridors measure_north_division_streets.py anchors its EASTING fit on, and the two fits share no arithmetic \u2014 which is what makes their agreeing on the sheet's scale to 0.012 % worth something.",
+    "blocks_sampled": "South Division blocks 19, 18, 17 and 16, by the faces in south_tier_blocks",
+    "lake": {
+      "edge_rows": {
+        "north": [
+          1055,
+          1100
+        ],
+        "south": [
+          1105,
+          1145
+        ]
+      },
+      "north": [
+        [
+          1851.0,
+          1069.98
+        ],
+        [
+          2078.5,
+          1075.98
+        ],
+        [
+          2309.0,
+          1081.69
+        ],
+        [
+          2539.0,
+          1086.5
+        ]
+      ],
+      "south": [
+        [
+          1851.0,
+          1112.95
+        ],
+        [
+          2078.5,
+          1119.51
+        ],
+        [
+          2309.0,
+          1126.28
+        ],
+        [
+          2539.0,
+          1131.12
+        ]
+      ]
+    },
+    "randolph": {
+      "edge_rows": {
+        "north": [
+          1320,
+          1362
+        ],
+        "south": [
+          1366,
+          1400
+        ]
+      },
+      "north": [
+        [
+          1851.0,
+          1331.84
+        ],
+        [
+          2078.5,
+          1337.3
+        ],
+        [
+          2539.0,
+          1344.48
+        ]
+      ],
+      "south": [
+        [
+          2078.5,
+          1383.12
+        ],
+        [
+          2309.0,
+          1387.04
+        ]
+      ]
+    },
+    "washington": {
+      "edge_rows": {
+        "north": [
+          1578,
+          1616
+        ],
+        "south": [
+          1620,
+          1660
+        ]
+      },
+      "north": [
+        [
+          1851.0,
+          1590.08
+        ],
+        [
+          2078.5,
+          1594.84
+        ],
+        [
+          2309.0,
+          1599.4
+        ],
+        [
+          2539.0,
+          1601.48
+        ]
+      ],
+      "south": [
+        [
+          1851.0,
+          1636.85
+        ],
+        [
+          2078.5,
+          1641.89
+        ],
+        [
+          2309.0,
+          1645.1
+        ]
+      ]
+    }
   }
 }

@@ -28,11 +28,11 @@
   "lines_the_1_april_transcription_drops": 30,
   "of_those_carried_by_another_impression": 28,
   "of_those_carried_by_no_claim_at_all": 2,
-  "reaches_a_card": 79,
+  "reaches_a_card": 89,
   "by_outcome": {
-   "refused": 112,
-   "held_already": 22,
-   "minted": 57,
+   "minted": 66,
+   "refused": 102,
+   "held_already": 23,
    "unread": 2
   },
   "lines_whose_reading_the_page_disagrees_with": 28,
@@ -52,9 +52,10 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "minted",
     "person": "person_constant_abbott",
-    "reason": "the town already names a Abbott",
+    "household": "hh_abbott_constant",
+    "card_name": "Constant Abbott",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -539,9 +540,10 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "minted",
     "person": "person_harriet_bradford",
-    "reason": "the town already names a Bradford",
+    "household": "hh_bradford_harriet",
+    "card_name": "Harriet Bradford",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -888,9 +890,10 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "minted",
     "person": "person_chas_h_chapman",
-    "reason": "the town already names a Chapman",
+    "household": "hh_chapman_chas_h",
+    "card_name": "Chas. H. Chapman",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -1175,9 +1178,10 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "minted",
     "person": "person_sidney_dyer",
-    "reason": "the town already names a Dyer",
+    "household": "hh_dyer_sidney",
+    "card_name": "Sidney Dyer",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -1271,9 +1275,10 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "minted",
     "person": "person_pierce_downer",
-    "reason": "the town already names a Downer",
+    "household": "hh_downer_pierce",
+    "card_name": "Pierce Downer",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -1964,10 +1969,12 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "held_already",
     "person": "person_sanford_johns_o_n",
-    "reason": "garbled",
-    "by": "tools/mint_letter_list_residents.py"
+    "resident": "johnson_sanford",
+    "household": "hh_johnson_sanford",
+    "card_name": "Sanford Johnson",
+    "action": "enrich"
    }
   },
   {
@@ -2374,9 +2381,10 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "minted",
     "person": "person_philo_c_mills",
-    "reason": "the town already names a Mills",
+    "household": "hh_mills_philo_c",
+    "card_name": "Philo C. Mills",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2706,9 +2714,10 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "minted",
     "person": "person_geo_n_powell",
-    "reason": "the town already names a Powell",
+    "household": "hh_powell_geo_n",
+    "card_name": "Geo. N. Powell",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2785,9 +2794,10 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "minted",
     "person": "person_francis_perry",
-    "reason": "the town already names a Perry",
+    "household": "hh_perry_francis",
+    "card_name": "Francis Perry",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3043,9 +3053,9 @@
    "reaches": {
     "kind": "held_already",
     "person": "person_wm_v_smith",
-    "resident": "smith_william",
-    "household": "hh_smith_william",
-    "card_name": "William Smith",
+    "resident": "smith_william_v",
+    "household": "hh_smith_william_v",
+    "card_name": "William V Smith",
     "action": "enrich"
    }
   },
@@ -3160,9 +3170,9 @@
    "reaches": {
     "kind": "held_already",
     "person": "person_lyman_smith",
-    "resident": "smith_lawrence",
-    "household": "hh_smith_lawrence",
-    "card_name": "Lawrence Smith",
+    "resident": "smith_l_w",
+    "household": "hh_smith_l_w",
+    "card_name": "L W Smith",
     "action": "enrich"
    }
   },
@@ -3179,9 +3189,10 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "minted",
     "person": "person_franklin_spalding",
-    "reason": "the town already names a Spalding",
+    "household": "hh_spalding_franklin",
+    "card_name": "Franklin Spalding",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3811,7 +3822,7 @@
     "chicago_democrat_1834_04_08#c001"
    ],
    "rule": "dropped by the 1 April transcription and carried by another impression's claim, so it enters the mint's pool through that claim and is minted or refused there",
-   "reaches": "refused"
+   "reaches": "minted"
   },
   {
    "n": 27,
@@ -4005,7 +4016,7 @@
     "chicago_democrat_1834_04_08#c002"
    ],
    "rule": "dropped by the 1 April transcription and carried by another impression's claim, so it enters the mint's pool through that claim and is minted or refused there",
-   "reaches": "refused"
+   "reaches": "minted"
   },
   {
    "n": 122,
@@ -4222,8 +4233,8 @@
      "tied_by": "spelling"
     }
    ],
-   "card_name": null,
-   "reaches": "refused"
+   "card_name": "Pierce Downer",
+   "reaches": "minted"
   },
   {
    "n": 80,

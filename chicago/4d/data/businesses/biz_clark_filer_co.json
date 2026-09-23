@@ -1,0 +1,94 @@
+{
+  "id": "biz_clark_filer_co",
+  "register_id": "business_clark_filer_co",
+  "name": "Clark, Filer & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "cabinet shop; chairs",
+  "occupation": "joiner",
+  "goods": [
+    "Bedsteads",
+    "Bureaus",
+    "Chairs",
+    "Cradles",
+    "Desks",
+    "Secretaries",
+    "Show Cases",
+    "Sideboards",
+    "Sofas",
+    "Tables",
+    "bedsteads",
+    "bureaus",
+    "chairs",
+    "cradles",
+    "music stools",
+    "sideboards",
+    "sofas",
+    "tables"
+  ],
+  "firm_styles": [
+    "Clark, Filer & Co."
+  ],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1834-05-28",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of randolph and names nothing narrower."
+    }
+  ],
+  "dates": {
+    "opened": "1834-05-28",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-05-28, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-05-28",
+    "last_issue": "1834-12-10",
+    "copy_dates": [
+      "1834-05-20",
+      "1834-06-10"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_05_28#c007",
+    "chicago_democrat_1834_06_11#c005",
+    "chicago_democrat_1834_06_18#c009",
+    "chicago_democrat_1834_07_02#c014",
+    "chicago_democrat_1834_12_10#c005"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

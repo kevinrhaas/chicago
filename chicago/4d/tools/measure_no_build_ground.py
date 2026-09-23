@@ -100,18 +100,35 @@ def ring_area(polygon) -> float:
     return abs(total) / 2
 
 
+# The Original Town's west boundary, and the easting the West Division tiers were clipped
+# at until T-1443 carried them to Des Plaines Street. `plat_bearing` reads the grid east
+# of it; see that function's own note for why.
+ORIGINAL_TOWN_WEST_E = -320.0
+
+
 def plat_bearing() -> float:
     """The plat's east-west slope in local ENU, read off the committed centrelines.
 
-    Lake, Randolph and Washington are three straight committed lines of the same grid.
-    They agree exactly, and the agreement is asserted rather than assumed: a grid whose
-    own streets disagree is a finding, not a number to average away.
+    Lake, Randolph and Washington are three committed lines of the same grid. They agree
+    exactly, and the agreement is asserted rather than assumed: a grid whose own streets
+    disagree is a finding, not a number to average away.
+
+    MEASURED OVER THE ORIGINAL TOWN AND NOT OVER THE WHOLE RECORD (T-1443). Until the
+    West Division tiers were carried off their E -320 clip, "the whole record" and "the
+    Original Town" were the same reach and this read path[0] to path[-1]. They are no
+    longer the same: each of these three now runs on west of -320 to Des Plaines Street.
+    That reach is DERIVED FROM this bearing — `tools/carry_west_tiers_west.py` carries the
+    three on the very number this function returns — so letting it back in here would let
+    a derived line redefine the grid it was derived from, and on a polyline with an
+    interior vertex it does not even return the same number. The plat's east-west bearing
+    is a reading of the Original Town, so it is taken there: vertices west of the old clip
+    are dropped before the chord, and the three still have to agree to six decimals.
     """
     slopes = []
     for street in load(STREETS_PATH)["streets"]:
         if street["id"] not in {"lake", "randolph", "washington"}:
             continue
-        path = street["path_local_enu_m"]
+        path = [p for p in street["path_local_enu_m"] if p[0] >= ORIGINAL_TOWN_WEST_E]
         (ax, ay), (bx, by) = path[0], path[-1]
         slopes.append(round((by - ay) / (bx - ax), 6))
     if len(slopes) != 3:

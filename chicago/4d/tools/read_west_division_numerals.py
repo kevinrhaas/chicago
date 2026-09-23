@@ -27,12 +27,21 @@ THE THREE KINDS OF SIDE, AND WHICH BLOCKS USE WHICH.
                      and `canal` are continued north and south the same way where
                      a tier lies past their ends. This is T-1094's rule turned
                      through ninety degrees.
-  stepped            Jefferson Street and Des Plaines Street are REFUSED as
-                     streets — both lie wholly west of the modelled ground's edge
-                     at east -320 m, and docs/RESEARCH/west_division_streets.md §2
-                     refuses them on exactly that ground. So they are not read
-                     from here and nothing is written into data/streets/1835.json.
-                     The two flanks they would give are instead `clinton` STEPPED
+  stepped            Jefferson Street and Des Plaines Street were REFUSED as
+                     streets when these eighteen numerals were read — both lay
+                     wholly west of the modelled ground's edge at east -320 m, and
+                     docs/RESEARCH/west_division_streets.md §2 refused them on
+                     exactly that ground. T-1430 HAS SINCE SEATED BOTH, on the
+                     field T-1416 built out to east -705, and THE CROPS STILL COME
+                     OFF THE STEP. That is deliberate and it is not laziness: a
+                     crop here is the CITATION of a numeral already read, and
+                     re-cutting eighteen of them from lines that did not exist when
+                     they were read would re-read eighteen numerals to no purpose.
+                     `corroboration()` below measures the step against the two
+                     seated lines' own control every run — 8.70 m and 8.22 m — so
+                     what the agreement MEANS has changed (two instruments agreeing,
+                     rather than one licensing the other) while what it MEASURES has
+                     not. The two flanks are therefore still `clinton` STEPPED
                      WEST by one and two modules, the module being the same
                      123.36 m the Original Town's seven flanking lines measure at
                      Madison Street (tools/read_washington_madison_numerals.py's
@@ -177,13 +186,37 @@ def flank_x(streets, name: str, y: float) -> float:
     return _along(streets[name]["path_local_enu_m"], y, 1)
 
 
+# The five tiers this file CONTINUES west, and the easting they were continued from.
+# T-1443 carried all five past it to Des Plaines Street; `band_y` reads them as they
+# stood when the eighteen numerals were read, and says why below.
+CONTINUED_TIERS = ("carroll", "fulton", "lake", "randolph", "washington")
+CONTINUED_FROM_E = -320.0
+
+
 def band_y(streets, street: str, x: float) -> float:
     """The northing of a tier line at a given east. Kinzie is two committed
     segments sharing the endpoint at east -320; west of it, `kinzie_west` is the
-    committed line and is used rather than extrapolating `kinzie` over it."""
+    committed line and is used rather than extrapolating `kinzie` over it.
+
+    THE FIVE CONTINUED TIERS ARE READ AT THEIR OLD CLIP, and that is the same ruling the
+    module docstring makes about Jefferson and Des Plaines, applied to the other axis.
+    T-1443 carried `carroll`, `fulton`, `lake`, `randolph` and `washington` west to Des
+    Plaines Street, so the ground this file used to CONTINUE them over is now committed
+    line — and three of the five arrive there on the plat's grid bearing rather than on
+    the terminal segment this file extrapolated. Reading the carried line would move two
+    of the eighteen crops by a pixel. A crop here is the CITATION of a numeral already
+    read; it is not a claim about where the street runs, and a street reaching further
+    than it did is no reason to re-cut a reading nobody is re-taking. So the vertices
+    west of the old clip are dropped and the continuation is taken from exactly the
+    reach that was there when the numerals were read. `corroboration()` measures the
+    stand-ins against the seated lines every run, which is where the carry SHOULD show
+    up — as two instruments agreeing, not as a silent re-cut."""
     if street == "kinzie" and x < -320.0:
         street = "kinzie_west"
-    return _along(streets[street]["path_local_enu_m"], x, 0)
+    path = streets[street]["path_local_enu_m"]
+    if street in CONTINUED_TIERS:
+        path = [p for p in path if p[0] >= CONTINUED_FROM_E] or path
+    return _along(path, x, 0)
 
 
 def boxes(streets) -> dict[int, tuple[str, tuple[float, float, float, float]]]:
@@ -325,10 +358,23 @@ def main() -> int:
         streets["clinton"]["path_local_enu_m"][0][0] += 40.0
         if not check(streets):
             failures.append("Clinton Street moved 40 m and the crop check stayed silent")
+        # PERTURB THE VERTEX THE CROPS ACTUALLY STAND ON, which since T-1443 is no longer
+        # `lake`'s first. The five continued tiers now run on west of the old clip and
+        # `band_y` reads them at it, deliberately — so moving the carried reach must NOT
+        # fire, and moving the line the crops were cut from must. Both are asserted.
+        streets = _streets()
+        old_clip = next(i for i, q in enumerate(streets["lake"]["path_local_enu_m"])
+                        if abs(q[0] - CONTINUED_FROM_E) < 1e-6)
+        streets["lake"]["path_local_enu_m"][old_clip][1] += 30.0
+        if not check(streets):
+            failures.append("Lake Street moved 30 m north at the clip the crops are cut "
+                            "from and the crop check stayed silent")
         streets = _streets()
         streets["lake"]["path_local_enu_m"][0][1] += 30.0
-        if not check(streets):
-            failures.append("Lake Street's west end moved 30 m north and the crop check stayed silent")
+        if check(streets):
+            failures.append("moving Lake Street's CARRIED west end re-cut the crops — a "
+                            "reading already taken is not re-cut by a street reaching "
+                            "further than it did (T-1443)")
         held = committed()
         if held:
             first = held[min(held)]
@@ -353,7 +399,7 @@ def main() -> int:
             print(f"SELF-TEST FAILED: {f}")
         if failures:
             return 1
-        print("self-test: moving Clinton 40 m or Lake's west end 30 m breaks the crop check, a "
+        print("self-test: moving Clinton 40 m or Lake 30 m at the clip the crops are cut from breaks the crop check while moving Lake's carried west end does not, a "
               "read window slid out of its box measures the overhang that slide produces, and a "
               "tier band read backwards breaks the boustrophedon, as they must")
         return 0

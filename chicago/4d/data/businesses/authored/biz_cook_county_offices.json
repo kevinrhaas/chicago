@@ -1,0 +1,77 @@
+{
+  "id": "biz_cook_county_offices",
+  "register_id": null,
+  "name": "The Cook County offices, in Richard J. Hamilton's own room",
+  "provenance": "authored",
+  "type": [
+    "civic"
+  ],
+  "trade": "the county's offices — the clerk, the probate, the recording and the notary work of Cook County, all in one man's hands",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Richard Jones Hamilton",
+      "person_id": "hamilton_richard_j",
+      "register_person_id": null,
+      "role": "county_clerk",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "Clerk of the Cook County Commissioners' Court, attested on the resident card at Andreas and carried there as the office he held at the scene date. THE RECORDER IS NOT YET HIS. Andreas has him 'elected Recorder at the August election' of 1835 — a month after this scene — so only the clerkship is claimed here, and the several other county offices Andreas gathers on him are named in this record's `trade` as the work the room did rather than as dated seats.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": []
+    }
+  ],
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "basis": "THE COUNTY HAD NO BUILDING ON 1 JULY 1835, and that half is attested: the brick court-house on the north-east corner of the public square was erected 'during the fall of the year (1835,)' with the county offices in its lower story, and Hamilton 'removed his office toward the end of October to the new building recently erected by the county on the public square' (scan pp. 369, 305). A removal in October says the office was somewhere else in July. That somewhere is the inference: before the county building existed its offices were the officer's own room, which is how the civic dossier reads the same passage.",
+      "limit_reason": "NO SOURCE REACHED NAMES THE ROOM. The county building is dated out of the scene and the log jail on the north-west corner of the square is a jail; nothing puts the clerk's desk at an address. The record stops at 'not on the square, and not in a building of the county's own'. THE TOWN'S OWN OFFICES STOP HERE TOO, and for a stronger reason than silence: the town of Chicago had no ground at all — its fire company had to ask the COUNTY for leave to build on the county's square, and the town polled its elections in taverns — so `chicago_town_hall` stands in data/exclusions.json as a kind guard with no date, and no town premises is written here or anywhere."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "inferred",
+    "basis": "Cook County was organised in 1831 and its offices are older than anything this record can date; what the record fixes is not an opening but a NEGATIVE — that on 1 July 1835 they were not yet in the county's own building. The end of that state is dated, and it is October 1835, outside this scene."
+  },
+  "evidence": {
+    "first_issue": null,
+    "last_issue": null,
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "andreas_1884_v1"
+  ],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A printing, a deed or a county minute naming the room or the building Hamilton kept the county's offices in before the court-house — that would turn this unplaceable into a premises or a street."
+}

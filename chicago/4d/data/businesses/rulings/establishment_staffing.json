@@ -1,0 +1,328 @@
+{
+ "id": "1835_establishment_staffing",
+ "schema": 1,
+ "ticket": "T-1422",
+ "parent_ticket": "T-1411",
+ "read_by": "tools/compile_businesses.py",
+ "not_a_reading": "AN OVERLAY, NOT A COMPILATION. Every entry names a record tools/compile_businesses.py builds from the newspaper register, and adds to it the two things the register itself cannot carry: the hands the 1835 business staffing model puts about that kind of house, and the staff rows a source outside the register's own notice attests. The readings are cited on each row and made nowhere else.",
+ "why_this_file_exists": "T-1411 asked for the churches, the schools and the press as establishments with their people, and split because two thirds of it had nowhere to land. A church needed no overlay: the class held no records at all and every congregation is authored whole into data/businesses/authored/. The schools and the printing offices are different — the register COMPILES them, `--check` refuses a hand edit to a compiled record, and the authored directory holds whole records rather than additions to compiled ones. So a reading about the Democrat's apprentice, or about who taught at the Chicago Academy, had no home in the layer and the split says so in as many words. This is that home.",
+ "writes_no_person": "The staffing model writes no person and names none, and neither does the `staffing` block this file carries: it says what KIND of hand a kind of house employed, with `drawn: false` and a reason wherever nobody has been written. A hand a SOURCE names is a different thing and goes in `staff`, with its citation, at the tier the evidence supports. One such row exists today, and it is the Democrat's advertised apprentice.",
+ "the_principal_is_never_repeated": "Where the keeper works the trade himself — the teacher of a one-room school, the printer who owns the press — `principal_role` and `principal_is` point at the proprietor or partner row this record ALREADY carries. No second row is written. Counting a man once is the whole of the rule, and the schools are where it bites: the seven teachers of the December census's seven schools are, to the last one, the seven keepers the register prints.",
+ "model": "data/reconstruction/1835_business_staffing_model.json",
+ "scene_date": "1835-07-01",
+ "entries": [
+  {
+   "business_id": "biz_the_chicago_academy",
+   "staff": [],
+   "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "G. T. Sproat, this record's proprietor, whom the advertisement of 3 December 1833 signs 'G. T. SPROAT, Preceptor.'",
+    "hands": [
+     {
+      "role": "teacher",
+      "household_relationship": "household_member",
+      "count_low": 0,
+      "count_typical": 0,
+      "count_high": 1,
+      "drawn": false,
+      "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+      "why_not_drawn": "No source reached names a second person teaching at the academy. Sproat advertises himself alone, as preceptor, and the four departments of his fee table are subjects rather than staff."
+     }
+    ],
+    "attendance": {
+     "value": null,
+     "kind": "none_printed",
+     "tier": null,
+     "on_date": null,
+     "basis": "NO FIGURE IS PRINTED. The academy's prospectus runs to seventy lines of terms and book lists and counts nobody: it offers 'the reception of scholars fro[m the beginning] of pupilage, on through their [whole] course of Academical study' and prices four departments by the quarter. A fee table is what a school printed INSTEAD of a roll, and reading a roll off one would be inventing the school's size from the price of it."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence."
+   }
+  },
+  {
+   "business_id": "biz_john_watkins",
+   "staff": [],
+   "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "John Watkins, this record's proprietor, whom Andreas's schools chapter has 'then teaching what had become a public school on the North Side' in 1835.",
+    "hands": [
+     {
+      "role": "teacher",
+      "household_relationship": "household_member",
+      "count_low": 0,
+      "count_typical": 0,
+      "count_high": 1,
+      "drawn": false,
+      "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+      "why_not_drawn": "No source reached names a second person teaching with Watkins. The one arrangement any source describes runs the other way: after his first quarter he taught in one end of Jesse Walker's double log house while Walker lived in the other and preached in the schoolroom on Sundays — a lodger with a pulpit, not an usher with a class."
+     }
+    ],
+    "attendance": {
+     "value": 12,
+     "kind": "attending",
+     "tier": "attested",
+     "on_date": "1832",
+     "basis": "THE ONLY PUPIL FIGURE ANY SOURCE THIS PROJECT HOLDS PRINTS FOR ANY CHICAGO SCHOOL, AND IT IS NOT A FIGURE FOR THIS ROOM OR THIS YEAR. Andreas quotes Watkins's own later letter on his FIRST quarter: thirty scholars subscribed for but only twelve attending, 'only four of them were white: the others were quarter, half, and three-quarters Indians'. That quarter was taught in the autumn of 1832 in Colonel Hamilton's horse stable, twelve feet square — three years before the scene date and two moves before the schoolhouse this record is seated on. It is carried here, with its own date on it, because a dated figure can be read with its date where a silence cannot be read at all; it is NOT the attendance of 1 July 1835 and nothing may read it as one. The thirty subscribed is the number docs/RESEARCH/north_side_school_1833.md sizes the schoolhouse's conjectural footprint for, and that is the whole of the use this project makes of it."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence."
+   }
+  },
+  {
+   "business_id": "biz_miss_bayne_s_boarding_and_day_school",
+   "staff": [],
+   "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "[uncertain: Miss Bayne], this record's proprietor. The register could not match the printed style to a town card, so the teacher is named and unlinked — which is a finding about the resident layer and not a gap in this school.",
+    "hands": [
+     {
+      "role": "teacher",
+      "household_relationship": "household_member",
+      "count_low": 0,
+      "count_typical": 0,
+      "count_high": 1,
+      "drawn": false,
+      "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+      "why_not_drawn": "No source reached names a second person teaching at Miss Bayne's. A boarding and day school of this size is the keeper's own room; the servants such a house kept are domestic and belong to its household rather than to its staff."
+     }
+    ],
+    "attendance": {
+     "value": null,
+     "kind": "none_printed",
+     "tier": null,
+     "on_date": null,
+     "basis": "NO FIGURE IS PRINTED. What the notice of 23 July 1834 prints instead is a price list — grammar, geography, use of the globes, writing and needlework at $3 00 per quarter, fancy work at $5 00, oriental drawing at $7 00, transfer and velvet painting at $8 00 — and a boarding school that prints its terms is soliciting pupils, not returning them."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence."
+   }
+  },
+  {
+   "business_id": "biz_j_a_marshall_s_dancing_school",
+   "staff": [],
+   "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "J. A. Marshall, this record's proprietor, who advertises the tuition, sets the hours and sells the tickets himself.",
+    "hands": [
+     {
+      "role": "teacher",
+      "household_relationship": "household_member",
+      "count_low": 0,
+      "count_typical": 0,
+      "count_high": 1,
+      "drawn": false,
+      "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+      "why_not_drawn": "No source reached names a second person teaching with Marshall. The dancing school hires a ROOM and not a staff: it met in Messrs. Johnson & Stevens' Assembly Room at the New York House, and the people of that house are the tavern's, not the school's."
+     }
+    ],
+    "attendance": {
+     "value": null,
+     "kind": "none_printed",
+     "tier": null,
+     "on_date": null,
+     "basis": "NO FIGURE IS PRINTED, AND THE NOTICE IS THE OPPOSITE OF A COUNT: 'Those wishing to become pu[p]ils will please leave their address at the Ex[c]hange Co[ff]ee House.' That is a school advertising for a class it does not yet have. It does divide the class it hopes for by hour — 'Miss[e]s and young Mas[t]ers, from 2 until 5 o'clock, P. M; and from 6 until 9 for the elder class of Gentlemen' — which is a shape and not a number."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence."
+   }
+  },
+  {
+   "business_id": "biz_samuel_lewis",
+   "staff": [],
+   "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "Samuel Lewis, this record's partner row — the register prints him as the house's one person and the compiler files an unpaired principal under `partners`.",
+    "hands": [
+     {
+      "role": "teacher",
+      "household_relationship": "household_member",
+      "count_low": 0,
+      "count_typical": 0,
+      "count_high": 1,
+      "drawn": false,
+      "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+      "why_not_drawn": "No source reached names a second person teaching music with Lewis. The room itself is borrowed — A. Garrett's Auction Room on South Water Street — and the auctioneer's hands are the auction room's."
+     }
+    ],
+    "attendance": {
+     "value": null,
+     "kind": "none_printed",
+     "tier": null,
+     "on_date": null,
+     "basis": "NO FIGURE IS PRINTED, AND ONE WAS BEING WAITED FOR. On 5 August 1835 Lewis advertised that he would begin when enough scholars offered; a week later he 'HAS commenced' and asks 'Heads of families who wish their [sons] and daughters instructed' to call at his room. A master waiting on a subscription has no roll to print, and both notices fall after the scene date in any case."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence."
+   }
+  },
+  {
+   "business_id": "biz_hiram_everts_high_school_for_young_gentlemen",
+   "staff": [],
+   "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "Hiram Everts, this record's proprietor, whose testimonials from Professor Whitman of the Hamilton Institution were shown at a private house in Chicago.",
+    "hands": [
+     {
+      "role": "teacher",
+      "household_relationship": "household_member",
+      "count_low": 0,
+      "count_typical": 0,
+      "count_high": 1,
+      "drawn": false,
+      "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+      "why_not_drawn": "No source reached names a second person teaching for Everts, and the school had not yet opened at the scene date for one to teach in."
+     }
+    ],
+    "attendance": {
+     "value": null,
+     "kind": "none_printed",
+     "tier": null,
+     "on_date": null,
+     "basis": "NO FIGURE IS PRINTED, AND THE SCHOOL ITSELF WAS CONDITIONAL: Everts 'will [open a] HIGH SCHOOL for Young Gentlemen [on] the 10th of the present month, SHOULD SUFFICIENT ENCOURAGEMENT BE OFFERED'. What the notice prints is a fee scale — $5 a term of eleven weeks for the ordinary English branches, $6 for the higher, $8 for Latin and Greek. THIS SCHOOL WAS NOT STANDING ON 1 JULY 1835: the register carries it `present_at_scene_date: false` under `opening_announced_after_scene_date`, and its opening is dated 10 August 1835."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence."
+   }
+  },
+  {
+   "business_id": "biz_charles_hunt_high_school_for_young_ladies",
+   "staff": [],
+   "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "Charles Hunt, this record's proprietor, who 'proposes to establish [in] Chicago on a permanent foundation [a] HIGH SCHOOL for Young Ladies'.",
+    "hands": [
+     {
+      "role": "teacher",
+      "household_relationship": "household_member",
+      "count_low": 0,
+      "count_typical": 0,
+      "count_high": 1,
+      "drawn": false,
+      "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+      "why_not_drawn": "No source reached names a second person teaching for Hunt, and the school had not yet opened at the scene date for one to teach in."
+     }
+    ],
+    "attendance": {
+     "value": null,
+     "kind": "none_printed",
+     "tier": null,
+     "on_date": null,
+     "basis": "NO FIGURE IS PRINTED, AND THE SUBSCRIPTION LIST THAT WOULD HAVE CARRIED ONE LAY IN A LAWYER'S OFFICE: 'Persons desirous of encouraging such an institution are requested to leave their names, previous to that time, at the office of Henry Moore, Esq.' Whoever wrote their name there is the nearest thing to a roll this school ever had, and no source reached prints it. THIS SCHOOL WAS NOT STANDING ON 1 JULY 1835: the register carries it `present_at_scene_date: false` under `opening_announced_after_scene_date`, and its first term is dated Monday 17 August 1835."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence."
+   }
+  },
+  {
+   "business_id": "biz_chicago_democrat_printing_office",
+   "staff": [
+    {
+     "name": "[unnamed: the apprentice wanted at this office]",
+     "person_id": null,
+     "register_person_id": null,
+     "role": "apprentice",
+     "from": "1835-05-20",
+     "to": null,
+     "tier": "inferred",
+     "basis": "THE OFFICE ADVERTISED FOR HIM SIX WEEKS BEFORE THE SCENE DATE, AND WHETHER HE CAME IS NOT PRINTED. The Democrat of 20 May 1835 carries, in its own columns: 'Wanted immediately, [a]n apprentice at this office to the printing [b]usiness. A good opportunity is offere[d] by an immediate application.' That is the one hand any notice in this corpus places in either printing office, and it is a VACANCY and not a man — which is exactly why the row stands at `inferred` and names nobody. What is attested is the want; what is inferred is that a shop advertising 'immediately' in a town of this size had its boy within six weeks. A reading that the place went unfilled through July is open and this row must be able to take it. NO PERSON IS CLAIMED: `person_id` is null because no name was printed, not because the resident layer was not searched.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1835_05_20#c007"
+     ],
+     "also_printed_as": []
+    }
+   ],
+   "staffing": {
+    "class": "printing_office",
+    "reads_as": "a printing office",
+    "principal_role": "printer",
+    "principal_is": "John Calhoun, this record's proprietor, whom the corpus prints as editor and printer of the Democrat from its first number.",
+    "hands": [
+     {
+      "role": "printer",
+      "household_relationship": "journeyman",
+      "count_low": 1,
+      "count_typical": 1,
+      "count_high": 2,
+      "drawn": false,
+      "basis": "directory_1839, off the staffing model's `printing_office` class: journeymen at case and press. Fergus's 1839 list counts fifteen printers — compositors, pressmen and job printers — against two editors, and the two offices of the 1835 census are the establishments those hands worked in four years earlier.",
+      "why_not_drawn": "No source reached names a journeyman at the Democrat. The office's own advertisement of 20 May 1835 wants an APPRENTICE, which is the cheaper hand, and a shop that is advertising for the cheaper hand is not evidence that it already had the dearer one."
+     },
+     {
+      "role": "printer",
+      "household_relationship": "apprentice",
+      "count_low": 0,
+      "count_typical": 1,
+      "count_high": 2,
+      "drawn": true,
+      "basis": "period_convention, off the staffing model's `printing_office` class: the apprentice, who lives in. Its analogue is the journeyman row above; the project holds no roll of either office's hands — docs/RESEARCH/chicago_democrat_office.md reads the imprint and no roll.",
+      "why_not_drawn": null
+     }
+    ],
+    "attendance": null,
+    "writes_no_person": true,
+    "basis": "THE ONE HOUSE IN THIS LAYER WHOSE OWN COLUMNS ADVERTISED FOR A HAND. The model puts 1–2–4 about John Calhoun's press; this record now carries one of them, at `inferred`, on the office's own notice of 20 May 1835, and leaves the journeyman undrawn because nothing names him. Calhoun himself is a printer and is not counted twice: he stands in `proprietors`, where the register put him.",
+    "replaceable_by": "An imprint, a wage book, a later directory or a reminiscence naming anyone who set type or worked the press for the Democrat would turn the apprentice row into a person and draw the journeyman. Any printing that names the boy who answered the May advertisement would settle the one inference this record makes."
+   }
+  },
+  {
+   "business_id": "biz_the_chicago_american_newspaper_and_job_printing_office",
+   "staff": [],
+   "staffing": {
+    "class": "printing_office",
+    "reads_as": "a printing office",
+    "principal_role": "printer",
+    "principal_is": null,
+    "hands": [
+     {
+      "role": "printer",
+      "household_relationship": "journeyman",
+      "count_low": 1,
+      "count_typical": 1,
+      "count_high": 2,
+      "drawn": false,
+      "basis": "directory_1839, off the staffing model's `printing_office` class: journeymen at case and press. Fergus's 1839 list counts fifteen printers — compositors, pressmen and job printers — against two editors, and the two offices of the 1835 census are the establishments those hands worked in four years earlier.",
+      "why_not_drawn": "No source reached names a journeyman at the American. The office advertises its PLANT and not its people — 'we h[a]ve just received a large ad[dition to o]ur stock of printing m[a]terials, [and are no]w prepared to execute all orde[rs with d]espatch' — and a stock of materials is not a roll of hands."
+     },
+     {
+      "role": "printer",
+      "household_relationship": "apprentice",
+      "count_low": 0,
+      "count_typical": 1,
+      "count_high": 2,
+      "drawn": false,
+      "basis": "period_convention, off the staffing model's `printing_office` class: the apprentice, who lives in. Its analogue is the journeyman row above; the project holds no roll of either office's hands — docs/RESEARCH/chicago_democrat_office.md reads the imprint and no roll.",
+      "why_not_drawn": "No source reached names an apprentice at the American either. The Democrat's May advertisement is evidence about the Democrat and nothing may carry it across the street."
+     }
+    ],
+    "attendance": null,
+    "writes_no_person": true,
+    "basis": "THE HOUSE THE REGISTER CANNOT PUT A PERSON IN AT ALL. This record's `proprietors` and `partners` are both empty — the one notice it compiles is the shop advertising itself, signed by nobody — so `principal_is` is null, and that null is the finding. The model still says a printing office of 1835 was worked by 1–2–4 hands about its principal, and every one of them stands here undrawn rather than being invented into a house whose keeper the corpus has not yet named.",
+    "replaceable_by": "A masthead or colophon of the Chicago American naming its publisher would give this record a principal; T. O. Davis and the paper's own proprietors are named in later printings this project has not yet read. Any of them would also be the first person from whom its hands could be reasoned."
+   }
+  }
+ ],
+ "vocabulary_note": "THE ROLE WORDS HERE ARE THE BUSINESS LAYER'S, NOT THE MODEL'S. `hands[].role` is the `role` enum of data/businesses.schema.json, because these rows are carried onto business records and a record may hold one vocabulary only. Where the staffing model spells the same office differently — its `schoolteacher` against this layer's `teacher` — the row's basis says so, and `household_relationship` carries the model's own second word unchanged so the join back to it is exact."
+}

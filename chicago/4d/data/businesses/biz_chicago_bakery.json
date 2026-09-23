@@ -1,0 +1,170 @@
+{
+  "id": "biz_chicago_bakery",
+  "register_id": "business_chicago_bakery",
+  "name": "Chicago Bakery",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "baker",
+  "occupation": "baker",
+  "goods": [
+    "Bread",
+    "Cakes",
+    "Crackers"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "D. Graves",
+      "person_id": null,
+      "register_person_id": "person_d_graves",
+      "role": "proprietor",
+      "from": "1834-04-01",
+      "to": "1834-09-10",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_d_graves with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_04_01#c008",
+        "chicago_democrat_1834_09_10#c016"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Otis Dickinson",
+      "person_id": "rc_dickinson_otis",
+      "role": "journeyman",
+      "occupation": "baker",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a bakery at the typical band and 1 at the high end, on directory_1839. 11 bakers in 1839. A bakehouse is worked at night and the hand sleeps there. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#bakery.baker; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_dickinson_otis:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    },
+    {
+      "name": "Bryan Flynn",
+      "person_id": "rc_flynn_bryan",
+      "role": "household_member",
+      "occupation": "labourer",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 0 of this role in a bakery at the typical band and 1 at the high end, on period_convention. A boy on the delivery basket. Analogue: the bakehouse above. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#bakery.labourer; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_flynn_bryan:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "bakery",
+    "reads_as": "a bakery",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "journeyman",
+        "occupation": "baker",
+        "household_relationship": "journeyman",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "directory_1839"
+      },
+      {
+        "role": "household_member",
+        "occupation": "labourer",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "period_convention"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 2,
+      "seats_against_the_band": 1,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "baker",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        },
+        {
+          "occupation": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 2. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1834-04-01",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Messrs. Newbury & Dole's store\" names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-04-01",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-04-01, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-04-01",
+    "last_issue": "1834-09-10",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_04_01#c008",
+    "chicago_democrat_1834_09_10#c016"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

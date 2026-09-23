@@ -2,7 +2,7 @@
 /**
  * The gate that measures the SHIPPED form of the residents layer.
  *
- * `tools/publish.sh` writes `site/4d/data/residents/**.json` MINIFIED, which is
+ * `tools/publish.sh` writes `site/chicago/4d/data/residents/**.json` MINIFIED, which is
  * the one path in the mirror that is not byte-identical to its source, so
  * `check_published.mjs` lists it under TRANSFORMED and points here. The reason is the
  * size budget: 1,380 hand-annotated household records whose notes run to paragraphs came

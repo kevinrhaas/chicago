@@ -59,9 +59,9 @@ get parked on `hold` with finished, green work.
 |---|---|
 | `chicago/4d/tickets/BOARD.md` | `ticket.mjs check` — refuses a stale board |
 | `chicago/4d/tickets/tickets.json` | same |
-| `site/4d/tickets.json` | `test_ticket_mirror.mjs` — asserts a mirror somebody made stale still fails |
-| `site/4d/build.json` | `check_published.mjs` |
-| `site/4d/walk/index.html` | `check_published.mjs` — every published file is byte-identical to its source or a declared transform |
+| `site/chicago/4d/tickets.json` | `test_ticket_mirror.mjs` — asserts a mirror somebody made stale still fails |
+| `site/chicago/4d/build.json` | `check_published.mjs` |
+| `site/chicago/4d/walk/index.html` | `check_published.mjs` — every published file is byte-identical to its source or a declared transform |
 
 Verified by reading `check.sh`, not assumed. **The gate already stands in for the
 conflict on all five**, which is precisely the argument `docs/LIBERTIES.md`'s

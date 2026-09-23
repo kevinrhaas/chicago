@@ -53,6 +53,7 @@ import json, os, re, sys
 from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from reconstructed_person import is_reconstructed  # noqa: E402
 import trade_recorded     # "does the layer hold a trade?" (T-0867), imported not restated
 import tiebreak            # the tie discriminator (T-0696), likewise
 import name_agreement as na  # the forename rule (T-0670), likewise
@@ -126,6 +127,11 @@ def residents():
             continue
         doc = json.load(open(os.path.join(HH, fn), encoding="utf-8"))
         for p in doc.get("persons") or []:
+            # T-1171: a person the reconstruction programme DREW is not a name any source printed.
+            # Matching one to a printed name would be this project reading its own invention
+            # back as evidence. reconstructed_person.py holds the rule.
+            if is_reconstructed(p):
+                continue
             name = (p.get("name") or "").strip()
             if not name or (p.get("id") or "").endswith("_household"):
                 continue
@@ -139,6 +145,12 @@ def residents():
                 "grade": p.get("grade"),
                 "occupation": ((p.get("occupation") or {}).get("value")),
                 "occupation_confidence": ((p.get("occupation") or {}).get("confidence")),
+                # T-1299. Whether this trade was PROMOTED out of the card's own
+                # `roles[]` rather than read from a source that states it for 1835.
+                # `derive_resident_roles.py` writes the marker beside the value it
+                # promotes; the carry rule below is the only place it is read here.
+                "occupation_promoted": isinstance(
+                    (p.get("occupation") or {}).get("promoted_from_roles"), dict),
                 "lives_at": ((doc.get("lives_at") or {}).get("value")),
             })
     return out
@@ -347,6 +359,7 @@ def main():
         extra=lambda r: {"person_id": r["person_id"], "household_id": r["household_id"],
                          "grade_1835": r["grade"], "occupation_1835": r["occupation"],
                          "occupation_1835_confidence": r["occupation_confidence"],
+                         "occupation_1835_promoted": r["occupation_promoted"],
                          "lives_at_1835": r["lives_at"]})
     # What a match COULD carry, if the pass that spends it decides to. The residents
     # layer writes `none_recorded` where it holds no trade, and 738 of its 849 people
@@ -355,7 +368,34 @@ def main():
         carries = []
         # This file had the predicate right from the start and two of its four
         # siblings did not, so it is stated once now and imported (T-0867).
-        if trade_recorded.absent(m["occupation_1835"]) and any(
+        # TWO QUESTIONS, AND THE PREDICATE USED TO ANSWER ONLY ONE (T-1299).
+        # `trade_recorded.absent` asks "does this card still need a trade?" — the
+        # right question for supplying one. It is NOT the question of whether the
+        # 1839 printing is evidence worth carrying, and the two came apart the
+        # moment a pass began FILLING the 1835 field out of the card's own roles.
+        #
+        # Six cards lost a trade Fergus printed against their names — Hubbard,
+        # Jones, King, Mulford, Sherman, Taylor — not because the 1839 reading was
+        # refused but because promoting their 1835 field closed the gap this test
+        # was watching. The printing did not stop existing; it stopped being
+        # POINTED AT, and `derive_resident_roles.later_role()` reads that pointer
+        # and nothing else, so the row left `roles[]` altogether.
+        #
+        # A promoted trade is the card reading ITS OWN evidence. It says nothing
+        # about what a directory printed four years later, so it cannot be what
+        # withdraws it. The carry is offered here and `spend_directories` still
+        # decides whether to take it; what is carried is still carried as 1839
+        # evidence with `describes_date` 1839, never as an 1835 fact, and no
+        # grade moves — the rule stated below is unchanged.
+        #
+        # This is deliberately the NARROW repair: it restores exactly the cards
+        # this pass took the pointer from, and offers nothing new anywhere else.
+        # Reading Fergus 1839 the way `crosswalk_fergus_1843` and
+        # `crosswalk_norris_1844` are read — as dated roles straight from the
+        # crosswalk, with the pointer a convenience rather than the sole origin
+        # of a role row — is the larger change, and it is T-1515.
+        if (trade_recorded.absent(m["occupation_1835"])
+                or m["occupation_1835_promoted"]) and any(
                 x["occupation_1839"] for x in m["entries_1839"]):
             carries.append("occupation")
         if any(x["streets_1839"] for x in m["entries_1839"]):

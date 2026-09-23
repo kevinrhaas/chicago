@@ -1,0 +1,95 @@
+{
+  "id": "biz_william_clay",
+  "register_id": "business_william_clay",
+  "name": "William Clay",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other",
+    "store"
+  ],
+  "trade": "hat manufacturing and dealing",
+  "occupation": "hatter",
+  "goods": [
+    "Hats"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "William Clay",
+      "person_id": "clay_william",
+      "register_person_id": "person_william_clay",
+      "role": "proprietor",
+      "from": "1834-06-04",
+      "to": "1834-06-04",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card clay_william (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_06_04#c012"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "lake",
+      "face": null,
+      "primary": true,
+      "from": "1834-06-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names Lake Street and nothing narrower; a corner of 'Lake' and 'Franklin streets at the corner of [Lake]', and the plat resolves both sides to ['franklin', 'lake']."
+    }
+  ],
+  "dates": {
+    "opened": "1834-06-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-06-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-06-04",
+    "last_issue": "1834-06-04",
+    "copy_dates": [
+      "1834-05-27"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: William Clay (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "clay_william",
+        "name": "William Clay",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_06_04#c012"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

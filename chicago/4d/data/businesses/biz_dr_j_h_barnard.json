@@ -1,0 +1,152 @@
+{
+  "id": "biz_dr_j_h_barnard",
+  "register_id": "business_dr_j_h_barnard",
+  "name": "Dr. J. H. Barnard",
+  "provenance": "compiled_from_register",
+  "type": [
+    "physician"
+  ],
+  "trade": "physician",
+  "occupation": "physician",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "J. H. Barnard",
+      "person_id": "barnard_j_h",
+      "register_person_id": "person_j_h_barnard",
+      "role": "proprietor",
+      "from": "1835-06-04",
+      "to": "1835-06-13",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card barnard_j_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_13#c009",
+        "chicago_democrat_1835_06_04#c006"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Elisha Metcalf",
+      "person_id": "rc_metcalf_elisha",
+      "role": "clerk",
+      "occupation": "clerk",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 0 of this role in a physician's practice at the typical band and 1 at the high end, on period_convention. A physician's student, on the same footing as the law student. Analogue: as above. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#physician_practice.clerk; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_metcalf_elisha:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "physician_practice",
+    "reads_as": "a physician's practice",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "clerk",
+        "occupation": "clerk",
+        "household_relationship": "clerk",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "period_convention"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 0,
+      "seats_taken": 1,
+      "seats_against_the_band": 0,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts no hand about this kind of house at its typical band; this house carries 1.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": "lake",
+      "face": null,
+      "primary": true,
+      "from": "1835-06-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. The landmark is the committed structure new_york_house.",
+      "limit_reason": "The register places this house against new_york_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "structure",
+        "id": "new_york_house",
+        "title": "New York House",
+        "streets": []
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-04",
+    "last_issue": "1835-06-13",
+    "copy_dates": [
+      "1835-06-03"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: J. H. Barnard (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "barnard_j_h",
+        "name": "J. H. Barnard",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_13#c009",
+    "chicago_democrat_1835_06_04#c006"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

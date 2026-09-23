@@ -1,0 +1,438 @@
+{
+  "$schema_note": "DERIVED — regenerate with tools/reprogramme_roofs_1835.py --build; tools/check.sh re-derives it with --check. Do not hand-edit. The crosswalk's count fields are re-derived by the same --build.",
+  "id": "chicago_july_1835_roof_programme_rederivation",
+  "ticket": "T-1196",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/reprogramme_roofs_1835.py --build",
+  "not_a_reading": "an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground",
+  "inputs": [
+    "data/reconstruction/1835_building_inventory.json",
+    "data/reconstruction/1835_town_model.json",
+    "data/reconstruction/1835_reconstruction_order_book.json",
+    "data/reconstruction/1835_lodging_model.json",
+    "data/reconstruction/1835_family_archetype_crosswalk.json",
+    "data/research/census_1840/composition_1840.json"
+  ],
+  "method": {
+    "one_row_per_group": "Every group in district_group_matrix is asked the question, including the ones no model figure reaches, so a group that stands says why it stands rather than going unmentioned.",
+    "the_unit_is_the_test": "A delta between two different units is not a disagreement about roofs. Each row states what was compared with what.",
+    "nothing_moves_on_a_tautology": "Where a model figure is read off the programme, the row records the circularity and the group stands on the spec.",
+    "no_identity_rulings": "A register record is not folded into another here, and a confidence is never upgraded to close a delta."
+  },
+  "groups": [
+    {
+      "group": "barns_stables",
+      "spec": 73,
+      "model": null,
+      "model_figure": null,
+      "compared_in": "not modelled",
+      "adopted": 73,
+      "delta": 0,
+      "moved": false,
+      "why": "Ancillary. The town model carries no figure for yards and outbuildings and the order book orders none; the ratio to principal roofs is T-1212's to deal. The spec stands untouched."
+    },
+    {
+      "group": "fort_principal",
+      "spec": 10,
+      "model": 10,
+      "model_figure": "lodging_and_institutions.institutional_and_public_roofs",
+      "compared_in": "roofs against roofs",
+      "adopted": 10,
+      "delta": 0,
+      "moved": false,
+      "why": "The fort component of the model's institutional high end, and the same number. The compound is read from its dossiers, not apportioned."
+    },
+    {
+      "group": "inns_taverns",
+      "spec": 10,
+      "model": 11,
+      "model_figure": "lodging_and_institutions.inns_and_taverns",
+      "compared_in": "roofs against printed notices",
+      "adopted": 10,
+      "delta": 0,
+      "moved": false,
+      "why": "THE FOLD RAN AND THE GROUP MEETS THE TOWN EXACTLY (T-1471). The model's 11 is the business register's count of HOUSES at the scene date: 15 records folded to 11 by 4 one-house rulings in trade_class_rulings.json, which is where an identity ruling belongs and this tool still makes none of its own. One of those 11 is E. Wentworth's house on Flag Creek, eighteen miles south of Chicago on the Ottawa road — all five of its printings say so — and a house outside the plat is no roof inside it. That leaves 10 public houses in the town against the 10 this programme schedules: the two figures MEET, and the group is left exactly as it is. The layer stands at 9 of those 10, which is the schedule's own remaining build and not a disagreement about how many there should be."
+    },
+    {
+      "group": "institutional_public",
+      "spec": 9,
+      "model": 9,
+      "model_figure": "lodging_and_institutions.institutional_and_public_roofs",
+      "compared_in": "roofs outside the fort against roofs outside the fort",
+      "adopted": 9,
+      "delta": 0,
+      "moved": false,
+      "why": "The model's low end is the 9 roofs OUTSIDE the fort and its high end adds the 10 principal roofs INSIDE it. The programme schedules both — 9 institutional_public plus 10 fort_principal — so the two agree at 19. The order book's delta of ten is that high end read against one of the two groups."
+    },
+    {
+      "group": "larger_boarding_houses",
+      "spec": 42,
+      "model": 42,
+      "model_figure": "lodging_and_institutions.larger_boarding_houses",
+      "compared_in": "roofs against roofs",
+      "adopted": 42,
+      "delta": 0,
+      "moved": false,
+      "why": "The model reads this figure off district_group_matrix, so its agreement with the programme is the programme agreeing with itself. Recorded as circular rather than banked as corroboration; the group stands because nothing independent moves it."
+    },
+    {
+      "group": "ordinary_dwellings",
+      "spec": 335,
+      "model": 335,
+      "model_figure": "households_and_families.dwellings_the_programme_schedules",
+      "compared_in": "roofs against roofs",
+      "adopted": 335,
+      "delta": 0,
+      "moved": false,
+      "why": "The model's own low end IS this schedule. The order book's competing figure is 643 HOUSEHOLDS, which is a different unit: satisfying it with roofs would seat one family per roof, the error the town model exists to refuse. It is met by occupancy instead — see the dwellings reconciliation, where the rate the order book needs falls inside the band the November census brackets."
+    },
+    {
+      "group": "small_outbuildings",
+      "spec": 85,
+      "model": null,
+      "model_figure": null,
+      "compared_in": "not modelled",
+      "adopted": 85,
+      "delta": 0,
+      "moved": false,
+      "why": "Ancillary. The town model carries no figure for yards and outbuildings and the order book orders none; the ratio to principal roofs is T-1212's to deal. The spec stands untouched."
+    },
+    {
+      "group": "stores_mixed_use",
+      "spec": 53,
+      "model": null,
+      "model_figure": "occupations.establishments_in_the_compared_classes",
+      "compared_in": "roofs against establishments",
+      "adopted": 53,
+      "delta": 0,
+      "moved": false,
+      "why": "No model figure schedules this group on its own. The nearest comparandum is the 118–130 establishments the occupation model counts in the compared classes, against the 104 commercial, workshop and freight roofs the programme schedules together — more trades than roofs, which is the store-over-office and shop-house town these families already build. Nothing moves a single group off that."
+    },
+    {
+      "group": "warehouses_freight",
+      "spec": 20,
+      "model": null,
+      "model_figure": "occupations.establishments_in_the_compared_classes",
+      "compared_in": "roofs against establishments",
+      "adopted": 20,
+      "delta": 0,
+      "moved": false,
+      "why": "No model figure schedules this group on its own. The nearest comparandum is the 118–130 establishments the occupation model counts in the compared classes, against the 104 commercial, workshop and freight roofs the programme schedules together — more trades than roofs, which is the store-over-office and shop-house town these families already build. Nothing moves a single group off that."
+    },
+    {
+      "group": "workshops",
+      "spec": 31,
+      "model": null,
+      "model_figure": "occupations.establishments_in_the_compared_classes",
+      "compared_in": "roofs against establishments",
+      "adopted": 31,
+      "delta": 0,
+      "moved": false,
+      "why": "No model figure schedules this group on its own. The nearest comparandum is the 118–130 establishments the occupation model counts in the compared classes, against the 104 commercial, workshop and freight roofs the programme schedules together — more trades than roofs, which is the store-over-office and shop-house town these families already build. Nothing moves a single group off that."
+    }
+  ],
+  "dwellings_reconciliation": {
+    "question": "The order book orders more households than the programme schedules dwellings. How many households to a roof?",
+    "ordinary_dwellings": 335,
+    "larger_houses_and_boarding_houses": 42,
+    "dwelling_roofs_on_the_scene_date": 377,
+    "households_the_order_book_orders": 643,
+    "households_per_dwelling_adopted": 1.706,
+    "households_per_dwelling_the_census_brackets": [
+      1.636,
+      2.051
+    ],
+    "inside_the_bracket": true,
+    "how_the_bracket_is_got": "8.204 people per dwelling in the town census of November 1835, over the 1840 city's household size of 4.0–5.015 (median to mean).",
+    "people_per_dwelling_adopted": 6.727,
+    "census_dwellings_november_1835": 398,
+    "roofs_short_of_the_census": 21,
+    "why_short_is_right": "The census counted 398 dwellings in November 1835, four months after the scene, in the fastest-growing months the town had. A July programme of 377 dwelling roofs stands 5.3% below it, which is growth across that gap and not a hole in the schedule. The same date caution governs every class the trade-census crosswalk compares.",
+    "source": "andreas_1884_v1"
+  },
+  "crosswalk_counts": {
+    "derived_from": "the inventory's family_targets and the crosswalk's own priority_rule; every other field in that file is authored and is not touched here",
+    "roof_totals": {
+      "target": 668,
+      "phase1_instantiated": 48,
+      "remaining": 620
+    },
+    "families": {
+      "D1": {
+        "target_roofs": 52,
+        "phase1_instantiated": 2,
+        "remaining_roofs": 50,
+        "priority_rank": 4,
+        "priority_band": "P0"
+      },
+      "D2": {
+        "target_roofs": 38,
+        "phase1_instantiated": 2,
+        "remaining_roofs": 36,
+        "priority_rank": 7,
+        "priority_band": "P1"
+      },
+      "D3": {
+        "target_roofs": 65,
+        "phase1_instantiated": 6,
+        "remaining_roofs": 59,
+        "priority_rank": 2,
+        "priority_band": "P0"
+      },
+      "D4": {
+        "target_roofs": 75,
+        "phase1_instantiated": 7,
+        "remaining_roofs": 68,
+        "priority_rank": 1,
+        "priority_band": "P0"
+      },
+      "D5": {
+        "target_roofs": 58,
+        "phase1_instantiated": 5,
+        "remaining_roofs": 53,
+        "priority_rank": 3,
+        "priority_band": "P0"
+      },
+      "D6": {
+        "target_roofs": 29,
+        "phase1_instantiated": 3,
+        "remaining_roofs": 26,
+        "priority_rank": 10,
+        "priority_band": "P1"
+      },
+      "D7": {
+        "target_roofs": 18,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 17,
+        "priority_rank": 12,
+        "priority_band": "P2"
+      },
+      "H1": {
+        "target_roofs": 18,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 18,
+        "priority_rank": 11,
+        "priority_band": "P2"
+      },
+      "H2": {
+        "target_roofs": 14,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 14,
+        "priority_rank": 16,
+        "priority_band": "P2"
+      },
+      "H3": {
+        "target_roofs": 10,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 10,
+        "priority_rank": 18,
+        "priority_band": "P2"
+      },
+      "C1": {
+        "target_roofs": 18,
+        "phase1_instantiated": 3,
+        "remaining_roofs": 15,
+        "priority_rank": 14,
+        "priority_band": "P2"
+      },
+      "C2": {
+        "target_roofs": 13,
+        "phase1_instantiated": 2,
+        "remaining_roofs": 11,
+        "priority_rank": 17,
+        "priority_band": "P2"
+      },
+      "C3": {
+        "target_roofs": 17,
+        "phase1_instantiated": 3,
+        "remaining_roofs": 14,
+        "priority_rank": 15,
+        "priority_band": "P2"
+      },
+      "C4": {
+        "target_roofs": 5,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 5,
+        "priority_rank": 25,
+        "priority_band": "P3"
+      },
+      "T1": {
+        "target_roofs": 6,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 6,
+        "priority_rank": 23,
+        "priority_band": "P3"
+      },
+      "T2": {
+        "target_roofs": 3,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 3,
+        "priority_rank": 32,
+        "priority_band": "P4"
+      },
+      "T3": {
+        "target_roofs": 1,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 1,
+        "priority_rank": 35,
+        "priority_band": "P4"
+      },
+      "W1": {
+        "target_roofs": 6,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 5,
+        "priority_rank": 26,
+        "priority_band": "P3"
+      },
+      "W2": {
+        "target_roofs": 8,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 7,
+        "priority_rank": 21,
+        "priority_band": "P3"
+      },
+      "W3": {
+        "target_roofs": 6,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 5,
+        "priority_rank": 27,
+        "priority_band": "P3"
+      },
+      "W4": {
+        "target_roofs": 7,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 6,
+        "priority_rank": 24,
+        "priority_band": "P3"
+      },
+      "W5": {
+        "target_roofs": 4,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 4,
+        "priority_rank": 29,
+        "priority_band": "P4"
+      },
+      "F1": {
+        "target_roofs": 8,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 7,
+        "priority_rank": 20,
+        "priority_band": "P3"
+      },
+      "F2": {
+        "target_roofs": 7,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 6,
+        "priority_rank": 22,
+        "priority_band": "P3"
+      },
+      "F3": {
+        "target_roofs": 3,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 3,
+        "priority_rank": 30,
+        "priority_band": "P4"
+      },
+      "F4": {
+        "target_roofs": 2,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 2,
+        "priority_rank": 33,
+        "priority_band": "P4"
+      },
+      "I1": {
+        "target_roofs": 4,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 4,
+        "priority_rank": 28,
+        "priority_band": "P4"
+      },
+      "I2": {
+        "target_roofs": 2,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 2,
+        "priority_rank": 34,
+        "priority_band": "P4"
+      },
+      "I3": {
+        "target_roofs": 3,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 3,
+        "priority_rank": 31,
+        "priority_band": "P4"
+      },
+      "M1": {
+        "target_roofs": 10,
+        "phase1_instantiated": 0,
+        "remaining_roofs": 10,
+        "priority_rank": 19,
+        "priority_band": "P2"
+      },
+      "A1": {
+        "target_roofs": 42,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 41,
+        "priority_rank": 5,
+        "priority_band": "P1"
+      },
+      "A2": {
+        "target_roofs": 31,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 30,
+        "priority_rank": 8,
+        "priority_band": "P1"
+      },
+      "A3": {
+        "target_roofs": 40,
+        "phase1_instantiated": 3,
+        "remaining_roofs": 37,
+        "priority_rank": 6,
+        "priority_band": "P1"
+      },
+      "A4": {
+        "target_roofs": 28,
+        "phase1_instantiated": 2,
+        "remaining_roofs": 26,
+        "priority_rank": 9,
+        "priority_band": "P1"
+      },
+      "A5": {
+        "target_roofs": 17,
+        "phase1_instantiated": 1,
+        "remaining_roofs": 16,
+        "priority_rank": 13,
+        "priority_band": "P2"
+      }
+    }
+  },
+  "totals": {
+    "spec_roof_total": 668,
+    "adopted_roof_total": 668,
+    "moved": 0,
+    "defensible_range": [
+      565,
+      765
+    ],
+    "inside_the_range": true,
+    "crosswalk_roof_total": 668,
+    "crosswalk_agrees_with_the_inventory": true
+  },
+  "deltas_owed_out": [
+    {
+      "id": "inns_and_taverns",
+      "owed_to": null,
+      "settled_by": "T-1471",
+      "statement": "THE IDENTITY QUESTION IS ANSWERED AND THE GROUP IS LEFT ALONE. It was asked as: the register holds 15 tavern records at the scene date and folds none of them — are they that many HOUSES? They are not. 4 of them are re-settings of two standing advertisements, ruled one house apiece in trade_class_rulings.json with the printed copy beside each ruling. Five settings of E. Wentworth's Flag Creek notice — the same four sentences every time, signing themselves 'Dec. 17, 1833' a year after that date — had raised four businesses; three settings of the Eagle Tavern's chair-and-harness notice — signing themselves 'June 11, 1834' and differing only in the keeper's middle initial — had raised two. So 15 records are 11 houses, and the delta against 10 scheduled roofs falls from 5 to 1. AND THE LAST ONE IS NOT IN THE TOWN. E. Wentworth's house stood eighteen miles south of Chicago on the Ottawa road, which all five of its printings state and which no roof inside the plat can be. The town's own figure is therefore 10 public houses against the 10 this programme schedules: they MEET, and there is nothing left to re-cut. THE REMAINDER RECONCILES TOO, which is the check on that. Six of the town's ten records already sit on a standing public house (Couch on the Tremont, Davis on the Steamboat, Murphy on the Exchange, Stow on the Western, Walters on Wolf Point, Ingersoll on the Green Tree). Three standing houses carry no register record at all — the Sauganash, the Mansion House and the New York House — and the schedule has one roof still to raise (10 scheduled against the layer's nine standing). Three unlinked houses plus one unbuilt roof is four, and four is exactly the number of town records with no house yet: Beaubien, Sweet, the Eagle Tavern and the Traveller's Home. Linking a keeper to the house he kept is a person-to-house ruling and is not made here. WHAT IS STILL OPEN, and named rather than ruled: the register's 'Eagle Hotel' (Cable and Shrigley) and 'Eagle Tavern' (Carli) trade in the same months under the same bird. That pair sits in trade_class_rulings.json's `register_cautions` and cannot move this count either way — the Eagle Hotel is already excluded from the scene date as contradicted before it."
+    },
+    {
+      "id": "institutional_and_public",
+      "owed_to": "T-1196",
+      "statement": "The false delta of ten is GONE (T-1439, 2026-09-21): build_order_book_1835.programme_deltas now sums institutional_public and fort_principal on its programme side, which is where the model's high end already had them, and the two files read 19 against 19. What is still owed is a COUNT: both ends of the model's figure are read off district_group_matrix, so the corrected zero is a restatement and the book prints it as one. Nothing outside the roof programme has said how many institutional and public roofs the town had."
+    },
+    {
+      "id": "boarding_houses",
+      "owed_to": "T-1196",
+      "statement": "model_town_1835.build_lodging takes larger_boarding_houses straight off district_group_matrix, so that figure can never disagree with the programme and the order book's delta of zero is a tautology. A figure that cannot fail is not a check on 42 roofs. The book stopped printing it as a pass with T-1439 and marks the row NOT A CHECK; an independent count of the town's boarding houses is still owed to the re-cut."
+    }
+  ]
+}

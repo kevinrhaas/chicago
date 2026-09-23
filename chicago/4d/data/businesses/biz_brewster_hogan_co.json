@@ -1,0 +1,188 @@
+{
+  "id": "biz_brewster_hogan_co",
+  "register_id": "business_brewster_hogan_co",
+  "name": "Brewster, Hogan & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "storage_and_forwarding",
+    "store"
+  ],
+  "trade": "forwarding and commission merchants, dry goods and groceries",
+  "occupation": "forwarding_and_commission",
+  "goods": [
+    "bacon",
+    "boots and shoes",
+    "butter",
+    "dry goods",
+    "flour",
+    "groceries",
+    "hardware"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Brewster",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1833-12-03",
+      "to": "1834-06-11",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_12_03#c008",
+        "chicago_democrat_1834_03_04#c010",
+        "chicago_democrat_1834_06_11#c001"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Hogan",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1833-12-03",
+      "to": "1834-06-11",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_12_03#c008",
+        "chicago_democrat_1834_03_04#c010",
+        "chicago_democrat_1834_06_11#c001"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "William Brewster",
+      "person_id": "brewster_william",
+      "register_person_id": "person_william_brewster",
+      "role": "partner",
+      "from": "1833-12-03",
+      "to": "1834-06-11",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card brewster_william (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_12_03#c008",
+        "chicago_democrat_1834_03_04#c010",
+        "chicago_democrat_1834_06_11#c001"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Franklin Brewster",
+      "person_id": "brewster_franklin",
+      "register_person_id": "person_franklin_brewster",
+      "role": "partner",
+      "from": "1833-12-03",
+      "to": "1834-06-11",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card brewster_franklin (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_12_03#c008",
+        "chicago_democrat_1834_03_04#c010",
+        "chicago_democrat_1834_06_11#c001"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "John S. C. Hogan",
+      "person_id": "hogan_john_s_c",
+      "register_person_id": "person_john_s_c_hogan",
+      "role": "partner",
+      "from": "1833-12-03",
+      "to": "1834-06-11",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card hogan_john_s_c (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_12_03#c008",
+        "chicago_democrat_1834_03_04#c010",
+        "chicago_democrat_1834_06_11#c001"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-12-03",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_03_04#c010 (notice, 1834-03-04), chicago_democrat_1834_06_11#c001 (business, 1834-06-11). No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1833-12-03",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-12-03, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-12-03",
+    "last_issue": "1834-06-11",
+    "copy_dates": [
+      "1833-12-03",
+      "1834-03-04"
+    ]
+  },
+  "present_at_scene_date": false,
+  "exclusion": "contradicted_before_scene_date",
+  "exclusion_note": "Contradicted on or before the scene date by chicago_democrat_1834_03_04#c010 (notice, 1834-03-04), chicago_democrat_1834_06_11#c001 (business, 1834-06-11).",
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "proprietors_disagree",
+    "basis": "The keepers this record names do not read as one community (irish, new_york, yankee), and nothing in the record chooses between them. Each is named above.",
+    "from": [
+      {
+        "person_id": "brewster_franklin",
+        "name": "Franklin Brewster",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      },
+      {
+        "person_id": "brewster_william",
+        "name": "William Brewster",
+        "role": "partner",
+        "community": "irish",
+        "tier": "reconstructed"
+      },
+      {
+        "person_id": "hogan_john_s_c",
+        "name": "John S. C. Hogan",
+        "role": "partner",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1833_12_03#c008",
+    "chicago_democrat_1834_03_04#c010",
+    "chicago_democrat_1834_06_11#c001"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

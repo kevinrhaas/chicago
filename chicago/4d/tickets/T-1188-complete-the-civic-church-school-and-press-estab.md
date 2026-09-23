@@ -1,7 +1,7 @@
 ---
 id: T-1188
 title: Complete the civic, church, school and press establishments as businesses with staff: the post office, the land office opened in 1835, the county offices, the schools, the churches and the two printing offices — attested where the sources name the officer, reconstructed for the rest
-state: open
+state: split
 epic: META
 requested_by: owner
 seen: true
@@ -9,12 +9,12 @@ effort: S
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-19
 pr: null
 claimed_by: null
 blocked_on: null
 needs_bake: false
-closed_at: null
+closed_at: 2026-09-19T23:30:56.880Z
 claimed_run: null
 ---
 

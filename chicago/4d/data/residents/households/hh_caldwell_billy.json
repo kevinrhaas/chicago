@@ -7,9 +7,10 @@
   "value": "1820",
   "confidence": "inferred",
   "sources": [
-   "andreas_1884_v1"
+   "andreas_1884_v1",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "'At what time Caldwell took up his residence near Fort Dearborn is not definitely known, but probably about the year 1820.' The word 'probably' is the source's and the grade carries it.",
+  "note": "'At what time Caldwell took up his residence near Fort Dearborn is not definitely known, but probably about the year 1820.' The word 'probably' is the source's and the grade carries it. A SECOND COMPILATION PRINTS THE YEAR FLAT, AND THE GRADE STILL DOES NOT MOVE. Moses and Kirkland, History of Chicago vol. 1 (1895), printed pages 78-79, the table headed LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830 (data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json). It is an 1895 compilation crediting Hurlbut's Chicago Antiquities pp. 37-8 three lines above itself, every row transcription_mediated and none scan_verified, so NOTHING READ OFF IT IS GRADED ABOVE `inferred` HERE. Row bk_mose1_as_006 reads 'Caldwell, Billy', nativity Michigan, YEAR 1820, remarks 'Paid taxes in 1825, voted in 1826'. Where Andreas hedges with 'probably', the table prints 1820 in a year column with no hedge in it. THAT IS NOT ENOUGH TO PROMOTE THIS FIELD and it is deliberately not promoted: an 1895 compilation working from Hurlbut is not an independent witness to a date of 1820, and a hedge answered by a table is still a hedge. What it is worth is recorded and no more. WHAT DOES NOT FOLLOW: the table's own preamble bounds it BEFORE 1830 and its remarks are civic acts of 1825-1830. A man on it is not thereby at Chicago on 1835-07-01, and this edit moves no residence, no `present_on_scene_date` and no grade. The identity is the books crosswalk's landed merge (T-0961) and is not re-opened here.",
   "precision": "year"
  },
  "party_size_on_arrival": {
@@ -21,14 +22,26 @@
   "value": "Detroit; his father an Irish officer in the British army, his mother Potawatomi",
   "confidence": "attested",
   "sources": [
-   "andreas_1884_v1"
+   "andreas_1884_v1",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "Andreas states both parents, the birthplace and the Jesuit schooling."
+  "note": "Andreas states both parents, the birthplace and the Jesuit schooling. Row bk_mose1_as_006 prints his nativity as Michigan, agreeing with the Detroit this field already names from Andreas and adding nothing to it."
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The country trade at the forks",
   "confidence": "reconstructed",
-  "note": "Left null for the same reason as the Robinson household: 'why they came' is a question shaped for emigrants, and filling it here would import a frame the sources do not support."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as interpreter, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_recorded_trade",
+   "note": "arrival_fill.trade_reasons.the_country_trade — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -89,6 +102,30 @@
    "sources": [
     "andreas_1884_v1"
    ],
+   "appearance_bounds": [
+    {
+     "bound_kind": "district_presence",
+     "corpus": "census_1830",
+     "source_title": "Fifth census of the United States, 1830 — the division headed 'Peoria & Putnam Counties & Territory attached'",
+     "record_id": "census1830_n580_012",
+     "as_read": "Billy Caldwell",
+     "role": "head_of_family",
+     "locator": "leaf n580 entry 12, peoria_putnam_1830_leaves_580_582.txt line 31",
+     "describes_date": "1830",
+     "date_confidence": "documented",
+     "precision": "year",
+     "reaches": "1830-12-31",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "census_1830_peoria_county_chicago_precinct"
+     ],
+     "identity_rule": "Surname and given name both agree between the 1830 reading 'Billy Caldwell' and the town person 'Billy Caldwell (Sauganash)' in household hh_caldwell_billy. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own.",
+     "note": "A BOUND ON PRESENCE IN A DISTRICT, AND NOT AT CHICAGO. The division is headed 'Peoria & Putnam Counties & Territory attached' and the schedule never writes the word Chicago — the Fox River and Du Page settlements are inside it — so this row bounds presence in that district in the summer of 1830 and puts no body in the town, which is why `here_by` is null. The record's own note says it first: 'Presence in that district in the summer of 1830; not a Chicago residence, and never an 1835 one'. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the leaf is read scan_verified off the federal schedule, and what no source states is that the head of family on it is the person on this card. data/research/census_1830/resident_crosswalk.json joins them on a name agreement and says in terms that it grades nothing on its own. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
    "note": "THE MAN THE SAUGANASH HOTEL IS NAMED AFTER, which is how this dataset first met him: 'It was suggested to Mark that he should name his house after some great man. He could think of no greater personage than Billy Caldwell and so his tavern became celebrated as the \"Sauganash.\"' Andreas: son of a Colonel Caldwell, an Irish officer in the British army at Detroit, and a Potawatomi mother; born about 1780; educated at the Jesuit schools of Detroit and fluent in French and English besides several Indian languages; secretary to Tecumseh from about 1807 until Tecumseh's death and present at the Thames on 5 October 1813; a captain in the British Indian Department as late as 1816. By the treaty of Prairie du Chien of 1829 he was granted two and a half sections on the Chicago River, about six miles up the North Branch, and by the treaties of 1832 and 1833 annuities aggregating $1,000; he sold the land early. When John Watkins started his school in 1832 Caldwell offered to pay the tuition and buy books and clothes for any Indian children who would attend.",
    "resident_research": {
     "programme": "resident-research-2026",
@@ -124,14 +161,29 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "no_fixed_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "50-59",
+    "low": 50,
+    "high": 59,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   }
   }
  ],
  "touches_removal": true,

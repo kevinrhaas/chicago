@@ -1,0 +1,87 @@
+{
+  "id": "biz_uncertain_j_i_mulford_carriage_and_sleigh_maker",
+  "register_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker",
+  "name": "[uncertain: J. I. Mulford], carriage and sleigh maker",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "carriage and sleigh making, and repairing",
+  "occupation": "carriage_maker",
+  "goods": [
+    "Carriages",
+    "Sleighs"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "[uncertain: J. I. Mulford]",
+      "person_id": null,
+      "register_person_id": "person_uncertain_j_i_mulford",
+      "role": "proprietor",
+      "from": "1834-07-02",
+      "to": "1834-07-02",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_uncertain_j_i_mulford with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_02#c059"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1834-07-02",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-02",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-02, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-02",
+    "last_issue": "1834-07-02",
+    "copy_dates": [
+      "1834-05-27"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_02#c059"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

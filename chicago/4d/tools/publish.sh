@@ -4,7 +4,7 @@
 # uncompressed GLB masters, the research dossiers and the raw dataset all stay
 # in the repo and out of the payload.
 #
-# THIS SCRIPT IS THE ONE WRITER OF site/4d/. The mirror is generated and
+# THIS SCRIPT IS THE ONE WRITER OF site/chicago/4d/. The mirror is generated and
 # untracked (T-0938), and the residents layer is shipped MINIFIED here and nowhere
 # else, so no other tool may write those paths. When synthesize_resident_research.py
 # wrote them too — pretty-printed — whichever ran last decided whether the gate was
@@ -65,7 +65,7 @@ if ! python3 tools/measure_web_derivatives.py --gate --quiet; then
   exit 1
 fi
 
-SITE="../../site/4d"
+SITE="../../site/chicago/4d"
 mkdir -p "$SITE/data/gltf" "$SITE/data/sidecars"
 
 # renderer
@@ -116,7 +116,7 @@ fi
 # GitHub's merge runs no driver to reconcile them (T-0857). So a fresh clone has
 # neither file, and the old `[ -f ]` guard would have published nothing at all and
 # said nothing about it. `board` is a pure function of tickets/*.md and costs
-# milliseconds; running it here is what keeps /4d/tickets.json a real URL.
+# milliseconds; running it here is what keeps /chicago/4d/tickets.json a real URL.
 node tools/ticket.mjs board >/dev/null
 cp -f tickets/tickets.json "$SITE/tickets.json"
 
@@ -134,6 +134,27 @@ mkdir -p "$SITE/data/gltf"
 if compgen -G "assets/web/*.glb" > /dev/null; then
   cp -f assets/web/*.glb "$SITE/data/gltf/"
 fi
+
+# The two roof coverings' relief maps (T-1488). `renderers/web/js/roof-relief.js`
+# resolves them against the ASSET base — ../../assets/ in the dev tree, ../data/
+# in the published one — so they land here under data/textures/ and the same
+# relative URL answers in both. FOUR FILES AND NOT SIXTEEN: the module binds
+# `normal_gl` plus the packed `orm`, so the basecolor, height16, metallic,
+# roughness, ao and normal_dx of each covering stay in the repository and out of
+# the payload. material.json travels with them because the renderer reads the
+# tile rate (`span_m`) off it rather than holding a constant of its own —
+# leaving it behind is roofs with no relief on the deployed site while the dev
+# tree shingles every one of them, which is the scenes/, fauna/ and residents/
+# failure again.
+for covering in wood_shingles_weathered roof_boards_weathered; do
+  src="assets/textures/chicago_1835_pbr/roofs/$covering"
+  dst="$SITE/data/textures/chicago_1835_pbr/roofs/$covering"
+  mkdir -p "$dst"
+  cp -f "$src/material.json" \
+        "$src/${covering}_normal_gl.png" \
+        "$src/${covering}_orm.png" \
+        "$dst/"
+done
 
 # scenes, sidecars, datum (the renderer needs the origin for sun position).
 # Keep the scenes/ subdirectory — the renderer fetches data/scenes/<year>.json,
@@ -173,6 +194,21 @@ cp -f data/reconstruction/1835_agencies.json "$SITE/data/reconstruction/"
 # Evidence hub's "The town's people" topic, so leaving it behind is a 404 and an
 # Evidence tile that counts zero on the deployed site while the dev tree shows ten.
 cp -f data/reconstruction/1835_population_profile.json "$SITE/data/reconstruction/"
+
+# And the reconstruction order book (T-1166). Derived by
+# tools/build_order_book_1835.py and re-derived by tools/check.sh; orderbook.js
+# fetches it at data/reconstruction/1835_reconstruction_order_book.json to render the
+# Evidence hub's "Reconstructing the town" topic — the progress view the three
+# reconstruction bands fill — so leaving it behind is a 404 and a tile that counts
+# zero on the deployed site while the dev tree shows seven.
+cp -f data/reconstruction/1835_reconstruction_order_book.json "$SITE/data/reconstruction/"
+
+# And the address book (T-1491). Derived by tools/seat_known_1835.py and re-derived by
+# tools/check.sh; people.js fetches it at data/reconstruction/1835_address_book.json so
+# that a household card can say where its household stood and at which rung. Leaving it
+# behind is a 404 and 1,186 cards reading "No known address" with nothing after it —
+# which is the sentence this file exists to replace.
+cp -f data/reconstruction/1835_address_book.json "$SITE/data/reconstruction/"
 
 # Terrain: the epoch registry, the traced river vectors, and the heightfield the
 # renderer samples. The .bin is a plain binary and must travel with its meta —
@@ -221,6 +257,20 @@ for q in Path(sys.argv[1]).rglob("*.json"):
     q.write_text(json.dumps(json.loads(q.read_text(encoding="utf-8")),
                             ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 MINIFY
+fi
+
+# The business layer. 196 firms compiled from the register — and 166 of them
+# have no roof in this town, so a card in the Businesses directory is the ONLY
+# place a visitor can reach them. `businesses/index.json` is what the directory
+# lists; each `biz_*.json` is fetched when its card opens. Leave this out and the
+# section is empty on the deployed site while the dev tree fills it — the
+# scenes/, fauna/, residents/ and frontage/ failure, a sixth time. Copied
+# verbatim, not minified as the residents are: 1.2 MB is nothing against the
+# budget, and a byte-identical mirror is one the publish gate can check by
+# comparison rather than one that needs a transform rule and a gate of its own.
+if [ -d data/businesses ]; then
+  rm -rf "$SITE/data/businesses"
+  cp -a data/businesses "$SITE/data/businesses"
 fi
 
 # The enclosure layer — fence lines, yards and pens, drawn by
@@ -312,6 +362,46 @@ if [ -d data/fauna ]; then
   cp -a data/fauna "$SITE/data/fauna"
 fi
 
+# every URL-targeted directory needs an index.html or Pages 404s the bare path.
+# The document keeps its <head> and </body> ON PURPOSE, minimal as it is:
+# .github/chicago-4d-dev-preview.mjs marks every preview page by regex — a robots
+# meta after <head>, the DEV PREVIEW banner before </body> — and an opener with
+# no <head> or </body> at all slipped past all three markings (measured 2026-09-16
+# by T-0968's URL smoke: /chicago/4d/dev/ returned 200 unmarked). Structure is
+# what makes the preview honest at the door.
+[ -f "$SITE/index.html" ] || cat > "$SITE/index.html" <<'HTML'
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>4D Chicago — opening the walkthrough</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="walk/">
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0d1117;
+       color:#e6edf3;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+       text-align:center;padding:24px}
+  a{color:#58a6ff}
+</style>
+</head>
+<body>
+<div>
+  <p>Opening the <strong>4D Chicago</strong> walkthrough…</p>
+  <p><a id="go" href="walk/?year=1835">Continue to the walkthrough</a></p>
+</div>
+<script>
+  (function () {
+    var p = location.pathname; if (p.slice(-1) !== '/') p += '/';
+    var t = p + 'walk/' + (location.search || '?year=1835') + location.hash;
+    document.getElementById('go').setAttribute('href', t);
+    location.replace(t);
+  })();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=walk/?year=1835"></noscript>
+</body>
+</html>
+HTML
+
 # The build stamp the gate shows. Written here because publish IS the build: the
 # one moment that knows which commit became which deployed tree. Central Time,
 # because that is the clock the project's dates are quoted in everywhere else.
@@ -332,16 +422,6 @@ s = s.replace('<p class="gate-build" id="gate-build" hidden><!--BUILD_STAMP--></
 p.write_text(s)
 PYEOF
 fi
-# THE FRONT DOORS (chicago.polecat.live). The renderer lives at walk/, but nobody is
-# sent there: /4d/ and /4d/<year>/ are copies of the STAMPED walk/index.html carrying a
-# <base href> into walk/, so the address bar keeps the short path and every relative
-# URL still resolves from walk/. This replaces the old opener page that bounced /4d/
-# to walk/?year=1835. It runs after the stamp so every door shows the same build.
-# Each door keeps walk/index.html's <head> and </body>, which is what
-# .github/chicago-4d-dev-preview.mjs marks (robots meta, DEV PREVIEW banner).
-rm -f "$SITE/index.html"
-node tools/write_entry_pages.mjs "$SITE"
-
 # build.json — the machine-readable twin of the stamp above. It was written ONCE,
 # by hand, and then never again: the gate added in R-BUG3c-b's wake found it
 # claiming version 8909332 built 2026-08-13 while the mirror beside it was two

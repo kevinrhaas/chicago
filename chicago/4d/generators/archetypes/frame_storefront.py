@@ -56,6 +56,12 @@ from archetypes.frame_storefront_params import (  # noqa: E402
     shopfront_panels, snap, storey_sill_z,
 )
 
+#: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
+#: `materials.roof_substrate` holds the argument for why it is this one and
+#: which half of it is graded by materials.md §2.2 and which half is L266.
+_ROOF = materials.roof_substrate("frame_storefront")
+
+
 # Materials are indices into the list passed to to_object(), in this order.
 M_WALL, M_ROOF, M_TRIM, M_GLASS, M_SIGN, M_TIMBER = 0, 1, 2, 3, 4, 5
 # Appended only where the record counts a stack (T-0008) — appended rather than
@@ -191,9 +197,12 @@ def build(params: FrameStorefrontParams, name: str):
     roof_rgba = materials.roof_finish(p.roof_condition).rgba
     mats = [
         simple_material("wall", wall_rgba, roughness=wall_rough),
-        # A weathering condition, never a covering — materials.md finding 2. The
-        # roughness stays the archetype's own literal for the same reason.
-        simple_material("roof", roof_rgba, roughness=0.9),
+        # The COLOUR is a weathering condition and never a covering; the COVERING is
+        # now the sheet's, and it is a shingle field (T-1487: §2.2 grades it inferred
+        # for a framed building). The roughness is unchanged — `shingle` carries the
+        # 0.9 this archetype always shipped.
+        simple_material(materials.roof_material_name(_ROOF), roof_rgba,
+                        roughness=_ROOF.roughness),
         simple_material("trim", _trim_rgba(wall_rgba), roughness=0.8),
         simple_material("glass", GLASS_RGBA, roughness=materials.GLASS.roughness),
         simple_material("sign", SIGN_RGBA, roughness=0.85),

@@ -1,0 +1,166 @@
+{
+ "_doc": "The remote raster regions this project's traces are made from, pinned by the sha256 of the exact bytes each committed reading was taken from. AUTHORED — a pin is a statement about evidence and is not derived from anything. tools/pinned_sources.py is the reader; tools/trace_river.py, tools/trace_shoreline.py and tools/read_north_branch_bank_wash.py fetch through it.",
+ "_the_rule": "A TRACE MAY NOT READ BYTES IT WAS NOT MADE FROM. Every fetch of a region listed here is held to that region's sha256 before a single pixel is segmented, and a mismatch REFUSES — it does not re-trace, and it does not write. The local cache is held to the same pin, so a stale file in /tmp cannot stand in for the source either.",
+ "_why": "T-1397, 2026-09-19. tools/trace_river.py fetched its region over the network with no pin at all: fetch_region used whatever the cache held or whatever the server returned, hashed it, and wrote the hash into provenance without ever CHECKING it. The Boston Public Library re-encoded the forks region between 2026-09-18 17:43 and 2026-09-19 — same image, same 1120x1120 box, 263,865 bytes of JPEG became 231,112 — and the next .github/steward/pr-lap.sh run, which runs `node tools/rederive.mjs --run` on every merge in a workflow that pip-installs numpy/scipy/Pillow, silently re-traced the Chicago River from the new bytes and committed it. Two pull requests that share no commits, #1518 and #1521, each acquired the identical 694-line river diff and each failed the same four terrain gates, neither of them anything to do with the ticket being worked. The provenance block had recorded the divergence all along -- dev's files say 3eae2416, the lapped branches' say 23e14995 -- and nothing read it.",
+ "_what_a_mismatch_means": "It is a FINDING, not a failure to paper over -- the same line tools/refetch_control.py draws for an OpenStreetMap node that a mapper moved or deleted. Upstream re-encoding a scan does not make the committed reading wrong; it makes it un-re-derivable from the live source, which is a fact about the source and belongs in writing. Adopting the new bytes is a decision someone takes deliberately, with the re-read reviewed against its neighbours, and never something a lap does unattended at 3am.",
+ "_restoring_a_reading": "A pin proves a recovered copy is the right one. Drop the bytes at the pin's `cache` path and the reader verifies them against the sha256 before use, so a file of unknown provenance either IS the source or is refused. That is the whole remedy for `upstream.serves_the_pin: false` below.",
+ "_the_two_that_are_not_pinned": "Seven manifest steps can reach the network; five read through tools/pinned_sources.py. The other two reach it only behind a flag the manifest does not pass, and the exemption is ENUMERATED below rather than inferred, so a third tool joining them is a gate failure. Both read one Internet Archive djvu.xml once, under --fetch or --map, and COMMIT the page text and a word-coordinate map; the manifest runs --build, which rebuilds the reading offline out of that committed text. The remote document is therefore not an input to anything the lap runs.",
+ "offline_in_the_manifest": [
+  {
+   "tool": "tools/read_fergus_1839_lots.py",
+   "manifest_command": [
+    "python3",
+    "tools/read_fergus_1839_lots.py",
+    "--build"
+   ],
+   "network_only_behind": [
+    "--map"
+   ],
+   "reads": "https://archive.org/download/<item>/<item>_djvu.xml",
+   "why": "--map fetches the djvu word coordinates and commits the cell map; --build reads that committed map and the committed page text, and touches no socket. The file's own _doc says the reading 'is rebuilt and checked OFFLINE'."
+  },
+  {
+   "tool": "tools/read_second_presbyterian.py",
+   "manifest_command": [
+    "python3",
+    "tools/read_second_presbyterian.py",
+    "--build"
+   ],
+   "network_only_behind": [
+    "--fetch"
+   ],
+   "reads": "https://archive.org/download/<item>/<item>_djvu.xml",
+   "why": "--fetch renders the roll leaves into one committed text plus a row map; --build writes the records and the crosswalk from those committed files. The tool's own usage block separates the two."
+  }
+ ],
+ "pins": [
+  {
+   "id": "wright_1834_forks",
+   "source": "wright_1834",
+   "image": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:js957744g",
+   "region": [
+    868,
+    1252,
+    1120,
+    1120
+   ],
+   "sha256": "3eae241663a2f25276bee8b7bb20235c9ade43b93da3180f2094304c34d3376d",
+   "bytes": 263865,
+   "cache": "/tmp/wright_1834_forks_region.jpg",
+   "read_by": [
+    "tools/trace_river.py"
+   ],
+   "stands_under": [
+    "data/terrain/epochs/e1834_harbor_cut/river.geojson",
+    "data/terrain/epochs/e1834_harbor_cut/hydrology.geojson"
+   ],
+   "upstream": {
+    "serves_the_pin": false,
+    "checked": "2026-09-19",
+    "now_serves_sha256": "23e14995db4925d9b4dbbd98b8531d77195e18b05a30bb65ae78e1d140e18563",
+    "now_serves_bytes": 231112,
+    "note": "THE ONLY REGION OF THE FIVE THAT MOVED. Five consecutive fetches on 2026-09-19 returned 23e14995 byte for byte, so this is a re-encode upstream and not a flapping edge cache. The pinned bytes survived on this project's side only as a /tmp cache stamped 2026-09-18 17:43, which is what made dev look self-reproducing when the three DOWNSTREAM generators were run against it (see T-1397).",
+    "the_reading_did_not_move_with_it": "The committed river stands. It is 33k of JPEG less lossy than what the server now serves, it yields a 69-vertex water ring where the re-encode yields 100, and it is the encoding its four NEIGHBOURING regions are still served at -- including the north and south branch windows that branches.geojson splices onto river.geojson at BPL master rows 1252 and 2372. Re-tracing one region off a different encoding would break that splice, which is precisely what the four terrain gates said on #1518 and #1521."
+   }
+  },
+  {
+   "id": "wright_1834_north_branch_reach",
+   "source": "wright_1834",
+   "image": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:js957744g",
+   "region": [
+    640,
+    0,
+    780,
+    1252
+   ],
+   "sha256": "109d0a8b47f3e4d8d0e35bf659d8cf518be70064a9932991587ed13b46c88fe3",
+   "bytes": 125289,
+   "cache": "/tmp/wright_1834_north_branch_region.jpg",
+   "read_by": [
+    "tools/trace_north_branch.py",
+    "tools/read_north_branch_bank_wash.py",
+    "tools/measure_north_branch_banks.py"
+   ],
+   "stands_under": [
+    "data/terrain/epochs/e1834_harbor_cut/branches.geojson",
+    "data/traces/north_branch_bank_wash.json"
+   ],
+   "upstream": {
+    "serves_the_pin": true,
+    "checked": "2026-09-19"
+   }
+  },
+  {
+   "id": "wright_1834_south_branch_reach",
+   "source": "wright_1834",
+   "image": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:js957744g",
+   "region": [
+    1150,
+    2372,
+    800,
+    2578
+   ],
+   "sha256": "2f542115f0787d406f49aee0c3ebd0f78bfd05e3f5767f6892b7635312fcf8ec",
+   "bytes": 358063,
+   "cache": "/tmp/wright_1834_south_branch_region.jpg",
+   "read_by": [
+    "tools/trace_south_branch.py"
+   ],
+   "stands_under": [
+    "data/terrain/epochs/e1834_harbor_cut/branches.geojson"
+   ],
+   "upstream": {
+    "serves_the_pin": true,
+    "checked": "2026-09-19"
+   }
+  },
+  {
+   "id": "wright_1834_east_edge",
+   "source": "wright_1834",
+   "image": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:js957744g",
+   "region": [
+    1878,
+    150,
+    2222,
+    4800
+   ],
+   "sha256": "4a69980da1ab72ed49f11278de078d13952bb06702a416360718835afd43e759",
+   "bytes": 1394897,
+   "cache": "/tmp/wright_1834_east_edge_region.jpg",
+   "read_by": [
+    "tools/trace_shoreline.py"
+   ],
+   "stands_under": [
+    "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson"
+   ],
+   "upstream": {
+    "serves_the_pin": true,
+    "checked": "2026-09-19"
+   }
+  },
+  {
+   "id": "wright_1834_legend",
+   "source": "wright_1834",
+   "image": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:js957744g",
+   "region": [
+    2520,
+    2940,
+    420,
+    700
+   ],
+   "sha256": "49004ba3a40decb9f37b05896848e8532b938aea57a7b337906e1176813c2714",
+   "bytes": 50436,
+   "cache": "/tmp/wright_1834_legend_region.jpg",
+   "read_by": [
+    "tools/read_north_branch_bank_wash.py"
+   ],
+   "stands_under": [
+    "data/traces/north_branch_bank_wash.json"
+   ],
+   "upstream": {
+    "serves_the_pin": true,
+    "checked": "2026-09-19"
+   }
+  }
+ ]
+}

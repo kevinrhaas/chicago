@@ -1,0 +1,76 @@
+{
+  "id": "biz_an_iron_and_hardware_stock_chicago_june_1835",
+  "register_id": "business_an_iron_and_hardware_stock_chicago_june_1835",
+  "name": "an iron and hardware stock, Chicago, June 1835",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "iron and hardware",
+  "occupation": "hardware_merchant",
+  "goods": [
+    "Anvils",
+    "Bar Lead",
+    "Crowbars",
+    "Horse Shoes",
+    "Mill Irons",
+    "Saws",
+    "Vices"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-06-13",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-13",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-13, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-13",
+    "last_issue": "1835-06-13",
+    "copy_dates": [
+      "1835-06-13"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_13#c010"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

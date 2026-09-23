@@ -36,9 +36,15 @@ THE FOUR RULES, which `--self-test` holds over the derivation.
      confidence and sources are copied from `occupation_later`, never re-parsed and never
      re-graded. If the block goes, the pointer goes with it.
 
-  2. IT IS WRITTEN ONLY WHERE THE 1835 RECORD SAYS `none_recorded`. A person the project
-     already holds an 1835 trade for has no absence to qualify, and this pass leaves that
-     card alone rather than stacking a second answer on it.
+  2. IT IS WRITTEN ONLY WHERE THE 1835 RECORD SAYS `none_recorded`, OR WHERE THE FIELD
+     IS A VIEW PROMOTED OUT OF `roles[]`. A person the project already holds an 1835
+     trade of its own for has no absence to qualify, and this pass leaves that card alone
+     rather than stacking a second answer on it. The second clause is T-1299's, and it is
+     there because the pointer turned out to be load-bearing: `roles[]` derives a card's
+     1839-directory row FROM the pointer and from nowhere else, so dropping it off the ten
+     cards T-1299 promoted would have deleted seven printings off seven timelines to keep
+     a rule whose reason — no second answer beside an asserted one — a generated view does
+     not engage. A HAND-PROMOTED value still gets no pointer, and `--self-test` holds that.
 
   3. THE 1835 CLAIM DOES NOT MOVE. `value`, `confidence` and the note the mint tools own
      are passed through untouched; the pointer is a new key beside them. `--check`
@@ -62,6 +68,21 @@ TICKET = "T-0693"
 ABSENT = "none_recorded"
 POINTER = "later_occupation"
 FROM = "directories.people[].occupation_later"
+
+PROMOTED = "promoted_from_roles"
+
+NOTE_PROMOTED = (
+    "A TRADE RECORDED FOR {year}, BESIDE A TRADE READ FOR 1835. This is a POINTER at "
+    "`{origin}` on this same record, derived by `{generator}` and holding nothing that "
+    "block does not already say. The 1835 field above no longer reads `none_recorded`: "
+    "T-1299 admitted the press roles whose bound contains the scene date into it, and "
+    "that field is a GENERATED VIEW of `roles[]` rather than a second assertion. The "
+    "pointer stays anyway, and this is the second clause of rule 2. `roles[]` derives "
+    "the card's {year} row FROM this pointer and from nowhere else, so taking it off "
+    "would not tidy the card, it would delete the {year} printing off the timeline. It "
+    "is still not a claim about the scene date: a directory of {year} is evidence about "
+    "{year} ({ticket}, second clause by T-1299)."
+)
 
 NOTE = (
     "NONE RECORDED FOR 1835 — AND A TRADE IS RECORDED FOR {year}. This is a POINTER at "
@@ -91,15 +112,28 @@ def later_trades(doc: dict) -> dict:
             if p.get("person_id") and (p.get("occupation_later") or {}).get("value")}
 
 
-def pointer_for(later: dict) -> dict:
+def qualifies(occ: dict) -> bool:
+    """RULE 2: the two states a pointer may sit beside, and no third.
+
+    An ABSENCE, which is what T-0693 was written for — and, since T-1299, a field
+    PROMOTED out of `roles[]`, which is not an assertion of the card's own but a
+    generated view of the rows beneath it. The rule's reason is unchanged: it keeps a
+    second answer off a card that already asserts a trade for 1835. A promoted view
+    asserts nothing the roles do not, and it is the origin of the later row itself.
+    """
+    return occ.get("value") == ABSENT or isinstance(occ.get(PROMOTED), dict)
+
+
+def pointer_for(later: dict, promoted: bool = False) -> dict:
     """RULE 1 and RULE 4: copied from the block, carrying its year."""
     year = later.get("describes_date")
+    note = NOTE_PROMOTED if promoted else NOTE
     return {
         "value": later["value"],
         "describes_date": year,
         "confidence": later.get("confidence"),
         "sources": list(later.get("sources") or []),
-        "note": NOTE.format(year=year, ticket=TICKET, origin=FROM, generator=GENERATOR),
+        "note": note.format(year=year, ticket=TICKET, origin=FROM, generator=GENERATOR),
     }
 
 
@@ -114,15 +148,17 @@ def qualified(doc: dict) -> dict:
         want = later.get(person.get("id"))
         # RULE 2: only an absence gets qualified.  RULE 3: rebuilt in the record's own
         # key order, so the 1835 claim keeps its place as well as its value.
+        write = bool(want) and qualifies(occ)
+        promoted = isinstance(occ.get(PROMOTED), dict)
         rebuilt = {}
         for key, value in occ.items():
             if key == POINTER:
                 continue
             rebuilt[key] = value
-            if key == "confidence" and want and occ.get("value") == ABSENT:
-                rebuilt[POINTER] = pointer_for(want)
-        if want and occ.get("value") == ABSENT and POINTER not in rebuilt:
-            rebuilt[POINTER] = pointer_for(want)
+            if key == "confidence" and write:
+                rebuilt[POINTER] = pointer_for(want, promoted)
+        if write and POINTER not in rebuilt:
+            rebuilt[POINTER] = pointer_for(want, promoted)
         person["occupation"] = rebuilt
     return doc
 
@@ -160,7 +196,7 @@ def population() -> dict:
             if not want:
                 continue
             row = (path.stem, person.get("id"), want.get("value"), want.get("describes_date"))
-            (absent_with_later if occ.get("value") == ABSENT else trade_with_later).append(row)
+            (absent_with_later if qualifies(occ) else trade_with_later).append(row)
     return {
         "persons": persons,
         "occupation_none_recorded": absent_total,
@@ -212,11 +248,17 @@ def self_test() -> int:
                                        "note": "an 1835 trade is recorded"}},
             {"id": "c", "occupation": {"value": ABSENT, "confidence": "reconstructed"}},
             {"id": "d", "occupation": {"value": ABSENT, "confidence": "reconstructed"}},
+            {"id": "e", "occupation": {"value": "druggist", "confidence": "inferred",
+                                       PROMOTED: {"roles": ["druggist"],
+                                                  "sources": ["chicago_democrat_1833_1835"],
+                                                  "ticket": "T-1299", "note": "promoted"},
+                                       "note": "a view promoted out of roles[]"}},
         ],
         "directories": block,
     }
+    block["people"].append({"person_id": "e", "occupation_later": later})
     out = qualified(doc)
-    a, b, c, d = out["persons"]
+    a, b, c, d, e = out["persons"]
 
     # RULE 1 — derived from the block, and nothing else is copied off it.
     want("rule 1 value", a["occupation"][POINTER]["value"], later["value"])
@@ -234,6 +276,16 @@ def self_test() -> int:
     want("rule 2 leaves a recorded trade alone", POINTER in b["occupation"], False)
     want("rule 2 ignores an empty occupation_later", POINTER in c["occupation"], False)
     want("rule 2 ignores a person the block does not name", POINTER in d["occupation"], False)
+    # RULE 2, SECOND CLAUSE (T-1299) — a field PROMOTED out of `roles[]` is a view and
+    # not an assertion of the card's own, and the pointer the timeline is derived from
+    # stays on it, saying so in its own prose.
+    want("rule 2 qualifies a promoted view", POINTER in e["occupation"], True)
+    want("...and says the 1835 field no longer reads an absence",
+         "no longer reads `none_recorded`" in e["occupation"][POINTER]["note"], True)
+    want("...without moving the promoted claim", e["occupation"]["value"], "druggist")
+    want("...and carries no figure the renderer does not read",
+         list(e["occupation"][POINTER]),
+         ["value", "describes_date", "confidence", "sources", "note"])
 
     # RULE 3 — the 1835 claim does not move, and the pointer sits after `confidence`
     # rather than displacing anything.
@@ -250,15 +302,18 @@ def self_test() -> int:
     # `--check` rests on.
     want("idempotent", qualified(out), out)
 
-    # AND THE GATE IS REAL: a promoted value would be caught rather than shipped.
+    # AND THE GATE IS REAL: a value HAND-promoted into the field — one carrying no
+    # `promoted_from_roles` record of the rows it came off — is still caught rather than
+    # shipped. That is what rule 2's second clause turns on, and it is the difference
+    # between a derived view and somebody typing a trade into the card.
     promoted = json.loads(json.dumps(doc))
     promoted["persons"][0]["occupation"]["value"] = "druggist"
-    want("a promoted 1835 value is not written back",
+    want("a hand-promoted 1835 value is not written back",
          POINTER in qualified(promoted)["persons"][0]["occupation"], False)
 
     for line in failures:
         print("FAIL " + line)
-    print("%s: %d rule check(s), %d failure(s)" % (GENERATOR, 14, len(failures)))
+    print("%s: %d rule check(s), %d failure(s)" % (GENERATOR, 18, len(failures)))
     return 1 if failures else 0
 
 

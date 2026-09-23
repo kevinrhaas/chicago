@@ -1,0 +1,977 @@
+{
+  "$schema_note": "DERIVED — regenerate with tools/placement_policy_1835.py --build; tools/check.sh re-derives it. The clauses are AUTHORED in that module and every figure beside one is re-read from the committed tree. Do not hand-edit: --check rebuilds this file and refuses any drift.",
+  "id": "chicago_july_1835_placement_policy",
+  "ticket": "T-1195",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/placement_policy_1835.py --build",
+  "not_a_reading": "no page of any source is read here. This is an adjudication over committed records: where the town's 93 documented roofs actually stand, written as the rule the seating tickets deal by. No roof moves.",
+  "scope": "T-1198 and T-1199 seat by this file; T-1200 through T-1214 build by it. The clauses are alternatives for a family letter, not a conjunction — a record conforms if any clause of its letter accepts it.",
+  "inputs": [
+    "data/structures/*.json",
+    "data/streets/1835.json",
+    "data/reconstruction/1835_existing_roof_reconciliation.json",
+    "data/reconstruction/1835_family_archetype_crosswalk.json"
+  ],
+  "vocabulary": {
+    "prefers_and_avoids": [
+      "class:principal|ordinary|light — the committed traffic class of the nearest street",
+      "street:<id> — a named street in data/streets/1835.json",
+      "division:south|north|west",
+      "lot:corner|mid — lot position within the block face",
+      "ground:river_frontage|branch|outside_plat|wet|unplatted"
+    ],
+    "scored_here": [
+      "class:* in `avoids`",
+      "setback_class `street_line`"
+    ],
+    "declarative": [
+      "division:*",
+      "lot:*",
+      "ground:*",
+      "everything in `prefers`",
+      "— this project holds no committed lot-position field for a documented record and no division index, so scoring them would be scoring an absence. The seating tickets spend them; this file does not gate them."
+    ],
+    "setback_class": [
+      "street_line — at or inside constants.street_line_m",
+      "typology — a dwelling's 4.0–7.5 m front yard",
+      "yard — behind its own principal roof, off the block alley",
+      "unplatted — no street frontage to keep a setback from"
+    ]
+  },
+  "constants": [
+    {
+      "name": "street_line_m",
+      "value": 2.71,
+      "unit": "m",
+      "read_by": [
+        {
+          "module": "tools/measure_frontage_fabric.py",
+          "name": "STREET_LINE_M"
+        }
+      ],
+      "derivation": "the empty gap in the town's own setback distribution, at its midpoint — re-derive with measure_frontage_fabric.py --setbacks. A building at or inside this stands ON the street line; anything further back stands in the block behind it."
+    },
+    {
+      "name": "party_line_unit_m",
+      "value": 6.072,
+      "unit": "m",
+      "read_by": [
+        {
+          "module": "tools/measure_end_rule.py",
+          "name": "PARTY_LINE_UNIT_M"
+        }
+      ],
+      "derivation": "the mean width of the committed party-line units, from the core density standard's derivation in tools/reconcile_665.py: eighteen units, 5.04 m to 6.75 m, mean 6.072 m."
+    },
+    {
+      "name": "trade_letters",
+      "value": [
+        "C",
+        "F",
+        "W"
+      ],
+      "unit": "family letters",
+      "read_by": [
+        {
+          "module": "tools/measure_frontage_fabric.py",
+          "name": "TRADE_LETTERS"
+        },
+        {
+          "module": "tools/generate_block_infill.py",
+          "name": "LIGHT_STREET_ZERO"
+        }
+      ],
+      "derivation": "the families that make a building a place of trade: C stores and mixed use, F warehouses and freight, W workshops. T is lodging and is deliberately not one of them; --trade prints both readings. The same three letters are the ones the documented record puts a zero on for light streets, which is why the block generator reads them under its own name."
+    },
+    {
+      "name": "non_dwelling_letters",
+      "value": [
+        "C",
+        "F",
+        "T",
+        "W",
+        "I"
+      ],
+      "unit": "family letters",
+      "read_by": [
+        {
+          "module": "tools/measure_face_rule.py",
+          "name": "NON_DWELLING"
+        },
+        {
+          "module": "tools/generate_block_infill.py",
+          "name": "NON_DWELLING_LETTERS"
+        }
+      ],
+      "derivation": "the letters the face rule does NOT rank. A is excluded on purpose: a yard building is placed by the ancillary clause, which is a rule about the lot and not about the street."
+    },
+    {
+      "name": "commercial_letter",
+      "value": "C",
+      "unit": "family letter",
+      "read_by": [
+        {
+          "module": "tools/measure_face_rule.py",
+          "name": "COMMERCIAL"
+        }
+      ],
+      "derivation": "the letter whose documented instances stand on the street line rather than at a dwelling's typology setback — 13 of 15 at T-0024, and every one of those on a platted street."
+    }
+  ],
+  "multi_building_lot": {
+    "principal_street_lot": {
+      "rule": "party_line_run",
+      "principal_roofs_max": 3,
+      "basis": "the core density standard (T-0079): three party-line units per lot, each one party_line_unit_m wide, sharing side walls.",
+      "evidence": [
+        "wright_building_to_let_a",
+        "wright_building_to_let_b"
+      ],
+      "note": "Wright's pair of buildings-to-let stand 5.00 m and 4.99 m off the Randolph line, side by side on one frontage: the documented instance of a lot carrying more than one principal roof."
+    },
+    "back_street_lot": {
+      "rule": "one_principal_roof",
+      "principal_roofs_max": 1,
+      "basis": "the dwelling typology setback and the block parcels' own arrangement notes — a cottage on a side street keeps its front yard and its dooryard, and the lot is not subdivided.",
+      "evidence": [],
+      "note": "Stated as the complement of the principal-street rule. No documented back-street lot in this town carries two principal roofs."
+    }
+  },
+  "clauses": [
+    {
+      "id": "commercial_front",
+      "applies_to": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "prefers": [
+        "class:principal",
+        "street:south_water",
+        "street:lake",
+        "street:dearborn",
+        "street:clark",
+        "lot:corner"
+      ],
+      "avoids": [
+        "class:light"
+      ],
+      "multi_building_lot_rule": "party_line_run",
+      "setback_class": "street_line",
+      "tier": "documented",
+      "evidence": [
+        "carpenter_south_water_store",
+        "h_jones_store",
+        "hogan_store",
+        "jh_kinzie_forwarding_store",
+        "john_holbrook_store",
+        "pruyne_kimball_drugstore",
+        "frederick_thomas_shop",
+        "thomas_church_store",
+        "dole_warehouse_south",
+        "old_bank_building",
+        "newberry_dole_warehouse",
+        "kinzie_hunter_warehouse"
+      ],
+      "note": "Trade takes the built streets and the river front, corners first, and it stands on the line rather than behind a yard. Not one documented store or warehouse in this town stands on a light street, and that zero — not a preference about frontage — is what the clause rests on.",
+      "witness": {
+        "evidence_records": 12,
+        "standing_with_a_street": 12,
+        "by_street_class": {
+          "principal": 11,
+          "ordinary": 0,
+          "light": 1
+        },
+        "on_the_street_line": 11,
+        "setback_m_min": -12.1,
+        "setback_m_max": 4.16
+      }
+    },
+    {
+      "id": "professional_row",
+      "applies_to": [
+        "C1"
+      ],
+      "prefers": [
+        "class:principal",
+        "street:lake",
+        "street:clark",
+        "street:dearborn",
+        "division:south"
+      ],
+      "avoids": [
+        "class:light",
+        "ground:outside_plat"
+      ],
+      "multi_building_lot_rule": "party_line_run",
+      "setback_class": "street_line",
+      "tier": "inferred",
+      "evidence": [
+        "old_bank_building",
+        "bates_auction_room",
+        "chicago_democrat_office",
+        "chicago_american_office",
+        "cook_county_courthouse_1835"
+      ],
+      "note": "Offices — law, land, press, auction, insurance — sit by the public square and the hotels rather than on the river front, because their traffic is the town's own and not the lake's. Inferred, and the evidence is thin: the two printing offices and the auction room are on Clark and Dearborn within a block of the square, the old bank building is on Lake, and the court house the reconciliation credits no family is cited for its position and not counted in the witness.",
+      "witness": {
+        "evidence_records": 5,
+        "standing_with_a_street": 4,
+        "by_street_class": {
+          "principal": 1,
+          "ordinary": 3,
+          "light": 0
+        },
+        "on_the_street_line": 4,
+        "setback_m_min": -0.97,
+        "setback_m_max": 1.5
+      }
+    },
+    {
+      "id": "mechanics_streets",
+      "applies_to": [
+        "W1",
+        "W2",
+        "W3",
+        "W4"
+      ],
+      "prefers": [
+        "class:ordinary",
+        "street:state",
+        "street:dearborn",
+        "street:clark",
+        "street:canal",
+        "lot:mid"
+      ],
+      "avoids": [
+        "class:light"
+      ],
+      "multi_building_lot_rule": "principal_plus_ancillary",
+      "setback_class": "street_line",
+      "tier": "documented",
+      "evidence": [
+        "pierce_blacksmith_shop",
+        "goss_cobb_saddlery",
+        "mason_blacksmith_shop",
+        "philo_carpenter_log_shop",
+        "blacksmith_shop_state_st"
+      ],
+      "note": "A shop needs to be found but does not need the best frontage in town: the mechanics take the side streets and the Canal Street approach, on the line, with their yard behind. Five documented workshops stand on a street; five of the eight documented W roofs are on ordinary streets.",
+      "witness": {
+        "evidence_records": 5,
+        "standing_with_a_street": 4,
+        "by_street_class": {
+          "principal": 1,
+          "ordinary": 2,
+          "light": 1
+        },
+        "on_the_street_line": 3,
+        "setback_m_min": -0.56,
+        "setback_m_max": 45.85
+      }
+    },
+    {
+      "id": "heavy_and_noxious_trades",
+      "applies_to": [
+        "W5"
+      ],
+      "prefers": [
+        "ground:branch",
+        "ground:river_frontage",
+        "street:canal",
+        "division:west"
+      ],
+      "avoids": [
+        "class:principal",
+        "lot:corner"
+      ],
+      "multi_building_lot_rule": "not_applicable",
+      "setback_class": "unplatted",
+      "tier": "documented",
+      "evidence": [
+        "clybourn_slaughterhouse",
+        "elston_soap_candle_manufactory",
+        "miller_tannery",
+        "newberry_dole_slaughterhouse_south_branch"
+      ],
+      "note": "Packing, tanning, slaughtering and soap-boiling go to the branches and out of the town's nose, on the water that carries their waste away. All four documented instances stand well off any platted street line, and three of the four are on a branch.",
+      "witness": {
+        "evidence_records": 4,
+        "standing_with_a_street": 4,
+        "by_street_class": {
+          "principal": 0,
+          "ordinary": 3,
+          "light": 1
+        },
+        "on_the_street_line": 1,
+        "setback_m_min": -11.45,
+        "setback_m_max": 60.79
+      }
+    },
+    {
+      "id": "merchant_and_professional_dwellings",
+      "applies_to": [
+        "H1",
+        "H2",
+        "D7"
+      ],
+      "prefers": [
+        "class:ordinary",
+        "street:randolph",
+        "street:washington",
+        "street:clark",
+        "street:lake",
+        "lot:corner"
+      ],
+      "avoids": [
+        "ground:branch",
+        "ground:wet"
+      ],
+      "multi_building_lot_rule": "principal_plus_ancillary",
+      "setback_class": "typology",
+      "tier": "inferred",
+      "evidence": [
+        "cobweb_castle",
+        "heacock_house_monroe",
+        "james_kinzie_house"
+      ],
+      "note": "The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier.",
+      "witness": {
+        "evidence_records": 3,
+        "standing_with_a_street": 2,
+        "by_street_class": {
+          "principal": 1,
+          "ordinary": 0,
+          "light": 1
+        },
+        "on_the_street_line": 1,
+        "setback_m_min": 0.85,
+        "setback_m_max": 9.31
+      }
+    },
+    {
+      "id": "tradesman_dwellings",
+      "applies_to": [
+        "D3",
+        "D4",
+        "D5",
+        "D6"
+      ],
+      "prefers": [
+        "class:ordinary",
+        "division:south",
+        "lot:mid"
+      ],
+      "avoids": [
+        "ground:wet"
+      ],
+      "multi_building_lot_rule": "party_line_run",
+      "setback_class": "typology",
+      "tier": "inferred",
+      "evidence": [
+        "harmon_log_cabin",
+        "madore_beaubien_house",
+        "lasalle_lake_house"
+      ],
+      "note": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
+      "witness": {
+        "evidence_records": 3,
+        "standing_with_a_street": 2,
+        "by_street_class": {
+          "principal": 1,
+          "ordinary": 1,
+          "light": 0
+        },
+        "on_the_street_line": 2,
+        "setback_m_min": -0.2,
+        "setback_m_max": 1.5
+      }
+    },
+    {
+      "id": "labourer_dwellings",
+      "applies_to": [
+        "D1",
+        "D2"
+      ],
+      "prefers": [
+        "class:light",
+        "division:west",
+        "division:north",
+        "lot:mid",
+        "ground:outside_plat"
+      ],
+      "avoids": [
+        "street:south_water",
+        "street:lake"
+      ],
+      "multi_building_lot_rule": "one_principal_roof",
+      "setback_class": "typology",
+      "tier": "inferred",
+      "evidence": [
+        "clybourn_cabins",
+        "robinson_caldwell_cabins",
+        "chappel_infant_school"
+      ],
+      "note": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
+      "witness": {
+        "evidence_records": 3,
+        "standing_with_a_street": 3,
+        "by_street_class": {
+          "principal": 0,
+          "ordinary": 2,
+          "light": 1
+        },
+        "on_the_street_line": 1,
+        "setback_m_min": -1.98,
+        "setback_m_max": 59.84
+      }
+    },
+    {
+      "id": "lodging_near_the_landings",
+      "applies_to": [
+        "T1",
+        "T2",
+        "T3",
+        "H3"
+      ],
+      "prefers": [
+        "class:principal",
+        "street:lake",
+        "street:dearborn",
+        "street:canal",
+        "lot:corner",
+        "ground:river_frontage"
+      ],
+      "avoids": [
+        "ground:branch"
+      ],
+      "multi_building_lot_rule": "principal_plus_ancillary",
+      "setback_class": "street_line",
+      "tier": "documented",
+      "evidence": [
+        "sauganash_hotel",
+        "green_tree_tavern",
+        "new_york_house",
+        "mansion_house",
+        "tremont_house_1",
+        "exchange_coffee_house",
+        "western_hotel",
+        "wolf_point_tavern",
+        "brown_boarding_house"
+      ],
+      "note": "An inn stands where the traveller arrives: the bridge head, the forks, the stage and wagon approaches, the lake landing. Nine documented lodging roofs, and every one of them is on a corner, an approach or the water — with its stable in the yard behind it.",
+      "witness": {
+        "evidence_records": 9,
+        "standing_with_a_street": 8,
+        "by_street_class": {
+          "principal": 4,
+          "ordinary": 4,
+          "light": 0
+        },
+        "on_the_street_line": 7,
+        "setback_m_min": -1.75,
+        "setback_m_max": 39.76
+      }
+    },
+    {
+      "id": "farms_and_country_seats",
+      "applies_to": [
+        "D1",
+        "A2"
+      ],
+      "prefers": [
+        "ground:outside_plat",
+        "division:west",
+        "division:north"
+      ],
+      "avoids": [
+        "class:principal",
+        "lot:corner"
+      ],
+      "multi_building_lot_rule": "not_applicable",
+      "setback_class": "unplatted",
+      "tier": "documented",
+      "evidence": [
+        "jb_beaubien_homestead",
+        "beaubien_barn",
+        "clybourn_cabins",
+        "robinson_caldwell_cabins"
+      ],
+      "note": "The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all.",
+      "witness": {
+        "evidence_records": 4,
+        "standing_with_a_street": 4,
+        "by_street_class": {
+          "principal": 2,
+          "ordinary": 2,
+          "light": 0
+        },
+        "on_the_street_line": 0,
+        "setback_m_min": 11.32,
+        "setback_m_max": 360.15
+      }
+    },
+    {
+      "id": "institutions_stand_where_named",
+      "applies_to": [
+        "I1",
+        "I2",
+        "I3"
+      ],
+      "prefers": [
+        "class:ordinary",
+        "street:clark",
+        "street:randolph",
+        "street:washington"
+      ],
+      "avoids": [],
+      "multi_building_lot_rule": "one_principal_roof",
+      "setback_class": "street_line",
+      "tier": "documented",
+      "evidence": [
+        "first_presbyterian_church",
+        "temple_building",
+        "log_jail",
+        "north_side_school_1833",
+        "walker_meeting_house",
+        "st_marys_church",
+        "council_house",
+        "chicago_lighthouse_1832",
+        "watkins_school_house"
+      ],
+      "note": "A public building nobody named is the claim that an institution stood here and left no record. `generate_block_infill.py` refuses the institutional families to a block parcel BY NAME (L93), so this clause seats nothing: it records where the nine named ones stand so a future parcel cannot quietly invent a tenth.",
+      "witness": {
+        "evidence_records": 9,
+        "standing_with_a_street": 9,
+        "by_street_class": {
+          "principal": 1,
+          "ordinary": 5,
+          "light": 3
+        },
+        "on_the_street_line": 5,
+        "setback_m_min": -8.4,
+        "setback_m_max": 317.96
+      }
+    },
+    {
+      "id": "ancillary_behind_its_own_roof",
+      "applies_to": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "prefers": [
+        "lot:mid"
+      ],
+      "avoids": [
+        "class:principal"
+      ],
+      "multi_building_lot_rule": "principal_plus_ancillary",
+      "setback_class": "yard",
+      "tier": "documented",
+      "evidence": [
+        "western_hotel_stable",
+        "wolf_point_tavern_stable",
+        "fort_dearborn_big_barn",
+        "fort_dearborn_wash_house"
+      ],
+      "note": "Stables, privies, woodsheds and smokehouses go off the block alley behind the roof they serve. This predates the face rule and is a rule about the LOT, which is why A is not one of the face rule's letters.",
+      "witness": {
+        "evidence_records": 4,
+        "standing_with_a_street": 4,
+        "by_street_class": {
+          "principal": 3,
+          "ordinary": 1,
+          "light": 0
+        },
+        "on_the_street_line": 1,
+        "setback_m_min": 0.59,
+        "setback_m_max": 420.22
+      }
+    },
+    {
+      "id": "garrison_reservation",
+      "applies_to": [
+        "M1"
+      ],
+      "prefers": [
+        "ground:unplatted",
+        "division:south"
+      ],
+      "avoids": [
+        "lot:corner",
+        "lot:mid"
+      ],
+      "multi_building_lot_rule": "not_applicable",
+      "setback_class": "unplatted",
+      "tier": "documented",
+      "evidence": [
+        "fort_dearborn_barracks",
+        "fort_dearborn_officers_quarters",
+        "fort_dearborn_magazine",
+        "fort_dearborn_blockhouse"
+      ],
+      "note": "The military reservation was UNPLATTED in 1835 and no street crossed it (`data/reconstruction/1835_no_build_ground.json`). A building inside the fence has no street frontage to take a better or a worse face of, so no frontage clause reaches one — and the face rule's own zero is a statement about buildings that front streets.",
+      "witness": {
+        "evidence_records": 4,
+        "standing_with_a_street": 4,
+        "by_street_class": {
+          "principal": 4,
+          "ordinary": 0,
+          "light": 0
+        },
+        "on_the_street_line": 0,
+        "setback_m_min": 373.89,
+        "setback_m_max": 405.45
+      }
+    }
+  ],
+  "coverage": {
+    "documented_roofs_with_a_family": 77,
+    "conforming": 54,
+    "outliers": 23,
+    "by_family": {
+      "A1": [
+        "ancillary_behind_its_own_roof"
+      ],
+      "A2": [
+        "ancillary_behind_its_own_roof",
+        "farms_and_country_seats"
+      ],
+      "A5": [
+        "ancillary_behind_its_own_roof"
+      ],
+      "C1": [
+        "commercial_front",
+        "professional_row"
+      ],
+      "C2": [
+        "commercial_front"
+      ],
+      "C3": [
+        "commercial_front"
+      ],
+      "C4": [
+        "commercial_front"
+      ],
+      "D1": [
+        "farms_and_country_seats",
+        "labourer_dwellings"
+      ],
+      "F1": [
+        "commercial_front"
+      ],
+      "F2": [
+        "commercial_front"
+      ],
+      "F4": [
+        "commercial_front"
+      ],
+      "H1": [
+        "merchant_and_professional_dwellings"
+      ],
+      "I1": [
+        "institutions_stand_where_named"
+      ],
+      "I2": [
+        "institutions_stand_where_named"
+      ],
+      "I3": [
+        "institutions_stand_where_named"
+      ],
+      "M1": [
+        "garrison_reservation"
+      ],
+      "T1": [
+        "lodging_near_the_landings"
+      ],
+      "T2": [
+        "lodging_near_the_landings"
+      ],
+      "T3": [
+        "lodging_near_the_landings"
+      ],
+      "W1": [
+        "mechanics_streets"
+      ],
+      "W4": [
+        "mechanics_streets"
+      ],
+      "W5": [
+        "heavy_and_noxious_trades"
+      ]
+    }
+  },
+  "outliers": [
+    {
+      "id": "beaubien_barn",
+      "family": "A2",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 347.65,
+      "measured": [
+        "stands on a principal street, which ancillary_behind_its_own_roof avoids",
+        "stands on a principal street, which farms_and_country_seats avoids"
+      ],
+      "reason": "Jean Baptiste Beaubien's own barn on his own ground east of the fort, outside the plat: an ancillary roof 347.65 m from Lake Street's corridor edge is behind its own house and not on anybody's frontage. It read Kinzie at 80.93 m until T-1429, which is a north-bank street across the channel."
+    },
+    {
+      "id": "blacksmith_shop_state_st",
+      "family": "W1",
+      "street": "wolcott",
+      "class": "light",
+      "setback_m": 45.85,
+      "measured": [
+        "stands 45.85 m off the street line (2.71 m), and mechanics_streets puts it on the line",
+        "stands on a light street, which mechanics_streets avoids"
+      ],
+      "reason": "the GOVERNMENT smithy, not a mechanic's: it belongs to the agency establishment the 1821 treaty obliged the United States to keep at Chicago, and it stands in the north-side cluster round Cobweb Castle. Since T-1191 put the north bank's own corridors in the reading it is nearest Wolcott at 45.85 m rather than South Water at 97 m across the channel — a truer line and still not a frontage. The record is flagged review_required and nothing here seats it."
+    },
+    {
+      "id": "brickyard_north_side",
+      "family": "F4",
+      "street": "clark_north",
+      "class": "light",
+      "setback_m": 31.43,
+      "measured": [
+        "stands 31.43 m off the street line (2.71 m), and commercial_front puts it on the line",
+        "stands on a light street, which commercial_front avoids"
+      ],
+      "reason": "the clay is where the clay is. A brickyard is seated by its material and not by its frontage — 31.43 m off Clark Street's north-bank corridor since T-1191, and 89 m off South Water's line across the river before it."
+    },
+    {
+      "id": "chicago_lighthouse_1832",
+      "family": "I3",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 317.96,
+      "measured": [
+        "stands 317.96 m off the street line (2.71 m), and institutions_stand_where_named puts it on the line"
+      ],
+      "reason": "at the river mouth on the federal reserve — a lighthouse is seated by the harbour and not by a street."
+    },
+    {
+      "id": "council_house",
+      "family": "I3",
+      "street": "kinzie",
+      "class": "ordinary",
+      "setback_m": 7.91,
+      "measured": [
+        "stands 7.91 m off the street line (2.71 m), and institutions_stand_where_named puts it on the line"
+      ],
+      "reason": "on the lakefront reservation ground east of the platted town."
+    },
+    {
+      "id": "fort_dearborn_big_barn",
+      "family": "A2",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 270.75,
+      "measured": [
+        "stands on a principal street, which ancillary_behind_its_own_roof avoids",
+        "stands on a principal street, which farms_and_country_seats avoids"
+      ],
+      "reason": "inside the unplatted military reservation, 270.75 m from Lake Street's corridor edge: the garrison's own barn, seated behind the fort and not on a street. Same correction as its neighbours — Kinzie at 95.89 m was across the water."
+    },
+    {
+      "id": "fort_dearborn_out_building_a",
+      "family": "A5",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 312.17,
+      "measured": [
+        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+      ],
+      "reason": "inside the unplatted military reservation, 312.17 m from Lake Street's corridor edge: the ancillary clause's 'behind its own roof' is a statement about a platted lot and there is no lot here. T-1191 read it 198.31 m off Kinzie and this reason had to be withdrawn; T-1429's bank test refuses that line — it is Kinzie's east end, which stands under the 1834 harbour cut — and restores it."
+    },
+    {
+      "id": "fort_dearborn_out_building_b",
+      "family": "A5",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 322.71,
+      "measured": [
+        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+      ],
+      "reason": "inside the unplatted military reservation, 322.71 m from Lake Street's corridor edge, as its pair. Withdrawn by T-1191 and restored by T-1429 for the same reason."
+    },
+    {
+      "id": "fort_dearborn_shop",
+      "family": "W4",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 381.64,
+      "measured": [
+        "stands 381.64 m off the street line (2.71 m), and mechanics_streets puts it on the line"
+      ],
+      "reason": "inside the unplatted military reservation: the garrison's own workshop, not a mechanic's shop on a street. Its nearest corridor is Lake Street's at 381.64 m since T-1429 put the river in the reading; the Kinzie line at 157.87 m that T-1191 briefly gave it is on the far bank and was never its frontage."
+    },
+    {
+      "id": "fort_dearborn_us_factors_house",
+      "family": "C2",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 287.59,
+      "measured": [
+        "stands 287.59 m off the street line (2.71 m), and commercial_front puts it on the line"
+      ],
+      "reason": "inside the unplatted military reservation — see the garrison clause. No street crossed the reservation in 1835."
+    },
+    {
+      "id": "fort_dearborn_wash_house",
+      "family": "A5",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 420.22,
+      "measured": [
+        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+      ],
+      "reason": "inside the unplatted military reservation, 420.22 m from Lake Street's corridor edge: the garrison washed its own linen behind its own palisade. It read Kinzie at 144.13 m until T-1429, across the channel."
+    },
+    {
+      "id": "kinzie_hunter_warehouse",
+      "family": "F1",
+      "street": "market_north",
+      "class": "light",
+      "setback_m": 4.16,
+      "measured": [
+        "stands 4.16 m off the street line (2.71 m), and commercial_front puts it on the line",
+        "stands on a light street, which commercial_front avoids"
+      ],
+      "reason": "on the north bank of the main river: its frontage is the WATER, which is what a forwarding warehouse wants. Since T-1191 the line beside it is Market Street's north-bank corridor at 4.16 m rather than South Water's across the channel, and standing that close to a light back street is not taking its face."
+    },
+    {
+      "id": "miller_house",
+      "family": "C4",
+      "street": "market_north",
+      "class": "light",
+      "setback_m": 60.66,
+      "measured": [
+        "stands 60.66 m off the street line (2.71 m), and commercial_front puts it on the line",
+        "stands on a light street, which commercial_front avoids"
+      ],
+      "reason": "on the north bank, at the forks. It is nearest Market Street's north-bank corridor at 60.66 m since T-1191 and was nearest South Water's line at 138 m across the river before it; neither is a face this house takes."
+    },
+    {
+      "id": "north_bank_shed_dearborn_e1",
+      "family": "F1",
+      "street": "dearborn_north",
+      "class": "light",
+      "setback_m": -6.63,
+      "measured": [
+        "stands on a light street, which commercial_front avoids"
+      ],
+      "reason": "a north-bank freight shed: its frontage is the water."
+    },
+    {
+      "id": "north_bank_shed_dearborn_e2",
+      "family": "F1",
+      "street": "dearborn_north",
+      "class": "light",
+      "setback_m": 8.46,
+      "measured": [
+        "stands 8.46 m off the street line (2.71 m), and commercial_front puts it on the line",
+        "stands on a light street, which commercial_front avoids"
+      ],
+      "reason": "a north-bank freight shed: its frontage is the water."
+    },
+    {
+      "id": "north_bank_shed_dearborn_e3",
+      "family": "F1",
+      "street": "dearborn_north",
+      "class": "light",
+      "setback_m": 20.13,
+      "measured": [
+        "stands 20.13 m off the street line (2.71 m), and commercial_front puts it on the line",
+        "stands on a light street, which commercial_front avoids"
+      ],
+      "reason": "a north-bank freight shed: its frontage is the water."
+    },
+    {
+      "id": "north_bank_shed_dearborn_w",
+      "family": "F1",
+      "street": "dearborn_north",
+      "class": "light",
+      "setback_m": 6.33,
+      "measured": [
+        "stands 6.33 m off the street line (2.71 m), and commercial_front puts it on the line",
+        "stands on a light street, which commercial_front avoids"
+      ],
+      "reason": "a north-bank freight shed: its frontage is the water."
+    },
+    {
+      "id": "north_side_school_1833",
+      "family": "I2",
+      "street": "clark_north",
+      "class": "light",
+      "setback_m": 4.32,
+      "measured": [
+        "stands 4.32 m off the street line (2.71 m), and institutions_stand_where_named puts it on the line"
+      ],
+      "reason": "the north-side school, 4.32 m off Clark Street's north-bank corridor since T-1191 and 90 m off the South Water line across the river before it. The institutional clause puts a named institution on its line and this one stands back off a light street, which is where the school house was built."
+    },
+    {
+      "id": "robert_kinzie_store",
+      "family": "C1",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 27.13,
+      "measured": [
+        "stands 27.13 m off the street line (2.71 m), and commercial_front puts it on the line",
+        "stands 27.13 m off the street line (2.71 m), and professional_row puts it on the line"
+      ],
+      "reason": "at Wolf Point, off the platted grid: the store fronts the forks and the ferry landing, and Lake Street's line is 27 m away because Lake ENDS at the river."
+    },
+    {
+      "id": "steamboat_hotel",
+      "family": "T2",
+      "street": "kinzie",
+      "class": "ordinary",
+      "setback_m": 20.47,
+      "measured": [
+        "stands 20.47 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line"
+      ],
+      "reason": "north division. Until T-1191 State was simply the nearest line, 203 m off across the river; the hotel is now read against Kinzie at 20.47 m, which is a real north-bank line and still a setback no lodging clause allows."
+    },
+    {
+      "id": "walker_meeting_house",
+      "family": "I1",
+      "street": "canal",
+      "class": "ordinary",
+      "setback_m": 48.04,
+      "measured": [
+        "stands 48.04 m off the street line (2.71 m), and institutions_stand_where_named puts it on the line"
+      ],
+      "reason": "on the west ground 48 m off the Canal line, at the edge of what was platted."
+    },
+    {
+      "id": "wolf_point_tavern",
+      "family": "T1",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 39.76,
+      "measured": [
+        "stands 39.76 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line"
+      ],
+      "reason": "at the forks, 40 m off Lake's line: the tavern fronts the ferry and the two branches, which is precisely why it stands there."
+    },
+    {
+      "id": "wolf_point_tavern_stable",
+      "family": "A1",
+      "street": "lake",
+      "class": "principal",
+      "setback_m": 36.7,
+      "measured": [
+        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+      ],
+      "reason": "the tavern's own stable, at the forks with it."
+    }
+  ]
+}

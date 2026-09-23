@@ -1,0 +1,399 @@
+{
+  "id": "1835_community_rules",
+  "ticket": "T-1375",
+  "parent_ticket": "T-1177",
+  "purpose": "The closed community vocabulary, and the rules by which every person and household in data/residents/ is given a community from evidence THIS LAYER ALREADY HOLDS.",
+  "what_this_is_not": "NOT a reading of any new source, and not a reconstruction of anybody. Nothing here mints a person, upgrades a confidence or invents a citation. Every value is read off a field already committed — a household's `origin` block, or a reconstructed person's own `reconstruction.community` — and is graded no higher than the field it was read from. Where the layer says nothing, the value is `unknown` and stays `unknown`. The cohort tickets T-1376 (Native and Metis), T-1377 (free Black) and T-1378 (businesses, Irish and German shares) are where new readings happen.",
+  "the_tier_ladder": {
+    "reconstruction_community": "A reconstructed person drawn from a name pool carries the pool's community on the record already. Tier `reconstructed`, because the person is.",
+    "stated_community": "The origin sentence STATES a community or a descent. Tier is the origin block's own confidence, uncapped — the sentence is the evidence.",
+    "origin_region": "The origin sentence states a PLACE. A place is not a community, so the reading is an inference about the person: tier is the origin block's confidence CAPPED AT `inferred`. An attested origin therefore yields an inferred community.",
+    "none": "No rule fires. Value `unknown`, tier null, and the basis says which of the two reasons it was — no origin recorded, or an origin this file cannot read."
+  },
+  "who_a_household_origin_speaks_for": {
+    "descent_relationships": [
+      "head",
+      "son",
+      "daughter",
+      "child",
+      "brother",
+      "sister"
+    ],
+    "origin_relationships": [
+      "head",
+      "wife",
+      "husband",
+      "son",
+      "daughter",
+      "child",
+      "brother",
+      "sister",
+      "mother",
+      "father"
+    ],
+    "note": "A household's origin is where its FAMILY came from. It is not evidence about the boarder, lodger, servant, clerk, apprentice or journeyman under its roof, nor about an unnamed `household_member`, and this pass does not extend it to them — they read `unknown` unless their own record carries a community. A STATED descent (Caldwell's, Robinson's) narrows further still, to the head and the relations who descend from the same parents: a wife does not take her husband's descent."
+  },
+  "vocabulary": [
+    {
+      "value": "native",
+      "label": "Native (nation not stated)",
+      "note": "THE SOURCE SAYS INDIAN AND SAYS NOTHING FURTHER. The Illinois State Archives roll of Black Hawk War enrollments at Chicago heads a company of ninety-four men INDIAN and distinguishes no nation among them; T-1376 cards those men and writes this term rather than choosing one of the three below for them. A card that later reaches a nation replaces it. Every person carrying it is review_required and touches_removal."
+    },
+    {
+      "value": "potawatomi",
+      "label": "Potawatomi",
+      "note": "A nation, written only where a source states it. T-1376 read the one roll this corpus holds that names Native people at Chicago in numbers and it states no nation, so no card carries this term yet; `native` above is what that roll supports."
+    },
+    {
+      "value": "ottawa",
+      "label": "Ottawa (Odawa)",
+      "note": "A nation, written only where a source states it. No card carries it: see `native` above for what the 1832 roll supports."
+    },
+    {
+      "value": "ojibwe",
+      "label": "Ojibwe",
+      "note": "A nation, written only where a source states it. No card carries it: see `native` above for what the 1832 roll supports."
+    },
+    {
+      "value": "metis",
+      "label": "Metis",
+      "note": "A person of mixed Native and European descent in the Great Lakes trade, which is how the two cards that carry it are worded by their own sources."
+    },
+    {
+      "value": "french_canadian",
+      "label": "French Canadian",
+      "note": "The Great Lakes French trade community of the Detroit, Mackinac and Milwaukee country. NOT `born in France` — see the Lyons rule."
+    },
+    {
+      "value": "free_black",
+      "label": "Free Black",
+      "note": "T-1377 wrote it. Caton's 1833 defence of 'six or seven free coloured men' is the FLOOR of the bracket and the 1840 census's 53 free coloured persons the ceiling; the `free_black` sub-stage of stage `underdocumented` writes the floor \u2014 7 households, 13 people, 2 firms, every one reconstructed and review_required. Nobody carrying this value is a person a source names, and the head-room to the ceiling is deliberately left open. docs/RESEARCH/black_chicago_1835.md."
+    },
+    {
+      "value": "yankee",
+      "label": "New England",
+      "note": "New England proper. The reconstruction's name pool of the same id covers New England AND New York together, so a pool-drawn person reads `yankee` at a coarser grain than a card whose origin names a state."
+    },
+    {
+      "value": "new_york",
+      "label": "New York State",
+      "note": "New York State, the Erie Canal corridor the town's origin distribution is built on."
+    },
+    {
+      "value": "irish",
+      "label": "Irish"
+    },
+    {
+      "value": "german",
+      "label": "German",
+      "note": "No card carries it yet — the register's German Catholic rows are T-1378's to check against the model."
+    },
+    {
+      "value": "british",
+      "label": "British",
+      "note": "England, Scotland and Wales."
+    },
+    {
+      "value": "southern",
+      "label": "Southern",
+      "note": "Virginia, Maryland, the Carolinas, Kentucky and the District — the slave states and the District, taken together as the period did."
+    },
+    {
+      "value": "other",
+      "label": "Other",
+      "note": "A community the layer's evidence names and this vocabulary has no term for. Every use is listed in the rules below; none is a shrug."
+    },
+    {
+      "value": "unknown",
+      "label": "Unknown",
+      "note": "The layer holds no evidence of this person's community. The honest majority value, and the one the cohort tickets exist to shrink."
+    }
+  ],
+  "pool_aliases": {
+    "french_colonial": "french_canadian",
+    "_note": "data/reconstruction/1835_invented_name_pools.json names its third pool `french_colonial` and 121 reconstructed persons carry that string. The pool is this vocabulary's `french_canadian`; the records are not rewritten for a rename, they are resolved here."
+  },
+  "stated_community": [
+    {
+      "origin": "Detroit; his father an Irish officer in the British army, his mother Potawatomi",
+      "community": "metis",
+      "households": 1,
+      "note": "Billy Caldwell (Sauganash). The sentence states the parentage — an Irish father in the British service and a Potawatomi mother — and `metis` is this vocabulary's term for a person of that descent in the Great Lakes trade. It does not replace `potawatomi`: Caldwell's standing among the Potawatomi is a separate claim that T-1376 reads and records."
+    },
+    {
+      "origin": "Mackinaw; his father a Scots trader, his mother an Ottawa woman",
+      "community": "metis",
+      "households": 1,
+      "note": "Alexander Robinson (Che-che-pin-qua). Same reading as Caldwell's: the sentence states a Scots father and an Ottawa mother. His Potawatomi and Ottawa standing is T-1376's to record."
+    },
+    {
+      "origin": "Detroit and the Milwaukee trade, of a French colonial family",
+      "community": "french_canadian",
+      "households": 1,
+      "note": "Col. Jean Baptiste Beaubien. `of a French colonial family` is a statement about the household's community and not only about where it came from."
+    },
+    {
+      "origin": "A French-descended trading family of the Detroit and Milwaukee country",
+      "community": "french_canadian",
+      "households": 1,
+      "note": "Same sentence in another card's wording."
+    },
+    {
+      "origin": "The French colonial settlements of the Detroit and Milwaukee country",
+      "community": "french_canadian",
+      "households": 3,
+      "note": "The reconstruction spec's own band for the Great Lakes French trade population, written into three reconstructed households' origin."
+    }
+  ],
+  "origin_region": [
+    {
+      "origin": "New England",
+      "community": "yankee",
+      "households": 464
+    },
+    {
+      "origin": "Vermont",
+      "community": "yankee",
+      "households": 2
+    },
+    {
+      "origin": "Burlington, Vermont",
+      "community": "yankee",
+      "households": 2
+    },
+    {
+      "origin": "Washington County, Vermont",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Montpelier, Vermont",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Connecticut",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Connecticut.",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Ridgefield, Conn.",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Westport, Conn.",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Tolland, Conn.",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Middletown, Conn.",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Massachusetts",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Mass.",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Boston",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Exeter, N. H.",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Providence, Rhode Island",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "New England, by way of the garrison church at Fort Brady, Sault Ste Marie",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Windsor, Vermont, by way of Montreal",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "Connecticut, by way of Detroit",
+      "community": "yankee",
+      "households": 1
+    },
+    {
+      "origin": "New York State",
+      "community": "new_york",
+      "households": 542
+    },
+    {
+      "origin": "New York.",
+      "community": "new_york",
+      "households": 3
+    },
+    {
+      "origin": "New York City.",
+      "community": "new_york",
+      "households": 1
+    },
+    {
+      "origin": "Buffalo, New York",
+      "community": "new_york",
+      "households": 2
+    },
+    {
+      "origin": "Chautauqua, New York",
+      "community": "new_york",
+      "households": 1
+    },
+    {
+      "origin": "Near Utica, New York",
+      "community": "new_york",
+      "households": 1
+    },
+    {
+      "origin": "Jefferson Co., N.Y.",
+      "community": "new_york",
+      "households": 1
+    },
+    {
+      "origin": "Fishkill, Duchess Co., N.Y.",
+      "community": "new_york",
+      "households": 1
+    },
+    {
+      "origin": "Orange Co., N.Y.",
+      "community": "new_york",
+      "households": 1
+    },
+    {
+      "origin": "Rome, N.Y.",
+      "community": "new_york",
+      "households": 1
+    },
+    {
+      "origin": "Sackett's Harbor, New York; born at Guilford, Vermont",
+      "community": "new_york",
+      "households": 1
+    },
+    {
+      "origin": "England",
+      "community": "british",
+      "households": 107
+    },
+    {
+      "origin": "London, Eng.",
+      "community": "british",
+      "households": 1
+    },
+    {
+      "origin": "Yorkshire, Eng.",
+      "community": "british",
+      "households": 1
+    },
+    {
+      "origin": "The Southern states",
+      "community": "southern",
+      "households": 57
+    },
+    {
+      "origin": "Virginia",
+      "community": "southern",
+      "households": 2
+    },
+    {
+      "origin": "Virginia.",
+      "community": "southern",
+      "households": 1
+    },
+    {
+      "origin": "Kentucky",
+      "community": "southern",
+      "households": 1
+    },
+    {
+      "origin": "Enfield, North Carolina.",
+      "community": "southern",
+      "households": 1
+    },
+    {
+      "origin": "Harford Co., Md.",
+      "community": "southern",
+      "households": 1
+    },
+    {
+      "origin": "Washington, D. C.",
+      "community": "southern",
+      "households": 1
+    },
+    {
+      "origin": "Ireland",
+      "community": "irish",
+      "households": 29
+    },
+    {
+      "origin": "County Kerry, Ireland, by way of Lancashire, Dublin, Quebec, Montreal, New York, Virginia and Newark",
+      "community": "irish",
+      "households": 1
+    },
+    {
+      "origin": "Lyons, France, by way of St Louis and St Mary's of the Barrens, Missouri",
+      "community": "other",
+      "households": 1,
+      "note": "FRENCH-BORN IS NOT FRENCH-CANADIAN. `french_canadian` in this vocabulary is the Great Lakes trade community of the Detroit, Mackinac and Milwaukee country; a man out of Lyons by way of the Missouri seminary belongs to neither that community nor any other term here."
+    },
+    {
+      "origin": "Northumberland Co., Penn.",
+      "community": "other",
+      "households": 1,
+      "note": "Pennsylvania, for the same reason as the Mid-Atlantic band above."
+    },
+    {
+      "origin": "The Mid-Atlantic states",
+      "community": "other",
+      "households": 112,
+      "note": "New York, New Jersey and Pennsylvania stock that is neither New England nor Southern. THE VOCABULARY HAS NO MID-ATLANTIC TERM and this rule will not force 112 households into `new_york`, which is a different claim from the one the origin makes. Recorded as `other` until the owner rules on the term."
+    },
+    {
+      "origin": "West of the Alleghenies",
+      "community": "other",
+      "households": 16,
+      "note": "Ohio, Indiana and the Illinois country — the western American stock the reconstruction spec names as its own band, and again a band this vocabulary has no term for. Not `southern`, not `yankee`."
+    }
+  ],
+  "unreadable_origin": [
+    {
+      "origin": "Chicago — born at the settlement",
+      "note": "Madore Benjamin Beaubien. Born at Chicago to Jean Baptiste Beaubien — whose own origin states a French colonial family — and, the literature says, a Potawatomi mother. THE LAYER DOES NOT SAY THAT HERE, so this pass reads `unknown` rather than inherit a community down a parentage the record has not written. T-1376 is the ticket that reads the sources and cards this household properly; when it does, this row should stop being unknown."
+    },
+    {
+      "origin": "Chicago, by way of Fort Winnebago",
+      "note": "Born or last resident at the settlement itself. Says nothing about community."
+    },
+    {
+      "origin": "Detroit",
+      "note": "Detroit alone says a place and not a community: the town held a French colonial population, an American garrison and territorial officers, and Yankee and New York merchants passing through. The origin does not separate them and this pass will not guess."
+    }
+  ],
+  "coverage_rule": "Every distinct `origin.value` in data/residents/ must appear exactly once across `stated_community`, `origin_region` and `unreadable_origin`. tools/derive_person_community.py --check fails when one does not, so a new origin string cannot enter the layer without somebody deciding what it means."
+}

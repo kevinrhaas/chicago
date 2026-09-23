@@ -3634,9 +3634,32 @@
   },
   "cross_checks": {
     "committed_plat_blocks_inside_the_original_town": {
-      "claim": "If the four streets are the 1830 plat's bounds, every block this project has already generated from the Thompson module must fall inside them. This does not prove the bounds — a bigger rectangle would pass too — but a block outside would disprove them.",
-      "blocks": 19,
+      "claim": "If a plat's bounds are where this project puts them, every block it has generated from that plat's module must fall inside them. This does not prove any bounds — a bigger rectangle would pass too — but a block outside its OWN plat would disprove them. Each block is tested against the tract its `grid` names: the Original Town's blocks against the 1830 canal commissioners' four streets, Kinzie's Addition's against Kinzie's.",
+      "blocks": 72,
+      "by_plat": {
+        "kinzies_addition": 27,
+        "original_town": 19,
+        "wabansia": 13,
+        "west_division": 9
+      },
       "outside": [],
+      "no_ring_for_their_plat": [],
+      "not_testable_and_why": {
+        "michigan_st_tract": {
+          "blocks": [
+            "blk_michigan_st_tract_east_north",
+            "blk_michigan_st_tract_east_south",
+            "blk_michigan_st_tract_west_north",
+            "blk_michigan_st_tract_west_south"
+          ],
+          "reason": "no survey-tract polygon is committed for this plat, so there are no bounds to test its blocks against"
+        }
+      },
+      "corners_on_the_line": {
+        "worst_m": 5.94,
+        "allowance_m": 17.5,
+        "why": "A block that tiles its plat to the edge has corners ON the boundary. The allowance is data/datum.json's own 17.5 m RMS coordinate residual, not a figure fitted to this layer; the worst distance actually used is stated so a reader can see how much of it any block needs."
+      },
       "confidence": "inferred"
     },
     "lighthouse_inside_the_reservation": {

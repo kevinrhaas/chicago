@@ -135,3 +135,13 @@ should never have generators. Only that **this ticket cannot be the place that d
 the wharf is the worst of the nine to start with, because it is the one whose geometry is a
 terrain function, and the decision is general. T-0252 states it whole, for the owner to
 rank.
+
+## Re-read on 2026-09-20 — T-1464 introduces the second reader
+
+The owner requested a standalone Mac build before streaming. `renderers/unreal/`
+now imports the committed glTF and sidecars and packages a native application.
+The original one-renderer premise no longer holds; `measure_generator_half.py`
+now measures and requires two. This does not silently close the missing-layer
+debt. T-0252 and the owner-ranked T-1356/T-1360 programme already own the shared
+export contract and Unreal parity, including river wharves. This historical
+wharf-only ticket stays withdrawn in favour of those existing tickets.

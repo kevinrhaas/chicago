@@ -1,7 +1,7 @@
 ---
 id: T-1169
 title: Fill arrival date, origin and reason for coming for every attested and inferred person: the earliest dated appearance as the bound, the biographies where they speak, the arrival model otherwise — dated, tiered and explained
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: S
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-18
+pr: 1449
+claimed_by: run 9/18/2026, 3:44:16 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T09:56:53.909Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35325408410
 ---
 
 Every household carries `arrival` (1,201 of them `not_later_than` the first letter-list return),

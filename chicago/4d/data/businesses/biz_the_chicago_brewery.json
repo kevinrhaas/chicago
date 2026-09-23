@@ -1,0 +1,156 @@
+{
+  "id": "biz_the_chicago_brewery",
+  "register_id": "business_the_chicago_brewery",
+  "name": "the Chicago Brewery",
+  "provenance": "compiled_from_register",
+  "type": [
+    "brewery"
+  ],
+  "trade": "brewing",
+  "occupation": "brewer",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Crawford",
+      "person_id": null,
+      "register_person_id": "person_crawford",
+      "role": "proprietor",
+      "from": "1835-06-20",
+      "to": "1835-06-20",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_crawford with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_20#c003"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Thomas Cavanagh",
+      "person_id": "rc_cavanagh_thomas",
+      "role": "household_member",
+      "occupation": "labourer",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 2 of this role in a brewery at the typical band and 3 at the high end, on directory_1839. 3 brewers in 1839 for 2 breweries in the 1835 census — the principals only; the mash was worked by hands the list booked as labourers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#brewery.labourer; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_cavanagh_thomas:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    },
+    {
+      "name": "Cornelius Shea",
+      "person_id": "rc_shea_cornelius",
+      "role": "household_member",
+      "occupation": "labourer",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 2 of this role in a brewery at the typical band and 3 at the high end, on directory_1839. 3 brewers in 1839 for 2 breweries in the 1835 census — the principals only; the mash was worked by hands the list booked as labourers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#brewery.labourer; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_shea_cornelius:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    },
+    {
+      "name": "Joseph Stebbins",
+      "person_id": "rc_stebbins_joseph",
+      "role": "household_member",
+      "occupation": "labourer",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 2 of this role in a brewery at the typical band and 3 at the high end, on directory_1839. 3 brewers in 1839 for 2 breweries in the 1835 census — the principals only; the mash was worked by hands the list booked as labourers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#brewery.labourer; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_stebbins_joseph:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "brewery",
+    "reads_as": "a brewery",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "household_member",
+        "occupation": "labourer",
+        "household_relationship": "household_member",
+        "count_low": 1,
+        "count_typical": 2,
+        "count_high": 3,
+        "seats_drawn": 3,
+        "drawn": true,
+        "basis": "directory_1839"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 2,
+      "seats_taken": 3,
+      "seats_against_the_band": 2,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 2,
+          "count_high": 3,
+          "seats_drawn": 3,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 2 hand(s) about this kind of house at its typical band and this house carries 3. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-06-20",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-20",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-20, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-20",
+    "last_issue": "1835-06-20",
+    "copy_dates": [
+      "1835-06-13"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_20#c003"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

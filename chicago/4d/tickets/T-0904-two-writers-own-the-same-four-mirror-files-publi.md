@@ -22,7 +22,7 @@ Two writers own the same four mirror files: publish.sh compacts what synthesize_
 
 **Acceptance:** (state it before working — the definition of done, never weakened to pass)
 
-**Found by T-0723, 2026-09-06.** Four files under `site/4d/data/residents/` are
+**Found by T-0723, 2026-09-06.** Four files under `site/chicago/4d/data/residents/` are
 written by two tools that disagree about their formatting:
 
 - `tools/publish.sh` mirrors `data/residents/` into the site payload **compact**;

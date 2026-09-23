@@ -1,7 +1,7 @@
 ---
 id: T-0772
 title: Twelve dooryard gardens went with the retired households: should a garden follow the house or the household?
-state: blocked-owner
+state: open
 epic: META
 requested_by: loop
 seen: false
@@ -12,7 +12,7 @@ opened: 2026-09-04
 closed: null
 pr: null
 claimed_by: null
-blocked_on: Does a dooryard garden follow the HOUSEHOLD or the HOUSE? Clause 4 of generate_dooryard_pickets.py asks for a household recorded as living on the lot, and since T-0516 withdrew the stale occupants prose that leaves the town ONE garden (Elijah Harmon's, blk_randolph_franklin_lot2) where it drew eighteen on 2026-08-18 and thirteen on 2026-09-02. The HOUSE reading — one dwelling standing alone on a platted lot, by archetype and by function — would keep thirteen or more on a weaker but still true claim: houses of this kind had kitchen gardens behind them. Household = fewer gardens, each resting on a named household; house = more gardens, resting on the archetype. If the HOUSE rule wins, the same question is asked of the lot-line fences, which run off the same occupancy test. docs/LIBERTIES.md L129 now states the count in force and the drift either way.
+blocked_on: null
 needs_bake: false
 closed_at: null
 claimed_run: null
@@ -57,3 +57,23 @@ this kind of trade before ("lots of nothing happened in the city which is bad").
 
 **Links:** T-0516 (the withdrawal) · T-0637 (`belongs_to` on every run) · T-0514 (the
 address work the real `lives_at` count is waiting on) · `docs/LIBERTIES.md` L129.
+
+## THE OWNER'S RULING, 2026-09-21: the garden follows THE HOUSE
+
+A dooryard garden is GROUND, not a family's possession. It belongs to the lot and the
+structure standing on it, and it stays there when the household that worked it is
+retired — inherited by whoever the roof is next dealt to, or standing unworked if it is
+dealt to nobody.
+
+What this settles for clause 4 of `generate_dooryard_pickets.py`: the clause asks for a
+household recorded as living on the lot, and that is the wrong subject. It should ask
+about the LOT — is this a dwelling lot of a kind that carried a dooryard — and not about
+who was living on it on 1 July 1835. Retiring the stale occupants prose (T-0516) took the
+town from eighteen gardens to one; under this ruling that withdrawal has no bearing on the
+count, because the gardens were never the households' to take with them.
+
+What it does NOT settle, and what the run must still argue: which lots carried a dooryard.
+This ruling says a garden does not leave with a family; it does not say a garden may be
+invented for a lot that never evidenced one. Every garden still needs its own basis, and a
+garden restored under this ruling carries the household that evidenced it as the source of
+the reading, with a note that the household has since been retired and the ground has not.

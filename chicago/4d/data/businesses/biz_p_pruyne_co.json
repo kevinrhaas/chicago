@@ -1,0 +1,269 @@
+{
+  "id": "biz_p_pruyne_co",
+  "register_id": "business_p_pruyne_co",
+  "name": "P. Pruyne & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "wholesale and retail store — groceries, hardware, crockery and drugs",
+  "occupation": "hardware_merchant",
+  "goods": [
+    "Boots and Shoes",
+    "Chemicals",
+    "Crockery",
+    "Drugs",
+    "Drugs and Medicines",
+    "Dry Goods",
+    "Glassware",
+    "Groceries",
+    "Hardware",
+    "Iron and Steel",
+    "Medicines",
+    "Oils",
+    "Paints",
+    "Pine Timber",
+    "Salt",
+    "Stone Ware",
+    "Varnish",
+    "Window Glass",
+    "bed cords",
+    "blue pill mass",
+    "boots and shoes",
+    "brooms",
+    "caulking tools",
+    "cayenne pepper",
+    "cicuta",
+    "cordage",
+    "cradles",
+    "crockery",
+    "drugs and medicines",
+    "dyewoods",
+    "extract of belladonna",
+    "extract of hop",
+    "glassware",
+    "grass scythes",
+    "groceries",
+    "gum myrrh",
+    "hard bread",
+    "hardware",
+    "hay forks",
+    "hydriodate of potash",
+    "iodine",
+    "iron",
+    "iron and steel",
+    "lobelia",
+    "logwood",
+    "manure forks",
+    "marline",
+    "nail rods",
+    "nails and spikes",
+    "oakum",
+    "paint brushes",
+    "palms",
+    "patent medicines",
+    "perfumery",
+    "pitch and tar",
+    "quinine",
+    "rifles",
+    "rigging",
+    "sail needles",
+    "salt",
+    "scythe snaths",
+    "scythe stones",
+    "sewed men's shoes",
+    "shovels",
+    "spades",
+    "steel",
+    "stone ware",
+    "sulphate of morphine",
+    "superfine flour",
+    "table salt",
+    "twine",
+    "vices",
+    "window glass",
+    "wire"
+  ],
+  "firm_styles": [
+    "P. Pruyne & Co."
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "P. Pruyne",
+      "person_id": "pruyne_peter",
+      "register_person_id": "person_p_pruyne",
+      "role": "partner",
+      "from": "1833-12-03",
+      "to": "1835-07-08",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card pruyne_peter (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_12_03#c011",
+        "chicago_democrat_1834_02_11#c004",
+        "chicago_democrat_1834_04_08#c008",
+        "chicago_democrat_1834_04_23#c005",
+        "chicago_democrat_1834_04_30#c012",
+        "chicago_democrat_1834_05_07#c012",
+        "chicago_democrat_1834_05_21#c001",
+        "chicago_democrat_1834_06_04#c019",
+        "chicago_democrat_1834_06_11#c012",
+        "chicago_democrat_1834_07_02#c009",
+        "chicago_democrat_1835_06_10#c011",
+        "chicago_democrat_1835_07_08#c010"
+      ],
+      "also_printed_as": [
+        "Peter Pruyne"
+      ]
+    }
+  ],
+  "staff": [
+    {
+      "name": "Patrick Corrigan",
+      "person_id": "rc_corrigan_patrick",
+      "role": "clerk",
+      "occupation": "clerk",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a hardware or stove store at the typical band and 1 at the high end, on directory_1839. Counted with the commerce clerks; the trade is a store whatever it sells. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#hardware_or_stove_store.clerk; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_corrigan_patrick:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "hardware_or_stove_store",
+    "reads_as": "a hardware or stove store",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "clerk",
+        "occupation": "clerk",
+        "household_relationship": "clerk",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "directory_1839"
+      },
+      {
+        "role": "journeyman",
+        "occupation": "tinsmith",
+        "household_relationship": "journeyman",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 1,
+      "seats_against_the_band": 1,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        },
+        {
+          "occupation": "tinsmith",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 1. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "pruyne_kimball_drugstore",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-12-03",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure pruyne_kimball_drugstore on its occupants. pruyne_kimball_drugstore already stands and its occupants carries pruyne — 'Pruyne and Kimball; druggists'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1833-12-03",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-12-03, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-12-03",
+    "last_issue": "1835-07-08",
+    "copy_dates": [
+      "1833-12-03",
+      "1834-02-04",
+      "1834-04-22",
+      "1835-06-09"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: P. Pruyne (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "pruyne_peter",
+        "name": "P. Pruyne",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1833_12_03#c011",
+    "chicago_democrat_1834_02_11#c004",
+    "chicago_democrat_1834_04_08#c008",
+    "chicago_democrat_1834_04_23#c005",
+    "chicago_democrat_1834_04_30#c012",
+    "chicago_democrat_1834_05_07#c012",
+    "chicago_democrat_1834_05_21#c001",
+    "chicago_democrat_1834_06_04#c019",
+    "chicago_democrat_1834_06_11#c012",
+    "chicago_democrat_1834_07_02#c009",
+    "chicago_democrat_1835_06_10#c011",
+    "chicago_democrat_1835_07_08#c010"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

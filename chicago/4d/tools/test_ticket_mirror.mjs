@@ -3,7 +3,7 @@
  * test_ticket_mirror.mjs — closing a ticket does not leave the published mirror
  * stale, AND the gate that catches a genuinely stale mirror still catches one.
  *
- * WHY THIS EXISTS (T-0154). `site/4d/tickets.json` is a verbatim copy of
+ * WHY THIS EXISTS (T-0154). `site/chicago/4d/tickets.json` is a verbatim copy of
  * `tickets/tickets.json`, and `tools/check_published.mjs` compares the two byte
  * for byte. `ticket.mjs done` rewrites the source. So the order AGENTS.md states
  * — publish in the same commit, then push, then close the ticket in the merging
@@ -20,7 +20,7 @@
  *
  * EVERYTHING RUNS IN A SANDBOX. The tools resolve their paths from their own
  * location, so a temporary tree of the shape they expect — `<tmp>/chicago/4d/…`
- * beside `<tmp>/site/4d/` — gives them a whole world to be wrong in
+ * beside `<tmp>/site/chicago/4d/` — gives them a whole world to be wrong in
  * without touching the repository. An earlier draft of this test mutated the real
  * tickets.json and restored it afterwards; a crash in the middle of that leaves a
  * working tree nobody can explain, which is not a thing to build a gate on.
@@ -87,7 +87,7 @@ try {
   //
   // This half exists because the regression is silent in the worst possible way:
   // on a developer's machine the three files survive from the last run, so the gate
-  // stays green while a CI checkout publishes no /4d/tickets.json at all —
+  // stays green while a CI checkout publishes no /chicago/4d/tickets.json at all —
   // and that URL is Manager's queue card (T-0030). Nobody would see a red.
   //
   // The mirror assertion is the sharp one. `mirrorTickets` deliberately copies only

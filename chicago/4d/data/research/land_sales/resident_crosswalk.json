@@ -1503,7 +1503,7 @@
       "resident_name": "Richard Jones Hamilton",
       "household_id": "hh_hamilton_richard_j",
       "match": "forename_agrees",
-      "rule": "HAMILTON RICHARD J matches Richard Jones Hamilton: the forename names Richard Jones Hamilton of the 3 people of this surname, and the forename agrees in full.",
+      "rule": "HAMILTON RICHARD J matches Richard Jones Hamilton: the forename names Richard Jones Hamilton of the 4 people of this surname, and the forename agrees in full.",
       "via_card_merge": null,
       "rivals": [
         {
@@ -1532,6 +1532,15 @@
           "middle_initial": "J",
           "reading_middle_initial": "J",
           "outcome": "survives"
+        },
+        {
+          "key": "hamilton_ellen",
+          "name": "Ellen Hamilton",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": "J",
+          "outcome": "refused_on_the_forename"
         }
       ],
       "residence_column": "UNKNOWN",
@@ -1566,7 +1575,7 @@
       "resident_name": "Charles Loomis Harmon",
       "household_id": "hh_harmon_brothers",
       "match": "forename_agrees",
-      "rule": "HARMON CHARLES L matches Charles Loomis Harmon: the forename names Charles Loomis Harmon of the 5 people of this surname, and the forename agrees in full.",
+      "rule": "HARMON CHARLES L matches Charles Loomis Harmon: the forename names Charles Loomis Harmon of the 6 people of this surname, and the forename agrees in full.",
       "via_card_merge": null,
       "rivals": [
         {
@@ -1602,6 +1611,15 @@
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": "D",
+          "reading_middle_initial": "L",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "harmon_welthyan",
+          "name": "Welthyan Loomis Harmon",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "L",
           "reading_middle_initial": "L",
           "outcome": "refused_on_the_forename"
         },
@@ -1640,7 +1658,7 @@
       "resident_name": "Isaac Dewey Harmon",
       "household_id": "hh_harmon_brothers",
       "match": "forename_agrees",
-      "rule": "HARMON ISAAC D matches Isaac Dewey Harmon: the forename names Isaac Dewey Harmon of the 5 people of this surname, and the forename agrees in full.",
+      "rule": "HARMON ISAAC D matches Isaac Dewey Harmon: the forename names Isaac Dewey Harmon of the 6 people of this surname, and the forename agrees in full.",
       "via_card_merge": null,
       "rivals": [
         {
@@ -1676,6 +1694,15 @@
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": "D",
+          "reading_middle_initial": "D",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "harmon_welthyan",
+          "name": "Welthyan Loomis Harmon",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "L",
           "reading_middle_initial": "D",
           "outcome": "refused_on_the_forename"
         },
@@ -2995,7 +3022,7 @@
       "resident_name": "Dr Elijah Dewey Harmon",
       "household_id": "hh_harmon_elijah_d",
       "match": "forename_agrees",
-      "rule": "HARMON ELIJAH D matches Dr Elijah Dewey Harmon: the forename names Dr Elijah Dewey Harmon of the 5 people of this surname, and the forename agrees in full.",
+      "rule": "HARMON ELIJAH D matches Dr Elijah Dewey Harmon: the forename names Dr Elijah Dewey Harmon of the 6 people of this surname, and the forename agrees in full.",
       "via_card_merge": null,
       "rivals": [
         {
@@ -3033,6 +3060,15 @@
           "middle_initial": "D",
           "reading_middle_initial": "D",
           "outcome": "survives"
+        },
+        {
+          "key": "harmon_welthyan",
+          "name": "Welthyan Loomis Harmon",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "L",
+          "reading_middle_initial": "D",
+          "outcome": "refused_on_the_forename"
         },
         {
           "key": "harmon_m_d",
@@ -4863,7 +4899,7 @@
       "resident_name": "Charles Loomis Harmon",
       "household_id": "hh_harmon_brothers",
       "match": "forename_agrees",
-      "rule": "HARMON CHAS L matches Charles Loomis Harmon: the forename names Charles Loomis Harmon of the 5 people of this surname, and the forename agrees in full.",
+      "rule": "HARMON CHAS L matches Charles Loomis Harmon: the forename names Charles Loomis Harmon of the 6 people of this surname, and the forename agrees in full.",
       "via_card_merge": null,
       "rivals": [
         {
@@ -4899,6 +4935,15 @@
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": "D",
+          "reading_middle_initial": "L",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "harmon_welthyan",
+          "name": "Welthyan Loomis Harmon",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "L",
           "reading_middle_initial": "L",
           "outcome": "refused_on_the_forename"
         },
@@ -5614,7 +5659,7 @@
       "resident_name": "Richard Jones Hamilton",
       "household_id": "hh_hamilton_richard_j",
       "match": "initial_agrees",
-      "rule": "HAMILTON R J matches Richard Jones Hamilton: the forename names Richard Jones Hamilton of the 3 people of this surname, and the forename agrees as an initial only.",
+      "rule": "HAMILTON R J matches Richard Jones Hamilton: the forename names Richard Jones Hamilton of the 4 people of this surname, and the forename agrees as an initial only.",
       "via_card_merge": null,
       "rivals": [
         {
@@ -5643,6 +5688,15 @@
           "middle_initial": "J",
           "reading_middle_initial": "J",
           "outcome": "survives"
+        },
+        {
+          "key": "hamilton_ellen",
+          "name": "Ellen Hamilton",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "J",
+          "outcome": "refused_on_the_forename"
         }
       ],
       "residence_column": "UNKNOWN",
@@ -8776,7 +8830,7 @@
       ],
       "ruled_on": "2026-09-10",
       "ruled_under": "T-0990",
-      "was_proposed_as": "HARMON ISAAC matches Isaac Dewey Harmon: the forename names Isaac Dewey Harmon of the 5 people of this surname, and the forename agrees in full."
+      "was_proposed_as": "HARMON ISAAC matches Isaac Dewey Harmon: the forename names Isaac Dewey Harmon of the 6 people of this surname, and the forename agrees in full."
     },
     {
       "a": "HILL IRAD",
@@ -16383,8 +16437,8 @@
     },
     {
       "a": "HARMON C S",
-      "b": "5 residents named Harmon",
-      "rule": "HARMON C S is refused against 5 residents named Harmon: the forename names 0 of the 5 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "6 residents named Harmon",
+      "rule": "HARMON C S is refused against 6 residents named Harmon: the forename names 0 of the 6 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "harmon_charles_l",
@@ -16423,6 +16477,15 @@
           "outcome": "refused_on_the_forename"
         },
         {
+          "key": "harmon_welthyan",
+          "name": "Welthyan Loomis Harmon",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "L",
+          "reading_middle_initial": "S",
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "harmon_m_d",
           "name": "M D Harmon",
           "forename_agrees": false,
@@ -16441,8 +16504,8 @@
     },
     {
       "a": "HARMON J D",
-      "b": "5 residents named Harmon",
-      "rule": "HARMON J D is refused against 5 residents named Harmon: the forename names 0 of the 5 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "6 residents named Harmon",
+      "rule": "HARMON J D is refused against 6 residents named Harmon: the forename names 0 of the 6 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "harmon_charles_l",
@@ -16477,6 +16540,15 @@
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": "D",
+          "reading_middle_initial": "D",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "harmon_welthyan",
+          "name": "Welthyan Loomis Harmon",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "L",
           "reading_middle_initial": "D",
           "outcome": "refused_on_the_forename"
         },

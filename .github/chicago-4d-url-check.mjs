@@ -5,7 +5,7 @@
 //
 // After actions/deploy-pages succeeds, this requests the LIVE origin for every URL in
 // chicago-4d-url-check.json and records what it actually returns. On 2026-09-07
-// /4d/dev/ served a 404 for hours while every deploy reported success — the
+// /chicago/4d/dev/ served a 404 for hours while every deploy reported success — the
 // only detector was the owner opening the page. This is the detector.
 //
 // LOUD, NOT BLOCKING — the shape is the point, and the reasoning is stated where the

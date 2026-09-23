@@ -123,7 +123,7 @@
     }
   ],
   "function": {
-    "value": "woodshed or storage shed",
+    "value": "woodshed_or_storage_shed",
     "confidence": "reconstructed",
     "sources": [
       "owner_chicago_1835_reconstruction_spec_2026"
@@ -141,7 +141,7 @@
     "finish_key": "mixed_patch",
     "roof_condition": "weathered",
     "age_state": "older_frontier",
-    "yard_group": "wk_w1_018_yard"
+    "yard_group": "wk_d4_018_yard"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Aggregate mix follows the supplied specification; exact presence, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

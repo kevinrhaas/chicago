@@ -7952,8 +7952,8 @@
         1,
         3
       ],
-      "least_setback_m": 14.53,
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_clark's own platted frontage line from 0.0 m to 36.3 m along the south face, covering lot(s) 1, 3 — every one of them improved by a committed building whose nearest wall stands 14.53 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+      "least_setback_m": 13.95,
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_clark's own platted frontage line from 0.0 m to 36.3 m along the south face, covering lot(s) 1, 3 — every one of them improved by a committed building whose nearest wall stands 13.95 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_clark_south_fence_14",
@@ -7982,8 +7982,8 @@
       "lots": [
         5
       ],
-      "least_setback_m": 50.98,
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_clark's own platted frontage line from 57.1 m to 73.9 m along the south face, covering lot(s) 5 — every one of them improved by a committed building whose nearest wall stands 50.98 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+      "least_setback_m": 51.75,
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_clark's own platted frontage line from 57.1 m to 73.9 m along the south face, covering lot(s) 5 — every one of them improved by a committed building whose nearest wall stands 51.75 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_dearborn_south_fence_15",
@@ -8077,8 +8077,8 @@
         3,
         5
       ],
-      "least_setback_m": 11.95,
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_franklin's own platted frontage line from 0.0 m to 73.2 m along the south face, covering lot(s) 1, 3, 5 — every one of them improved by a committed building whose nearest wall stands 11.95 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+      "least_setback_m": 11.57,
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_franklin's own platted frontage line from 0.0 m to 73.2 m along the south face, covering lot(s) 1, 3, 5 — every one of them improved by a committed building whose nearest wall stands 11.57 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_lasalle_north_fence_8",
@@ -9674,6 +9674,21 @@
       "structure_id": "physicians_office",
       "wall": "blk_lake_lasalle north face, lot 6",
       "why": "the trade at physicians_office is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_clark_c2_01",
+      "wall": "blk_randolph_clark north face, lot 6",
+      "why": "the trade at recon_1835_blk_randolph_clark_c2_01 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+      "wall": "blk_south_water_clark north face, lot 2",
+      "why": "the trade at recon_1835_blk_south_water_clark_c2_06 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
+      "wall": "blk_south_water_franklin north face, lot 2",
+      "why": "the trade at recon_1835_blk_south_water_franklin_c2_10 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
       "structure_id": "sauganash_hotel",

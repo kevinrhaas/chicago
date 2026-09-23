@@ -12,13 +12,13 @@
  "whole_name_rule": ". A printed forename and a reading of 1835 are THE SAME NAME when\nthey set the SAME NUMBER of words and agree word by word — each pair either\nletter for letter, or one of them the single initial the other begins with.\nWhere exactly ONE candidate is the same name in that sense, the page names\nthat one and no other. Where none is, or more than one is, nothing happens\nand the tie stands with the reason filed.",
  "wife_rule": "— the second clause, and it is R6 arriving where it\nwas always true. `tools/consolidate_resident_evidence.py` holds `Mrs Rufus\nBrown` apart from `Rufus Brown` (R6, T-0723) because the honorific strip leaves\nthe husband's forename tokens on both readings and folds a wife onto him. The\ncrosswalks strip titles the same way and had no such rule, so the town layer's\ntwo people met `Brown, Rufus B., warehouseman` together and were filed as a\nCONTEST — a man contesting a printed line with his own wife. Where one\ncandidate of 1835 carries a female honorific, its forename tokens are exactly\nthose of another candidate carried WITHOUT one, and the printed entry sets no\nfemale honorific of its own, the entry is the husband's and she is not named by\nit. The proof is the same proof R6 asks for and it is in the contest itself:\nthe town layer prints both readings, which is what put them here together.",
  "counts": {
-  "residents_considered": 1280,
+  "residents_considered": 1283,
   "matched_one_1843_entry": 136,
   "matched_more_than_one_ambiguous": 15,
   "one_1843_entry_contested_by_two_residents": 2,
-  "surname_present_initial_absent_refused": 321,
-  "of_those_an_entry_one_letter_off_the_surname": 14,
-  "entries_one_letter_off_a_refused_surname": 11,
+  "surname_present_initial_absent_refused": 324,
+  "of_those_an_entry_one_letter_off_the_surname": 15,
+  "entries_one_letter_off_a_refused_surname": 12,
   "of_those_overturned": 0,
   "letter_list_bucket_refused": 2,
   "residents_that_refusal_reaches": 2,
@@ -36,7 +36,7 @@
   "ties_narrowed_by_a_trade": 1,
   "of_those_contested": 0,
   "of_those_ambiguous": 1,
-  "could_carry_occupation": 78,
+  "could_carry_occupation": 74,
   "could_carry_address": 92,
   "could_carry_death_note": 91,
   "business_directory_notices_with_a_surname": 106,
@@ -2646,8 +2646,8 @@
    "person_id": "hubbard_henry_g",
    "household_id": "hh_hubbard_henry_g",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
-   "occupation_1835_confidence": "reconstructed",
+   "occupation_1835": "forwarding_and_commission",
+   "occupation_1835_confidence": "inferred",
    "lives_at_1835": null,
    "works_at_1835": null,
    "rule": "Surname 'Hubbard' folds to the same string as the 1843 entry's, and the given name of both begins H.",
@@ -2664,7 +2664,6 @@
     }
    ],
    "could_carry": [
-    "occupation",
     "address",
     "death_note"
    ],
@@ -4586,8 +4585,8 @@
    "person_id": "sherman_silas_w",
    "household_id": "hh_sherman_silas_w",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
-   "occupation_1835_confidence": "reconstructed",
+   "occupation_1835": "sheriff",
+   "occupation_1835_confidence": "inferred",
    "lives_at_1835": null,
    "works_at_1835": null,
    "rule": "Surname 'Sherman' folds to the same string as the 1843 entry's, and the given name of both begins S.",
@@ -4753,8 +4752,8 @@
    "person_id": "king_tuthill",
    "household_id": "hh_king_tuthill",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
-   "occupation_1835_confidence": "reconstructed",
+   "occupation_1835": "clothier",
+   "occupation_1835_confidence": "inferred",
    "lives_at_1835": null,
    "works_at_1835": null,
    "rule": "Surname 'King' folds to the same string as the 1843 entry's, and the given name of both begins T.",
@@ -4771,7 +4770,6 @@
     }
    ],
    "could_carry": [
-    "occupation",
     "address",
     "death_note"
    ],
@@ -5020,8 +5018,8 @@
    "person_id": "taylor_william_h",
    "household_id": "hh_taylor_william_h",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
-   "occupation_1835_confidence": "reconstructed",
+   "occupation_1835": "shoemaker",
+   "occupation_1835_confidence": "inferred",
    "lives_at_1835": null,
    "works_at_1835": null,
    "rule": "Surname 'Taylor' folds to the same string as the 1843 entry's, and the given name of both begins W.",
@@ -5037,9 +5035,7 @@
      "death_note_1843": null
     }
    ],
-   "could_carry": [
-    "occupation"
-   ],
+   "could_carry": [],
    "carry_rule": "Whatever is carried is carried as 1843 evidence with describes_date 1843 on the note, never as an 1835 fact, and the grade of the person does not move. The death note is T-0574's, not this file's.",
    "resident_given_is_initial_only": false,
    "named_by_the_page": {
@@ -5114,8 +5110,8 @@
    "person_id": "jones_william",
    "household_id": "hh_jones_william",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
-   "occupation_1835_confidence": "reconstructed",
+   "occupation_1835": "hardware_merchant",
+   "occupation_1835_confidence": "inferred",
    "lives_at_1835": null,
    "works_at_1835": null,
    "rule": "Surname 'Jones' folds to the same string as the 1843 entry's, and the given name of both begins W.",
@@ -5132,7 +5128,6 @@
     }
    ],
    "could_carry": [
-    "occupation",
     "address"
    ],
    "carry_rule": "Whatever is carried is carried as 1843 evidence with describes_date 1843 on the note, never as an 1835 fact, and the grade of the person does not move. The death note is T-0574's, not this file's.",
@@ -7050,6 +7045,13 @@
    "rule": "The surname 'Adams' is in Fergus 1843 and no entry under it carries the initial 'E' of 'Elizabeth Adams'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Ellen Hamilton",
+   "person_id": "hamilton_ellen",
+   "surname_in_1843": "Hamilton",
+   "candidates": 6,
+   "rule": "The surname 'Hamilton' is in Fergus 1843 and no entry under it carries the initial 'E' of 'Ellen Hamilton'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Emeline Egan",
    "person_id": "egan_emeline",
    "surname_in_1843": "Egan",
@@ -8338,6 +8340,13 @@
    "rule": "The surname 'Davis' is in Fergus 1843 and no entry under it carries the initial 'T' of 'T. O. Davis'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "The Harmon daughter later known as Mrs A. G. Burley",
+   "person_id": "harmon_daughter_burley",
+   "surname_in_1843": "Burley",
+   "candidates": 3,
+   "rule": "The surname 'Burley' is in Fergus 1843 and no entry under it carries the initial 'T' of 'The Harmon daughter later known as Mrs A. G. Burley'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Thomas Andrews",
    "person_id": "andrews_thomas",
    "surname_in_1843": "Andrews",
@@ -8434,6 +8443,13 @@
    "surname_in_1843": "Snow",
    "candidates": 2,
    "rule": "The surname 'Snow' is in Fergus 1843 and no entry under it carries the initial 'W' of 'Watson M Snow'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Welthyan Loomis Harmon",
+   "person_id": "harmon_welthyan",
+   "surname_in_1843": "Harmon",
+   "candidates": 5,
+   "rule": "The surname 'Harmon' is in Fergus 1843 and no entry under it carries the initial 'W' of 'Welthyan Loomis Harmon'. A surname-only agreement is a refusal."
   },
   {
    "resident": "William A Bell",
@@ -8850,6 +8866,19 @@
      "line": 3127,
      "reads": "Clark,  Lewis  AY.,  hardware,  iron,  nails,  etc.,  128  Lake"
     }
+   },
+   {
+    "resident": "Welthyan Loomis Harmon",
+    "surname_1835": "Harmon",
+    "entry_surname": "Harman",
+    "printed_name": "Harman, William",
+    "clause": "the volume sets both spellings",
+    "outcome": "refused",
+    "rule": "Fergus 1843 prints 5 entries under 'Harmon' and 1 under 'Harman', so the compositor set both spellings and set them apart: a directory does not enter one person twice under two spellings, and a one-letter distance between two surnames the volume itself distinguishes is its distinction and not its damage. The printed volume's own OCR reads 'Harman' on that line too, so the variant is not this transcription's damage either.",
+    "person_id": "harmon_welthyan",
+    "claim": "f1843_e1205",
+    "as_printed": "Harman, William, blacksmith, North Water near Wolcott, res same [died, The Dalles, Oregon. May 15, 1890, aged 84.]",
+    "second_hand": null
    }
   ]
  },

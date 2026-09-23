@@ -373,11 +373,19 @@ details.why > .legend-note { margin: 6px 0 0; line-height: 1.55; }
   .hud-panel[hidden] { transform: translateY(102%); }
 
   .panel-head { min-height: 50px; padding: 8px 10px 8px 16px; border-bottom: 0; }
+  /* EIGHT SECTIONS SHARE 390 px HERE, and the rail is the one place in the
+     drawer with no room to give. Measured at 390 x 780 with the Businesses tab
+     added: at the old 6 px of rail padding and 9.5 px of label, a tab box is
+     47 px and "Evidence" wants 48 — the label overflows its own button, which
+     is the failure the smoke's `squeezed` reading exists to catch, and it
+     caught it. 3 px of padding and a 9 px label put the box at 48 and the
+     widest label at 45. The Businesses tab carries the short label "Firms" for
+     the same budget and its full name in `data-title` for the drawer's head. */
   .panel-tabs {
     flex-direction: row;
     align-items: stretch;
     gap: 0;
-    padding: 0 6px;
+    padding: 0 3px;
     border-right: 0;
     border-bottom: 1px solid var(--edge);
     background: none;
@@ -391,7 +399,8 @@ details.why > .legend-note { margin: 6px 0 0; line-height: 1.55; }
     /* Icons line up along the top whatever a label does below them. */
     justify-content: flex-start;
     border-radius: 8px 8px 0 0;
-    font-size: 9.5px;
+    font-size: 9px;
+    letter-spacing: 0;
   }
   .panel-tab.is-on::before {
     left: 6px; right: 6px;

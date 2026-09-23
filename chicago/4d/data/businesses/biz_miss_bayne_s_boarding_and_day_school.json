@@ -1,0 +1,140 @@
+{
+  "id": "biz_miss_bayne_s_boarding_and_day_school",
+  "register_id": "business_miss_bayne_s_boarding_and_day_school",
+  "name": "Miss Bayne's Boarding and Day School",
+  "provenance": "compiled_from_register",
+  "type": [
+    "school"
+  ],
+  "trade": "boarding and day school for young ladies",
+  "occupation": "schoolteacher",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "[uncertain: Miss Bayne]",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": "1834-07-23",
+      "to": "1834-07-23",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_23#c002"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Ruth Lyman",
+      "person_id": "rc_lyman_ruth",
+      "role": "household_member",
+      "occupation": "schoolteacher",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 0 of this role in a school at the typical band and 1 at the high end, on period_convention. An assistant, at the larger schools only; the town's schools of 1835 are one room and one teacher. Analogue: the 1839 list's 13 schoolteachers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#school.schoolteacher; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_lyman_ruth:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "[uncertain: Miss Bayne], this record's proprietor. The register could not match the printed style to a town card, so the teacher is named and unlinked — which is a finding about the resident layer and not a gap in this school.",
+    "hands": [
+      {
+        "role": "teacher",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "drawn": true,
+        "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+        "why_not_drawn": null
+      }
+    ],
+    "attendance": {
+      "value": null,
+      "kind": "none_printed",
+      "tier": null,
+      "on_date": null,
+      "basis": "NO FIGURE IS PRINTED. What the notice of 23 July 1834 prints instead is a price list — grammar, geography, use of the globes, writing and needlework at $3 00 per quarter, fancy work at $5 00, oriental drawing at $7 00, transfer and velvet painting at $8 00 — and a boarding school that prints its terms is soliciting pupils, not returning them."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence.",
+    "shortfall": {
+      "typical_wanted": 0,
+      "seats_taken": 1,
+      "seats_against_the_band": 0,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": null,
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts no hand about this kind of house at its typical band; this house carries 1.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "randolph",
+      "face": null,
+      "primary": true,
+      "from": "1834-07-23",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names Randolph Street and nothing narrower; the anchor is a reach of dearborn and names nothing narrower."
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-23",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-23, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-23",
+    "last_issue": "1834-07-23",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_23#c002"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

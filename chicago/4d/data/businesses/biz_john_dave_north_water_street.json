@@ -1,0 +1,90 @@
+{
+  "id": "biz_john_dave_north_water_street",
+  "register_id": "business_john_dave_north_water_street",
+  "name": "John Dave, North Water Street",
+  "provenance": "compiled_from_register",
+  "type": [
+    "not_stated"
+  ],
+  "trade": null,
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "John Dave",
+      "person_id": "dave_john",
+      "register_person_id": "person_john_dave",
+      "role": "proprietor",
+      "from": "1835-06-13",
+      "to": "1835-06-13",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card dave_john (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_13#c006"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "north_water",
+      "face": null,
+      "primary": true,
+      "from": "1835-06-13",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names North Water Street and nothing narrower; the anchor 'NORT[H] WATER STREET NORTM WATER STREET,' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-13",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-13, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-13",
+    "last_issue": "1835-06-13",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: John Dave (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "dave_john",
+        "name": "John Dave",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_13#c006"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

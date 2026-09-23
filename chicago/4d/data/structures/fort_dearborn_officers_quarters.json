@@ -116,7 +116,7 @@
     }
   ],
   "function": {
-    "value": "officers' quarters",
+    "value": "officers_quarters",
     "confidence": "attested",
     "sources": [
       "andreas_1884_v1",
@@ -127,12 +127,14 @@
   "research_note": "The west range. Its footprint note carries the one real dimensional disagreement in this complex and the reasoning that settled it; its construction note carries a correction to this project's own dossier, which had manufactured a brick-versus-wood conflict out of a page that says logs. See docs/RESEARCH/fort_dearborn.md sections 4 and 6.",
   "review_required": false,
   "occupants": {
-    "value": "subordinate officers of the garrison",
+    "value": "Assistant Surgeon Philip Maxwell and Lieut. James Allen, and the rest of the post's subordinate officers unnamed",
     "confidence": "inferred",
     "sources": [
-      "andreas_1884_v1"
+      "andreas_1884_v1",
+      "chicago_democrat_1833_1835",
+      "chicago_american_1835"
     ],
-    "note": "Not attested for 1835. Inferred from the building's function and from the post being garrisoned on the scene date; Hubbard's 1827 civilian tenants belong to the years when there were no troops."
+    "note": "NAMED, NOT PROMOTED (T-1348). This block read 'subordinate officers of the garrison' and claimed the same thing it claims now; what it did not do was say who. Two men in this dataset are commissioned officers of the United States Army printed at Chicago across 1 July 1835. Philip Maxwell is Andreas's assistant surgeon, on duty at the post from 3 February 1833 to the abandonment, and hh_maxwell_philip already carries this building as its lives_at. James Allen is the papers': army officer and engineer, printed at the Democrat of 25 March 1834 and of 13 August 1834 and at the American of 18 July 1835 — seventeen days after the scene date, which is what makes his household present rather than uncertain. NO SOURCE PUTS EITHER MAN IN THIS BUILDING, so the grade does not move: the Army quartered a lieutenant and a post surgeon in the subordinate officers' quarters and this dataset holds one. ELEVEN OTHER NAMES WERE RULED OUT, each for a stated clause — a militia colonel, a man on the town poll roll, a soldier's trade read once in January 1834 and never again. The whole adjudication is docs/RESEARCH/fort_dearborn_garrison_1835.md. The enlisted strength stays unwritten and unnumbered here (T-1349), and Hubbard's 1827 civilian tenants belong to the years when there were no troops."
   },
   "land_owner": {
     "value": "The ground was entered by John Baptist Baubian, 28 May 1835",

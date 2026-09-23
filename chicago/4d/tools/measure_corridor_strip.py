@@ -47,6 +47,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -58,6 +59,7 @@ from generate_plat_lots import DATA, load, point_in_polygon  # noqa: E402
 from heightfield import Heightfield  # noqa: E402
 from plat_corridors import control_offsets, corridors, sampled  # noqa: E402
 from plat_occupancy import footprints, layers  # noqa: E402
+from exact_sums import consistent_reading  # noqa: E402
 
 BASELINE = ROOT / "tools" / "corridor_strip_baseline.json"
 EPOCH = DATA / "terrain" / "epochs" / "e1834_harbor_cut"
@@ -157,12 +159,16 @@ def band_geometry(bands: Bands, band: str) -> dict:
         area += cut * AREA_PITCH_M
         if cut > 0:
             widths.append(cut)
+    # min, mean and max of the same samples, asserted against each other: a mean
+    # outside its own bounds is drift, not a measurement (T-1486).
+    cut = (consistent_reading(widths, 2, label="corridor cut width (m)")
+           if widths else (0.0, 0.0, 0.0))
     return {
         "area_m2": round(area, 1),
         "columns": len(widths),
-        "cut_width_min_m": round(min(widths), 2) if widths else 0.0,
-        "cut_width_max_m": round(max(widths), 2) if widths else 0.0,
-        "cut_width_mean_m": round(sum(widths) / len(widths), 2) if widths else 0.0,
+        "cut_width_min_m": cut[0],
+        "cut_width_max_m": cut[2],
+        "cut_width_mean_m": cut[1],
     }
 
 

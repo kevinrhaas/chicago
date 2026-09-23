@@ -72,4 +72,4 @@ reads exactly like a pair nobody has looked at yet.
 
 **This is research, not payload.** `tools/publish.sh` does not copy `data/research/`
 and `tools/newspaper_corpus.py --check` asserts that nothing under it has reached
-`site/4d/`. Nothing in this folder ships to a browser.
+`site/chicago/4d/`. Nothing in this folder ships to a browser.

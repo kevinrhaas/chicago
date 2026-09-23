@@ -95,9 +95,22 @@ function sandbox(tickets, queued) {
   // instead — which would have this harness reporting red for a reason that has
   // nothing to do with the guard it exists to prove.
   const titleOf = (id) => tickets.find((t) => t.id === id).title;
+  // …AND A BLOCKED FIXTURE TICKET IS NAMED IN THE FILE, for the same reason and
+  // since T-1518. `check` now refuses a blocked ticket that appears in no band of
+  // QUEUE.md — a block nobody can see is an abandonment with a state on it — so a
+  // sandbox that writes a `blocked-owner` ticket and a queue that ignores it fails
+  // on THAT, and this harness would report red for something that has nothing to
+  // do with the stale-block guard it exists to prove. The band lines are commented,
+  // exactly as the real band 8b is, so they are visible without being claimable.
+  const blocked = tickets.filter((t) => String(t.state || '').startsWith('blocked'));
+  const band = blocked.length
+    ? '\n# --- 8b. BLOCKED AND WAITING\n'
+      + blocked.map((t) => `# BLOCKED-${t.state === 'blocked-tech' ? 'TECH' : 'OWNER'} `
+                           + `${t.id} — ${t.title}`).join('\n') + '\n'
+    : '';
   writeFileSync(path.join(APP, 'tickets', 'QUEUE.md'),
     '# QUEUE — top is next. THE OWNER ORDERS THIS FILE.\n\n'
-    + queued.map((id) => `${id} — ${titleOf(id)}`).join('\n') + '\n');
+    + queued.map((id) => `${id} — ${titleOf(id)}`).join('\n') + '\n' + band);
   return { tmp, APP };
 }
 

@@ -1,7 +1,7 @@
 ---
 id: T-1189
 title: Staff every business — attested, inferred and reconstructed — with real persons: attested partners and clerks first, then the reconstructed residents, then new reconstructed staff to the staffing model, so every working person has a workplace and every workplace its people
-state: open
+state: split
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-20
 pr: null
-claimed_by: null
+claimed_by: run 9/20/2026, 3:22:47 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-20T08:23:09.891Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35499137151
 ---
 
 The owner: *"reconstructing the staff of the store … as part of their resident profile. Do this for

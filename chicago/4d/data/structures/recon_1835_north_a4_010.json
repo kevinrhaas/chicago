@@ -12,7 +12,7 @@
         "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
       },
       "position": {
-        "utm_e": 447659.417,
+        "utm_e": 447666.217,
         "utm_n": 4637623.261,
         "rotation_deg": 180.0,
         "symbolic_location": "Anonymous reconstructed roof in North Division cluster north_water_west; between the north bank and Michigan Street",
@@ -123,7 +123,7 @@
     }
   ],
   "function": {
-    "value": "woodshed or storage shed",
+    "value": "woodshed_or_storage_shed",
     "confidence": "reconstructed",
     "sources": [
       "owner_chicago_1835_reconstruction_spec_2026"

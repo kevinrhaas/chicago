@@ -1,0 +1,151 @@
+{
+  "id": "biz_john_watkins",
+  "register_id": "business_john_watkins",
+  "name": "John Watkins",
+  "provenance": "compiled_from_register",
+  "type": [
+    "book_store",
+    "school"
+  ],
+  "trade": "school books, and a school room",
+  "occupation": "schoolteacher",
+  "goods": [
+    "School Books"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "John Watkins",
+      "person_id": "watkins_john",
+      "register_person_id": "person_john_watkins",
+      "role": "proprietor",
+      "from": "1834-07-09",
+      "to": "1834-07-09",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card watkins_john (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_09#c017"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Victoire Pothier",
+      "person_id": "rc_pothier_victoire",
+      "role": "household_member",
+      "occupation": "schoolteacher",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 0 of this role in a school at the typical band and 1 at the high end, on period_convention. An assistant, at the larger schools only; the town's schools of 1835 are one room and one teacher. Analogue: the 1839 list's 13 schoolteachers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#school.schoolteacher; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_pothier_victoire:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "John Watkins, this record's proprietor, whom Andreas's schools chapter has 'then teaching what had become a public school on the North Side' in 1835.",
+    "hands": [
+      {
+        "role": "teacher",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "drawn": true,
+        "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+        "why_not_drawn": null
+      }
+    ],
+    "attendance": {
+      "value": 12,
+      "kind": "attending",
+      "tier": "attested",
+      "on_date": "1832",
+      "basis": "THE ONLY PUPIL FIGURE ANY SOURCE THIS PROJECT HOLDS PRINTS FOR ANY CHICAGO SCHOOL, AND IT IS NOT A FIGURE FOR THIS ROOM OR THIS YEAR. Andreas quotes Watkins's own later letter on his FIRST quarter: thirty scholars subscribed for but only twelve attending, 'only four of them were white: the others were quarter, half, and three-quarters Indians'. That quarter was taught in the autumn of 1832 in Colonel Hamilton's horse stable, twelve feet square — three years before the scene date and two moves before the schoolhouse this record is seated on. It is carried here, with its own date on it, because a dated figure can be read with its date where a silence cannot be read at all; it is NOT the attendance of 1 July 1835 and nothing may read it as one. The thirty subscribed is the number docs/RESEARCH/north_side_school_1833.md sizes the schoolhouse's conjectural footprint for, and that is the whole of the use this project makes of it."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence.",
+    "shortfall": {
+      "typical_wanted": 0,
+      "seats_taken": 1,
+      "seats_against_the_band": 0,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": null,
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts no hand about this kind of house at its typical band; this house carries 1.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "watkins_school_house",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-07-09",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure watkins_school_house on its occupants. watkins_school_house already stands and its occupants carries watkins — 'John Watkins; schoolmaster; occupants on the scene date unattested'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-09",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-09, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-09",
+    "last_issue": "1834-07-09",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: John Watkins (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "watkins_john",
+        "name": "John Watkins",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_09#c017"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

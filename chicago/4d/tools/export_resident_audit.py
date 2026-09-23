@@ -29,8 +29,12 @@ tool has never met stops the build rather than falling into a bucket unseen.
 
 THE XLSX IS OPTIONAL AND THE CSV IS NOT. `openpyxl` is not in every sandbox this repo is
 worked from, so the CSV and the README are always written and always gated; the workbook is
-written when openpyxl imports and is never compared byte for byte (a zip carries its own
-timestamps). `--check` fails on a CSV or README that has drifted from the layer — a hand
+written when openpyxl imports. It used to be uncomparable — a zip carries its own
+timestamps, so two builds of the same rows gave different bytes — and because the file is
+COMMITTED that made it conflict on every merge with no content behind it at all, once with
+docProps/core.xml as the entire diff. It is settled now (tools/deterministic_xlsx.py):
+identical rows give identical bytes, so an unchanged workbook no longer appears in
+`git status` and no longer has to be chosen between in a merge. `--check` fails on a CSV or README that has drifted from the layer — a hand
 edit to the audit is refused the same way a hand edit to any generated file here is.
 """
 from __future__ import annotations
@@ -737,6 +741,7 @@ def write_xlsx(table: list[dict], cache: dict) -> bool:
     try:
         from openpyxl import Workbook
         from openpyxl.styles import Font
+        from deterministic_xlsx import settle
     except ImportError:
         return False
     book = Workbook()
@@ -783,6 +788,10 @@ def write_xlsx(table: list[dict], cache: dict) -> bool:
                     source_type(source_id, cache), citing[source_id]])
     OUT.mkdir(parents=True, exist_ok=True)
     book.save(OUT / XLSX_NAME)
+    # A workbook must be a function of its DATA, not of the clock. See the note at the top
+    # and tools/deterministic_xlsx.py: without this, identical rows give different bytes and
+    # this COMMITTED binary conflicts on every merge with no content behind it (T-1282).
+    settle(OUT / XLSX_NAME)
     return True
 
 
@@ -905,16 +914,30 @@ def cmd_self_test() -> bool:
     want(any(r["audit_result"] == "corroborated_across_categories" for r in sample), True,
          "the cross-category verdict fires on the real layer")
     # A NAMED PERSON WITH NO SOURCE IS THE ONE ROW THIS AUDIT MUST NEVER PRINT QUIETLY.
-    # Three rows do cite nothing, and all three are the collective "the rest of the
-    # household, unnamed" members an inferred head-count mints; they are never heads and
-    # never named. The assertion is that shape, not the absence.
-    want(sorted(r["person_id"] for r in sample if r["flag_no_source"]),
-         ["beaubien_household_unnamed", "beaubien_mark_household",
-          "owen_household_unnamed"],
-         "only the three collective household rows cite no source of their own")
-    want(all(r["relationship"] == "household_member"
-             for r in sample if r["flag_no_source"]), True,
-         "a sourceless row is never a head")
+    # Two kinds of row legitimately cite nothing, and neither is that. Three are the
+    # collective "the rest of the household, unnamed" members an inferred head-count
+    # mints. The rest are the reconstruction programme's people (T-1167, T-1314), which
+    # cite no source BY CONTRACT: no source names them, the evidence is for the NEED and
+    # is argued in `basis`, and `validate.py` warns if one ever carries a source_id. The
+    # assertion is that shape, not the absence — a sourceless row that is neither is
+    # still the failure this was written for.
+    collective = ["beaubien_household_unnamed", "beaubien_mark_household",
+                  "owen_household_unnamed"]
+    want(sorted(r["person_id"] for r in sample
+                if r["flag_no_source"] and r["grade"] != "reconstructed"), collective,
+         "only the three collective household rows cite no source without being a "
+         "reconstruction")
+    # ...AND A SOURCELESS ROW IS NEVER A HEAD THE SOURCES NAME. The clause was unqualified
+    # until T-1174, because until then every head in the layer was a person somebody had
+    # read: the reconstruction wrote people INTO households a source had already produced.
+    # `women_and_children` writes the household too — 124 women who head their own house and
+    # whom no roll printed — so a reconstructed head is now the expected shape rather than
+    # the defect. What the assertion is actually for is unchanged and is what it says here:
+    # a person this project claims to have READ, standing at the head of a household, with
+    # nothing cited under them.
+    want(all(r["relationship"] != "head" for r in sample
+             if r["flag_no_source"] and r["grade"] != "reconstructed"), True,
+         "a sourceless row is never a head the sources name")
 
     # T-0733. THE RULINGS. The flag now means "a conflict nobody has ruled on", so the
     # assertions are about the PINNING — a ruling that could drift off the conflict text

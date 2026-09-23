@@ -1,0 +1,87 @@
+{
+ "id": "hh_james_t_osborne",
+ "name": "The Osborne household — a name the roster offered back",
+ "division": "unplaced",
+ "head": "james_t_osborne",
+ "source_pass": "reconstructed_readmission",
+ "readmission": {
+  "ticket": "T-1172",
+  "stage": "readmissions",
+  "class": "R3_1834_return_or_muster",
+  "rule": "readmission_r3_muster_or_return",
+  "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_080#0",
+  "name_as_read": "OSBORNE, JAMES T",
+  "stands_on": "Enrolled at Chicago in the 1832 Black Hawk muster, with no 1835 corroboration and no card; an earlier source dates and corroborates and never promotes, so presence is priced against the persistence model.",
+  "withdrawn_if": "a ruling that this name is a duplicate of a card the town already holds; the retirement runs through tools/consolidate_town_cards.py, never by hand"
+ },
+ "arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested. The reading dates an appearance and not an arrival."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested: the reading gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested."
+ },
+ "present_on_scene_date": {
+  "value": "absent",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "model",
+   "id": "persistence_1835",
+   "note": "The reading dates this name at 1832, 3.50 years before the scene date. The persistence model gives 0.789 for that lag and the seeded draw reads absent."
+  },
+  "seed": "hh_james_t_osborne:persistence",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "any source naming this person at Chicago on or after 1 July 1835"
+  }
+ },
+ "persons": [
+  {
+   "id": "james_t_osborne",
+   "name": "James T. Osborne",
+   "name_as_read": "OSBORNE, JAMES T",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "basis": {
+    "kind": "rule",
+    "id": "readmission_r3_muster_or_return",
+    "note": "Enrolled at Chicago in the 1832 Black Hawk muster, with no 1835 corroboration and no card; an earlier source dates and corroborates and never promotes, so presence is priced against the persistence model."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a second independent source naming this person at Chicago inside the window, which would carry the card back to the research layer at `inferred`"
+   },
+   "reconstruction": {
+    "stage": "readmissions",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": null
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "No source records an occupation for this person."
+   },
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "note": "RE-ADMITTED FROM THE BORDERLINE ROSTER (T-1172). Enrolled at Chicago in the 1832 Black Hawk muster, with no 1835 corroboration and no card; an earlier source dates and corroborates and never promotes, so presence is priced against the persistence model. The research READ this name and WITHHELD it, and that refusal is not overturned: this record is a reconstruction of what the town looks like if the name is admitted at the limit of its own evidence, and it says so on its face. The reading, the source and the refusal stand at `civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_080#0` in data/reconstruction/1835_borderline_roster.json. No figure is drawn (L1).",
+   "resident_subtype": "readmitted_resident"
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "WRITTEN BY tools/readmit_borderline_roster.py (T-1172), the `readmissions` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a re-admission lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+}

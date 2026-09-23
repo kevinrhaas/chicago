@@ -81,3 +81,22 @@ boundary question and that document is the boundary), with the ROADMAP clauses i
 pointed at it and `tools/measure_generator_half.py`'s reading either kept as the gate or
 retired with a reason. **This is the owner's call, not a measurement**; the loop's part was
 to establish that it is one question rather than nine, and that part is done.
+
+## Owner supplied the missing consumer — 18 September 2026
+
+The owner now explicitly requests regular portable assets for Unreal, completion of the
+missing scenery, and eventual server delivery. The earlier question whether any consumer
+exists is answered: Unreal has a local 382-structure preview. Proceed with the export
+contract; do not ask the owner to approve the existence of the Unreal renderer again.
+
+Read [the Unreal delivery plan](../docs/unreal/README.md). Choose shared engine-neutral
+representations for each CURRENT layer, preserve terrain-dependent regeneration, runtime
+provenance and existing re-derivation gates, and record an inventory plus unsupported
+features. No human figures or review bypass. The historical nine-layer table is a starting
+point, not proof today's streets/materials/UI/epochs are covered.
+
+This ticket remains a remote-workable design/contract slice, not a claim that all exports
+are implemented. The initial street-corridor implementation is T-1360; remaining layers
+are bounded successors under T-1356. Its contract must define inputs/outputs, versioning,
+scene-date and terrain dependencies and acceptance at the web/Unreal boundary, so the
+next worker implements once rather than independently reinterpreting historical rules.

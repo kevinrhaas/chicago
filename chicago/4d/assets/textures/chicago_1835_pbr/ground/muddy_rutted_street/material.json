@@ -1,0 +1,36 @@
+{
+  "id": "muddy_rutted_street",
+  "group": "ground",
+  "span_m": 8.0,
+  "confidence": "attested condition; reconstructed wear",
+  "mean_roughness": 0.78,
+  "kind": "mud",
+  "colors": [
+    [
+      82,
+      70,
+      58
+    ],
+    [
+      44,
+      43,
+      39
+    ]
+  ],
+  "note": "Unpaved wagon-and-hoof-worn street with damp ruts; no modern tire marks.",
+  "resolution_px": 1024,
+  "px_per_m": 128.0,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18352253,
+  "generation_method": "AI-generated flat-lit color study, made periodic; procedural/aligned PBR derivation"
+}

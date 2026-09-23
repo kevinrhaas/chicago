@@ -1,0 +1,167 @@
+{
+  "id": "biz_jones_king",
+  "register_id": "business_jones_king",
+  "name": "Jones & King",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "stove and hollow ware",
+  "occupation": "stove_dealer",
+  "goods": [
+    "Boots",
+    "Box Stoves",
+    "Chauldrons",
+    "Cooking Stoves",
+    "Corn Cultivators",
+    "Fire Dogs",
+    "Franklin Stoves",
+    "Grind Stones",
+    "Grindstones",
+    "Hall Stoves",
+    "Hollow Ware",
+    "Plough Castings",
+    "Ploughs",
+    "Potash Kettles",
+    "Rifles",
+    "Road Scrapers",
+    "Shoes",
+    "Shovels",
+    "Six Plate Stoves",
+    "Sole Leather",
+    "Stove Furniture",
+    "Stove Pipe",
+    "Stoves",
+    "Sugar Kettles",
+    "Ten Plate Stoves",
+    "Tin Ware",
+    "Tongs",
+    "axes",
+    "blinds",
+    "boots",
+    "iron ploughs",
+    "iron scrapers",
+    "rifles",
+    "shoes",
+    "sole leather",
+    "window glass",
+    "window sash"
+  ],
+  "firm_styles": [
+    "Jones & King"
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Byram King",
+      "person_id": "king_byram",
+      "register_person_id": "person_byram_king",
+      "role": "partner",
+      "from": "1834-07-09",
+      "to": "1834-12-03",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card king_byram (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_09#c020",
+        "chicago_democrat_1834_07_23#c007",
+        "chicago_democrat_1834_09_03#c022",
+        "chicago_democrat_1834_09_10#c003",
+        "chicago_democrat_1834_09_10#c008",
+        "chicago_democrat_1834_12_03#c007",
+        "chicago_democrat_1834_12_03#c024"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Wm. Jones",
+      "person_id": null,
+      "register_person_id": "person_wm_jones",
+      "role": "partner",
+      "from": "1834-07-09",
+      "to": "1834-12-03",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_wm_jones with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_09#c020",
+        "chicago_democrat_1834_07_23#c007",
+        "chicago_democrat_1834_09_03#c022",
+        "chicago_democrat_1834_09_10#c003",
+        "chicago_democrat_1834_09_10#c008",
+        "chicago_democrat_1834_12_03#c007",
+        "chicago_democrat_1834_12_03#c024"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-07-09",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The anchor 'the bridge' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-09",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-09, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-09",
+    "last_issue": "1834-12-03",
+    "copy_dates": [
+      "1834-07-08",
+      "1834-10-02",
+      "1834-11-05"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: Byram King (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "king_byram",
+        "name": "Byram King",
+        "role": "partner",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_09#c020",
+    "chicago_democrat_1834_07_23#c007",
+    "chicago_democrat_1834_09_03#c022",
+    "chicago_democrat_1834_09_10#c003",
+    "chicago_democrat_1834_09_10#c008",
+    "chicago_democrat_1834_12_03#c007",
+    "chicago_democrat_1834_12_03#c024"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

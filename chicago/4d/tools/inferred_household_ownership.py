@@ -50,6 +50,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 RECORD = ROOT / "data" / "reconstruction" / "1835_inferred_household_pass_ownership.json"
 STRUCTURES = ROOT / "data" / "structures"
 HOUSEHOLDS = ROOT / "data" / "residents" / "households"
+# The programme that reopened invented naming under an auditable stage (T-1167).
+PROGRAMME_1167 = ROOT / "data" / "reconstruction" / "1835_resident_reconstruction_programme.json"
 
 MISSING = object()          # distinct from a committed null
 
@@ -124,6 +126,60 @@ def prune(doc, paths: list[str]):
     return out
 
 
+def graft(derived, tree, paths: list[str]):
+    """`derived`, with every listed path taken from `tree` instead.
+
+    The other half of `prune`, and the reason it exists is T-1191. A pass that OWNS a
+    record but may not write it has no way to land a correction: the households pass
+    refuses `--write` outright, because writing regenerates the whole record and that
+    reverses the owner's T-0489 retirement of the resident population. So for as long
+    as that refusal has stood, the only way to move a roof the pass owns has been to
+    hand-edit the file the pass derives — which is the exact fault T-1227 was written
+    to stop, and it produced a programme and a record that disagreed for a fortnight.
+
+    This is the operation the refusal was missing: keep the derivation for the fields
+    the pass still owns, and keep the TREE for the withheld ones, so a correction can
+    land without a ruling being undone. A withheld path absent from the tree is removed
+    from the result rather than defaulted, because absence there is itself the ruling.
+    """
+    out = json.loads(json.dumps(derived))
+
+    def carry(dst, src, steps):
+        step, rest = steps[0], steps[1:]
+        if step == "[]":
+            if isinstance(dst, list) and isinstance(src, list):
+                for d, s_ in zip(dst, src):
+                    carry(d, s_, rest)
+            return
+        if not isinstance(dst, dict):
+            return
+        if not rest:
+            if isinstance(src, dict) and step in src:
+                dst[step] = json.loads(json.dumps(src[step]))
+            else:
+                dst.pop(step, None)
+            return
+        carry(dst.get(step), src.get(step) if isinstance(src, dict) else None, rest)
+
+    for path in paths:
+        if path == "*":
+            return json.loads(json.dumps(tree))
+        carry(out, tree, _steps(path))
+    return out
+
+
+def withheld_paths(pass_id: str) -> dict[str, list[str]]:
+    """Per structure id, the paths the settlement withholds from `pass_id`."""
+    spec = settlement()["passes"][pass_id]
+    out: dict[str, list[str]] = {}
+    for block in spec["withdrawn"]:
+        for sid in block.get("applies_to", []):
+            out.setdefault(sid, []).extend(block["paths"])
+    for block in spec["reassigned"]:
+        out.setdefault(block["structure"], []).extend(block["paths"])
+    return out
+
+
 def differences(disk, derived, where: str) -> list[str]:
     """Every leaf that differs, named by its path. Order-preserving, deduped by path."""
     out = []
@@ -192,12 +248,7 @@ def check_households_pass(derived: dict[pathlib.Path, str]) -> list[str]:
     """`generate_inferred_households.py --check`: the 38 structure records it owns."""
     spec = settlement()["passes"]["tools/generate_inferred_households.py"]
     owned = spec["still_owns"]["data/structures"]
-    withheld: dict[str, list[str]] = {}
-    for block in spec["withdrawn"]:
-        for sid in block.get("applies_to", []):
-            withheld.setdefault(sid, []).extend(block["paths"])
-    for block in spec["reassigned"]:
-        withheld.setdefault(block["structure"], []).extend(block["paths"])
+    withheld = withheld_paths("tools/generate_inferred_households.py")
 
     drift: list[str] = []
     for sid in owned["ids"]:
@@ -260,15 +311,34 @@ def check_names_pass(derived: dict[pathlib.Path, dict],
         drift.append("not one person in the naming pass's input is graded "
                      "reconstructed, so no invented name was dealt and nothing below "
                      "is a test")
-    # half B: not one of these names stands in the tree, because T-0489 retired
-    # every person this pass ever named.
+    # half B: not one of THIS PASS's names stands in the tree, because T-0489 retired
+    # every person it ever named.
+    #
+    # T-1314 narrowed what "this pass's" means. The test used to be "no person in the
+    # tree carries a name_basis at all", which was the same sentence for as long as this
+    # pass was the only thing that had ever dealt an invented name. Since T-1167 the
+    # reconstruction programme deals them too, under a stage that re-derives the person
+    # and a record contract `tools/reconstruct_residents_1835.py --check` holds. Those
+    # are not this pass's people coming back, and reading them as such would make the
+    # programme the owner asked for unlandable. A name_basis on anyone the programme does
+    # NOT claim is still exactly the return T-0489 forbade, and still fails here.
+    try:
+        prog = json.loads(PROGRAMME_1167.read_text(encoding="utf-8"))
+        stage_keys = {row.get("key") for row in prog.get("stages") or []}
+    except (OSError, ValueError):
+        stage_keys = set()
+
+    def unclaimed(person):
+        return (isinstance(person, dict) and person.get("name_basis")
+                and (person.get("reconstruction") or {}).get("stage") not in stage_keys)
+
     standing = sorted(p.name for p in HOUSEHOLDS.glob("*.json")
-                      if any(isinstance(person, dict) and person.get("name_basis")
-                             for person in json.loads(
-                                 p.read_text(encoding="utf-8")).get("persons", [])))
-    drift += [f"data/residents/households/{name} carries an invented name_basis — "
-              f"T-0489 retired the reconstructed resident population and nothing may "
-              f"put an invented resident back" for name in standing]
+                      if any(unclaimed(person) for person in json.loads(
+                          p.read_text(encoding="utf-8")).get("persons", [])))
+    drift += [f"data/residents/households/{name} carries an invented name_basis that no "
+              f"reconstruction stage claims — T-0489 retired the reconstructed resident "
+              f"population and nothing may put an invented resident back outside the "
+              f"programme" for name in standing]
     return drift
 
 
@@ -311,6 +381,57 @@ def check_replace_pass(seated: dict[str, dict]) -> list[str]:
         # half B: the ruling left him unplaced.
         for block in spec["withdrawn"]:
             drift += assert_shape(doc, block.get("assert_instead", {}), hid)
+    drift += check_refused_and_standing(seated, spec)
+    return drift
+
+
+def check_refused_and_standing(seated: dict[str, dict], spec: dict) -> list[str]:
+    """A roof this deal ONCE seated, refused today, and standing in the tree anyway.
+
+    T-1294. The deal seats four and once seated five. The fifth — J. W. Reed's
+    hh_inf_joiner_north_02 — is refused under refusal 5, `already named in the
+    town`, because six committed cards outside the hh_inf_ layer now speak that
+    surname, all of them written after the roof was. The household did not go
+    away with the deal that made it: the man's evidence is the poll books' and
+    the press's, not this pass's, so the record stands and is the resident
+    layer's. It read as OWNERLESS until this settled it, which is the whole of
+    T-1294.
+
+    Three things are asserted, because all three are ways the finding could
+    silently stop being true: the household is still there with that head; the
+    deal still does NOT reach it (if a refusal stops firing, the deal would seat
+    it and this settlement would be describing the wrong tree); and the cards
+    that fire the refusal have not all left. This gate does not assert the
+    head's grade or its placement — those are the synthesizer's, which is the
+    point of naming it the owner.
+    """
+    drift: list[str] = []
+    for row in spec.get("refused_and_standing", []):
+        hid = row["household"]
+        if hid in seated:
+            drift.append(f"{hid}: the deal seats it again — it is settled as refused "
+                         f"({row['refusal']}), so the settlement is out of date")
+        path = HOUSEHOLDS / f"{hid}.json"
+        if not path.exists():
+            drift.append(f"data/residents/households/{hid}.json is missing — a refused "
+                         f"roof this deal once seated may not be dropped to tidy a pass")
+            continue
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        head = next((p for p in doc.get("persons", [])
+                     if p.get("relationship") == "head"), {})
+        for field in ("id", "name"):
+            if head.get(field) != row[f"person_{field}"]:
+                drift.append(f"{hid}: the tree's head has {field} {head.get(field)!r}, "
+                             f"settled as {row[f'person_{field}']!r}")
+        speakers = [c for c in row.get("named_by", [])
+                    if (HOUSEHOLDS / f"{c}.json").exists()
+                    and re.search(rf"\b{re.escape(row['surname'])}\b",
+                                  (HOUSEHOLDS / f"{c}.json").read_text(encoding="utf-8"),
+                                  re.I)]
+        if not speakers:
+            drift.append(f"{hid}: no card named in the settlement still says "
+                         f"{row['surname']!r} — the refusal that took this roof out of "
+                         f"the deal may no longer stand, so the reading needs re-taking")
     return drift
 
 
@@ -335,6 +456,9 @@ def summary() -> str:
                          f"on {block['structure']}")
         for block in spec.get("no_longer_owns", []):
             lines.append(f"      no longer owns {block['what']} (now {block['to']})")
+        for block in spec.get("refused_and_standing", []):
+            lines.append(f"      {block['household']} is refused ({block['refusal']}) "
+                         f"and stands — owned by {block['owner']} ({block['settled_by']})")
     return "\n".join(lines)
 
 
@@ -374,8 +498,30 @@ def self_test() -> int:
     case("a retired household that stays retired is silent",
          not absent([HOUSEHOLDS / "hh_inf_carpenter_south_01.json"], "it was retired"))
 
+    # T-1294: the refused roof that stands anyway. Five ways it could quietly
+    # stop being true, and the gate has to speak for every one of them.
+    spec = settlement()["passes"]["tools/replace_invented_residents.py"]
+    row = spec["refused_and_standing"][0]
+    case("a refused roof that stands as settled is silent",
+         not check_refused_and_standing({}, spec))
+    case("a refused roof the deal seats again is reported",
+         check_refused_and_standing({row["household"]: {}}, spec))
+    case("a refused roof whose head has changed is reported",
+         check_refused_and_standing({}, {"refused_and_standing": [
+             dict(row, person_name="Somebody Else")]}))
+    case("a refused roof that has left the tree is reported",
+         check_refused_and_standing({}, {"refused_and_standing": [
+             dict(row, household="hh_inf_not_a_household")]}))
+    case("a refusal no card fires any more is reported",
+         check_refused_and_standing({}, {"refused_and_standing": [
+             dict(row, named_by=["hh_no_such_card"])]}))
+
     doc = settlement()
     case("the settlement names all three passes", len(doc["passes"]) == 3)
+    case("the settlement leaves no record ownerless",
+         not any("nobody" in block["to"]
+                 for spec_ in doc["passes"].values()
+                 for block in spec_.get("no_longer_owns", [])))
     case("the settlement cites the ruling behind it",
          any(r["ticket"] == "T-0489" for r in doc["rulings"]))
 

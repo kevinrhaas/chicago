@@ -102,6 +102,12 @@
         "andreas_1884_v1"
       ],
       "note": "'David McKee was appointed Government blacksmith, his shop being situated near the Agency House, at the foot of State Street' — Andreas, opening his chapter on the town's early manufactories with it, since a blacksmith is where the manufacturing history of the place starts. WHO WAS WORKING IT ON THE SCENE DATE IS UNATTESTED: McKee had been carrying the mail since 1827-28, the 1830-31 agency staffing lists him as blacksmith with Joseph Porthier as striker, and nothing reached names a smith here in 1835. The record therefore carries no occupants block."
+    },
+    "stands_on_lot": {
+      "value": "lot 2, north division tier",
+      "confidence": "inferred",
+      "sources": [],
+      "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 2 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
     }
   },
   "residents": [

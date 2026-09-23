@@ -1,0 +1,221 @@
+{
+ "_doc": "T-1479. What moving plat blocks 28 and 45 onto the West Division grid would cost, and the committed arithmetic that refuses it. NOTHING IS MOVED BY THE TOOL THAT WRITES THIS FILE: no lot line is cut, no record re-seated, no block re-emitted. It is a measurement, in the manner of tools/measure_west_division_module.py, and its purpose is that the ticket's refusal carries figures.",
+ "tool": "tools/measure_west_grid_migration.py",
+ "ticket": "T-1479",
+ "generated_from": [
+  "data/traces/vectors/thompson_lots.json",
+  "data/traces/thompson_west_division_lots.json",
+  "data/streets/1835.json",
+  "data/structures/*.json",
+  "data/enclosures/town_lot_line_rails.json",
+  "data/enclosures/town_lot_line_boards.json",
+  "data/enclosures/town_lot_line_pickets.json",
+  "data/frontage/town_street_edge.json"
+ ],
+ "blocks": [
+  {
+   "plat_block_number": 28,
+   "omitted_from_the_west_grid_as": "blk_west_lake_clinton",
+   "derived_by_the_original_town_grid_as": "blk_lake_clinton",
+   "bounded_by": {
+    "north": "lake",
+    "south": "randolph",
+    "west": "clinton",
+    "east": "canal"
+   },
+   "what_the_sheet_reads": {
+    "lot_count": 10,
+    "arrangement": "two columns of lots",
+    "lot_numerals_north_to_south": [
+     [
+      2,
+      1
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      6,
+      5
+     ],
+     [
+      7,
+      8
+     ],
+     [
+      10,
+      9
+     ]
+    ],
+    "rows": 5,
+    "columns": 2,
+    "region_on_the_sheet": "720,1050,290,270",
+    "dimensions_refused": "Both dimensions; no marginal figures.",
+    "confidence": "documented"
+   },
+   "what_the_layer_cuts": {
+    "module": "south_division_thompson_1830",
+    "lot_count": 8,
+    "lot_frontage_ft": 80.0,
+    "alley_runs": "east-west, mid-block"
+   },
+   "the_gap": "the sheet counts 10 lots in 5 rows of 2; the layer cuts 8 on the south_division_thompson_1830 module, 2 fewer and in the other arrangement",
+   "refusal_1_the_module_does_not_fit": {
+    "the_committed_face_ft": 315.2,
+    "the_committed_depth_ft": 388.4,
+    "the_two_lot_columns_want_ft": 360.0,
+    "the_block_wants_ft": 378.0,
+    "short_east_west_by_ft": 62.8,
+    "rows_the_depth_divides_into": 5.14,
+    "so": "the arrangement does not fit before the alley is cut, and the depth does not divide into whole lots of the printed frontage"
+   },
+   "refusal_2_this_block_prints_no_dimension": {
+    "refused_on_the_sheet": "Both dimensions; no marginal figures.",
+    "lot_depth_ft": null,
+    "lot_frontage_ft": null,
+    "so": "under the West Division grid's own rule a block with no figure of its own keeps its boundary, its numeral, its lot count and its ground, and its lot LINES are withheld — so moving this block onto that grid cuts no lots at all"
+   },
+   "what_a_withheld_cut_would_strand": {
+    "structures_seated_by_block_id": [],
+    "lots_reached_by_a_committed_record": [
+     "blk_lake_clinton_lot0",
+     "blk_lake_clinton_lot1",
+     "blk_lake_clinton_lot3",
+     "blk_lake_clinton_lot4",
+     "blk_lake_clinton_lot5",
+     "blk_lake_clinton_lot6",
+     "blk_lake_clinton_lot7"
+    ],
+    "rows_seated_on_those_lots": {
+     "data/enclosures/town_lot_line_rails.json": 24
+    },
+    "structures_named_on_those_lots": [
+     "recon_1835_west_007",
+     "recon_1835_west_008",
+     "recon_1835_west_014",
+     "recon_1835_west_015",
+     "recon_1835_west_016",
+     "recon_1835_west_023",
+     "recon_1835_west_024"
+    ]
+   }
+  },
+  {
+   "plat_block_number": 45,
+   "omitted_from_the_west_grid_as": "blk_west_randolph_clinton",
+   "derived_by_the_original_town_grid_as": "blk_randolph_clinton",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "clinton",
+    "east": "canal"
+   },
+   "what_the_sheet_reads": {
+    "lot_count": 10,
+    "arrangement": "two columns of lots",
+    "lot_numerals_north_to_south": [
+     [
+      2,
+      1
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      6,
+      5
+     ],
+     [
+      7,
+      8
+     ],
+     [
+      10,
+      9
+     ]
+    ],
+    "rows": 5,
+    "columns": 2,
+    "region_on_the_sheet": "720,1320,290,280",
+    "dimensions_refused": "Both dimensions; no marginal figures.",
+    "confidence": "documented"
+   },
+   "what_the_layer_cuts": {
+    "module": "south_division_thompson_1830",
+    "lot_count": 8,
+    "lot_frontage_ft": 80.0,
+    "alley_runs": "east-west, mid-block"
+   },
+   "the_gap": "the sheet counts 10 lots in 5 rows of 2; the layer cuts 8 on the south_division_thompson_1830 module, 2 fewer and in the other arrangement",
+   "refusal_1_the_module_does_not_fit": {
+    "the_committed_face_ft": 326.1,
+    "the_committed_depth_ft": 364.0,
+    "the_two_lot_columns_want_ft": 360.0,
+    "the_block_wants_ft": 378.0,
+    "short_east_west_by_ft": 51.9,
+    "rows_the_depth_divides_into": 4.81,
+    "so": "the arrangement does not fit before the alley is cut, and the depth does not divide into whole lots of the printed frontage"
+   },
+   "refusal_2_this_block_prints_no_dimension": {
+    "refused_on_the_sheet": "Both dimensions; no marginal figures.",
+    "lot_depth_ft": null,
+    "lot_frontage_ft": null,
+    "so": "under the West Division grid's own rule a block with no figure of its own keeps its boundary, its numeral, its lot count and its ground, and its lot LINES are withheld — so moving this block onto that grid cuts no lots at all"
+   },
+   "what_a_withheld_cut_would_strand": {
+    "structures_seated_by_block_id": [
+     "recon_1835_blk_randolph_clinton_a1_06",
+     "recon_1835_blk_randolph_clinton_a2_05",
+     "recon_1835_blk_randolph_clinton_a3_07",
+     "recon_1835_blk_randolph_clinton_d1_03",
+     "recon_1835_blk_randolph_clinton_d3_04",
+     "recon_1835_blk_randolph_clinton_d4_02",
+     "recon_1835_blk_randolph_clinton_d5_01"
+    ],
+    "lots_reached_by_a_committed_record": [
+     "blk_randolph_clinton_lot0",
+     "blk_randolph_clinton_lot1",
+     "blk_randolph_clinton_lot2",
+     "blk_randolph_clinton_lot3",
+     "blk_randolph_clinton_lot6",
+     "blk_randolph_clinton_lot7"
+    ],
+    "rows_seated_on_those_lots": {
+     "data/enclosures/town_lot_line_rails.json": 22
+    },
+    "structures_named_on_those_lots": [
+     "recon_1835_blk_randolph_clinton_a1_06",
+     "recon_1835_blk_randolph_clinton_a2_05",
+     "recon_1835_blk_randolph_clinton_a3_07",
+     "recon_1835_blk_randolph_clinton_d1_03",
+     "recon_1835_blk_randolph_clinton_d3_04",
+     "recon_1835_blk_randolph_clinton_d4_02",
+     "recon_1835_blk_randolph_clinton_d5_01",
+     "recon_1835_west_018",
+     "recon_1835_west_019",
+     "recon_1835_west_021"
+    ]
+   }
+  }
+ ],
+ "the_precondition": {
+  "committed_clinton_to_canal_ft": 367.9,
+  "the_plat_street_module_ft": 458.0,
+  "short_by_ft": 90.1,
+  "so": "the West Division module cannot be seated on these blocks until the committed Clinton and Canal centrelines carry the plat's own spacing. That is a street move, which this ticket may not make.",
+  "named_as_owning_the_move": {
+   "T-0444": "done",
+   "T-0445": "done"
+  },
+  "and_the_finding": "both tickets the refusal points forward to are CLOSED, and the spacing is still short. The move is therefore unowned: no open ticket carries it, and the prose in tools/generate_plat_lots.py points a reader at work that has already been done. A successor is owed."
+ },
+ "the_first_question": {
+  "asked_by_the_ticket": "what is a structure seated on a withdrawn lot seated on?",
+  "blocks_whose_lot_lines_are_withheld": 35,
+  "of_those_carrying_a_committed_seating": 0,
+  "so": "the case has never arisen, which is why no rule was ever written for it. Withdrawing these two blocks' lot lines would raise it for the first time, and would raise it against real seating rather than against an empty block — so the rule has to be written before the move, not discovered during it."
+ },
+ "what_this_does_not_say": "that the layer is wrong about the GROUND. Both blocks' boundaries, faces and areas are cut from committed centrelines and are not in question here; what the sheet contradicts is the lot ARRANGEMENT inside them. Nor does it say the sheet's ten numerals should be seated at the plat's printed size on this project's short spacing — that would put lot lines outside the block."
+}

@@ -84,7 +84,7 @@ exit 0
     cwd: box,
     encoding: 'utf8',
     env: { ...process.env, PATH: `${bin}:${process.env.PATH}`,
-           GH_TOKEN: 'fake', LAP_ONLY: only, GITHUB_REPOSITORY: 'kevinrhaas/chicago' },
+           GH_TOKEN: 'fake', LAP_ONLY: only, GITHUB_REPOSITORY: 'kevinrhaas/custom' },
   });
   rmSync(box, { recursive: true, force: true });
   return { code: r.status, out: `${r.stdout || ''}${r.stderr || ''}` };

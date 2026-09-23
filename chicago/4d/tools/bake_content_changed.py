@@ -4,8 +4,8 @@
 `chicago-4d-bake.yml` decided whether a nightly had produced anything with
 `[ -z "$(git status --porcelain)" ]`. That test can never say no. `publish.sh`
 IS the build, and the last thing it writes is the build stamp — the head sha and
-a wall clock — into `site/4d/build.json` and into the gate paragraph of
-`site/4d/walk/index.html`. Both move on every run by construction, so
+a wall clock — into `site/chicago/4d/build.json` and into the gate paragraph of
+`site/chicago/4d/walk/index.html`. Both move on every run by construction, so
 the tree was always dirty, the `changed=0` branch was unreachable, and every
 bake opened a PR whose whole diff was two files and no geometry. Four of them
 were open at once on 2026-08-24, and the signal a reviewer needs — *this bake
@@ -40,8 +40,8 @@ import tempfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent          # chicago/4d
 REPO = ROOT.parent.parent                                      # the repo root
 
-BUILD_JSON = "site/4d/build.json"
-GATE_PAGE = "site/4d/walk/index.html"
+BUILD_JSON = "site/chicago/4d/build.json"
+GATE_PAGE = "site/chicago/4d/walk/index.html"
 
 # The three keys publish.sh regenerates on every run, and nothing else in the
 # file. A fourth key appearing here is a change to what the build CLAIMS, which
@@ -118,7 +118,7 @@ def content_paths(cwd=None):
     """Every dirty path under the app that is not purely the build stamp.
 
     THE MIRROR IS STILL IN THE PATHSPEC AND USUALLY ANSWERS NOTHING (T-0938).
-    `site/4d` is untracked and .gitignored in this repository now, so
+    `site/chicago/4d` is untracked and .gitignored in this repository now, so
     `git status --porcelain` never names it here and the stamp exclusions below
     can only fire in a tree where it is tracked — which is exactly the sandbox
     `--self-test` builds. Both halves are deliberate. The pathspec stays because
@@ -132,7 +132,7 @@ def content_paths(cwd=None):
     geometry, and the build stamp cannot manufacture a PR because the two files
     it is written into are not committed at all.
     """
-    out = git("status", "--porcelain", "--", "chicago/4d", "site/4d",
+    out = git("status", "--porcelain", "--", "chicago/4d", "site/chicago/4d",
               cwd=cwd)
     paths = []
     for line in out.splitlines():
@@ -173,7 +173,7 @@ def report(cwd=None):
 def _sandbox(tmp):
     root = pathlib.Path(tmp)
     (root / "chicago/4d/data").mkdir(parents=True)
-    (root / "site/4d/walk").mkdir(parents=True)
+    (root / "site/chicago/4d/walk").mkdir(parents=True)
     (root / BUILD_JSON).write_text(json.dumps(
         {"version": "aaaaaaa", "built_utc": "2026-08-24T06:04:28Z",
          "built_ct": "Aug 24, 2026, 1:04 AM CT"}, indent=2) + "\n")
@@ -183,7 +183,7 @@ def _sandbox(tmp):
     # A COMMITTED BINARY file, because a published tree is mostly .glb and .png
     # and this tool used to decode every committed path as UTF-8. 0xf8 is the
     # byte that actually killed the bake on PR #675.
-    (root / "site/4d/walk/master.glb").write_bytes(
+    (root / "site/chicago/4d/walk/master.glb").write_bytes(
         b"glTF\x02\x00\x00\x00" + bytes(range(0xf0, 0x100)))
     git("init", "-q", cwd=root)
     git("config", "user.email", "t@example.com", cwd=root)
@@ -224,19 +224,19 @@ def self_test():
              content_paths(root), ["chicago/4d/data/thing.json"])
 
         (root / "chicago/4d/data/thing.json").write_text('{"a": 1}\n')
-        (root / "site/4d/walk/asset.glb").write_text("glb\n")
+        (root / "site/chicago/4d/walk/asset.glb").write_text("glb\n")
         case("a NEW published file is content",
-             content_paths(root), ["site/4d/walk/asset.glb"])
-        (root / "site/4d/walk/asset.glb").unlink()
+             content_paths(root), ["site/chicago/4d/walk/asset.glb"])
+        (root / "site/chicago/4d/walk/asset.glb").unlink()
 
         # THE CRASH THIS TOOL TOOK ON PR #675, as a case rather than a story.
         # A committed binary file that CHANGES reaches `is_stamp_only`, which
         # read both sides as UTF-8 text; the bake died with UnicodeDecodeError
         # instead of reporting the content, and a green tree looked broken.
-        glb = root / "site/4d/walk/master.glb"
+        glb = root / "site/chicago/4d/walk/master.glb"
         glb.write_bytes(b"glTF\x02\x00\x00\x00" + bytes(range(0xe0, 0xf0)))
         case("a committed BINARY file that changed is content, not a crash",
-             content_paths(root), ["site/4d/walk/master.glb"])
+             content_paths(root), ["site/chicago/4d/walk/master.glb"])
         glb.write_bytes(b"glTF\x02\x00\x00\x00" + bytes(range(0xf0, 0x100)))
         case("…and restoring its bytes makes it clean again",
              content_paths(root), [])

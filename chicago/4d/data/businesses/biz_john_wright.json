@@ -1,0 +1,158 @@
+{
+  "id": "biz_john_wright",
+  "register_id": "business_john_wright",
+  "name": "John Wright",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "general merchandise",
+  "occupation": "merchant",
+  "goods": [
+    "Boots",
+    "Boots and Shoes",
+    "Broadcloths",
+    "Calicoes",
+    "Clothing",
+    "Crockery",
+    "Cut Nails",
+    "Dry Goods",
+    "Flannel",
+    "Glass Ware",
+    "Groceries",
+    "Hardware",
+    "Irish linen",
+    "Laces",
+    "Nails",
+    "Ready made Clothing",
+    "Ribbons",
+    "Shawls",
+    "Sheetings",
+    "Shirtings",
+    "Shoes",
+    "Stationary",
+    "Sugars",
+    "Teas",
+    "Tin Ware",
+    "Vestings",
+    "beaverteen",
+    "bobbinett laces",
+    "boots and shoes",
+    "checks and plaids",
+    "circassians",
+    "cloths",
+    "crockery",
+    "cut nails",
+    "cut nails, 3d to 20d",
+    "dried apples",
+    "flannels",
+    "groceries",
+    "handkerchiefs",
+    "hard bread",
+    "hardware",
+    "laces",
+    "linen",
+    "merino cloths",
+    "muslins",
+    "prints",
+    "ready made clothing",
+    "ribbons",
+    "sattinette",
+    "shawls",
+    "sheetings",
+    "stationery",
+    "tin ware",
+    "vestings"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "John Wright",
+      "person_id": "wright_john",
+      "register_person_id": "person_john_wright",
+      "role": "proprietor",
+      "from": "1833-11-26",
+      "to": "1834-07-02",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card wright_john (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_11_26#c009",
+        "chicago_democrat_1833_11_26#c023",
+        "chicago_democrat_1834_02_25#c009",
+        "chicago_democrat_1834_03_18#c012",
+        "chicago_democrat_1834_03_25#c011",
+        "chicago_democrat_1834_07_02#c020"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "wright_building_to_let_a",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-11-26",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register matches this business onto the committed structure wright_building_to_let_a on its name. wright_building_to_let_a already stands and its name carries wright — \"John Wright's Building to Let (a)\". The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1833-11-26",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-11-26, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-11-26",
+    "last_issue": "1834-07-02",
+    "copy_dates": [
+      "1833-11-26",
+      "1834-05-28"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: John Wright (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "wright_john",
+        "name": "John Wright",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1833_11_26#c009",
+    "chicago_democrat_1833_11_26#c023",
+    "chicago_democrat_1834_02_25#c009",
+    "chicago_democrat_1834_03_18#c012",
+    "chicago_democrat_1834_03_25#c011",
+    "chicago_democrat_1834_07_02#c020"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

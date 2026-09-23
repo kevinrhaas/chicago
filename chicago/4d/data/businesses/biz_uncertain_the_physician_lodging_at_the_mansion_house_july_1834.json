@@ -1,0 +1,74 @@
+{
+  "id": "biz_uncertain_the_physician_lodging_at_the_mansion_house_july_1834",
+  "register_id": "business_uncertain_the_physician_lodging_at_the_mansion_house_july_1834",
+  "name": "[uncertain: the physician lodging at the Mansion House, July 1834]",
+  "provenance": "compiled_from_register",
+  "type": [
+    "physician"
+  ],
+  "trade": "medicine and surgery",
+  "occupation": "physician",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-07-02",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. The landmark is the committed structure mansion_house.",
+      "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "structure",
+        "id": "mansion_house",
+        "title": "Mansion House",
+        "streets": []
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-02",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-02, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-02",
+    "last_issue": "1834-07-02",
+    "copy_dates": [
+      "1834-07-02"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_02#c046"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

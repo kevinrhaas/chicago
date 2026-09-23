@@ -3,7 +3,7 @@
   "planter": {
     "kind": "the modelled field inset by one planting step",
     "sweep_e_m": [
-      -316.0,
+      -701.0,
       1696.0
     ],
     "sweep_n_m": [
@@ -32,13 +32,13 @@
   },
   "ground": {
     "dry_floor_m": 0.2,
-    "nodes_above_floor": 1290284,
-    "inside_planter": 1283659,
-    "outside_planter": 6625,
-    "inside_pct": 99.49,
-    "outside_ha": 4.1,
+    "nodes_above_floor": 1588469,
+    "inside_planter": 1581170,
+    "outside_planter": 7299,
+    "inside_pct": 99.54,
+    "outside_ha": 4.6,
     "field_e_m": [
-      -320.0,
+      -705.0,
       1700.0
     ],
     "field_n_m": [

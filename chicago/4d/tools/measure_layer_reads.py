@@ -214,6 +214,39 @@ AMBIGUOUS_LEAVES = frozenset({
     # scan is narrowed rather than exempted: the day a renderer really does read
     # `associated_with` it declares the expression and never reaches here.
     "from", "to", "tier",
+    # T-1254's `roles[].claim`. `claim` is this renderer's oldest word: every graded
+    # structure attribute is a claim, `popup.js` and the Evidence panel read `.claim` on
+    # things that have nothing to do with a resident's trade, and a role's claim id sat
+    # null on every card until the external volumes were migrated. The moment it carried
+    # a value the bare-name scan attributed all of that to it. Same shape as the three
+    # above and the same narrowing: qualified by its data parent, so the day the people
+    # view really does read a role's claim id (T-1255) it declares the expression and
+    # never reaches here.
+    "claim",
+    # T-1313's `persons[].stated_family.statement`. `statement` is a word this renderer
+    # already owns twice over: `orderbook.js` prints `d.statement` and `i.statement` off
+    # the reconstruction order book's own disagreement rows, which are not a resident
+    # layer figure at all. A bare-name scan attributed that read to the marker the
+    # stated-family pass writes, and called an unread provenance key a phantom. Same
+    # shape as the four above and the same narrowing rather than an exemption: qualified
+    # by its data parent, so the day a card really does print which STATEMENT seated a
+    # wife it declares `stated_family.statement` and never reaches here.
+    "statement",
+    # T-1144's `present_on_scene_date.last_dated_appearance.record`. `record` is a word
+    # this renderer has used from the start for the thing a popup is showing —
+    # `hit.record`, `z.record`, `task.record.id`, `boat.record` — none of which is a
+    # resident's evidence row id. A bare-name scan attributes all of it to the presence
+    # leg's audit pointer and calls it a phantom read. Same shape and same narrowing as
+    # the four above: the pointer has a data parent to qualify it with, so the day the
+    # card really does print the row a leg came from it declares the expression and
+    # never reaches here.
+    "record",
+    # T-1304's `vocabulary.age_bands[].age_band`. The profile report's vocabulary names
+    # each age RULE — `birth_year_known`, `adult_by_civic_list` — under the key
+    # `age_band`, and the card reads a PERSON's `age_band` block, which is a different
+    # thing with the same word. A bare-name scan hands the card's reads to the vocabulary
+    # row and calls it a phantom. Qualified by its data parent, like the four above.
+    "age_band",
 })
 
 # Unread leaves the reverse scan of assertion 3 cannot attribute, STATED rather
@@ -500,6 +533,10 @@ RESIDENTS_MANIFEST_READS: dict[str, tuple[str, str]] = {
     "households[].persons": ("shown", "entry.persons === 1"),
     "households[].grades.attested": ("shown", "(grades || {})[g]"),
     "households[].grades.inferred": ("shown", "(grades || {})[g]"),
+    # The third chip. It was absent from this map for as long as the tally was zero
+    # everywhere; T-1314 put people back under the grade and `gradeChips` has always
+    # drawn all three from one expression.
+    "households[].grades.reconstructed": ("shown", "(grades || {})[g]"),
     # The finding the section was built to carry: a household with neither
     # residence nor workplace attested reaches no building sidecar, so these two
     # copies are what puts "on no building card" on the row.
@@ -557,12 +594,37 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # covers them all because one line does.
     "arrival.value": ("shown", "(hh.arrival || {}).value"),
     "arrival.precision": ("shown", "words((hh.arrival || {}).precision)"),
+    # T-1169. The year the household is CARRIED at, beside the bound its arrival block
+    # holds: for 1,196 households `arrival` is a `not_later_than` and says only that
+    # somebody was here by a date. Its own row on the card, its own claim block.
+    "arrival_year.value": ("shown", "(hh.arrival_year || {}).value"),
+    "arrival_year.confidence": ("shown", "tierOf(block) || block.confidence"),
+    "arrival_year.note": ("shown", "escapeHtml(block.note)"),
     "party_size_on_arrival.value": ("shown", "party && party.value"),
     "origin.value": ("shown", "(hh.origin || {}).value"),
     "reason_for_coming.value": ("shown", "(hh.reason_for_coming || {}).value"),
     "lives_at.value": ("shown", "(hh.lives_at || {}).value"),
     "works_at.value": ("shown", "(hh.works_at || {}).value"),
     "present_on_scene_date.value": ("shown", "(hh.present_on_scene_date || {}).value"),
+    # T-1144 acceptance 9. The dated evidence leg under an `uncertain` presence — the
+    # last day the corpus can still see this person — has its own row on the card,
+    # `presenceLegRow`, and the row's whole job is to keep a date from reading as a
+    # sighting when it is not one. So each of the five figures it turns on is named at
+    # the line that reads it: the date as the source printed it, which of the three
+    # kinds of leg it is, how exact the reading was, the latest day it can mean, and
+    # how far short of the scene date that falls.
+    "present_on_scene_date.last_dated_appearance.as_read":
+        ("shown", "escapeHtml(leg.as_read)"),
+    "present_on_scene_date.last_dated_appearance.leg":
+        ("shown", "escapeHtml(kind || leg.leg)"),
+    "present_on_scene_date.last_dated_appearance.precision":
+        ("shown", "leg.precision] || leg.precision"),
+    "present_on_scene_date.last_dated_appearance.reaches":
+        ("shown", "reaching ${leg.reaches}"),
+    "present_on_scene_date.last_dated_appearance.includes_scene_date":
+        ("shown", "leg.includes_scene_date"),
+    "present_on_scene_date.last_dated_appearance.days_before_scene_date":
+        ("shown", "${leg.days_before_scene_date}"),
     # T-1158. The chip the card draws is the TIER now, and `confidence` is what the
     # tier is derived from — `tierOf(block)` reads it, and falls back to the raw
     # confidence for a block whose shape predates the four-tier vocabulary. The
@@ -584,6 +646,25 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "lives_at.note": ("shown", "escapeHtml(block.note)"),
     "works_at.note": ("shown", "escapeHtml(block.note)"),
     "present_on_scene_date.note": ("shown", "escapeHtml(block.note)"),
+    # T-1158's own fields, on the three claims T-1169's stage fills. `tier` drives the
+    # chip through the same `tierOf` line the confidences above name; the rest are read
+    # in `basisHtml`, which opens a disclosure under any invented value saying whether
+    # it was DRAWN from a model or ARGUED from a rule, printing the seed that redraws
+    # it and the evidence that would retire it. `replaceable_by.kind` and
+    # `written_by_stage` are NOT read — the first is the shape of the replacement
+    # record and the second is the build's own bookkeeping — and they stay banked.
+    "arrival_year.tier": ("shown", "tierOf(block) || block.confidence"),
+    "origin.tier": ("shown", "tierOf(block) || block.confidence"),
+    "reason_for_coming.tier": ("shown", "tierOf(block) || block.confidence"),
+    "arrival_year.basis.kind": ("shown", "basis.kind === 'model'"),
+    "origin.basis.kind": ("shown", "basis.kind === 'model'"),
+    "reason_for_coming.basis.kind": ("shown", "basis.kind === 'model'"),
+    "arrival_year.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "origin.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "arrival_year.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
+    "origin.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
+    "reason_for_coming.replaceable_by.match": (
+        "shown", "escapeHtml(String(rep.match || ''))"),
     # T-0597. The kinship rows, which are the first claim on this layer to point at
     # ANOTHER record. Each of the four link fields is named at its own call site in
     # `kinRows` — the person the tie belongs to here, the term, the far household and
@@ -673,6 +754,16 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # The standing constraint, on the record that touches it.
     "touches_removal": ("shown", "hh.touches_removal"),
     "research_note": ("shown", "hh.research_note"),
+    # T-0660's ruling (c). Refusals 7 and 8 are mint-time rules: where one lands on a
+    # card that already stands, the pass keeps the record and SAYS the collision on it
+    # instead of retiring anybody. Saying it to a TOOL and not to a reader would be
+    # half the ruling — "so a reader sees the collision and why both records are
+    # there" is its own wording — so the row is on the card, under the family name it
+    # shares. The note is the reasoning and the other three are the figures.
+    "surname_collision.refusal": ("shown", "escapeHtml(hh.surname_collision.refusal)"),
+    "surname_collision.holds_the_surname": (
+        "shown", "(hh.surname_collision.holds_the_surname || []).join('; ')"),
+    "surname_collision.ruling": ("shown", "escapeHtml(hh.surname_collision.ruling)"),
     # The person. `grade` is how much of the PERSON is reconstructed and the
     # occupation's `confidence` is how well that one attribute is evidenced; the
     # manifest is emphatic that the two axes must not be conflated, and they are
@@ -681,7 +772,98 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].grade": ("shown", "swatch(person.grade)"),
     "persons[].relationship": ("shown", "words(person.relationship)"),
     "persons[].sex": ("shown", "words(person.sex)"),
+    # T-1303. Where the sex was READ rather than recorded, the row is a graded claim and
+    # carries the rule that fired — a gendered title, or a forename that stands in one
+    # sex's naming only. `confidence` and `note` go through `claimRow` with every other
+    # block; `value` is what the row prints.
+    "persons[].sex_basis.value": ("shown", "claimRow('Sex', words(basis.value)"),
+    "persons[].sex_basis.confidence": ("shown", "tierOf(block) || block.confidence"),
+    "persons[].sex_basis.note": ("shown", "escapeHtml(block.note)"),
+    # T-1304. THE SAME ROW, ONE TIER DOWN, AND THAT IS THE POINT. A sex the model DREW
+    # goes through `claimRow` exactly as a read one does, so `tier`, `basis` and
+    # `replaceable_by` reach the card through `basisHtml` — the collapsed "Drawn from a
+    # model" disclosure that prints the model row, the reasoning, the seed a reader can
+    # retype and the evidence that would retire the value. A drawn figure shipped to a
+    # browser with no way to see what drew it is the one thing this whole tier is against,
+    # so every field of it is declared read here rather than banked.
+    "persons[].sex_basis.tier": ("shown", "tierOf(block) || block.confidence"),
+    "persons[].sex_basis.basis.kind": ("shown", "basis.kind === 'model'"),
+    "persons[].sex_basis.basis.id": ("shown", "escapeHtml(String(basis.id || ''))"),
+    "persons[].sex_basis.basis.note": ("shown", "escapeHtml(String(basis.note || ''))"),
+    "persons[].sex_basis.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "persons[].sex_basis.replaceable_by.kind": ("shown", "block.replaceable_by || null"),
+    "persons[].sex_basis.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
+    # And the age band, which is the second half of the same stage. `value` is the
+    # machine-readable label; the card prints the interval out of `low` and `high`, so a
+    # reader meets "20 to 29" rather than "20-29" and the top band reads "70 or older".
+    "persons[].age_band.value": ("shown", "bandYears(person.age_band)"),
+    "persons[].age_band.low": ("shown", "const low = band.low"),
+    "persons[].age_band.high": ("shown", "const high = band.high"),
+    "persons[].age_band.confidence": ("shown", "tierOf(block) || block.confidence"),
+    "persons[].age_band.tier": ("shown", "tierOf(block) || block.confidence"),
+    "persons[].age_band.note": ("shown", "escapeHtml(block.note)"),
+    "persons[].age_band.basis.kind": ("shown", "basis.kind === 'model'"),
+    "persons[].age_band.basis.id": ("shown", "escapeHtml(String(basis.id || ''))"),
+    "persons[].age_band.basis.note": ("shown", "escapeHtml(String(basis.note || ''))"),
+    "persons[].age_band.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "persons[].age_band.replaceable_by.kind": ("shown", "block.replaceable_by || null"),
+    "persons[].age_band.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
+    # T-1171. `name_basis` comes back to this layer with the drawn people: the row
+    # "How this person is named" is a graded claim block like `age_band` above it, and
+    # `claimRow` prints every part of one — the value, the tier chip, the model the
+    # forename was drawn from, the seed that redraws it and the source that would retire
+    # it. It reads through the same expressions because it is the same renderer.
+    "persons[].name_basis.value": ("shown", "claimRow('How this person is named', named && named.value, named, citationsById)"),
+    "persons[].name_basis.tier": ("shown", "tierOf(block) || block.confidence"),
+    "persons[].name_basis.basis.kind": ("shown", "basis.kind === 'model'"),
+    "persons[].name_basis.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "persons[].name_basis.replaceable_by.kind": ("shown", "block.replaceable_by || null"),
+    "persons[].name_basis.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
+    # T-1171. …and the household block beside them: what size the 1840 histogram drew
+    # this house at, and how much of that size is kin rather than the servants and lodgers
+    # later stages seat. `modelledFamilyHtml` prints all of it.
+    "modelled_family.stage": ("shown", "escapeHtml(String(block.stage))"),
+    "modelled_family.ticket": ("shown", "escapeHtml(String(block.ticket))"),
+    "modelled_family.household_type": ("shown", "escapeHtml(words(block.household_type))"),
+    "modelled_family.size_drawn": ("shown", "escapeHtml(String(block.size_drawn))"),
+    "modelled_family.kin_seated": ("shown", "escapeHtml(String(block.kin_seated))"),
+    "modelled_family.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "modelled_family.note": ("shown", "escapeHtml(String(block.note || ''))"),
+    # T-1171. A RECONSTRUCTED PERSON IS THE DRAWN THING, so the disclosure the attribute
+    # tiers hang off a value is printed about the person instead: the stage that wrote
+    # them, the model row, the seed a reader can retype and what would retire them.
+    # `reconstructedHtml` passes the person record straight to `basisHtml`, which is why
+    # `basis`, `seed` and `replaceable_by` read through the same expressions the blocks do.
+    "persons[].reconstruction.stage": ("shown", "escapeHtml(String(rc.stage || ''))"),
+    "persons[].reconstruction.ticket": ("shown", "escapeHtml(String(rc.ticket))"),
+    "persons[].reconstruction.community": ("shown", "escapeHtml(words(rc.community))"),
+    "persons[].reconstruction.review_required": (
+        "shown", "rc.review_required ? ' This reconstruction carries a standing review.'"),
+    "persons[].basis.kind": ("shown", "basis.kind === 'model'"),
+    "persons[].basis.id": ("shown", "escapeHtml(String(basis.id || ''))"),
+    "persons[].basis.note": ("shown", "escapeHtml(String(basis.note || ''))"),
+    "persons[].seed": ("shown", "escapeHtml(String(block.seed))"),
+    "persons[].replaceable_by.kind": ("shown", "block.replaceable_by || null"),
+    "persons[].replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
     "persons[].note": ("shown", "escapeHtml(person.note)"),
+    # T-1314. What a RECONSTRUCTED person owes the reader, on their own card:
+    # `reconstructionHtml` says which stage of the programme wrote them and what
+    # counted them, and hands the basis, the seed that redraws a model draw and the
+    # replacement rule to `basisHtml` — the same three parts a reconstructed ATTRIBUTE
+    # already showed, rather than a second vocabulary for the same idea.
+    "persons[].basis.kind": ("shown", "const drawn = basis.kind === 'model'"),
+    "persons[].seed": ("shown", "drawn && block.seed"),
+    "persons[].replaceable_by.kind": ("shown", "const rep = block.replaceable_by"),
+    "persons[].replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
+    "persons[].reconstruction.stage": ("shown", "escapeHtml(String(rc.stage || ''))"),
+    "persons[].reconstruction.programme": (
+        "shown", "escapeHtml(String(rc.programme || 'the reconstruction programme'))"),
+    "persons[].reconstruction.community": ("shown", "escapeHtml(String(rc.community))"),
+    "persons[].reconstruction.counted_by": ("shown", "escapeHtml(String(rc.counted_by))"),
+    "persons[].reconstruction.band_1840": ("shown", "escapeHtml(String(rc.band_1840))"),
+    "persons[].reconstruction.age_on_scene_date.low": ("shown", "`${age.low} or older`"),
+    "persons[].reconstruction.age_on_scene_date.high": (
+        "shown", "age.high === null || age.high === undefined"),
     # The evidence strength, on the person the register minted from a letter list.
     # It reached `gazetteer.json` and `register_1835.json` and stopped there, so
     # for as long as it was unread a letter-list name and a documented tradesman
@@ -750,7 +932,42 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].roles[].covers_scene_date": (
         "shown", "const at = Boolean(role.covers_scene_date);"),
     "persons[].roles[].confidence": ("shown", "swatch(role.confidence)"),
+    # T-1404. A trade that kept no house of trade of its own says so on the row; an
+    # `own_premises` role needs no chip, because the house it implies is a business
+    # record and the card's Works-at row is where that shows.
+    "persons[].roles[].premises": (
+        "shown", "role.premises === 'no_fixed_premises'"),
     "persons[].roles[].note": ("shown", "escapeHtml(role.note)"),
+    # T-1299. WHERE THE ROLE WAS WORKED AND FOR WHOM, un-banked here in the commit that
+    # renders them. Both arrived on the rows with T-1254 and were banked unread because
+    # T-1255 shipped `rolesHtml` while T-1254 was still in flight — not because a
+    # visitor should not see them. 164 roles state a place and 56 a body; the rest carry
+    # `not_stated`, which is this layer's assertion that the record does not say, and
+    # the row prints nothing rather than an empty line for it.
+    "persons[].roles[].place": ("shown", "role.place && role.place !== 'not_stated'"),
+    "persons[].roles[].employer_or_body": (
+        "shown", "role.employer_or_body && role.employer_or_body !== 'not_stated'"),
+    # T-1432. THE HOUSES A SOURCE NAMES THIS PERSON IN, on the same card and directly
+    # under the roles. Every figure on the row is shown, because the row exists to be
+    # read: the house and what they were in it, the run of notices that carry it, the
+    # grade the business record gave the claim and the setting the register printed the
+    # name under. None of it is a diagnostic and none of it is banked unread.
+    "persons[].workplaces[].business_id": (
+        "shown", "escapeHtml(w.business_name || w.business_id)"),
+    "persons[].workplaces[].business_name": (
+        "shown", "escapeHtml(w.business_name || w.business_id)"),
+    "persons[].workplaces[].role": ("shown", "escapeHtml(words(w.role || ''))"),
+    "persons[].workplaces[].printed_as": ("shown", "escapeHtml(w.printed_as)"),
+    "persons[].workplaces[].from": ("shown", "const from = w.from ? printedOn(w.from)"),
+    "persons[].workplaces[].to": ("shown", "const to = w.to ? printedOn(w.to)"),
+    "persons[].workplaces[].tier": ("shown", "swatch(w.tier)"),
+    "persons[].workplaces[].basis": ("shown", "escapeHtml(w.basis)"),
+    "persons[].workplaces[].source_id": (
+        "shown", "[w.source_id].filter(Boolean).map((id) => citationsById.get(id))"),
+    "persons[].workplaces[].claim_ids": (
+        "shown", "const notices = (w.claim_ids || []).length;"),
+    "persons[].workplaces[].business_present_at_scene_date": (
+        "shown", "w.business_present_at_scene_date ?"),
     "persons[].roles[].sources": (
         "shown", "(role.sources || []).map((id) => citationsById.get(id))"),
     # The derived view's own list of which roles reach the scene date. The card reads
@@ -782,11 +999,34 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # this map arrived in. See the module docstring: they are graded claim blocks
     # like the household's own, and they go through `claimRow` now.
     "persons[].age_on_scene_date.value": ("shown", "claimRow('Age on 1 July 1835', aged && aged.value"),
-    "persons[].birth_year.value": ("shown", "claimRow('Born', born && born.value"),
+    "persons[].birth_year.value": ("shown", "return born.value;"),
+    # T-1303. An age at death or an age given in 1879 leaves the birth in one year or in
+    # two, and the card prints both years where there are two rather than picking the
+    # lower one and reading as exact.
+    "persons[].birth_year.precision": ("shown", "if (born.precision === 'band'"),
+    "persons[].birth_year.band": ("shown", "`${born.band[0]} or ${born.band[1]}`"),
     "persons[].age_on_scene_date.confidence": ("shown", "tierOf(block) || block.confidence"),
     "persons[].birth_year.confidence": ("shown", "tierOf(block) || block.confidence"),
     "persons[].age_on_scene_date.note": ("shown", "escapeHtml(block.note)"),
     "persons[].birth_year.note": ("shown", "escapeHtml(block.note)"),
+    # T-1392 (of T-1179). A birth interval the card itself refutes is not spent, and the
+    # block that records the refusal lives in this same key asserting no year. Every one
+    # of its figures reaches the Born row through `birthRefusedHtml`: a reader who is told
+    # only "not recorded" learns nothing about the obituary still printed further down the
+    # same card, so the interval, the page it was read off and the reason are all shown.
+    "persons[].birth_year.refused_interval": (
+        "shown", "const [from, to] = block.refused_interval || [];"),
+    "persons[].birth_year.refused_because": (
+        "shown", "born && born.refused_because"),
+    "persons[].birth_year.record_id": (
+        "shown", "escapeHtml(String(block.record_id ?? ''))"),
+    "persons[].birth_year.as_read": (
+        "shown", "escapeHtml(String(block.as_read))"),
+    # And the weaker verdict — an interval that misses only the franchise's invented line
+    # — is CARRIED, with the disagreement folded into the note the Born row already
+    # prints. The field is the machine-readable half of that sentence.
+    "persons[].birth_year.contradicted_by_the_card": (
+        "shown", "born && born.contradicted_by_the_card"),
     # T-0491. The 1840 identity bridge, on the three people that carry one. PR #670
     # attached it and declared nothing, so twenty-four figures reached a browser
     # unread — which is the exact shape this census exists to catch, and the cheap
@@ -1047,6 +1287,109 @@ RECORD_KINDS = ("zone", "manifest", "palette", "household")
 # assertion 4 still fails if a new one appears, and assertion 5 still fails if
 # one of these leaves the data.
 REFUSALS: dict[str, str] = {
+    # -------------------------------------------------------------------------
+    # T-1489 carried the drawn employment seat back onto the card of the person holding
+    # it — 123 of them, 33 in this directory — because the join beside the layer said
+    # where a reconstructed trade-holder worked and the card itself said nothing. The
+    # walkthrough was already showing the seat, and it shows it from the join, which
+    # carries the whole adjudication: the term of the order rule that chose the house,
+    # the class, the candidates considered, the model row that allows the hand. The five
+    # keys the CARD carries are a strict subset of that, so a renderer reading them would
+    # show a visitor nothing they are not being shown, out of a second copy that moves
+    # whenever the business layer moves. The card's copy is for the LAYER — a card that
+    # loses the join still says where its holder worked, and the four stages that derive
+    # a directory whole now carry it through their rebuilds. `note` is the sixth key and
+    # is machinery here, as a note is everywhere in this census. There is no
+    # `business_name`: `tools/replace_invented_residents.py` reads the raw text of these
+    # cards as a name pool, and writing one there refused a documented tailor from its
+    # deal — `employment_block`'s own docstring carries the measurement.
+    "residents/household:persons[].employment.business_id": (
+        "The house this project POINTED a reconstructed trade-holder at, where no source "
+        "names one. `residents.js` shows the seat already and shows it from "
+        "data/residents/reconstructed_seating.json, which holds the reasoning this "
+        "pointer is the conclusion of; reading the card's copy instead would put a "
+        "second, thinner statement of the same claim in front of a visitor. The copy "
+        "exists so the resident layer carries its own answer."
+    ),
+    "residents/household:persons[].employment.role": (
+        "The staffing model's own term for the hand this person stands in as — clerk, "
+        "domestic, teamster. Shown to a visitor from the join, for the reason above."
+    ),
+    "residents/household:persons[].employment.tier": (
+        "`reconstructed`, on every one of them, because a drawn seat has no other grade. "
+        "The confidence a visitor reads is the join's, which states it in a sentence "
+        "rather than a word."
+    ),
+    "residents/household:persons[].employment.seed": (
+        "The seed the draw was made under — what makes the seat reproducible and what "
+        "lets a gate tell a re-derivation from a hand-edit. Provenance for a tool, never "
+        "a figure about a person, and in the same class as `stated_family.pass` below."
+    ),
+    # -------------------------------------------------------------------------
+    # T-1320 reads the book corpus for kinship. A kin row it writes or corroborates names
+    # the book claim behind it, so `--check` can hold the row to a live ruling and a row
+    # that outlived its ruling goes red. It is a foreign key into
+    # data/research/books/kin_rulings.json and data/research/books/claims/*.json, in the
+    # same class as `stated_family.statement` below.
+    "residents/household:kin[].book_kin": (
+        "The id of the book claim this kin row was read out of — a foreign key into "
+        "data/research/books/claims/ and the ruling that answers it. It is what makes "
+        "the write re-derivable and what lets the gate notice a tie that lost its "
+        "reading; it states nothing about either person. What a visitor judges the "
+        "relationship by is on the row already and is read there: the relation, the "
+        "confidence, the sources and the note that quotes the sentence."
+    ),
+    # -------------------------------------------------------------------------
+    # T-1313 seated the three relatives T-1170's reading ruled `write`, and every seated
+    # person carries the marker that makes the write re-derivable. Six keys, none of them
+    # a figure about a person: one names the pass, one the ticket, one resolves the read
+    # statement, one is a matcher's normalised copy of `relationship`, one is the source's
+    # own wording kept for audit, one is the field the sentence was read out of. The
+    # evidence a visitor judges these three women by — grade, sources, note, relationship
+    # — is on the card already and is read there. Same class as `source_pass`.
+    "residents/household:persons[].stated_family.pass": (
+        "The stated-family pass's own bookkeeping — which pass wrote this person, so "
+        "`--build` can lift its whole output back out and re-derive it rather than "
+        "appending to it. That re-derivability is the reason the key exists: a "
+        "verdict re-read from `write` to `no_seat` has to take somebody back OUT of "
+        "the town, and a pass that cannot find its own writes cannot do that. It is a "
+        "fact about the tool, not about the woman on the card."
+    ),
+    "residents/household:persons[].stated_family.ticket": (
+        "Which ticket seated this person. Repository provenance of the same class as "
+        "`source_pass` — useful to a reader of the JSON and to the run that has to "
+        "audit a pass, and not part of what a visitor judges the record by. What the "
+        "visitor needs is the evidence, and the card already shows it: the grade, the "
+        "sources and the note that says what the source does NOT say."
+    ),
+    "residents/household:persons[].stated_family.statement": (
+        "The id of the read statement this seat came from — a foreign key into the "
+        "derived reading in docs/RESEARCH/stated-families-2026-09.md and into the "
+        "verdict table in data/residents/stated_family_rulings.json. It resolves a "
+        "row; it states nothing about the person. The claim it resolves to reaches "
+        "the visitor as the note and the sources on this person's own row."
+    ),
+    "residents/household:persons[].stated_family.relation": (
+        "The normalised relation word the reading matched on — `wife`, `daughter`. "
+        "The poorer of two copies: the person's own `relationship` is what the card "
+        "prints, it is the field every other resident carries, and it is authored for "
+        "a reader rather than for a matcher. Showing this one instead would be "
+        "showing less, which is the ruling this table already makes about "
+        "`households[].present_on_scene_date`."
+    ),
+    "residents/household:persons[].stated_family.as_read": (
+        "The source's words for the relative, kept verbatim so the match can be "
+        "audited against the page — 'Welthyan Loomis', 'Mrs A. G. Burley'. Where it "
+        "differs from the name on the card that difference is a finding, and it "
+        "belongs in the note, which is where it is written and where the visitor "
+        "reads it. Un-banks the day a card prints the reading beside the name."
+    ),
+    "residents/household:persons[].stated_family.read_from": (
+        "Which field of which record the statement was read out of — the pass's audit "
+        "trail back to the sentence. File-and-field routing, the same class of key as "
+        "`record_file`, and it names a location in this repository rather than "
+        "anything about 1835."
+    ),
     # T-1238's two closed sets, re-authored HERE by T-1255 because they were written
     # straight into layer_reads_baseline.json and nowhere else — the same mistake
     # `flora/zone:woody_stratum.measured_from` below records, and `--update` deletes a
@@ -1096,6 +1439,17 @@ REFUSALS: dict[str, str] = {
         "A foreign key into `persons[].id`, not a figure — it names which person heads "
         "the household, and that fact already reaches the visitor as that person's "
         "`relationship`, shown on their own row."),
+    # T-1144 acceptance 9, the two figures of the presence leg the card does NOT show.
+    "residents/household:present_on_scene_date.last_dated_appearance.person": (
+        "A foreign key into `persons[].id` — which person of the household the leg was "
+        "read on. It is there so the derivation and the roster can be audited against "
+        "the card, and the card already names every person of the household on their "
+        "own rows; printing the id beside the date would say nothing a reader can use."),
+    "residents/household:present_on_scene_date.last_dated_appearance.record": (
+        "The `record_id` or locator of the evidence block the leg came from — an "
+        "audit pointer, null on the 383 legs read off a post-office return, which "
+        "carries no per-return record. The card shows the SOURCE the block cites, "
+        "which is the part a reader can follow; an internal row id is not."),
     "residents/household:head": (
         "The record's own copy of the same foreign key. Refused for the same reason, and "
         "it is the record that is authoritative."),
@@ -1117,6 +1471,47 @@ REFUSALS: dict[str, str] = {
         "where the evidence that made them projected is beside the label. A bare total "
         "with nothing beside it was the poorer of the two copies. The field stays in the "
         "manifest because the mint tools derive it and validate.py holds it."),
+    # -------------------------------------------------------------------------
+    # RECOVERED BY T-1313, which needed `--update` to bank six keys and found that
+    # running it would have deleted these five. They were written straight into
+    # layer_reads_baseline.json and never into this table — the SAME mistake
+    # `flora/zone:woody_stratum.measured_from` above records against itself, repeated on
+    # T-1304's profile vocabulary. `--update` rebuilds the bank from the measurement and
+    # re-attaches a refusal only if it is HERE, so the first re-derivation drops every
+    # one of them silently. A stated refusal is a judgement somebody made; this table is
+    # the only place one may be authored, and these are moved into it verbatim.
+    "residents/manifest:vocabulary.age_bands[].age_band": (
+        "The closed set of age bands tools/profile_population_1835.py sorts every "
+        "person into, and the rule that assigns each one. The band a person falls in "
+        "is a DERIVATION over their card, not a field on it, so the browser meets it "
+        "in the profile document the panel renders "
+        "(data/reconstruction/1835_population_profile.json) and never here. This copy "
+        "is the definition the generator is held to, and it un-banks the day a card "
+        "starts carrying its own band."
+    ),
+    "residents/manifest:vocabulary.age_bands[].means": (
+        "The plain-English meaning of an age band. Published beside the band for the "
+        "same reason and read the same way — off the profile document, where the "
+        "panel prints it — never out of the manifest."
+    ),
+    "residents/manifest:vocabulary.age_bands[].rule": (
+        "The exact test that puts a person in an age band. It is a statement about "
+        "the generator, which is what makes it worth shipping beside the layer; no "
+        "renderer re-implements it, because a second implementation of a derivation "
+        "rule is a second answer to the same question."
+    ),
+    "residents/manifest:vocabulary.reasons_for_coming[].means": (
+        "What a reason term means, published beside it so a reader of the layer can "
+        "check the sorting without the tool. Read off the profile document by the "
+        "panel, never out of the manifest."
+    ),
+    "residents/manifest:vocabulary.reasons_for_coming[].term": (
+        "The closed set of reasons a household may state for coming to Chicago. A "
+        "household record carries its reason as PROSE and the term is the derivation "
+        "over it, so the panel prints the term out of the profile document; a card "
+        "printing the LIST would be printing the schema rather than anything about "
+        "the town."
+    ),
     # -------------------------------------------------------------------------
     # T-1233 ruled on the 83 unread resident paths: 63 were wired to the card in the
     # same commit, `_merged_doc` was classified as prose, and these twelve are refused
@@ -1783,7 +2178,7 @@ def main() -> int:
             "entries": {k: ({**state["unread"][k], "refused_because": REFUSALS[k]}
                              if k in REFUSALS else state["unread"][k])
                         for k in sorted(state["unread"])},
-        }, indent=2) + "\n", encoding="utf-8")
+        }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"wrote {BASELINE.relative_to(ROOT)} ({len(state['unread'])} entries)")
         return 0
 

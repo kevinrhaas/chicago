@@ -1,0 +1,167 @@
+{
+ "schema": "resident-departure-rulings-v1",
+ "_doc": "DERIVED, T-1354, by tools/spend_departure_rulings.py from the six `corroborated_enrichment` units the remainder register hands this ticket and the resident cards they name -- run --check to re-derive it. Each of the six names a DEPARTURE from Chicago, which no field on a resident card carries: the only thing a removal bears on is `present_on_scene_date`. Every row is ruled ONE AT A TIME with the removal read BESIDE the other sources on the card rather than out of the single volume it came in, because a departure read alone is how a layer loses a resident it had evidence for. NOTHING HERE MINTS A PERSON, MOVES A GRADE, RETIRES A CARD OR INVENTS A CITATION, and today nothing here moves a presence either: five of the removals do not reach the scene date and the sixth was already written onto its card by T-0478. `presence_on_the_card` is re-read from the card on every derivation, so a presence that moves under one of these rulings turns this register's gate red.",
+ "ticket": "T-1354",
+ "generated_by": "tools/spend_departure_rulings.py",
+ "scene_date": "1835-07-01",
+ "counts": {
+  "already_written_onto_the_presence": 1,
+  "does_not_reach_the_scene_date": 5
+ },
+ "rulings": [
+  {
+   "person": "caldwell_billy",
+   "household": "hh_caldwell_billy.json",
+   "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/caldwell_billy",
+   "sources": [
+    "encyclopedia_chicago_potawatomis"
+   ],
+   "removal": "Institutional histories corroborate Billy Caldwell's Chicago leadership and place the westward removal in 1835, against the 1836 migration Andreas and this project's own language carry.",
+   "read_beside": [
+    "hh_caldwell_billy.json#present_on_scene_date — Andreas has him leading the assembly and the march to the Missouri in 1836",
+    "chicagology_lastwardance, cited in the same block — the last war dance at Chicago on 18 August 1835",
+    "AGENTS.md's standing constraint — the final removal of the Potawatomi from Chicago was August 1835, six weeks after the scene date"
+   ],
+   "outcome": "does_not_reach_the_scene_date",
+   "presence_before": "present",
+   "presence_after": "present",
+   "presence_on_the_card": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ]
+   },
+   "ruling": "THREE DATINGS ARE NOW HELD AND EVERY ONE OF THEM FALLS AFTER 1 JULY 1835: Andreas's march to the Missouri in 1836, the last war dance at Chicago on 18 August 1835, and this volume's bare year. Read beside the other two rather than off its own page, the bare 1835 IS the August removal they date — there is no second removal in that year for it to be. The card already says so in terms, so the removal moves nothing. The conflict between 1835 and 1836 is a conflict about which summer he left, not about whether he was at Chicago in July, and it is retained where the card retains it rather than resolved here."
+  },
+  {
+   "person": "cleland_martin",
+   "household": "hh_cleland_martin.json",
+   "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/cleland_martin",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "marsh_genealogy_martin_cleland_1886"
+   ],
+   "removal": "An 1886 family genealogy has Martin Cleland travelling from Chautauqua, New York to Chicago on a prospecting tour in 1834 and selecting a future home near Niles, Michigan; the family moved west in 1835.",
+   "read_beside": [
+    "hh_cleland_martin.json#present_on_scene_date.last_dated_appearance — 1834-07-09, a dated reading of this person and the last the corpus holds, 357 days short of the scene date",
+    "hh_cleland_martin.json#arrival — 1834-07-01, the letter-list return the sighting belongs to, a bound and not an arrival",
+    "hh_cleland_martin.json#origin — 'Chautauqua, New York', already spent out of this same genealogy by T-1232",
+    "the finding's own words: 'the Niles destination prevents a July 1835 Chicago-residence inference.'"
+   ],
+   "outcome": "does_not_reach_the_scene_date",
+   "presence_before": "uncertain",
+   "presence_after": "uncertain",
+   "presence_on_the_card": {
+    "value": "uncertain",
+    "confidence": "inferred",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ]
+   },
+   "ruling": "BOTH LEGS FALL OUTSIDE THE QUESTION. The tour is dated 1834, a year before the scene, and the move it led to is dated only to 1835 and is a move to MICHIGAN — neither places him at Chicago, or away from it, on 1 July 1835. What the volume does change is what the card's one dated leg MEANS: the return of 1 July 1834 is the tail of a prospecting visit that chose somewhere else, not the tail of a residence. That is recorded here rather than written over a verdict the leg already carries, because the leg is the evidence under the verdict and not a new claim. `uncertain` stands."
+  },
+  {
+   "person": "jones_benjamin",
+   "household": "hh_jones_benjamin.json",
+   "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/jones_benjamin",
+   "sources": [
+    "loc_mantowoc_benjamin_jones"
+   ],
+   "removal": "A Library of Congress engineering history identifies Benjamin Jones as a Chicago merchant and land speculator who bought at the Manitowoc River mouth in 1835 and settled there in 1836.",
+   "read_beside": [
+    "hh_jones_benjamin.json#present_on_scene_date.last_dated_appearance — the corpus holds no sighting, only chicago_democrat_1833_11_26's span reaching 1833-11-30, 578 days short of the scene date",
+    "hh_jones_benjamin.json#arrival — 1833-11-07 attested, the day the trustees appointed him street commissioner",
+    "the finding's own words: 'This supplies a dated migration lead, not a 1 July address.'"
+   ],
+   "outcome": "does_not_reach_the_scene_date",
+   "presence_before": "uncertain",
+   "presence_after": "uncertain",
+   "presence_on_the_card": {
+    "value": "uncertain",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ]
+   },
+   "ruling": "A PURCHASE AT ANOTHER RIVER MOUTH IS NOT A DEPARTURE FROM THIS TOWN, and the settlement it led to is dated 1836 — after the scene date, so it moves nothing. It does not move the presence the other way either: the volume calls him a Chicago merchant, which is an epithet and not a dated sighting, and the card's last dated appearance is still a source's span ending in November 1833. `uncertain` is what the evidence pays for and it stands."
+  },
+  {
+   "person": "porthier_joseph",
+   "household": "hh_porthier_joseph.json",
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/porthier_joseph",
+   "sources": [
+    "buck_pioneer_milwaukee_porthier_1835"
+   ],
+   "removal": "Pioneer History of Milwaukee dates Joseph Porthier leaving Chicago with Horace Chase on 27 February 1835; after a brief return to Chicago for means he left again on 21 March and reached Milwaukee on 23 March.",
+   "read_beside": [
+    "hh_porthier_joseph.json#present_on_scene_date — already `absent` at `attested`, citing this same volume beside andreas_1884_v1, moved by T-0478",
+    "hh_porthier_joseph.json#research_note — the agency payroll that documents him at all, and the same February–March chronology",
+    "no committed source places him back at Chicago between 23 March and 1 July 1835"
+   ],
+   "outcome": "already_written_onto_the_presence",
+   "presence_before": "absent",
+   "presence_after": "absent",
+   "presence_on_the_card": {
+    "value": "absent",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1",
+     "buck_pioneer_milwaukee_porthier_1835"
+    ]
+   },
+   "ruling": "THIS IS THE ONE DEPARTURE OF THE SIX THAT REACHES THE SCENE DATE, AND IT WAS SPENT BEFORE THIS TICKET EXISTED. T-0478 read the same chronology and moved the presence to `absent` at `attested`, citing this volume. Re-read beside the card's other sources there is nothing further to move: the brief return for means is the source's own and sits inside the same February–March sequence, the last leg reaches Milwaukee on 23 March, and nothing committed puts him back here before 1 July. `absent` stands and this ticket asserts nothing over it. The row is kept because a spend that is invisible to the register reads as an unspent unit to the next pass, which is how this one was handed on three times."
+  },
+  {
+   "person": "pugsley_john_k",
+   "household": "hh_pugsley_john_k.json",
+   "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/pugsley_john_k",
+   "sources": [
+    "resident_research_pugsley_barrien_vanburen"
+   ],
+   "removal": "An 1880 Van Buren County history says John K. Pugsley left near Utica, New York in June 1835, travelled to Chicago, prospected there, then returned to Paw Paw Township, Michigan, and entered land.",
+   "read_beside": [
+    "hh_pugsley_john_k.json#present_on_scene_date — `present` at `inferred`, off a letter still waiting for the name at the Democrat's return of 1 July 1835",
+    "hh_pugsley_john_k.json#arrival — 1835-06-30, a bound from that return and not an arrival (T-0425)",
+    "hh_pugsley_john_k.json#origin — 'Near Utica, New York', already spent out of this same volume by T-1232",
+    "the finding's own evidence_against: 'he may have left Chicago before July 1, so the source does not prove scene-date bodily presence.'"
+   ],
+   "outcome": "does_not_reach_the_scene_date",
+   "presence_before": "present",
+   "presence_after": "present",
+   "presence_on_the_card": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ]
+   },
+   "ruling": "THE GOING HERE CARRIES NO DATE. The history dates the setting out — June 1835 — and not the return to Paw Paw, and an undated departure cannot be placed before a day. The one dated thing the passage supplies is a journey TO Chicago in the very month the card's own bound falls in, which corroborates the postal identity and argues for the presence rather than against it. So the presence stands where the return put it — at `present`, at `inferred`, and not a rung above: the finding's own note that he may have left before 1 July is why this reading does not promote the grade, and the letter list was never a sighting of a body in the first place. It says somebody was writing to this name at this town."
+  },
+  {
+   "person": "sweet_alanson",
+   "household": "hh_sweet_alanson.json",
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/sweet_alanson",
+   "sources": [
+    "buck_pioneer_milwaukee_alanson_sweet"
+   ],
+   "removal": "Milwaukee histories identify Alanson Sweet as an early Chicago stone mason who moved to Milwaukee in 1835; the reviewed passage supplies no sufficiently safe departure day.",
+   "read_beside": [
+    "hh_sweet_alanson.json#present_on_scene_date.last_dated_appearance — a source's span of 1673/1857 that COVERS the scene date and pins no sighting before it",
+    "hh_sweet_alanson.json#arrival — 1832, attested, and corroborated at year precision by an 1895 compiler",
+    "hh_sweet_alanson.json#research_note — 'What Sweet was doing on 1 July 1835 is not stated anywhere reached.'"
+   ],
+   "outcome": "does_not_reach_the_scene_date",
+   "presence_before": "uncertain",
+   "presence_after": "uncertain",
+   "presence_on_the_card": {
+    "value": "uncertain",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ]
+   },
+   "ruling": "A REMOVAL DATED TO THE YEAR THE SCENE FALLS IN CANNOT BE PLACED AGAINST A DAY INSIDE IT. 1835 lies on both sides of 1 July and the passage refuses to choose — its own reviewer says so. So this cannot carry the presence to `absent`, and reading it as though it could is exactly how a layer loses a resident it had evidence for. Nor does it argue the other way: the card holds no sighting at all, only a source's span. `uncertain` stands, and it is now uncertain for a stated reason rather than for want of a reading."
+  }
+ ]
+}

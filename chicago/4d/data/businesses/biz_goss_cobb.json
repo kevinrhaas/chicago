@@ -1,0 +1,167 @@
+{
+  "id": "biz_goss_cobb",
+  "register_id": "business_goss_cobb",
+  "name": "Goss & Cobb",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": null,
+  "occupation": null,
+  "goods": [
+    "Bridles",
+    "Chaises trimmed",
+    "Coaches trimmed",
+    "Harness",
+    "Harnesses",
+    "Martingals",
+    "Riding Whips",
+    "Saddles",
+    "Travelling Bags",
+    "Trunks",
+    "Valises",
+    "Waggons trimmed",
+    "bridles",
+    "coach, chaise and waggon trimming",
+    "martingales",
+    "portmanteaus",
+    "saddles",
+    "travelling bags",
+    "trunks",
+    "valises"
+  ],
+  "firm_styles": [
+    "Goss & Cobb"
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Oliver Goss",
+      "person_id": "goss_o",
+      "register_person_id": "person_oliver_goss",
+      "role": "partner",
+      "from": "1833-11-26",
+      "to": "1835-06-13",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card goss_o (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c006",
+        "chicago_american_1835_06_13#c015",
+        "chicago_democrat_1833_11_26#c019",
+        "chicago_democrat_1833_12_10#c001",
+        "chicago_democrat_1834_06_04#c001",
+        "chicago_democrat_1834_07_02#c001"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Goss",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1833-11-26",
+      "to": "1835-06-13",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c006",
+        "chicago_american_1835_06_13#c015",
+        "chicago_democrat_1833_11_26#c019",
+        "chicago_democrat_1833_12_10#c001",
+        "chicago_democrat_1834_06_04#c001",
+        "chicago_democrat_1834_07_02#c001"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Cobb",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1833-11-26",
+      "to": "1835-06-13",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c006",
+        "chicago_american_1835_06_13#c015",
+        "chicago_democrat_1833_11_26#c019",
+        "chicago_democrat_1833_12_10#c001",
+        "chicago_democrat_1834_06_04#c001",
+        "chicago_democrat_1834_07_02#c001"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-11-26",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_american_1835_06_08#c006 (notice, 1835-06-08), chicago_american_1835_06_13#c015 (notice, 1835-06-13). No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1833-11-26",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-11-26, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-11-26",
+    "last_issue": "1835-06-13",
+    "copy_dates": [
+      "1833-11-26",
+      "1834-06-04",
+      "1835-02-18"
+    ]
+  },
+  "present_at_scene_date": false,
+  "exclusion": "contradicted_before_scene_date",
+  "exclusion_note": "Contradicted on or before the scene date by chicago_american_1835_06_08#c006 (notice, 1835-06-08), chicago_american_1835_06_13#c015 (notice, 1835-06-13).",
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Oliver Goss (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "goss_o",
+        "name": "Oliver Goss",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_08#c006",
+    "chicago_american_1835_06_13#c015",
+    "chicago_democrat_1833_11_26#c019",
+    "chicago_democrat_1833_12_10#c001",
+    "chicago_democrat_1834_06_04#c001",
+    "chicago_democrat_1834_07_02#c001"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

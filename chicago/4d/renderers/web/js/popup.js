@@ -196,6 +196,91 @@ function gradeChip(grade) {
   return `<span class="grade grade-${escapeHtml(g)}">${escapeHtml(g)}</span>`;
 }
 
+/**
+ * How many people this house could sleep — the one fact a lodging place is FOR.
+ *
+ * T-1370. The town model has always carried a bed bracket for the whole town and
+ * has always said, in as many words, that it "seats nobody in any lodging place
+ * and gives no boarding house a capacity of its own". So a visitor could open the
+ * Green Tree Tavern and read its footprint, its storeys, its roof pitch and its
+ * finish, and not the number that makes it a tavern rather than a large house.
+ *
+ * TWO NUMBERS, NOT ONE, and the gap between them is the claim. A lodging place in
+ * a boom-year lake port did not have a capacity; it had an ordinary night and a
+ * night when the boats had landed, and the difference between nine and thirty-five
+ * is the whole of what the sources actually describe — "full meant three in a bed
+ * sometimes, with the floor covered besides". A single averaged figure would lose
+ * exactly the thing the evidence is about.
+ *
+ * THE GRADE IS THE CAPACITY'S OWN, not the building's. The Green Tree is an
+ * attested tavern whose bed count is apportioned from an inferred outline, and
+ * printing the building's grade beside the beds would let a visitor read an
+ * arithmetic share as something a source said. It is the weakest claim under the
+ * number, which is the rule the rest of this card already follows.
+ *
+ * AND IT SAYS WHO IS IN THEM (T-1406). This card used to end on the sentence
+ * "Nobody is seated in these beds yet", which was true for one day. T-1371 then
+ * slept 122 people in these fifteen houses and the sentence stayed, so the
+ * Tremont's twelve beds held twelve people and its card said the house was empty
+ * — the one failure mode this section was built to avoid, arriving from the other
+ * direction. The occupancy line is compiled from that stage's own ledger and
+ * keeps the four ways into a bed apart, because a person the sources house here,
+ * a person seated here for want of a roof, and a lodger drawn for an empty bed
+ * are three different claims and one number would read as a census of all three.
+ *
+ * AN EMPTY BED IS PRINTED WITH ITS REASON OR NOT AT ALL. The two houses standing
+ * short are short because no committed record gives their division and a drawn
+ * lodger has to come out of a division's bucket; the ledger's refusal is shown
+ * verbatim. "5 beds empty" alone would read as a finding about 1835.
+ *
+ * A row with no beds at all — the Lake House, still going up — prints its reason
+ * instead of its number, because a lodging place silent about its capacity reads
+ * as an oversight rather than as a finding.
+ */
+function lodgingSection(s) {
+  const l = s.lodging;
+  if (!l) return '';
+
+  const body = l.beds_ordinary === null
+    ? `<p class="lodge-basis">${escapeHtml(l.note)}</p>`
+    : `<p class="lodge-beds">
+         <span class="lodge-n">${l.beds_ordinary}</span>
+         <span class="lodge-when">on an ordinary night</span>
+         <span class="lodge-sep">·</span>
+         <span class="lodge-n">${l.beds_crowded}</span>
+         <span class="lodge-when">when full</span>
+         ${chip(l.confidence)}
+       </p>
+       <p class="lodge-basis">${escapeHtml(l.note)}${
+         l.clamped_at_1840_maximum
+           ? ` Held at ${l.ceiling}, the largest household the 1840 enumerator recorded here.`
+           : ''}</p>
+       ${noteToggle(l.replaceable_by)}`;
+
+  const o = l.occupancy;
+  const occupancy = !o ? '' : `
+    <p class="lodge-who">
+      <span class="lodge-n">${o.people}</span>
+      <span class="lodge-when">slept here on this card</span>
+      ${o.empty ? `<span class="lodge-sep">·</span>
+        <span class="lodge-n lodge-short">${o.empty}</span>
+        <span class="lodge-when">${o.empty === 1 ? 'bed' : 'beds'} empty</span>` : ''}
+    </p>
+    <p class="lodge-basis">${escapeHtml(o.statement)}</p>
+    ${o.empty_note ? `<p class="lodge-empty">${escapeHtml(o.empty_note)}</p>` : ''}
+    ${o.keeper_persons
+      ? `<p class="lodge-basis">The keeper's own household stands at ${o.keeper_persons}
+           ${o.keeper_persons === 1 ? 'person' : 'people'}.${
+             o.keeper_owed ? ` ${escapeHtml(o.keeper_owed)}` : ''}</p>`
+      : (o.keeper_owed ? `<p class="lodge-empty">${escapeHtml(o.keeper_owed)}</p>` : '')}`;
+
+  return `<section class="pop-sec pop-lodging">
+    <h3>How many slept here</h3>
+    ${body}
+    ${occupancy}
+  </section>`;
+}
+
 function residentsSection(s) {
   const households = Array.isArray(s.residents) ? s.residents : [];
   if (!households.length) return '';
@@ -607,7 +692,6 @@ function withDot(text, dot) {
 const FUNCTION_WORDS = {
   tavern_inn: 'tavern & inn',
   store_residence: 'store & residence',
-  'store-residence': 'store & residence',
   dwelling_to_let: 'dwelling, to let',
   hotel_under_construction: 'hotel, under construction',
   slaughterhouse_packing: 'slaughterhouse & packing house',
@@ -617,6 +701,38 @@ const FUNCTION_WORDS = {
   dwelling_farmstead: 'farmstead dwelling',
   physicians_office: "physician's office",
   agency_house_residence: 'agency house & residence',
+  // T-1311 closed the `function` vocabulary and folded 109 free strings onto 106
+  // terms. These are the ones whose PROSE the card had been printing straight off
+  // the record — hyphens, commas, apostrophes and all — and which the generic rule
+  // would now flatten. The card goes on saying exactly what it said before the
+  // vocabulary was closed; the punctuation is the record's, not an addition.
+  one_room_frame_cottage: 'one-room frame cottage',
+  two_room_frame_cottage: 'two-room frame cottage',
+  deep_plan_frame_cottage: 'deep-plan frame cottage',
+  one_and_a_half_story_frame_cottage: 'one-and-a-half-story frame cottage',
+  larger_one_and_a_half_story_house: 'larger one-and-a-half-story house',
+  small_two_story_frame_house: 'small two-story frame house',
+  narrow_two_story_store: 'narrow two-story store',
+  narrow_two_story_warehouse: 'narrow two-story warehouse',
+  cooper_wagon_or_wheelwright_shop: 'cooper, wagon or wheelwright shop',
+  parade_and_drill_ground: 'parade and drill ground',
+  block_house: 'block-house',
+  county_court_house: 'county court-house',
+  commanding_officers_quarters: "commanding officer's quarters",
+  officers_quarters: "officers' quarters",
+  enlisted_mens_barracks: "enlisted men's barracks",
+  sutlers_store: "sutler's store",
+  // The three records whose function was a SENTENCE about a use that had ended.
+  // `kindWords` below still cuts each at its first semicolon, so the kind line
+  // reads "dwelling" / "log house" / "log cabin" exactly as it always has, and the
+  // Use row still carries the whole of it.
+  dwelling_former_school_use_unattested:
+    "dwelling; used as John Watkins' school in 1833, use on the scene date unattested",
+  log_house_former_school_use_unattested:
+    'log house; infant school 1833-34, use on the scene date unattested',
+  log_cabin_former_store_and_school_use_unattested:
+    "log cabin; Chicago's first drug store 1832, let 1832-33, Eliza Chappel's school "
+    + '1833-34; use on the scene date unattested',
 };
 
 /** The record's `function`, in words. Already-prose values ("one-room frame
@@ -846,20 +962,72 @@ function leadHtml(s, called, p) {
  * A row with no value is omitted rather than shown as "—", because a museum
  * label does not list what it does not know; the tables do that job.
  */
-function factsHtml(s) {
+/**
+ * THE FIRMS IN THIS ROOF, on the line that already says what the roof was FOR.
+ *
+ * A building card has always been able to say "store". It could not say WHOSE
+ * store, or open it: the business layer reached a visitor only through the
+ * Businesses directory, so somebody standing at Hogan's door had to leave the
+ * building, open the drawer and search a name they were already looking at. The
+ * Use row is where that question is asked, so the answer goes on the Use row.
+ *
+ * TWO RELATIONS, ASKED SEPARATELY. A `premises` firm is one the register puts IN
+ * this roof. An `anchored` firm has no roof of its own and the paper sites it BY
+ * this one — "next door to the Sauganash" — and until T-1401 that landmark lived
+ * only inside `limit_reason`'s prose, so this row could not say which four houses
+ * stand against the Tremont House and refused to guess. The compiler resolves the
+ * register's own `action_target` now, so the two groups print as two leads and a
+ * reader is never told a house was here when the source said it was beside here.
+ * The grade dot is the FIRM's, not the building's, because the firm is what
+ * tapping opens.
+ *
+ * @param {object[]} firms  `firmCrosswalk().byStructure` for this record's id
+ * @param {boolean} fromSign  the visitor aimed at this building's signboard
+ */
+function firmChipsHtml(firms, fromSign) {
+  if (!firms?.length) return '';
+  const chips = (list) => list.map((f) => `<button type="button"
+      class="pop-firm" data-business="${escapeHtml(f.id)}"
+      title="${escapeHtml([f.trade, f.present ? 'trading on 1 July 1835' : 'not trading on 1 July 1835']
+    .filter(Boolean).join(' \u2014 '))}"><i class="grade-dot grade-${escapeHtml(f.grade)}"></i>${
+  escapeHtml(f.name)}</button>`).join('');
+  const inRoof = firms.filter((f) => f.relation !== 'against');
+  const against = firms.filter((f) => f.relation === 'against');
+  const groups = [];
+  if (inRoof.length) {
+    groups.push([fromSign
+      ? (inRoof.length === 1 ? 'The board hangs for' : 'The board hangs over')
+      : (inRoof.length === 1 ? 'The register puts one house here'
+        : `The register puts ${inRoof.length} houses here`), inRoof]);
+  }
+  // NOT "HERE". The paper sited these by this building and gave them no roof, and
+  // the words have to keep that distance or the card claims a premises the source
+  // never gave.
+  if (against.length) {
+    groups.push([against.length === 1
+      ? 'One house is sited against it'
+      : `${against.length} houses are sited against it`, against]);
+  }
+  return `<span class="pop-firms"${fromSign ? ' data-from-sign="yes"' : ''}>${groups.map(
+    ([lead, list]) => `<span class="pop-firms-lead">${escapeHtml(lead)}</span>${chips(list)}`).join('')}</span>`;
+}
+
+function factsHtml(s, firms = [], fromSign = false) {
   const attrs = s.attributes ?? {};
   const rows = [];
   // A value that will not fit half a column — the address, the ground's entry,
-  // a long keepers line — takes the whole row rather than wrapping to a sliver.
-  const row = (dt, dd, grade, what) => {
-    if (!dd) return;
-    const wide = String(dd).length > 28 ? ' fact-wide' : '';
-    rows.push(`<div class="fact${wide}"><dt>${escapeHtml(dt)}</dt><dd>${
-      withDot(dd, factDot(grade, what ?? dt.toLowerCase()))}</dd></div>`);
+  // a long keepers line, the firms in the roof — takes the whole row rather than
+  // wrapping to a sliver.
+  const row = (dt, dd, grade, what, extra = '') => {
+    if (!dd && !extra) return;
+    const wide = extra || String(dd).length > 28 ? ' fact-wide' : '';
+    const value = dd ? withDot(dd, factDot(grade, what ?? dt.toLowerCase())) : '';
+    rows.push(`<div class="fact${wide}"><dt>${escapeHtml(dt)}</dt><dd>${value}${extra}</dd></div>`);
   };
 
   row('Standing', standingWords(s.documented_range), s.documented_range?.confidence, 'standing');
-  row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use');
+  row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use',
+    firmChipsHtml(firms, fromSign));
   row('Built', builtWords(attrs),
     weaker(attrs.construction?.confidence, attrs.stories?.confidence), 'fabric');
   row('Roof', roofWords(attrs),
@@ -868,6 +1036,14 @@ function factsHtml(s) {
       : attrs.roof_type?.confidence, 'roof');
   if (attrs.lot_address?.value) {
     row('Address', prettyValue(attrs.lot_address.value), attrs.lot_address.confidence, 'address');
+  }
+  // T-1478. The other half of "where is this, exactly?": `Address` above is a lot a
+  // SOURCE printed, this is the lot the grid drew afterwards and found this footprint
+  // already standing on. Its own note says at length that nobody claimed it, and the
+  // chip carries the grade, so the label stays modest — "Stands on", not "Address".
+  if (attrs.stands_on_lot?.value) {
+    row('Stands on', prettyValue(attrs.stands_on_lot.value),
+      attrs.stands_on_lot.confidence, 'the lot it stands on');
   }
   if (attrs.land_owner?.value) {
     row('Owner of the ground', prettyValue(attrs.land_owner.value),
@@ -1014,14 +1190,14 @@ function selectPopTab(root, id) {
  * therefore links to a page that appears when the promotion lands — the same lag
  * the rest of the tier carries, rather than a second one.
  */
-export const DOSSIER_BASE = 'https://github.com/kevinrhaas/chicago/blob/main/chicago/4d/';
+export const DOSSIER_BASE = 'https://github.com/kevinrhaas/custom/blob/main/chicago/4d/';
 
 /**
  * @param {HTMLElement} root  the <aside> to render into
  * @param {object} opts
  * @param {string} opts.docBase  where a dossier is read — see DOSSIER_BASE
  */
-export function createPopup(root, { docBase = DOSSIER_BASE } = {}) {
+export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } = {}) {
   let currentId = null;
   /** Null until the derived list loads; never faked to an empty list. */
   let liberties = null;
@@ -1033,11 +1209,18 @@ export function createPopup(root, { docBase = DOSSIER_BASE } = {}) {
   /** Null until the compiled agency relation loads. Same rule as the liberties:
    *  null means "not loaded", which is not the claim that this house held none. */
   let agencies = null;
+  /** Null until the business index loads, and the same rule again: null is not
+   *  the claim that no firm traded here. */
+  let businessesByStructure = null;
   let currentRecord = null;
+  /** Whether the card on screen was opened by aiming at this building's signboard,
+   *  kept so a redraw (the liberties, the agencies) does not lose the fact. */
+  let currentFromSign = false;
 
   function close() {
     currentId = null;
     currentRecord = null;
+    currentFromSign = false;
     root.setAttribute('hidden', '');
     root.innerHTML = '';
     document.documentElement.classList.remove('card-open');
@@ -1045,6 +1228,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE } = {}) {
 
   root.addEventListener('click', (e) => {
     if (e.target.closest('[data-close]')) { close(); return; }
+    const firm = e.target.closest('.pop-firm');
+    if (firm) { onBusiness?.(firm.dataset.business); return; }
     const tab = e.target.closest('[data-pop-tab]');
     if (tab) { selectPopTab(root, tab.dataset.popTab); return; }
     const toggle = e.target.closest('[data-toggle-note]');
@@ -1071,7 +1256,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE } = {}) {
      */
     setLiberties(list) {
       liberties = Array.isArray(list) ? list : null;
-      if (currentRecord) this.show(currentRecord);
+      if (currentRecord) this.show(currentRecord, { fromSign: currentFromSign });
     },
 
     /**
@@ -1083,7 +1268,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE } = {}) {
      */
     setOpenQuestions(list) {
       openQuestions = Array.isArray(list) ? list : null;
-      if (currentRecord) this.show(currentRecord);
+      if (currentRecord) this.show(currentRecord, { fromSign: currentFromSign });
     },
 
     /**
@@ -1095,7 +1280,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE } = {}) {
      */
     setOrdinanceLimits(limits) {
       ordinanceLimits = limits ?? null;
-      if (currentRecord) this.show(currentRecord);
+      if (currentRecord) this.show(currentRecord, { fromSign: currentFromSign });
     },
 
     /**
@@ -1107,15 +1292,37 @@ export function createPopup(root, { docBase = DOSSIER_BASE } = {}) {
      */
     setAgencies(doc) {
       agencies = doc ?? null;
-      if (currentRecord) this.show(currentRecord);
+      if (currentRecord) this.show(currentRecord, { fromSign: currentFromSign });
     },
 
-    /** @param {object} record  a registry entry: { id, sidecar, ... } */
-    show(record) {
+    /**
+     * Hand the popup the structure-to-firms crosswalk once the business index
+     * loads, on exactly the terms the four handles above keep: a card already on
+     * screen is redrawn, because a building quietly showing no keeper the
+     * register knows is the failure that matters.
+     *
+     * @param {Map<string, object[]>|null} map  `firmCrosswalk().byStructure`
+     */
+    setBusinesses(map) {
+      businessesByStructure = map ?? null;
+      if (currentRecord) this.show(currentRecord, { fromSign: currentFromSign });
+    },
+
+    /**
+     * @param {object} record  a registry entry: { id, sidecar, ... }
+     * @param {object} [opts]
+     * @param {boolean} [opts.fromSign]  the visitor aimed at this building's
+     *   signboard rather than at the roof — a board is a firm's advertisement, so
+     *   the Use row leads with the firm it hangs for instead of making the visitor
+     *   work out that the board and the house are the same thing.
+     */
+    show(record, { fromSign = false } = {}) {
       if (!record?.sidecar) return false;
       const s = record.sidecar;
       currentId = record.id;
       currentRecord = record;
+      currentFromSign = !!fromSign;
+      const firms = businessesByStructure?.get?.(record.id) ?? [];
 
       const p = s.placement ?? {};
       // The position's own reasoning, on the row that shows the position. Every
@@ -1186,7 +1393,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE } = {}) {
       root.innerHTML = `
         ${headHtml(s, record, called, p, place)}
         ${leadHtml(s, called, p)}
-        ${factsHtml(s)}
+        ${factsHtml(s, firms, currentFromSign)}
+        ${lodgingSection(s)}
         ${residentsSection(s)}
         ${agencySectionHtml(agencies, 'structure_id', record.id, escapeHtml)}
         ${tabsHtml({ liberties: libertyCount + questionCount })}

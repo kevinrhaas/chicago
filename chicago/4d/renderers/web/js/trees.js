@@ -1909,7 +1909,7 @@ function addTree(buf, spec, x, groundY, z, rnd, scale = 1) {
 export async function createTrees({
   dataBase, terrain, footprints = [], growthBlocked = () => false,
   confidence = null, problems = [], lowSpec = false, detail = 'full',
-  pixelsPerRadian = null, streetRecords = [], zoneAt = null,
+  pixelsPerRadian = null, streetRecords = [], zoneAt = null, checkpoint = () => null, onProgress = () => {},
 } = {}) {
   const group = new THREE.Group();
   group.name = 'trees';
@@ -2091,12 +2091,14 @@ export async function createTrees({
   const D1 = cellM;
   const D2 = cellM * Math.SQRT2;
   for (let r = 0; r < rows; r++) {
+    const pause = checkpoint(); if (pause) await pause;
     for (let c = 0; c < cols; c++) {
       const i = r * cols + c;
       dw[i] = terrain.isWater(originE + c * cellM, originN + r * cellM) ? 0 : 1e9;
     }
   }
   for (let r = 0; r < rows; r++) {
+    const pause = checkpoint(); if (pause) await pause;
     for (let c = 0; c < cols; c++) {
       const i = r * cols + c;
       let v = dw[i];
@@ -2108,6 +2110,7 @@ export async function createTrees({
     }
   }
   for (let r = rows - 1; r >= 0; r--) {
+    const pause = checkpoint(); if (pause) await pause;
     for (let c = cols - 1; c >= 0; c--) {
       const i = r * cols + c;
       let v = dw[i];
@@ -2187,6 +2190,7 @@ export async function createTrees({
     let lo = 0, hi = rows - 1;
     if (!floodSeparates(0)) {
       while (lo < hi) {
+        const pause = checkpoint(); if (pause) await pause;
         const mid = (lo + hi) >> 1;
         if (floodSeparates(mid)) hi = mid; else lo = mid + 1;
       }
@@ -2671,7 +2675,11 @@ export async function createTrees({
   const sweepN0 = originN + step;
   const sweepN1 = originN + (rows - 1) * cellM - step;
   stats.sweep = { e: [sweepE0, sweepE1], n: [sweepN0, sweepN1], step };
+  const rowsToPlant = Math.floor((sweepN1 - sweepN0) / step) + 1;
+  let rowsPlanted = 0;
+  onProgress(0, rowsToPlant);
   for (let n = sweepN0; n <= sweepN1; n += step) {
+    const pause = checkpoint(); if (pause) await pause;
     for (let e = sweepE0; e <= sweepE1; e += step) {
       const px = e + (rnd() - 0.5) * step * 0.92;
       const pz = n + (rnd() - 0.5) * step * 0.92;
@@ -2797,6 +2805,7 @@ export async function createTrees({
       bump(stats.communities, key);
       bump(stats.species, id);
     }
+    onProgress(++rowsPlanted, rowsToPlant);
   }
 
   /* ---- 3b. the stems a record places itself ------------------------------ */
@@ -2817,6 +2826,7 @@ export async function createTrees({
    * to draw is a fault in the record, and a silent decline is how a record goes
    * on saying a tree is there for months after it stopped being drawn.
    */
+  onProgress(rowsToPlant, rowsToPlant);
   for (const rec of records.plantings ?? []) {
     for (const stem of rec.stems ?? []) {
       const where = `${rec.id}/${stem.id}`;
@@ -2985,6 +2995,7 @@ uniform float uWind;
     batch.castShadow = true;
     batch.receiveShadow = true;
     for (const b of chunks) {
+      const pause = checkpoint(); if (pause) await pause;
       const geo = b.build();
       batch.addInstance(batch.addGeometry(geo));
       // The batch owns a copy from here; the source geometry is scratch.

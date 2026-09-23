@@ -1,7 +1,7 @@
 ---
 id: T-1301
 title: Spend the 98 corroborated_enrichment research units the remainder ruling hands to T-1160: each sourced fact about a person this town already holds written into the structured field that carries it, or repointed to the attribute-fill ticket whose acceptance owns it
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: S
 legacy_id: null
 parent: T-1160
 opened: 2026-09-17
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-18
+pr: 1441
+claimed_by: run 9/18/2026, 12:32:36 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T06:19:04.211Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35310585692
 ---
 
 Spend the 98 corroborated_enrichment research units the remainder ruling hands to T-1160: each sourced fact about a person this town already holds written into the structured field that carries it, or repointed to the attribute-fill ticket whose acceptance owns it.

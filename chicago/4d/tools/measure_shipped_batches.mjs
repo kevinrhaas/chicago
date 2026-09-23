@@ -64,7 +64,7 @@ const PORT = Number(process.env.BATCH_PORT || 4193);
 const YEAR = process.env.CRITIC_YEAR || '1835';
 const ROOT = ROOT_ARG
   ? path.resolve(ROOT_ARG)
-  : (PUBLISHED ? path.resolve(APP, '../../site/4d') : APP);
+  : (PUBLISHED ? path.resolve(APP, '../../site/chicago/4d') : APP);
 const ENTRY = PUBLISHED ? '/walk/' : '/renderers/web/index.html';
 
 const TYPES = {

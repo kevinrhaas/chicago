@@ -1,7 +1,7 @@
 ---
 id: T-1198
 title: Seat every attested and inferred household and business on the ground its evidence allows: a structure where one is named, a lot on the right face where an address, corner or later directory narrows it, a division band where only that is known — plural, dated, no fabricated coordinates
-state: open
+state: split
 epic: TOWN
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-20
 pr: null
-claimed_by: null
+claimed_by: run 9/20/2026, 4:34:49 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-20T21:37:57.871Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35538794207
 ---
 
 1,243 of 1,263 households have no `lives_at`; 1,213 no `works_at`; 1,191 are `unplaced`. T-1147
@@ -60,6 +60,21 @@ A household follows its head's workplace where the policy says trades lived at t
 
 **Stop condition:** every known person has a place on the map at the honest rung, and the build
 tickets know which lot to raise a roof on for whom.
+
+**THE FORT'S OFFICERS ARE ALREADY RULED ON (T-1348, 2026-09-19).** This sweep does not have
+to re-adjudicate them. `docs/RESEARCH/fort_dearborn_garrison_1835.md` tests every card in the
+layer that carries a rank or a military role against three clauses and returns one seat and
+eleven refusals: **`allen_lieut_james` seats at `fort_dearborn_officers_quarters`, division
+`fort`, `inferred`**, on the same argument `hh_maxwell_philip` already carries — a commissioned
+officer of the United States Army, printed at Chicago on both sides of the scene date, lodged
+in the building this dataset holds for the post's subordinate officers. The other eleven
+(`baxley_j_m`, `jamison_l_t`, `green_j`, `smith_e_kirby`, `thompson_lieut_j_l`, `wilcox_d`,
+`carpenter_nathaniel`, `morin_william_w`, `kirne_e`, `beaubien_jean_baptiste`,
+`jackson_samuel`) do **not** go to the fort, each for a clause the memo states. T-1348 could
+not write the seat itself: `hh_allen_lieut_james` is mint output and the mints derive
+`division` and `lives_at`, so the seat is this sweep's to deal — which is what
+`mint_civic_residents.py` says in its own refusal, *"the placement sweep does that, once the
+resident list is complete"*.
 
 **Links:** T-1147 · T-1195 · T-1194 · T-0251 · T-0305 · T-0386 · T-1087 ·
 `docs/STREET-FACE-ADOPTION.md` · `docs/ADDRESS-BACK-PROJECTION.md` · `docs/RESIDENCE-BACK-PROJECTION.md`.

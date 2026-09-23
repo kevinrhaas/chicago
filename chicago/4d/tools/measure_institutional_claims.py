@@ -24,12 +24,18 @@ families by name since L93, but that refusal only ever covered the block
 generator — the North, West and phase-one parcels ran before it existed and
 nothing has ever asked the committed records the question.
 
-**I2 (school or community-use) is a ratchet at one.** `recon_1835_north_i2_015`
-stands in the North Division from a parcel written before any of this, massed as
-a generic frame block. L93 records it rather than quietly removing it, because a
-liberty this project took is not deleted to make a gate pass. It may shrink — a
-named school record substituting for it is exactly the move T-I3 licenses — and
-it may not grow.
+**I2 (school or community-use) was a ratchet at one, and the ratchet has closed.**
+One anonymous school stood in the North Division from a parcel written before any
+of this, massed as a generic frame block; L93 recorded it rather than quietly
+removing it, because a liberty this project took is not deleted to make a gate
+pass. It has now shrunk to zero — which is the move the ratchet was written to
+allow. T-1445 adjudicated it against the placement policy and returned
+`refamily`, it standing 34.50 m off its street line where the policy puts a
+public front on it, and T-1480 carried that verdict out: the roof is
+`recon_1835_north_d4_015` and it is a dwelling. So the school left the town by
+being RE-DEALT rather than by being deleted, and there is no longer an id to
+allow. Zero is the enforceable number here too now, exactly as it is for I1 and
+I3, and the next anonymous school is a regression.
 
 **The I3 target equals the civic ledger.** This is the half T-I3 left open and
 T-0032 closes. The target was SIX and the town's civic roofs are three, so three
@@ -86,10 +92,13 @@ ABSOLUTE = {
           "court-house and the engine house were both built after it.",
 }
 
-# The one liberty already taken, named rather than pattern-matched. A ratchet
-# that counted by family alone would let a SECOND anonymous school in as long as
-# the first went out.
-LEGACY_I2 = "recon_1835_north_i2_015"
+# The one liberty already taken, named rather than pattern-matched --- a ratchet
+# that counted by family alone would have let a SECOND anonymous school in as
+# long as the first went out. It is `None` since T-1480, because the first went
+# out: the redeal made it a dwelling and no anonymous I2 stands. Naming the
+# migrated id here instead would have re-opened the allowance for a roof that is
+# no longer a school.
+LEGACY_I2 = None
 
 # THE CIVIC LEDGER — every civic or public-service building this project has
 # researched, and what it was on 1835-07-01. The verdict is a claim and NOT the
@@ -424,10 +433,11 @@ def main() -> int:
                 f"{row['layer']} layer — {ABSOLUTE[family]}")
         elif row["id"] != LEGACY_I2:
             failures.append(
-                f"{row['id']} is a SECOND anonymous roof of family I2. The one this "
-                f"project carries, {LEGACY_I2}, is a liberty recorded in "
-                f"docs/LIBERTIES.md (L93) and not a precedent. A school nobody named "
-                f"is a claim that a school stood here and left no record.")
+                f"{row['id']} is an anonymous roof of family I2 and the town carries "
+                f"none. The one it did carry was recorded as a liberty at L93, not as "
+                f"a precedent, and T-1445/T-1480 re-dealt it into a dwelling; the "
+                f"ratchet closed behind it. A school nobody named is a claim that a "
+                f"school stood here and left no record.")
     failures += ledger_findings(ledger, targets, matrix)
     failures += district_findings(named_by_district(reconciliation), matrix)
 

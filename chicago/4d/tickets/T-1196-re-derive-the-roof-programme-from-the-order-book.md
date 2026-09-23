@@ -1,7 +1,7 @@
 ---
 id: T-1196
 title: Re-derive the roof programme from the order book: the 668-roof schedule re-cut by what the population, occupation and lodging models say the town needed — families, districts and blocks re-targeted, every delta from the spec stated, the census's 398 dwellings reconciled
-state: open
+state: done
 epic: TOWN
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-20
+pr: 1562
+claimed_by: run 9/20/2026, 5:19:52 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-20T10:53:11.686Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35504559355
 ---
 
 The roof programme (`1835_building_inventory.json` → 668 roofs; `reconcile_665.py` → 371 standing,

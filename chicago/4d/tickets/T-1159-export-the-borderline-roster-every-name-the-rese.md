@@ -1,7 +1,7 @@
 ---
 id: T-1159
 title: Export the borderline roster: every name the research read and withheld from 1835 — single-source, refused, surname-only, uncertain presence, letter-list-only — with its source, reason and re-admission class, so reconstruction can name real people before it invents any
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-17
+pr: 1428
+claimed_by: run 9/17/2026, 8:09:29 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T01:52:39.579Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35293945922
 ---
 
 The owner, 2026-09-17: *"You may use research that was borderline in naming and give them a real
@@ -69,3 +69,34 @@ below the inferred bar, and what each name licenses.
 **Links:** T-1143 · T-1146 · T-1153 · T-1129 · T-0507 · T-1027 (the one-letter pairs stay its own
 question — rows it owns are `unresolved:T-1027`, class R0 until it rules) ·
 `docs/RESEARCH/resident-grading-policy.md`.
+
+## WHAT SHIPPED (PR #1428)
+
+`tools/export_borderline_roster.py` builds `data/reconstruction/1835_borderline_roster.json`
+and `docs/RESEARCH/borderline-roster-2026-09.md`; `--check` and a self-test are wired into
+`tools/check.sh`. 1,634 offered rows — R1 814, R4 424, R2 182, R6 129, R5 55, R3 30 — plus
+13,564 named refusals and 9,239 units naming no person, so the accounting rule ("no unit
+silently dropped") is a checked identity rather than a claim. No card, grade, presence or
+ledger disposition changed.
+
+**THE HAND-OFF MOVED, AND THAT IS THE ONLY LEDGER EDIT.** 40 Cook-residence land-sale
+purchaser units were deferred to THIS ticket to be CARRIED. They are carried (class R2), so
+`tools/spend_land_sales_rulings.py` now names **T-1172** — the ticket that re-admits the
+roster's single-source names. This is what that register's own doc asks for: a hand-off names
+the OPEN ticket whose field owns the finding, and that ticket closing turns the file red.
+Without it, closing this ticket would have stranded all 40 behind finished work, which is
+exactly the refusal T-1144 and T-1241 recorded when somebody tried to fold them away.
+
+**TWO JUDGEMENTS THE NEXT READER SHOULD KNOW.** R6 is a RECALL rule, not a verdict — a
+declared term list over the reading's own words, so thin evidence never becomes the reason a
+community goes unbuilt; its first version read `Indian agent` as a description of the man
+holding the office and put Jouett, Forsyth and Irwin through as Native people, so the office
+phrases are struck out before the terms are read and every row names its matched term. And a
+`touches_removal` flag is a REVIEW REQUIREMENT, not an ineligibility: the eight flagged
+households stay on the roster carrying `review_required`.
+
+**ACCEPTANCE 3, HONESTLY.** The rule for kin a flagged household names and no card carries is
+implemented and checked; it finds 0 today because every structured `kin` row on those eight
+resolves to a held household. It cannot reach a person named only in prose —
+Mah-naw-bun-no-quah is the case the tree states in as many words — and the review page names
+that gap rather than pretending at it.

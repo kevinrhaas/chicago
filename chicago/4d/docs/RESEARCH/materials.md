@@ -152,7 +152,7 @@ reasoning stated; *conjectural* = invented to fill a need, and owed a `docs/LIBE
 |---|---|---|---|---|---|---|
 | **`clapboard`** | riven or sawn horizontal siding, 0.14 m exposed face, butt joints landing on stud lines and staggered course to course | the commonest wall in the town: the Sauganash is "a two-story clapboard block" in the Braunhold engraving and the Kurz & Allison panel (`kurz_allison_1893`); `andreas_1884_v1` has the agency house "clapboarded part way up"; the Green Tree plate in the owner's 2026-08-11 reference set is "two full storeys of pale clapboard" | **attested** for the form, **inferred** for the 0.14 m (a period exposure, already committed as `CLAPBOARD_COURSE_M` in three archetypes) | **0.86 ± variation** — riven oak weathering silver; the variation matters more than the constant (§3) | **4.48 m square, 1024² → 228.6 px/m**; 32 courses of 0.14 m exactly | `cladding: clapboard` (`frame_storefront`; today read by that archetype only) |
 | **`board_and_batten`** | vertical boards with a batten over each joint, 0.356 m set-out | `BATTEN_SPACING_M`, already committed as "14 in, the usual set-out" — a typological value, not a reading of any Chicago building | **conjectural** — no source in this repository puts board-and-batten on any named Chicago building in 1835 | 0.88 ± variation | **4.272 m square, 1024² → 239.7 px/m**; 12 battens of 0.356 m | `cladding: board_and_batten` |
-| **`vertical_board`** | plain vertical sawn boards, no batten | one record: `recon_1835_south_f2_039`, and its own note says **"INVENTED, NOT DERIVED"**, bounded by `owner_chicago_1835_reconstruction_spec_2026` | **conjectural**, and the record says so | 0.90 ± variation | **4.58 m square, 1024² → 223.6 px/m**; 20 boards of 0.229 m (`SHEATHING_BOARD_M`) | `cladding: vertical_board` |
+| **`vertical_board`** | plain vertical sawn boards, no batten | one record: `recon_1835_south_h2_039`, and its own note says **"INVENTED, NOT DERIVED"**, bounded by `owner_chicago_1835_reconstruction_spec_2026` | **conjectural**, and the record says so | 0.90 ± variation | **4.58 m square, 1024² → 223.6 px/m**; 20 boards of 0.229 m (`SHEATHING_BOARD_M`) | `cladding: vertical_board` |
 | **`hewn_log`** | squared log courses, 0.34 m on the course, chinking 0.055 m proud between them | the log town is the best-attested fabric here: `cobweb_castle`, `blacksmith_shop_state_st`, `fort_dearborn_*`, and `docs/research/03-structures-north.md`'s survey | **attested** for the fabric; **inferred** for `COURSE_M = 0.34` (`logwork.py` argues it from a squared log, and states the reasoning) | 0.92 ± variation — weathered oak, coarse | **4.08 m square, 1024² → 251.0 px/m**; 12 courses of 0.34 m exactly | `construction: log` / `hewn_log` |
 | **`chinking`** | clay-and-lime between the log courses; **stands proud** and is separate geometry | `logwork.py`'s note; the fabric is universal in the sources | **inferred** — the material is ordinary and unremarked, which is why nothing says it | 0.95, near-uniform — dried lime scatters and does not vary the way timber does | **2.04 m square, 512² → 251.0 px/m** — matches the log's texel density exactly, which is what keeps a wall from reading as two resolutions | emitted with `hewn_log`; not separately selectable |
 | **`sawn_board`** | plain sawn stock, random widths 0.18–0.40 m, gappy | `outbuilding.py`'s `BOARD_W_M`; the archetype's docstring argues the gaps | **inferred** | 0.94 ± variation | **4.00 m square, 1024² → 256.0 px/m** — widths are geometry, so the sheet carries grain only | `outbuilding`, board kinds |
@@ -165,6 +165,11 @@ reasoning stated; *conjectural* = invented to fill a need, and owed a `docs/LIBE
 
 ### 2.2 Roof surfaces
 
+> **WIRED IN — see §11 (T-1487, 2026-09-20).** Both rows below are on the sheet now, the
+> exposure is **L263**, the dealing rule is `materials.roof_substrate()` and the part of it
+> this section does not grade is **L266**. The framing in the next paragraph is what the code
+> obeyed for a year and it overstated this section's own gradings; §11.1 is that story.
+
 **This is the sheet's weakest section and the weakness is in the data, not here.** See §4,
 finding 1: no record in the dataset states a roof covering, so nothing below can be *selected*
 until an attribute exists to select it.
@@ -172,12 +177,15 @@ until an attribute exists to select it.
 | surface | what it is | evidence | confidence | roughness | tile |
 |---|---|---|---|---|---|
 | **`shingle`** | riven shingles over board sheeting | **the one direct attestation in the repository**: the North Side school of 1833 is "a frame building twenty-six by thirty-eight feet; twelve-foot posts; **sheeted and shingled roof**" (`docs/RESEARCH/north_side_school_1833.md`) | **attested** for that one building; **inferred** as the ordinary covering of a framed building here | 0.90 ± strong variation — a shingle field is the most legible weathering surface on a building | **exposure is unattested.** At 1024²: tile = 32 × exposure, which holds 228.6 px/m at a 0.14 m exposure. Pick the exposure from a source or record a liberty — do not pick it to make the arithmetic land |
-| **`roof_board`** | plain boards weighted or nailed, no shingle field | `outbuilding.py` argues it explicitly: *"a shingle field on an outbuilding would be claiming a finish"* | **inferred**, and well argued | 0.94 | as `sawn_board`, 4.00 m |
+| **`roof_board`** | plain boards weighted or nailed, no shingle field | `outbuilding.py` argues it explicitly: *"a shingle field on an outbuilding would be claiming a finish"* | **inferred**, and well argued | 0.93 (corrected in §11.2 — 0.94 was `sawn_board`'s; 0.93 is what all 130 outbuilding roofs have always shipped) | as `sawn_board`, 4.00 m |
 | **`bark` / `puncheon`** | — | **not modelled and not evidenced.** Named here only so the next reader knows it was looked for and not found | — | — | — |
 
-Today all three are one material at one colour: `roof`, `0.34, 0.30, 0.27`. The board roof is
+~~Today all three are one material at one colour: `roof`, `0.34, 0.30, 0.27`. The board roof is
 separated from the shingle roof by **0.03 of roughness and nothing else** — same colour, same
-name, in the shipped bytes.
+name, in the shipped bytes.~~ **No longer true of the name, T-1487**: the 0.03 of roughness is
+unchanged and deliberately so (§11.2), but the two are now separate rows dealt by a written
+rule, and the material slots are named `roof_shingle` and `roof_board`. Still true of the
+COLOUR, which is the weathering condition's and not the covering's.
 
 ### 2.3 Everything else
 
@@ -839,3 +847,93 @@ measured rather than assumed:
 The naming defect §9.5 filed is closed. What is left is a palette question, and it is written
 here rather than in a ticket because the owner asked for fewer tickets to work, not for fewer
 things to be known.
+
+## 11. WIRED IN — T-1487, 2026-09-20: the roof gets its covering, and §2.2 gets read properly
+
+### 11.1 THE REFUSAL WAS THIS SHEET'S OWN SUMMARY, NOT THIS SHEET'S RESEARCH
+
+`generators/common/materials.py` carried one roof row, `roof_plane`, with `tile_m = None`
+and a note reading *"the roof plane, COVERING UNSTATED"*. Its module docstring said, under
+a heading **WHAT IS NOT CLAIMED HERE**, that *no source in this repository states what any
+Chicago roof of 1835 was covered with*, and three archetypes quote that sentence back in a
+comment beside a roughness literal they declined to choose between.
+
+**§2.2 above never said that.** It grades `shingle` **attested** on the North Side school of
+1833 and **inferred** as the ordinary covering of a framed building here; it grades
+`roof_board` **inferred, and well argued**, on `outbuilding.py`'s own sentence. What §2.2
+says is unattested is the **exposure** — and it names the two ways out in the same cell:
+*"Pick the exposure from a source or record a liberty."*
+
+So the covering was never the open question. A summary written in the code overstated the
+research it summarised, and then the code obeyed the summary for a year. That is worth
+recording as a class of defect: **a docstring that restates a memo can be wrong in the
+direction of caution and still be wrong**, and nothing catches it, because caution reads
+as rigour.
+
+### 11.2 WHAT IS ON THE SHEET NOW
+
+| row | tile | module | texel | roughness | where the roughness came from |
+|---|---|---|---|---|---|
+| `shingle` | 4.48 m | 0.14 m (L263) | 228.6 px/m | 0.90 | the framed archetypes' committed literal |
+| `roof_board` | 4.00 m | — | 256.0 px/m | 0.93 | `outbuilding.py`'s committed literal |
+| `roof_plane` | — | — | — | 0.90 | unchanged; the fallback, carrying zero records |
+
+**Not one roughness is new, and §2.2's table is the reason to say so out loud.** §2.2 quotes
+0.94 for `roof_board`, which is `sawn_board`'s. The shipped value on all 130 outbuilding
+roofs is **0.93**, and §3.1 says in terms that the deliverable is a roughness map rather than
+better constants and that a round should not be spent re-tuning the eighteen numbers. So the
+sheet took the archetype's value and not the memo's: adopting 0.94 would have moved 130 roofs
+for the sake of agreeing with a table. §2.2's 0.94 is hereby corrected to the shipped 0.93.
+
+`roof_plane` is **kept and carries no record**. `roof_substrate()` resolves every archetype in
+this dataset to shingle or board, so the fallback is unreached — and it stays on the sheet so
+that a reader can see the question was answered rather than removed, which is the opposite of
+§10's `wall_colour` finding only because the case is the opposite: an unreached fallback for a
+covering nothing can be said about is a *statement*, where an unreached fallback COLOUR would
+have been an invention.
+
+### 11.3 THE DEALING RULE, AND WHICH HALF OF IT IS A LIBERTY
+
+`roof_substrate(archetype)` is one sentence — **an outbuilding takes boards, every other
+roofed building takes a shingle field** — and it splits cleanly into what is graded and what
+is claimed:
+
+| population | phases | authority |
+|---|---:|---|
+| `outbuilding` → `roof_board` | 130 | §2.2, on `outbuilding.py`'s own argument |
+| `frame_dwelling`, `frame_storefront`, `frame_tavern` → `shingle` | 182 | §2.2, *the ordinary covering of a framed building here* |
+| `log_dwelling`, `fort_structure` → `shingle` | **63** | **L266** — a claim, because §2.2 grades shingle for a FRAMED building and neither of these is one |
+
+L266's argument is that the two coverings split on **what a roof is for** and not on what the
+walls beneath it are made of: the board roof is argued as the *shed's*, and a cabin is a
+dwelling that carries a family through a winter. The liberty states which way it is wrong if
+it is wrong — toward a town that reads slightly better built than it was — and what would
+discharge it.
+
+### 11.4 WHAT DID NOT MOVE
+
+* **No float.** Every roof in the town comes out of the bake at the roughness it went in at,
+  and at the colour `roof_finish()` already dealt it. What moved is that each roof is now
+  drawn on a row that says what it is made of.
+* **The condition grading.** Fresh, weathered, darkened, patched: 218 records state one, and
+  a covering and a weathering are two different claims. `roof_finish()` keeps its half.
+* **No confidence.** A covering dealt by rule does not make a roof better attested.
+* **The renderer.** Nothing here is visible yet. The material slots are now NAMED for their
+  covering (`roof_shingle`, `roof_board`), and `docs/GLB-CONTRACT.md` says in terms that
+  material names are not pinned by that document and a renderer keyed on one would be reading
+  a convention nobody promised to keep — so the name is a label for a person reading a GLB,
+  and **T-1488** has to choose deliberately between proposing a pin and carrying the substrate
+  in the material's `extras`. It also has to answer the question that split T-1465 in two:
+  `build.py`'s `unwrap()` is `smart_project`, a per-object island pack in 0..1, and a tile
+  rate expressed in metres cannot be read off it.
+* **The brick half.** L264 committed a brick course on the same day L263 committed the
+  shingle exposure, and `brick` still carries `tile_m = None`. That is T-1450's other half and
+  it is still open; this parcel is the roof half and did not reach into it.
+
+### 11.5 ONE NAME CORRECTED IN PASSING
+
+`palisade.py` carried a material called `roof`. It draws the two **gate leaves** — the name
+came along with `M_ROOF`, the index the shared mesh helpers use for a second material. It is
+`gate` now, so that *"every material called roof states its covering"* is true of the town
+rather than true with one exception. This is the same defect §9.5 filed against
+`chimney_brick`: a slot named for the surface that happened to reach it first.

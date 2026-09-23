@@ -133,6 +133,49 @@ ROOT = Path(__file__).resolve().parent.parent
 STRUCTURES = ROOT / "data" / "structures"
 CROSSWALK = ROOT / "data" / "reconstruction" / "1835_family_archetype_crosswalk.json"
 BASELINE = Path(__file__).resolve().parent / "band_claims_baseline.json"
+TICKETS = ROOT / "tickets"
+
+# AN EXCEPTION IS A DEADLINE, NOT AN ALLOWANCE.
+#
+# This file's own note says the baseline records "only ever a repair", and that is still
+# the rule for a value somebody simply authored out of band. But one offender is not that:
+# `recon_1835_west_033` is a 20 x 32 ft D5 slot whose rectangle is INSIDE D5's band and is
+# exactly the form D5 authors — front gable, narrow urban plan. It reads out of band only
+# because no archetype can build that form: the crosswalk names `dwelling_frame` with the
+# `deep_plan_gable_front` variant as D5's canonical archetype and says in its own
+# evidence_note that "canonical support is required", and that archetype does not exist,
+# so the generator swaps width for depth to get an eaves-front house through the
+# placeholder. The owner ruled on 2026-09-21 that the compromise is kept and recorded
+# rather than the slot being held unbuilt.
+#
+# Recording it is only honest if it expires. An offender listed here with `waiting_on`
+# names the ticket whose work removes it, and this tool REFUSES the baseline once that
+# ticket is no longer open — so the compromise cannot outlive its excuse, and closing the
+# ticket without deleting the row turns the gate red rather than quietly blessing it.
+# A new offender may still not be banked without one: `--write-baseline` writes a
+# `waiting_on` only for keys named here, and every other new offender is refused exactly
+# as before.
+WAITING_ON = {
+    "recon_1835_west_033:footprint": {
+        "ticket": "T-1497",
+        "why": ("the recipe's 20 x 32 ft is inside D5's own 18x28-24x34 band; the value "
+                "reads out of band only because frame_dwelling is an EAVES-FRONT "
+                "placeholder that refuses a front-gable house (32/20 is past its 1.5 "
+                "ceiling), so generate_west_infill swaps width and depth to build it at "
+                "all. T-1497 builds the canonical dwelling_frame/deep_plan_gable_front "
+                "archetype the crosswalk asks for, or repairs the D5 row if the form is "
+                "not 1835. Either way this row leaves the file."),
+    },
+}
+
+
+def ticket_state(tid: str) -> str | None:
+    """The `state:` of a ticket file, or None when no file carries that id."""
+    for path in TICKETS.glob(f"{tid}-*.md"):
+        for line in path.read_text(encoding="utf-8").split("\n"):
+            if line.startswith("state:"):
+                return line.split(":", 1)[1].strip()
+    return None
 
 FT = 0.3048
 # Five thousandths of a foot — 1.5 mm. Every dimension in data/ is a metre value
@@ -468,12 +511,17 @@ def main() -> int:
                       "any offender that is not here and on any listed offender whose "
                       "value has moved. K25(b) empties it and deletes it. Regenerate "
                       "with tools/measure_band_claims.py --write-baseline, and only ever "
-                      "to record a repair."),
+                      "to record a repair — or an offender carrying `waiting_on`, which "
+                      "is a DEADLINE and not an allowance: the tool refuses this file "
+                      "once the ticket it names is no longer open, so a recorded "
+                      "compromise cannot outlive its excuse."),
             "measured": "2026-08-15",
             "counts": collections.Counter(f["field"] for f in findings),
-            "offenders": {key(f): {"family": f["family"], "value": f["value"],
-                                   "band": f["band"], "detail": f["detail"],
-                                   "marginal": f["marginal"]}
+            "offenders": {key(f): ({"family": f["family"], "value": f["value"],
+                                    "band": f["band"], "detail": f["detail"],
+                                    "marginal": f["marginal"]}
+                                   | ({"waiting_on": WAITING_ON[key(f)]}
+                                      if key(f) in WAITING_ON else {}))
                           for f in findings},
         }, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         print(f"   wrote {BASELINE.relative_to(ROOT)}: {len(findings)} offender(s)")
@@ -548,7 +596,26 @@ def main() -> int:
               f"Re-run --write-baseline in the same commit as the repair:")
         for k in fixed:
             print(f"     {k}")
-    if added or moved or fixed:
+    # A recorded compromise expires with the ticket it names. Checked against the
+    # committed baseline rather than against WAITING_ON, so deleting the map entry
+    # without deleting the row does not silently disarm it either.
+    expired = []
+    for k, row in sorted(committed.items()):
+        w = row.get("waiting_on")
+        if not w:
+            continue
+        state = ticket_state(w["ticket"])
+        if state is None:
+            expired.append((k, w["ticket"], "no ticket file carries that id"))
+        elif state != "open":
+            expired.append((k, w["ticket"], f"state is '{state}', not open"))
+    if expired:
+        print(f"\n   EXPIRED: {len(expired)} recorded compromise(s) outlived the ticket "
+              f"that was to remove them. The row goes when the ticket does.")
+        for k, tid, why in expired:
+            print(f"     {k}: waiting on {tid} — {why}")
+
+    if added or moved or fixed or expired:
         return 1
     print(f"\n   ratchet holds: {len(findings)} offender(s), exactly the committed census. "
           f"This is not a pass mark — read it. K25(b) is the repair, and it needs a bake.")

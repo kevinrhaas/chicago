@@ -115,6 +115,9 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
 from resident_mint_carry import carry_resident_mint  # noqa: E402  (T-1137)
+from carry_stage_blocks import carry  # noqa: E402  (T-1169; a mint owns its record, a reconstruction stage owns its blocks)
+from supersede_arrival import supersede  # noqa: E402  (T-1350; a ruled reading supersedes a derived bound and cannot be reverted)
+from refuse_reconstructed_grade import refuse_texts  # noqa: E402  (T-1144; reconstruction begins at T-1167, never in a mint)
 from identity_master_guard import (  # noqa: E402  (T-0843; refusal 9)
     IdentityGuard, blind_person_ids, refusal as guard_refusal,
 )
@@ -740,7 +743,14 @@ def build(preload: dict | None = None):
         if doc["id"] in seen:
             raise SystemExit(f"two candidates mint the same household id {doc['id']}")
         seen.add(doc["id"])
-        files[HOUSEHOLDS / f"{doc['id']}.json"] = dumps(doc, 1)
+        # T-1169. The record is this pass's; the blocks a reconstruction stage
+        # marked are that stage's, and are carried through rather than derived
+        # away. See tools/carry_stage_blocks.py for why both passes are right.
+        # T-1350. And a READING that supersedes the bound this pass derives is
+        # spent here too, for the same reason and against the opposite
+        # failure: a hand-written arrival used to survive exactly until the
+        # next --build. See tools/supersede_arrival.py.
+        files[HOUSEHOLDS / f"{doc['id']}.json"] = dumps(supersede(carry(doc)), 1)
 
     # ONE OWNER FOR THE MANIFEST (T-0715). This pass used to mint its own rows and
     # keep every other row verbatim, so a household no pass owned could be regraded
@@ -751,6 +761,12 @@ def build(preload: dict | None = None):
                   if path != INDEX})
     rebuild(index, final)
     files[INDEX] = dumps(index, 1)
+    # T-1144 acceptance 8. Every mode leaves through here, so `--check` and
+    # `--report` are refused on the same rule the write is: a research mint may
+    # emit `attested` or `inferred` and nothing else. The `reconstructed` grade
+    # belongs to the reconstruction programme (T-1167), which has its own writer
+    # and does not call this.
+    refuse_texts(files, "mint_documented_residents.py")
     return files, accepted, refusals, mine_paths
 
 

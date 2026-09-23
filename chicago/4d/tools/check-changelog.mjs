@@ -5,7 +5,7 @@
  * The file is authored at `renderers/web/js/changelog.js` — inside the app,
  * because the app displays it in its What's-new tab and a walkthrough cannot
  * import from the publish mirror. `tools/publish.sh` copies it to
- * `site/4d/js/changelog.js`, which is the URL Manager and the
+ * `site/chicago/4d/js/changelog.js`, which is the URL Manager and the
  * polecat.live launcher fetch.
  *
  * They do not EXECUTE it — they read it with a bracket-aware walker that

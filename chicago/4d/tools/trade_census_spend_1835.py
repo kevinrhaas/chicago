@@ -79,7 +79,13 @@ def build(register: dict, crosswalk: dict, rulings: dict, residents: dict,
         if name not in by_class:
             raise Fault(f"a class the T-1006 crosswalk does not hold: {name}")
 
-    businesses = {b["id"] for b in register["businesses"]}
+    # THE REGISTER IS NO LONGER THE WHOLE LAYER (T-1404). The crosswalk counts the
+    # authored records beside the printed ones, so a ruled class's membership can name a
+    # house that was never advertised — the offices T-1404 raises for the physicians this
+    # file already names and could give no establishment to. A ruling may point at either.
+    businesses = ({b["id"] for b in register["businesses"]}
+                  | {r["business_id"] for c in crosswalk["classes"]
+                     for r in [{"business_id": b} for b in c.get("business_ids", [])]})
     occ_map = _occupation_map(rulings)
 
     # every practitioner must resolve, in whichever layer claims him

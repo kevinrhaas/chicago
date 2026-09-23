@@ -1,0 +1,140 @@
+{
+ "schema": "chicago4d.stated_family_rulings.v1",
+ "_doc": "AUTHORED. One ruling per statement derived by tools/spend_stated_families.py, written by somebody who has read the source it quotes. The READING is derived and moves when the cards move; these verdicts do not, which is why they live apart from it - the same split kin_survey.json and kin_rulings.json keep. `--check` refuses while any statement stands unanswered and while any ruling stands without a statement.",
+ "ticket": "T-1170",
+ "ruled_by": "tools/spend_stated_families.py --check",
+ "what_a_verdict_means": {
+  "write": "The source names this person as the relative of a head this layer carries, and nothing dates them out of the scene. Written onto the head's card, graded inferred, carrying the source, the relation and what the source does NOT say.",
+  "already_held": "The town holds this person already. Nothing to write; a tie between two standing households is kin_rulings.json's ruling to make.",
+  "later_only": "The source dates the relationship after 1835-07-01. A wife of 20 August 1835 is not a wife on 1 July and is not silently promoted.",
+  "not_present": "Named, and what the sources say puts them outside this household on the scene date.",
+  "no_seat": "Named and real, and this layer holds no household that can carry them - the relationship vocabulary states a place inside ONE household and the only card the source reaches is somebody else's.",
+  "insufficient_identity": "The reading does not reach a person: a fragment, an initial, a people rather than a name, an unnamed relative, or a head whose own identity this layer declines to assert."
+ },
+ "seating": {
+  "state": "open",
+  "ticket": "T-1313 — the seat T-1170's reading left held; see tickets/QUEUE.md",
+  "why": "OPENED by T-1313, which is the ticket the held note named. A ruling `write` below now stands on its household's card, and the forty-odd committed artifacts that each hold their own copy of the town's counts were re-derived in the same commit — every mint, the directory and census crosswalks, the ladder passes, the population profile, the reconstruction order book, the tier tables and the closing audit. That sweep, not the reading, is what made seating a ticket of its own: measured on T-1312's branch, seating three people took `tools/check.sh` from 2 failing steps to 42. Nothing about a verdict changed to open it. The letter-list finding stands as it was written: the mint's ruling of 2026-08-30 permits exactly one person on a letter-list card, which is why Catherine Daugherty Hobson is `no_seat` and not `write`, and it is still a run's job to rule on how such a head may acquire a family.",
+  "held_until": "The rulings below say who belongs on a card. Seating them is a bigger act than reading them: the resident layer's counts are re-derived by some forty committed artifacts — every mint, the directory and census crosswalks, the population profile, the reconstruction order book, the closing audit — and each holds its own copy to a `--check`. Measured on this branch: seating three people turned `tools/check.sh` from 2 failing steps into 42. That is a cross-cutting change with its own demonstration, and a reading pass should not make it on the way past. It also found a rule while trying: the letter-list mint's ruling of 2026-08-30 permits exactly one person on a letter-list card, which is why Catherine Daugherty Hobson is `no_seat` and not `write`. The reading and the rulings land first; the seating ticket flips this to `open`, runs `--build`, and re-derives the forty."
+ },
+ "rulings": {
+  "marriage:hh_harmon_elijah_d:welthyan_loomis": {
+   "verdict": "write",
+   "why": "Andreas names her, names the day and names the marriage: 'married Welthyan Loomis 30 October 1808'. She is the wife of a head this layer carries, which is exactly the person the Josette LaFramboise Beaubien record was written to record, and she is written on the same rule and graded the same way. Nothing places her at Chicago on 1 July 1835 and the note says so; the household's own presence field already stands at 'uncertain' for the doctor himself and she inherits that doubt rather than resolving it.",
+   "write": {
+    "id": "harmon_welthyan",
+    "name": "Welthyan Loomis Harmon",
+    "relationship": "wife",
+    "sex": "female",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "NAMED AND DATED IN THE SOURCE - Andreas's biography of Dr Elijah Dewey Harmon gives the marriage as 'married Welthyan Loomis 30 October 1808', twenty-seven years before the scene date. WHAT THE SOURCE DOES NOT SAY: it does not say she came west with him, and nothing in this project places her at Chicago on 1 July 1835. She is written because a named wife of a named head is the person this layer exists to record, and the presence on the day is the reconstruction, not the marriage. The household's own present_on_scene_date stands at 'uncertain' for the doctor - Andreas has him leaving for the lead mines - and she inherits that doubt exactly. No age, no occupation and no arrival is claimed for her."
+   }
+  },
+  "kin:hh_harmon_elijah_d__daughter__mrs_a_g_burley": {
+   "verdict": "write",
+   "why": "The card's own prose names her: 'his daughter Mrs A. G. Burley supplied Andreas with these particulars fifty years later'. A daughter of a head, named by the source in the married style the period used, and the reason the biography exists at all. Her own forename is not printed, so she is written under the name the source gives her and the note says which part of it is hers in 1835 and which is her husband's later.",
+   "write": {
+    "id": "harmon_daughter_burley",
+    "name": "The Harmon daughter later known as Mrs A. G. Burley",
+    "relationship": "daughter",
+    "sex": "female",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "NAMED BY THE SOURCE AS A RELATIVE, NOT AS A RESIDENT. Andreas's particulars of Dr Elijah Dewey Harmon come from 'his daughter Mrs A. G. Burley', writing or speaking about fifty years after the scene date. WHAT THIS RECORD IS: a daughter the source names, seated in her father's household because that is the household this layer holds for her. WHAT IT IS NOT: her name in 1835. 'Mrs A. G. Burley' is a married style built on a husband's initials and the marriage is later than the scene; her own forename is printed nowhere this project has read. No birth year is claimed, so no age follows: the marriage of 30 October 1808 bounds her birth after it and nothing bounds it before 1835. The household's presence stands at 'uncertain' and she inherits it."
+   }
+  },
+  "marriage:hh_hobson_jesse:catherine_daugherty": {
+   "verdict": "no_seat",
+   "why": "THE ONE MARRIAGE IN THIS READING DATED INSIDE THE SCENE YEAR AND BEFORE THE SCENE DATE — 'married Catherine Daugherty at Naperville on April 6, 1835', three months before 1 July, the party named and the day given — AND THE LAYER MAY NOT SEAT HER. `hh_hobson_jesse` is a letter-list card, and the owner's ruling of 2026-08-30 that `tools/mint_letter_list_residents.py --gate` enforces says what such a card may hold: 'a letter list names one person and this pass may not invent a household around them'. A wife seated here would be a second person on a card whose whole evidence is one name on one post-office return, and the mint would refuse the cohort. The finding is recorded rather than forced: Catherine Daugherty Hobson is a named wife, dated before the scene, waiting on a household this layer does not yet hold for her — the same seat problem as Dr Kimberly's wife, from the opposite direction. A run that promotes Jesse Hobson off the letter list, or that rules on how a letter-list head may acquire a family, is the run that seats her."
+  },
+  "kin:hh_hamilton_richard_j__daughter__mrs_ellen_hamilton_keenon": {
+   "verdict": "write",
+   "why": "The card already argues the family and stops short of recording it: 'Hamilton had a family at Chicago - his daughter Mrs Ellen Hamilton Keenon has her own biographical entry in Andreas - but no source reached counts the party that travelled with him in 1831.' The count is what is missing, not the daughter. She is named, she is a daughter of a head whose household is present on the scene date, and Andreas gives her an entry of her own. Written under her own forename; 'Keenon' is a husband's name from later and is not asserted for 1835.",
+   "write": {
+    "id": "hamilton_ellen",
+    "name": "Ellen Hamilton",
+    "relationship": "daughter",
+    "sex": "female",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "NAMED BY THE SOURCE AS THE DAUGHTER OF THIS HEAD - Andreas gives her a biographical entry of her own, under the married style 'Mrs Ellen Hamilton Keenon', and this household's card has cited her since it was written as the evidence that Richard Jones Hamilton had a family at Chicago. She is written here under the forename the source prints and her father's surname, because the married surname belongs to a marriage later than the scene date and this record makes no claim about it. WHAT IS NOT CLAIMED: no birth year, so no age; the sources this project has read do not date her birth, and the household's party on arrival in 1831 is still uncounted - that count is the reconstruction half of T-1170 and is not this pass's."
+   }
+  },
+  "marriage:hh_beaubien_jean_baptiste:josette_laframboise": {
+   "verdict": "already_held",
+   "why": "The town holds her: `beaubien_josette`, 'Josette LaFramboise Beaubien', already seated as wife in this same household and already carrying this marriage in her note. The reading is the prose that record was written from."
+  },
+  "marriage:hh_egan_william_b:emeline_mahbutt": {
+   "verdict": "already_held",
+   "why": "The town holds her: `egan_emeline`, 'Emeline Egan', seated as wife in this household and graded attested. The reading is the Andreas sentence her record cites."
+  },
+  "marriage:hh_robinson_alexander:catherine_chevalier": {
+   "verdict": "already_held",
+   "why": "The town holds her: `robinson_catherine`, 'Catherine Chevalier Robinson', seated as wife in this household and documented in her own right rather than as 'Mrs'."
+  },
+  "kin:hh_wessencraft_charles__daughter__charlotte": {
+   "verdict": "already_held",
+   "why": "The town holds her: `hh_wesencraft_charlotte`. The Democrat of 3 December 1833 prints the marriage of 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo', and the card that sentence minted stands. A tie between two standing households is a kin row, which is kin_rulings.json's ruling to make and not this pass's."
+  },
+  "marriage:hh_pruyne_kimberly:rebecca": {
+   "verdict": "later_only",
+   "why": "Dated seven weeks AFTER the scene date: Andreas's footnote has Peter Pruyne marrying 'Rebecca, only daughter of Silas W. Sherman' on 20 August 1835. The card already says what follows - 'on July 1 Rebecca Sherman is not silently added to this business household' - and this pass does not add her either."
+  },
+  "marriage:hh_pruyne_kimberly:rebecca_sherman": {
+   "verdict": "later_only",
+   "why": "The same marriage of 20 August 1835, read a second time from the merge ruling's own summary of Pruyne's life. One marriage, two printings, one verdict."
+  },
+  "marriage:hh_beaubien_jean_baptiste:mah_naw_bun_no_quah": {
+   "verdict": "not_present",
+   "why": "The source that names her supersedes her in the same sentence: 'he married first Mah-naw-bun-no-quah, an Ottawa woman, the mother of his sons Charles Henry and Madore; and in 1812 he married Josette LaFramboise'. The second wife is the wife this household carries on the scene date and she is already seated in it. Nothing this project has read places Mah-naw-bun-no-quah in the household in 1835 and this pass will not seat an Ottawa woman on a 'first wife' clause alone - a reconstruction touching a Native person is confined by the programme to the stage that carries the Indigenous-history review (T-1177), and a reading this thin is not a reason to reach past it. Her sons Charles Henry and Madore both stand on their own cards, so what the sentence documents about this family is in the layer."
+  },
+  "marriage:hh_pruyne_kimberly:marie_theresa_ellis_may": {
+   "verdict": "no_seat",
+   "why": "NAMED, REAL, AND THIS LAYER HAS NOWHERE TO PUT HER. 'married Marie Theresa Ellis May 16, 1829' belongs to Dr Edmund Stoughton Kimberly, who is not the head of this household: he is the `partner` inside `hh_pruyne_kimberly`, which is the drug-store partnership's card and whose head is Peter Pruyne. `relationship` states a person's place inside ONE household, so writing her here as 'wife' would read as Pruyne's wife, and there is no Kimberly dwelling in this layer to hold her instead. The finding is recorded rather than forced: a named wife who needs a household the structure and lodging work has not built yet. (The reading is also one token long - 'Marie Theresa Ellis May 16, 1829' runs the name into the date - which is a second reason not to write it as printed.)"
+  },
+  "marriage:hh_paddock_jane:jane_paddock": {
+   "verdict": "insufficient_identity",
+   "why": "The card refuses this bridge in the same breath as it prints it: 'Cook County history says Samuel Mahaffay, a Palos settler of 1834, married Jane Paddock in 1835. Palos geography and absence of a direct Chicago bridge prevent asserting that this is the May 1835 postal person.' The head of this household is Jane Paddock herself, and the husband the sentence names is a man in another settlement whom the card declines to attach to her."
+  },
+  "kin:hh_beaubien_jean_baptiste__daughter__francois_laframboise": {
+   "verdict": "insufficient_identity",
+   "why": "A misreading of a sentence the layer has already spent: the prose says Josette LaFramboise was the 'daughter of Francois LaFramboise', and the pattern took Francois as the daughter of this household's head. Nobody is named here who is not already recorded."
+  },
+  "kin:hh_robinson_alexander__daughter__francois": {
+   "verdict": "insufficient_identity",
+   "why": "The same shape: 'Catherine Chevalier, daughter of the chief Francois Chevalier' read as a daughter named Francois. Catherine is already seated in this household as wife."
+  },
+  "kin:hh_caldwell_billy__mother__potawatomi": {
+   "verdict": "insufficient_identity",
+   "why": "'Potawatomi' is a people, not a person. That Billy Caldwell's mother was Potawatomi is on the card and is not in doubt; what the reading does not give is a name, and this pass writes named people only. NOT A REFUSAL OF THE FACT - a woman the sources describe and do not name is the reconstruction half's question, under the stage that carries the Indigenous-history review (T-1177)."
+  },
+  "kin:hh_harmon_m_d__father__i_n": {
+   "verdict": "insufficient_identity",
+   "why": "The death notice reads 'father of I. N. and E. R' - initials, and two of them. An initial fires nothing in this project, on the ruling the sex-and-age pass states for the same reason: it identifies nobody."
+  },
+  "kin:hh_mclintock_thomas__son__thomas_franklin_mcclintock": {
+   "verdict": "insufficient_identity",
+   "why": "The head's own identity is not asserted. The card's research says so in terms: 'two Thomas McClintocks are simultaneously available and the postal item cannot safely identify either one', with asserted_identity false. A son written onto a head this layer will not identify would be a family attached to a name rather than to a man."
+  },
+  "kin:hh_pruyne_kimberly__daughter__silas_w_sherman_that": {
+   "verdict": "insufficient_identity",
+   "why": "A sentence read as a name - 'Silas W. Sherman. That' runs into the next sentence. The fact underneath is the marriage of 20 August 1835, ruled `later_only` above."
+  },
+  "kin:hh_taylor_c__wife__none_of_the_five": {
+   "verdict": "insufficient_identity",
+   "why": "The reading has caught this dataset's own negative finding and read it as a name: the card argues that Mrs C. Taylor is 'the wife of NONE OF THE FIVE HEADS' it holds. There is no person here to write; there is a husband the layer has looked for and not found."
+  },
+  "kin:hh_trimble_edward__daughter__payne_exact": {
+   "verdict": "insufficient_identity",
+   "why": "The source itself stops short of a name: Kane County history 'notes his marriage to a daughter of Payne. Exact name and regional chronology are useful, but the Fox River claim is competing geography and no Chicago postal bridge is present.' Unnamed daughter, unasserted identity, competing geography."
+  },
+  "kin:st_cyr_death_01_2__parent_of__st_cyr_death_01_1": {
+   "verdict": "insufficient_identity",
+   "why": "The burial entry names the parent and COUNTS the child: 'one of the daughters of M. Colewell'. A member a source counts and does not name is the reconstruction half of T-1170 and is not this pass's to write."
+  }
+ }
+}

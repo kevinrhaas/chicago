@@ -41,6 +41,12 @@ from common import materials  # noqa: E402
 from common.mesh import MeshBuilder, ROOF_RGBA, simple_material  # noqa: E402
 from archetypes.fort_structure_params import FortStructureParams  # noqa: E402
 
+#: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
+#: `materials.roof_substrate` holds the argument for why it is this one and
+#: which half of it is graded by materials.md §2.2 and which half is L266.
+_ROOF = materials.roof_substrate("fort_structure")
+
+
 M_WALL, M_ROOF, M_DARK, M_TRIM = 0, 1, 2, 3
 #: Appended only where a record counts a stack, so the seven chimneyless masters
 #: in this archetype keep the four materials they have always had. T-0137.
@@ -121,9 +127,13 @@ def build(params: FortStructureParams, name: str):
         substrate, materials.wall_finish(paint=params.paint))
     mats = [
         simple_material(params.construction, wall_rgba, roughness=wall_rough),
-        # The roof takes the town's default tone: no fort record deals a weathering
-        # condition, and none states a covering either (materials.md finding 2).
-        simple_material("roof", ROOF_RGBA, roughness=0.9),
+        # The roof takes the town's default TONE: no fort record deals a weathering
+        # condition. Its COVERING is now dealt — a shingle field, on the same L266 the
+        # log cabins take, because §2.2 grades shingle for a framed building and the
+        # garrison's eight kinds are not all framed. `materials.roof_substrate` holds
+        # the argument; the 0.9 is `shingle`'s and is what this always shipped.
+        simple_material(materials.roof_material_name(_ROOF), ROOF_RGBA,
+                        roughness=_ROOF.roughness),
         # ONE DARK (T-0126) — the sheet's `DARK` row. Loopholes, the root house's
         # plank door and every opening the complex cuts. Two uses on this archetype
         # are not openings and the row's note names them: the sun-dial's brass plate

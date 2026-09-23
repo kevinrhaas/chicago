@@ -1,0 +1,144 @@
+{
+  "id": "biz_a_chicago_stove_and_hollow_ware_dealer_august_1835",
+  "register_id": "business_a_chicago_stove_and_hollow_ware_dealer_august_1835",
+  "name": "a Chicago stove and hollow ware dealer, August 1835",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "stoves, hollow ware and castings",
+  "occupation": "stove_dealer",
+  "goods": [
+    "Castings",
+    "Coal Stoves",
+    "Cooking Stoves",
+    "Hollow Ware"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "William Sheldon",
+      "person_id": "rc_sheldon_william",
+      "role": "journeyman",
+      "occupation": "tinsmith",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 0 of this role in a hardware or stove store at the typical band and 1 at the high end, on period_convention. A stove dealer who fits and repairs keeps a tinner. Analogue: the town's own tin and copper manufactories, which the census counts separately. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#hardware_or_stove_store.tinsmith; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_sheldon_william:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "hardware_or_stove_store",
+    "reads_as": "a hardware or stove store",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "clerk",
+        "occupation": "clerk",
+        "household_relationship": "clerk",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "directory_1839",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      },
+      {
+        "role": "journeyman",
+        "occupation": "tinsmith",
+        "household_relationship": "journeyman",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "period_convention"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 1,
+      "seats_against_the_band": 0,
+      "short_by": 1,
+      "by_role": [
+        {
+          "occupation": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 1
+        },
+        {
+          "occupation": "tinsmith",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band. This house carries 1, 0 of them in a role that still wanted one, so it stands 1 short — short rather than quietly filled, and short in the roles named below rather than in the total.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-08-08",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-08-08",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-08-08, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-08-08",
+    "last_issue": "1835-08-08",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_08_08#c002"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": true
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

@@ -122,13 +122,13 @@ The map in `tools/smoke_budget.mjs` can only ever ADD parts:
 
 **The limitation this page used to state is GONE (T-0938), and it is worth
 recording what it was.** `tools/publish.sh` restamps the build id into
-`site/4d/walk/index.html` on every publish, and that file is the page
+`site/chicago/4d/walk/index.html` on every publish, and that file is the page
 itself — every part clicks its markup — so under the old map a published change
 was always told "the whole gate", however small the real edit. Run #1464
 (2026-09-03) ran seven legs for two census page files and lost its budget to it.
 The mirror is untracked and generated now, so it can never appear in a
 `git diff --name-only` and `--for-diff` prices a PR on the source it changed,
-which is the only thing a PR changes. The six `site/4d/` rows are gone
+which is the only thing a PR changes. The six `site/chicago/4d/` rows are gone
 from the map with it; the self-test asserts the mirror is still untracked, and
 fails — asking for the rows back — if that ever stops being true.
 

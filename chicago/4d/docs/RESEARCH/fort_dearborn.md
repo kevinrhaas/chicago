@@ -44,6 +44,15 @@ Greene, 5th Infantry, 18 December 1833 – 16 September 1835**, which lands exac
 Andreas's two dates. That is the reading the records carry, graded `inferred`, with both
 sources cited and the unfootnoted one named as such.
 
+**Who else was at it is now ruled on, name by name.** The resident layer holds fourteen
+cards that carry a rank, a military role, or both.
+`docs/RESEARCH/fort_dearborn_garrison_1835.md` (T-1348) tests each against three clauses —
+the Army and not the county militia, at the post and not elsewhere in the town, across the
+day and not near it — and admits **one**: Lieut. James Allen, printed at Chicago seventeen
+days after the scene date. Eleven are refused with the clause that refused them.
+`fort_dearborn_officers_quarters` names Maxwell and Allen instead of "subordinate officers
+of the garrison", at the same `inferred` grade it always carried.
+
 **How many men is not attested.** Andreas gives two companies of U.S. infantry in 1833
 and nothing later. No strength figure for mid-1835 was found, so none is recorded. The
 often-quoted "about fifty in number, many of whom were invalids" is the **first** fort —

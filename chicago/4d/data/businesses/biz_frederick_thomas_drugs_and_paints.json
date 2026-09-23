@@ -1,0 +1,119 @@
+{
+  "id": "biz_frederick_thomas_drugs_and_paints",
+  "register_id": "business_frederick_thomas_drugs_and_paints",
+  "name": "Frederick Thomas, drugs and paints",
+  "provenance": "compiled_from_register",
+  "type": [
+    "druggist"
+  ],
+  "trade": "drugs, paints, chemicals, perfumery and dye stuffs",
+  "occupation": "druggist",
+  "goods": [
+    "Carminative Balm",
+    "Chemicals",
+    "Dye Stuffs",
+    "Epsom Salts",
+    "Ink",
+    "Lee's Pills",
+    "Letter Paper",
+    "Oils",
+    "Paints",
+    "Patent Medicines",
+    "Perfumery",
+    "Preserving Cordial",
+    "Seidlitz Powders",
+    "Tooth Powders",
+    "Turlington's Balsam"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Frederick Thomas",
+      "person_id": "thomas_frederick",
+      "register_person_id": "person_frederick_thomas",
+      "role": "proprietor",
+      "from": "1835-06-08",
+      "to": "1835-08-15",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card thomas_frederick (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c016",
+        "chicago_american_1835_06_13#c018",
+        "chicago_american_1835_06_20#c009",
+        "chicago_american_1835_06_27#c011",
+        "chicago_american_1835_07_04#c005",
+        "chicago_american_1835_08_15#c003"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "frederick_thomas_shop",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-06-08",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure frederick_thomas_shop on its occupants. frederick_thomas_shop already stands and its occupants carries thomas — 'Frederick Thomas; druggist and apothecary; late of New York'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-08",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-08, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-08",
+    "last_issue": "1835-08-15",
+    "copy_dates": [
+      "1835-06-02",
+      "1835-06-24"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: Frederick Thomas (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "thomas_frederick",
+        "name": "Frederick Thomas",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_08#c016",
+    "chicago_american_1835_06_13#c018",
+    "chicago_american_1835_06_20#c009",
+    "chicago_american_1835_06_27#c011",
+    "chicago_american_1835_07_04#c005",
+    "chicago_american_1835_08_15#c003"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

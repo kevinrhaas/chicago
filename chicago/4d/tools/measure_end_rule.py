@@ -84,12 +84,14 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 from block_faces import face_frame, project  # noqa: E402
+from placement_policy_1835 import constant  # noqa: E402
 from plat_occupancy import world_polygon  # noqa: E402
 
 # The mean width of the committed party-line units, from the core density standard's own
 # derivation in tools/reconcile_665.py: eighteen units, 5.04 m to 6.75 m, mean 6.072 m.
-# It is the step the end rule has between two neighbours inside a run.
-PARTY_LINE_UNIT_M = 6.072
+# It is the step the end rule has between two neighbours inside a run. Held by the
+# placement policy since T-1195, with the multi-building-lot rule it sizes.
+PARTY_LINE_UNIT_M = constant("party_line_unit_m")
 
 BRIDGE_RECORD = "dearborn_street_drawbridge"
 BRIDGE_STREET = "dearborn"

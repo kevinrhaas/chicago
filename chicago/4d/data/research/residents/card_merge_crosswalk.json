@@ -1143,7 +1143,10 @@
    "cluster": "vanderbogart",
    "record_ids": [],
    "domains": [],
-   "sources": [],
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_1843_old_settler_death_notices"
+   ],
    "evidence": "T-0842: 'vanderbogart_h' and 'vanderbogart_henry' are one person under rule C7; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'vanderbogart'."
   },
   {

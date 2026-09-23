@@ -13,14 +13,14 @@
   "the_1840_census_households": "The densest kinship the corpus holds, and its crosswalk is 235 named heads stale on dev (T-0714) and derived against 849 residents where the town now holds 1,404 (T-0698). Kin read off it would land on the wrong people. Deliberately out of this pass."
  },
  "counts": {
-  "statements_read": 263,
-  "both_ends_in_town": 30,
+  "statements_read": 265,
+  "both_ends_in_town": 45,
   "landable": 17,
   "same_household": 3,
-  "ambiguous": 1,
-  "identity_not_asserted": 9,
-  "other_not_in_town": 12,
-  "subject_unresolved": 221,
+  "ambiguous": 2,
+  "identity_not_asserted": 23,
+  "other_not_in_town": 13,
+  "subject_unresolved": 207,
   "relation_undeclared": 0
  },
  "proposals": [
@@ -103,7 +103,7 @@
    "id": "hh_beaubien_mark__brother__jean_baptiste",
    "source": "card_prose",
    "locator": "hh_beaubien_mark",
-   "as_read": "ry\", \"confidence\": \"inferred\", \"sources\": [\"andreas_1884_v1\"], \"note\": \"Andreas's life of his brother Jean Baptiste gives the family's trading history at Milwaukee from about ",
+   "as_read": ": [\"andreas_1884_v1\", \"moses_kirkland_history_of_chicago_v1\"], \"note\": \"Andreas's life of his brother Jean Baptiste gives the family's trading history at Milwaukee from about ",
    "subject_as_read": "Mark Beaubien",
    "relation": "brother",
    "other_as_read": "Jean Baptiste",
@@ -302,6 +302,39 @@
     }
    ],
    "outcome": "landable"
+  },
+  {
+   "id": "hh_wright_john__son__john_s_wright",
+   "source": "card_prose",
+   "locator": "hh_wright_john",
+   "as_read": " this card's own arrival note says \\\"Both men, same year, stated twice\\\", John Wright and his son John S. Wright arriving in 1832 as one party, so where they came from is o",
+   "subject_as_read": "John Wright",
+   "relation": "son",
+   "other_as_read": "John S. Wright",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": false,
+   "subject": [
+    {
+     "household": "hh_wright_john",
+     "person": "wright_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_wright_j",
+     "person": "wright_j"
+    },
+    {
+     "household": "hh_wright_john",
+     "person": "wright_john"
+    },
+    {
+     "household": "hh_wright_john",
+     "person": "wright_john_s"
+    }
+   ],
+   "outcome": "ambiguous"
   },
   {
    "id": "read_harmon_charles_l__son__harmon_elijah_d",
@@ -566,6 +599,146 @@
    "outcome": "landable"
   },
   {
+   "id": "st_cyr_marriage_012_1__husband_of__st_cyr_marriage_012_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_012_1",
+   "as_read": "Thomas Carroll and Rosanna Kenny, married 1836-05-20",
+   "subject_as_read": "Thomas Carroll",
+   "relation": "husband",
+   "other_as_read": "Rosanna Kenny",
+   "subject_record": "st_cyr_marriage_012_1",
+   "other_record": "st_cyr_marriage_012_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_018_1__husband_of__st_cyr_marriage_018_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_018_1",
+   "as_read": "Patrick Kelly and Mary Flaherty, married 1836-09-30",
+   "subject_as_read": "Patrick Kelly",
+   "relation": "husband",
+   "other_as_read": "Mary Flaherty",
+   "subject_record": "st_cyr_marriage_018_1",
+   "other_record": "st_cyr_marriage_018_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_036_1__husband_of__st_cyr_marriage_036_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_036_1",
+   "as_read": "Daniel O'Brien and Bridget Ryan, married 1837-06-15",
+   "subject_as_read": "Daniel O'Brien",
+   "relation": "husband",
+   "other_as_read": "Bridget Ryan",
+   "subject_record": "st_cyr_marriage_036_1",
+   "other_record": "st_cyr_marriage_036_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_040_1__husband_of__st_cyr_marriage_040_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_040_1",
+   "as_read": "John Flynn and Anne Lynch, married 1837-07-22",
+   "subject_as_read": "John Flynn",
+   "relation": "husband",
+   "other_as_read": "Anne Lynch",
+   "subject_record": "st_cyr_marriage_040_1",
+   "other_record": "st_cyr_marriage_040_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_049_1__husband_of__st_cyr_marriage_049_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_049_1",
+   "as_read": "Martin Costigan and Bridget Flynn, married 1837-09-13",
+   "subject_as_read": "Martin Costigan",
+   "relation": "husband",
+   "other_as_read": "Bridget Flynn",
+   "subject_record": "st_cyr_marriage_049_1",
+   "other_record": "st_cyr_marriage_049_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_056_1__husband_of__st_cyr_marriage_056_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_056_1",
+   "as_read": "John Dowdle and Mary Carroll, married 1837-10-18",
+   "subject_as_read": "John Dowdle",
+   "relation": "husband",
+   "other_as_read": "Mary Carroll",
+   "subject_record": "st_cyr_marriage_056_1",
+   "other_record": "st_cyr_marriage_056_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_060_1__husband_of__st_cyr_marriage_060_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_060_1",
+   "as_read": "Patrick Walsh and Elizabeth Corcoran, married 1837-11-05",
+   "subject_as_read": "Patrick Walsh",
+   "relation": "husband",
+   "other_as_read": "Elizabeth Corcoran",
+   "subject_record": "st_cyr_marriage_060_1",
+   "other_record": "st_cyr_marriage_060_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_073_1__husband_of__st_cyr_marriage_073_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_073_1",
+   "as_read": "Peter Tyler and Mary Murphy, married 1838-02-01",
+   "subject_as_read": "Peter Tyler",
+   "relation": "husband",
+   "other_as_read": "Mary Murphy",
+   "subject_record": "st_cyr_marriage_073_1",
+   "other_record": "st_cyr_marriage_073_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_075_1__husband_of__st_cyr_marriage_075_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_075_1",
+   "as_read": "Daniel Ryan and Eleanor Duggan, married 1837-02-13",
+   "subject_as_read": "Daniel Ryan",
+   "relation": "husband",
+   "other_as_read": "Eleanor Duggan",
+   "subject_record": "st_cyr_marriage_075_1",
+   "other_record": "st_cyr_marriage_075_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_081_1__husband_of__st_cyr_marriage_081_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_081_1",
+   "as_read": "Timothy Murphy and Mary Ann Lynch, married 1838-05-20",
+   "subject_as_read": "Timothy Murphy",
+   "relation": "husband",
+   "other_as_read": "Mary Ann Lynch",
+   "subject_record": "st_cyr_marriage_081_1",
+   "other_record": "st_cyr_marriage_081_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
    "id": "st_cyr_marriage_093_1__husband_of__st_cyr_marriage_093_2",
    "source": "st_cyr_register_ichr_v4",
    "locator": "st_cyr_marriage_093_1",
@@ -575,6 +748,20 @@
    "other_as_read": "Catherine Lever",
    "subject_record": "st_cyr_marriage_093_1",
    "other_record": "st_cyr_marriage_093_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_127_1__husband_of__st_cyr_marriage_127_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_127_1",
+   "as_read": "James Kelly and Jane Gallagher, married 1839-09-24",
+   "subject_as_read": "James Kelly",
+   "relation": "husband",
+   "other_as_read": "Jane Gallagher",
+   "subject_record": "st_cyr_marriage_127_1",
+   "other_record": "st_cyr_marriage_127_2",
    "subject": null,
    "other": null,
    "outcome": "identity_not_asserted"
@@ -622,6 +809,20 @@
    "outcome": "identity_not_asserted"
   },
   {
+   "id": "st_marys_bapt_1833_05_3_mother__parent_of__st_marys_bapt_1833_05_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_05_3_mother",
+   "as_read": "On [the] fifth of June eighteen hundred and thirty three, I the undersigned, baptised Marguerit daughter of Salomon Juneau and Josette Vieau, born the 25th of December 1832. Sponsors were Louis Franchère and Elozina[?] Bailly.",
+   "subject_as_read": "Josette Vieau",
+   "relation": "mother",
+   "other_as_read": "Marguerite Juneau",
+   "subject_record": "st_marys_bapt_1833_05_3_mother",
+   "other_record": "st_marys_bapt_1833_05_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
    "id": "st_marys_bapt_1834_14_2_father__parent_of__st_marys_bapt_1834_14_1_child",
    "source": "st_marys_baptismal_register_1833_1835",
    "locator": "st_marys_bapt_1834_14_2_father",
@@ -631,6 +832,34 @@
    "other_as_read": "Alexander Beaubien",
    "subject_record": "st_marys_bapt_1834_14_2_father",
    "other_record": "st_marys_bapt_1834_14_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1834_15_2_father__parent_of__st_marys_bapt_1834_15_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_15_2_father",
+   "as_read": "Le même jour mil huit cent trente quatre, je soussigné ai conféré les cérémonies du baptême à Thérèse fille de Joseph Laframboise et de Thérèse Jacquet Peltier, âgée de onze ans.",
+   "subject_as_read": "Joseph Laframboise",
+   "relation": "father",
+   "other_as_read": "Thérèse Laframboise",
+   "subject_record": "st_marys_bapt_1834_15_2_father",
+   "other_record": "st_marys_bapt_1834_15_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1834_15_3_mother__parent_of__st_marys_bapt_1834_15_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_15_3_mother",
+   "as_read": "Le même jour mil huit cent trente quatre, je soussigné ai conféré les cérémonies du baptême à Thérèse fille de Joseph Laframboise et de Thérèse Jacquet Peltier, âgée de onze ans.",
+   "subject_as_read": "Jacquette Peltier",
+   "relation": "mother",
+   "other_as_read": "Thérèse Laframboise",
+   "subject_record": "st_marys_bapt_1834_15_3_mother",
+   "other_record": "st_marys_bapt_1834_15_1_child",
    "subject": null,
    "other": null,
    "outcome": "identity_not_asserted"

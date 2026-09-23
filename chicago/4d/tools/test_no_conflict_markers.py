@@ -39,7 +39,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent          # chicago/4d
 REPO = ROOT.parent.parent                              # repo root
-SCAN = ("chicago/4d", "site/4d")
+SCAN = ("chicago/4d", "site/chicago/4d")
 
 # Built rather than written, so this file does not trip its own scan.
 OPEN = "<" * 7 + " "

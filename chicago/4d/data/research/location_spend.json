@@ -28,10 +28,10 @@
    "unplaceable": 62
   },
   "households_by_seating_class": {
-   "structure": 20,
+   "structure": 31,
    "lot": 0,
    "face": 0,
-   "division": 52,
+   "division": 176,
    "none": 1186
   },
   "moved_between_published_limits": 0,
@@ -1681,7 +1681,7 @@
    "published_limit": "structure",
    "grade": "structure_committed",
    "evidence_reach": "structure",
-   "evidence_street": "Lake Street",
+   "evidence_street": "Canal Street",
    "model_seat": "goss_cobb_saddlery",
    "seat_is_substitutable": false,
    "register_action": "enrich_existing",

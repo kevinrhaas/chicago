@@ -1,7 +1,7 @@
 ---
 id: T-0841
 title: The keeper of the St Cyr register is graded G5, not G2c: may the officiant of a parish register be graded on it?
-state: blocked-owner
+state: open
 epic: META
 requested_by: loop
 seen: false
@@ -12,7 +12,7 @@ opened: 2026-09-05
 closed: null
 pr: null
 claimed_by: run 9/10/2026, 5:38:27 PM CT
-blocked_on: Does G2c's 'a party to a marriage or burial in the parish' mean the parish REGISTER of 1833-1835, baptisms included? (1) No — the baptismal pages stay out, Fr St Cyr stays a G5 conflict, and the omission is written down as a ruling. (2) Yes — the rung's text says so and 137 people take it, the priest among them, since the register names him godfather or sponsor three times at Chicago. Measured either way in docs/RESEARCH/resident-grading-policy.md; nothing in grading_proposal.json has moved.
+blocked_on: null
 needs_bake: false
 closed_at: null
 claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/34538051192
@@ -89,3 +89,24 @@ and committing none of them. The full write-up, with the counts, is
 holds that gate, and `--report` prints the declared silences under the domain table. The baptismal
 register was invisible for as long as the file list was a two-name tuple, and the Second Presbyterian
 roll of 1842-1892 was invisible beside it.
+
+## THE OWNER'S RULING, 2026-09-21: yes — a priest signing his own entries is first-hand
+
+G2c reaches the parish REGISTER of 1833-1835, baptisms included, and the officiant is
+graded on it. A priest who signs a dated entry in his own hand states his own presence as
+directly as this corpus states anything, and refusing that while accepting the same line as
+evidence about the child, the parents and the godparents is the document doing one job for
+six people and a different one for the seventh.
+
+So Fr St Cyr takes G2c and stops being a G5 conflict, and the 137 people the rung reaches
+take it with him.
+
+WRITE THE RULE AS THE REASON, NOT AS THE OUTCOME. The rung's text is to say that a register
+is evidence about its KEEPER as well as about its subjects, because he is a party to the
+act he is recording — which is what G2c already says in different words. A rule written as
+'the officiant of a parish register takes G2c' would be a special case with a name on it,
+and the next register would have to be argued from scratch.
+
+THE BOUND IS THE SIGNING. He is attested where he signs, on the dates he signs, and the
+register's existence attests nothing about the days between. A run taking this ruling wider
+than the signed entries has gone past it.

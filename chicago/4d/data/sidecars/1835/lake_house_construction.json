@@ -161,5 +161,17 @@
   ],
   "research_note": "A BUILDING SITE IS A STATE, AND THIS RECORD IS AN ARGUMENT ABOUT ONE. Everything about the finished Lake House is documented - brick, three storeys and a basement, nearly $100,000, five named backers, opened in the autumn of 1836 - and nothing at all is documented about what stood on the ground on 1 July 1835. THREE SOURCE PROBLEMS TRAVEL WITH IT AND ALL THREE ARE RECORDED ON THE ATTRIBUTES. (1) THE 1835 GROUNDBREAKING IS NOT ANDREAS. It comes from the uncredited editorial paragraph on chicagology_prefire112, which sits under a transcribed Andreas passage with no typographic break, drops Andreas's basement, and gives $90,000 where Andreas gives nearly $100,000. data/exclusions.json sources the same claim to drloih_hotels, a second unfootnoted compilation. So the fact that puts this structure in the 1835 scene at all rests on two modern compilations agreeing, which is not two witnesses, and the discrepancy in the cost is the proof that the paragraph is not restating the text above it. (2) THE STREET NAME IS A TRAP. Andreas twice puts the house at Kinzie, Rush and Michigan streets, fronting Michigan. North-side Michigan Street is today's East Hubbard Street, one block north of Kinzie; it is not Michigan Avenue, which did not cross the river until 1920. The gloss 'near where the Wrigley Building stands today' - on chicagology_prefire112 and repeated in docs/research/03-structures-north.md section 3.8, which also renders the street as 'Michigan (Water)' - moves the site about 150 m and across Kinzie Street, and appears to be a modern confusion of the street with the avenue. This record follows Andreas. (3) THE PROGRESS BY JULY IS THE INTERESTING GAP AND IT STAYS OPEN. The best anchor found is J. D. Bonnell's letter to the Chicago Times of 15 March 1876, quoted by Andreas, which describes walking the town the morning after arriving and seeing 'the Lake House in course of construction'. Bonnell dates that arrival to 25 August 1835 - eight weeks after the scene date - though the same letter's 'forty years ago' implies 1836 and Andreas's own lead-in says 1837. The 1837 reading is impossible on the letter's own content, since the hotel was open by the autumn of 1836. Harriet Martineau, in June 1836, still calls it 'a new hotel then building'. So the structure was demonstrably unfinished in mid-1836 and probably visibly rising in late August 1835, and this record models one storey of roofless brickwork on that reasoning with the honest range stated as zero to two storeys. WHAT WOULD SETTLE IT: the Chicago American, whose first issue is 8 June 1835 and which would have reported a $100,000 hotel going up; the Chicago Democrat; or the Kinzie's Addition conveyances. See docs/RESEARCH/lake_house_construction.md.",
   "research_doc": "docs/RESEARCH/lake_house_construction.md",
-  "review_required": false
+  "review_required": false,
+  "lodging": {
+    "class": null,
+    "beds_ordinary": null,
+    "beds_crowded": null,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": false,
+    "enclosed_floor_m2": null,
+    "confidence": "reconstructed",
+    "note": "The record's own function says this building was still going up on 1835-07-01. A house that was not open held nobody, and giving it a capacity would put beds in a building site.",
+    "replaceable_by": "",
+    "occupancy": null
+  }
 }

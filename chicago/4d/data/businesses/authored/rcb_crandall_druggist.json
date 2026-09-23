@@ -1,0 +1,94 @@
+{
+  "id": "rcb_crandall_druggist",
+  "register_id": null,
+  "name": "B. Crandall, drugs, medicines and dye stuffs",
+  "provenance": "reconstructed",
+  "type": [
+    "druggist"
+  ],
+  "trade": "druggist and apothecary",
+  "occupation": "druggist",
+  "goods": [
+    "drugs, medicines and dye stuffs"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Benjamin Crandall",
+      "person_id": "rc_crandall_benjamin",
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "ADOPTED, NOT MINTED. Benjamin Crandall is the reconstructed trade head the resident band's `trade_households` stage drew at druggist in the south division (slot trade_households:persons/male/20_29/south/family/trade:druggist:029), and that card says itself that the business band adopts these heads rather than minting its own. One quota, filled once: this house is the establishment that head keeps.",
+      "source_id": null,
+      "claim_ids": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "dearborn",
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "A FACE, NOT A PREMISES. The placement rule for a druggist kept by a south-division household deals this house onto Dearborn Street; the face is drawn on the seed printed in `reconstruction.seed` from the faces that rule allows, and no lot, roof or coordinate is claimed. T-1195 writes the placement policy with its evidence and T-1199 seats this house on the lot grid.",
+      "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "reconstructed",
+    "basis": "NOTHING DATES THIS HOUSE. The census that orders it was taken in December 1835 and counts a standing trade, not an opening; the record claims that the house was trading on 1835-07-01 and nothing about either end."
+  },
+  "evidence": {},
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Benjamin Crandall (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "rc_crandall_benjamin",
+        "name": "Benjamin Crandall",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A register, directory or deed naming a real house of this class in the south division in 1835 — that house takes this slot and this record is withdrawn.",
+  "reconstruction": {
+    "programme": "chicago_1835_business_reconstruction",
+    "group": "stores_and_provisions",
+    "ticket": "T-1184",
+    "bucket": "businesses/druggist",
+    "slot": "stores_and_provisions:businesses/druggist:002",
+    "seed": "stores_and_provisions:businesses/druggist:002",
+    "basis": {
+      "kind": "model",
+      "id": "1835_reconstruction_order_book",
+      "note": "the December 1835 State census prints 4; the register holds 2 at the scene date. The book leaves 2 of this class to reconstruct and this is one of them. The style is dealt on the seed printed beside it from the period forms the register itself carries: the form 'Frederick Thomas, drugs and paints' prints, with the forename cut to an initial as 'J. B. Brown, Dearborn Street grocery' and 'S. Foot' do. The goods line is the goods line of Frederick Thomas and Philo Carpenter, cut to the three heads both of them advertise."
+    },
+    "withdrawn_if": "a source naming a real house of this class, or a re-cut of the order book that no longer orders this bucket; the retirement runs through --build, never by hand"
+  }
+}

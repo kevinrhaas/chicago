@@ -1,0 +1,123 @@
+{
+  "id": "biz_j_b_brown_dearborn_street_grocery",
+  "register_id": "business_j_b_brown_dearborn_street_grocery",
+  "name": "J. B. Brown, Dearborn Street grocery",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "groceries",
+  "occupation": "grocer",
+  "goods": [
+    "Cigars",
+    "Coffee",
+    "Liquors",
+    "Raisins",
+    "Sugar",
+    "Tea",
+    "Tobacco",
+    "Window Glass"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "J. B. Brown",
+      "person_id": "brown_jesse_b",
+      "register_person_id": "person_j_b_brown",
+      "role": "partner",
+      "from": "1834-07-02",
+      "to": "1834-07-02",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card brown_jesse_b (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_02#c021"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "J. B. Tuttle",
+      "person_id": "tuttle_j_b",
+      "register_person_id": "person_j_b_tuttle",
+      "role": "partner",
+      "from": "1834-07-02",
+      "to": "1834-07-02",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card tuttle_j_b (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_02#c021"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "dearborn",
+      "face": null,
+      "primary": true,
+      "from": "1834-07-02",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor \"Messrs. Newberry & Dole's store\" names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-02",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-02, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-02",
+    "last_issue": "1834-07-02",
+    "copy_dates": [
+      "1834-05-27"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 2 keeper(s) this record names and the resident layer holds a card for all read yankee: J. B. Brown (yankee), J. B. Tuttle (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "brown_jesse_b",
+        "name": "J. B. Brown",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      },
+      {
+        "person_id": "tuttle_j_b",
+        "name": "J. B. Tuttle",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_02#c021"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

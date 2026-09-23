@@ -142,6 +142,63 @@
   },
   "residents": [
     {
+      "household": "hh_bates_john_jr",
+      "name": "John Bates Jr.",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at auctioneer in the professional group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "John Bates Jr.",
+          "relationship": "lodger",
+          "grade": "attested",
+          "occupation": "auctioneer",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_carpenter_philo",
+      "name": "Philo Carpenter",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at druggist in the professional group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Philo Carpenter",
+          "relationship": "lodger",
+          "grade": "attested",
+          "occupation": "druggist",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_carver_david",
+      "name": "David Carver",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at lumber_merchant in the professional group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "David Carver",
+          "relationship": "lodger",
+          "grade": "attested",
+          "occupation": "lumber_merchant",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
       "household": "hh_couch_ira",
       "name": "The Couch household",
       "division": "south",
@@ -169,6 +226,91 @@
         }
       ],
       "research_note": "THE TREMONT'S FIRST PROPRIETOR, AND A CLEAN EXAMPLE OF THE derived GRADE DOING WORK. Ira Couch is documented in the house across 1 July 1835 by two independent sources. His brother James is a real, named man, documented as a co-purchaser and later as the proprietor, whose residence at Chicago on the scene date is reconstructed from the joint purchase rather than stated. Two men, two grades, one household. THE BUILDING THIS HOUSEHOLD IS ATTACHED TO IS THE FIRST TREMONT at Lake and Dearborn, built in 1833 by Alanson Sweet - not the later houses of 1840 and 1850 that carry the same name."
+    },
+    {
+      "household": "hh_lodging_tremont_house_1",
+      "name": "The lodgers of Tremont House (the first)",
+      "division": "south",
+      "relation": "lodged here",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "sources": [],
+      "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
+      "persons": [
+        {
+          "name": "Mary Crandall",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Anna Fairbanks",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Horace Dickinson",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Louis Bourassa",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Jared Whitcomb",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
+      "household": "hh_rc_brady_hugh",
+      "name": "Hugh Brady",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at clerk in the professional group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Hugh Brady",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "clerk",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_rc_hayes_patrick",
+      "name": "Patrick Hayes",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at dry_goods_merchant in the professional group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Patrick Hayes",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "dry_goods_merchant",
+          "note": ""
+        }
+      ],
+      "research_note": ""
     }
   ],
   "citations": [
@@ -215,5 +357,25 @@
   ],
   "research_note": "THE GUARD ON THIS RECORD IS ITS STOREY COUNT, and it is a clean example of how a modern compilation manufactures a fact. chicagology_prefire021 prints, with no typographic break between them, an uncredited editorial summary, a passage of Chicago Illustrated (January 1866) and a reader's letter to the Chicago Tribune of 2 February 1874. The two period texts describe 'a wooden structure' and 'an unpretending frame structure' and count no storeys. The uncredited sentence says 'a three-story wooden building', and that sentence - one modern editor, no source - is where every three-storey Tremont of 1833 comes from, including Wikipedia's and including this project's own dossier, which cites 'chicagology and Wikipedia' as though they were two witnesses. Andreas, the fullest account, gives the building a builder, a corner, a material, four proprietors and a death date, and no height. The record therefore carries two storeys, tagged conjectural, with the three-storey reading argued against on the record rather than dropped. THE SAME PAGE'S HEADER IS WORSE AND MUST NOT BE READ: it gives 'SE corner of Lake and Dearborn Streets' and 'Architect: John M. Van Osdel', both of which belong to the LATER Tremonts, and it contradicts all three body texts on the corner. Andreas independently confirms the move, since the house begun in December 1839 stood 'on the corner where the present Tremont stands'. WHAT IS SOLIDLY ATTESTED, and it is not much: the north-west corner of Lake and Dearborn (three times), frame construction (three times), built 1833 by Alanson Sweet, Ira Couch proprietor from 1834, burned 27 October 1839 with seventeen other buildings, and Couch's own description of what he took over - 'a mere shell, without any sidewalk around it, and poorly furnished, as none of the rooms were entirely carpeted, little pieces in front of the bed being considered sufficient for anyone; and very many of the beds were minus one pleasant luxury, a pillow.' A USEFUL SCENE-LEVEL CHECK ON THIS PARCEL: the Chicago American of 15 August 1835, quoted by Andreas, counts the town's stock six weeks after the scene date - 'There are now upward of fifty business houses, four large forwarding-houses, EIGHT TAVERNS, two printing offices, two book-stores, one steam saw-mill, one brewery, one furnace (just going up), and twenty-five mechanics' shops of all kinds.' With this record, the Mansion House and the Exchange Coffee House added, the dataset holds exactly eight public houses for 1835 - Sauganash, Green Tree, Western, Wolf Point, Steamboat, Tremont, Mansion House, Exchange - which is a corroboration of the parcel as a whole rather than of any building in it. See docs/RESEARCH/tremont_house_1.md. THE PLAIN NAME IS CARRIED AS AN AKA (T-0406), because the printed corpus does not use the disambiguator this record is titled with. 'the Tremont House' is what the Chicago Democrat prints - it is the anchor of six advertisements in the gazetteer - and the register resolves an anchor against the committed town by WHOLE-SET equality of identity-bearing words, deliberately, so that 'the store' cannot land on the first store in the town. 'Tremont House (the first)' reduces to {tremont, house, first} and the printed anchor to {tremont, house}, so the two sets were not equal and the register reported that a building this project models, places at the north-west corner of Lake and Dearborn and draws named nothing the town holds. The '(the first)' in the NAME stays, and stays load-bearing: there was a second Tremont House, begun December 1839 on the corner where the later house stood, and nothing here is a statement that any successor stands in 1835 - the successor is not a committed record at all. The aka is the plain form only, and it still matches whole: 'the Tremont House' resolves here, 'Tremont' alone does not.",
   "research_doc": "docs/RESEARCH/tremont_house_1.md",
-  "review_required": false
+  "review_required": false,
+  "lodging": {
+    "class": "inn_tavern",
+    "beds_ordinary": 12,
+    "beds_crowded": 35,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": true,
+    "enclosed_floor_m2": 278.59,
+    "confidence": "reconstructed",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 279 m² of enclosed floor (139 m² × 2 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": {
+      "people": 12,
+      "beds_ordinary": 12,
+      "empty": 0,
+      "statement": "12 on this card against an ordinary night's 12 beds: 2 the residents layer already housed here, 5 seated here from elsewhere in the layer, where no source gives them a roof, 5 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "empty_note": "",
+      "keeper_persons": 2,
+      "keeper_owed": ""
+    }
+  }
 }

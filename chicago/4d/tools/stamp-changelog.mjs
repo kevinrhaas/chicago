@@ -52,9 +52,9 @@ import { WALK_SHIM } from './changelog_shim.mjs';
  * file, the walk copy takes the shim above.
  */
 const MIRRORS = [
-  { dest: path.resolve(ROOT, '../../site/4d/js/changelog.js'),
+  { dest: path.resolve(ROOT, '../../site/chicago/4d/js/changelog.js'),
     bytes: (src) => src },
-  { dest: path.resolve(ROOT, '../../site/4d/walk/js/changelog.js'),
+  { dest: path.resolve(ROOT, '../../site/chicago/4d/walk/js/changelog.js'),
     bytes: () => Buffer.from(WALK_SHIM) },
 ];
 /** The lines in publish.sh these mirrors are the twins of. The test pins them. */

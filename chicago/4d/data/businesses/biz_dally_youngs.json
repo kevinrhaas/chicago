@@ -1,0 +1,156 @@
+{
+  "id": "biz_dally_youngs",
+  "register_id": "business_dally_youngs",
+  "name": "Dally & Youngs",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "blacksmithing and edge tool making",
+  "occupation": "blacksmith",
+  "goods": [
+    "Edge Tools",
+    "Ox Chains",
+    "Prairie Ploughs",
+    "cradle scythes",
+    "edge tools",
+    "grass scythes",
+    "prairie ploughs",
+    "wagon chains"
+  ],
+  "firm_styles": [
+    "Dally & Youngs"
+  ],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Ezra Nash",
+      "person_id": "rc_nash_ezra",
+      "role": "journeyman",
+      "occupation": "blacksmith",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a blacksmith's shop at the typical band and 1 at the high end, on period_convention. The striker, who swings while the smith holds. Analogue: the 1839 list's 48 smiths in a town that had 5 shops in 1835. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#smithy.blacksmith; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_nash_ezra:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "smithy",
+    "reads_as": "a blacksmith's shop",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "journeyman",
+        "occupation": "blacksmith",
+        "household_relationship": "journeyman",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "period_convention"
+      },
+      {
+        "role": "apprentice",
+        "occupation": "blacksmith",
+        "household_relationship": "apprentice",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 1,
+      "seats_against_the_band": 1,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "blacksmith",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        },
+        {
+          "occupation": "blacksmith",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 1. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-06-18",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The anchor 'the jail' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-06-18",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-06-18, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-06-18",
+    "last_issue": "1834-12-17",
+    "copy_dates": [
+      "1834-06-15",
+      "1834-06-17"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_06_18#c005",
+    "chicago_democrat_1834_07_02#c019",
+    "chicago_democrat_1834_09_10#c019",
+    "chicago_democrat_1834_12_17#c007"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

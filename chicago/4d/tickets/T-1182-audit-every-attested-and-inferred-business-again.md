@@ -1,7 +1,7 @@
 ---
 id: T-1182
 title: Audit every attested and inferred business against the research: proprietors, partners, dates, primary and secondary premises, the Dec 1835 State census classes and the August 1835 American count — and raise an inferred business for every in-window trade that has none
-state: open
+state: split
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-19
 pr: null
-claimed_by: null
+claimed_by: run 9/19/2026, 11:07:27 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-19T16:07:49.273Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35453633099
 ---
 
 The owner, 2026-09-17: *"make sure all of the businesses are complete that we have audited against
@@ -75,3 +75,37 @@ business record, and no in-window tradesman is without a workplace or a stated r
 
 **Links:** T-1180 · T-1145 · T-1147 · T-1006 · T-1007 · T-0872 · T-1041 (agencies) ·
 `docs/RESEARCH/civic_public_buildings_1835.md`.
+
+---
+
+**FINDING from T-1325, 2026-09-19 — the anchored houses name their landmark in
+prose only, so nothing can crosswalk them, and the register prints twelve people
+twice.**
+
+T-1325 put the business layer on the two cards a visitor is already standing at: a
+person's card lists every firm the register puts them in, and a building card's Use
+row lists every firm the register puts in that roof. Both are folded off
+`data/businesses/index.json`. Two limits came out of doing it, and both belong to
+this audit rather than to the renderer.
+
+1. **`anchored` carries no structure.** All 26 anchored locations in the layer —
+   record and index alike — have `structure_id: null`; the landmark is stated only
+   inside `limit_reason`'s sentence (*"The register places this house against
+   `tremont_house_1`…"*, *"…against `business_eagle_tavern`…"*). So the Tremont
+   House's card cannot say which houses the register stands against it, and
+   `businesses.js::locationHtml`'s `kind === 'anchored' && title` branch is dead
+   code today — it renders a landmark title that no record supplies. The crosswalk
+   deliberately refuses to parse the sentence for an id. Resolving the anchor onto
+   the location (a structure id where the anchor IS a committed structure, a
+   business id where it is another firm) would make 26 more houses reachable from
+   the roof they stand beside, and would give that branch something to render.
+
+2. **Twelve person-firm pairs are named twice on one record**, because the register
+   prints the same person under two styles — `biz_collins_caton` carries "J. D.
+   Caton" and "J. Dean Caton" as separate entries with the same `person_id`, the
+   same role and the same dates, and so do `biz_g_spring` (three times),
+   `biz_j_s_c_hogan`, `biz_jones_king_co` (both partners), `biz_p_pruyne_co` and
+   seven others. T-1325's crosswalk folds them, so a person's card lists four firms
+   for Caton rather than five. The firm's OWN card does not fold them: "Who kept
+   it" still prints both styles as two partners, which is the register's typography
+   read as the town's partnership.

@@ -1,0 +1,1523 @@
+{
+ "schema": "forename_sex/1",
+ "domain": "residents",
+ "generated_by": "tools/spend_person_sex_age.py",
+ "_doc": "T-1303. Which forenames this project has evidence enough to read a sex from, and which it refuses. DERIVED — rebuild with `python3 tools/spend_person_sex_age.py` and `--check` refuses a hand-edit. A name is here on one of two kinds of evidence and usually both: a person in data/residents/ whose sex a SOURCE records bears it, or it stands in one of the period forename pools of data/reconstruction/1835_invented_name_pools.json, which were assembled out of this town's own attested naming. A name the two disagree about is refused, and so are the four named below.",
+ "what_this_is_not": "Not a general table of nineteenth-century forenames. It says nothing about names this project holds no evidence about, and a person bearing one keeps no sex from this pass. Nor is it evidence about any individual: it licenses an INFERENCE, graded `inferred` on the card with the table named in the note.",
+ "the_bearer_rule": "forename -> sex -> [person ids], out of the people whose sex a source records. A bearer whose name carries a gendered title teaches nothing, because the title and not the forename is what sexes them.",
+ "counts": {
+  "male": 91,
+  "female": 41,
+  "refused": 5,
+  "from_a_bearer_in_this_layer": 57,
+  "from_a_pool_only": 75,
+  "contractions": 15,
+  "not_a_forename": 22,
+  "collective": 6
+ },
+ "male": [
+  {
+   "forename": "abner",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "alanson",
+   "attested_bearers": {
+    "male": [
+     "sweet_alanson"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "alexander",
+   "attested_bearers": {
+    "male": [
+     "fullerton_alexander",
+     "robinson_alexander"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "alexis",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "alvah",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "amos",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "anson",
+   "attested_bearers": {
+    "male": [
+     "taylor_anson_h"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "antoine",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "archibald",
+   "attested_bearers": {
+    "male": [
+     "clybourne_archibald"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "asa",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "asahel",
+   "attested_bearers": {
+    "male": [
+     "pierce_asahel"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "ashbel",
+   "attested_bearers": {
+    "male": [
+     "steele_ashbel"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "augustine",
+   "attested_bearers": {
+    "male": [
+     "taylor_augustine"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "baptiste",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "benjamin",
+   "attested_bearers": {
+    "male": [
+     "hall_benjamin",
+     "jones_benjamin"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "billy",
+   "attested_bearers": {
+    "male": [
+     "caldwell_billy"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "bryan",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "calvin",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "charles",
+   "attested_bearers": {
+    "male": [
+     "harmon_charles_l",
+     "taylor_charles"
+    ]
+   },
+   "in_pools": [
+    "french_colonial",
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "chauncey",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "chester",
+   "attested_bearers": {
+    "male": [
+     "ingersoll_chester"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "cornelius",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "daniel",
+   "attested_bearers": {
+    "male": [
+     "elston_daniel"
+    ]
+   },
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "david",
+   "attested_bearers": {
+    "male": [
+     "carver_david",
+     "mckee_david"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "dennis",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "edmund",
+   "attested_bearers": {
+    "male": [
+     "kimberly_edmund_s"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "edward",
+   "attested_bearers": {
+    "male": [
+     "casey_edward_w",
+     "haddock_edward"
+    ]
+   },
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "eli",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "elijah",
+   "attested_bearers": {
+    "male": [
+     "harmon_elijah_d"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "elisha",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "erastus",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "ezra",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "francois",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "frederick",
+   "attested_bearers": {
+    "male": [
+     "thomas_frederick"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "george",
+   "attested_bearers": {
+    "male": [
+     "dole_george_w",
+     "snow_george_w"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "gholson",
+   "attested_bearers": {
+    "male": [
+     "kercheval_gholson"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "giles",
+   "attested_bearers": {
+    "male": [
+     "spring_giles"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "grenville",
+   "attested_bearers": {
+    "male": [
+     "sproat_grenville"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "gurdon",
+   "attested_bearers": {
+    "male": [
+     "hubbard_gurdon"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "handy",
+   "attested_bearers": {
+    "male": [
+     "handy_major"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "harvey",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "henry",
+   "attested_bearers": {
+    "male": [
+     "lampman_henry_s"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "hiram",
+   "attested_bearers": {
+    "male": [
+     "pearsons_hiram"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "horace",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "hugh",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "hyacinthe",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "ira",
+   "attested_bearers": {
+    "male": [
+     "couch_ira"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "isaac",
+   "attested_bearers": {
+    "male": [
+     "harmon_isaac_d"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "james",
+   "attested_bearers": {
+    "male": [
+     "couch_james",
+     "kinzie_james"
+    ]
+   },
+   "in_pools": [
+    "irish",
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "jared",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "jeremiah",
+   "attested_bearers": {
+    "male": [
+     "porter_jeremiah"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "john",
+   "attested_bearers": {
+    "male": [
+     "bates_john_jr",
+     "calhoun_john",
+     "caton_john_dean",
+     "davis_john",
+     "greene_john",
+     "hogan_john_s_c",
+     "kinzie_john_h",
+     "miller_john",
+     "murphy_john",
+     "st_cyr_john_mary",
+     "temple_john_t",
+     "watkins_john",
+     "wright_john",
+     "wright_john_s"
+    ]
+   },
+   "in_pools": [
+    "irish",
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "joseph",
+   "attested_bearers": {
+    "male": [
+     "meeker_joseph",
+     "porthier_joseph"
+    ]
+   },
+   "in_pools": [
+    "french_colonial",
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "lemuel",
+   "attested_bearers": {
+    "male": [
+     "brown_lemuel"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "levi",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "louis",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "luther",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "madore",
+   "attested_bearers": {
+    "male": [
+     "beaubien_madore"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "mark",
+   "attested_bearers": {
+    "male": [
+     "beaubien_mark"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "martin",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "matthias",
+   "attested_bearers": {
+    "male": [
+     "mason_matthias"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "medard",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "michael",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "michel",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "nathaniel",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "nelson",
+   "attested_bearers": {
+    "male": [
+     "norton_nelson_r"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "orrin",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "oscar",
+   "attested_bearers": {
+    "male": [
+     "pratt_oscar"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "otis",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "owen",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "patrick",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "peter",
+   "attested_bearers": {
+    "male": [
+     "cohen_peter",
+     "pruyne_peter",
+     "temple_peter"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "philip",
+   "attested_bearers": {
+    "male": [
+     "maxwell_philip",
+     "peck_philip"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "philo",
+   "attested_bearers": {
+    "male": [
+     "carpenter_philo"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "pierre",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "reuben",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "richard",
+   "attested_bearers": {
+    "male": [
+     "hamilton_richard_j"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "robert",
+   "attested_bearers": {
+    "male": [
+     "kinzie_robert_a"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "rufus",
+   "attested_bearers": {
+    "male": [
+     "brown_rufus"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "russel",
+   "attested_bearers": {
+    "male": [
+     "heacock_russel_e"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "samuel",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "seth",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "silas",
+   "attested_bearers": {
+    "male": [
+     "cobb_silas_b"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "stephen",
+   "attested_bearers": {
+    "male": [
+     "gale_stephen_f"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "terence",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "thomas",
+   "attested_bearers": {
+    "male": [
+     "church_thomas",
+     "owen_thomas_jv"
+    ]
+   },
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "toussaint",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "tyler",
+   "attested_bearers": {
+    "male": [
+     "blodgett_tyler_k"
+    ]
+   },
+   "in_pools": [],
+   "sex": "male"
+  },
+  {
+   "forename": "warren",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "willard",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  },
+  {
+   "forename": "william",
+   "attested_bearers": {
+    "male": [
+     "adams_william_h",
+     "egan_william_b",
+     "stow_william_h",
+     "walters_william"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "male"
+  }
+ ],
+ "female": [
+  {
+   "forename": "abigail",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "alice",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "almira",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "amanda",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "angelique",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "anna",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "archange",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "betsey",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "bridget",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "catherine",
+   "attested_bearers": {
+    "female": [
+     "robinson_catherine"
+    ]
+   },
+   "in_pools": [
+    "french_colonial",
+    "irish"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "clarissa",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "eliza",
+   "attested_bearers": {
+    "female": [
+     "porter_eliza_chappel"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "ellen",
+   "attested_bearers": {
+    "female": [
+     "hamilton_ellen"
+    ]
+   },
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "emeline",
+   "attested_bearers": {
+    "female": [
+     "egan_emeline"
+    ]
+   },
+   "in_pools": [],
+   "sex": "female"
+  },
+  {
+   "forename": "emily",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "esther",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "hannah",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "harriet",
+   "attested_bearers": {
+    "female": [
+     "murphy_harriet"
+    ]
+   },
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "honora",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "johanna",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "josette",
+   "attested_bearers": {
+    "female": [
+     "beaubien_josette"
+    ]
+   },
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "juliette",
+   "attested_bearers": {
+    "female": [
+     "kinzie_juliette"
+    ]
+   },
+   "in_pools": [],
+   "sex": "female"
+  },
+  {
+   "forename": "lucy",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "lydia",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "madeleine",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "margaret",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "maria",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "marie",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "martha",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "mary",
+   "attested_bearers": {},
+   "in_pools": [
+    "irish",
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "nancy",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "phebe",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "polly",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "rhoda",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "ruth",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "sarah",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "sophronia",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "susan",
+   "attested_bearers": {},
+   "in_pools": [
+    "yankee"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "therese",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "victoire",
+   "attested_bearers": {},
+   "in_pools": [
+    "french_colonial"
+   ],
+   "sex": "female"
+  },
+  {
+   "forename": "welthyan",
+   "attested_bearers": {
+    "female": [
+     "harmon_welthyan"
+    ]
+   },
+   "in_pools": [],
+   "sex": "female"
+  }
+ ],
+ "refused": [
+  {
+   "forename": "frances",
+   "attested_bearers": {},
+   "in_pools": [],
+   "why": "Frances and Francis are a man's name and a woman's name that a nineteenth-century page prints almost interchangeably, and the difference is one letter that OCR and a compositor both lose.",
+   "refused_by": "name"
+  },
+  {
+   "forename": "francis",
+   "attested_bearers": {},
+   "in_pools": [],
+   "why": "Francis and Frances are a man's name and a woman's name that a nineteenth-century page prints almost interchangeably, and the difference is one letter that OCR and a compositor both lose.",
+   "refused_by": "name"
+  },
+  {
+   "forename": "jean",
+   "attested_bearers": {
+    "male": [
+     "beaubien_jean_baptiste"
+    ]
+   },
+   "in_pools": [
+    "french_colonial"
+   ],
+   "why": "French Jean is a man's name and English Jean a woman's, and this town holds both traditions at once — Col. Jean Baptiste Beaubien on one side of the river and New England families on the other. The pools carry it as male; that is a fact about the pool's community, not about an unplaced name on a letter list.",
+   "refused_by": "name"
+  },
+  {
+   "forename": "leslie",
+   "attested_bearers": {},
+   "in_pools": [],
+   "why": "A surname used as a forename, and used for both sexes; a name that travels from a surname carries no sex with it.",
+   "refused_by": "name"
+  },
+  {
+   "forename": "marion",
+   "attested_bearers": {},
+   "in_pools": [],
+   "why": "Borne by men and by women through this whole period, and the project has no bearer of it whose sex a source records.",
+   "refused_by": "name"
+  }
+ ],
+ "contractions": [
+  {
+   "forename": "alexr",
+   "expands_to": "Alexander",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "benj",
+   "expands_to": "Benjamin",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "chas",
+   "expands_to": "Charles",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "danl",
+   "expands_to": "Daniel",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "edwd",
+   "expands_to": "Edward",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "geo",
+   "expands_to": "George",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "jas",
+   "expands_to": "James",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "jno",
+   "expands_to": "John",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "jos",
+   "expands_to": "Joseph, Josiah or Joshua",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "nathl",
+   "expands_to": "Nathaniel",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "richd",
+   "expands_to": "Richard",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "robt",
+   "expands_to": "Robert",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "saml",
+   "expands_to": "Samuel",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "thos",
+   "expands_to": "Thomas",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  },
+  {
+   "forename": "wm",
+   "expands_to": "William",
+   "sex": "male",
+   "why": "every expansion of this contraction attested in this project is a man's name, so the contraction settles the sex without settling which name was contracted"
+  }
+ ],
+ "not_a_forename": [
+  {
+   "token": "capt",
+   "why": "a rank"
+  },
+  {
+   "token": "captain",
+   "why": "a rank"
+  },
+  {
+   "token": "col",
+   "why": "a rank"
+  },
+  {
+   "token": "colonel",
+   "why": "a rank"
+  },
+  {
+   "token": "corp",
+   "why": "a rank"
+  },
+  {
+   "token": "doctor",
+   "why": "an honorific"
+  },
+  {
+   "token": "dr",
+   "why": "an honorific"
+  },
+  {
+   "token": "esq",
+   "why": "an honorific"
+  },
+  {
+   "token": "gen",
+   "why": "a rank"
+  },
+  {
+   "token": "general",
+   "why": "a rank"
+  },
+  {
+   "token": "hon",
+   "why": "an honorific"
+  },
+  {
+   "token": "judge",
+   "why": "an honorific"
+  },
+  {
+   "token": "lieut",
+   "why": "a rank"
+  },
+  {
+   "token": "lieutenant",
+   "why": "a rank"
+  },
+  {
+   "token": "maj",
+   "why": "a rank"
+  },
+  {
+   "token": "major",
+   "why": "a rank"
+  },
+  {
+   "token": "messrs",
+   "why": "an honorific, and a plural one"
+  },
+  {
+   "token": "prof",
+   "why": "an honorific"
+  },
+  {
+   "token": "rev",
+   "why": "an honorific"
+  },
+  {
+   "token": "reverend",
+   "why": "an honorific"
+  },
+  {
+   "token": "sergeant",
+   "why": "a rank"
+  },
+  {
+   "token": "sergt",
+   "why": "a rank"
+  }
+ ],
+ "a_group_not_a_person": [
+  {
+   "token": "children",
+   "why": "a description of a group"
+  },
+  {
+   "token": "four",
+   "why": "'the four Temple children' is a count, not a name"
+  },
+  {
+   "token": "household",
+   "why": "a description of a group"
+  },
+  {
+   "token": "others",
+   "why": "a description of a group"
+  },
+  {
+   "token": "rest",
+   "why": "'the rest of the household, unnamed' is a count, not a name"
+  },
+  {
+   "token": "unnamed",
+   "why": "the record saying in the name field that it has no name"
+  }
+ ]
+}

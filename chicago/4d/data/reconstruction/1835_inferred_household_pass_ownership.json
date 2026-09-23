@@ -355,8 +355,32 @@
         },
         {
           "what": "hh_inf_joiner_north_02",
-          "to": "nobody — a finding, raised as its own ticket",
-          "why": "The pass's own docstring says five roofs; the deal seats FOUR today. J. W. Reed's household stands in the tree, retired name and all, and no pass derives it any more. It is the one record in this settlement that nothing owns."
+          "to": "tools/synthesize_resident_research.py",
+          "why": "T-1294 settled the one record this file used to record as ownerless. The deal seats FOUR and once seated FIVE; the fifth roof is refused today and the household it left behind is the resident layer's, on the same terms as the other four survivors — which is what this settlement already says one block up, under tools/generate_inferred_households.py: the household files went `to T-0489 for the 96 retired; tools/synthesize_resident_research.py for the five that survived`. Five hh_inf_ households survive in the tree and this is the fifth. The refusal, the reading behind it and the evidence that keeps J. W. Reed in the town are in `refused_and_standing` below, which is gated."
+        }
+      ],
+      "refused_and_standing": [
+        {
+          "household": "hh_inf_joiner_north_02",
+          "person_id": "inf_joiner_north_02",
+          "person_name": "J. W. Reed",
+          "trade": "joiner",
+          "refusal": "already named in the town",
+          "surname": "reed",
+          "owner": "tools/synthesize_resident_research.py",
+          "settled_by": "T-1294",
+          "measured": "2026-09-21",
+          "named_by": [
+            "hh_reed_s_w",
+            "hh_reed_thomas",
+            "hh_reed_william",
+            "hh_reid_j_chester",
+            "hh_squar_geo",
+            "hh_squire_george"
+          ],
+          "why": "THE DEAL'S OWN FORMER ANSWER, NOW REFUSED BY THE TOWN IT HELPED WRITE. T-0366 dealt five roofs on 2026-08-13; this one is the fifth, and its head still carries the register's `replace_invented` prose. Refusal 5 — `already named in the town` — is the only thing that now stands between the deal and this roof, and it is refusing on a real reading rather than on its own output: `town_surnames()` deliberately does not read the hh_inf_ layer back, and the six cards listed here are all outside it. MEASURED 2026-09-21 by withholding them from the name pool and re-running the deal against the same pipeline input: with them the deal seats four and prints `joiner  J. W. Reed  already named in the town (reed)`; with all six withheld it seats five and the joiner refusal is empty. Withholding only T-0514's three documented Reeds is not enough — the name survives in the other three. Every one of the six entered the tree AFTER the roof was written: the earliest on 2026-08-30 (T-0379's letter-list mint, which is where hh_reid_j_chester and the two Squire cards come from) and the three documented Reed households on 2026-09-04 (T-0514). So this is a refusal that began to fire under a household that was already standing, and the refusal is right to fire: hh_reid_j_chester's own prose reasons about `James W. Reed, joiner, on the 1834 and 1835 polls`, and two of the three documented Reeds — S. W. Reed and W. Reed — are printed as joiners themselves. That is exactly the open question refusal 5 exists to keep a reconstructed roof out of.",
+          "man_stays": "AND THE MAN IS NOT REMOVED TO TIDY A PIPELINE. J. W. Reed's evidence does not come from this deal and does not depend on it: identity_master.json#id_reed_james_w carries civic poll_1834_092 (`Reed, James W.`), civic poll_1835_062 (`Reed, J.W.`) and the Democrat of 31 December 1833, and the grading ladder raised him to `attested` under G1a on that. census_1830's resident crosswalk has already ruled, under D2, that J. W. Reed, S. W. Reed, Thomas Reed and William Reed are four cards this project will not merge. His grade is the resident layer's to argue and no confidence is moved here.",
+          "assert": "The household stands, its head is this person, and the deal does NOT seat it. If the deal seats it again, or the household or its head changes, or every card naming the surname leaves the tree, this settlement is out of date and says so."
         }
       ]
     }

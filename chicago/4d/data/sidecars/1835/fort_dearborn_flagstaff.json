@@ -88,7 +88,7 @@
       "note": "UNATTESTED, and 'weather-beaten' in Andreas describes the FLAG, not the staff. Left bare rather than whitewashed because nothing says either."
     },
     "function": {
-      "value": "garrison flagstaff",
+      "value": "garrison_flagstaff",
       "confidence": "attested",
       "sources": [
         "andreas_1884_v1"

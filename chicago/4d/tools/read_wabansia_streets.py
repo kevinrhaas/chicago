@@ -63,12 +63,15 @@ from __future__ import annotations
 import argparse
 import importlib
 import json
+import pathlib
+import tempfile
 import math
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 _k = importlib.import_module("read_kinzie_addition_streets")
+from exact_sums import consistent_reading  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 GCP = ROOT / "data/traces/gcp/wright_1834_nara_hup_gcps.json"
@@ -300,11 +303,14 @@ def _module(doc, to_local, ratio):
     tiers = [round(b - a, 2) for a, b in zip(ctr, ctr[1:])]
     ref_x = WINDOWS["col_west"]["x"][0]
     tier_m = [round(_span(to_local, a, b, ref_x)[0], 2) for a, b in zip(ctr, ctr[1:])]
-    mean_tier_m = sum(tier_m) / len(tier_m)
-    mean_corr_m = sum(ms) / len(ms)
+    mean_tier_m = math.fsum(tier_m) / len(tier_m)
+    mean_corr_m = math.fsum(ms) / len(ms)
     block_m = mean_tier_m - mean_corr_m
     return {
-        "corridor_px": {"mean": round(sum(ws) / len(ws), 2), "sd": round(_sd(ws), 2),
+        # The mean is asserted against its own min and max (T-1486); the two bounds
+        # are published as read off the sheet, not rounded.
+        "corridor_px": {"mean": consistent_reading(ws, 2, label="corridor px")[1],
+                        "sd": round(_sd(ws), 2),
                         "n": len(ws), "min": min(ws), "max": max(ws)},
         "corridor_m": {"mean": round(mean_corr_m, 2), "sd": round(_sd(ms), 2)},
         "corridor_ft_raw": round(mean_corr_m / FT, 1),
@@ -443,8 +449,23 @@ def check_sheet():
 
 
 def self_test():
-    """Break each assertion and watch it fire."""
+    """Break each assertion and watch it fire.
+
+    THE BREAKS GO IN A SCRATCH FILE, NOT IN data/traces/ (T-1336). This fixture used
+    to write each broken document over the committed one and write the good one back
+    at the end — with NO `try`/`finally`, so an assertion that raised anything but
+    SystemExit, or a killed process, left the committed trace broken. It also rewrote
+    the committed file from a re-serialisation rather than restoring its bytes.
+
+    Worse in the ordinary case: check.sh runs its steps in a job pool over one working
+    tree, so a neighbouring step reading this trace during the window sees a break and
+    the gate goes red on a tree that is green. `check()` reads the module-level OUT and
+    a self-test has its own process, so rebinding it is enough.
+    """
     import copy
+    global OUT
+    live = OUT
+    committed = live.read_bytes() if live.exists() else None
     good = _wrap(read())
     fired = 0
     for label, mutate in (
@@ -459,15 +480,22 @@ def self_test():
     ):
         broken = copy.deepcopy(good)
         mutate(broken)
-        OUT.write_text(json.dumps(broken, indent=2) + "\n")
-        try:
-            check()
-        except SystemExit:
-            fired += 1
-            print(f"  fired: {label}")
-        else:
-            print(f"  DID NOT FIRE: {label}", file=sys.stderr)
-    OUT.write_text(json.dumps(good, indent=2) + "\n")
+        with tempfile.TemporaryDirectory() as td:
+            try:
+                OUT = pathlib.Path(td) / live.name
+                OUT.write_text(json.dumps(broken, indent=2) + "\n")
+                check()
+            except SystemExit:
+                fired += 1
+                print(f"  fired: {label}")
+            else:
+                print(f"  DID NOT FIRE: {label}", file=sys.stderr)
+            finally:
+                OUT = live
+    # The committed trace is byte-for-byte what it was — a property of the fixture
+    # now, not of a final write-back that re-serialised it.
+    if committed is not None and live.read_bytes() != committed:
+        raise SystemExit("the self-test wrote the committed trace")
     if fired != 8:
         raise SystemExit(f"only {fired} of 8 assertions fired")
     print("all 8 assertions fire")

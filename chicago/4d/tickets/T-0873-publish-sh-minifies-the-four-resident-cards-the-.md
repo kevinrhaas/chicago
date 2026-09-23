@@ -25,7 +25,7 @@ publish.sh minifies the four resident cards the synthesizer writes pretty, so th
 **Found by T-0783's run, 2026-09-06.** Two writers own the same four files in the
 published mirror and they disagree about whitespace.
 
-`tools/publish.sh` MINIFIES `site/4d/data/residents/**` — every card in that tree
+`tools/publish.sh` MINIFIES `site/chicago/4d/data/residents/**` — every card in that tree
 is one line — and `tools/synthesize_resident_research.py` writes the same paths PRETTY,
 two-space indented, because it writes the source and the mirror with one dump call.
 
@@ -35,10 +35,10 @@ synthesizer's pretty form without a `publish.sh` pass, so dev carries four prett
 a tree of minified ones and `--drift` reads 0. The FIRST branch to republish - any branch,
 for any reason - minifies them, and the ratchet fails four files it did not touch:
 
-    FAIL site/4d/data/residents/households/hh_adams_william_h.json has drifted
-    FAIL site/4d/data/residents/households/hh_miller_john.json
-    FAIL site/4d/data/residents/households/hh_murphy_john.json
-    FAIL site/4d/data/residents/index.json
+    FAIL site/chicago/4d/data/residents/households/hh_adams_william_h.json has drifted
+    FAIL site/chicago/4d/data/residents/households/hh_miller_john.json
+    FAIL site/chicago/4d/data/residents/households/hh_murphy_john.json
+    FAIL site/chicago/4d/data/residents/index.json
 
 T-0783 hit it on a structure-only PR and worked around it by restoring those four paths
 from `origin/dev`, which is a workaround and not a fix: it leaves the mirror carrying four

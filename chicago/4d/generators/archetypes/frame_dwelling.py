@@ -78,6 +78,12 @@ from archetypes.frame_dwelling_params import (  # noqa: E402
     HALL_FRACTION, FrameDwellingParams,
 )
 
+#: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
+#: `materials.roof_substrate` holds the argument for why it is this one and
+#: which half of it is graded by materials.md §2.2 and which half is L266.
+_ROOF = materials.roof_substrate("frame_dwelling")
+
+
 # Materials are indices into the list passed to to_object(), in this order.
 M_WALL, M_ROOF, M_TRIM, M_DARK, M_SHUTTER = 0, 1, 2, 3, 4
 # Appended only where the record counts a stack (T-0008) — appended rather than
@@ -188,9 +194,14 @@ def build(params: FrameDwellingParams, name: str):
         simple_material("wall", wall_rgba, roughness=wall_rough),
         # 0.9 is the archetype's own committed roof value and stays a literal: the
         # sheet's §2.2 has one roughness for a shingle field and another for a board
-        # roof, and choosing between them would be claiming the covering finding 2
-        # says nobody stated.
-        simple_material("roof", roof_rgba, roughness=0.9),
+        # roof, and this archetype declined to choose between them because the file it
+        # read said nobody had stated the covering. T-1487: §2.2 graded it all along —
+        # shingled is the ordinary covering of a framed building here, off the North
+        # Side school of 1833 — so the row is now NAMED. The 0.9 does not move: it is
+        # what `shingle` carries, because §3.1 forbids re-tuning the constants and this
+        # parcel is about what the roof is made of, not about its gloss.
+        simple_material(materials.roof_material_name(_ROOF), roof_rgba,
+                        roughness=_ROOF.roughness),
         simple_material("trim", materials.trim_rgba(finish), roughness=0.85),
         # ONE DARK (T-0126). materials.md §2.3's convergence: this archetype's 112
         # opening panels wore 0.070/0.080/0.090 at roughness 0.35, the outbuilding's

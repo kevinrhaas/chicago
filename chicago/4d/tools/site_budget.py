@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Where the published tree's bytes actually are — T-0722.
 
-`tools/validate.py` has carried a 32 MB budget over `site/4d/` since the
+`tools/validate.py` has carried a 32 MB budget over `site/chicago/4d/` since the
 mirror existed, and it prints one number: the total. On 2026-09-05 that number
 reached 31.999 MB on `dev` alone, which made every open PR unmergeable — a
 changelog entry is a few KB and a few KB was all that remained. T-0722 was filed
 by the PR that hit it, and its first ask was the one nothing here had ever
 answered:
 
-    "Say where the 32 MB actually is. A report over site/4d/ by directory
+    "Say where the 32 MB actually is. A report over site/chicago/4d/ by directory
      and by file type — GLBs against JSON against textures — so the decision is
      made on numbers. It has never been printed."
 

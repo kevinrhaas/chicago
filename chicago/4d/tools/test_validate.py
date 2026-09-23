@@ -2695,9 +2695,15 @@ def _resident_role(**kw) -> dict:
     r = {"role": "cooper", "kind": "trade", "as_printed": "a cooper",
          "from": "1835", "to": "1835", "precision": "year",
          "dated_by": "source_describes_date", "covers_scene_date": True,
-         "confidence": "attested", "sources": ["s1"], "claim": None,
+         "fills_scene_view": True, "confidence": "attested", "sources": ["s1"],
+         "claim": None, "place": "not_stated", "employer_or_body": "not_stated",
          "note": "s1 is about 1835 and names the trade"}
     r.update(kw)
+    # T-1254: `fills_scene_view` follows `covers_scene_date` unless a test says
+    # otherwise, because a row cannot stand in a view its evidence does not reach and
+    # every fixture that turns coverage off means to turn the standing off with it.
+    if "covers_scene_date" in kw and "fills_scene_view" not in kw:
+        r["fills_scene_view"] = kw["covers_scene_date"]
     return r
 
 
@@ -2719,6 +2725,17 @@ def _resident_person(**kw) -> dict:
     if p.get("grade") == "reconstructed" and "name_basis" not in kw:
         p["name_basis"] = {"value": "invented from a pool", "confidence": "reconstructed",
                            "sources": ["s1"], "note": "THE NAME IS INVENTED."}
+    # T-1167 asks the same of the PERSON: which model row or rule drew them, the seed
+    # that redraws them, what evidence would retire them, and which programme stage
+    # wrote them. Supplied by default for the same reason as name_basis - so that the
+    # tests about other things are not all about this one.
+    if p.get("grade") == "reconstructed":
+        p.setdefault("basis", {"kind": "model", "id": "household_size",
+                               "note": "the head's own size band wants one more"})
+        p.setdefault("seed", "hh_a:household_size")
+        p.setdefault("replaceable_by", {"kind": "person",
+                                        "match": "a source naming this household's wife"})
+        p.setdefault("reconstruction", {"stage": "modelled_families", "community": "yankee"})
     return p
 
 
@@ -3004,6 +3021,77 @@ def test_the_accuracy_grade_is_a_closed_vocabulary_and_recommended_is_gone() -> 
           any("belongs only on a reconstructed person" in e for e in rep.errors), rep.errors)
 
 
+def test_a_reconstructed_person_shows_its_working() -> None:
+    """T-1167: the invention says what drew it, what redraws it and what retires it.
+
+    `name_basis` covers the NAME. These cover the PERSON, and they are the reason the
+    2026-09-02 retirement cannot repeat: a reconstructed resident that no stage claims,
+    or that no evidence would replace, is one nobody can audit or withdraw.
+    """
+    rep = _run_residents([_resident_household(persons=[
+        _resident_person(grade="reconstructed", sources=[], note="the town needed one",
+                         basis=None)])])
+    check("a reconstructed person without a basis is an error",
+          any("requires a `basis`" in e for e in rep.errors), rep.errors)
+
+    rep = _run_residents([_resident_household(persons=[
+        _resident_person(grade="reconstructed", sources=[], note="the town needed one",
+                         seed=None)])])
+    check("a person drawn from a model with no seed is an error",
+          any("draw nobody can reproduce" in e for e in rep.errors), rep.errors)
+
+    rep = _run_residents([_resident_household(persons=[
+        _resident_person(grade="reconstructed", sources=[], note="the town needed one",
+                         basis={"kind": "rule", "id": "readmission", "note": "argued"})])])
+    check("a person argued from a rule may not carry a seed",
+          any("nothing was drawn" in e for e in rep.errors), rep.errors)
+
+    rep = _run_residents([_resident_household(persons=[
+        _resident_person(grade="reconstructed", sources=[], note="the town needed one",
+                         replaceable_by=None)])])
+    check("a reconstruction with no replacement rule is an error",
+          any("would retire them" in e for e in rep.errors), rep.errors)
+
+    rep = _run_residents([_resident_household(persons=[
+        _resident_person(grade="reconstructed", sources=[], note="the town needed one",
+                         reconstruction={"community": "yankee"})])])
+    check("a reconstructed person no programme stage claims is an error",
+          any("name the programme stage" in e for e in rep.errors), rep.errors)
+
+    # The owner's 2026-09-17 ruling, held in the validator rather than in a docstring:
+    # Native and Metis people ARE reconstructed, through T-1177's stage alone, and
+    # always carrying the review AGENTS.md requires.
+    rep = _run_residents([_resident_household(persons=[
+        _resident_person(grade="reconstructed", sources=[], note="the town needed one",
+                         reconstruction={"stage": "modelled_families", "community": "metis",
+                                         "review_required": True,
+                                         "touches_removal": True})])])
+    check("a Metis reconstruction outside its own stage is an error",
+          any("ONLY by stage" in e for e in rep.errors), rep.errors)
+
+    rep = _run_residents([_resident_household(persons=[
+        _resident_person(grade="reconstructed", sources=[], note="the town needed one",
+                         reconstruction={"stage": "underdocumented", "community": "native"})])])
+    check("a Native reconstruction without its review is an error",
+          any("touches_removal" in e for e in rep.errors), rep.errors)
+
+    rep = _run_residents([_resident_household(persons=[
+        _resident_person(grade="reconstructed", sources=[], note="the town needed one",
+                         reconstruction={"stage": "underdocumented", "community": "native",
+                                         "review_required": True,
+                                         "touches_removal": True})])])
+    check("...and passes in its own stage, carrying the review",
+          not any("touches_removal" in e or "ONLY by stage" in e for e in rep.errors),
+          rep.errors)
+
+    # And the contract binds ONLY the reconstructed grade: a real person carries no
+    # basis or seed, because nothing about them was drawn.
+    rep = _run_residents([_resident_household(persons=[_resident_person()])])
+    check("an attested person owes no basis, seed or replacement rule",
+          not any("requires a `basis`" in e or "replaceable_by" in e for e in rep.errors),
+          rep.errors)
+
+
 def test_each_grade_owes_what_it_claims() -> None:
     """documented owes a source; derived and inferred owe reasoning."""
     rep = _run_residents([_resident_household(
@@ -3187,6 +3275,32 @@ def test_a_role_is_dated_and_the_1835_field_is_only_their_view() -> None:
     check("a withdrawal standing beside a live trade is an error",
           any("carries a withdrawal and a trade at once" in e for e in rep.errors),
           rep.errors)
+
+    # T-1254. A role says WHERE and FOR WHOM, and `not_stated` is the value where the
+    # record does not say - a blank is a field nobody filled and is refused.
+    for key in ("place", "employer_or_body"):
+        rep = view({"value": "cooper", "confidence": "attested", "sources": ["s1"],
+                    "note": "n", "derived_from": "roles",
+                    "roles_at_scene_date": ["cooper"]},
+                   [_resident_role(**{key: ""})])
+        check(f"a role with an empty {key} is an error",
+              any(f"{key} must be a non-empty string" in e for e in rep.errors),
+              rep.errors)
+
+    # T-1254. Reaching the scene date and STANDING in the 1835 field are two readings,
+    # and the second may not outrun the first.
+    rep = view({"value": "none_recorded", "confidence": "reconstructed", "note": "n",
+                "derived_from": "roles", "roles_at_scene_date": []},
+               [_resident_role(covers_scene_date=False, fills_scene_view=True)])
+    check("a role filling a view its evidence does not reach is an error",
+          any("fills the 1835 view and does not reach" in e for e in rep.errors),
+          rep.errors)
+
+    rep = view({"value": "none_recorded", "confidence": "reconstructed", "note": "n",
+                "derived_from": "roles", "roles_at_scene_date": []},
+               [_resident_role(fills_scene_view=False)])
+    check("…and one that reaches it without standing in it is legal, and empties the "
+          "field", not rep.errors, rep.errors)
 
     rep = view({"value": "none_recorded", "confidence": "reconstructed", "note": "n",
                 "derived_from": "roles", "roles_at_scene_date": [],

@@ -1,7 +1,7 @@
 ---
 id: T-0251
 title: first_presbyterian_church cannot come onto the Lake Street plat without displacing physicians_office
-state: blocked-owner
+state: open
 epic: META
 requested_by: loop
 seen: false
@@ -12,8 +12,10 @@ opened: 2026-08-27
 closed: null
 pr: null
 claimed_by: null
-blocked_on: Does a documented building displace an inferred-household unit when the plat repair puts them on the same lot? first_presbyterian_church needs 3.395 m to come onto the Lake Street plat and physicians_office stands 3.15 m behind it — the church, the household, or neither moves.
+blocked_on: null
 needs_bake: false
+closed_at: null
+claimed_run: null
 ---
 
 first_presbyterian_church cannot come onto the Lake Street plat without displacing physicians_office.
@@ -82,3 +84,24 @@ separation gate.
 **Links:** T-0196 (the three that were reconciled, and this refusal) · T-0198 · T-0199 (the
 owner's business-front ruling and its bounds) · `tools/plat_occupancy.py` ·
 `tools/generate_frontage_works.py`.
+
+## THE OWNER'S RULING, 2026-09-21: the documented building wins the lot
+
+first_presbyterian_church comes onto the Lake Street plat. physicians_office — an
+inferred-household unit — gives way.
+
+THE RULE GENERALISES, and it is to be written generally rather than as a decision about
+these two: where an ATTESTED placement and an INFERRED placement collide on one lot, the
+attested one stands and the inferred one moves or is withdrawn. A building the sources put
+on a street is the kind of thing this project exists to hold; a unit the reconstruction
+placed is a best guess, and a best guess that displaces a document has the method backwards.
+
+WHAT HAPPENS TO THE OFFICE IS THE RUN'S TO ARGUE, and it is not automatically a withdrawal.
+Re-seating it elsewhere on its own evidence is the first thing to try; withdrawing it is the
+answer only if nowhere else will hold it. Either way its card says what displaced it and
+why, so the move is legible rather than a silent disappearance.
+
+NOT THE THIRD OPTION. Narrowing both footprints to make 3.395 m and 3.15 m fit would leave
+two buildings sized to each other rather than to their evidence, and a dimension fitted to a
+neighbour is no longer a reading of anything. The collision is real and is resolved by
+precedence, not by shaving.

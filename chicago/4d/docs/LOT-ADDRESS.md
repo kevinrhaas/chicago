@@ -151,3 +151,49 @@ address outranks a composed vacancy and ranks below a household — a house the 
 the family in it is known by the family in it. The production identity is not deleted:
 `Reconstructed D3 one-room frame cottage #03` still prints under the title as the reference
 line, and search takes both.
+
+## And the fourth thing, which is not a claim at all (T-1478)
+
+There are now **four** ways a lot and a record can be connected in this corpus, and only
+three of them are claims. A street-face adoption claims a face (L212). A corner ordinal
+declares that it claims no lot (`lot_claim`, `docs/CORNER-ORDINAL.md`). A printed lot and
+block claims the plat's own unit — that is this document. The fourth is
+**`stands_on_lot`**, and nobody claims anything in it.
+
+Until T-1194 there was one lot layer and it stopped at the main stem. A documented
+building north or west of the river therefore stood on a block at best and on a bare
+coordinate at worst, and the last line of T-1194's acceptance asked for the rest: *every
+documented north or west record's lot recorded on the record, where the lot grid now names
+it*. There are five grids out there now — Thompson's North Division tier, the West
+Division, the Michigan Street tract, Wabansia, and the School Section tier beyond Madison
+— and `tools/record_lot_seating.py` measures which lot of them each documented footprint
+fell on.
+
+**The grid was drawn after the buildings were placed**, so this is an observation about
+the ground under a committed coordinate and never an address. Four things keep it from
+drifting into one:
+
+1. **`claims_lot` is `false` in every seat.** A record may carry `lot_claim` and
+   `stands_on_lot` at once without contradiction — what the newspaper claimed, and where
+   the ground under the building turned out to be — and the measurement never relaxes the
+   claim.
+2. **The seat is `tools/plat_occupancy.py`'s rule imported, not a second copy.** A
+   building stands on the lot most of it is on, and only if it reaches the part of that
+   lot a roof could have used. That module's docstring says why two copies of one rule is
+   how they drift; it exists because they did.
+3. **Only documented records carry one.** The `research` layer and no other. A
+   `reconstruction` count-unit already carries the programme's own `block_id`/`lot_index`,
+   and a derived plat seat on one would let this project's output read back as evidence
+   about the town — the single thing the three-layer split exists to prevent.
+4. **The grade is the weaker of the lot lines and the numeral**, both read off the layer.
+   The West Division's numerals are `documented` and its lot lines are not, so its seats
+   are `inferred`: the numeral does not carry the line. Where a grid numbers nothing —
+   Wabansia and the Michigan Street tract order their lots along a face and print no
+   numeral — the seat names the block and the index and says in `lot_number_withheld` that
+   there is no number, rather than counting a position off the polygon list and calling it
+   one.
+
+`tools/record_lot_seating.py --check` re-derives the whole thing from the committed
+footprints and the committed grids and refuses a record that has stopped carrying what the
+ground says, a seat no lot measures, a seat on a reconstruction record, and a seat that
+claims. `check.sh` runs it beside the address gate above.

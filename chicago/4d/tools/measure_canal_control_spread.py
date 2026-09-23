@@ -8,7 +8,8 @@
 T-0421, found by T-0009 on 2026-08-29 while deriving every street's platted corridor from
 its committed control. Canal is the one street with more than one control point that does
 not agree with itself: `lake_canal` +0.00 m, `randolph_canal` +0.09 m, `kinzie_canal`
--2.24 m off its own drawn centreline, a spread of 2.33 m. No rigid translation puts the
+-2.24 m and, since T-1192, `fulton_canal` +4.61 m off its own drawn centreline -- a spread
+of 6.85 m. No rigid translation puts the
 corridor on all three and re-DRAWING the line is what the owner's ruling of 2026-08-29
 forbids, so `plat_corridors.control_offsets()` returns `disagree` and Canal's corridor stays
 on the drawn line.
@@ -23,15 +24,26 @@ until then it lived in three paragraphs of prose and nothing could re-derive it)
 
 So this tool runs `control_offsets()` twice against the SAME committed lines -- once as the
 control table stands, once with `kinzie_canal` moved to its own `road_only_reading` -- and
-reports the spread each way. Committed: 2.33 m. Road-only: 0.09 m.
+reports the spread each way. Committed: 6.85 m. Road-only: 4.61 m.
 
 NOTHING MOVES ON EITHER READING, and the tool exists to keep that true rather than to argue
-for a change. 0.09 m is still wider than the 0.01 m `plat_corridors.QUOTED_M` quotes offsets
-to, so the verdict is `disagree` both ways and the corridor sits where it sat. What the
-measurement settles is the ticket's question: whether Canal's block grid and its corridor
-answer different questions (they do not -- the drawn line reproduces all three of its
-control points to 9 cm) or whether the street is really 2.33 m of undecided (it is not --
-that figure is this control entry's cycle path).
+for a change. 4.61 m is far wider than the 0.01 m `plat_corridors.QUOTED_M` quotes offsets
+to, so the verdict is `disagree` both ways and the corridor sits where it sat.
+
+WHAT THE FOURTH POINT CHANGED, AND IT CHANGED THE ANSWER, NOT JUST THE ARITHMETIC. T-1192
+adopted `fulton_canal` on 2026-09-20 -- Canal's surviving junction with the Fulton tier,
+read from OpenStreetMap on 2026-09-04 and carried until then only in the prose of `fulton`'s
+own record. Before it, this tool settled T-0421's question like this: Canal was not really
+2.33 m of undecided, because the drawn line reproduced its other three control points to
+9 cm and the residue was this control entry's cycle path. THAT READING NO LONGER HOLDS.
+The Fulton junction stands 4.61 m off the drawn line, it is the largest of the four, and it
+is not a bikeway artifact -- so it survives the road-only correction unchanged while the
+other three converge to 0.09 m, taking the road-only spread from 0.09 m to 4.61 m. Canal's
+disagreement is therefore no longer something the queued kinzie_canal correction could
+resolve, and it is a statement about the street rather than about the name query. What has
+NOT changed is the consequence: `disagree` both ways, the corridor on the drawn line, and
+tools/measure_corridor_intrusion.py --gate reading the same 19 lapping phases and the same
+0 generated roofs in a corridor as it did before the point was added.
 
 It also holds the bridge to the same field: `north_branch_bridge` declares
 `centreline.control_variance_m: 2.93`, and that 2.93 m is exactly the northing between
@@ -57,8 +69,8 @@ POINT = "kinzie_canal"
 
 # The committed answers. Re-derived below from the two files on every run; stated here so
 # that a change to either of them is a RED with a number in it rather than a silent move.
-COMMITTED_SPREAD_M = 2.33
-ROAD_ONLY_SPREAD_M = 0.09
+COMMITTED_SPREAD_M = 6.85
+ROAD_ONLY_SPREAD_M = 4.61
 BRIDGE_VARIANCE_M = 2.93
 TOL_M = 0.01
 
@@ -66,8 +78,10 @@ TOL_M = 0.01
 # under a rigid translation of the drawn line, so a gate that checked only the spread
 # would sleep through Canal being moved bodily — which is the one edit the ruling of
 # 2026-08-29 is about. These are the offsets themselves.
-COMMITTED_OFFSETS_M = {"lake_canal": 0.00, "randolph_canal": 0.09, "kinzie_canal": -2.24}
-ROAD_ONLY_OFFSETS_M = {"lake_canal": 0.00, "randolph_canal": 0.09, "kinzie_canal": 0.01}
+COMMITTED_OFFSETS_M = {"lake_canal": 0.00, "randolph_canal": 0.09, "kinzie_canal": -2.24,
+                       "fulton_canal": 4.61}
+ROAD_ONLY_OFFSETS_M = {"lake_canal": 0.00, "randolph_canal": 0.09, "kinzie_canal": 0.01,
+                       "fulton_canal": 4.61}
 
 
 def _load(path):

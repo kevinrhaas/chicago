@@ -23,7 +23,7 @@ The published residents mirror has two writers that disagree on its shape, and p
 **Acceptance:** (state it before working — the definition of done, never weakened to pass)
 
 **Found by T-0714, 2026-09-06, the hard way — it cost that run a full `check.sh` lap.**
-`site/4d/data/residents/` has three writers and they do not agree on the bytes:
+`site/chicago/4d/data/residents/` has three writers and they do not agree on the bytes:
 
 | writer | shape |
 |---|---|
@@ -42,6 +42,6 @@ a workaround and not a fix: the next publish does it again.
 The bridge tool's pretty write is also the odd one out on the merits — the mirror is minified
 deliberately, for a size budget the authored tree is not under.
 
-**Acceptance:** one shape, written by one rule, for `site/4d/data/residents/`; `./tools/publish.sh`
+**Acceptance:** one shape, written by one rule, for `site/chicago/4d/data/residents/`; `./tools/publish.sh`
 run twice in a row and then `synthesize_resident_research.py --drift` is green; and running
 `apply_census_1840_bridges.py` after a publish leaves the gate green too. `bash tools/check.sh` green.

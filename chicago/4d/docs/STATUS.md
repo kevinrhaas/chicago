@@ -1,5 +1,50 @@
 # STATUS
 
+## Responsive measured boot — T-1246, 2026-09-20
+
+The gate now exposes eight real work phases, completed-work events and measured cold/warm estimates for both viewports at all three detail tiers. Row/batch yields let the loading status repaint during planting; mobile/light measured 123.8 ms cold and 116.5 ms warm between paints, down from 974.5 ms cold. All twelve comparisons preserve geometry bytes, flora/tree statistics, roll and placement census. Optional people/census failures and background resume passed published-browser tests; failed terrain never opens the gate. First-render readiness and asynchronous shader preparation replace the earlier pre-render ready flag. [Measurement/reproduction notes](performance/BOOT-PHASES.md) distinguish the flora result from remaining software-renderer presentation stalls. Full regression validation is recorded in the closing PR.
+
+## Unreal update process and queued parity — 2026-09-20
+
+Owner-requested process documentation now describes selecting the newest passing dev snapshot, isolated Mac builds, packaged tests, checksums and a draft-to-published GitHub prerelease. This documents the working manual path; on-demand automation remains T-1472. New held tickets T-1473/T-1474/T-1475 cover sinking buildings, a flora corridor and navigation/place inspection. Existing T-1360 retains roads. The [parity matrix](unreal/PARITY.md) records broader web gaps and successor obligations. All engine-only tasks remain blocked-tech with ordered HOLD references after South Through Time and before Loop Improvements. No new renderer feature or automatic build service ships in this documentation slice.
+
+## Standalone Mac preview — T-1464, 2026-09-20
+
+The owner prioritised a native Mac app from latest dev before streaming. The local
+Apple Silicon build consumed snapshot `253f026570358dfcdab62fb2593c4082b058de07` with
+Unreal 5.8.2 and Xcode 27.0. BuildCookRun and local code-sign verification passed;
+the packaged app opened directly into Chicago, without the editor or streaming.
+384 terrain/structure mesh actors imported with no errors; `estray_pen` is explicitly
+skipped because its enclosure is browser-generated. The pawn is persistently body-free.
+A 21-second offscreen packaged test, ignoring keyboard/mouse input, passed with
+all sampled states grounded: walk forward, stop at an obstacle, back away. It is
+not a full bridge or bank route test. The owner identified the low garden fence
+near the fort: positional Python Rotator arguments had applied its 53-degree
+bearing as pitch, tilting the entire enclosure into the sky. Explicit yaw arguments
+now keep it upright, with a measured world height of 1.135333 m. Every imported
+structure is checked for zero pitch/roll and its expected yaw. Player start and sun
+also use named rotation fields. Lowest-footprint anchoring separately lowers the
+fort palisade 1.437281 m to bed it in the downhill terrain.
+Escape quit the native app. No claim is made that the streaming corruption is fixed.
+
+[Build source and instructions](../renderers/unreal/README.md) are isolated from the
+web renderer. [The receipt](../renderers/unreal/receipts/mac-253f02657.json) records
+hashes and actual readings. This preview omits browser procedural scenery, research
+UI and confidence visualization. It is locally signed, not notarized for public
+distribution. T-1358/T-1360/T-1361 retain their broader acceptance and execution holds.
+
+## Unreal delivery programme — owner request, 2026-09-18
+
+Nothing in the published scene changes in this ticket/documentation slice. T-1356
+tracks regular bundles (T-1357), repeatable local import (T-1358), the reported
+black-bar/static defect (T-1359), scenery parity beginning with streets (T-1360), and
+approved-host staging (T-1361). Existing T-0252 owns the shared export contract.
+The band is after South Through Time and before Loop Improvements. Engine/deployment
+children are blocked-tech and excluded from the general loop, with visible HOLD
+references. [Runbook](unreal/README.md) records the local prototype and its limits;
+streaming corruption, full walking, parity and remote delivery are NOT verified.
+
+
 ## T-0437 — sparse smoke checkout, 2026-09-17
 
 The bake smoke checkout selects only tools and `docs/SITE-BUDGET.md`, at the
@@ -2735,7 +2780,7 @@ distinct ways. Each is now a guard with a self-test on the case that forced it.
    `inf_*` are excluded outright. Putting a documented firm into an invented roof is a decision
    T-0263 makes deliberately, with the adoption written down; making it by string match is how an
    invention gets laundered into the documented layer. `Kinzie Hall` had matched
-   `recon_1835_north_i2_015` on the word "hall".
+   `recon_1835_north_d4_015` on the word "hall".
 
 5. **A word in the record is not a surname in the record** (T-1042). The pools these guards back
    are word SETS, so any capitalised word in a building's prose could satisfy a required surname:
@@ -2847,7 +2892,7 @@ changes; the 662 roofs are the same 662 roofs, re-typed.
 
 **Why the South pays and no one else.** Six of the North's seven freight roofs are documented
 pre-existing records — Kinzie & Hunter's warehouse, the four north-bank sheds at the Dearborn reach,
-the north-side brickyard — and the seventh, `recon_1835_north_f1_022`, was dealt by a parcel that ran
+the north-side brickyard — and the seventh, `recon_1835_north_h2_022`, was dealt by a parcel that ran
 before anything measured this. Against them the South's freight cell holds seventeen authored slots
 of which five stand: twelve are unbuilt and unnamed. **An authored slot yields to a documented
 record** — the principle T-0032 established when it held the institutional row to the named census —
@@ -3299,10 +3344,10 @@ roofs they have room for. Two do not, and both are in the North Division:
 Six of the seven North freight roofs are **documented pre-existing records** — Kinzie & Hunter's
 warehouse, the four north-bank sheds at the Dearborn reach, the north-side brickyard — so the breach
 is not an invention that can be removed. It is a row authored without the north bank's river-freight
-fabric in view. The seventh is `recon_1835_north_f1_022`, dealt by a parcel that ran before anything
+fabric in view. The seventh is `recon_1835_north_h2_022`, dealt by a parcel that ran before anything
 measured this. The institutional cell is a narrower thing: T-0032 set that row to the NAMED census and
 `measure_institutional_claims.py` holds it there, while this counts every roof that stands — so the
-two gates disagree by exactly `recon_1835_north_i2_015`, the one anonymous school **L93** records as a
+two gates disagree by exactly `recon_1835_north_d4_015`, the one anonymous school **L93** records as a
 liberty taken rather than deleted. Both readings are right for their own question.
 
 **What the breach was costing, which nothing anywhere stated.** `reconcile_665.py` clamps the negative
@@ -5669,7 +5714,7 @@ already had — so there was no visible disagreement to prompt a careful read.
 
 **Closed with `tools/test_no_conflict_markers.py`**, wired in near the top of `check.sh` where it
 costs milliseconds. It is deliberately dumb: a text scan over all 3,340 tracked files under
-`chicago/4d` and `site/4d`, asking nothing about structure, **because structure is what
+`chicago/4d` and `site/chicago/4d`, asking nothing about structure, **because structure is what
 missed it**. It refuses `<<<<<<< `, a whole line of `=======`, and `>>>>>>> `; it deliberately does
 not refuse a markdown heading underline, a table rule, an indented divider, or prose mentioning a
 marker mid-line, so it stays a guard rather than a nuisance. Nine self-test assertions prove both
@@ -6852,7 +6897,7 @@ records are untouched: `place_frontage` has always taken `face["bearing"]` off `
 which reads the block face's OUTWARD normal — which is exactly why the fault could stand beside the
 South Water row (L142) for a week without looking wrong.
 
-**What it looks like.** `tools/shoot.mjs ../../site/4d /walk/ --at 390,-255,180` — standing
+**What it looks like.** `tools/shoot.mjs ../../site/chicago/4d /walk/ --at 390,-255,180` — standing
 in Randolph Street looking south at the north tier of `blk_randolph_wells` — before: two blank
 clapboard walls with the openings of the far tier showing past them. After: four and five bays of
 door and window across both street walls, and both chimneys moved to the front slope.
@@ -7439,7 +7484,7 @@ control, with the run's own control and return-to-pose both 0 px. Deep box: ROAD
 
 ## Shipped 2026-08-23 — T-0154: closing a ticket stops leaving the published mirror stale
 
-**The ask.** `site/4d/tickets.json` is a verbatim copy of `tickets/tickets.json` and
+**The ask.** `site/chicago/4d/tickets.json` is a verbatim copy of `tickets/tickets.json` and
 `tools/check_published.mjs` compares the two byte for byte — the gate that generalises #145, where a
 published artefact quietly differing from its source hid the terrain quantiser for three parcels.
 `tools/ticket.mjs done` rewrites the source. So the order AGENTS.md states could not be obeyed:
@@ -7469,7 +7514,7 @@ the narrowness is the whole design:
   asserts publish.sh still contains that exact `cp` line, and names the reconciliation if it does not.
 
 **Demonstrated, both halves, in `tools/test_ticket_mirror.mjs`** — a new `check.sh` step. It builds a
-sandbox of the shape the tools expect (`<tmp>/chicago/4d/…` beside `<tmp>/site/4d/`), copies
+sandbox of the shape the tools expect (`<tmp>/chicago/4d/…` beside `<tmp>/site/chicago/4d/`), copies
 the three tools and the real ticket files in, and asserts: a freshly published sandbox is green; a
 `done` with a PR number leaves it green **with no second publish**; the mirror really is the closed
 board; a hand-staled mirror **still fails**; a no-op regeneration **does not launder it**; and moving
@@ -7711,7 +7756,7 @@ puts it."* Moving a documented building is the owner's call. **T-0140** is this 
 **T-0141** carries the arithmetic and the question, blocked on him.
 
 **Verified:** `tools/check.sh` green · `node tools/smoke_renderer.mjs` green at 390×780 and
-1280×800, zero pageerrors · `node tools/shoot.mjs site/4d /walk/` at the `forks` and
+1280×800, zero pageerrors · `node tools/shoot.mjs site/chicago/4d /walk/` at the `forks` and
 `green_tree` anchors, 114 draw calls of a 140 budget at the shoot's own stand, no page errors, and
 the schooner's masts standing over the west-bank roofs in the frame.
 
@@ -10047,7 +10092,7 @@ What ran in the foreground instead, and passed:
   figure is identical to K54's banked table to the digit: shrub instances 181 over 8 stations,
   156 in `z06_dense_forest` at 40.1 % of a recorded 94.9 %, `z05_riverbank_timber` 20.1 % of 19.5 %,
   deviation `shrub 10.41 over 181`. That identity IS the assertion that no count moved.
-- `node tools/shoot.mjs site/4d /walk/` over all seven visitor anchors on the published
+- `node tools/shoot.mjs site/chicago/4d /walk/` over all seven visitor anchors on the published
   mirror — **zero page errors**, 35 draw calls of 80, **541,701 triangles of 1,000,000** at `full`
   detail (541,668 before, measured at the spawn anchor where one shrub stands).
 
@@ -12219,7 +12264,7 @@ a pixel**, 2 are shown as text, 2 are read only by a diagnostic, and **58 reach 
 **The largest finding is a whole layer.** `data/fauna` is **139 species records across ten
 habitat zones and zero reads** — and the check that says so is a directory scan, not a field
 one: **no file under `renderers/` names the layer**, and `tools/publish.sh` does not copy it,
-so `site/4d/data/` contains no `fauna/` and a browser has never been offered it.
+so `site/chicago/4d/data/` contains no `fauna/` and a browser has never been offered it.
 Three documents implied otherwise — `data/scenes/1835.json` lists `fauna` in its `layers`,
 `docs/LIBERTIES.md` L2 describes the soundscape as shipped, and `tools/validate.py` demanded
 eight vocabulary blocks because *"a renderer reads this block"*. **This is not a case for
@@ -12608,7 +12653,7 @@ and nothing outside the Evidence panel was touched.
 
 **K36(a).** The geometry a visitor downloads reaches them along four links —
 `data/` → `assets/gltf/` (the masters) → `assets/web/` (the shipped derivatives) →
-`site/4d/` (the published mirror). Link 1 is gated by the staleness check, link 3 by
+`site/chicago/4d/` (the published mirror). Link 1 is gated by the staleness check, link 3 by
 `check_published.mjs`, and **link 2 was gated by nothing at all**: no hash, no count, no
 assertion tied a shipped derivative to the master it was compressed from. It is also the link
 with the moving parts — two `gltf-transform` passes — and `tools/bake.sh`'s own comments record
@@ -15463,7 +15508,7 @@ parcelled as ROADMAP **R-G1** and the baseline is incomplete until it lands.
 | **Liberties, in the app** | **done** — the Evidence panel lists the liberties derived from `docs/LIBERTIES.md` by `tools/compile_liberties.py` and re-derived by `check.sh`; the provenance popup shows the ones taken with the building you are inspecting; and the gate checks the document *for gaps* in both directions — refusing any conjectural value (footprint, position, a terrain claim, or a stated form attribute) that no liberty admits to, and equally any attested value the archetype or terrain generator never reads and no liberty owns up to leaving out |
 | **The platted street module** | **MEASURED AND VISIBLE** — street corridors and widths remain committed in `data/traces/vectors/street_corridors_1834.json`, with Lake and Randolph named from committed control and re-derived offline by `check_street_module`. `data/streets/1835.json` now adds seventeen dated paths and keeps the 80 ft legal corridor separate from L79's 5.8-10.5 m visible travelled strips. `compile_scene.py` joins their citations into the sidecar index; the renderer drapes them on the ground, clips them at water and clears vegetation only from the track. South Water and Lake read as principal graded earth, ordinary streets as worn native earth, and no gravel, plank roadway or hard paving is shown. North Water's curve and every rut/track width remain explicitly conjectural. |
 | **The lake shore** | **TRACED, NOT BUILT** — `shoreline.geojson`: the harbour reach, the 1834 cut, the old southward channel, the sand bar as an island and the mainland shore, E +314…+1570 off Wright 1834. Vectors only; no elevation, no mesh, nothing east of the box renders yet |
-| **Published** | `site/4d/` (14.31 MB of a 25 MB budget) + a tile on the Chicago landing page |
+| **Published** | `site/chicago/4d/` (14.31 MB of a 25 MB budget) + a tile on the Chicago landing page |
 | Exclusions | 14 date-guarded structures + a 4-item watch list — **in the walkthrough** since 2026-08-10 (Evidence panel, "What is not here"), citations joined, and now held to the same citation rule as a structure record (§ 26) |
 
 ## Corrections made after the first live look

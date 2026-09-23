@@ -42,7 +42,7 @@ stands. #998 was re-laid and merged in that pass and this is the same lap for it
 1. `bash chicago/4d/tools/setup-merge-drivers.sh` FIRST. Without it `QUEUE.md` and
    `changelog.js` conflict the old way and the queue order is what gets wrecked.
 2. Merge `origin/dev` in. Resolve by **accepting dev's deletion** of
-   `site/4d/**`, `chicago/4d/tickets/tickets.json` and `tickets/BOARD.md` —
+   `site/chicago/4d/**`, `chicago/4d/tickets/tickets.json` and `tickets/BOARD.md` —
    T-0937 and T-0938 took all three off the PR surface and they are gitignored now.
 3. Any ticket the branch filed has to be checked for an id that landed meanwhile:
    `node tools/ticket.mjs restamp <file>` renumbers the younger one, and a ticket whose

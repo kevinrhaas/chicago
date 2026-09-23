@@ -1,0 +1,179 @@
+{
+  "id": "biz_sarah_d_howe",
+  "register_id": "business_sarah_d_howe",
+  "name": "Sarah D. Howe",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "dress, cloak and habit making",
+  "occupation": "dressmaker",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Howe, Sarah D.",
+      "person_id": "howe_sarah_d",
+      "register_person_id": "person_howe_sarah_d",
+      "role": "partner",
+      "from": "1835-08-19",
+      "to": "1835-08-22",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card howe_sarah_d (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_08_22#c001",
+        "chicago_democrat_1835_08_19#c013"
+      ],
+      "also_printed_as": [
+        "Sarah D. Howe"
+      ]
+    }
+  ],
+  "staff": [
+    {
+      "name": "Sophronia Sawyer",
+      "person_id": "rc_sawyer_sophronia",
+      "role": "journeyman",
+      "occupation": "dressmaker",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a millinery or dressmaking room at the typical band and 2 at the high end, on period_convention. The needle trades ran on assistants and the 1835 notices advertise for them. Analogue: the 1839 list's six milliners and its tailoresses, and the 1840 column that has no row for them at all. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#millinery_and_dressmaking.dressmaker; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_sawyer_sophronia:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    },
+    {
+      "name": "Esther Stiles",
+      "person_id": "rc_stiles_esther",
+      "role": "journeyman",
+      "occupation": "dressmaker",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a millinery or dressmaking room at the typical band and 2 at the high end, on period_convention. The needle trades ran on assistants and the 1835 notices advertise for them. Analogue: the 1839 list's six milliners and its tailoresses, and the 1840 column that has no row for them at all. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#millinery_and_dressmaking.dressmaker; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_stiles_esther:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "millinery_and_dressmaking",
+    "reads_as": "a millinery or dressmaking room",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "journeyman",
+        "occupation": "dressmaker",
+        "household_relationship": "journeyman",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 2,
+        "seats_drawn": 2,
+        "drawn": true,
+        "basis": "period_convention"
+      },
+      {
+        "role": "apprentice",
+        "occupation": "dressmaker",
+        "household_relationship": "apprentice",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 2,
+      "seats_against_the_band": 1,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "dressmaker",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "seats_drawn": 2,
+          "short_by": 0
+        },
+        {
+          "occupation": "dressmaker",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 2. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "lake",
+      "face": null,
+      "primary": true,
+      "from": "1835-08-19",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names Lake Street and nothing narrower; the anchor 'the house occupied by Dr. Austin' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1835-08-18",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The paper announces the opening: chicago_american_1835_08_22#c001 (1835-08-18); chicago_democrat_1835_08_19#c013 (1835-08-18)."
+  },
+  "evidence": {
+    "first_issue": "1835-08-19",
+    "last_issue": "1835-08-22",
+    "copy_dates": [
+      "1835-08-18"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "other",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read other: Howe, Sarah D. (other). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "howe_sarah_d",
+        "name": "Howe, Sarah D.",
+        "role": "partner",
+        "community": "other",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_08_22#c001",
+    "chicago_democrat_1835_08_19#c013"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": true
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

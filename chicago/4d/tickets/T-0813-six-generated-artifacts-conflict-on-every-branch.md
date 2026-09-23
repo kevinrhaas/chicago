@@ -24,9 +24,9 @@ all six:
 
 | file | built by | conflicts on |
 |---|---|---|
-| `site/4d/walk/index.html` | `tools/publish.sh` | 21 of 21 |
-| `site/4d/tickets.json` | `ticket.mjs` (T-0154 mirror) | 21 of 21 |
-| `site/4d/build.json` | `tools/publish.sh` | 21 of 21 |
+| `site/chicago/4d/walk/index.html` | `tools/publish.sh` | 21 of 21 |
+| `site/chicago/4d/tickets.json` | `ticket.mjs` (T-0154 mirror) | 21 of 21 |
+| `site/chicago/4d/build.json` | `tools/publish.sh` | 21 of 21 |
 | `chicago/4d/tickets/tickets.json` | `ticket.mjs board` | 21 of 21 |
 | `chicago/4d/tickets/BOARD.md` | `ticket.mjs board` | 21 of 21 |
 | `chicago/4d/tools/dev-smoke-state.json` | `dev-smoke-state.mjs record` | 15 of 21 |

@@ -1,7 +1,7 @@
 ---
 id: T-0141
 title: A mast reads over the Green Tree's own roofline, which its committed placement forbids
-state: blocked-owner
+state: open
 epic: META
 requested_by: loop
 seen: false
@@ -12,8 +12,10 @@ opened: 2026-08-22
 closed: null
 pr: null
 claimed_by: null
-blocked_on: The Green Tree's committed placement puts it a full block back from the west bank, so no mast can subtend its roofline from the visitor's own stand. Its own position_note records the alternative (DRLOIH's 'Lake and West Water', about 145 m east). Settle the placement, or accept that the plate's composition is unreproducible here?
+blocked_on: null
 needs_bake: false
+closed_at: null
+claimed_run: null
 ---
 
 A mast reads over the Green Tree's own roofline, which its committed placement forbids.
@@ -53,3 +55,26 @@ unreproducible at this placement with the measurement above written where the pl
 **Links:** T-0122 (parent) · T-0140 (the piece that shipped) · L152 (the same open question) ·
 `data/sidecars/1835/green_tree_tavern.json` `placement.position_note`.
 
+## THE OWNER'S RULING, 2026-09-21: MOVE the Green Tree to Lake and West Water
+
+Adopt DRLOIH's placement — about 145 m east of the committed position, at Lake and West
+Water. The tavern comes forward to the bank, and the plate's composition is reproducible
+from the visitor's own stand.
+
+THE MOVE IS ARGUED FROM THE SOURCE, NOT FROM THE PICTURE'S FRAMING, and this is the whole
+of how it must be written. DRLOIH states a location; that statement is the evidence, and it
+is what the new placement cites. The mast over the roofline is the SYMPTOM that sent
+somebody to look — it is not a reason to move a building, and a placement note that reads
+'moved so the plate would work' would be this project fitting the town to a depiction.
+
+WHAT THE OLD PLACEMENT WAS IS PART OF THE RECORD. The position_note keeps what put the
+tavern a full block back, says that DRLOIH is preferred and why, and names the date of this
+ruling. A committed building that moves without its previous reading surviving is a town
+quietly rewriting itself, and the next person to find a source on the Green Tree needs to
+see both readings to weigh a third.
+
+CHECK WHAT ELSE STOOD ON THE OLD POSITION. 145 m is far enough to change what the tavern
+neighbours, what lot it sits on and what the visitor sees from the stands around it. If the
+move collides with anything already placed, T-0251's ruling of the same day governs:
+attested placement displaces inferred, and the loser is re-seated on its own evidence before
+it is withdrawn.

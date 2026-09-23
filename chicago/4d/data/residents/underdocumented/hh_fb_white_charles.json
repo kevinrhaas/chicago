@@ -1,0 +1,136 @@
+{
+ "id": "hh_fb_white_charles",
+ "name": "The White household — a free Black household of 1835",
+ "division": "unplaced",
+ "head": "rc_fb_white_charles",
+ "source_pass": "reconstructed_underdocumented",
+ "underdocumented": {
+  "ticket": "T-1377",
+  "parent": "T-1177",
+  "stage": "underdocumented",
+  "sub_stage": "free_black",
+  "rule": "the_1833_count_is_the_floor_of_the_1835_bracket",
+  "slot": "free_black:floor:004",
+  "stands_on": "THE FLOOR OF THE 1835 BRACKET, CARRIED FORWARD WHOLE. Caton's fee in August 1833 counts six or seven free coloured men at Chicago, each of them before the Court of County Commissioners for the certificate of freedom the Illinois black law made the condition of a lawful residence. The 1840 census counts fifty-three free coloured persons in the same town. No monotone path between those two readings passes below the 1833 count on 1 July 1835, so the count is carried and not drawn against a persistence rate — the subject here is a COUNT, and a count does not leave town.",
+  "household_shape": {
+   "page": "33SQ-GYYJ-RY",
+   "line": 13,
+   "as_read": "[?]. [K]. Bul[l]",
+   "adult_men": 1,
+   "adult_women": 0,
+   "children_under_10": 0,
+   "persons": 1
+  },
+  "withdrawn_if": "a source naming the free Black residents of Chicago in 1835 — the Court of County Commissioners' certificates of freedom above all — which would replace this whole cohort with the men it stands for; or a re-cut of the bracket that no longer puts the floor at this count. The retirement runs through --build, never by hand"
+ },
+ "arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "NOT DRAWN. The 1833 reading dates an appearance in a courtroom and not an arrival, and this stage will not invent one. The programme's arrival stage owns this block and T-1179 is where these cards join it."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "NOT WRITTEN, AND THE SILENCE IS THE POINT. The corpus says where its white residents came from and says nothing at all about where any Black resident of this town came from. Free, freed, born in Illinois or come up from a slave state — the record does not say, and an origin written here would be this project answering the one question its sources most conspicuously do not."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not seated. T-1199 seats the reconstructed households on the lot grid by the placement policy; this card carries no division because no reading places a free Black household in one."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not seated. The two firms this stage writes carry their keepers; T-1189 staffs the business layer."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "the_1833_count_is_the_floor_of_the_1835_bracket",
+   "note": "THE FLOOR OF THE 1835 BRACKET, CARRIED FORWARD WHOLE. Caton's fee in August 1833 counts six or seven free coloured men at Chicago, each of them before the Court of County Commissioners for the certificate of freedom the Illinois black law made the condition of a lawful residence. The 1840 census counts fifty-three free coloured persons in the same town. No monotone path between those two readings passes below the 1833 count on 1 July 1835, so the count is carried and not drawn against a persistence rate — the subject here is a COUNT, and a count does not leave town."
+  },
+  "replaceable_by": {
+   "kind": "household",
+   "match": "a re-cut of the bracket that no longer puts the floor of 1 July 1835 at the August 1833 count"
+  },
+  "note": "Present because the floor is carried, not because a draw was made. See the rule above."
+ },
+ "persons": [
+  {
+   "id": "rc_fb_white_charles",
+   "name": "Charles White",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "note": "The shape this person fills is sexed by the 1840 schedule's own free-coloured columns, which count men and women separately. The sex is the shape's, not a draw made over this person."
+   },
+   "occupation": {
+    "value": "drayman",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_free_black_trade_liberty",
+     "note": "A LIBERTY, DECLARED. No source in this corpus records an occupation for any Black person at Chicago before 1840 — not an advertisement, not a directory line, not a roll. The seven trades this stage deals are the service, carrying and labouring trades of a northern lake town, and dealing from them rather than from the merchant and professional classes is an assumption about the 1835 labour market. Nothing here says a free Black man at Chicago could not keep a store or read law; it says this project has no reading either way and has written down which way it guessed. docs/LIBERTIES.md carries it."
+    },
+    "seed": "free_black:floor:004:trade",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "any source naming a free Black resident of Chicago at a trade"
+    },
+    "note": "DEALT, NOT READ. The trade is dealt round the seven this stage carries, in the order the slot falls, so it is reproducible from the seed above and from nothing else. No source gives this person a trade and none gives any Black person at Chicago one before 1840."
+   },
+   "name_basis": {
+    "value": "Charles White",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The surname is one of the 5 the 1840 Chicago schedule prints on lines the borderline roster classes R6_native_metis_black on its own `community_term_in_the_reading` rule — the only free Black naming this corpus holds. The given name is the town's own stock: every given name the schedule prints in that block is already borne by a real person of this town, so this pool invents surnames' company and not a second naming tradition."
+    },
+    "seed": "free_black:floor:004:name",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "any source naming a free Black resident of Chicago on or before 1 July 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The surname is drawn from the six the 1840 schedule prints in its free-coloured block and the given name from the town's own stock; no draw may reproduce a printed reading, and none may take a name a real person of this layer bears."
+   },
+   "basis": {
+    "kind": "rule",
+    "id": "the_1833_count_is_the_floor_of_the_1835_bracket",
+    "note": "THE FLOOR OF THE 1835 BRACKET, CARRIED FORWARD WHOLE. Caton's fee in August 1833 counts six or seven free coloured men at Chicago, each of them before the Court of County Commissioners for the certificate of freedom the Illinois black law made the condition of a lawful residence. The 1840 census counts fifty-three free coloured persons in the same town. No monotone path between those two readings passes below the 1833 count on 1 July 1835, so the count is carried and not drawn against a persistence rate — the subject here is a COUNT, and a count does not leave town."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a free Black resident of Chicago inside the window — the 1833 certificates of freedom themselves would retire this whole cohort and name the men it stands for"
+   },
+   "reconstruction": {
+    "stage": "underdocumented",
+    "sub_stage": "free_black",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "free_black",
+    "review_required": true
+   },
+   "resident_subtype": "underdocumented_resident",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the corpus counts six or seven free coloured men at Chicago in August 1833 and the 1840 census counts fifty-three free coloured persons there, and between those two readings the town of 1 July 1835 cannot hold fewer free Black men than 1833 did. The whole of what is claimed is a free Black adult man of this town. REVIEW REQUIRED: this is a reconstruction of a Black resident of a town inside a state whose black laws made a certificate of freedom the condition of his residence, written from six surnames and no biography at all; AGENTS.md's standard holds it for review before a scene carrying it may be marked released. No figure is drawn (L1)."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": true,
+ "research_note": "WRITTEN BY tools/reconstruct_free_black.py (T-1377, of T-1177), the `free_black` sub-stage of the `underdocumented` stage of the 1835 resident reconstruction programme, under the owner's ruling of 2026-09-17 recorded in AGENTS.md. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a card written here lives beside the re-admissions and is overlaid onto the scene by tools/compile_scene.py. REVIEW REQUIRED and touches_removal FALSE, both deliberate: this is a reconstruction of Black residents and not of the removal, and borrowing that flag would borrow the weight of a subject this stage is not about. docs/RESEARCH/black_chicago_1835.md lists every source read and every refusal; docs/LIBERTIES.md carries the trade liberty."
+}

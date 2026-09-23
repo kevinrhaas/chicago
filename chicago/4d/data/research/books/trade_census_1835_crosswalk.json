@@ -6,7 +6,45 @@
   "generated_by": "tools/trade_census_1835.py --build",
   "ticket": "T-1006",
   "not_a_reading": "an adjudication of a claim this domain has already read, set against the business register — no page of any source is read here",
-  "_doc": "THE DECEMBER 1835 TRADE CENSUS, SET AGAINST THE TOWN'S OWN BUSINESS REGISTER.\n\nMoses and Kirkland print, at page 95 of volume 1, the State count taken between\n1 September and December 1835: forty-four stores, two book stores, four druggists,\ntwo silversmiths and jewellers, two tin and copper manufactories, two printing\noffices, two breweries, one steam saw-mill, one iron foundry, four storage and\nforwarding houses, eight taverns, one lottery office, one bank, five churches,\nseven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading\nroom.  That paragraph is `bk_mose1_006`, read by T-0581, and until this tool it had\nnever been spent: **the project held no denominator for its business layer.**\n\nIt could not be compared, either, because the register's `trade` is free prose off\nthe printed notice — 152 distinct strings for 206 businesses.  The class comes from\n`data/research/newspapers/trade_class_rulings.json`, one ruling per printed string,\nand this tool joins the two and writes the comparison.\n\n    tools/trade_census_1835.py --build       write the crosswalk\n    tools/trade_census_1835.py --check       re-derive it and refuse any drift\n    tools/trade_census_1835.py --self-test   the guards, fired on fixtures\n\nTHE DATE IS THE WHOLE OF THE CAUTION, and it is written into the record rather than\ninto a reader's memory.  The count is two to five months AFTER the scene date of\n1 July 1835, in the fastest-growing months the town had.  A shortfall against it is\nnever evidence that a business stood in July, and this file's every figure says so.\n\nWHAT THIS TOOL MAY NOT DO.  It classifies and it counts.  It creates nothing, it\nplaces nothing, and it upgrades no confidence: the spending of the gap it measures\nis T-1007's, on T-0404's liberty, and a run that finds a hole here files a ticket\nrather than a building.",
+  "_doc": "THE DECEMBER 1835 TRADE CENSUS, SET AGAINST THE TOWN'S OWN BUSINESS REGISTER.\n\nMoses and Kirkland print, at page 95 of volume 1, the State count taken between\n1 September and December 1835: forty-four stores, two book stores, four druggists,\ntwo silversmiths and jewellers, two tin and copper manufactories, two printing\noffices, two breweries, one steam saw-mill, one iron foundry, four storage and\nforwarding houses, eight taverns, one lottery office, one bank, five churches,\nseven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading\nroom.  That paragraph is `bk_mose1_006`, read by T-0581, and until this tool it had\nnever been spent: **the project held no denominator for its business layer.**\n\nIt could not be compared, either, because the register's `trade` is free prose off\nthe printed notice — 152 distinct strings for 206 businesses.  The class comes from\n`data/research/newspapers/trade_class_rulings.json`, one ruling per printed string,\nand this tool joins the two and writes the comparison.\n\n    tools/trade_census_1835.py --build       write the crosswalk\n    tools/trade_census_1835.py --check       re-derive it and refuse any drift\n    tools/trade_census_1835.py --self-test   the guards, fired on fixtures\n\nTHE DATE IS THE WHOLE OF THE CAUTION, and it is written into the record rather than\ninto a reader's memory.  The count is two to five months AFTER the scene date of\n1 July 1835, in the fastest-growing months the town had.  A shortfall against it is\nnever evidence that a business stood in July, and this file's every figure says so.\n\nWHAT THIS TOOL MAY NOT DO.  It classifies and it counts.  It creates nothing, it\nplaces nothing, and it upgrades no confidence: the spending of the gap it measures\nis T-1007's, on T-0404's liberty, and a run that finds a hole here files a ticket\nrather than a building.\n\nTHE AUTHORED LAYER IS COUNTED TOO, SINCE T-1404.  The register is no longer the whole\nof the town's business layer: `data/businesses/authored/` holds the houses a human or a\ntool wrote down where the paper printed none — the inferred shops T-1404 raises for\ntradesmen whose dated role reaches the scene date, and the reconstructed firms T-1184\nonward draw against this very crosswalk.  Counting the register alone made those houses\ninvisible to the comparison AND to the order book cut from it, so the book would have\nordered eleven physicians reconstructed over a layer that names eight.  An authored\nrecord carries its census class on itself, in `type`, ruled by whoever wrote it; it needs\nno trade ruling and gets none, and `ruled_by` says `authored_record` so the two\npopulations can never be confused in the classification table.\n\nA RECONSTRUCTED HOUSE IS NOT COUNTED, and the reason is the order book.  Its\n`businesses/*` buckets are cut as census count MINUS what the town knows, and the\nreconstructions those buckets order are carried in `filled`, a separate counter.  Count a\nreconstructed firm as known and the same house is subtracted twice: the two druggists\nT-1184 drew against a shortfall of two would close the shortfall AND stand in `filled`,\nand the book's own overfill guard fires.  So `load()` passes the authored records whose\n`provenance` is not `reconstructed` — the attested and inferred houses a source stands\nbehind — and the drawn ones stay where they belong, in the counter of the bucket that\nordered them.",
+  "outside_the_census_classes": {
+    "_doc": "Authored houses whose census class the 1835 trade census never enumerated — T-1188's civic establishments among them. They stand OUTSIDE this comparison rather than in it: the census counts printed TRADES, and a post office is not one. Named here because this table's rule is that no business is silently left out of the count (T-0988); being outside a comparison and being invisible are different things.",
+    "count": 4,
+    "records": [
+      {
+        "business_id": "biz_chicago_post_office",
+        "name": "The Post Office at Chicago",
+        "classes": [
+          "civic"
+        ],
+        "why": "The 1835 trade census enumerates printed TRADES. This house carries a class it never counted, so it stands outside this comparison rather than in it — named here so it is not silently left out."
+      },
+      {
+        "business_id": "biz_cook_county_offices",
+        "name": "The Cook County offices, in Richard J. Hamilton's own room",
+        "classes": [
+          "civic"
+        ],
+        "why": "The 1835 trade census enumerates printed TRADES. This house carries a class it never counted, so it stands outside this comparison rather than in it — named here so it is not silently left out."
+      },
+      {
+        "business_id": "biz_indian_agency_chicago",
+        "name": "The United States Indian Agency at Chicago",
+        "classes": [
+          "civic"
+        ],
+        "why": "The 1835 trade census enumerates printed TRADES. This house carries a class it never counted, so it stands outside this comparison rather than in it — named here so it is not silently left out."
+      },
+      {
+        "business_id": "biz_us_land_office_chicago",
+        "name": "The United States Land Office at Chicago",
+        "classes": [
+          "civic"
+        ],
+        "why": "The 1835 trade census enumerates printed TRADES. This house carries a class it never counted, so it stands outside this comparison rather than in it — named here so it is not silently left out."
+      }
+    ]
+  },
   "scene_date": "1835-07-01",
   "census_window": "1835-09-01/1835-12-31",
   "date_caution": "THE COUNT IS NOT OF THE SCENE. It was taken between 1 September and December 1835; the scene is 1 July 1835, two to five months earlier and in the fastest-growing months the town had. A class where the town holds fewer than the census counted is NOT thereby a hole in the July town — some of those forty-four stores opened in September. Every figure below is to be read with that gap in front of it.",
@@ -19,10 +57,22 @@
       "census_line": "forty-four stores (dry goods, hardware and groceries)",
       "census_count": 44,
       "compared": true,
-      "town_records_in_town": 64,
-      "town_records_at_scene_date": 59,
+      "town_records_in_town": 71,
+      "town_records_at_scene_date": 65,
       "town_records_outside_town": 3,
+      "records_opening_after_scene_date": 2,
+      "business_ids_opening_after_scene_date": [
+        "business_cromelien_brothers_co",
+        "business_william_f_lyon_wholesale_grocery_store"
+      ],
       "business_ids": [
+        "biz_beaubien_jean_baptiste_merchant",
+        "biz_beaubien_madore_merchant",
+        "biz_church_thomas_merchant",
+        "biz_gale_stephen_f_merchant",
+        "biz_kinzie_james_merchant",
+        "biz_robinson_trading_house_wolf_point",
+        "biz_woodworth_james_h_dry_goods_merchant",
         "business_a_chicago_stove_and_hollow_ware_dealer_august_1835",
         "business_a_leather_stock_chicago_june_1835",
         "business_a_o_t_breed",
@@ -88,7 +138,9 @@
         "business_wm_h_taylor_boot_shoe_leather_store",
         "business_wm_hogue_co"
       ],
-      "delta": 15,
+      "folded_business_ids": [],
+      "delta": 21,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_more_than_the_census_counted",
       "note": "the enumeration's largest line, and its parenthetical is read as a gloss (B5)"
     },
@@ -101,11 +153,15 @@
       "town_records_in_town": 2,
       "town_records_at_scene_date": 2,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_john_watkins",
         "business_russell_clift"
       ],
+      "folded_business_ids": [],
       "delta": 0,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_matches_census",
       "note": null
     },
@@ -118,11 +174,15 @@
       "town_records_in_town": 2,
       "town_records_at_scene_date": 2,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_frederick_thomas_drugs_and_paints",
         "business_philo_carpenter"
       ],
+      "folded_business_ids": [],
       "delta": -2,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_fewer_than_the_census_counted",
       "note": null
     },
@@ -135,10 +195,14 @@
       "town_records_in_town": 1,
       "town_records_at_scene_date": 1,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_j_h_mulford"
       ],
+      "folded_business_ids": [],
       "delta": -1,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_fewer_than_the_census_counted",
       "note": null
     },
@@ -151,13 +215,17 @@
       "town_records_in_town": 4,
       "town_records_at_scene_date": 4,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_j_k_botsford",
         "business_j_k_botsford_tin_sheet_iron_and_copper_factory",
         "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
         "business_w_keeney"
       ],
+      "folded_business_ids": [],
       "delta": 2,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_more_than_the_census_counted",
       "note": null
     },
@@ -167,16 +235,24 @@
       "census_line": "two printing offices",
       "census_count": 2,
       "compared": true,
-      "town_records_in_town": 3,
-      "town_records_at_scene_date": 3,
+      "town_records_in_town": 2,
+      "town_records_at_scene_date": 2,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_chicago_democrat_printing_office",
-        "business_the_chicago_american_newspaper_and_job_printing_office",
-        "business_the_chicago_democrat"
+        "business_the_chicago_american_newspaper_and_job_printing_office"
       ],
-      "delta": 1,
-      "outcome": "town_holds_more_than_the_census_counted",
+      "folded_business_ids": [
+        {
+          "business_id": "business_the_chicago_democrat",
+          "into": "business_chicago_democrat_printing_office"
+        }
+      ],
+      "delta": 0,
+      "shortfall_explained_by_later_openings": 0,
+      "outcome": "town_matches_census",
       "note": null
     },
     {
@@ -188,10 +264,14 @@
       "town_records_in_town": 1,
       "town_records_at_scene_date": 1,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_the_chicago_brewery"
       ],
+      "folded_business_ids": [],
       "delta": -1,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_fewer_than_the_census_counted",
       "note": null
     },
@@ -204,11 +284,15 @@
       "town_records_in_town": 2,
       "town_records_at_scene_date": 2,
       "town_records_outside_town": 2,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_noble_wesencraft",
         "business_uncertain_noble_wesencaft"
       ],
+      "folded_business_ids": [],
       "delta": 1,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_more_than_the_census_counted",
       "note": null
     },
@@ -218,14 +302,19 @@
       "census_line": "one iron foundry",
       "census_count": 1,
       "compared": true,
-      "town_records_in_town": 1,
-      "town_records_at_scene_date": 1,
+      "town_records_in_town": 2,
+      "town_records_at_scene_date": 2,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
+        "biz_keeney_g_w_founder",
         "business_dart_co_castings"
       ],
-      "delta": 0,
-      "outcome": "town_matches_census",
+      "folded_business_ids": [],
+      "delta": 1,
+      "shortfall_explained_by_later_openings": 0,
+      "outcome": "town_holds_more_than_the_census_counted",
       "note": null
     },
     {
@@ -237,6 +326,8 @@
       "town_records_in_town": 8,
       "town_records_at_scene_date": 7,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_b_jones_storage_and_forwarding",
         "business_brewster_hogan_co",
@@ -247,7 +338,9 @@
         "business_the_lumber_yard_and_warehouse_announced_for_the_opening_of_navigation_1834",
         "business_wm_sabine_storage_forwarding_and_commission_merchant"
       ],
+      "folded_business_ids": [],
       "delta": 3,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_more_than_the_census_counted",
       "note": null
     },
@@ -257,22 +350,46 @@
       "census_line": "eight taverns",
       "census_count": 8,
       "compared": true,
-      "town_records_in_town": 9,
-      "town_records_at_scene_date": 8,
+      "town_records_in_town": 12,
+      "town_records_at_scene_date": 11,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
-        "business_e_wentworth",
-        "business_e_wentworth_s_public_house_on_flag_creek",
-        "business_e_wentworth_s_tavern_flag_creek",
+        "biz_beaubien_mark_tavern_keeper",
+        "biz_couch_ira_hotel_keeper",
+        "biz_davis_john_hotel_keeper",
+        "biz_murphy_john_tavern_keeper",
+        "biz_stow_william_h_hotel_keeper",
+        "biz_sweet_alanson_tavern_keeper",
+        "biz_walters_william_tavern_keeper",
         "business_e_wentworth_s_tavern_on_flag_creek",
         "business_eagle_hotel",
         "business_eagle_tavern",
         "business_ingersoll_s_tavern_stand",
-        "business_p_s_carli_eagle_tavern",
         "business_the_traveller_s_home"
       ],
-      "delta": 0,
-      "outcome": "town_matches_census",
+      "folded_business_ids": [
+        {
+          "business_id": "business_e_wentworth",
+          "into": "business_e_wentworth_s_tavern_on_flag_creek"
+        },
+        {
+          "business_id": "business_e_wentworth_s_public_house_on_flag_creek",
+          "into": "business_e_wentworth_s_tavern_on_flag_creek"
+        },
+        {
+          "business_id": "business_e_wentworth_s_tavern_flag_creek",
+          "into": "business_e_wentworth_s_tavern_on_flag_creek"
+        },
+        {
+          "business_id": "business_p_s_carli_eagle_tavern",
+          "into": "business_eagle_tavern"
+        }
+      ],
+      "delta": 3,
+      "shortfall_explained_by_later_openings": 0,
+      "outcome": "town_holds_more_than_the_census_counted",
       "note": null
     },
     {
@@ -284,8 +401,12 @@
       "town_records_in_town": 0,
       "town_records_at_scene_date": 0,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [],
+      "folded_business_ids": [],
       "delta": -1,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_fewer_than_the_census_counted",
       "note": "the town holds nothing for this line"
     },
@@ -298,8 +419,12 @@
       "town_records_in_town": 0,
       "town_records_at_scene_date": 0,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [],
+      "folded_business_ids": [],
       "delta": -1,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_fewer_than_the_census_counted",
       "note": "the town holds nothing for this line"
     },
@@ -309,12 +434,21 @@
       "census_line": "five churches",
       "census_count": 5,
       "compared": false,
-      "town_records_in_town": 0,
-      "town_records_at_scene_date": 0,
+      "town_records_in_town": 4,
+      "town_records_at_scene_date": 4,
       "town_records_outside_town": 0,
-      "business_ids": [],
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
+      "business_ids": [
+        "biz_first_baptist_church",
+        "biz_first_presbyterian_church",
+        "biz_methodist_episcopal_congregation",
+        "biz_st_marys_church"
+      ],
+      "folded_business_ids": [],
       "outcome": "not_compared",
       "delta": null,
+      "shortfall_explained_by_later_openings": null,
       "note": "a church is a structure and not a trade; T-0988 leaves this row to the roof programme and it is not compared here"
     },
     {
@@ -324,8 +458,13 @@
       "census_count": 7,
       "compared": true,
       "town_records_in_town": 7,
-      "town_records_at_scene_date": 7,
+      "town_records_at_scene_date": 5,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 2,
+      "business_ids_opening_after_scene_date": [
+        "business_charles_hunt_high_school_for_young_ladies",
+        "business_hiram_everts_high_school_for_young_gentlemen"
+      ],
       "business_ids": [
         "business_charles_hunt_high_school_for_young_ladies",
         "business_hiram_everts_high_school_for_young_gentlemen",
@@ -335,8 +474,10 @@
         "business_samuel_lewis",
         "business_the_chicago_academy"
       ],
-      "delta": 0,
-      "outcome": "town_matches_census",
+      "folded_business_ids": [],
+      "delta": -2,
+      "shortfall_explained_by_later_openings": 2,
+      "outcome": "town_holds_fewer_than_the_census_counted",
       "note": "the enumeration may be counting school HOUSES; this register holds school-keeping as a trade, and the two need not be the same thing"
     },
     {
@@ -348,6 +489,8 @@
       "town_records_in_town": 18,
       "town_records_at_scene_date": 18,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_collins_caton",
         "business_ebenezer_s_more_attorney_at_law",
@@ -368,7 +511,9 @@
         "business_s_abell_attorney_and_counsellor",
         "business_s_abell_attorney_counsellor_at_law"
       ],
+      "folded_business_ids": [],
       "delta": -4,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_fewer_than_the_census_counted",
       "note": null
     },
@@ -378,15 +523,24 @@
       "census_line": "fourteen physicians",
       "census_count": 14,
       "compared": true,
-      "town_records_in_town": 3,
-      "town_records_at_scene_date": 3,
+      "town_records_in_town": 8,
+      "town_records_at_scene_date": 8,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
+        "biz_egan_william_b_physician",
+        "biz_harmon_elijah_d_physician",
+        "biz_inf_physician_south_01_physician",
+        "biz_kimberly_edmund_s_physician",
+        "biz_temple_john_t_physician",
         "business_dr_j_h_barnard",
         "business_dr_w_g_austin",
         "business_uncertain_the_physician_lodging_at_the_mansion_house_july_1834"
       ],
-      "delta": -11,
+      "folded_business_ids": [],
+      "delta": -6,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_fewer_than_the_census_counted",
       "note": null
     },
@@ -399,8 +553,12 @@
       "town_records_in_town": 0,
       "town_records_at_scene_date": 0,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [],
+      "folded_business_ids": [],
       "delta": -1,
+      "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_fewer_than_the_census_counted",
       "note": "the town holds nothing for this line"
     },
@@ -410,10 +568,26 @@
       "census_line": "(not an enumerated class)",
       "census_count": null,
       "compared": true,
-      "town_records_in_town": 78,
-      "town_records_at_scene_date": 72,
+      "town_records_in_town": 92,
+      "town_records_at_scene_date": 86,
       "town_records_outside_town": 1,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
+        "biz_andrus_thomas_carpenter",
+        "biz_blodgett_tyler_k_brickmaker",
+        "biz_brown_lemuel_blacksmith",
+        "biz_brown_rufus_boarding_house_keeper",
+        "biz_collett_j_a_refectory_keeper",
+        "biz_handy_major_mason",
+        "biz_inf_cooper_north_04_cooper",
+        "biz_inf_joiner_north_02_joiner",
+        "biz_meeker_joseph_carpenter",
+        "biz_miller_john_tanner",
+        "biz_smith_george_coffee_house_keeper",
+        "biz_taylor_anson_h_carpenter",
+        "biz_taylor_augustine_carpenter",
+        "biz_temple_peter_dentist",
         "business_a_clybourn_s_market_on_the_market_square",
         "business_a_filer_co",
         "business_a_garrett",
@@ -493,8 +667,10 @@
         "business_wm_h_kennicott_surgeon_dentist",
         "business_wm_h_taylor"
       ],
+      "folded_business_ids": [],
       "outcome": "not_compared",
       "delta": null,
+      "shortfall_explained_by_later_openings": null,
       "note": "a trade the December 1835 enumeration does not count — tailors, bakers, smiths, auctioneers, land agents, liveries, dentists and the rest"
     },
     {
@@ -506,6 +682,8 @@
       "town_records_in_town": 5,
       "town_records_at_scene_date": 3,
       "town_records_outside_town": 0,
+      "records_opening_after_scene_date": 0,
+      "business_ids_opening_after_scene_date": [],
       "business_ids": [
         "business_d_o_robinson_and_r_a_neff",
         "business_j_wellmaker_co",
@@ -513,20 +691,25 @@
         "business_russell_brown",
         "business_taylor_handy"
       ],
+      "folded_business_ids": [],
       "outcome": "not_compared",
       "delta": null,
+      "shortfall_explained_by_later_openings": null,
       "note": "the notice prints no trade and names no goods, so no class can be read off it"
     }
   ],
   "totals": {
     "businesses_in_register": 196,
-    "in_town": 193,
+    "authored_records_counted": 38,
+    "businesses_counted": 234,
+    "in_town": 231,
     "outside_town": 3,
-    "at_scene_date": 180,
-    "carrying_no_enumerated_class": 73,
+    "at_scene_date": 210,
+    "folded_into_another_house": 5,
+    "carrying_no_enumerated_class": 87,
     "not_stated": 5,
     "census_enumerated_total": 118,
-    "town_enumerated_total_at_scene_date": 118
+    "town_enumerated_total_at_scene_date": 130
   },
   "classes_the_town_holds_nothing_for": [
     "bank",
@@ -550,9 +733,625 @@
         "business_m_cormick_moon"
       ],
       "detail": "Two St. Joseph steam saw mills and a Detroit hat house advertised in Chicago papers. The census counted the town; these are scoped `outside_town` and are counted apart from it."
+    },
+    {
+      "what": "two houses under one name, a keeper apart — NAMED, NOT RULED",
+      "business_ids": [
+        "business_eagle_hotel",
+        "business_eagle_tavern"
+      ],
+      "detail": "The register carries an 'Eagle Hotel' kept by P. B. F. Cable and J. Shrigley (1834-04-16 to 1834-10-08) and an 'Eagle Tavern' kept by Carli (1834-06-18 to 1834-09-10), and the two overlap in the same months: on 1834-07-02 the Eagle Hotel is 'taken' by Cable while a visiting dentist keeps his office 'at the Eagle Tavern'. One house under two names with a change of keeper, or two houses trading on the same bird, is exactly the question this project will not answer off a name — and NO IDENTITY RULING IS MADE HERE (T-1471). It bears on `town_records_in_town` only: the Eagle Hotel is already excluded from the scene date as contradicted before it, so the pair cannot move the scene-date tavern count either way. Reading the 1834-07-02 and 1834-10-08 pages against each other is what would settle it."
     }
   ],
   "classification": [
+    {
+      "business_id": "biz_andrus_thomas_carpenter",
+      "name": "Thomas Andrus, carpenter",
+      "trade": "carpenter",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_andrus_thomas_carpenter` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_beaubien_jean_baptiste_merchant",
+      "name": "Col. Jean Baptiste Beaubien, merchant and trader",
+      "trade": "merchant and trader",
+      "classes": [
+        "store"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_beaubien_jean_baptiste_merchant` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_beaubien_madore_merchant",
+      "name": "Madore Benjamin Beaubien, merchant",
+      "trade": "merchant",
+      "classes": [
+        "store"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_beaubien_madore_merchant` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_beaubien_mark_tavern_keeper",
+      "name": "Mark Beaubien, tavern keeper",
+      "trade": "tavern keeper",
+      "classes": [
+        "tavern"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_beaubien_mark_tavern_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_blodgett_tyler_k_brickmaker",
+      "name": "Tyler K. Blodgett, Henry S. Lampman, brickmaker",
+      "trade": "brickmaker",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_blodgett_tyler_k_brickmaker` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_brown_lemuel_blacksmith",
+      "name": "Lemuel Brown, blacksmith",
+      "trade": "blacksmith",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_brown_lemuel_blacksmith` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_brown_rufus_boarding_house_keeper",
+      "name": "Rufus Brown, Mrs Rufus Brown, boarding house keeper",
+      "trade": "boarding house keeper",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_brown_rufus_boarding_house_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_church_thomas_merchant",
+      "name": "Thomas Church, merchant",
+      "trade": "merchant",
+      "classes": [
+        "store"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_church_thomas_merchant` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_collett_j_a_refectory_keeper",
+      "name": "J. A. Collett, refectory keeper",
+      "trade": "refectory keeper",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_collett_j_a_refectory_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_couch_ira_hotel_keeper",
+      "name": "Ira Couch, James Couch, hotel keeper",
+      "trade": "hotel keeper",
+      "classes": [
+        "tavern"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_couch_ira_hotel_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_davis_john_hotel_keeper",
+      "name": "John Davis, hotel keeper",
+      "trade": "hotel keeper",
+      "classes": [
+        "tavern"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_davis_john_hotel_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_egan_william_b_physician",
+      "name": "Dr William Bradshaw Egan, physician",
+      "trade": "physician",
+      "classes": [
+        "physician"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_egan_william_b_physician` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_first_baptist_church",
+      "name": "The First Baptist Church Society of Chicago",
+      "trade": "a Baptist congregation, in the lower storey of the Temple Building",
+      "classes": [
+        "church"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_first_baptist_church` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_first_presbyterian_church",
+      "name": "The First Presbyterian Church of Chicago",
+      "trade": "a Presbyterian congregation and its meeting house",
+      "classes": [
+        "church"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_first_presbyterian_church` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_gale_stephen_f_merchant",
+      "name": "Stephen F. Gale, merchant",
+      "trade": "merchant",
+      "classes": [
+        "store"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_gale_stephen_f_merchant` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_handy_major_mason",
+      "name": "Major Handy, mason",
+      "trade": "mason",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_handy_major_mason` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_harmon_elijah_d_physician",
+      "name": "Dr Elijah Dewey Harmon, physician",
+      "trade": "physician",
+      "classes": [
+        "physician"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_harmon_elijah_d_physician` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_inf_cooper_north_04_cooper",
+      "name": "J. Garland, cooper",
+      "trade": "cooper",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_inf_cooper_north_04_cooper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_inf_joiner_north_02_joiner",
+      "name": "J. W. Reed, joiner",
+      "trade": "joiner",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_inf_joiner_north_02_joiner` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_inf_physician_south_01_physician",
+      "name": "Dr. Josiah C. Goodhue, physician",
+      "trade": "physician",
+      "classes": [
+        "physician"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_inf_physician_south_01_physician` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_keeney_g_w_founder",
+      "name": "G. W. Keeney, founder",
+      "trade": "founder",
+      "classes": [
+        "iron_foundry"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_keeney_g_w_founder` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_kimberly_edmund_s_physician",
+      "name": "Dr Edmund Stoughton Kimberly, physician",
+      "trade": "physician",
+      "classes": [
+        "physician"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_kimberly_edmund_s_physician` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_kinzie_james_merchant",
+      "name": "James Kinzie, merchant",
+      "trade": "merchant",
+      "classes": [
+        "store"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_kinzie_james_merchant` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_meeker_joseph_carpenter",
+      "name": "Joseph Meeker, carpenter",
+      "trade": "carpenter",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_meeker_joseph_carpenter` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_methodist_episcopal_congregation",
+      "name": "The Methodist Episcopal congregation at Chicago",
+      "trade": "a Methodist Episcopal congregation and its log meeting house at the forks",
+      "classes": [
+        "church"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_methodist_episcopal_congregation` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_miller_john_tanner",
+      "name": "John Miller, Benjamin Hall, tanner",
+      "trade": "tanner",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_miller_john_tanner` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_murphy_john_tavern_keeper",
+      "name": "John Murphy, Harriet Murphy, tavern keeper",
+      "trade": "tavern keeper",
+      "classes": [
+        "tavern"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_murphy_john_tavern_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_robinson_trading_house_wolf_point",
+      "name": "Alexander Robinson's store or trading-house at Wolf Point",
+      "trade": "the country trade at the forks — a store or trading-house",
+      "classes": [
+        "store"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_robinson_trading_house_wolf_point` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_smith_george_coffee_house_keeper",
+      "name": "George Smith, coffee house keeper",
+      "trade": "coffee house keeper",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_smith_george_coffee_house_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_st_marys_church",
+      "name": "St. Mary's, the Catholic congregation of Chicago",
+      "trade": "a Catholic congregation and its church",
+      "classes": [
+        "church"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_st_marys_church` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_stow_william_h_hotel_keeper",
+      "name": "William H. Stow, hotel keeper",
+      "trade": "hotel keeper",
+      "classes": [
+        "tavern"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_stow_william_h_hotel_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_sweet_alanson_tavern_keeper",
+      "name": "Alanson Sweet, tavern keeper",
+      "trade": "tavern keeper",
+      "classes": [
+        "tavern"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_sweet_alanson_tavern_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_taylor_anson_h_carpenter",
+      "name": "Anson H. Taylor, carpenter",
+      "trade": "carpenter",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_taylor_anson_h_carpenter` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_taylor_augustine_carpenter",
+      "name": "Augustine Deodat Taylor, carpenter",
+      "trade": "carpenter",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_taylor_augustine_carpenter` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_temple_john_t_physician",
+      "name": "Dr John Taylor Temple, physician",
+      "trade": "physician",
+      "classes": [
+        "physician"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_temple_john_t_physician` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_temple_peter_dentist",
+      "name": "Dr Peter Temple, dentist",
+      "trade": "dentist",
+      "classes": [
+        "other"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_temple_peter_dentist` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_walters_william_tavern_keeper",
+      "name": "William Walters, tavern keeper",
+      "trade": "tavern keeper",
+      "classes": [
+        "tavern"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_walters_william_tavern_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_woodworth_james_h_dry_goods_merchant",
+      "name": "James H. Woodworth, dry goods merchant",
+      "trade": "dry goods merchant",
+      "classes": [
+        "store"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_woodworth_james_h_dry_goods_merchant` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
     {
       "business_id": "business_a_chicago_stove_and_hollow_ware_dealer_august_1835",
       "name": "a Chicago stove and hollow ware dealer, August 1835",
@@ -563,7 +1362,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a stove dealer: the notice names no furnace (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_clybourn_s_market_on_the_market_square",
@@ -575,7 +1378,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a slaughtering trade and a stall in a market, which is not a store (B2, B6)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_filer_co",
@@ -587,7 +1394,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a manufactory the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_garrett",
@@ -599,7 +1410,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "auction and commission business is a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_garrett_auctioneer",
@@ -611,7 +1426,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_leather_stock_chicago_june_1835",
@@ -623,7 +1442,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a stock of leather offered for sale (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_new_auction_and_commission_room_south_water_street",
@@ -635,7 +1458,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "auction and commission business is a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_new_tailoring_establishment_chicago_june_1835",
@@ -647,7 +1474,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tailor makes what he sells; the enumeration counts no tailor (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_o_t_breed",
@@ -659,7 +1490,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a storekeeper, printed as such; the winding-up is a date question and not a class one",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_travelling_dentist_at_the_new_york_house",
@@ -671,7 +1506,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the enumeration counts physicians and names no dentist; a surgeon dentist is a distinct trade (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street",
@@ -683,7 +1522,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "liquors were a grocer's line in this town (B1, B5)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_an_iron_and_hardware_stock_chicago_june_1835",
@@ -695,7 +1538,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "hardware dealt, one of the census's own three lines",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_andrews_eells",
@@ -707,7 +1554,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tailor makes what he sells (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_b_jones_grocery_and_provision_store",
@@ -719,7 +1570,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is store (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_b_jones_storage_and_forwarding",
@@ -731,7 +1586,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's storage-and-forwarding line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
@@ -744,7 +1603,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "boots made, and leather dealt (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_brewster_hogan_co",
@@ -757,7 +1620,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "forwarding, and a store of the census's own three lines (B3)",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_briggs_humphrey",
@@ -769,7 +1636,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a making trade the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_brown_painter",
@@ -781,7 +1652,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a painter's trade (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_c_h_chapman",
@@ -793,7 +1668,11 @@
       "scope": "in_town",
       "ruled_by": "business",
       "basis": "the notice prints no trade and offers oxen; no shop, store or ware-room is named (B6)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_c_i_harmon",
@@ -805,7 +1684,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's own three lines (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_carpenter_chicago_merchant",
@@ -817,7 +1700,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "goods dealt from a store; consignment is how they were bought (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_charles_hunt_high_school_for_young_ladies",
@@ -829,7 +1716,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a school kept",
-      "built_at_scene_date": true
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "opening_announced_after_scene_date",
+      "opened_after_scene_date": true,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_charles_taylor",
@@ -842,7 +1733,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "tailoring made, and clothing dealt (B3)",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_chase_ballard",
@@ -854,7 +1749,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "hardware dealt; nothing is made on the premises (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_chicago_bakery",
@@ -866,7 +1765,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a baker sells his own baking (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_chicago_democrat_printing_office",
@@ -878,7 +1781,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a printing office",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_chicago_soap_and_candle_manufactory",
@@ -890,7 +1797,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a manufactory the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_chicago_st_joseph_packet_schooner_llewellyn",
@@ -902,7 +1813,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a lake carrier, not a house in the town (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_clark_filer_co",
@@ -914,7 +1829,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a cabinet maker sells his own work (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_collins_caton",
@@ -926,7 +1845,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a partnership of attorneys",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_cook_george",
@@ -938,7 +1861,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a baker sells his own baking (B2)",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_cooley_and_halsman",
@@ -950,7 +1877,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tailor makes what he sells (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_cooley_and_hol_b_man",
@@ -962,7 +1893,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tailor makes what he sells; the enumeration counts no tailor (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_cromelien_brothers_co",
@@ -974,7 +1909,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "liquors were a grocer's line in this town (B1, B5)",
-      "built_at_scene_date": true
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "opening_announced_after_scene_date",
+      "opened_after_scene_date": true,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_d_carver_co",
@@ -986,7 +1925,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is merchant (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_d_graves",
@@ -998,7 +1941,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a baker sells his own baking (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_d_o_robinson_and_r_a_neff",
@@ -1010,7 +1957,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the notice prints no trade and names no goods",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_dally_youngs",
@@ -1022,7 +1973,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a smith's shop and an edge-tool making (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_daniel_elston_co",
@@ -1034,7 +1989,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a manufactory the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_dart_co_castings",
@@ -1046,7 +2005,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "castings are founded, not dealt: the census's iron foundry line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_david_carver",
@@ -1058,7 +2021,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "lumber dealt from a yard (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_deacon_mccaleb",
@@ -1071,7 +2038,11 @@
       "scope": "outside_town",
       "ruled_by": "trade",
       "basis": "a steam saw mill and a lumber dealing, both printed as standing at St. Joseph and not in this town",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_dr_j_h_barnard",
@@ -1083,7 +2054,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is the practice of medicine",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_dr_w_g_austin",
@@ -1095,7 +2070,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a physician of the botanic school is still a physician; the enumeration grades none of them",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_e_l_thrall",
@@ -1108,7 +2087,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "tailoring made, and ready-made clothing dealt (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_e_p_deacon",
@@ -1121,7 +2104,11 @@
       "scope": "outside_town",
       "ruled_by": "trade",
       "basis": "a steam saw mill and a lumber dealing, both printed as standing at St. Joseph and not in this town",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_e_w_haddock",
@@ -1133,7 +2120,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is merchant (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_e_wentworth",
@@ -1145,7 +2136,13 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is a tavern",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": "business_e_wentworth_s_tavern_on_flag_creek",
+      "folded_in_classes": [
+        "tavern"
+      ]
     },
     {
       "business_id": "business_e_wentworth_s_public_house_on_flag_creek",
@@ -1157,7 +2154,13 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is a tavern",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": "business_e_wentworth_s_tavern_on_flag_creek",
+      "folded_in_classes": [
+        "tavern"
+      ]
     },
     {
       "business_id": "business_e_wentworth_s_tavern_flag_creek",
@@ -1169,7 +2172,13 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a public house is a tavern under the census's own word",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": "business_e_wentworth_s_tavern_on_flag_creek",
+      "folded_in_classes": [
+        "tavern"
+      ]
     },
     {
       "business_id": "business_e_wentworth_s_tavern_on_flag_creek",
@@ -1181,7 +2190,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is a tavern",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_eagle_hotel",
@@ -1193,7 +2206,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a hotel is a house of public entertainment; the enumeration has no separate hotel line",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_eagle_tavern",
@@ -1205,7 +2222,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the notice prints both words of the one house",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_ebenezer_s_more_attorney_at_law",
@@ -1217,7 +2238,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_edward_w_casey",
@@ -1229,7 +2254,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_elmira_fowler",
@@ -1241,7 +2270,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a making trade the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_everson_co",
@@ -1253,7 +2286,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_frederick_thomas_drugs_and_paints",
@@ -1265,7 +2302,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a druggist's shop (B4)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_fullerton_botsford",
@@ -1277,7 +2318,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "provisions dealt (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_fullerton_g_attorneys_and_counsellors",
@@ -1289,7 +2334,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a partnership of attorneys, counted as the establishment the census counts",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_g_blanshard",
@@ -1301,7 +2350,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a land agency (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_g_spring",
@@ -1313,7 +2366,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice; chancery practice is the same man's",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_g_w_w_laird",
@@ -1325,7 +2382,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is merchant (B1)",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_geo_w_laird_naper_s_settlement",
@@ -1337,7 +2398,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is store (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_george_holsman",
@@ -1349,7 +2414,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tailor makes what he sells; the enumeration counts no tailor (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_goss_cobb",
@@ -1361,7 +2430,11 @@
       "scope": "in_town",
       "ruled_by": "business",
       "basis": "the notice prints no trade; its goods are saddles, harness, trunks and coach trimming, all made on the premises (B2)",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_h_c_bennett",
@@ -1373,7 +2446,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice; chancery practice is the same man's",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_h_doty_co",
@@ -1385,7 +2462,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "two of the census's own three lines (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_harmon_loomis_co",
@@ -1397,7 +2478,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's own three lines (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_henry_moore",
@@ -1409,7 +2494,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice; chancery practice is the same man's",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_henry_moore_attorney_counsellor_at_law",
@@ -1421,7 +2510,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is the practice of law",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_hiram_everts_high_school_for_young_gentlemen",
@@ -1433,7 +2526,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a school kept",
-      "built_at_scene_date": true
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "opening_announced_after_scene_date",
+      "opened_after_scene_date": true,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_hiram_pearsons",
@@ -1445,7 +2542,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "storage printed; the census's storage-and-forwarding line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_hubbard_co",
@@ -1457,7 +2558,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's storage-and-forwarding line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_ingersoll_s_tavern_stand",
@@ -1469,7 +2574,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is a tavern",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_a_marshall_s_dancing_school",
@@ -1481,7 +2590,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a school kept; the enumeration grades none of them",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_b_brown_dearborn_street_grocery",
@@ -1493,7 +2606,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "groceries, one of the census's own three lines (B1, B5)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_bates_jr_auction_store",
@@ -1505,7 +2622,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an auction room; the enumeration's stores line counts shops dealing their own goods (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_c_goodhue_land_agent",
@@ -1517,7 +2638,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a land agency (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_curtiss",
@@ -1529,7 +2654,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice; chancery practice is the same man's",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_curtiss_attorney_and_counsellor_at_law",
@@ -1541,7 +2670,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is the practice of law",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_d_caton_attorney_and_counsellor_at_law",
@@ -1553,7 +2686,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_h_kinzie_merchant",
@@ -1565,7 +2702,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "goods dealt (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_h_mulford",
@@ -1577,7 +2718,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's silversmiths-and-jewellers line (B4)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_k_botsford",
@@ -1590,7 +2735,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "groceries dealt, and tin ware made, in one notice (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_k_botsford_tin_sheet_iron_and_copper_factory",
@@ -1602,7 +2751,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tin and copper manufactory (B4)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_l_wilson_co",
@@ -1614,7 +2767,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's own three lines (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_s_c_hogan",
@@ -1626,7 +2783,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a store; the post office is an office of the United States and not a trade",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_wellmaker_co",
@@ -1638,7 +2799,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the notice prints no trade and names no goods",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_j_wright_merchant",
@@ -1650,7 +2815,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "goods dealt (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_james_grant",
@@ -1662,7 +2831,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_john_bates_jr",
@@ -1674,7 +2847,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_john_dave_north_water_street",
@@ -1686,7 +2863,11 @@
       "scope": "in_town",
       "ruled_by": "business",
       "basis": "the notice prints neither a trade nor a single article of goods",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_john_dean_caton",
@@ -1698,7 +2879,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice; chancery practice is the same man's",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_john_dean_caton_attorney_and_counsellor_at_law",
@@ -1710,7 +2895,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is the practice of law",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_john_h_kinzie",
@@ -1722,7 +2911,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's storage-and-forwarding line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_john_holbrook",
@@ -1734,7 +2927,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "goods dealt as agent for the makers, which is dealing (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_john_s_kinzie_forwarding_and_commission_merchant",
@@ -1746,7 +2943,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's storage-and-forwarding line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_john_watkins",
@@ -1759,7 +2960,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "books dealt, and a school kept in the same notice (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_john_wright",
@@ -1771,7 +2976,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is merchandise (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_jones_king",
@@ -1783,7 +2992,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a stove dealer: the notice names no furnace (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_jones_king_co",
@@ -1795,7 +3008,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a hardware store; the gearing is dealt, not founded (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_kercheval_hamilton",
@@ -1807,7 +3024,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a land agency (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_kinzie_forsyth",
@@ -1819,7 +3040,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is merchant (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_kinzie_hall",
@@ -1831,7 +3056,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's own three lines, in its own order (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_l_g_curtiss",
@@ -1843,7 +3072,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_l_g_curtiss_deputy_surveyor_of_cook_county",
@@ -1855,7 +3088,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_l_w_montgomery_boot_and_shoe_maker",
@@ -1867,7 +3104,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a making trade the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_lathrop_johnson_co_livery",
@@ -1879,7 +3120,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_m_cormick_moon",
@@ -1892,7 +3137,11 @@
       "scope": "outside_town",
       "ruled_by": "trade",
       "basis": "hats made and dealt, printed as standing at Detroit and not in this town",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_magie_wilkinson",
@@ -1904,7 +3153,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's own three lines and more (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_marsh_simons",
@@ -1916,7 +3169,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a stall in a market, which is not a store (B6)",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_matthias_mason_co",
@@ -1928,7 +3185,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a smith's shop; the enumeration counts none (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_miss_bayne_s_boarding_and_day_school",
@@ -1940,7 +3201,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a school kept",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_montgomery_auction_and_commission_house",
@@ -1952,7 +3217,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_mrs_h_sherman",
@@ -1964,7 +3233,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a making trade the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_mrs_herman",
@@ -1976,7 +3249,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a making trade the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_new_york_clothing_store",
@@ -1988,7 +3265,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "clothing dealt; the notice names no tailoring (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_newberry_dole",
@@ -2000,7 +3281,11 @@
       "scope": "in_town",
       "ruled_by": "business",
       "basis": "the notice prints no trade; its goods are dry goods, groceries, hardware, crockery, flour, salt and provisions — the census's own three lines (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_noble_wesencraft",
@@ -2012,7 +3297,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's steam saw-mill line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency",
@@ -2024,7 +3313,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_p_f_peck",
@@ -2036,7 +3329,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is store (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_p_pruyne_co",
@@ -2048,7 +3345,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a store; the drugs are one line among many and do not make it a druggist's shop (B4)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_p_s_carli_eagle_tavern",
@@ -2061,7 +3362,13 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the house, and a dealing in goods he did not make (B1, B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": "business_eagle_tavern",
+      "folded_in_classes": [
+        "tavern"
+      ]
     },
     {
       "business_id": "business_peter_cohen",
@@ -2073,7 +3380,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "groceries and clothing dealt (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_peter_cohen_s_store",
@@ -2085,7 +3396,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is merchant (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_philo_carpenter",
@@ -2097,7 +3412,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a druggist's shop (B4)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_pierce_abbott",
@@ -2109,7 +3428,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a smith's shop (B2)",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_pierce_french",
@@ -2121,7 +3444,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a smith's shop and an edge-tool making (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_r_a_kinzie",
@@ -2133,7 +3460,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is merchant (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_r_stewart_attorney",
@@ -2145,7 +3476,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_richard_m_sweet_corn_at_his_barn_on_the_dupage",
@@ -2157,7 +3492,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "corn sold out of a barn, which is not a store (B6)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_riggs_humphrey",
@@ -2169,7 +3508,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a making trade the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_rockwell_cabinet_furniture_warehouse",
@@ -2181,7 +3524,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a furniture ware-room: goods dealt (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_russell_brown",
@@ -2193,7 +3540,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the notice prints no trade and names no goods",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_russell_clift",
@@ -2205,7 +3556,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census counts book stores separately (B4)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_russell_e_heacock",
@@ -2218,7 +3573,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "an attorney's practice, and a land agency the census counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_s_abell_attorney_and_counsellor",
@@ -2230,7 +3589,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "conveyancing is an attorney's own work and is not a second trade",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_s_abell_attorney_counsellor_at_law",
@@ -2242,7 +3605,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is the practice of law",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_s_b_cobb_saddle_harness_and_trunk_manufactory",
@@ -2254,7 +3621,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a manufactory the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_s_dewey",
@@ -2266,7 +3637,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a cabinet maker sells his own work (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_s_foot",
@@ -2278,7 +3653,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "groceries, one of the census's own three lines",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_s_lincoln",
@@ -2290,7 +3669,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tailor makes what he sells; the enumeration counts no tailor (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_samuel_lewis",
@@ -2303,7 +3686,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a school kept, and a repairing trade the census counts nowhere (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_sarah_d_howe",
@@ -2315,7 +3702,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a making trade the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_stuart_s_confectionary_and_perfumery",
@@ -2327,7 +3718,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a confectioner sells his own confectionery; the enumeration counts none (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_taylor_handy",
@@ -2339,7 +3734,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the notice prints no trade and names no goods",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_boston_market",
@@ -2351,7 +3750,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a market, which is not a store (B6)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_chicago_academy",
@@ -2363,7 +3766,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a school kept",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_chicago_american_newspaper_and_job_printing_office",
@@ -2375,7 +3782,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a printing office",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_chicago_and_st_joseph_packet_schooner_phillips",
@@ -2387,7 +3798,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a lake carrier, not a house in the town (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_chicago_brewery",
@@ -2399,7 +3814,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's brewery line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_chicago_democrat",
@@ -2411,7 +3830,13 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a printing office",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": "business_chicago_democrat_printing_office",
+      "folded_in_classes": [
+        "printing_office"
+      ]
     },
     {
       "business_id": "business_the_dearborn_street_auction_and_commission_rooms",
@@ -2423,7 +3848,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_livery_stable_at_the_point",
@@ -2435,7 +3864,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_lumber_yard_and_warehouse_announced_for_the_opening_of_navigation_1834",
@@ -2448,7 +3881,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "lumber dealt, and a store house kept for others' goods (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_man_trap",
@@ -2461,7 +3898,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "baking made, and liquors dealt (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_new_blacksmith_shop_opposite_the_chicago_hotel",
@@ -2473,7 +3914,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a smith's shop; the enumeration counts none (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_new_store_at_the_corner_of_water_and_clark_streets",
@@ -2485,7 +3930,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's own lines (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_stove_and_tin_ware_store_in_water_street_near_the_bridge",
@@ -2497,7 +3946,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a stove dealer: the notice names no manufactory (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_the_traveller_s_home",
@@ -2509,7 +3962,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is a tavern",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_thomas_s_eels",
@@ -2521,7 +3978,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tailor makes what he sells; the enumeration counts no tailor (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_thos_emerson_co",
@@ -2533,7 +3994,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
@@ -2545,7 +4010,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tin and copper manufactory (B4)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_tuttle_brown",
@@ -2557,7 +4026,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "groceries, one of the census's own three lines (B1, B5)",
-      "built_at_scene_date": false
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "contradicted_before_scene_date",
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street",
@@ -2569,7 +4042,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker",
@@ -2581,7 +4058,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a making trade the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_uncertain_noble_wesencaft",
@@ -2593,7 +4074,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's steam saw-mill line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_uncertain_taylor_dearborn_street_boot_and_shoe_store",
@@ -2605,7 +4090,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is store; the census's parenthetical is a gloss, not a restriction (B5)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_uncertain_the_dentist_lodging_near_lake_street_july_1834",
@@ -2617,7 +4106,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the enumeration counts physicians and names no dentist; a surgeon dentist is a distinct trade (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_uncertain_the_physician_lodging_at_the_mansion_house_july_1834",
@@ -2629,7 +4122,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed trade is the practice of medicine",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store",
@@ -2642,7 +4139,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a store, and a making trade the census counts nowhere (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_unidentified_dentist",
@@ -2654,7 +4155,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the enumeration counts physicians and names no dentist; a surgeon dentist is a distinct trade (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_unnamed_hat_manufacturer_dealer",
@@ -2667,7 +4172,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "hats made, and hats and harness dealt (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_unnamed_house_and_land_agent",
@@ -2679,7 +4188,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a land agency (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_unnamed_new_store_la_salle_street",
@@ -2691,7 +4204,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's own three lines and more (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_unsigned_boot_shoe_leather_store_two_doors_north_of_lake_street",
@@ -2703,7 +4220,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is store; the census's parenthetical is a gloss, not a restriction (B5)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_w_g_blanchard",
@@ -2715,7 +4236,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_w_h_brown",
@@ -2727,7 +4252,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is store (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_w_h_taylor",
@@ -2739,7 +4268,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is store; the census's parenthetical is a gloss, not a restriction (B5)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_w_keeney",
@@ -2751,7 +4284,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a tin and copper manufactory (B4)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_w_kimball",
@@ -2763,7 +4300,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's own lines (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_w_kimball_s_new_store",
@@ -2775,7 +4316,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's own lines (B1)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_w_montgomery",
@@ -2787,7 +4332,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_w_montgomery_auction_and_commission_house",
@@ -2799,7 +4348,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "auction and commission business is a service the enumeration counts nowhere (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_w_reed",
@@ -2811,7 +4364,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a cabinet maker sells his own work (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_whitehead_co",
@@ -2823,7 +4380,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a land agency (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_william_clay",
@@ -2836,7 +4397,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "hats made, and hats dealt (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_william_f_lyon_wholesale_grocery_store",
@@ -2848,7 +4413,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "groceries, one of the census's own three lines",
-      "built_at_scene_date": true
+      "present_at_scene_date": false,
+      "scene_date_exclusion": "opening_announced_after_scene_date",
+      "opened_after_scene_date": true,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_wm_h_kennicott",
@@ -2860,7 +4429,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the enumeration counts physicians and names no dentist (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_wm_h_kennicott_surgeon_dentist",
@@ -2872,7 +4445,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the enumeration counts physicians and names no dentist; a surgeon dentist is a distinct trade (B2)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_wm_h_taylor",
@@ -2885,7 +4462,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a store, and a making trade the census counts nowhere (B3)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_wm_h_taylor_boot_shoe_leather_store",
@@ -2897,7 +4478,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is store; the census's parenthetical is a gloss, not a restriction (B5)",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_wm_hogue_co",
@@ -2909,7 +4494,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the printed word is merchant (B1)",
-      "built_at_scene_date": false
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     },
     {
       "business_id": "business_wm_sabine_storage_forwarding_and_commission_merchant",
@@ -2921,7 +4510,11 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "the census's storage-and-forwarding line",
-      "built_at_scene_date": true
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
     }
   ]
 }

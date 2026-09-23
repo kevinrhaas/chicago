@@ -102,6 +102,6 @@ the whole chain to a fixed point behind the joined tree, restored the two redire
 the first dev merge had dropped from `index.json` — `frazer_wm_h` and `vandine_john`, T-1133's
 own folds, whose loss is what made the audit's conflict count read 95 against 96 — restated
 L214 from 738 to 736, and corrected the release note's town count from 1,303 to 1,301.
-(The published mirror needs no commit: `site/4d/` has been untracked since T-0938 —
+(The published mirror needs no commit: `site/chicago/4d/` has been untracked since T-0938 —
 `check.sh` runs `publish.sh` and then asks `check_published.mjs` whether what it produced
 matches its source, and `deploy.yml` publishes before the Pages upload.)

@@ -1,0 +1,190 @@
+{
+ "id": "hh_rc_metcalf_david",
+ "name": "The post sutler's household — David Metcalf",
+ "division": "fort",
+ "head": "rc_metcalf_david",
+ "source_pass": "reconstructed_garrison",
+ "arrival": {
+  "value": "1835-07-01",
+  "precision": "not_later_than",
+  "confidence": "reconstructed",
+  "note": "A BOUND THE HYPOTHESIS CARRIES, NOT A READING. No source names these people, so none dates their coming. What the record says is that the post was held on 1835-07-01 — that is the whole of what this stage claims — and a soldier at a held post arrived not later than the day. A company of the 5th Infantry moved on orders and the year below is DRAWN by the programme's arrival stage, not read off a return."
+ },
+ "arrival_year": {
+  "value": 1835,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
+  },
+  "seed": "hh_rc_metcalf_david:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not claimed. The establishment says how many men a company held on the scene date and nothing about how they travelled to the post."
+ },
+ "origin": {
+  "value": "New England",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_rc_metcalf_david:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "reason_for_coming": {
+  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "lives_at": {
+  "value": "fort_dearborn_sutlers_store",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "the_sutler_lived_at_the_sutlers_store",
+   "note": "SEATED IN THE BUILDING WHOSE FUNCTION HE IS. `fort_dearborn_sutlers_store` carries an `attested` function of `sutlers_store` on Andreas and Wentworth. A sutler at a post lived at his store; the building exists in the record and no coordinate is invented."
+  },
+  "replaceable_by": {
+   "kind": "household",
+   "match": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters"
+  },
+  "note": "SEATED IN THE BUILDING WHOSE FUNCTION HE IS. `fort_dearborn_sutlers_store` carries an `attested` function of `sutlers_store` on Andreas and Wentworth. A sutler at a post lived at his store; the building exists in the record and no coordinate is invented."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "THE POST IS THE WORKPLACE AND THE POST IS THE DWELLING. A separate `works_at` would assert a second building for the same duty; the fort's own structures carry the garrison on their occupants blocks."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "the_post_was_held_on_the_scene_date",
+   "note": "PRESENCE IS THE POST'S AND THE BUILDING'S. The fort was held on the scene date and its sutler's store stood; the man in it is drawn, and the structure record already states that who held the sutlership in 1835 was not established."
+  },
+  "replaceable_by": {
+   "kind": "household",
+   "match": "a post return or order showing the Chicago post unmanned on or about 1 July 1835"
+  },
+  "note": "PRESENCE IS THE POST'S AND THE BUILDING'S. The fort was held on the scene date and its sutler's store stood; the man in it is drawn, and the structure record already states that who held the sutlership in 1835 was not established."
+ },
+ "garrison": {
+  "stage": "garrison",
+  "ticket": "T-1349",
+  "household_type": "garrison",
+  "formation": "sutler",
+  "regiment": "5th Infantry",
+  "seated": 1,
+  "note": "One man, and no household drawn around him. Andreas's sutler of about 1830 is five years early and a different question; he is not reused."
+ },
+ "persons": [
+  {
+   "id": "rc_metcalf_david",
+   "name": "David Metcalf",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Banded on the 1840 Chicago schedule's column 'free white males 20 under 30'. Drawn on the 1840 Chicago schedule's own counts of free white men of trading age. No source gives this man's age because no source gives this man."
+    },
+    "seed": "garrison/sutler:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll, a descriptive book or an enlistment paper of the Chicago post giving this soldier's age"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "sutler",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "rule",
+     "id": "garrison_fill.establishment",
+     "note": "The post trader. `fort_dearborn_sutlers_store` is an attested building of the fort with an attested function, and a sutler's store standing at a held post had a sutler in it."
+    },
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll or post return of the Chicago post naming this person and what they did at it"
+    },
+    "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
+   },
+   "name_basis": {
+    "value": "David Metcalf",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Drawn from the New England and New York pool. A trader at a United States post; the pool is the town's own and the weighting is the stage's."
+    },
+    "seed": "garrison/sutler:given_name",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from a pool seeded from the attested residents of this town, and it steps past every name a real person in this layer bears. No source names this person. The Army kept muster rolls of exactly these men; this project has not read one."
+   },
+   "basis": {
+    "kind": "rule",
+    "id": "garrison_fill.sutler",
+    "note": "A BUILDING WITH A FUNCTION, OCCUPIED. The sutler's store is `attested` in this dataset on Andreas and Wentworth, the post was held on the scene date, and the structure record states in its own words that who held the sutlership at Chicago on 1835-07-01 was not established — Andreas's sutler of about 1830 is five years early and a different question, and is NOT reused here. One sutler is drawn; his household is not, because nothing suggests its shape."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming the sutler of Fort Dearborn on or about 1 July 1835"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "garrison",
+    "ticket": "T-1349",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "THE POST TRADER, DRAWN. A man stands here because a building of this function stood at a held post; his name is invented and his household is not claimed at all."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE POST SUTLER. NOBODY HERE IS NAMED BY ANY SOURCE. `fort_dearborn_sutlers_store` is an attested building with an attested function and its own record says who held the sutlership at Chicago on 1835-07-01 was not established. This card fills the function and claims nothing else: no family, no partners, no stock. A source naming the sutler of 1835 retires it. No figure is drawn (docs/LIBERTIES.md L1)."
+}

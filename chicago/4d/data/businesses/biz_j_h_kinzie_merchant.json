@@ -1,0 +1,96 @@
+{
+  "id": "biz_j_h_kinzie_merchant",
+  "register_id": "business_j_h_kinzie_merchant",
+  "name": "J. H. Kinzie, merchant",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "lumber, nails and salt",
+  "occupation": "lumber_merchant",
+  "goods": [
+    "Lumber",
+    "Nails",
+    "Salt"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "J. H. Kinzie",
+      "person_id": "kinzie_john_h",
+      "register_person_id": "person_j_h_kinzie",
+      "role": "proprietor",
+      "from": "1835-06-20",
+      "to": "1835-06-20",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card kinzie_john_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_20#c005"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "jh_kinzie_forwarding_store",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-06-20",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure jh_kinzie_forwarding_store on its occupants. jh_kinzie_forwarding_store already stands and its occupants carries kinzie — 'J. H. Kinzie; forwarding and commission merchant'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-20",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-20, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-20",
+    "last_issue": "1835-06-20",
+    "copy_dates": [
+      "1835-06-08"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_community_on_the_people_named",
+    "basis": "This record names 1 person/people the resident layer holds a card for and the layer knows no community for any of them. The silence is in the resident layer, not in the register.",
+    "from": [
+      {
+        "person_id": "kinzie_john_h",
+        "name": "J. H. Kinzie",
+        "role": "proprietor",
+        "community": "unknown",
+        "tier": null
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_20#c005"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

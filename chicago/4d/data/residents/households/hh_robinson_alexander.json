@@ -7,9 +7,10 @@
   "value": "1816",
   "confidence": "inferred",
   "sources": [
-   "andreas_1884_v1"
+   "andreas_1884_v1",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "NOT DATED AND BOUNDED FROM ABOVE. 'It is not known just when Robinson settled in Chicago, but he had been here, at least two seasons, and with Antoine Ouilmette had cultivated the field belonging to the fort, raising thereon corn, when Captain Bradley arrived to rebuild Fort Dearborn in 1816.' Two seasons before 1816 would put him here by 1814; 1816 is the year the source actually fixes and is the conservative reading. THE SOURCE'S OWN WORDS ARE 'IT IS NOT KNOWN' and the grade says so.",
+  "note": "NOT DATED AND BOUNDED FROM ABOVE. 'It is not known just when Robinson settled in Chicago, but he had been here, at least two seasons, and with Antoine Ouilmette had cultivated the field belonging to the fort, raising thereon corn, when Captain Bradley arrived to rebuild Fort Dearborn in 1816.' Two seasons before 1816 would put him here by 1814; 1816 is the year the source actually fixes and is the conservative reading. THE SOURCE'S OWN WORDS ARE 'IT IS NOT KNOWN' and the grade says so. AN INDEPENDENT TABLE PRINTS THE YEAR THIS CARD'S OWN REASONING ALREADY IMPLIES, AND THE VALUE STILL DOES NOT MOVE. Moses and Kirkland, History of Chicago vol. 1 (1895), printed pages 78-79, the table headed LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830 (data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json). It is an 1895 compilation crediting Hurlbut's Chicago Antiquities pp. 37-8 three lines above itself, every row transcription_mediated and none scan_verified, so NOTHING READ OFF IT IS GRADED ABOVE `inferred` HERE. Row bk_mose1_as_029 reads 'Robinson, Alex', YEAR 1814, remarks 'Paid taxes in 1825, voted in 1826 and 1830' — three civic acts at three dates, all three of which this card already holds, which is what makes the books crosswalk call it the strongest merge in its pass. 1814 IS EXACTLY TWO SEASONS BEFORE 1816, which is the interval Andreas's sentence gives and the interval this field was bounded from. THE VALUE IS LEFT AT 1816 ON PURPOSE: this field is a bound and says so, the table is an 1895 compilation at second hand, and replacing a stated upper bound with a tier-3 year would trade a defensible shape for a sharper number. The agreement is what is recorded. WHAT DOES NOT FOLLOW: the table's own preamble bounds it BEFORE 1830 and its remarks are civic acts of 1825-1830. A man on it is not thereby at Chicago on 1835-07-01, and this edit moves no residence, no `present_on_scene_date` and no grade. The identity is the books crosswalk's landed merge (T-0961) and is not re-opened here.",
   "precision": "year"
  },
  "party_size_on_arrival": {
@@ -21,14 +22,26 @@
   "value": "Mackinaw; his father a Scots trader, his mother an Ottawa woman",
   "confidence": "attested",
   "sources": [
-   "andreas_1884_v1"
+   "andreas_1884_v1",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "Andreas states both parents and the birthplace, and the route by way of the St Joseph in Michigan, where he traded and married before coming here."
+  "note": "Andreas states both parents and the birthplace, and the route by way of the St Joseph in Michigan, where he traded and married before coming here. THE SETTLERS TABLE'S NATIVITY CELL FOR HIM IS NOT A NATIVITY AND IS REFUSED AS WHAT IT IS. Row bk_mose1_as_029 prints 'Indian Chief' in the column where a birthplace belongs — an office set in a nativity cell. It says nothing about where he was born, it does not touch the Mackinaw this field carries from Andreas, and it is recorded here so that a later pass does not read the cell as a place."
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The country trade at the forks",
   "confidence": "reconstructed",
-  "note": "NOT ATTESTED, and the question is differently shaped for this household than for the emigrant ones. Robinson was here before the town was; asking why he 'came' imports a frame that fits a New England merchant and not a man whose people the land belonged to. The field is left null on purpose rather than filled with a trader's motive."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as trader, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_recorded_trade",
+   "note": "arrival_fill.trade_reasons.the_country_trade — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": "robinson_caldwell_cabins",
@@ -97,6 +110,30 @@
     "andreas_1884_v1",
     "kinzie_waubun_1856"
    ],
+   "appearance_bounds": [
+    {
+     "bound_kind": "district_presence",
+     "corpus": "census_1830",
+     "source_title": "Fifth census of the United States, 1830 — the division headed 'Peoria & Putnam Counties & Territory attached'",
+     "record_id": "census1830_n580_027",
+     "as_read": "Alexander Robinson",
+     "role": "head_of_family",
+     "locator": "leaf n580 entry 27, peoria_putnam_1830_leaves_580_582.txt line 46",
+     "describes_date": "1830",
+     "date_confidence": "documented",
+     "precision": "year",
+     "reaches": "1830-12-31",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "census_1830_peoria_county_chicago_precinct"
+     ],
+     "identity_rule": "Surname and given name both agree between the 1830 reading 'Alexander Robinson' and the town person 'Alexander Robinson (Che-che-pin-qua)' in household hh_robinson_alexander. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own.",
+     "note": "A BOUND ON PRESENCE IN A DISTRICT, AND NOT AT CHICAGO. The division is headed 'Peoria & Putnam Counties & Territory attached' and the schedule never writes the word Chicago — the Fox River and Du Page settlements are inside it — so this row bounds presence in that district in the summer of 1830 and puts no body in the town, which is why `here_by` is null. The record's own note says it first: 'Presence in that district in the summer of 1830; not a Chicago residence, and never an 1835 one'. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the leaf is read scan_verified off the federal schedule, and what no source states is that the head of family on it is the person on this card. data/research/census_1830/resident_crosswalk.json joins them on a name agreement and says in terms that it grades nothing on its own. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
    "note": "A CHIEF, A LICENSED TRADER AND A RECORDED VOTER OF THE SETTLEMENT. Andreas: born at Mackinaw about 1762, his father a Scots trader who had been an officer in the British army and his mother an Ottawa woman; he sheltered the Kinzie family after the 1812 massacre and carried Captain and Mrs Heald three hundred miles by bark canoe to Mackinaw. His personal property was assessed at $200 by the Peoria County assessor in 1825 and he is recorded as a voter in 1825, 1826 and 1830. He married Catherine Chevalier, daughter of the chief Francois Chevalier, on 28 September 1826, John Kinzie officiating as justice of the peace, and became chief of her father's band at his death. By the treaty of Prairie du Chien of July 1829 he was granted two sections on the Des Plaines; by Camp Tippecanoe in 1832 a life annuity of $200; and by the Chicago treaty of September 1833 a further $300 a year for life.",
    "resident_research": {
     "programme": "resident-research-2026",
@@ -123,15 +160,30 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1",
       "kinzie_waubun_1856"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "70-79",
+    "low": 70,
+    "high": 79,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   }
   },
   {
    "id": "robinson_catherine",
@@ -160,6 +212,24 @@
     "source_ids": [
      "chicago_democrat_1833_1835"
     ]
+   },
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30', one of its female bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "robinson_catherine:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('robinson_catherine:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
    }
   },
   {
@@ -176,7 +246,19 @@
     "andreas_1884_v1",
     "kinzie_waubun_1856"
    ],
-   "note": "AN ADMISSION, NOT A PERSON. Wau-Bun describes 'two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions' - so the household extended beyond the couple and the source neither names nor counts it. Andreas has him settling on the Des Plaines reservation 'with his family' after the removal, and two sons and a daughter-in-law buried beside him. Do not count this entry as a person."
+   "note": "AN ADMISSION, NOT A PERSON. Wau-Bun describes 'two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions' - so the household extended beyond the couple and the source neither names nor counts it. Andreas has him settling on the Des Plaines reservation 'with his family' after the removal, and two sons and a daughter-in-law buried beside him. Do not count this entry as a person.",
+   "sex_basis": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "A COLLECTIVE DESCRIPTION NAMES NOBODY, so there is no sex to draw. This row stands for more than one person and a single band or a single sex would make a group into a person. The refusal is T-1303's and it is kept here word for word rather than overridden by a model that could not tell."
+   },
+   "age_band": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "A COLLECTIVE DESCRIPTION NAMES NOBODY, so there is no age band to draw. This row stands for more than one person and a single band or a single sex would make a group into a person. The refusal is T-1303's and it is kept here word for word rather than overridden by a model that could not tell."
+   }
   }
  ],
  "touches_removal": true,

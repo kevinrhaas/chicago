@@ -1,0 +1,12 @@
+#!/bin/zsh
+set -eu
+project_dir='/Users/khaas/Documents/Unreal Projects/Chicago4D_UE'
+if ! curl --silent --max-time 3 --output /dev/null http://127.0.0.1/; then
+  print 'The Pixel Streaming web server is not running. Start it first, then run this launcher again.'
+  exit 1
+fi
+exec '/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor' \
+  "$project_dir/Chicago4D_UE.uproject" /Game/Chicago4D/Maps/Chicago1835_Preview \
+  -game -AudioMixer -PixelStreamingURL=ws://127.0.0.1:8888 \
+  -RenderOffScreen -ResX=1920 -ResY=1080 -ForceRes -FPS=60 \
+  -ExecCmds="ShowFlag.SkeletalMeshes 0"

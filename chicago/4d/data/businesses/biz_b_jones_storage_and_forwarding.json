@@ -1,0 +1,196 @@
+{
+  "id": "biz_b_jones_storage_and_forwarding",
+  "register_id": "business_b_jones_storage_and_forwarding",
+  "name": "B. Jones, storage and forwarding",
+  "provenance": "compiled_from_register",
+  "type": [
+    "storage_and_forwarding"
+  ],
+  "trade": "storage, forwarding and commission",
+  "occupation": "forwarding_and_commission",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "B. Jones",
+      "person_id": "jones_benjamin",
+      "register_person_id": "person_b_jones",
+      "role": "proprietor",
+      "from": "1833-11-26",
+      "to": "1833-11-26",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card jones_benjamin (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_11_26#c014"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Chauncey Ingalls",
+      "person_id": "rc_ingalls_chauncey",
+      "role": "household_member",
+      "occupation": "teamster",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a forwarding and commission house at the typical band and 2 at the high end, on directory_1839. 41 teamsters and 30 draymen in 1839, against a river trade this one grew out of. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#forwarding_and_warehouse.teamster; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_ingalls_chauncey:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    },
+    {
+      "name": "David Leland",
+      "person_id": "rc_leland_david",
+      "role": "household_member",
+      "occupation": "teamster",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a forwarding and commission house at the typical band and 2 at the high end, on directory_1839. 41 teamsters and 30 draymen in 1839, against a river trade this one grew out of. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#forwarding_and_warehouse.teamster; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_leland_david:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "forwarding_and_warehouse",
+    "reads_as": "a forwarding and commission house",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "clerk",
+        "occupation": "clerk",
+        "household_relationship": "clerk",
+        "count_low": 1,
+        "count_typical": 1,
+        "count_high": 2,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "directory_1839",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      },
+      {
+        "role": "household_member",
+        "occupation": "labourer",
+        "household_relationship": "household_member",
+        "count_low": 1,
+        "count_typical": 2,
+        "count_high": 3,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "directory_1839",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      },
+      {
+        "role": "household_member",
+        "occupation": "teamster",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 2,
+        "seats_drawn": 2,
+        "drawn": true,
+        "basis": "directory_1839"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 4,
+      "seats_taken": 2,
+      "seats_against_the_band": 1,
+      "short_by": 3,
+      "by_role": [
+        {
+          "occupation": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 2,
+          "seats_drawn": 0,
+          "short_by": 1
+        },
+        {
+          "occupation": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 2,
+          "count_high": 3,
+          "seats_drawn": 0,
+          "short_by": 2
+        },
+        {
+          "occupation": "teamster",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "seats_drawn": 2,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 4 hand(s) about this kind of house at its typical band. This house carries 2, 1 of them in a role that still wanted one, so it stands 3 short — short rather than quietly filled, and short in the roles named below rather than in the total.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "h_jones_store",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-11-26",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure h_jones_store on its occupants. h_jones_store already stands and its occupants carries jones — 'Jones; grocer and provision merchant'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1833-11-26",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-11-26, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-11-26",
+    "last_issue": "1833-11-26",
+    "copy_dates": [
+      "1833-11-26"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: B. Jones (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "jones_benjamin",
+        "name": "B. Jones",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1833_11_26#c014"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

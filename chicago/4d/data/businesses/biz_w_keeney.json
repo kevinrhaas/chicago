@@ -1,0 +1,107 @@
+{
+  "id": "biz_w_keeney",
+  "register_id": "business_w_keeney",
+  "name": "W. Keeney",
+  "provenance": "compiled_from_register",
+  "type": [
+    "tin_and_copper_manufactory"
+  ],
+  "trade": "tin, sheet iron and copper ware, stoves and castings",
+  "occupation": "tinsmith",
+  "goods": [
+    "Bells",
+    "Cooking Stoves",
+    "Copper Ware",
+    "Hollow Ware",
+    "Mill Castings",
+    "Ploughs",
+    "Sheet Iron Ware",
+    "Tin Ware"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "W. Keeney",
+      "person_id": "keeney_w",
+      "register_person_id": "person_w_keeney",
+      "role": "proprietor",
+      "from": "1834-05-07",
+      "to": "1834-06-04",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card keeney_w (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_05_07#c003",
+        "chicago_democrat_1834_06_04#c022"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-05-07",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. The landmark is another documented business (business_newberry_dole), which places this one exactly as well as that one is placed.",
+      "limit_reason": "The register places this house against business_newberry_dole and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "business",
+        "id": "biz_newberry_dole",
+        "title": "Newberry & Dole",
+        "streets": []
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1834-05-07",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-05-07, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-05-07",
+    "last_issue": "1834-06-04",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: W. Keeney (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "keeney_w",
+        "name": "W. Keeney",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_05_07#c003",
+    "chicago_democrat_1834_06_04#c022"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

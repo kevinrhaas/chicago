@@ -1,0 +1,92 @@
+{
+  "id": "biz_lathrop_johnson_co_livery",
+  "register_id": "business_lathrop_johnson_co_livery",
+  "name": "Lathrop Johnson & Co., livery",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "livery",
+  "occupation": "livery_stable_keeper",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Lathrop Johnson",
+      "person_id": "johnson_lathrop",
+      "register_person_id": "person_lathrop_johnson",
+      "role": "proprietor",
+      "from": "1835-06-27",
+      "to": "1835-06-27",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card johnson_lathrop (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_27#c006"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-06-27",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_american_1835_06_27#c006 (notice, 1835-06-27). No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-27",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-27, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-27",
+    "last_issue": "1835-06-27",
+    "copy_dates": [
+      "1835-06-15"
+    ]
+  },
+  "present_at_scene_date": false,
+  "exclusion": "contradicted_before_scene_date",
+  "exclusion_note": "Contradicted on or before the scene date by chicago_american_1835_06_27#c006 (notice, 1835-06-27).",
+  "proprietor_community": {
+    "value": "british",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read british: Lathrop Johnson (british). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "johnson_lathrop",
+        "name": "Lathrop Johnson",
+        "role": "proprietor",
+        "community": "british",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_27#c006"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

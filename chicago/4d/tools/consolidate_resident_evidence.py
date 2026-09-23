@@ -60,6 +60,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from reconstructed_person import is_reconstructed  # noqa: E402
 import resolve_place_vocabulary  # noqa: E402  (T-1049 — the corpus that says where a place is)
 
 RESEARCH = ROOT / "data" / "research"
@@ -733,15 +734,32 @@ def read_newspapers():
     return out
 
 
+# T-1172. `data/residents/readmitted/` is the RECONSTRUCTION, not the research: the
+# borderline roster's names offered back at the reconstructed tier by
+# tools/readmit_borderline_roster.py. The research instruments below measure what the
+# sources say and what has been spent of them, and a reconstruction is neither. Reading it
+# here would let an invention raise the research meter, join a crosswalk, or stand as a
+# rival card in an identity ruling — which is the exact boundary that stage is built on.
+READMITTED_DIR = "readmitted"
+
+
+def town_records(root):
+    """Every committed resident record EXCEPT the reconstruction's own."""
+    return [p for p in sorted(root.rglob("*.json")) if p.parent.name != READMITTED_DIR]
+
 def read_town():
     """The residents layer itself. Not a source — it is what the sources are spent onto —
     but an identity has to be able to say which card it already stands on."""
     out = []
-    for path in sorted(RESIDENTS.rglob("*.json")):
+    for path in town_records(RESIDENTS):
         doc = load(path)
         if not isinstance(doc, dict) or not isinstance(doc.get("persons"), list):
             continue
         for person in doc["persons"]:
+            # T-1171: a drawn person is not an APPEARANCE. Nothing printed their name, so
+            # an identity built on one would be this layer corroborating its own invention.
+            if is_reconstructed(person):
+                continue
             if not person.get("id"):
                 continue
             entry = appearance(
@@ -1763,12 +1781,12 @@ TOWN_GRADES: dict = {}
 
 def _load_town_grades():
     TOWN_GRADES.clear()
-    for path in sorted(RESIDENTS.rglob("*.json")):
+    for path in town_records(RESIDENTS):
         doc = load(path)
         if not isinstance(doc, dict) or not isinstance(doc.get("persons"), list):
             continue
         for person in doc["persons"]:
-            if person.get("id"):
+            if person.get("id") and not is_reconstructed(person):
                 TOWN_GRADES[person["id"]] = person
 
 
@@ -1880,11 +1898,16 @@ def ladder_coverage(master, proposal):
     records, states, by_proposed_rule, refusal_rules = [], Counter(), Counter(), Counter()
     by_disputed_rule = Counter()
     total = 0
-    for path in sorted(RESIDENTS.rglob("*.json")):
+    for path in town_records(RESIDENTS):
         doc = load(path)
         if not isinstance(doc, dict) or not isinstance(doc.get("persons"), list):
             continue
         for person in doc["persons"]:
+            # T-1171: the ladder grades people the SOURCES name. A drawn person has no
+            # evidence for a rung to weigh and no grade a rung could check, so they are
+            # not a record this coverage is silent about — they are not its subject.
+            if is_reconstructed(person):
+                continue
             person_id = person.get("id")
             if not person_id:
                 continue

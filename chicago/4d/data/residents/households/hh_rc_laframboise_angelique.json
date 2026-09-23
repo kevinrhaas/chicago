@@ -1,0 +1,484 @@
+{
+ "id": "hh_rc_laframboise_angelique",
+ "name": "Reconstructed household — Angelique Laframboise, a woman keeping her own house in the north division",
+ "division": "north",
+ "head": "rc_laframboise_angelique",
+ "source_pass": "reconstructed_women_children",
+ "arrival": {
+  "value": "1835-07-01",
+  "precision": "not_later_than",
+  "confidence": "reconstructed",
+  "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records."
+ },
+ "arrival_year": {
+  "value": 1834,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
+  },
+  "seed": "hh_rc_laframboise_angelique:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not claimed. The household model draws how many people this house held on 1 July 1835 and says nothing about how many of them travelled together."
+ },
+ "origin": {
+  "value": "New York State",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_rc_laframboise_angelique:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "reason_for_coming": {
+  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NO ROOF AND NO LOT. This stage seats nobody: the ground the north and west divisions still want is T-1191–T-1194's and T-1199 seats every reconstructed household on it. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "No workplace is assigned from a reconstructed household; T-1189 staffs the businesses and T-1199 seats the premises."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them."
+ },
+ "women_children": {
+  "stage": "women_and_children",
+  "ticket": "T-1174",
+  "household_type": "female_headed",
+  "head_trade": "none_recorded",
+  "head_trade_seed": "rc_wc_north_016:female_trades",
+  "size_drawn": 5,
+  "seated": 6,
+  "seated_beyond_the_draw": 1,
+  "seed": "rc_wc_north_016:household_size",
+  "note": "The women and children the age pyramid still lacks. A servant, an apprentice or a lodger this house may also have held is priced by T-1183 and seated by T-1173 and T-1175; the drawn size is a floor on the house, and where the division's child buckets were still short after every house was drawn the remainder was seated across them and says so."
+ },
+ "persons": [
+  {
+   "id": "rc_laframboise_angelique",
+   "name": "Angelique Laframboise",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30'. Drawn against the band the order book still wants in this division: the buckets were cut from the population model, so the gap IS the model's shape and a draw that chased it converges on the pyramid rather than near it."
+    },
+    "seed": "rc_wc_north_016:head_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "NO TRADE IS CLAIMED, AND THAT IS A DRAW LIKE ANY OTHER. The same weighted table that gave this stage's other heads a trade gave this one none — a widow with grown children, a lot, a pension or kin in the town need not have been in a trade, and a model that put an occupation on every one of them would print a column the sources never had. The card's `women_children.head_trade_seed` redraws it."
+   },
+   "name_basis": {
+    "value": "Angelique Laframboise",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename and the surname are both drawn from the French colonial and metis of the Detroit and Milwaukee country pool: nothing about this house is read, so no part of the name is inherited from a real person."
+    },
+    "seed": "rc_wc_north_016:head_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this north-division household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the French colonial and metis of the Detroit and Milwaukee country pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "sex_ratio",
+    "note": "The 1840 city returned 146.8 men per 100 women aged twenty and over and this layer stood far past that, because the rolls that name the town name men. This woman is one of the count the order book says is missing from the north division."
+   },
+   "seed": "rc_wc_north_016:head_age_bands_1840",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "french_colonial",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_laframboise_angelique_1",
+   "name": "Baptiste Laframboise",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_north_016:rc_laframboise_angelique:member_1_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Baptiste Laframboise",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the French colonial and metis of the Detroit and Milwaukee country pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_north_016:rc_laframboise_angelique:member_1_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the French colonial and metis of the Detroit and Milwaukee country pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "under_ten",
+    "note": "Drawn by the draw against the north division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_north_016:rc_laframboise_angelique:member_1_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "french_colonial",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the north division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_laframboise_angelique_2",
+   "name": "Medard Laframboise",
+   "relationship": "household_member",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Older than the head's own band allows her to have borne, so no kin tie is claimed. The model places older children out as apprentices and servants; WHICH of the two this person was is not claimed, because nothing here can tell."
+    },
+    "seed": "rc_wc_north_016:rc_laframboise_angelique:member_2_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Medard Laframboise",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the French colonial and metis of the Detroit and Milwaukee country pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_north_016:rc_laframboise_angelique:member_2_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the French colonial and metis of the Detroit and Milwaukee country pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "age_bands_1840",
+    "note": "Drawn by the draw against the north division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_north_016:rc_laframboise_angelique:member_2_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "french_colonial",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_laframboise_angelique_3",
+   "name": "Catherine Laframboise",
+   "relationship": "household_member",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Older than the head's own band allows her to have borne, so no kin tie is claimed. The model places older children out as apprentices and servants; WHICH of the two this person was is not claimed, because nothing here can tell."
+    },
+    "seed": "rc_wc_north_016:rc_laframboise_angelique:member_3_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Catherine Laframboise",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the French colonial and metis of the Detroit and Milwaukee country pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_north_016:rc_laframboise_angelique:member_3_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the French colonial and metis of the Detroit and Milwaukee country pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "age_bands_1840",
+    "note": "Drawn by the draw against the north division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_north_016:rc_laframboise_angelique:member_3_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "french_colonial",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_laframboise_angelique_4",
+   "name": "Therese Laframboise",
+   "relationship": "household_member",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Older than the head's own band allows her to have borne, so no kin tie is claimed. The model places older children out as apprentices and servants; WHICH of the two this person was is not claimed, because nothing here can tell."
+    },
+    "seed": "rc_wc_north_016:rc_laframboise_angelique:member_4_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Therese Laframboise",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the French colonial and metis of the Detroit and Milwaukee country pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_north_016:rc_laframboise_angelique:member_4_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the French colonial and metis of the Detroit and Milwaukee country pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "age_bands_1840",
+    "note": "Drawn by the draw against the north division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_north_016:rc_laframboise_angelique:member_4_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "french_colonial",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_laframboise_angelique_5",
+   "name": "Antoine Laframboise",
+   "relationship": "household_member",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Older than the head's own band allows her to have borne, so no kin tie is claimed. The model places older children out as apprentices and servants; WHICH of the two this person was is not claimed, because nothing here can tell."
+    },
+    "seed": "rc_wc_north_residual_01:rc_laframboise_angelique:member_5_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Antoine Laframboise",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the French colonial and metis of the Detroit and Milwaukee country pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_north_residual_01:rc_laframboise_angelique:member_5_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the French colonial and metis of the Detroit and Milwaukee country pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "age_bands_1840",
+    "note": "Drawn by the residual sweep against the north division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_north_residual_01:rc_laframboise_angelique:member_5_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "french_colonial",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "RECONSTRUCTED HOUSEHOLD — no trade recorded, in the north division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
+}

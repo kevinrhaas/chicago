@@ -121,7 +121,7 @@ jobs:
           # Anything outside the 4D app's scope is a red flag on a promotion
           # whose whole purpose is the 4D app. Reported, not blocked — the owner
           # dispatched this and may have a reason.
-          OUT="$(git diff --name-only main..origin/dev -- . ':(exclude)chicago/4d' ':(exclude)site/4d' | head -20)"
+          OUT="$(git diff --name-only main..origin/dev -- . ':(exclude)chicago/4d' ':(exclude)site/chicago/4d' | head -20)"
           if [ -n "$OUT" ]; then
             echo "::warning::dev touches paths outside chicago/4d:"
             printf '%s\n' "$OUT"

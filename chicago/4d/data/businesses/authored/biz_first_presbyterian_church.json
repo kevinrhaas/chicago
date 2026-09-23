@@ -1,0 +1,77 @@
+{
+  "id": "biz_first_presbyterian_church",
+  "register_id": null,
+  "name": "The First Presbyterian Church of Chicago",
+  "provenance": "authored",
+  "type": [
+    "church"
+  ],
+  "trade": "a Presbyterian congregation and its meeting house",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Rev. Jeremiah Porter",
+      "person_id": "porter_jeremiah",
+      "register_person_id": null,
+      "role": "minister",
+      "from": "1833-06-26",
+      "to": null,
+      "tier": "attested",
+      "basis": "THE OFFICE IS ATTESTED AND THE MORNING IS NOT, AND THE TWO ARE NOT THE SAME CLAIM. The resident card porter_jeremiah carries `minister` at attested confidence on andreas_1884_v1 and states the reading in full: pastor of the First Presbyterian Church of Chicago, which he organised on Wednesday 26 June 1833 with twenty-six members, seventeen of them from the garrison church at Fort Brady and nine of them citizens of the village. He is the town's Presbyterian minister across the whole scene window — Andreas has him in the pulpit 'until Mr. Porter left Chicago, in September, 1835'. WHAT THE COMMITTED ROOF REFUSES, THIS ROW DOES NOT OVERTURN: first_presbyterian_church's `occupants` field says 'NO SOURCE REACHED NAMES THE MINISTER IN CHARGE ON 1835-07-01, so the occupancy is stated as the congregation and not as a person', and that refusal is about a day. So is the card's own sharpest note: Porter was chosen the Presbytery of Ottawa's first delegate to the General Assembly that spring, was married at Rochester, New York on 15 June 1835 — sixteen days before the scene date — and went on from there to visit his parents in Massachusetts, so the man who held this pulpit on 1 July 1835 may well have been eight hundred miles from it that morning. A minister who is away is still the minister; a building with nobody in it is still this congregation's. The establishment carries the office, the roof carries the room, and neither is asked to carry the other.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": []
+    }
+  ],
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "first_presbyterian_church",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-01-04",
+      "to": null,
+      "tier": "attested",
+      "basis": "The congregation's own building, dedicated on 4 January 1834 and in continuous use as the Presbyterian meeting house across the scene window — the committed structure record first_presbyterian_church carries the dedication, the 40 by 25 ft frame, the pine-board benches for about two hundred and the absence of a tower, all on andreas_1884_v1. THE `from` IS THE DEDICATION AND NOT THE CONGREGATION'S OPENING, which is six months earlier and is on `dates`: between June 1833 and January 1834 these people met in the fort and then in the Temple Building, and baptisthistoryhomepage dates the end of that shared use by this building — the Methodists, Presbyterians and Baptists used the Temple Building 'until the Presbyterian church was ready for occupancy'. On 1 July 1835 the congregation is in a house of its own and has been for eighteen months."
+    }
+  ],
+  "dates": {
+    "opened": "1833-06-26",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The society, not the building: organised on Wednesday 26 June 1833 with twenty-six members, per porter_jeremiah's card on andreas_1884_v1. The meeting house follows it by six months and is on the location's `from`; a congregation that moved rooms is the same establishment."
+  },
+  "evidence": {
+    "first_issue": null,
+    "last_issue": null,
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "A congregation is not a house of trade and has no keeper to read a community off. The one person this record names is its minister, and a minister's own community is not the congregation's.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "andreas_1884_v1",
+    "baptisthistoryhomepage"
+  ],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A printing that names who preached here in the summer of 1835 would settle whether Porter was back from Rochester, and would be the first source reached to name a minister in charge on a particular day. A subscription list, a pew rental or a trustees' minute naming a sexton, a clerk or a chorister would give this establishment the staff it presently has none of — see the refusal written into T-1421's own ticket and into this layer's schema, where the town has no word for a sexton because no 1835 source prints one."
+}

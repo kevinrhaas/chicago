@@ -3,8 +3,8 @@
   "id": "chicago_1835_family_archetype_crosswalk",
   "target_date": "1835-07-01",
   "source_id": "owner_chicago_1835_reconstruction_spec_2026",
-  "count_basis": "SUPERSEDED FOR COUNTING PURPOSES 2026-08-14 — the live remainder is derived in data/reconstruction/1835_665_roof_programme.json by tools/reconcile_665.py, and 433 roofs remain against the 617 below. The per-family remaining_roofs here were computed when only the phase1 parcel stood; they are kept because the crosswalk's VALUE is the family-to-archetype mapping and its geometry contract, neither of which the count affects. Remaining below means the authored family target less the 48 phase1 South Division anonymous roofs already instantiated. Reviewed but unrendered phase2 recipes are not subtracted. THE AUTHORED TOTAL ITSELF MOVED 665 → 662 on 2026-08-27 (T-0032), when three civic slots were shown to count nothing; I3 and the totals here move with it, and no other family's target changed.",
-  "roof_totals": {"target": 662, "phase1_instantiated": 48, "remaining": 614},
+  "count_basis": "SUPERSEDED FOR COUNTING PURPOSES 2026-08-14 — the live remainder is derived in data/reconstruction/1835_665_roof_programme.json by tools/reconcile_665.py, and 433 roofs remain against the 617 below. The per-family remaining_roofs here were computed when only the phase1 parcel stood; they are kept because the crosswalk's VALUE is the family-to-archetype mapping and its geometry contract, neither of which the count affects. Remaining below means the authored family target less the 48 phase1 South Division anonymous roofs already instantiated. Reviewed but unrendered phase2 recipes are not subtracted. THE AUTHORED TOTAL ITSELF MOVED 665 → 662 on 2026-08-27 (T-0032), when three civic slots were shown to count nothing; I3 and the totals here move with it, and no other family's target changed. AND THE COUNTS HERE ARE DERIVED AGAIN FROM 2026-09-20 (T-1196): target_roofs, remaining_roofs, priority_rank, priority_band and roof_totals are re-cut from 1835_building_inventory.json's family_targets and the priority_rule below by tools/reprogramme_roofs_1835.py --build, and tools/check.sh refuses drift between them. They had gone stale twice over: 662 against the inventory's 668, because C2, W4, A2 and A5 never followed T-0283 and T-1036; and nine ranks one place out, because T-0032 moved I3 from six roofs to three without re-ranking. Everything else in this file is authored and no tool writes it.",
+  "roof_totals": {"target": 668, "phase1_instantiated": 48, "remaining": 620},
   "priority_rule": {
     "order": "descending remaining_roofs, then family id",
     "bands": {"P0": "50 or more", "P1": "25-49", "P2": "10-24", "P3": "5-9", "P4": "1-4"}
@@ -52,10 +52,10 @@
     {
       "id": "D5", "label": "Deep-plan frame cottage", "target_roofs": 58, "phase1_instantiated": 5, "remaining_roofs": 53, "priority_rank": 3, "priority_band": "P0",
       "current_placeholder_archetype": "frame_dwelling",
-      "canonical_archetype": "dwelling_frame", "required_variant": "deep_plan_gable_front",
-      "key_geometry_parameters": {"footprint_ft": "18x28-24x34", "levels": "1", "eave_ft": "9-10", "ridge_ft": "17-21", "roof": "front gable, 7:12-10:12", "construction": "clapboard/board-mix frame", "variants": "narrow urban plan; side entry; optional shop room"},
-      "evidence_note": "The current frame_dwelling is eaves-front and therefore compresses the defining front-gable silhouette; canonical support is required.",
-      "assumption_note": "Shop-room use is an occasional variant and cannot be inferred merely from a deep footprint."
+      "canonical_archetype": "frame_dwelling", "required_variant": "deep_plan_eaves_front",
+      "key_geometry_parameters": {"footprint_ft": "18x28-24x34", "levels": "1", "eave_ft": "9-10", "ridge_ft": "17-21", "roof": "side gable, 7:12-10:12", "construction": "clapboard/board-mix frame", "variants": "deep single-pile plan; side entry; optional shop room"},
+      "evidence_note": "REPAIRED ON THE EVIDENCE, T-1497, 2026-09-21 \u2014 docs/RESEARCH/d5_gable_front_cottage_1835.md. This row required a front gable and a canonical dwelling_frame/deep_plan_gable_front archetype that was never built, and the reading asked whether it should be. It should not. No source in this corpus records a gable-front DWELLING at Chicago before 1836: every gable front the dataset holds stands on a shop, a tavern or a church, where the form is a shopfront's logic rather than a house's fashion \u2014 the Green Tree Tavern of 1833 is gable-front on a depiction, and is a public house. And the condition that produces the form on a cottage, the narrow lot this row's own variants line named, was not a condition of this town: 298 committed lots read a median 80.9 ft of frontage against an 18-24 ft house. So the form is withdrawn and frame_dwelling, which is eaves-front, is canonical here rather than a placeholder. THE FOOTPRINT BAND IS UNCHANGED at 18x28-24x34 ft: what the reading corrected is the roof claim over that rectangle, not the rectangle, and measure_band_claims.py refuses a band widened to admit the value it was supposed to bound. All 32 instantiated D5 roofs already stood eaves-front and none of them moves. Reopened at once by a depiction or a description of a named Chicago house turned end-on before 1836.",
+      "assumption_note": "Shop-room use is an occasional variant and cannot be inferred merely from a deep footprint. The deep plan itself is retained and is what still distinguishes this family from D4: the rectangle is deeper than it is wide, and an eaves-front reading of it is a single-pile range with its ridge parallel to the street, not a double-pile house. Where a slot's rectangle is deeper than the eaves-front archetype will build, the width is held to the proportion tools/family_bands.py already uses; it is never resolved by turning the building a quarter circle."
     },
     {
       "id": "D6", "label": "One-and-a-half-story cottage", "target_roofs": 29, "phase1_instantiated": 3, "remaining_roofs": 26, "priority_rank": 10, "priority_band": "P1",
@@ -82,7 +82,7 @@
       "assumption_note": "Prosperity, paint, ell and porch are aggregate family signals and not evidence of a named owner."
     },
     {
-      "id": "H2", "label": "Merchant or professional house", "target_roofs": 14, "phase1_instantiated": 0, "remaining_roofs": 14, "priority_rank": 15, "priority_band": "P2",
+      "id": "H2", "label": "Merchant or professional house", "target_roofs": 14, "phase1_instantiated": 0, "remaining_roofs": 14, "priority_rank": 16, "priority_band": "P2",
       "current_placeholder_archetype": "frame_dwelling",
       "canonical_archetype": "house_frame_large", "required_variant": "merchant_two_story",
       "key_geometry_parameters": {"footprint_ft": "24x32-30x42", "levels": "2", "eave_ft": "18-21", "ridge_ft": "27-33", "roof": "side gable or hip, 6:12-9:12", "construction": "painted clapboard frame", "variants": "Greek doorway; corner boards; 1-2 chimneys"},
@@ -98,7 +98,7 @@
       "assumption_note": "Window and stovepipe counts must vary; they indicate capacity, not a recovered interior plan."
     },
     {
-      "id": "C1", "label": "Small shop, grocery, or land office", "target_roofs": 18, "phase1_instantiated": 3, "remaining_roofs": 15, "priority_rank": 13, "priority_band": "P2",
+      "id": "C1", "label": "Small shop, grocery, or land office", "target_roofs": 18, "phase1_instantiated": 3, "remaining_roofs": 15, "priority_rank": 14, "priority_band": "P2",
       "current_placeholder_archetype": "frame_storefront",
       "canonical_archetype": "storefront_frame", "required_variant": "small_shop_one_story",
       "key_geometry_parameters": {"footprint_ft": "14x20-20x30", "levels": "1", "eave_ft": "9-11", "ridge_ft": "15-20", "roof": "front gable or shed, 5:12-9:12", "construction": "clapboard or vertical plank", "variants": "board sign; split door; modest display panes"},
@@ -106,7 +106,7 @@
       "assumption_note": "Business type, sign text and glazing arrangement are never to be invented for anonymous slots."
     },
     {
-      "id": "C2", "label": "Store-residence", "target_roofs": 12, "phase1_instantiated": 2, "remaining_roofs": 10, "priority_rank": 17, "priority_band": "P2",
+      "id": "C2", "label": "Store-residence", "target_roofs": 13, "phase1_instantiated": 2, "remaining_roofs": 11, "priority_rank": 17, "priority_band": "P2",
       "current_placeholder_archetype": "frame_storefront",
       "canonical_archetype": "storefront_frame", "required_variant": "store_residence_one_and_half",
       "key_geometry_parameters": {"footprint_ft": "18x30-22x40", "levels": "1.5", "eave_ft": "11-13", "ridge_ft": "21-26", "roof": "front gable, 8:12-11:12", "construction": "clapboard frame", "variants": "shop below; attic rooms; rear lean-to; signboard"},
@@ -114,7 +114,7 @@
       "assumption_note": "Residential occupancy, lean-to and signboard are type-level options, not evidence for an individual parcel."
     },
     {
-      "id": "C3", "label": "Narrow two-story store", "target_roofs": 17, "phase1_instantiated": 3, "remaining_roofs": 14, "priority_rank": 14, "priority_band": "P2",
+      "id": "C3", "label": "Narrow two-story store", "target_roofs": 17, "phase1_instantiated": 3, "remaining_roofs": 14, "priority_rank": 15, "priority_band": "P2",
       "current_placeholder_archetype": "frame_storefront",
       "canonical_archetype": "storefront_frame", "required_variant": "narrow_store_two_story",
       "key_geometry_parameters": {"footprint_ft": "18x36-22x50", "levels": "2", "eave_ft": "18-22", "ridge_ft": "27-34", "roof": "front or side gable, 6:12-9:12", "construction": "clapboard frame", "variants": "2-3 shop bays; optional hoist door; upper lodging"},
@@ -130,7 +130,7 @@
       "assumption_note": "Brick must remain rare and separately evidenced; generic C4 instances should default to timber."
     },
     {
-      "id": "T1", "label": "Neighborhood tavern or public house", "target_roofs": 6, "phase1_instantiated": 0, "remaining_roofs": 6, "priority_rank": 24, "priority_band": "P3",
+      "id": "T1", "label": "Neighborhood tavern or public house", "target_roofs": 6, "phase1_instantiated": 0, "remaining_roofs": 6, "priority_rank": 23, "priority_band": "P3",
       "current_placeholder_archetype": "frame_tavern",
       "canonical_archetype": "tavern_frontier", "required_variant": "neighborhood_public_house",
       "key_geometry_parameters": {"footprint_ft": "22x32-30x45", "levels": "1.5-2", "eave_ft": "12-20", "ridge_ft": "23-31", "roof": "side gable, 7:12-10:12", "construction": "clapboard/log mix", "variants": "bar-room entry; stable yard; hanging sign"},
@@ -178,7 +178,7 @@
       "assumption_note": "Cooper, wagon and wheelwright are a shared visual family; individual trade and yard stock remain unverified."
     },
     {
-      "id": "W4", "label": "Small artisan shop", "target_roofs": 6, "phase1_instantiated": 1, "remaining_roofs": 5, "priority_rank": 28, "priority_band": "P3",
+      "id": "W4", "label": "Small artisan shop", "target_roofs": 7, "phase1_instantiated": 1, "remaining_roofs": 6, "priority_rank": 24, "priority_band": "P3",
       "current_placeholder_archetype": "outbuilding",
       "canonical_archetype": "workshop_frontier", "required_variant": "artisan_shop_house",
       "key_geometry_parameters": {"footprint_ft": "14x20-20x30", "levels": "1-2", "eave_ft": "9-18", "ridge_ft": "16-27", "roof": "gable or shed", "construction": "clapboard frame", "variants": "tailor/shoemaker/saddler/tinsmith shop-house facade"},
@@ -186,7 +186,7 @@
       "assumption_note": "Trade-specific facade differences should be subtle; labels and merchandise cannot identify a business without evidence."
     },
     {
-      "id": "W5", "label": "Sawmill, boat-repair, or riverside shop", "target_roofs": 4, "phase1_instantiated": 0, "remaining_roofs": 4, "priority_rank": 30, "priority_band": "P4",
+      "id": "W5", "label": "Sawmill, boat-repair, or riverside shop", "target_roofs": 4, "phase1_instantiated": 0, "remaining_roofs": 4, "priority_rank": 29, "priority_band": "P4",
       "current_placeholder_archetype": "outbuilding",
       "canonical_archetype": "workshop_riverside", "required_variant": "heavy_open_work_bay",
       "key_geometry_parameters": {"footprint_ft": "22x36-36x60", "levels": "1", "eave_ft": "11-15", "ridge_ft": "20-29", "roof": "broad gable or shed", "construction": "heavy timber and rough boards", "variants": "open work bay; timber piles; river access; rare crane/derrick"},
@@ -210,7 +210,7 @@
       "assumption_note": "Hoist beam presence varies; cargo type and operator are not inferred."
     },
     {
-      "id": "F3", "label": "Large river warehouse", "target_roofs": 3, "phase1_instantiated": 0, "remaining_roofs": 3, "priority_rank": 31, "priority_band": "P4",
+      "id": "F3", "label": "Large river warehouse", "target_roofs": 3, "phase1_instantiated": 0, "remaining_roofs": 3, "priority_rank": 30, "priority_band": "P4",
       "current_placeholder_archetype": "frame_storefront",
       "canonical_archetype": "warehouse_frontier", "required_variant": "warehouse_river_large",
       "key_geometry_parameters": {"footprint_ft": "30x55-40x80", "levels": "2", "eave_ft": "21-26", "ridge_ft": "32-40", "roof": "broad gable, 5:12-8:12", "construction": "heavy frame and boards", "variants": "multiple cargo doors; landing apron; sparse glazing"},
@@ -226,7 +226,7 @@
       "assumption_note": "Board-stack quantity and open-side pattern are visual variation, not inventory facts."
     },
     {
-      "id": "I1", "label": "Worship or meeting building", "target_roofs": 4, "phase1_instantiated": 0, "remaining_roofs": 4, "priority_rank": 29, "priority_band": "P4",
+      "id": "I1", "label": "Worship or meeting building", "target_roofs": 4, "phase1_instantiated": 0, "remaining_roofs": 4, "priority_rank": 28, "priority_band": "P4",
       "current_placeholder_archetype": "frame_dwelling",
       "canonical_archetype": "institution_landmark", "required_variant": "worship_meeting_custom_set",
       "key_geometry_parameters": {"footprint_ft": "25x35-25x50 typical", "levels": "1-2", "eave_ft": "12-20", "ridge_ft": "23-34", "roof": "simple gable, 8:12-11:12", "construction": "log or plain frame", "variants": "custom Temple, St. Mary's, Presbyterian and Methodist assets"},
@@ -242,7 +242,7 @@
       "assumption_note": "Reused prior function and sign are not automatic; each of the two slots needs named-record reconciliation."
     },
     {
-      "id": "I3", "label": "Civic or public-service structure", "target_roofs": 3, "phase1_instantiated": 0, "remaining_roofs": 3, "priority_rank": 23, "priority_band": "P4",
+      "id": "I3", "label": "Civic or public-service structure", "target_roofs": 3, "phase1_instantiated": 0, "remaining_roofs": 3, "priority_rank": 31, "priority_band": "P4",
       "current_placeholder_archetype": "fort_structure",
       "canonical_archetype": "institution_civic", "required_variant": "adapted_public_service_set",
       "key_geometry_parameters": {"footprint_ft": "12x18-26x40", "levels": "1-2", "eave_ft": "9-19", "ridge_ft": "16-29", "roof": "gable or stockade-associated", "construction": "log, frame, or rare brick", "variants": "jail/blockhouse; engine/service; adapted offices"},
@@ -266,7 +266,7 @@
       "assumption_note": "Stable association should use explicit yard_group linkage; animal count and manure placement are never inferred."
     },
     {
-      "id": "A2", "label": "Barn or carriage shed", "target_roofs": 30, "phase1_instantiated": 1, "remaining_roofs": 29, "priority_rank": 8, "priority_band": "P1",
+      "id": "A2", "label": "Barn or carriage shed", "target_roofs": 31, "phase1_instantiated": 1, "remaining_roofs": 30, "priority_rank": 8, "priority_band": "P1",
       "current_placeholder_archetype": "outbuilding",
       "canonical_archetype": "outbuilding_agricultural", "required_variant": "barn_carriage_lofted",
       "key_geometry_parameters": {"footprint_ft": "18x26-28x44", "levels": "1 + loft", "eave_ft": "11-15", "ridge_ft": "22-31", "roof": "gable, 8:12-12:12", "construction": "heavy frame and boards", "variants": "drive-through; optional lean-to; loft door; sparse windows"},
@@ -290,7 +290,7 @@
       "assumption_note": "Stored material and open-side direction are conjectural and should follow yard access rather than random display."
     },
     {
-      "id": "A5", "label": "Smokehouse, chicken house, or small utility", "target_roofs": 14, "phase1_instantiated": 1, "remaining_roofs": 13, "priority_rank": 16, "priority_band": "P2",
+      "id": "A5", "label": "Smokehouse, chicken house, or small utility", "target_roofs": 17, "phase1_instantiated": 1, "remaining_roofs": 16, "priority_rank": 13, "priority_band": "P2",
       "current_placeholder_archetype": "outbuilding",
       "canonical_archetype": "outbuilding_utility", "required_variant": "small_utility_mixed",
       "key_geometry_parameters": {"footprint_ft": "6x8-12x16", "levels": "1", "eave_ft": "7-9", "ridge_ft": "10-15", "roof": "gable or shed", "construction": "log, board, or rare brick", "variants": "vent; tiny door; fenced run; smokehouse soot"},

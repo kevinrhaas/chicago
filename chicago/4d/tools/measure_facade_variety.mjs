@@ -44,7 +44,7 @@ const SOURCE = process.argv.includes('--source');
 // `scene-loader.js` tells the two layouts apart by the page's own path, so a
 // dev page has to be reached at `/renderers/web/index.html` or it looks for the
 // dataset where the published mirror keeps it and finds nothing.
-const ROOT = SOURCE ? APP : path.resolve(APP, '../../site/4d');
+const ROOT = SOURCE ? APP : path.resolve(APP, '../../site/chicago/4d');
 const ENTRY = SOURCE ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.FACADE_PORT || 4293);
 /** `--mobile` runs the release suite's smaller viewport, because a frame-delta

@@ -35,7 +35,7 @@
 # looked like city work; they are band 6 now so the ordering says what it means.
 #   AND A RUN MAY NOT FALL INTO THEM. While any row in bands 1-5 is workable, that row is
 # the work. If the top is gated or every row is in flight, the run SAYS SO and stops — it
-# does not walk down to band 6, 7 or 8. That fall-through is how T-0467 and T-1154 were
+# does not walk down to bands 6–9. That fall-through is how T-0467 and T-1154 were
 # picked up out of the bottom of a 148-line queue on 2026-09-17 while the city waited.
 # TICKET BUDGET (T-1295, owner 2026-09-17: "I don't want too many tickets and not making
 # any progress"). `ticket.mjs new` REFUSES at 140 queue lines, and refuses a branch its
@@ -43,54 +43,35 @@
 # the file. Filing is free and working is not — add a finding to the ticket it was found in
 # first, which is what the line above already asks for. `split` is exempt: it replaces a
 # ticket rather than adding one. An EPIC states its own cap in children (T-1236: three).
+# --- 0. BLOCKING THE QUEUE (owner, 2026-09-20). These rows are first because the loop
+# --- cannot judge its own work until they are done. THREE assertions have been standing
+# --- red on dev for days, and because they are red, smoke_budget reports every leg that
+# --- covers them as 'already red on dev' and runs skip it — so a real regression in those
+# --- parts would look exactly like the reds already there. The gate is not measuring.
+# --- Below them: the deadlock that needed hands on four PRs in one evening, and the two
+# --- derivation faults that cost cycles on every branch that re-derives.
+# --- The old note here described the terrain fossil on #1521/#1518, cleared 2026-09-19.
+# --- FOUR was the count until 2026-09-21, and it is THREE because T-1369 closed, not
+# --- because its leg went green: the fix landed on #1605 and is proved on dev by the
+# --- stage's own 25 rules and by the layer on disk, but desktop part 3 can no longer be
+# --- RUN inside the foreground ceiling — it is killed in the block before the assertion,
+# --- which has therefore been unevaluated since 2026-09-18. That is T-1501, at the bottom.
+
+
 # --- 1. RESEARCH SPEND — truth, safe derivation, roles, profiles, and locations
-T-1254 — Migrate the external structured role evidence — newspaper gazetteer, 1839 directory and civic register, 1843/1844 identity master — with each role's stated place and employer, and publish the migration table
-T-0660 — The letter-list pass minted the same man twice when the paper printed his name in both orders, and the corrected reading now shows it
-T-1144 — Converge the resident layer after the standing truth tickets: zero synthesis and mint drift, no false Chicago resident, and no 1835 claim above its dated evidence
-T-1241 — Run the T-1143 ledger over the final resident, household, business and structure layers and publish the closing research audit at zero unclassified units
-T-1157 — Sign off the research spend: one owner-readable coverage report over residents, households, plural roles, business staff and every home, work and other significant location, and the gate that lets reconstruction begin
 # --- 2. 1835 TOWN ANALYSIS — the known population profiled, the town modelled, the order book (OPEN NOW)
-T-1159 — Export the borderline roster: every name the research read and withheld from 1835 — single-source, refused, surname-only, uncertain presence, letter-list-only — with its source, reason and re-admission class, so reconstruction can name real people before it invents any
-T-1301 — Spend the 98 corroborated_enrichment research units the remainder ruling hands to T-1160: each sourced fact about a person this town already holds written into the structured field that carries it, or repointed to the attribute-fill ticket whose acceptance owns it
-T-1166 — The reconstruction order book: known minus model, per bucket and per division — exactly how many persons, households, businesses and structures of each kind to reconstruct, in the order the bands below will build them, published as a card
 # --- 3A. RECONSTRUCT RESIDENTS — programme, then complete the known people (attributes, arrival, families, re-admissions)
-T-1167 — The 1835 resident reconstruction programme: one recipe file, one generator, the `reconstructed` grade turned on — superseding the retired programme without restoring it, and stating the owner's 2026-09-17 override of the no-estimation rule
-T-1168 — Fill sex and age for every attested and inferred person: recorded where a source says, inferred from forename, office or register role where the evidence about that person allows, reconstructed from the population model otherwise — each value with its tier and reason
-T-1169 — Fill arrival date, origin and reason for coming for every attested and inferred person: the earliest dated appearance as the bound, the biographies where they speak, the arrival model otherwise — dated, tiered and explained
-T-1170 — Give the attested and inferred heads the families the sources name: spouses, children, kin and dependants from the baptism and marriage registers, the 1840 census rows of heads the layer carries, Andreas and old-settler biographies and the ruled kin ties — inferred where named, reconstructed where only counted
-T-1171 — Give the remaining attested and inferred heads reconstructed families from the household model: wives, children, servants and apprentices drawn by the head's age, trade and household type, seeded, named from the pools, every member marked reconstructed
-T-1172 — Re-admit the borderline roster as reconstructed residents under their own read names: fix the uncertain presences, mint the single-source and 1834-return names, back-project the biographied later names — every re-admission with its evidence limit and its reopen rule
+T-1448 — Mint the staffing shortfall to the model's typical band: the 105 reconstructed hands 96 houses are still short, written as a stage of the resident reconstruction programme into cards of their own, each carrying its house, its role and where it slept, and nothing already committed written to
+T-1299 — Admit the ten scene-reaching press roles into the 1835 occupation field by making the four generators that own it agree
 # --- 3B. RECONSTRUCT RESIDENTS — fill the model: trades, women and children, lodgers, garrison, cohorts, transients
-T-1173 — Reconstruct the trade households the occupation model still wants after the known and re-admitted people are counted: labourers, carpenters, teamsters, sawyers, masons, boatmen, clerks and the rest, by division, each head named from the pools with a family per the household model
-T-1174 — Reconstruct the women and children the age pyramid still lacks after families are drawn: widow-headed households, laundresses, seamstresses, domestics and schoolmistresses, the boarding-house keepers' families and the children of the 1833–35 arrivals, to the population model's sex and age bands
-T-1175 — Fill the beds: boarders, lodgers, hotel guests, boarding-house keepers' households, the crews of the vessels in port and the hands at the works, seated in the named and reconstructed lodging places to the lodging model's capacities
-T-1176 — Reconstruct the Fort Dearborn garrison of 1 July 1835: the officers the sources name, the companies of the 5th Infantry to their strength, the surgeon, the sutler, the laundresses and soldiers' families, the Indian Agency establishment as attested — seated in the fort's roofs
-T-1177 — Reconstruct the under-documented cohorts within their evidence: the Native and Métis people, households and businesses in and around the town, the free Black residents, families and Black-owned businesses, and the Irish and German Catholic town the register implies — every one identified, tiered and reviewable
-T-1178 — Reconstruct the transient population of 1 July 1835 as a bounded cohort: the land-sale visitors, the immigrants awaiting lots, the harbour-works gang and the crews ashore — who they were, how many, and where they slept (tents, wagons, floors, vessels) — for the camps the structure band will build
 # --- 3C. RECONSTRUCT RESIDENTS — converge
-T-1179 — Converge the reconstructed resident layer: index, sidecars, town census, People view and gates agree; every reconstructed person carries basis, seed, liberty and substitution rule; the population profile is re-run and the town reads complete against the model
 # --- 4. BUSINESSES — the authored layer and view, the audit, staffing model, five reconstruction groups, staff, converge
-T-1180 — An authored business layer: one record per business with tiered proprietors, partners, staff, dated primary and secondary locations and sources — compiled into the register beside the newspaper-derived firms, with the structure function vocabulary normalised
-T-1181 — A Businesses view in the app: every firm by trade, street and tier, with its proprietors, staff, dated locations and location limit on one card — the visible surface for the audit and reconstruction bands
-T-1182 — Audit every attested and inferred business against the research: proprietors, partners, dates, primary and secondary premises, the Dec 1835 State census classes and the August 1835 American count — and raise an inferred business for every in-window trade that has none
-T-1183 — The 1835 business staffing model: how many clerks, journeymen, apprentices, printers, bar-keepers, hostlers, cooks and teachers each kind of business employed, from the sources the project holds — the rule every business is staffed by
-T-1184 — Reconstruct the missing stores and provision trades: dry goods, groceries, hardware, drug, book and provision houses, packers and the market, to the order book's quota, each with a period firm style, a reconstructed proprietor household and a location class
-T-1185 — Reconstruct the missing mechanics' shops: smiths, carpenters and joiners, coopers, wheelwrights and wagon makers, tailors, shoemakers, tanners, saddlers, tinners, masons, painters, bakers and butchers, to the twenty-five mechanics' shops and the occupation model's quota
-T-1186 — Reconstruct the missing professions and services: physicians and law offices to the State census's 14 and 22, land agents, surveyors, a dentist's stand, barbers, teachers, laundresses, seamstresses and domestics, as businesses or as no-premises employments
-T-1187 — Reconstruct the missing lodging, river and transport businesses: boarding houses to the 42-roof programme, the inns the lodging model wants, forwarding and warehouse hands, the ferries, drays and livery, the lumber yards, the pier-works gang and the vessels in port
-T-1188 — Complete the civic, church, school and press establishments as businesses with staff: the post office, the land office opened in 1835, the county offices, the schools, the churches and the two printing offices — attested where the sources name the officer, reconstructed for the rest
-T-1189 — Staff every business — attested, inferred and reconstructed — with real persons: attested partners and clerks first, then the reconstructed residents, then new reconstructed staff to the staffing model, so every working person has a workplace and every workplace its people
-T-1190 — Converge the business layer: register, businesses, persons and structures agree by id; every reconstructed firm carries its substitution rule and liberty; the trade-census crosswalk, the order book and the Businesses view print the finished count
+
 # --- 5A. STRUCTURES — ground: north and west streets and alleys, terrain extent, the lot grid beyond the river
-T-1191 — Seat the North Division's streets and alleys as platted corridors: Kinzie's Addition and the Kinzie–Michigan tier off Wright and Hathaway, with block faces, mid-block alleys and corridor control, so a north-side roof can be dealt to a lot
-T-1192 — Seat the West Division's and Wabansia's streets and alleys as platted corridors off Wright and Hathaway — Canal, Clinton, West Water, Carroll, Fulton, the School Section tier and the Wabansia grid north-west of the forks — with the small lots the sheets draw
-T-1193 — Extend the modelled ground to N +760 and E −700: heightfield, collision, water mask, North and South Branch banks, flora and minimap together, so the North Division's second parcel and the West Division's held slots have ground to stand on
-T-1194 — Generate the lot grid north and west of the river: Thompson's North Division blocks, Kinzie's Addition, Wabansia, the West Division blocks and the School Section tier — numbered lots from each sheet's own module, the small lots kept small, buildable ground tested
+
 # --- 5B. STRUCTURES — seating: placement policy, roof programme re-derived, anonymous roofs redealt, everyone seated
-T-1195 — The placement policy of 1835, written as testable rules with their evidence: who lived and worked where — merchants and forwarders on the river and Lake Street, professionals by the square and the hotels, mechanics on the side streets, labourers on the small lots and the fringes, farms and country seats outside — and how many buildings a main-street lot held
-T-1196 — Re-derive the roof programme from the order book: the 668-roof schedule re-cut by what the population, occupation and lodging models say the town needed — families, districts and blocks re-targeted, every delta from the spec stated, the census's 398 dwellings reconciled
-T-1197 — Re-audit the 285 anonymous roofs against the re-derived programme: keep the ones the order book can occupy, re-family the ones of the wrong kind, retire the ones that no longer fit — 214 stand empty today — and record every change as a substitution, not a demolition
-T-1198 — Seat every attested and inferred household and business on the ground its evidence allows: a structure where one is named, a lot on the right face where an address, corner or later directory narrows it, a division band where only that is known — plural, dated, no fabricated coordinates
+T-1444 — Release generate_west_infill's 35 held slots onto the extended ground: the terrain gate retired, the placements instantiated and baked
+T-1523 — Carry the policy-only rung's division back onto the household card and data/residents/index.json through the carry slot the mint stages use, so no rung-5 household reads unplaced and the People view's division filter fills
 T-1199 — Seat every reconstructed household, business, lodging house and camp by the placement policy into the extended lot grid: multiple buildings per main-street lot, single roofs on the back streets, labourers on the small lots and fringes, the noxious trades on the branches — deterministic, order-book-counted
 # --- 5C. STRUCTURES — build, one district per run, baked, successor handed on (frame budget measured before every push)
 T-1200 — Build the South Water Street river front to its seats: the forwarding houses, warehouses, stores and store-residences on the party lines from Market to State, the freight sheds and landings behind, every roof with its firm and its keeper
@@ -114,8 +95,6 @@ T-1215 — Converge the reconstructed town: every person housed, every business 
 # Arrival/jaunts: read docs/ARRIVAL-JAUNTS-EXECUTION.md; honor ticket dependencies.
 # Finish each subsection; unavoidable successors stay beside their dependency, not at the tail.
 # --- 6A. ARRIVAL AND SOURCES — measured loading, time rollback, source library, free start
-T-1246 — Expose real boot phases and yield long scene-building tasks
-T-1292 — Move the town census off the loader into an Evidence → City summary topic
 T-1247 — Roll the year back into a restrained time-machine arrival
 T-1248 — Compile the sources used and their reconstruction backlinks
 T-1275 — Give the loading journey 160 varied source and reconstruction statuses
@@ -160,9 +139,79 @@ T-0474 — Reconstruct the 1880s Prairie Avenue street, parcel and service grid
 T-0475 — Build the Prairie Avenue landmark mansion core
 T-0476 — Fill the 1880s Prairie Avenue corridor with documented residences and outbuildings
 T-0477 — Build the 1880s Prairie Avenue streetscape, vegetation and urban furniture
-# --- 8. LOOP IMPROVEMENTS — scene budgets, gates, build cost, and rendering
-T-1289 — Each merge into dev makes every other open PR dirty, so N pull requests cost N-squared lap-and-gate rounds
-T-1287 — A split mints its children's ids from the local maximum, so two runs splitting one parent mint the SAME ids for DIFFERENT tickets and the parent's claim lock covers neither
+# --- 8. UNREAL DELIVERY — repeatable native builds, web parity, then streaming
+# Programme: T-1356; docs/unreal/README.md. Owner-ranked here on 2026-09-18.
+# Remote-workable preparation (still subject to the city-first ordering above):
+T-1357 — Publish a versioned Chicago scene bundle from every successful scheduled asset bake
+T-0252 — Decide once whether a baked town carries the nine renderer-drawn layers, or none of them
+# LOCAL / QUALIFIED UNREAL ONLY — NOT WORKABLE BY THE REMOTE WEB WORKER.
+# HOLD references below are comments, not claimable queue entries. Tickets are blocked-tech.
+# HOLD T-1472 — on-demand latest-validated Mac build/release; qualified Mac + release access.
+# HOLD T-1473 — sinking buildings/terrain contact; qualified Unreal + matched web/source views.
+# HOLD T-1358 — after T-1357 and current Unreal/GPU capability receipt.
+# HOLD T-1360 — after T-0252, T-1357, T-1358; Unreal visual/collision receipt required.
+# HOLD T-1474 — flora corridor; after shared exports/import and placement, Unreal visual/performance proof.
+# HOLD T-1475 — map/search/place inspection; runtime provenance and Unreal input/route validation.
+# HOLD T-1359 — streaming corruption; affected Mac/Unreal/browser access, after native priorities.
+# HOLD T-1361 — after T-1358/T-1359, approved licensed build runner, GPU host, budget and credentials.
+# Coordinator: unblock only when all dependencies AND current executor capability are proven;
+# immediately assign/claim on that eligible executor; otherwise retain blocked-tech.
+# Return unblocked work to this band in the displayed order; do not leave local work open
+# for the general loop. The held epic is a tracker, never a claimable task.
+# --- 8b. BLOCKED AND WAITING — every ticket that is not workable and not finished
+#
+# WHY THIS BAND EXISTS (T-1518). A ticket in `blocked-owner` or `blocked-tech` is
+# deliberately outside the workable set — ticket.mjs excludes both states from
+# `list --workable`, and QUEUE.md carries the workable states. The consequence was
+# never decided: they fell out of this file entirely. Measured 2026-09-21 on dev:
+# NINETEEN live tickets appeared in no band at all, thirteen of them waiting on an
+# owner ruling, the oldest opened 2026-08-21 and unseen for a month. The one class
+# of ticket that most needs the owner's eyes was the one class the owner could not
+# see, which is the fault this band ends.
+#
+# THE LINES ARE COMMENTED ON PURPOSE, exactly as band 8's HOLD list is. The parser
+# reads only uncommented T-NNNN lines, so nothing here is offered as work — a
+# blocked ticket is visible and still not claimable, which is the whole point.
+# `ticket.mjs check` refuses a blocked ticket that is missing from this band, so it
+# cannot silently re-accumulate: that gate is what makes this durable rather than
+# a snapshot somebody tidied once.
+#
+# WAITING ON AN OWNER RULING — each names the question it waits on in its own
+# `blocked_on`; the one-liners here are the ask, not the ticket.
+# BLOCKED-OWNER T-0305 (opened 2026-08-28, META) — Four readings the American contradicts itself on need the page images: the tailor's street, which Water street two fo…
+#     asks: Six columns of Chicago American page images, which are held outside this repository: 1835-06-13 p3 c5 and 1835-07-04 p4 c4 (Sabine and John Dave[s],…
+# BLOCKED-OWNER T-0909 (opened 2026-09-06, META) — The Chappel shore drawing has no candidate left: the cheapest question is the depositor's, and it has never been asked
+#     asks: Where did the Eliza Chappel shore drawing come from? The file was deposited with a social-media filename and no artist, date or repository, and T-071…
+# BLOCKED-OWNER T-1479 (opened 2026-09-20, GROUND) — Move blk_lake_clinton and blk_randolph_clinton onto the West Division grid: blocks 28 and 45 re-cut in the sheet's ow…
+#     asks: questions 2 and 3 of 3 (q1 RULED 2026-09-21: a successor is filed for the 367.9 ft vs 458 ft Clinton-Canal spacing). May the DOCUMENTED module cut a block that prints no marginal figures of its own, and what is a structure on a withdrawn lot seated on?
+# BLOCKED-OWNER T-1482 (opened 2026-09-20, TOWN) — Migrate the three platted blocks' six refamilied roofs, whose ancillary slots cross the principal/ancillary line: gen…
+#     asks: A yard building refamilied to a dwelling becomes a second principal roof on a lot that already carries one, which multi_building_lot admits only in a…
+#
+# BLOCKED ON TOOLING OR ANOTHER TICKET — no owner decision is wanted; each waits on
+# a capability or a sibling, and unblocks without a ruling when that arrives.
+# BLOCKED-TECH T-0192 (opened 2026-08-24, TOWN) — The cross streets' own frontages get the street edge
+#     waits: the frame budget: all three scene-detail ceilings go over with the seven cross streets in (full +145,639, balanced +122,299, light +15,372 at T-0135'…
+# BLOCKED-TECH T-0193 (opened 2026-08-24, TOWN) — blk_lake_clinton, the West Division block T-0069 refused
+#     waits: T-0190 — a second street tier for the street edge. Built and measured: both faces generate cleanly (+192.2 m of walk) but desktop 'balanced' reads 1,…
+# BLOCKED-TECH T-0386 (opened 2026-08-29, META) — W. Montgomery's new auction and commission room takes David Carver's old stand on South Water Street
+#     waits: T-0414 first (the street-face adoption refuses W. Montgomery for being L. W. Montgomery, against identity.json's own two_houses ruling), which in tur…
+# BLOCKED-TECH T-1171 (opened 2026-09-16, META) — Give the remaining attested and inferred heads reconstructed families from the household model: wives, children, serv…
+#     waits: T-1179's convergence must re-house T-1174's 856 and T-1347's 308 women and children into the 310 married houses the household model drew; until it do…
+# BLOCKED-TECH T-1407 (opened 2026-09-19, META) — The crews of the vessels in port and the harbour-works gang seated, once a committed source gives a schooner her comp…
+#     waits: a committed source giving an 1830s Great Lakes schooner her complement (an enrolment or registry return, a shipping article, or a marine list that pr…
+# BLOCKED-TECH T-1414 (opened 2026-09-19, GROUND) — Seat the West Division's and Wabansia's streets and alleys as platted corridors with the small lots the sheets draw,…
+#     waits: T-1193 — the modelled ground ends at local east -320 m and Jefferson, Des Plaines and the whole Wabansia grid lie west of it; docs/RESEARCH/west_divi…
+#
+# --- 9. LOOP IMPROVEMENTS — scene budgets, gates, build cost, and rendering
+T-1519 — smoke_budget --for-diff maps renderers/web/js/people.js to part 13, but the People directory's checks are guarded by stageOn(12), so a run that trusts the mapping runs the wrong leg
+T-1518 — Every blocked ticket is invisible: 19 live tickets appear in no band of QUEUE.md, 13 of them waiting on an owner ruling, the oldest for a month
+T-1222 — Read the letter-list mint's 798-file drift and give the pass a check the gate can run at its own place in the pipeline
+T-1341 — ticket.mjs --check REPAIRS the mirror it is checking, so on any branch that adds a ticket the gate's queue step mutates tickets.json while the pool reads it — the T-0856 check-that-repairs fault, one tool over
+T-1344 — Splitting a ticket that has a live branch puts two runs on one acceptance: the in-flight run retargets onto a child while the child also enters the queue for a fresh claim, and neither claim contends with the other
+T-1345 — step_isolation exempts gitignored build products by a hand-kept path list, when git check-ignore can classify them: a write to an ignored path is a build product and a write to a tracked one is a tree mutation, and the gate should ask rather than be told
+T-1355 — The four derived research reports conflict on every merge: decide whether they come off the PR surface the way T-0937 and T-0938 took the board and the mirror, with the reading written down
+T-1362 — The lap re-derives only when it merges, so a branch already current with dev stays stale against a gate dev just added: #1487 sat red on four manifest-owned files while the lap said 'already current — nothing to lap'
+T-1380 — A squash merge dropped a shipped release note and re-used its version: v971 named 'Six dates that would not stick' on dev at 06:06 and names 'How many people each tavern and boarding house could sleep' at 06:31, and the first entry is gone from the file the launcher and Manager parse
 T-1282 — The lap cannot re-derive a resident household card, so any PR that conflicts on hh_*.json is refused whole
 T-1118 — A bake whose ref merged mid-run still spends the whole bake before the PR is withheld
 T-0231 — T-0229's expiry was blocked on a flora ticket, so the raised ceilings would never have come down
@@ -176,7 +225,6 @@ T-0829 — A repeated string in a provenance or coverage list is the same merge 
 T-0239 — Nothing tests the party-line note's prose against the placement it describes
 T-0253 — May an invented building stand on the river margin of a platted street corridor
 T-0190 — A second street tier for the street edge, and the ceiling that refuses it
-T-0252 — Decide once whether a baked town carries the nine renderer-drawn layers, or none of them
 T-0285 — An asset carrying its own AO map cannot batch with the town: +2 draw calls for one building
 T-0286 — The AO unwrap leaves 68.9 per cent of every atlas empty, and the map is priced as if it were full
 T-0364 — Two byte-identical copies of changelog.js are 7.2 per cent of the published payload, and they grow on every release
@@ -184,13 +232,47 @@ T-0053 — A patched lit material silently inherits another layer's shader progr
 T-0371 — The lattice path's block rotation is dead code that measure_rank_bias.mjs's drift guard pins in place
 T-0433 — T-0346's measured costs for the new desktop parts 4, 5 and 6 were never filed, and the two places they are written down disagree
 T-0030 — A queue card in Manager reading tickets.json
-# --- 9. RESEARCH COMPLETION — remaining readings, identity epics, and deposit closeout
+# --- 10. RESEARCH COMPLETION — remaining readings, identity epics, and deposit closeout
 T-1219 — The three re-spelled cards still say in prose that the papers print the reading T-1139 overturned: hh_fraser_wm_h reads 'Wm. H. Frazer' and its own note says the papers print 'Wm. H. Fraser'
+T-1281 — Is the Democrat's 'A. Sweet' of 4 June 1834 Alanson Sweet or the Alon[s]on Sweet of the same column
+T-1315 — Spend the three dated birth and age enrichments T-1301 routed to T-1168: robinson_alexander, kimberly_edmund_s and maxwell_philip each carry a sourced birth date or age no field held when the reading was made, and both fields exist now
+T-1335 — Spend the kin the church registers, the papers' family columns and the completed resident enrichments state — the 166 units T-1320's book pass was never scoped for, plus the two book relatives it left unruled: ties written onto held cards, nobody minted
+T-1273 — Write every committed home and workplace reconciliation row as an associated_with row on the record it belongs to, changing no value, confidence or source
+T-1274 — Move the renderers and tools off the singular lives_at/works_at once the plural rows carry every claim, and retire the pair
 
 # --- MERGED IN, NOT YET PLACED. These arrived on the branch being merged and were
 # --- appended here rather than guessed into a band. Rank them or leave them.
-T-1222 — Read the letter-list mint's 798-file drift and give the pass a check the gate can run at its own place in the pipeline
-T-1281 — Is the Democrat's 'A. Sweet' of 4 June 1834 Alanson Sweet or the Alon[s]on Sweet of the same column
-T-1294 — hh_inf_joiner_north_02 stands in the tree and no pass derives it: the register deal seats four roofs where its own docstring says five, and J. W. Reed's household is owned by nobody
-T-1273 — Write every committed home and workplace reconciliation row as an associated_with row on the record it belongs to, changing no value, confidence or source
-T-1274 — Move the renderers and tools off the singular lives_at/works_at once the plural rows carry every claim, and retire the pair
+T-1460 — The two conjectural west-prairie swales now start in open ground at E -320 and swale_a's corridor covers eight West Division roofs: review the invented alignments the terrain extension stranded
+T-1490 — Trace Jefferson Street north to Ohio so the corporate boundary's west leg stops being a 1,188 m extrapolation, and seat the five West Division roofs held on it
+T-1500 — The 278 persons the order book's bed buckets still order have no live owner: T-1175 split, and every piece of its tree that fills a bed has closed
+T-1501 — The desktop smoke's part 3 no longer finishes inside the 600 s foreground ceiling: it stalls in the reconstruction-contract block and reports the body-completion sentinel, so no steward run can measure it
+
+# --- MERGED IN, NOT YET PLACED. These arrived on the branch being merged and were
+# --- appended here rather than guessed into a band. Rank them or leave them.
+T-1502 — The register deal reads the raw text of every household card as a name pool, so any pass writing a proper name onto one can silently retire a documented man from it
+T-1504 — A stage that reads the St Mary's baptismal register: the four R6 rows whose Indigenous identity the source states in its own hand are refused only because underdocumented reads the 1832 muster roll and nothing reads the register
+T-1505 — The borderline roster refuses 254 rows as 'a surname and no person' and three of them are forenames: Matanacqua, Lieu and Miranda are each named as the parent of a named child, so the refusal is right and its sentence is false
+T-1506 — Retire the surplus reconstructed lawyer: businesses/lawyer is held at 2 drawn against an order of 1, because T-1299 admitted a documented attorney the town can name
+T-1507 — Hiram Pearsons is a house painter a reminiscence names and a speculator this project inferred, and the card carries the inference at attested: re-adjudicate the 1835 trade field through the role readings
+
+# --- MERGED IN, NOT YET PLACED. These arrived on the branch being merged and were
+# --- appended here rather than guessed into a band. Rank them or leave them.
+T-1510 — The stuck reporter cannot see a red gate: a PR whose gate failed and whose owning run has finished is the one state no automation in this repo owns
+T-1511 — The trade share counts buildings that front no street: nineteen Fort Dearborn reservation roofs 270-420 m from Lake Street vote in the principal class, because nearest_frontage has no distance bound
+T-0772 — Twelve dooryard gardens went with the retired households: should a garden follow the house or the household?
+T-0841 — The keeper of the St Cyr register is graded G5, not G2c: may the officiant of a parish register be graded on it?
+T-0392 — May an unread forename initial be merged with a read one at the same entry of the same list — the owner's ruling
+T-1520 — A cancelled non-required check leaves a PR unstable for ever: gate green, merge-ready passes over it, and the stuck reporter calls it moving — pr-stuck's third shape
+T-1476 — A household record and a household in the town model are not the same unit: the layer holds 1,391 records where the model wants 643 houses, because 814 of the 820 rulings are one person and 424 of those are one name off a letter list
+T-0419 — The re-centred South Water corridor stands 8.58 m off its own block faces, and the strip between belongs to neither
+T-0991 — Eight cards assert an 1835 trade out of a PRE-scene printing, and T-0693's later_occupation pointer cannot hold one: blank the field, or regrade it reconstructed?
+T-0251 — first_presbyterian_church cannot come onto the Lake Street plat without displacing physicians_office
+T-0135 — The draw-call ceiling is checked at one camera, and it is not the worst one
+T-0141 — A mast reads over the Green Tree's own roofline, which its committed placement forbids
+T-1087 — place_vocabulary's B4 names Wabansia and Kinzie's Addition as surveys this project commits none of, and it commits both: the owner's ruling, at a cost of one person
+
+# --- MERGED IN, NOT YET PLACED. These arrived on the branch being merged and were
+# --- appended here rather than guessed into a band. Rank them or leave them.
+T-1514 — Tier the anonymous compiled business records in compile_businesses.py: 37 records whose only link to the advertisement that compiled them is an untiered claim_ids at the record root, so the 49 readings that built them can never be asserted
+T-1515 — Read Fergus 1839 as a dated directory role like its 1843 and 1844 siblings, so a printing is carried as evidence whether or not the 1835 field is empty
+T-1521 — The PR lap can never finish a rebuild that reaches manifest step 156: it runs rederive without publishing, so rebuild_closing_set refuses and the PR is left alone on every lap for ever

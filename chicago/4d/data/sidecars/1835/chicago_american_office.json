@@ -133,6 +133,20 @@
           "grade": "attested",
           "occupation": "editor",
           "note": "A DOCUMENTED RESIDENT OF THE SCENE MONTH ITSELF - the American's first issue belongs to June 1835, weeks before 1 July, which makes this one of only three households in the parcel whose Chicago presence is fixed by an event inside the scene season. data/structures/chicago_american_office.json already carries him. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “T. O. Davis,” (f1839_v0104, printed page 42, ward 1, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Davis' folds to the same string as the 1837 entry's, and the given name of both begins T. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        },
+        {
+          "name": "Emily Davis",
+          "relationship": "wife",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Eliza Davis",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "THE NEWEST ARRIVAL IN THE PARCEL, and the one whose paper this project quotes most often for the state of the town in the scene year. A NOTE FOR ANY LATER PARCEL: the Chicago American of 1835-36 is the single most valuable unfetched source for this programme. Andreas quotes its advertisements by name and date - Frederick Thomas's drug and paint store of 8 June 1835, John Davis of the Steamboat Hotel among its first patrons, W. H. and A. F. Clarke's new drug store of 11 November 1835 - and every such advertisement is a documented resident with a trade and often an address, in the scene year rather than nineteen months before it."

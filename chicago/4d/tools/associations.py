@@ -83,8 +83,19 @@ ASSOCIATION_KINDS = (
 
 # The rungs a piece of evidence can reach, best first. These are T-1237's own —
 # `resolved_structure`, `resolved_street`, `resolved_face` — plus the division,
-# which is the coarsest thing this dataset will call a place.
-ASSOCIATION_RESOLUTION = ("structure", "street", "face", "division")
+# which is the coarsest thing this dataset will call a place, and the survey
+# TRACT, which is not on that ladder at all.
+#
+# `tract` is a fifth rung and not a coarser fourth one (T-1405). A man who bought
+# the north-east quarter of section 16 bought ground the town plat does not
+# describe: it has no street, no face and no division, and calling it one of
+# those would be a fabricated address rather than a coarse one. The ladder above
+# is about how far an address resolved; this rung is about ground that was never
+# addressed. `land_purchased` is the kind that needs it, and the vocabulary of
+# tract ids is the committed survey layer's own —
+# `data/reconstruction/1835_survey_tracts.json` — so a tract this dataset has not
+# surveyed cannot be named here either.
+ASSOCIATION_RESOLUTION = ("structure", "street", "face", "division", "tract")
 
 # Which kinds answer "where did he live" and which answer "where did he work".
 # `land_purchased` is in NEITHER: a holding is not a place a man was.
@@ -126,7 +137,7 @@ def read_bounds(value):
 
 
 def check_association_rows(where: str, rows, *, error, structure_ids: set, source_ids: set,
-                           divisions: set, scene: dt.date) -> None:
+                           divisions: set, scene: dt.date, tracts: set = frozenset()) -> None:
     """Every rule the schema above states, reported through `error(where, message)`."""
     if not isinstance(rows, list) or not rows:
         error(where, "associated_with is present and is not a non-empty list. An empty list "
@@ -167,7 +178,12 @@ def check_association_rows(where: str, rows, *, error, structure_ids: set, sourc
         elif rung == "division" and place not in divisions:
             error(rwhere, f"resolves_to is 'division' and '{place}' is not a division in the "
                           f"manifest vocabulary")
-        elif rung in ("street", "face") and place in structure_ids:
+        elif rung == "tract" and place not in tracts:
+            error(rwhere, f"resolves_to is 'tract' and '{place}' is not a tract in "
+                          f"data/reconstruction/1835_survey_tracts.json. The rung names "
+                          f"surveyed ground and the survey layer is what says which ground "
+                          f"was surveyed")
+        elif rung in ("street", "face", "tract") and place in structure_ids:
             error(rwhere, f"resolves_to is '{rung}' and '{place}' is a structure id. A row that "
                           f"reaches a roof says so: the rung is the evidence's own limit and "
                           f"understating it loses a finding")
@@ -345,7 +361,7 @@ def self_test() -> int:
                 **{"from": "1833", "to": None}, tier="attested", source_id="andreas_1884_v1",
                 note="n")
     env = dict(structure_ids={"peck_store"}, source_ids={"andreas_1884_v1"},
-               divisions={"south"}, scene=dt.date(1835, 7, 1))
+               divisions={"south"}, tracts={"school_section"}, scene=dt.date(1835, 7, 1))
 
     def run(row):
         errs.clear()
@@ -369,6 +385,14 @@ def self_test() -> int:
         ("from after to", {**base, "from": "1836", "to": "1834"}, True),
         ("from after the scene date", {**base, "from": "1836"}, True),
         ("an unknown key", {**base, "tenure": "loft"}, True),
+        ("a tract rung on ground the survey layer holds",
+         {**base, "kind": "land_purchased", "resolves_to": "tract",
+          "place_or_structure_id": "school_section"}, False),
+        ("a tract rung on ground it does not",
+         {**base, "kind": "land_purchased", "resolves_to": "tract",
+          "place_or_structure_id": "section_44"}, True),
+        ("a tract rung on a roof",
+         {**base, "kind": "land_purchased", "resolves_to": "tract"}, True),
     ]
     failed = 0
     for label, row, want_error in cases:

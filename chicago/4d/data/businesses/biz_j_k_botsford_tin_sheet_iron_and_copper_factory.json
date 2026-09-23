@@ -1,0 +1,106 @@
+{
+  "id": "biz_j_k_botsford_tin_sheet_iron_and_copper_factory",
+  "register_id": "business_j_k_botsford_tin_sheet_iron_and_copper_factory",
+  "name": "J. K. Botsford, Tin, Sheet Iron and Copper Factory",
+  "provenance": "compiled_from_register",
+  "type": [
+    "tin_and_copper_manufactory"
+  ],
+  "trade": "tin, sheet iron and copper factory",
+  "occupation": "tinsmith",
+  "goods": [
+    "cigars",
+    "linseed oil",
+    "milk pans",
+    "pork",
+    "tinware",
+    "whiskey"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "J. K. Botsford",
+      "person_id": "botsford_j_k",
+      "register_person_id": "person_j_k_botsford",
+      "role": "proprietor",
+      "from": "1834-08-13",
+      "to": "1834-08-13",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card botsford_j_k (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_08_13#c015"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": "lake",
+      "face": null,
+      "primary": true,
+      "from": "1834-08-13",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. A crossing of two platted streets: dearborn and lake.",
+      "limit_reason": "The register places this house against dearborn+lake and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "corner",
+        "id": null,
+        "title": "Dearborn Street and Lake Street",
+        "streets": [
+          "dearborn",
+          "lake"
+        ]
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1834-08-13",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-08-13, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-08-13",
+    "last_issue": "1834-08-13",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: J. K. Botsford (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "botsford_j_k",
+        "name": "J. K. Botsford",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_08_13#c015"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

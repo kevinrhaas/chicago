@@ -58,6 +58,11 @@ from aggregate census counts. Those stay explicit dispositions in T-1143's ledge
    reconstruct families, women, children, boarders and staff applies to the `reconstructed` tier
    only, under the programme ticket T-1167 and the household model T-1163, where every such
    person carries a basis and a seed. This ticket does not do that work and does not forbid it.
+   T-1167 landed that programme on 2026-09-18: the recipe is
+   `data/reconstruction/1835_resident_reconstruction_programme.json`, the one writer is
+   `tools/reconstruct_residents_1835.py`, and `docs/RESEARCH/1835_resident_reconstruction.md`
+   states this supersession in the programme's own words. ¶4 still binds every writer that
+   calls `tools/refuse_reconstructed_grade.refuse()`, which is all four research passes.
 8. The candidate-fact table's `insufficient_identity`, `later_only` and `outside_chicago` rows
    are written with the fields T-1159 (the borderline roster) reads — `name_as_read`, `source_id`,
    `claim_or_record_id`, `describes_date`, `reason` — so the roster is a filter over this table,

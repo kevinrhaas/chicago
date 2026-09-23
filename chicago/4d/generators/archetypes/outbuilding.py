@@ -63,6 +63,12 @@ from archetypes.outbuilding_params import (  # noqa: E402
     vent_rect,
 )
 
+#: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
+#: `materials.roof_substrate` holds the argument for why it is this one and
+#: which half of it is graded by materials.md §2.2 and which half is L266.
+_ROOF = materials.roof_substrate("outbuilding")
+
+
 # Materials are indices into the list passed to to_object(), in this order.
 M_LOG, M_CHINK, M_BOARD, M_ROOF, M_DARK, M_TIMBER = 0, 1, 2, 3, 4, 5
 
@@ -192,13 +198,17 @@ def build(params: OutbuildingParams, name: str):
         simple_material("chinking", CHINK_RGBA,
                         roughness=materials.SUBSTRATES["chinking"].roughness),
         simple_material("board", board_rgba, roughness=board_rough),
-        # 0.93 stays a literal, and materials.md §2.2 is why: the board roof this
-        # archetype argues for is separated from a shingle field by 0.03 of
-        # roughness and nothing else, and choosing between them would be claiming
-        # the covering finding 2 says no record states. The COLOUR takes the
-        # weathering condition, which the records do state.
-        simple_material("roof", materials.roof_finish(p.roof_condition).rgba,
-                        roughness=0.93),
+        # THE BOARD ROOF IS NAMED NOW (T-1487). This archetype's own sentence — "a
+        # shingle field on an outbuilding would be claiming a finish" — is what
+        # materials.md §2.2 grades `roof_board` inferred and well argued ON, so the
+        # covering it has always argued for is the covering the sheet now deals it.
+        # The 0.93 is unchanged and is the sheet's, not a literal: `roof_board` took
+        # this archetype's value rather than `sawn_board`'s 0.94, because §3.1 forbids
+        # re-tuning constants and 130 roofs should not move for a wall row's gloss.
+        # The COLOUR still takes the weathering condition, which the records state.
+        simple_material(materials.roof_material_name(_ROOF),
+                        materials.roof_finish(p.roof_condition).rgba,
+                        roughness=_ROOF.roughness),
         # ONE DARK (T-0126). The slot is renamed from `interior` and takes the
         # sheet's `DARK` row, which converges this archetype's value with the
         # `dark` the frame dwellings, the log cabins, the fort and the stockade

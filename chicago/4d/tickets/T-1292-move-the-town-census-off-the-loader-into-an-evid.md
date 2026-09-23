@@ -1,7 +1,7 @@
 ---
 id: T-1292
 title: Move the town census off the loader into an Evidence → City summary topic
-state: open
+state: done
 epic: RENDERING
 requested_by: owner
 seen: true
@@ -9,12 +9,12 @@ effort: S
 legacy_id: null
 parent: null
 opened: 2026-09-17
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-21
+pr: 1637
+claimed_by: Codex reclaim (owner-directed) 9/21/2026, 12:06:52 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
+closed_at: 2026-09-21T18:03:52.187Z
 claimed_run: null
 ---
 

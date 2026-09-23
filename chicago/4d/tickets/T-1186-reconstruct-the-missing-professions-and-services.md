@@ -1,7 +1,7 @@
 ---
 id: T-1186
 title: Reconstruct the missing professions and services: physicians and law offices to the State census's 14 and 22, land agents, surveyors, a dentist's stand, barbers, teachers, laundresses, seamstresses and domestics, as businesses or as no-premises employments
-state: open
+state: split
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: S
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-19
 pr: null
-claimed_by: null
+claimed_by: run 9/19/2026, 7:27:07 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-20T00:50:44.167Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35478663043
 ---
 
 Third group of T-1184's tool. The State census of late 1835 counted 22 lawyers and 14

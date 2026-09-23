@@ -1,7 +1,7 @@
 ---
 id: T-0691
 title: The letter-list cohort is 76 households out of step with its own derivation, and check.sh never looks
-state: blocked-tech
+state: done
 epic: META
 requested_by: loop
 seen: false
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-04
-closed: null
-pr: null
-claimed_by: null
-blocked_on: T-0660's owner ruling: whether a mint-time refusal (rules 7/8) may un-mint a standing letter-list record. T-0691's own acceptance says 'Do not work this before T-0660 is ruled on', and its acceptance 2 is 'whatever T-0660's ruling is, applied here by the same tool'. Acceptance 1 alone (wiring --check into check.sh) cannot ship on its own: the check is red today (the tree holds 727 letter-list households, the derivation gives 658), so wiring it turns the gate red without the ruling that says what to do about the 76.
+closed: 2026-09-18
+pr: 1445
+claimed_by: run 9/18/2026, 1:54:28 AM CT
+blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T07:55:40.692Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35316372496
 ---
 
 The letter-list cohort is 76 households out of step with its own derivation, and check.sh never looks.
@@ -85,3 +85,42 @@ red by construction, so it can.
 
 **What is explicitly NOT in scope any more:** retiring any of the 76, changing `rank()`, or
 re-deriving the cohort. If the work starts to look like any of those, it is the wrong branch.
+
+
+## THE RULING LANDED, AND THIS TICKET IS THE HALF OF IT NOBODY COULD SEE (2026-09-18)
+
+T-0660's blocker is gone: the owner ruled option (c) on 2026-09-18 — refusals 7 and 8 are
+MINT-TIME rules, they do not un-mint a record that already stands, and what a run does with
+a collision is SAY it. That ruling is this ticket's acceptance 2, and it needed no fresh
+decision here.
+
+**What was actually missing.** T-0660 wrote the `surname_collision` block onto the eight
+cards its own corrected reading newly collides, and deliberately scoped out the other
+sixty-seven — the ones THIS ticket is about, where the cohort minted a surname first and a
+later pass then gave it to a better-evidenced record — on the grounds that they "land when
+the cohort is next re-derived". They do not. That re-derive is T-1222's 798-file drift, and
+T-0662 already found byte-identity to be the wrong contract for a pass that is not the last
+writer of its own files, so it is not a re-derive anyone can run. Meanwhile sixty-seven
+readers met a card that said nothing about the other holder of its family name, which is
+precisely the thing option (c) chose to fix. The carve-out in
+`report_letter_list_collisions.blocks()` is gone and the set is the pass's own: all 75
+standing cards a mint-time refusal lands on.
+
+**Acceptance 1 is T-1222's, and saying otherwise would be a fiction.**
+`mint_letter_list_residents.py --check` cannot be a step at its own place in the pipeline —
+`synthesize_resident_research.py` runs after it and rewrites the cohort's grade, subtype and
+note, so a re-derive-and-diff there is red against a CORRECT tree. That is written into
+`check.sh` above the mint and into `data/research/check_gate_baseline.json`, whose
+`owner_ticket` moves from T-0691 to T-1222 with this: the 798 files are a pipeline-ordering
+question and never were the collisions. What IS gateable is the ruling's own content, and
+that is now a step — `report_letter_list_collisions.py --check-records`, with the break-it
+assertion in the tool's `--self-test`.
+
+**Where the block goes is not cosmetic.** Appending it at the end of the card instead of at
+`record()`'s position turned 19 cards red against `spend_directories.py` and
+`spend_old_settlers.py`, which re-derive the cards they write and compare byte for byte. The
+write now places it directly after `research_note`, so it is a fixed point under every pass
+downstream of it.
+
+**Measured:** 75 standing cards carry a mint-time refusal, 8 said so, 67 now do; no person
+added or removed, no grade moved, no id redirected; `check.sh` green.

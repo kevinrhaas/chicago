@@ -22,7 +22,7 @@ The published tree is 936 bytes under the 32 MiB budget, so no PR that publishes
 
 **Acceptance:** (state it before working — the definition of done, never weakened to pass)
 
-Measured on `origin/dev` at 06a0a9ec on 2026-09-05, by summing the blobs under `site/4d/`:
+Measured on `origin/dev` at 06a0a9ec on 2026-09-05, by summing the blobs under `site/chicago/4d/`:
 
 ```
 origin/dev   33,553,488 bytes = 31.9991 MiB

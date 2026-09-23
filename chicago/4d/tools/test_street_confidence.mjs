@@ -220,12 +220,15 @@ ok(moved.length === stands.length + trodden.filter((r) => shipped(r) === LEVEL.i
   `every street whose line outgrades its track moved — ${moved.length} of ${trodden.length}`);
 ok(trodden.every((r) => before(r) === INVENTED),
   'every trodden street still carries an invented WEAR — which is why the split was needed');
-ok(streets.length - trodden.length === 49,
+ok(streets.length - trodden.length === 51,
   `and the platted-but-unopened lines ship with no track at all — the School Section's`
   + ` twelve east-west tiers and, since T-0877, the fifteen records carrying its fourteen`
   + ` north-south lines (Market is two, because Wright rules it in two stretches),`
   + ` Kinzie's Addition's eleven since T-1060, the Michigan St tract's two streets`
-  + ` and two alleys since T-1075, Wabansia's six since T-1070, and Kinzie Street's own`
+  + ` and two alleys since T-1075, Wabansia's six since T-1070, Jefferson and Des Plaines`
+  + ` in the West Division since T-1430 — the two lines T-0445 refused for hanging off the`
+  + ` end of the modelled ground, seated once T-1416 built the field out to them, and`
+  + ` platted over open prairie with nothing fronting them — and Kinzie Street's own`
   + ` reach west of the town since T-1085 — that last one is the only line here whose`
   + ` street is trodden somewhere else, and it is in this population because the wear is`
   + ` attested where the town is and nowhere west of it`

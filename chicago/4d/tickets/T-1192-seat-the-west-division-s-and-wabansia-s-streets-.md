@@ -1,7 +1,7 @@
 ---
 id: T-1192
 title: Seat the West Division's and Wabansia's streets and alleys as platted corridors off Wright and Hathaway — Canal, Clinton, West Water, Carroll, Fulton, the School Section tier and the Wabansia grid north-west of the forks — with the small lots the sheets draw
-state: open
+state: split
 epic: GROUND
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-19
 pr: null
-claimed_by: null
+claimed_by: run 9/19/2026, 6:42:18 PM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-20T00:04:44.023Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35476562284
 ---
 
 The sibling of T-1191 for the ground west and north-west of the river. The West memo

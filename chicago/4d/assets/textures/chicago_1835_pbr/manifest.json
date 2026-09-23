@@ -1,0 +1,906 @@
+{
+  "library": "Chicago 1835 PBR Materials",
+  "version": "1.0.0",
+  "materials": [
+    {
+      "id": "clapboard_weathered_oak",
+      "group": "walls",
+      "span_m": 4.48,
+      "confidence": "attested/inferred",
+      "mean_roughness": 0.86,
+      "kind": "clapboard",
+      "colors": [
+        [
+          126,
+          112,
+          91
+        ],
+        [
+          96,
+          91,
+          80
+        ]
+      ],
+      "note": "32 exposed clapboard courses at 0.14 m; unpainted weathered timber.",
+      "resolution_px": 1024,
+      "px_per_m": 228.57,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18350701,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "clapboard_whitewash",
+      "group": "walls",
+      "span_m": 4.48,
+      "confidence": "attested where recorded",
+      "mean_roughness": 0.9,
+      "kind": "clapboard",
+      "colors": [
+        [
+          211,
+          207,
+          188
+        ],
+        [
+          165,
+          160,
+          143
+        ]
+      ],
+      "note": "Chalky lime wash over visible clapboard substrate; not a default finish.",
+      "resolution_px": 1024,
+      "px_per_m": 228.57,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18350798,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "clapboard_white_lead_paint",
+      "group": "walls",
+      "span_m": 4.48,
+      "confidence": "attested for Sauganash",
+      "mean_roughness": 0.6,
+      "kind": "clapboard",
+      "colors": [
+        [
+          226,
+          224,
+          215
+        ],
+        [
+          191,
+          188,
+          176
+        ]
+      ],
+      "note": "Smooth but aged white lead/oil paint over clapboard.",
+      "resolution_px": 1024,
+      "px_per_m": 228.57,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18350895,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "clapboard_red_oxide",
+      "group": "walls",
+      "span_m": 4.48,
+      "confidence": "period-inferred; building-level reconstructed",
+      "mean_roughness": 0.85,
+      "kind": "clapboard",
+      "colors": [
+        [
+          124,
+          67,
+          53
+        ],
+        [
+          85,
+          52,
+          45
+        ]
+      ],
+      "note": "Iron-oxide finish over clapboard; do not treat as attested on a named building.",
+      "resolution_px": 1024,
+      "px_per_m": 228.57,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18350992,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "board_and_batten_weathered",
+      "group": "walls",
+      "span_m": 4.272,
+      "confidence": "reconstructed",
+      "mean_roughness": 0.88,
+      "kind": "batten",
+      "colors": [
+        [
+          117,
+          106,
+          88
+        ],
+        [
+          82,
+          78,
+          68
+        ]
+      ],
+      "note": "12 battens at the committed 0.356 m set-out.",
+      "resolution_px": 1024,
+      "px_per_m": 239.7,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351089,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "vertical_sawn_board",
+      "group": "walls",
+      "span_m": 4.58,
+      "confidence": "reconstructed",
+      "mean_roughness": 0.9,
+      "kind": "vertical",
+      "colors": [
+        [
+          135,
+          116,
+          88
+        ],
+        [
+          89,
+          81,
+          68
+        ]
+      ],
+      "note": "20 boards at the committed 0.229 m set-out.",
+      "resolution_px": 1024,
+      "px_per_m": 223.58,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351186,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "hewn_log_oak_chinked",
+      "group": "walls",
+      "span_m": 4.08,
+      "confidence": "attested/inferred",
+      "mean_roughness": 0.92,
+      "kind": "log",
+      "colors": [
+        [
+          105,
+          82,
+          58
+        ],
+        [
+          190,
+          181,
+          154
+        ]
+      ],
+      "note": "12 squared log courses at 0.34 m with clay-and-lime chinking.",
+      "resolution_px": 1024,
+      "px_per_m": 250.98,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351283,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "sawn_board_weathered",
+      "group": "timber",
+      "span_m": 4.0,
+      "confidence": "inferred",
+      "mean_roughness": 0.94,
+      "kind": "planks",
+      "colors": [
+        [
+          118,
+          103,
+          80
+        ],
+        [
+          77,
+          72,
+          61
+        ]
+      ],
+      "note": "Plain gappy sawn stock; grain detail only where board widths are geometry.",
+      "resolution_px": 1024,
+      "px_per_m": 256.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351380,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "fresh_sawn_framing",
+      "group": "timber",
+      "span_m": 4.0,
+      "confidence": "inferred",
+      "mean_roughness": 0.84,
+      "kind": "planks",
+      "colors": [
+        [
+          177,
+          148,
+          100
+        ],
+        [
+          129,
+          105,
+          73
+        ]
+      ],
+      "note": "Pale fresh-sawn exposed framing.",
+      "resolution_px": 1024,
+      "px_per_m": 256.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351477,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "heavy_timber_weathered",
+      "group": "timber",
+      "span_m": 4.0,
+      "confidence": "inferred",
+      "mean_roughness": 0.9,
+      "kind": "planks",
+      "colors": [
+        [
+          92,
+          75,
+          55
+        ],
+        [
+          57,
+          52,
+          44
+        ]
+      ],
+      "note": "Moisture-darkened heavy posts, docks and bridge members.",
+      "resolution_px": 1024,
+      "px_per_m": 256.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351574,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "wood_shingles_weathered",
+      "group": "roofs",
+      "span_m": 4.48,
+      "confidence": "attested once; otherwise inferred",
+      "mean_roughness": 0.9,
+      "kind": "shingle",
+      "colors": [
+        [
+          92,
+          80,
+          67
+        ],
+        [
+          57,
+          56,
+          53
+        ]
+      ],
+      "note": "Riven timber shingles; 0.14 m exposure is a declared reconstruction outside the attested North Side school.",
+      "resolution_px": 1024,
+      "px_per_m": 228.57,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351671,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "roof_boards_weathered",
+      "group": "roofs",
+      "span_m": 4.0,
+      "confidence": "inferred",
+      "mean_roughness": 0.94,
+      "kind": "roofboards",
+      "colors": [
+        [
+          100,
+          85,
+          66
+        ],
+        [
+          61,
+          58,
+          51
+        ]
+      ],
+      "note": "Plain board covering appropriate to rough outbuildings.",
+      "resolution_px": 1024,
+      "px_per_m": 256.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351768,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "chicago_clay_brick_lime_mortar",
+      "group": "masonry",
+      "span_m": 4.2,
+      "confidence": "fabric attested; module reconstructed",
+      "mean_roughness": 0.9,
+      "kind": "brick",
+      "colors": [
+        [
+          132,
+          71,
+          54
+        ],
+        [
+          190,
+          178,
+          151
+        ]
+      ],
+      "note": "Locally fired red-brown brick with pale lime mortar; brick dimensions are reconstructed, not Chicago-attested.",
+      "resolution_px": 1024,
+      "px_per_m": 243.81,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351865,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "limestone_rubble_lime_mortar",
+      "group": "masonry",
+      "span_m": 4.0,
+      "confidence": "reconstructed",
+      "mean_roughness": 0.93,
+      "kind": "stone",
+      "colors": [
+        [
+          143,
+          139,
+          126
+        ],
+        [
+          190,
+          183,
+          159
+        ]
+      ],
+      "note": "Irregular pale Great Lakes rubble masonry; use only where stone fabric is selected.",
+      "resolution_px": 1024,
+      "px_per_m": 256.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18351962,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "cat_and_clay_chimney",
+      "group": "masonry",
+      "span_m": 2.04,
+      "confidence": "reconstructed",
+      "mean_roughness": 0.95,
+      "kind": "clay",
+      "colors": [
+        [
+          139,
+          124,
+          96
+        ],
+        [
+          194,
+          181,
+          151
+        ]
+      ],
+      "note": "Daubed stick-and-clay chimney fabric for log cabins; bounded by chinking and weathered roof tones.",
+      "resolution_px": 1024,
+      "px_per_m": 501.96,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352059,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "packed_black_loam",
+      "group": "ground",
+      "span_m": 6.0,
+      "confidence": "attested geology; reconstructed surface",
+      "mean_roughness": 0.96,
+      "kind": "earth",
+      "colors": [
+        [
+          73,
+          67,
+          51
+        ],
+        [
+          45,
+          44,
+          38
+        ]
+      ],
+      "note": "Compacted dark loam for yards and trodden dry ground.",
+      "resolution_px": 1024,
+      "px_per_m": 170.67,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352156,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "muddy_rutted_street",
+      "group": "ground",
+      "span_m": 8.0,
+      "confidence": "attested condition; reconstructed wear",
+      "mean_roughness": 0.78,
+      "kind": "mud",
+      "colors": [
+        [
+          82,
+          70,
+          58
+        ],
+        [
+          44,
+          43,
+          39
+        ]
+      ],
+      "note": "Unpaved wagon-and-hoof-worn street with damp ruts; no modern tire marks.",
+      "resolution_px": 1024,
+      "px_per_m": 128.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352253,
+      "generation_method": "AI-generated flat-lit color study, made periodic; procedural/aligned PBR derivation"
+    },
+    {
+      "id": "wet_prairie_muck",
+      "group": "ground",
+      "span_m": 6.0,
+      "confidence": "attested/inferred",
+      "mean_roughness": 0.86,
+      "kind": "muck",
+      "colors": [
+        [
+          67,
+          66,
+          46
+        ],
+        [
+          34,
+          42,
+          35
+        ]
+      ],
+      "note": "Peaty/mucky low wet prairie substrate; vegetation remains a separate layer.",
+      "resolution_px": 1024,
+      "px_per_m": 170.67,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352350,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "lake_michigan_dune_sand",
+      "group": "ground",
+      "span_m": 6.0,
+      "confidence": "attested setting; reconstructed grain",
+      "mean_roughness": 0.93,
+      "kind": "sand",
+      "colors": [
+        [
+          177,
+          163,
+          129
+        ],
+        [
+          129,
+          122,
+          101
+        ]
+      ],
+      "note": "Muted gray-tan freshwater beach and low dune sand.",
+      "resolution_px": 1024,
+      "px_per_m": 170.67,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352447,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "river_stone_gravel_fill",
+      "group": "ground",
+      "span_m": 4.0,
+      "confidence": "inferred",
+      "mean_roughness": 0.98,
+      "kind": "gravel",
+      "colors": [
+        [
+          111,
+          108,
+          98
+        ],
+        [
+          63,
+          65,
+          62
+        ]
+      ],
+      "note": "Mixed river stone and gravel crib/bridge fill.",
+      "resolution_px": 1024,
+      "px_per_m": 256.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352544,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "plank_walk_weathered",
+      "group": "waterfront",
+      "span_m": 4.0,
+      "confidence": "attested form; inferred finish",
+      "mean_roughness": 0.94,
+      "kind": "walk",
+      "colors": [
+        [
+          118,
+          101,
+          76
+        ],
+        [
+          72,
+          67,
+          58
+        ]
+      ],
+      "note": "Raised rough-sawn boardwalk/plank crossing above mud.",
+      "resolution_px": 1024,
+      "px_per_m": 256.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352641,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "dock_timber_tar_darkened",
+      "group": "waterfront",
+      "span_m": 4.0,
+      "confidence": "inferred",
+      "mean_roughness": 0.82,
+      "kind": "tarwood",
+      "colors": [
+        [
+          72,
+          61,
+          48
+        ],
+        [
+          34,
+          34,
+          31
+        ]
+      ],
+      "note": "Heavy waterfront timber darkened by water, grime and limited tar/pitch maintenance.",
+      "resolution_px": 1024,
+      "px_per_m": 256.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352738,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "wrought_iron_forged",
+      "group": "props",
+      "span_m": 1.0,
+      "confidence": "period-inferred",
+      "mean_roughness": 0.62,
+      "kind": "iron",
+      "colors": [
+        [
+          48,
+          47,
+          44
+        ],
+        [
+          18,
+          20,
+          20
+        ]
+      ],
+      "note": "Hand-forged iron hardware with restrained oxidation; metallic workflow.",
+      "resolution_px": 1024,
+      "px_per_m": 1024.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352835,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "signboard_weathered",
+      "group": "props",
+      "span_m": 2.0,
+      "confidence": "reconstructed",
+      "mean_roughness": 0.85,
+      "kind": "planks",
+      "colors": [
+        [
+          155,
+          137,
+          105
+        ],
+        [
+          91,
+          82,
+          68
+        ]
+      ],
+      "note": "Unlettered weathered sign board. Lettering belongs in the signage atlas.",
+      "resolution_px": 1024,
+      "px_per_m": 512.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18352932,
+      "generation_method": "deterministic procedural synthesis"
+    },
+    {
+      "id": "blue_painted_shutter",
+      "group": "props",
+      "span_m": 2.0,
+      "confidence": "attested for Sauganash",
+      "mean_roughness": 0.75,
+      "kind": "planks",
+      "colors": [
+        [
+          52,
+          89,
+          145
+        ],
+        [
+          30,
+          54,
+          92
+        ]
+      ],
+      "note": "Aged bright-blue oil-painted timber shutter.",
+      "resolution_px": 1024,
+      "px_per_m": 512.0,
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "seamless": true,
+      "generator_seed": 18353029,
+      "generation_method": "deterministic procedural synthesis"
+    }
+  ]
+}

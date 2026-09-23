@@ -1,0 +1,86 @@
+{
+ "id": "biz_robinson_trading_house_wolf_point",
+ "register_id": null,
+ "name": "Alexander Robinson's store or trading-house at Wolf Point",
+ "provenance": "authored",
+ "type": [
+  "store"
+ ],
+ "trade": "the country trade at the forks — a store or trading-house",
+ "occupation": "trader",
+ "goods": [],
+ "firm_styles": [],
+ "proprietors": [
+  {
+   "name": "Alexander Robinson (Che-che-pin-qua)",
+   "person_id": "robinson_alexander",
+   "register_person_id": null,
+   "role": "proprietor",
+   "from": null,
+   "to": null,
+   "tier": "attested",
+   "basis": "Andreas names the house and its keeper in one sentence: 'During the latter part of his residence in Chicago, he lived at Wolf Point, where he had a store or trading-house.' The county clerk's 1831 permits to sell goods — to Alexander Robinson, John B. Beaubien and Madore B. Beaubien — and the tavern licence of 8 June 1830 stand behind it, and the resident layer already reads his occupation as trader at the same citation. What no source gives is a date this house opened or closed, which is why only the keeper is attested here.",
+   "source_id": "andreas_1884_v1",
+   "claim_ids": [],
+   "also_printed_as": []
+  }
+ ],
+ "partners": [],
+ "staff": [],
+ "locations": [
+  {
+   "kind": "premises",
+   "structure_id": "robinson_caldwell_cabins",
+   "street_id": null,
+   "face": null,
+   "primary": true,
+   "from": null,
+   "to": null,
+   "tier": "inferred",
+   "basis": "Wolf Point is where Andreas puts the house, and robinson_caldwell_cabins is the only Wolf Point building this dataset attaches to him — the household's own works_at reads the same structure at the same tier and for the same reason. Whether the store was one of the cabins or a separate building beside them is not stated, so the premises is inferred and no street face is claimed: Wolf Point in 1835 is a place at the forks, not an address on a platted corridor.",
+   "limit_reason": null
+  }
+ ],
+ "dates": {
+  "opened": null,
+  "closed": null,
+  "precision": "unbounded",
+  "tier": "inferred",
+  "basis": "No source dates this house at either end. Andreas places it in 'the latter part of his residence in Chicago', which is a position in a life and not a year, and Wau-Bun's cabins at Wolf Point describe 1831. The record carries no date it cannot read."
+ },
+ "evidence": {
+  "first_issue": null,
+  "last_issue": null,
+  "copy_dates": []
+ },
+ "present_at_scene_date": true,
+ "exclusion": null,
+ "exclusion_note": null,
+ "proprietor_community": {
+  "value": "metis",
+  "tier": "inferred",
+  "rule": "proprietors_agree",
+  "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read metis: Alexander Robinson (Che-che-pin-qua) (metis). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+  "from": [
+   {
+    "person_id": "robinson_alexander",
+    "name": "Alexander Robinson (Che-che-pin-qua)",
+    "role": "proprietor",
+    "community": "metis",
+    "tier": "attested"
+   }
+  ]
+ },
+ "customers": [],
+ "sources": [
+  "andreas_1884_v1",
+  "kinzie_waubun_1856"
+ ],
+ "claim_ids": [],
+ "liberties": {
+  "survival_required": true,
+  "backdating_required": false
+ },
+ "review_required": true,
+ "replaceable_by": "A reading that dates this house at either end, names its premises apart from the cabins, or names anybody who worked in it. REVIEW REQUIRED: the household and the structure this record stands on both carry it, on AGENTS.md's Indigenous-history standard, and a record of a Métis-run house six weeks before the removal does not carry less."
+}

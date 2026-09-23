@@ -1,0 +1,154 @@
+{
+  "id": "biz_j_a_marshall_s_dancing_school",
+  "register_id": "business_j_a_marshall_s_dancing_school",
+  "name": "J. A. Marshall's dancing school",
+  "provenance": "compiled_from_register",
+  "type": [
+    "school"
+  ],
+  "trade": "dancing school",
+  "occupation": "schoolteacher",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "J. A. Marshall",
+      "person_id": "marshall_j_a",
+      "register_person_id": "person_j_a_marshall",
+      "role": "proprietor",
+      "from": "1834-11-19",
+      "to": "1834-11-19",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card marshall_j_a (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_11_19#c004"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Johanna McCarthy",
+      "person_id": "rc_mccarthy_johanna",
+      "role": "household_member",
+      "occupation": "schoolteacher",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 0 of this role in a school at the typical band and 1 at the high end, on period_convention. An assistant, at the larger schools only; the town's schools of 1835 are one room and one teacher. Analogue: the 1839 list's 13 schoolteachers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#school.schoolteacher; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_mccarthy_johanna:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "J. A. Marshall, this record's proprietor, who advertises the tuition, sets the hours and sells the tickets himself.",
+    "hands": [
+      {
+        "role": "teacher",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "drawn": true,
+        "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+        "why_not_drawn": null
+      }
+    ],
+    "attendance": {
+      "value": null,
+      "kind": "none_printed",
+      "tier": null,
+      "on_date": null,
+      "basis": "NO FIGURE IS PRINTED, AND THE NOTICE IS THE OPPOSITE OF A COUNT: 'Those wishing to become pu[p]ils will please leave their address at the Ex[c]hange Co[ff]ee House.' That is a school advertising for a class it does not yet have. It does divide the class it hopes for by hour — 'Miss[e]s and young Mas[t]ers, from 2 until 5 o'clock, P. M; and from 6 until 9 for the elder class of Gentlemen' — which is a shape and not a number."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence.",
+    "shortfall": {
+      "typical_wanted": 0,
+      "seats_taken": 1,
+      "seats_against_the_band": 0,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": null,
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts no hand about this kind of house at its typical band; this house carries 1.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-11-19",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. The landmark is the committed structure exchange_coffee_house.",
+      "limit_reason": "The register places this house against exchange_coffee_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "structure",
+        "id": "exchange_coffee_house",
+        "title": "Exchange Coffee House",
+        "streets": []
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1834-11-19",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-11-19, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-11-19",
+    "last_issue": "1834-11-19",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "british",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read british: J. A. Marshall (british). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "marshall_j_a",
+        "name": "J. A. Marshall",
+        "role": "proprietor",
+        "community": "british",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_11_19#c004"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

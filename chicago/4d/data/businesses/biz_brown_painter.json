@@ -1,0 +1,159 @@
+{
+  "id": "biz_brown_painter",
+  "register_id": "business_brown_painter",
+  "name": "Brown, painter",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "carriage, sign, ornamental and figure painting, and gilding",
+  "occupation": "painter",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Brown",
+      "person_id": null,
+      "register_person_id": "person_brown",
+      "role": "proprietor",
+      "from": "1835-06-08",
+      "to": "1835-08-15",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_brown with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c005",
+        "chicago_american_1835_06_13#c014",
+        "chicago_american_1835_08_15#c004"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "George Lyman",
+      "person_id": "rc_lyman_george",
+      "role": "journeyman",
+      "occupation": "painter",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a painter's shop at the typical band and 1 at the high end, on directory_1839. 14 painters in 1839; the trade works in pairs. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#painter_shop.painter; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_lyman_george:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "painter_shop",
+    "reads_as": "a painter's shop",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "journeyman",
+        "occupation": "painter",
+        "household_relationship": "journeyman",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "directory_1839"
+      },
+      {
+        "role": "apprentice",
+        "occupation": "painter",
+        "household_relationship": "apprentice",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 1,
+      "seats_against_the_band": 1,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "painter",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        },
+        {
+          "occupation": "painter",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 1. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "brown_boarding_house",
+      "street_id": "randolph",
+      "face": null,
+      "primary": true,
+      "from": "1835-06-08",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure brown_boarding_house on its occupants. brown_boarding_house already stands and its occupants carries brown — 'Mrs Rufus Brown; proprietor; and the Brown household'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-08",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-08, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-08",
+    "last_issue": "1835-08-15",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_08#c005",
+    "chicago_american_1835_06_13#c014",
+    "chicago_american_1835_08_15#c004"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

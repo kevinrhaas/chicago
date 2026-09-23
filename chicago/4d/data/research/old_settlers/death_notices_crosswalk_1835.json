@@ -8,11 +8,11 @@
  "what_a_match_here_does_not_mean": "It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload.",
  "rule": "SURNAME must match after both are folded (case, punctuation and the transcriber's usual confusions removed), AND the first initial of the given name must match. A surname-only agreement is a REFUSAL, however good it looks. Where one 1835 person meets more than one entry the match is AMBIGUOUS and is filed as such; where two 1835 people meet one entry it is CONTESTED and no match is made.",
  "counts": {
-  "residents_considered": 1280,
+  "residents_considered": 1283,
   "matched_one_entry": 63,
   "matched_more_than_one_ambiguous": 17,
   "one_entry_contested_by_two_residents": 16,
-  "surname_present_initial_absent_refused": 243,
+  "surname_present_initial_absent_refused": 244,
   "matches_carrying_a_birth_year": 42,
   "matches_carrying_a_date_of_death": 57
  },
@@ -599,7 +599,7 @@
    "person_id": "hubbard_elijah_kent",
    "household_id": "hh_hubbard_elijah_kent",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "insurance_agent",
    "rule": "Surname 'Hubbard' folds to the same string as the entry's, and the given name of both begins E.",
    "resident_given_is_initial_only": false,
    "entries": [
@@ -4568,6 +4568,13 @@
    "surname_in_the_list": "Kimball",
    "candidates": 2,
    "rule": "The surname 'Kimball' is in Fergus's death notices and no entry under it carries the initial 'W' of 'W. Kimball'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Welthyan Loomis Harmon",
+   "person_id": "harmon_welthyan",
+   "surname_in_the_list": "Harmon",
+   "candidates": 2,
+   "rule": "The surname 'Harmon' is in Fergus's death notices and no entry under it carries the initial 'W' of 'Welthyan Loomis Harmon'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Willard Jones",

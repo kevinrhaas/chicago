@@ -1,7 +1,7 @@
 ---
 id: T-1170
 title: Give the attested and inferred heads the families the sources name: spouses, children, kin and dependants from the baptism and marriage registers, the 1840 census rows of heads the layer carries, Andreas and old-settler biographies and the ruled kin ties — inferred where named, reconstructed where only counted
-state: open
+state: split
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
+closed: 2026-09-18
 pr: null
-claimed_by: null
+claimed_by: run 9/18/2026, 4:51:08 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-18T10:22:38.685Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35331269291
 ---
 
 20 households hold more than one person; 27 carry `kin` rows. The sources name far more: St

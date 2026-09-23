@@ -1,0 +1,97 @@
+{
+  "id": "biz_hiram_pearsons",
+  "register_id": "business_hiram_pearsons",
+  "name": "Hiram Pearsons",
+  "provenance": "compiled_from_register",
+  "type": [
+    "storage_and_forwarding"
+  ],
+  "trade": "storage and commission merchant",
+  "occupation": "merchant",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Hiram Pearsons",
+      "person_id": "pearsons_hiram",
+      "register_person_id": "person_hiram_pearsons",
+      "role": "proprietor",
+      "from": "1834-02-25",
+      "to": "1834-05-14",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card pearsons_hiram (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_02_25#c005",
+        "chicago_democrat_1834_03_04#c004",
+        "chicago_democrat_1834_05_14#c006"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1834-02-25",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1834-02-25",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-02-25, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-02-25",
+    "last_issue": "1834-05-14",
+    "copy_dates": [
+      "1834-02-25",
+      "1834-05-01"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: Hiram Pearsons (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "pearsons_hiram",
+        "name": "Hiram Pearsons",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_02_25#c005",
+    "chicago_democrat_1834_03_04#c004",
+    "chicago_democrat_1834_05_14#c006"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

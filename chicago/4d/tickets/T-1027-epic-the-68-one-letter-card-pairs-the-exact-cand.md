@@ -147,3 +147,24 @@ Nothing in this list may be folded to tidy a duplicate away, nothing may be fold
 neighbour in the table was, and `clusters()` may not be widened to close the epic in one pass —
 the measurement that prices that widening is gated in `check.sh` precisely so the argument
 stays available to whoever next wants to.
+
+**TWO FACTS FROM THE FORT, FOUND BY T-1348 AND NOT ACTED ON (2026-09-19).** Both bear on
+rulings in this epic's territory and both are left here rather than spent, because a merge
+ruling is not a seating ticket's to reopen.
+
+- **`green_j` carries, as printed, "Major, 5th Infantry, commanding the post"** — the American
+  of 27 May – 13 June 1835, via the newspaper gazetteer. The T-1291 ruling held `green_j` and
+  `greene_john` distinct at D7, and one of its stated reasons was that "Major John Greene is
+  Andreas and the fort literature, with **no letter-list or poll reading at all**" — the anchor
+  on the wrong side of the fold. This printing is on the other side: a press reading, in the
+  scene year, carrying the command itself. It does not overturn D7 — the 1835 poll roll is
+  still on the Green side, and a serving major on a town poll roll is what the ruling refused —
+  but the ruling did not weigh it.
+- **`wilcox_d`, printed 4 February 1834, falls inside DeLafayette Wilcox's gap.** The commandant
+  chronology in `docs/RESEARCH/fort_dearborn.md` has DeLafayette Wilcox in command to 18
+  December 1833 and again from 16 September 1835, with Greene between; a "D Wilcox" at Chicago
+  in February 1834 sits inside that interval, where an officer of the post who was not
+  commanding it would be. One notice, an `inferred` soldier's trade and an `uncertain`
+  presence — so T-1348 refused it on presence whatever the identity is.
+
+The evidence for both is set out in `docs/RESEARCH/fort_dearborn_garrison_1835.md` § 4.

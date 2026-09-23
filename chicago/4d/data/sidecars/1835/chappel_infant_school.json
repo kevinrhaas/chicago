@@ -100,7 +100,7 @@
       "note": "Documented and not built. This is the only thing any source says about the building's arrangement, and it is what distinguishes it from an ordinary cabin - the schoolroom and the teacher's own quarters under one roof. No interior is modelled in this project, so the partition is invisible; it is the reason the footprint is a two-room size rather than a single pen, so it does reach the mesh indirectly, through a number a human chose."
     },
     "function": {
-      "value": "log house; infant school 1833-34, use on the scene date unattested",
+      "value": "log_house_former_school_use_unattested",
       "confidence": "inferred",
       "sources": [
         "andreas_1884_v1"

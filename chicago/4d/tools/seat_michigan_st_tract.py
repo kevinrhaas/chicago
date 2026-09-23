@@ -132,7 +132,7 @@ def _ladder(trace):
     off_ew = {}
     for key in EW_ORDER:
         vals = [centre(ew[key][col])[1] - mich[col] for col in ("col_west", "col_east")]
-        off_ew[key] = round(sum(vals) / len(vals), 2)
+        off_ew[key] = round(math.fsum(vals) / len(vals), 2)
 
     market = [ns[t]["north_south_street"]["centre_local_enu_m"][0] for t in sorted(ns)]
     market_mean = sum(market) / len(market)
@@ -140,9 +140,9 @@ def _ladder(trace):
     west = [corners["nw"]["local_enu_m"][0], corners["sw"]["local_enu_m"][0]]
     east = [corners["ne"]["local_enu_m"][0], corners["se"]["local_enu_m"][0]]
     off_ns = {
-        "west_border": round(sum(west) / len(west) - market_mean, 2),
+        "west_border": round(math.fsum(west) / len(west) - market_mean, 2),
         "market_st": 0.0,
-        "east_border": round(sum(east) / len(east) - market_mean, 2),
+        "east_border": round(math.fsum(east) / len(east) - market_mean, 2),
     }
     return off_ew, off_ns
 

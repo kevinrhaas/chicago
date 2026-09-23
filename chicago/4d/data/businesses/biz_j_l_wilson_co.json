@@ -1,0 +1,166 @@
+{
+  "id": "biz_j_l_wilson_co",
+  "register_id": "business_j_l_wilson_co",
+  "name": "J. L. Wilson & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "dry goods, groceries, hardware and crockery",
+  "occupation": "dry_goods_merchant",
+  "goods": [
+    "Brass Kettles",
+    "Butts",
+    "Calicoes",
+    "Circassians",
+    "Cloths",
+    "Coffee",
+    "Crockery",
+    "Dry Goods",
+    "Flannels",
+    "Groceries",
+    "Hardware",
+    "Liquors",
+    "Pepper",
+    "Ready made clothing",
+    "Sattinetts",
+    "Screws",
+    "Sheetings",
+    "Shovels",
+    "Spades",
+    "Spice",
+    "Sugar",
+    "Tickings",
+    "Troy Nails",
+    "Troy nails",
+    "Window Glass",
+    "Window Sash",
+    "Woolen yarn",
+    "Wrought iron hinges",
+    "brass kettles",
+    "calicoes",
+    "circassians",
+    "cloths",
+    "coffee",
+    "crockery",
+    "dry goods",
+    "flannels",
+    "groceries",
+    "hardware",
+    "liquors",
+    "nails",
+    "pepper",
+    "ready made clothing",
+    "sattinetts",
+    "saws",
+    "screws",
+    "sheetings",
+    "shovels",
+    "spades",
+    "spice",
+    "stone ware",
+    "sugar",
+    "tea",
+    "tickings",
+    "window glass",
+    "wrought iron hinges"
+  ],
+  "firm_styles": [
+    "J. L. Wilson & Co.",
+    "J. L. Wilson & Co",
+    "Jno. L. Wilson & Co.",
+    "Jno. S. Wilson & Co",
+    "Jno. S. Wilson & Co."
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "J. L. Wilson",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1834-09-17",
+      "to": "1835-07-18",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c012",
+        "chicago_american_1835_06_20#c002",
+        "chicago_american_1835_07_18#c005",
+        "chicago_democrat_1834_09_17#c003",
+        "chicago_democrat_1834_10_15#c001",
+        "chicago_democrat_1834_11_05#c008",
+        "chicago_democrat_1834_11_12#c013",
+        "chicago_democrat_1834_12_03#c006",
+        "chicago_democrat_1835_05_20#c018"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "dearborn",
+      "face": null,
+      "primary": true,
+      "from": "1834-09-17",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the city boot, shoe and leather store' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-09-17",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-09-17, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-09-17",
+    "last_issue": "1835-07-18",
+    "copy_dates": [
+      "1834-09-01",
+      "1834-09-17",
+      "1834-10-08",
+      "1835-06-08",
+      "1835-06-12"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_08#c012",
+    "chicago_american_1835_06_20#c002",
+    "chicago_american_1835_07_18#c005",
+    "chicago_democrat_1834_09_17#c003",
+    "chicago_democrat_1834_10_15#c001",
+    "chicago_democrat_1834_11_05#c008",
+    "chicago_democrat_1834_11_12#c013",
+    "chicago_democrat_1834_12_03#c006",
+    "chicago_democrat_1835_05_20#c018"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

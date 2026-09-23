@@ -1,7 +1,7 @@
 ---
 id: T-0991
 title: Eight cards assert an 1835 trade out of a PRE-scene printing, and T-0693's later_occupation pointer cannot hold one: blank the field, or regrade it reconstructed?
-state: blocked-owner
+state: open
 epic: META
 requested_by: loop
 seen: false
@@ -12,7 +12,7 @@ opened: 2026-09-10
 closed: null
 pr: null
 claimed_by: run 9/10/2026, 9:27:49 AM CT
-blocked_on: Six cards carry an 1835 trade printed only in the Chicago Democrat of 26 November 1833. (a) blank the 1835 field and mint an earlier_occupation pointer, losing six trades from the town; or (b) keep the value at 'reconstructed' — which would be the first trade ever held at that grade (all 1,223 reconstructed occupations today are none_recorded), a new class of assertion in the layer a visitor reads. The two rows that were never a grading question are already repaired.
+blocked_on: null
 needs_bake: false
 closed_at: null
 claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/34488496242
@@ -110,3 +110,24 @@ the LAST trade the corpus prints for the man rather than the first.
 
 **Links:** [[T-0872]] (the parent) · [[T-0994]] (the audit and the one row the corpus
 decided) · [[T-0837]] (the write gate) · [[T-0693]] (the later-trade pointer).
+
+## THE OWNER'S RULING, 2026-09-21: blank the 1835 field and mint an EARLIER_OCCUPATION pointer
+
+Option (a). The six trades printed only in the Chicago Democrat of 26 November 1833 come out
+of the 1835 field, and a new `earlier_occupation` pointer carries them at their own date.
+
+THE TRADES ARE NOT LOST, and that is why this is the cheaper answer than it first looks. A
+man's trade in 1833 stays on his card, dated 1833, cited to the printing that states it. What
+stops being said is that it was his trade on 1 July 1835, which no source says.
+
+WHY NOT (b). Holding the value at `reconstructed` would be the first trade ever held at that
+grade — all 1,223 reconstructed occupations in the layer today are `none_recorded` — so it
+would introduce a new class of assertion into a field a visitor reads, without the visitor
+having any way to know it was new. Six trades are not worth a new kind of claim, and the
+grade would be doing the work a pointer is already the right shape for.
+
+THE POINTER IS THE MIRROR OF `later_occupation` AND SHOULD READ LIKE IT. T-0693's pointer
+exists because a printing after the scene date is evidence about a man and not about the
+day; a printing before it is the same statement from the other side, and the symmetry is the
+argument. If building it turns out to want more than this ticket holds, split rather than
+widen — but do not reach for the grade instead because the pointer is more work.

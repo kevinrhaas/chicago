@@ -38,9 +38,11 @@
  * untouched, under "Browse by household".
  */
 
+import { TIER_TITLE } from './attribute-tiers.js';
 import { escapeHtml } from './citations.js';
 import { displayName } from './display-name.js';
 import { householdHtml, loadResidentJoins, words } from './residents.js';
+import { seatHtml, seatTarget } from './seat.js';
 
 const PAGE = 80;
 
@@ -63,12 +65,50 @@ const KNOWN_LABEL = {
   letter_list: 'letter list',
   civic_mint: 'civic record',
   projected: 'projected',
+  transient: 'a visitor',
 };
+/** What each evidence grade claims about a person, in the reader's terms. Three
+ *  entries because there are three grades: `reconstructed` returned to this layer
+ *  under the programme T-1167 opened, and until it had a line here every
+ *  reconstructed resident's dot read "a real named person", which is the one thing
+ *  a reconstruction is not. */
+const GRADE_TITLE = {
+  attested: 'a source names this person in Chicago at the scene date',
+  inferred: 'a real named person reasonably believed to belong to the 1835 town',
+  reconstructed: 'nobody a source names \u2014 invented within the population model to fill a count the town needed, and replaceable the moment evidence turns up',
+};
+
+/**
+ * The Tier row's own words (T-1400, from T-1394).
+ *
+ * `grade` was already on every row and already had a pill, folded into the three-
+ * question `facts` line under the bare word "Grade" with no tooltip on it. It is not a
+ * minor fact: it is T-1158's tier, the thing this whole project is FOR, and 1,943 of
+ * these 3,228 people carry `reconstructed` on it. So the row comes out of that line,
+ * takes the vocabulary's own name, and each pill says what it promises — the same three
+ * sentences the attribute chips on a card say, imported rather than retyped.
+ *
+ * And the reconstructed pill is opened up by the row below it. One word over 1,943
+ * people is not an answer to "invented how?": a Fort Dearborn private drawn against the
+ * establishment of the Act of 1821, a visitor of the season drawn against a bounded
+ * cohort, a wife counted by a household size and a lodger drawn against a bed are four
+ * different acts, retired by four different pieces of evidence. `stage` carries which,
+ * off the card's own committed `reconstruction.stage`, and the programme supplies the
+ * pills, their order and their tooltips.
+ */
+const READ_PILL = 'read from a source';
+const READ_TITLE = 'Not drawn by the reconstruction: a source names this person, and the '
+  + 'grade beside them says how firmly.';
+
 const KNOWN_TITLE = {
   documented: 'Named by a source outside the post-office lists and the civic-list consolidation',
   letter_list: 'Known only from the post office’s lists of uncalled-for letters — a name, and nothing else',
   civic_mint: 'Minted by the evidence consolidation from a poll, tax or muster list, or a contemporary paper',
   projected: 'A projected resident: documented once or twice and placed by nothing',
+  // T-1353. Not a rung on the four above: those grade how well the town knew a
+  // RESIDENT, and this person was not one. The town census counts them on a row of
+  // their own for the same reason.
+  transient: 'A visitor of the season, in the town on 1 July 1835 and not living in it \u2014 reconstructed within the bracket T-1352 measured, and counted apart from the residents',
 };
 
 /** The "Arrived" row's buckets. `arrival_year` is a bound for 1,318 of the 1,380
@@ -91,6 +131,7 @@ const KNOWN = {
   letter_list: (r) => !!r.letter_list_only,
   civic_mint: (r) => !!r.civic_mint,
   projected: (r) => r.resident_subtype === 'projected_resident',
+  transient: (r) => !!r.transient,
 };
 
 /**
@@ -105,11 +146,74 @@ const ROLE_FILTERS = {
   none: (r) => !(r.roles || 0),
 };
 
+/** How many pills the Trade row offers out of each of its two rankings (T-1382). */
+const TRADE_PILLS_EVIDENCED = 8;
+const TRADE_PILLS_TOWN = 6;
+
+/**
+ * The Trade row's offer, and the rule that decides it (T-1382).
+ *
+ * The row used to be `slice(0, 10)` over the whole layer's trade counts, which
+ * was a fair cut while the layer was the 457 residents the sources name. The
+ * reconstruction changed what that sentence counts: T-1347 drew 308 trade heads
+ * and T-1353 minted the summer's visitors, and the ten commonest trades became
+ * almost entirely that draw — 57 domestics, 38 boarding-house keepers, 26
+ * labourers, 26 clerks. `tavern_keeper` fell to rank 78 of 83 and had no pill at
+ * all, so the directory could not be asked for this town's tavern keepers, its
+ * physicians or its lawyers: the trades a reader actually looks for were exactly
+ * the ones the reconstruction buried, and they are the ones this project can
+ * name people in.
+ *
+ * So the offer is cut from TWO rankings rather than one, and the evidence goes
+ * first:
+ *   - the eight commonest trades counted over the people the layer's evidence
+ *     carries — grade `attested` or `inferred`, which is every person read off a
+ *     source rather than minted to fill a model;
+ *   - the six commonest trades of the town as a whole, so the numerous
+ *     reconstructed groups (domestics, boarding-house keepers, labourers,
+ *     clerks) keep a pill of their own.
+ *
+ * Deduped, evidenced first, so a reconstruction pass can ADD a pill and can
+ * never take away one the sources attest — which is the property the bare count
+ * cut did not have. Counting the two rankings separately is also why no
+ * threshold has to be invented: neither list is a judgement about how many
+ * people a trade needs, only about which trades the two populations are
+ * commonest in. The whole vocabulary stays reachable in `more trades…`.
+ */
+function tradeOffer(people) {
+  const rows = people.people || [];
+  const total = new Map();
+  const evidenced = new Map();
+  for (const r of rows) {
+    const trade = r.occupation;
+    if (!trade) continue;
+    total.set(trade, (total.get(trade) || 0) + 1);
+    if (r.grade === 'attested' || r.grade === 'inferred') evidenced.set(trade, (evidenced.get(trade) || 0) + 1);
+  }
+  const rank = (counts) => [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([v]) => v);
+  const offer = rank(evidenced).slice(0, TRADE_PILLS_EVIDENCED);
+  for (const trade of rank(total).slice(0, TRADE_PILLS_TOWN)) if (!offer.includes(trade)) offer.push(trade);
+  return offer;
+}
+
 function filterSpecs(people) {
   const occCounts = new Map((people.vocabulary?.occupations || []).map((o) => [o.value, o.count]));
-  const topTrades = [...occCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .slice(0, 10).map(([v]) => v);
-  const grades = (people.vocabulary?.grades || []).filter((g) => (people.counts?.by_grade || {})[g] > 0);
+  // The sidecar's own rows are what the offer is counted over, because the
+  // vocabulary carries one total per trade and the rule needs the evidenced
+  // count as well. With no rows to count (a payload that carries the vocabulary
+  // alone) the old count cut is still the honest answer.
+  const topTrades = tradeOffer(people);
+  if (!topTrades.length) {
+    topTrades.push(...[...occCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, 10).map(([v]) => v));
+  }
+  // `by_grade` counts the town's own people, so a grade carried only by the visitors
+  // would have no pill; the row is the tier of EVERY person in the directory, so the
+  // rows themselves are what decide which of the vocabulary's grades are offered.
+  const gradesHeld = new Set(people.people?.map((r) => r.grade));
+  const grades = (people.vocabulary?.grades || []).filter((g) => gradesHeld.has(g));
+  const stages = (people.vocabulary?.stages || []).filter((st) => st.count > 0);
   return [
     {
       key: 'occupation', label: 'Trade',
@@ -122,6 +226,20 @@ function filterSpecs(people) {
       options: (people.vocabulary?.divisions || []).map((v) => [v, words(v)]),
       test: (v) => (r) => r.division === v,
     },
+    // T-1375, from T-1177. The community each person belonged to, read off what the
+    // layer already says — a household's origin block, or a reconstructed person's own
+    // name-pool community — and never graded better than the field it came from. The
+    // pills are in the vocabulary's own order, not by count, and the ones no card
+    // carries yet (Potawatomi, Ottawa, Ojibwe, free Black, German) are left off until a
+    // reading puts somebody behind them. `Unknown` IS a pill: it is the honest answer
+    // for 190 of these people and a filter that hid it would make the town read better
+    // than its evidence.
+    {
+      key: 'community', label: 'Community',
+      options: (people.vocabulary?.communities || []).filter((c) => c.count > 0)
+        .map((c) => [c.value, c.label]),
+      test: (v) => (r) => r.community === v,
+    },
     {
       key: 'arrived', label: 'Arrived',
       options: ARRIVED.map(([v, label]) => [v, label]),
@@ -130,8 +248,31 @@ function filterSpecs(people) {
     {
       key: 'known', label: 'How known',
       options: [['documented', 'documented'], ['letter_list', 'letter list only'],
-        ['civic_mint', 'civic record'], ['projected', 'projected resident']],
+        ['civic_mint', 'civic record'], ['projected', 'projected resident'],
+        // T-1353. The one pill here that is not about a resident's evidence: it is
+        // about whether this person lived in the town at all.
+        ['transient', 'a visitor of the season']],
       test: (v) => KNOWN[v] || (() => false),
+    },
+    // T-1400. The tier, out of the cramped `facts` line and under the vocabulary's own
+    // name, with the card's three sentences on the pills.
+    {
+      key: 'grade', label: 'Tier',
+      options: grades.map((v) => [v, v]),
+      title: (v) => TIER_TITLE[v] || '',
+      test: (v) => (r) => r.grade === v,
+    },
+    // T-1400. And which stage of the reconstruction programme drew the 1,943 the tier
+    // above calls `reconstructed` — the row that makes "invented how?" an askable
+    // question. `read from a source` is not a stage and is not in the vocabulary: it is
+    // the complement, every person no stage minted, and it leads the row because it is
+    // what a visitor is most likely to want alone.
+    {
+      key: 'stage', label: 'Reconstructed as',
+      options: [['read', READ_PILL], ...stages.map((st) => [st.value, st.label])],
+      title: (v) => (v === 'read' ? READ_TITLE
+        : (stages.find((st) => st.value === v)?.title || '')),
+      test: (v) => (v === 'read' ? (r) => !r.stage : (r) => r.stage === v),
     },
     // The three short questions share one line (`group`): two or three pills
     // each, and a row apiece would cost the list three lines of the drawer.
@@ -142,14 +283,19 @@ function filterSpecs(people) {
       test: (v) => (r) => r.present === v,
     },
     {
-      key: 'grade', label: 'Grade', group: 'facts',
-      options: grades.map((v) => [v, v]),
-      test: (v) => (r) => r.grade === v,
-    },
-    {
       key: 'address', label: '', toggle: true, group: 'facts',
       options: [['yes', 'Has an address']],
       test: () => (r) => !!(r.lives_at || r.works_at),
+    },
+    // T-1172. The names the research READ and WITHHELD, offered back at the
+    // reconstructed tier: a presence the corpus never settled, ruled against the
+    // persistence model, or a card minted under a read name the town had no row for.
+    // One pill each, because they are different acts and a reader should be able to
+    // see the second kind without the first burying it.
+    {
+      key: 'readmitted', label: 'Re-admitted',
+      options: [['presence_ruled', 'presence ruled'], ['card_minted', 'minted from a read name']],
+      test: (v) => (r) => r.readmission?.kind === v,
     },
     // The dated roles, as the one question the plural field makes askable (T-1255):
     // who the sources word at the scene date, and who they word only in another
@@ -179,10 +325,16 @@ function filterSpecs(people) {
  *   the drawer head's title hook (hud.setTitle), when the lead passes one: the
  *   open card puts the person's name in the head with a back arrow, and the
  *   card's own back button steps aside (`has-head-back` on the section)
+ * @param {Map<string, object[]>|null} [o.firmsByPerson]
+ *   `firmCrosswalk(businesses/index.json).byPerson` — every firm a person holds a
+ *   role in. Null until the business index loads, and null is not the claim that
+ *   this person kept none: a card with no crosswalk simply prints no firms row.
+ * @param {(businessId: string) => void} [o.onBusiness]  open a firm's own card
  * @param {string[]} [o.problems]         the shared collector
  */
 export async function mountPeople({
-  mount, people, registry, dataBase, sceneId, onGoTo, onTitle = null, problems = [],
+  mount, people, registry, dataBase, sceneId, onGoTo, onTitle = null,
+  firmsByPerson = null, onBusiness = null, problems = [],
 } = {}) {
   const idle = { search() {}, open() { return Promise.resolve(false); }, close() {}, filter() {}, get state() { return null; } };
   if (!mount) return { people: 0, error: 'no mount', ...idle };
@@ -228,8 +380,10 @@ export async function mountPeople({
   const byId = new Map(rows.map((r) => [r.id, r]));
   const counts = people.counts || {};
   const specs = filterSpecs(people);
+  const COMMUNITY_LABEL = new Map(
+    (people.vocabulary?.communities || []).map((c) => [c.value, c.label]));
 
-  // On a phone the seven filter rows would sit between the search box and the
+  // On a phone the filter rows would sit between the search box and the
   // first row of the list, so they start folded there and open on demand; a
   // desktop drawer shows them always. The count on the toggle says how many
   // are active while folded.
@@ -321,10 +475,11 @@ export async function mountPeople({
 
   // ---- filter pills ----------------------------------------------------- //
 
-  function pill(key, value, label, count, on) {
+  function pill(key, value, label, count, on, title = '') {
     const empty = count === 0 && !on;
     return `<button type="button" class="pill" data-filter="${escapeHtml(key)}" data-value="${escapeHtml(value)}"
-      aria-pressed="${on ? 'true' : 'false'}"${empty ? ' disabled' : ''}>${escapeHtml(label)}${
+      aria-pressed="${on ? 'true' : 'false'}"${empty ? ' disabled' : ''}${
+      title ? ` title="${escapeHtml(title)}"` : ''}>${escapeHtml(label)}${
       count === null ? '' : ` <span class="pill-n">${n(count)}</span>`}</button>`;
   }
 
@@ -342,12 +497,19 @@ export async function mountPeople({
         return `<div class="people-frow people-frow-toggle" data-row="${spec.key}">${label}
           <div class="pills">${pill(spec.key, v, text, countOf(v), current === v)}</div></div>`;
       }
-      const inTop = spec.options.some(([v]) => v === current);
+      // A value chosen out of `more` — or set by the API, or by a link — is not in
+      // the offer, and before T-1382 the row then showed no pressed pill at all:
+      // the drawer said "All" while the list was narrowed. It gets a pill of its
+      // own at the end of the row, so the row always shows what it is filtered by.
+      const offered = current === '' || spec.options.some(([v]) => v === current);
+      const titleOf = (v) => (typeof spec.title === 'function' ? spec.title(v) : '');
+      const extra = offered ? '' : pill(spec.key, current, words(current), countOf(current), true, titleOf(current));
       const pills = pill(spec.key, '', 'All', pool.length, current === '')
-        + spec.options.map(([v, text]) => pill(spec.key, v, text, countOf(v), current === v)).join('');
+        + spec.options.map(([v, text]) => pill(spec.key, v, text, countOf(v), current === v, titleOf(v))).join('')
+        + extra;
       const more = spec.more
         ? `<select class="people-more-select" id="people-occupation" aria-label="More trades">
-            <option value=""${current === '' || inTop ? ' selected' : ''}>more trades…</option>${
+            <option value=""${offered ? ' selected' : ''}>more trades…</option>${
           spec.more.map(([v, text]) => `<option value="${escapeHtml(v)}"${current === v ? ' selected' : ''}>${
             escapeHtml(text)} (${countOf(v)})</option>`).join('')}</select>`
         : '';
@@ -441,9 +603,16 @@ export async function mountPeople({
     return off.year ? `${words(off.word)} ${off.year}` : words(off.word);
   }
 
+  /** The community label on a LIST row, printed only where the layer knows one. */
+  function communityText(r) {
+    if (!r.community || r.community === 'unknown') return '';
+    return COMMUNITY_LABEL.get(r.community) || words(r.community);
+  }
+
   function rowHtml(r) {
     const sub = [
       tradeText(r),
+      communityText(r),
       r.division ? `${words(r.division)}${r.division === 'unplaced' ? '' : ' division'}` : '',
       arrivalText(r),
     ].filter(Boolean).join(' · ');
@@ -454,8 +623,7 @@ export async function mountPeople({
     return `<button type="button" class="person-row" role="option" data-person-id="${escapeHtml(r.id)}"
         data-household="${escapeHtml(r.household)}" aria-selected="false">
       <i class="grade-dot grade-${escapeHtml(r.grade)}" title="${escapeHtml(r.grade)}: ${
-        r.grade === 'attested' ? 'a source names this person in Chicago at the scene date'
-          : 'a real named person reasonably believed to belong to the 1835 town'}"></i>
+        GRADE_TITLE[r.grade] || GRADE_TITLE.inferred}"></i>
       <span class="person-main"><span class="person-name">${escapeHtml(r.name)}</span>${
         sub ? `<small class="person-sub">${escapeHtml(sub)}</small>` : ''}</span>${mark}</button>`;
   }
@@ -534,6 +702,10 @@ export async function mountPeople({
       <span class="people-go-title">${escapeHtml(title)}</span></button>`;
   }
 
+  // Where this household stood, at the rung its evidence reaches: the words and,
+  // since T-1493, the way there. Both live in `seat.js`, because the business
+  // card prints the same block from the same address book.
+
   function actionsHtml(r) {
     const livesTitle = r.lives_at ? buildingTitle(r.lives_at) : null;
     const worksTitle = r.works_at ? buildingTitle(r.works_at) : null;
@@ -544,6 +716,83 @@ export async function mountPeople({
     if (out.length) return out.join('');
     const unresolved = (r.lives_at || r.works_at) ? ' — the building it names is not in this scene' : '';
     return `<p class="people-noaddr" data-reason="pending">No known address${escapeHtml(unresolved)}<span class="people-noaddr-why"></span></p>`;
+  }
+
+  /**
+   * The re-admission, said on the card in words (T-1172).
+   *
+   * Two things a reader is owed and cannot get from a grade dot: that this row
+   * stands on ONE reading the research withheld, and what would retire it again.
+   * A presence ruling also names the value it stands beside — the research's own
+   * `uncertain` is kept, not overwritten, and the card is where that has to show.
+   */
+  function readmissionHtml(r) {
+    const rm = r.readmission;
+    if (!rm) return '';
+    const lead = rm.kind === 'presence_ruled'
+      ? `The research left this person’s presence on 1 July 1835 <b>${escapeHtml(rm.stood_at)}</b> and it stands there still. `
+        + `Beside it, the reconstruction reads <b>${escapeHtml(r.present)}</b>.`
+      : `A name the corpus printed once and the research withheld, minted back into the town under its own read name`
+        + `${rm.name_as_read ? ` — read as “${escapeHtml(rm.name_as_read)}”` : ''}.`;
+    return `<p class="people-card-readmitted"><b>Re-admitted from the borderline roster.</b> ${lead}`
+      + `${rm.note ? ` ${escapeHtml(rm.note)}` : ''}`
+      + `${rm.stands_on ? ` ${escapeHtml(rm.stands_on)}` : ''}`
+      + `${rm.replaced_by ? ` <i>Retired by ${escapeHtml(rm.replaced_by)}.</i>` : ''}</p>`;
+  }
+
+  /**
+   * The visitor, said on the card in words (T-1353).
+   *
+   * Four things a reader is owed and cannot get from a grade dot: that this person
+   * was in the town for the season and not living in it, which bracket they were
+   * drawn from and which point of it was spent, where they slept — at the rung the
+   * sources actually reach, which for a roofed party is the CLASS of place and not
+   * a house — and what would retire them.
+   */
+  function transientHtml(r) {
+    const t = r.transient;
+    if (!t) return '';
+    const where = t.lodged_at_kind === 'camp'
+      ? `They slept out: <b>${escapeHtml(t.sleeping_place ?? 'in a camp')}</b>. `
+        + 'The ground is a candidate and not a placement \u2014 no camp has been laid out yet.'
+      : `They slept under a roof in the town \u2014 <b>${escapeHtml(t.sleeping_place ?? 'indoors')}</b>. `
+        + 'No house is named: the lodging places\u2019 beds are dealt elsewhere, and a bed dealt twice is a bed invented once.';
+    return `<p class="people-card-transient"><b>A visitor of the season, not a resident.</b> `
+      + `One of the ${escapeHtml(String(t.point_adopted ?? ''))} strangers this project reads `
+      + `into 1 July 1835 \u2014 the \u201c${escapeHtml(t.point_reading ?? '')}\u201d reading of a bracket of 192 to 900. `
+      + `${where}`
+      + `${t.replaced_by ? ` <i>Retired by ${escapeHtml(t.replaced_by)}.</i>` : ''}</p>`;
+  }
+
+  /**
+   * THE FIRMS THIS PERSON KEPT. Until now the crosswalk ran one way only: a firm's
+   * card named its proprietors and linked the 110 the town holds a card for, and
+   * the person's own card said nothing back. So a visitor who arrived at John Dean
+   * Caton from the directory could not learn that the register puts him in four
+   * houses; they had to go to Businesses and search his name, which is the one
+   * thing a card should spare them.
+   *
+   * Roles, not ownership: the row prints what the record says the person was to the
+   * firm — proprietor, partner, staff — with the dates where the record dates them,
+   * and the grade dot is the FIRM's, because that is what tapping opens.
+   */
+  function firmsHtml(personId) {
+    const firms = firmsByPerson?.get?.(personId) || [];
+    if (!firms.length || typeof onBusiness !== 'function') return '';
+    const rows = firms.map((f) => {
+      const sub = [f.roles.map(words).join(' and '), f.trade, f.street || '',
+        f.present ? '' : 'not trading on 1 July'].filter(Boolean).join(' \u00b7 ');
+      return `<li><button type="button" class="people-firm" data-business="${escapeHtml(f.id)}">
+        <i class="grade-dot grade-${escapeHtml(f.grade)}" title="${escapeHtml(f.grade)}"></i>
+        <span class="person-main"><span class="person-name">${escapeHtml(f.name)}</span>
+          <small class="person-sub">${escapeHtml(sub)}</small></span>
+        <span class="people-firm-go" aria-hidden="true">\u203a</span></button></li>`;
+    }).join('');
+    return `<div class="people-firms">
+      <h4 class="people-card-h">${firms.length === 1 ? 'The firm the register puts them in'
+    : `The ${n(firms.length)} firms the register puts them in`}</h4>
+      <ul class="people-firm-list">${rows}</ul>
+    </div>`;
   }
 
   let openSeq = 0;
@@ -574,6 +823,9 @@ export async function mountPeople({
       </p>
       <div class="people-card-actions">${actionsHtml(r)}</div>
       <p class="people-card-what">${escapeHtml(knownTitle)}.</p>
+      ${readmissionHtml(r)}
+      ${transientHtml(r)}
+      ${firmsHtml(r.id)}
       <div class="people-card-body" aria-busy="true"><p class="legend-note">Loading the household record…</p></div>`;
     home.hidden = true;
     cardEl.hidden = false;
@@ -613,6 +865,37 @@ export async function mountPeople({
       const joins = await loadResidentJoins(dataBase, sceneId, problems);
       if (seq !== openSeq) return false;
       render(hh, joins);
+      // T-1491. The seat, in words, under whatever the actions block could offer —
+      // replacing the bare "No known address" where there was nothing to go to, and
+      // standing beneath the Go-to button where there was.
+      //
+      // T-1493 adds the way there. The record's own `lives_at`/`works_at` already
+      // carry a household seated at a named roof, so the seat button is offered
+      // only where the actions block found NOTHING to offer — which is every rung
+      // below a roof.
+      //
+      // NO HOUSEHOLD TAKES IT TODAY, and the reason is worth stating because it
+      // looks like coverage otherwise. The 31 seated at a roof already have their
+      // button off their own record. The 175 T-1492 banded carry a `division_band`
+      // seat, which is a CLASS OF GROUND and not a place — there is no point on it
+      // to stand a visitor at, so `seatTarget` refuses it and the card says where
+      // they are in words alone. The same holds for the 21 firms on a `street_face`
+      // seat. When the walk learns to frame a band or a face, they light up here
+      // with no further edit; inventing a point on one to fill this button would be
+      // exactly the fabricated coordinate T-1198 forbids.
+      const seatRow = joins.seatByHousehold?.get(r.household);
+      if (seatRow) {
+        const actions = cardEl.querySelector('.people-card-actions');
+        actions?.querySelector('.people-noaddr')?.remove();
+        actions?.querySelector('.people-seat')?.remove();
+        const target = seatTarget(seatRow);
+        const offered = !!actions?.querySelector('.people-go');
+        const goable = !offered && !!target && !!registry?.has?.(target.id);
+        actions?.insertAdjacentHTML('beforeend', seatHtml(seatRow, {
+          goable,
+          title: goable ? (buildingTitle(target.id) || target.id) : null,
+        }));
+      }
     } catch (err) {
       if (seq !== openSeq) return false;
       problems.push(`people: ${err.message} — one household record is missing`);
@@ -638,10 +921,16 @@ export async function mountPeople({
 
   cardEl.addEventListener('click', (ev) => {
     if (ev.target.closest('.people-back')) { state.lastOpened = state.open; close(); return; }
+    const firm = ev.target.closest('.people-firm');
+    if (firm) { onBusiness?.(firm.dataset.business); return; }
     const go = ev.target.closest('.people-go');
     if (go && state.open) {
       const r = byId.get(state.open);
       const which = go.dataset.go;
+      // The seat button (T-1493) is not the person's own address — the record has
+      // none, which is why it is there — so it goes to the structure it names and
+      // never through the person route, which would resolve to nothing.
+      if (which === 'seat') { onGoTo?.({ kind: 'structure', id: go.dataset.structure }); return; }
       onGoTo?.({
         kind: 'person',
         id: r.id,

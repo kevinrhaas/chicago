@@ -7,9 +7,12 @@
   "value": "1818-10-31",
   "confidence": "inferred",
   "sources": [
-   "chicago_antiquities_american_fur_co"
+   "chicago_antiquities_american_fur_co",
+   "hubbard_autobiography_1911",
+   "moses_kirkland_history_of_chicago_v1",
+   "moses_kirkland_history_of_chicago_v2"
   ],
-  "note": "HURLBUT PRINTS THE SENTENCE, AND IT IS HURLBUT'S OWN AND NOT HUBBARD'S. Chicago Antiquities (1881) pages 28-36: \"Mr. Hubbard left Montreal, were his parents then lived, May 13, 1818, reaching Mackinaw, July 4 and first arrived at Chicago on the last day of October or first day of November of that year\" (bk_afc_004; data/research/books/text/hurlbut_chicago_antiquities_28_36.txt lines 31-34). THE VALUE IS THE EARLIER OF THE TWO DAYS THE SOURCE OFFERS AND THE PRECISION SAYS SO: the page gives 31 October OR 1 November and refuses to choose between them, so this record refuses too - `day` would pick one on the reader's behalf and `year` would throw away a reading that is exact to within a day. WHY THIS IS GRADED INFERRED AND NOT ATTESTED. The sentence stands OUTSIDE the quotation marks that open four lines later at 'Having entire charge of the management of the company in the West' - it is Henry H. Hurlbut compiling in 1881, sixty-three years after the day and forty-six after the scene, not Gurdon Hubbard remembering in his own voice. data/sources/chicago_antiquities_american_fur_co.json grades that layer rung 4 and says in terms that nothing taken from Hurlbut's own narrative may be used as if it were period evidence; the source record's tier of 1 is earned by the 1821-22 invoice book alone and is not a licence over the compiler's prose. So the day is cited rather than conjectured, and it is still one man's account of another man's boyhood at second hand. It REPLACES the conjecture this record used to carry - 'NOT ATTESTED IN ANYTHING WORKED FOR THIS PARCEL... carried as a conjecture citing nothing and flagged for a later parcel to fix or delete' - which named the commonplace of the Chicago literature and no sentence (T-0594, closing what T-0575's crosswalk deferred). Arriving in 1818 is not residing here in 1835: the residence claim is unchanged and rests where it always did, on the trusteeship and the town's own rolls.",
+  "note": "HURLBUT PRINTS THE SENTENCE, AND IT IS HURLBUT'S OWN AND NOT HUBBARD'S. Chicago Antiquities (1881) pages 28-36: \"Mr. Hubbard left Montreal, were his parents then lived, May 13, 1818, reaching Mackinaw, July 4 and first arrived at Chicago on the last day of October or first day of November of that year\" (bk_afc_004; data/research/books/text/hurlbut_chicago_antiquities_28_36.txt lines 31-34). THE VALUE IS THE EARLIER OF THE TWO DAYS THE SOURCE OFFERS AND THE PRECISION SAYS SO: the page gives 31 October OR 1 November and refuses to choose between them, so this record refuses too - `day` would pick one on the reader's behalf and `year` would throw away a reading that is exact to within a day. WHY THIS IS GRADED INFERRED AND NOT ATTESTED. The sentence stands OUTSIDE the quotation marks that open four lines later at 'Having entire charge of the management of the company in the West' - it is Henry H. Hurlbut compiling in 1881, sixty-three years after the day and forty-six after the scene, not Gurdon Hubbard remembering in his own voice. data/sources/chicago_antiquities_american_fur_co.json grades that layer rung 4 and says in terms that nothing taken from Hurlbut's own narrative may be used as if it were period evidence; the source record's tier of 1 is earned by the 1821-22 invoice book alone and is not a licence over the compiler's prose. So the day is cited rather than conjectured, and it is still one man's account of another man's boyhood at second hand. It REPLACES the conjecture this record used to carry - 'NOT ATTESTED IN ANYTHING WORKED FOR THIS PARCEL... carried as a conjecture citing nothing and flagged for a later parcel to fix or delete' - which named the commonplace of the Chicago literature and no sentence (T-0594, closing what T-0575's crosswalk deferred). Arriving in 1818 is not residing here in 1835: the residence claim is unchanged and rests where it always did, on the trusteeship and the town's own rolls. TWO COMPILATIONS DATE HIS PERMANENT REMOVAL AND THEY DO NOT AGREE WITH EACH OTHER; NEITHER IS THIS FIELD. Moses and Kirkland, vol. 1 (1895), in the footnote that introduces their list of actual settlers prior to 1830, exclude him by name: 'The name of Gurdon S. Hubbard is not included, for the reason that although he spent a large portion of his time here he did not take up a permanent residence until 1832' (bk_mose1_014). McIlvaine, editing the autobiography in 1911, writes 'In 1834 Gurdon Hubbard went to Chicago to remain for the rest of his life' and repeats it at leaf 27 as 'the year that brought Gurdon Hubbard here as a permanent resident' (bk_hub_013). 1832 AND 1834 CANNOT BOTH BE THE YEAR AND THIS RECORD PICKS NEITHER: both are retrospective compilers at second hand, sixty and ninety years after the fact, and nothing this project holds adjudicates between them. NEITHER TOUCHES THE VALUE ABOVE, which is his FIRST arrival — 31 October or 1 November 1818, Hurlbut's own sentence — and the two questions are different: when he first came, and when he stopped leaving. The residence claim for 1835 is unchanged and rests where it always did, on the trusteeship and the town's own rolls. WHAT A LATER RUN NEEDS: a dated primary record — a deed, a poll, a tax entry or a letter — placing him continuously at Chicago from one of the two years, at which point one of these two sentences can be preferred in writing and this paragraph replaced. A DATED PRESENCE IN THE TOWN, AND NOT AN ARRIVAL. Moses and Kirkland, History of Chicago, Illinois, vol. 2 (1895), printed page 348 (claim bk_mose2_018; data/research/books/claims/moses_kirkland_history_of_chicago_v2.json) names the eleven gentlemen who organised the first Episcopal congregation in the city in 1834, eight of them its vestry. This man is among them, so he was at Chicago in 1834. THE YEAR IS LATER THAN THIS FIELD AND THEREFORE BOUNDS NOTHING: it corroborates a man already here and is recorded for that. THE GRADE CEILING IS THE SOURCE'S AND NOT THIS FIELD'S. Moses and Kirkland, History of Chicago, Illinois (1895) is a compiler sixty years after the fact; every claim taken off it is transcription_mediated and none is scan_verified, so nothing drawn from it is graded above `inferred` (the rule T-1322 set for the settlers table, kept here). The compiler writes \"Gurdon S. Hubbard\" against this layer's Gurdon Saltonstall Hubbard, initial for initial on an uncommon given name, and the claim's own note records that this is the only one of the volume's four pre-1836 Hubbard passages naming him rather than Harriette L. Hubbard. This project holds five Hubbards and the forename reaches one. A man here since 1818 is not dated by a sighting in 1834.",
   "precision": "either_of_two_days"
  },
  "party_size_on_arrival": {
@@ -27,9 +30,20 @@
   "note": "THE FIELD IS A CHAIN, AND MONTREAL ALONE WOULD HAVE BEEN THE WRONG END OF IT. Hurlbut's Chicago Antiquities (1881) pages 28-36 gives both ends in one sentence: \"He was born in Windsor, Vt., in 1802 and parents were Elizur and Abigail (Sage) Hubbard\", and \"Mr. Hubbard left Montreal, were his parents then lived, May 13, 1818\" (bk_afc_004). Montreal is where his PARENTS were living in 1818 and the place he departed from as an indentured clerk of sixteen; it is a waypoint on the way here, not the place he came from, and this record declines to write it on its own. The compound form is this dataset's own idiom for the case and not an invention for this card: hh_maxwell_philip carries \"Sackett's Harbor, New York; born at Guilford, Vermont\", hh_dole_george_w \"Connecticut, by way of Detroit\", and hh_egan_william_b traces nine places in one value under a note that says in terms that \"'origin' for this population is often a chain\". WHAT THE SECOND SOURCE ADDS, AND WHAT IT DOES NOT. The Calumet Club's register of 27 May 1879 prints this man's own entry with a birthplace column - \"Hubbard, Gurdon S. | 1818, Oct. 1, | Windsor, Vt. | 76 | 243 White St., Chicago.\" (os1879r078, data/research/old_settlers/people.json, read off the page images of Early Chicago pages 84-90). So Windsor stands on two independent and differently mediated readings - a compiler's prose of 1881 and the man's own hand in 1879 - which is why it leads the value. It does not lift the grade: under the ratified ladder (T-0513) a later recollection corroborates and dates and cannot lift a rung by itself, and the Hurlbut sentence is the rung-4 compiler's layer that data/sources/chicago_antiquities_american_fur_co.json forbids reading as period evidence. Two recollections agreeing is still two recollections. WHAT IS NOT WRITTEN HERE. Hubbard did not arrive as a household at all - he came in 1818 as an American Fur Company clerk, seventeen years before the scene, and whatever household stands under his name in 1835 is not the one that left Montreal - so `party_size_on_arrival` and `reason_for_coming` are untouched and stay unattested. THE PARENTS THE SAME SENTENCE NAMES ARE WRITTEN HERE, IN THIS NOTE, AND THAT IS THE WHOLE OF WHERE THEY GO. Elizur and Abigail (Sage) Hubbard were living in Montreal in 1818, were never in this scene, and have no household and no person id in this dataset. T-0849 asked whether `kin[]` should grow a shape for a relative outside the town - a row with `household` null and the source's own string in its place - and ruled on 2026-09-10 that it should not: every rule `kin[]` enforces is a rule about the far end, so a row with no far end is a kin row with the checked part removed, and what is left is a graded name, which is a note. So they are a note, at the grade and on the citation this field already carries - inferred, on Hurlbut's rung-4 compiler prose - which is the same footing a kin row could have claimed and no more. This is the idiom the `birth_year` note below uses for the birthplace and hh_harmon_elijah_d and hh_porter_jeremiah use for theirs; docs/PROVENANCE.md states it as a general rule and tools/validate.py refuses the null-household row in the ruling's own words. (T-0753 wrote this field; T-0849 closed the clause it stopped at, closing what T-0594's acceptance held out.)"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The carrying trade at the head of the lake",
   "confidence": "reconstructed",
-  "note": "Not attested in anything this project holds."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as packer, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_recorded_trade",
+   "note": "arrival_fill.trade_reasons.the_carrying_trade — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -52,6 +66,15 @@
   ],
   "note": "A trustee through 1834-35 and a Chicago resident for the rest of his long life."
  },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-1171",
+  "household_type": "family_with_children",
+  "size_drawn": 3,
+  "kin_seated": 3,
+  "seed": "hh_hubbard_gurdon:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
+ },
  "persons": [
   {
    "id": "hubbard_gurdon",
@@ -59,6 +82,18 @@
    "relationship": "head",
    "grade": "attested",
    "ladder_rule": "G1a",
+   "associated_with": [
+    {
+     "kind": "land_purchased",
+     "place_or_structure_id": "school_section",
+     "resolves_to": "tract",
+     "from": "1833-10-22",
+     "to": null,
+     "tier": "inferred",
+     "source_id": "isa_public_domain_land_tract_sales",
+     "note": "GROUND HE BOUGHT, WHICH IS NOT GROUND HE STOOD ON — the rung is `tract` for that reason, and `land_purchased` is in neither the home kinds nor the work kinds because a holding is not a place a man was. The federal tract-sale register carries 1 row(s) — ls0239 — to this purchaser, read as 'HUBBARD GURDON S', sorted onto school_section by tools/sort_land_sales_onto_tracts.py and covering about 3.07 acre(s) of it. THE TIER IS INFERRED AND THE TWO HALVES DIFFER: the purchase is documented — the register is a public record and states it — while the tie between that purchaser and THIS card is an identity ruling, upheld under T-0990 on 2026-09-10 by the rule 'HUBBARD GURDON S matches Gurdon Saltonstall Hubbard: the forename names Gurdon Saltonstall Hubbard of the 5 people of this surname, and the forename agrees in full.'. The weaker half sets the tier. `to` is null because the register records a sale and not a tenure."
+    }
+   ],
    "sex": "male",
    "birth_year": {
     "value": 1802,
@@ -78,9 +113,41 @@
     "note": "A forwarding and packing merchant. data/structures/old_bank_building.json records that he packed there in the 1834 season; Andreas's chapter heading calls him 'Gurdon S. Hubbard, the oldest living resident of Chicago' and he supplied Andreas with the Ramsey Crooks correspondence on the early fur trade.",
     "derived_from": "roles",
     "roles_at_scene_date": [
-     "packer"
+     "packer",
+     "forwarding_and_commission",
+     "merchant"
     ]
    },
+   "workplaces": [
+    {
+     "business_id": "biz_hubbard_co",
+     "business_name": "Hubbard & Co.",
+     "role": "partner",
+     "printed_as": "Gurdon S. Hubbard",
+     "from": "1834-07-02",
+     "to": "1835-08-29",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card hubbard_gurdon (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_american_1835_06_20#c013",
+      "chicago_american_1835_06_27#c012",
+      "chicago_american_1835_07_11#c006",
+      "chicago_american_1835_08_29#c004",
+      "chicago_democrat_1834_07_02#c045",
+      "chicago_democrat_1834_07_02#c048",
+      "chicago_democrat_1834_08_06#c008",
+      "chicago_democrat_1834_08_27#c008",
+      "chicago_democrat_1834_09_03#c018",
+      "chicago_democrat_1834_09_03#c024",
+      "chicago_democrat_1834_10_15#c005",
+      "chicago_democrat_1835_05_20#c023",
+      "chicago_democrat_1835_06_17#c009",
+      "chicago_democrat_1835_07_01#c016"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "andreas_1884_v1",
     "calumet_club_early_chicago_1879",
@@ -91,6 +158,201 @@
     "fergus_chicago_directory_1843",
     "isa_public_domain_land_tract_sales",
     "norris_directory_1844"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "property",
+     "list": "tax_1833",
+     "list_title": "Tax list of the Town of Chicago, 1833",
+     "record_id": "tax_1833_046",
+     "as_read": "Hubbard, Gurdon S.",
+     "locator": "voter_lists_1833_1835.txt line 98",
+     "describes_date": "1833",
+     "date_confidence": "documented",
+     "precision": "year",
+     "reaches": "1833-12-31",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'Gurdon S. Hubbard' against resident 'Gurdon Saltonstall Hubbard'",
+     "identity_rule": "one resident of the surname 'Hubbard' agrees with the entry's forenames; 5 bearer(s) of the surname were considered.",
+     "note": "PROPERTY, NOT PRESENCE (T-1117). Tax list of the Town of Chicago, 1833 names the owners of ground inside the town, resident or not — its entry 110 is Alexander Wolcott, who had been dead since 25 October 1830 — so this row bounds what this person was assessed for and says nothing about where the person was. tools/assert_tax_roll_ruling.py holds that ruling on the two readings it rests on. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Hubbard' agrees with the entry's forenames; 5 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'Gurdon S. Hubbard' against resident 'Gurdon Saltonstall Hubbard'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "presence",
+     "list": "poll_1834",
+     "list_title": "Election returns — poll list of 1834, filed 11 August 1834",
+     "record_id": "poll_1834_055",
+     "as_read": "Hubbard, G. S.",
+     "locator": "voter_lists_1833_1835.txt line 224",
+     "describes_date": "1834-08-11",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-11",
+     "here_by": "1834-08-11",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'G. S. Hubbard' against resident 'Gurdon Saltonstall Hubbard'",
+     "identity_rule": "one resident of the surname 'Hubbard' agrees with the entry's forenames; 5 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Election returns — poll list of 1834, filed 11 August 1834 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1834-08-11. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Hubbard' agrees with the entry's forenames; 5 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'G. S. Hubbard' against resident 'Gurdon Saltonstall Hubbard'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls1236",
+     "as_read": "HUBBARD GORDON S",
+     "locator": "purchase 0364324, volume L5A page 006, lot 7 block 19 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD GORDON S matches Gurdon Saltonstall Hubbard: the forename names Gurdon Saltonstall Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD GORDON S to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls1237",
+     "as_read": "HUBBARD GORDON S",
+     "locator": "purchase 0364325, volume L5A page 006, lot 1 block 19 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD GORDON S matches Gurdon Saltonstall Hubbard: the forename names Gurdon Saltonstall Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD GORDON S to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls1238",
+     "as_read": "HUBBARD GORDON S",
+     "locator": "purchase 0364326, volume L5A page 006, lot 2 block 19 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD GORDON S matches Gurdon Saltonstall Hubbard: the forename names Gurdon Saltonstall Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD GORDON S to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls1239",
+     "as_read": "HUBBARD GORDON S",
+     "locator": "purchase 0364327, volume L5A page 006, lot 8 block 19 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD GORDON S matches Gurdon Saltonstall Hubbard: the forename names Gurdon Saltonstall Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD GORDON S to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0239",
+     "as_read": "HUBBARD GURDON S",
+     "locator": "purchase 0370346, volume 818 page 010, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD GURDON S matches Gurdon Saltonstall Hubbard: the forename names Gurdon Saltonstall Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD GURDON S to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_08_13#c001",
+     "claim_kind": "event",
+     "as_printed": "bard, J. K. Boyer, Ebenezer G",
+     "role": "town trustee",
+     "locator": "chicago_democrat_1834_08_13 page 2 column 5",
+     "describes_date": "1834-08-13",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-13",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_gordon_s_hubbard, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-13 names 'bard, J. K. Boyer, Ebenezer G' in the claim read as chicago_democrat_1834_08_13#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_11_19#c001",
+     "claim_kind": "event",
+     "as_printed": "G. 8. Hubbard",
+     "role": "committee member",
+     "locator": "chicago_democrat_1834_11_19 page 3 column 2",
+     "describes_date": "1834-11-19",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-19",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_g_s_hubbard, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-19 names 'G. 8. Hubbard' in the claim read as chicago_democrat_1834_11_19#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "ELECTED A TRUSTEE OF THE TOWN AT THE SECOND ELECTION, 11 AUGUST 1834 - 'J. H. Kinzie, G. S. Hubbard, E. Goodrich, J. K. Boyer, and John S. C. Hogan were chosen Trustees' - so he is on the board through the municipal year that ends in the scene month. He is also the man whose 1881 correction of the Wau-Bun view of Fort Dearborn supplies four of the constraints this project's fort dossier rests on: that the enclosure ran 'nearly north and south, east and west', that the north picket line stood nowhere more than 80 ft from the water, that the ground at the fort was 'not over eight feet above the River at its lowest stage', and that the north and south gates were on one sight line. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Hubbard, Gurdon S.” (tax_1833_046, line 98); Election returns — poll list of 1834, filed 11 August 1834 — “Hubbard, G. S.” (poll_1834_055, line 224). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Hubbard' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Hubbard, Gurdon S. | 1818, Oct. 1, | Windsor, Vt. | 76 | 243 White St., Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 5 times, as “HUBBARD GURDON S”, “HUBBARD GORDON S”, 1830-09-27 to 1833-10-22: 4 lots in the platted town — lot 1 of block 19 in the town the register codes CHIOT (L1BL19CHIOT, as printed); lot 2 of block 19 in the town the register codes CHIOT (L2BL19CHIOT, as printed); lot 7 of block 19 in the town the register codes CHIOT (L7BL19CHIOT, as printed); lot 8 of block 19 in the town the register codes CHIOT (L8BL19CHIOT, as printed) and 1 parcel of the school section — BL52 of the school section (sec 16 T39N R14E), as read, 2.90 acres stated in all, for $293.00 (ls0239, ls1236, ls1237, ls1238, ls1239). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $133.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HUBBARD GURDON S matches Gurdon Saltonstall Hubbard: the forename names Gurdon Saltonstall Hubbard of the 5 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Gurdon S. Hubbard” (33S7-9YYJ-W6, printed page 232, line 17). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
@@ -242,14 +504,298 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "merchant",
+     "kind": "trade",
+     "as_printed": "merchant",
+     "from": "1834-08-13",
+     "to": "1834-08-13",
+     "precision": "day",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_gordon_s_hubbard",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-08-13 to 1834-08-13, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "forwarding_and_commission",
+     "kind": "trade",
+     "as_printed": "commission and forwarding merchant",
+     "from": "1835-07-01",
+     "to": "1835-07-11",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "claim": "person_gurdon_s_hubbard",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-07-01 to 1835-07-11, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299).",
+     "premises": "own_premises"
+    },
+    {
+     "role": "merchant",
+     "kind": "trade",
+     "as_printed": "merchant",
+     "from": "1835-07-01",
+     "to": "1835-07-11",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "claim": "person_gurdon_s_hubbard",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-07-01 to 1835-07-11, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299).",
+     "premises": "own_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "railroad commissioner",
+     "from": "1835-07-01",
+     "to": "1835-07-11",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "claim": "person_gurdon_s_hubbard",
+     "place": "not_stated",
+     "employer_or_body": "state_of_illinois",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-07-01 to 1835-07-11, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299).",
+     "premises": null
+    },
+    {
+     "role": "forwarding_and_commission",
+     "kind": "trade",
+     "as_printed": "commission and forwarding merchant",
+     "from": "1835-08-05",
+     "to": "1835-08-05",
+     "precision": "day",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_hubbard_gurdon_s",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-08-05 to 1835-08-05, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "own_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "forwarding and commission, South Water",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e1349",
+     "place": "near Clark, res 300 Indiana, near Rush",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
+    },
+    {
+     "role": "forwarding_and_commission",
+     "kind": "trade",
+     "as_printed": "forwarding and commission merchant",
+     "from": "1844",
+     "to": "1844",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "claim": "n1844_e0915",
+     "place": "S. Water near Clark",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1844 DIRECTORY, 9 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "chicago_antiquities_american_fur_co",
+     "calumet_club_early_chicago_1879"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   }
+  },
+  {
+   "id": "rc_hubbard_gurdon_wife",
+   "name": "Esther Hubbard",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30'. Never above the head's own band: the spacing rule of the household model, which the 1840 adult sex ratio argues for and no source states."
+    },
+    "seed": "hh_hubbard_gurdon:wife_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Esther Hubbard",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_hubbard_gurdon:wife_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Gurdon Saltonstall Hubbard's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 3 people from the 1840 city's size histogram, at the head's own band and not at the mean. A house of 3 with a head of 30 and over is a married house, and this is its wife."
+   },
+   "seed": "hh_hubbard_gurdon:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_hubbard_gurdon_child_1",
+   "name": "John Hubbard",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "10-14",
+    "low": 10,
+    "high": 14,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_hubbard_gurdon:child_1_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "John Hubbard",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_hubbard_gurdon:child_1_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Gurdon Saltonstall Hubbard's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 3 people; the head and his wife seated, 1 of them are children."
+   },
+   "seed": "hh_hubbard_gurdon:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,

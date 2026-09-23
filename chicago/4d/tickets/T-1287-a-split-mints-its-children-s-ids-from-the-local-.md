@@ -1,7 +1,7 @@
 ---
 id: T-1287
 title: A split mints its children's ids from the local maximum, so two runs splitting one parent mint the SAME ids for DIFFERENT tickets and the parent's claim lock covers neither
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: false
@@ -9,12 +9,12 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-17
-closed: null
-pr: null
+closed: 2026-09-18
+pr: 1459
 claimed_by: null
 blocked_on: null
 needs_bake: false
-closed_at: null
+closed_at: 2026-09-18T17:23:00.917Z
 claimed_run: null
 ---
 
@@ -70,3 +70,60 @@ same parent, no shared `dev`, both splitting, and assert that today they mint th
 Then implement one of the two fixes above and assert the second run is refused. State in the
 ticket which fix was taken and why. The existing `test_ticket_claim_split.mjs` sandbox with
 its real bare remote is the right harness.
+
+
+---
+
+## Done — the id is reserved on the remote, not scanned for
+
+**The ticket's own proposal was to land a split before any child is worked.** That is
+sound for splits and does nothing for `new`, and by 2026-09-18 `new` was the bigger
+source: of five collisions that day, **two came from `split` and three from `new` or
+`restamp`**. So the fix is at the mint rather than at the merge.
+
+### What was actually wrong, measured
+
+`nextIdNum` reads the highest id on every origin ref and adds one. **That scan works** —
+1,066 refs in 8 s, and it does see ids sitting on other runs' branches. I assumed it was
+blind and was wrong; it is not the fault.
+
+The fault is one line further back:
+
+> **A minted id is invisible to every other run until the branch is pushed.**
+
+This session renumbered a ticket to T-1324 and pushed twenty minutes later; #1455 minted
+**and merged** its own T-1324 inside that window. No scan could have seen the first — it
+existed on one disk. And the fifth collision of the day was *created* by a careful attempt
+to dodge the fourth by choosing an id above everything visible. "Above everything visible"
+is read-then-write, and any run minting in between wins.
+
+### The change
+
+Minting takes a lock, the same compare-and-swap `claim` has used since T-1145: push an
+empty commit to `refs/heads/idlock/t-NNNN` with a lease saying **the ref must not exist**.
+Git rejects the loser atomically and the loser steps to the next number. `new`, `split`
+and `restamp` all go through it.
+
+**Offline still mints.** An unreachable remote falls back to the scan and says exactly what
+was given up; a *rejection* is never mistaken for an unreachable remote. The test suite
+runs both paths.
+
+**The markers are swept by possession, not by age** — a claim is a lease that expires with
+its run, but a reservation must hold from the mint until the ticket reaches `dev`, which
+can be hours and several merges. `claims --sweep` deletes an id lock once the tree carries
+that ticket.
+
+### Proof
+
+`test_ticket_claim_split.mjs` cases 21–23: two clones of one bare remote mint at the same
+moment and get **T-1146 and T-1147**, both reserved on the remote **before either branch is
+pushed** — the exact window that defeated the scan. Under the old code both took T-1146.
+
+### The day this was measured
+
+Five collisions on 2026-09-18, across #1449, #1452, #1454 and #1455. One of them —
+`handed_to_the_arrival_pass`, 21 book units from Hubbard, Andreas, Moses and Kirkland —
+did not dangle when its id moved: it **silently retargeted** onto a real, open, unrelated
+ticket, with every gate green. That is the cost this was always about. A renumber that
+misses one hand-authored file does not fail loudly; it points 21 research units at the
+wrong owner and says nothing.

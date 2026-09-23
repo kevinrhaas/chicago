@@ -105,7 +105,7 @@
       "note": "Juliette Kinzie, 1831: 'Beyond the parade-ground, which extended south of the pickets, were the company gardens, well filled with currant-bushes and young fruit-trees.' NOTHING OF THE PLANTING IS BUILT. The fence is modelled and the plot inside it is empty ground, because currant bushes and young fruit trees are flora and this project's flora layer is driven by data/flora/, which has no cultivated zone and no garden species. GUARD ON THE CITATION: the often-quoted 'The ground on the south side was enclosed and cultivated as a garden' is the FIRST fort - its passage ends 'Such was the old Fort previous to 1812' - and this record does not rest on it. Kinzie's sentence is about the fort she was living in, in 1831."
     },
     "function": {
-      "value": "company gardens",
+      "value": "company_gardens",
       "confidence": "attested",
       "sources": [
         "harrison_1830_river_mouth",

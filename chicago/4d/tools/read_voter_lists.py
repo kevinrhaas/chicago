@@ -50,6 +50,10 @@ import glob
 import json
 import re
 import sys
+from pathlib import Path as _ToolsPath
+
+sys.path.insert(0, str(_ToolsPath(__file__).resolve().parent))
+from reconstructed_person import is_reconstructed  # noqa: E402
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -253,6 +257,11 @@ def residents():
     for path in sorted(glob.glob(str(HOUSEHOLDS / "*.json"))):
         doc = load(Path(path))
         for person in doc.get("persons") or []:
+            # T-1171: a person the reconstruction programme DREW is not a name any source printed.
+            # Matching one to a printed name would be this project reading its own invention
+            # back as evidence. reconstructed_person.py holds the rule.
+            if is_reconstructed(person):
+                continue
             name = (person.get("name") or "").strip()
             if not name:
                 continue

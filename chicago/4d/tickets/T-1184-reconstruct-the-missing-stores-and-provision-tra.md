@@ -1,7 +1,7 @@
 ---
 id: T-1184
 title: Reconstruct the missing stores and provision trades: dry goods, groceries, hardware, drug, book and provision houses, packers and the market, to the order book's quota, each with a period firm style, a reconstructed proprietor household and a location class
-state: open
+state: done
 epic: META
 requested_by: owner
 seen: true
@@ -9,13 +9,13 @@ effort: M
 legacy_id: null
 parent: null
 opened: 2026-09-16
-closed: null
-pr: null
-claimed_by: null
+closed: 2026-09-19
+pr: 1531
+claimed_by: run 9/19/2026, 11:47:43 AM CT
 blocked_on: null
 needs_bake: false
-closed_at: null
-claimed_run: null
+closed_at: 2026-09-19T17:53:22.334Z
+claimed_run: https://github.com/kevinrhaas/polecat-platform/actions/runs/35455936256
 ---
 
 The owner, 2026-09-17: *"A reconstruction business will all have reconstructed real sounding

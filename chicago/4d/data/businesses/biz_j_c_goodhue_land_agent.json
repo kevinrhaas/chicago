@@ -1,0 +1,84 @@
+{
+  "id": "biz_j_c_goodhue_land_agent",
+  "register_id": "business_j_c_goodhue_land_agent",
+  "name": "J. C. Goodhue, land agent",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "leasing town lots",
+  "occupation": "land_agent",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Goodhue, J. C.",
+      "person_id": null,
+      "register_person_id": "person_goodhue_j_c",
+      "role": "proprietor",
+      "from": "1835-08-19",
+      "to": "1835-08-19",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_goodhue_j_c with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1835_08_19#c010"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-08-19",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-08-19",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-08-19, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-08-19",
+    "last_issue": "1835-08-19",
+    "copy_dates": [
+      "1835-08-08"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_08_19#c010"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": true
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

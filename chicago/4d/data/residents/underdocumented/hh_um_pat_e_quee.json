@@ -1,0 +1,108 @@
+{
+ "id": "hh_um_pat_e_quee",
+ "name": "Pat E Quee — of the company the 1832 roll heads INDIAN",
+ "division": "unplaced",
+ "head": "pat_e_quee",
+ "source_pass": "reconstructed_underdocumented",
+ "underdocumented": {
+  "ticket": "T-1376",
+  "parent": "T-1177",
+  "stage": "underdocumented",
+  "sub_stage": "native_and_metis",
+  "class": "R6_native_metis_black",
+  "rule": "underdocumented_r6_company_roll_names_the_man",
+  "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_084#0",
+  "name_as_read": "PAT E QUEE",
+  "as_printed": "PAT E QUEE",
+  "company_as_printed": "INDIAN",
+  "place_of_enrollment_as_printed": "CHICAGO",
+  "stands_on": "Enrolled at Chicago in 1832 in the company the Black Hawk War roll heads INDIAN, with no 1835 corroboration and no card. The licence is R3's — the same roll, the same year, the same page — and the twenty men of Kercheval's company the town already carries were re-admitted under it.",
+  "withdrawn_if": "a ruling that this name is a duplicate of a card the town already holds; the retirement runs through tools/consolidate_town_cards.py, never by hand"
+ },
+ "arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested, and the question is the wrong one. This is the country these people were already in; an enrollment dates an appearance and the roll records no arrival because there was none to record."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "THE ROLL NAMES NO NATION. It heads the company INDIAN and writes nothing further, so no nation, band or village is written here. The Potawatomi, Ottawa and Ojibwe of this country were three peoples and a united band of them lived at the forks; choosing one for this man would invent the single fact the record withholds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested: the roll gives a place of enrollment and no dwelling. `CHICAGO` in that column is where the man was enrolled, which is not an address and is not a residence."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "model",
+   "id": "persistence_1835",
+   "note": "The roll dates this name at 1832, 3.50 years before the scene date. The persistence model gives 0.789 for that lag and the seeded draw reads present. It is the same model, the same lag and the same draw that priced the twenty men of Kercheval's company the town already carries."
+  },
+  "seed": "hh_um_pat_e_quee:persistence",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "any source naming this person at Chicago on or after 1 July 1835"
+  }
+ },
+ "persons": [
+  {
+   "id": "pat_e_quee",
+   "name": "Pat E Quee",
+   "name_as_read": "PAT E QUEE",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "note": "READ OFF THE ROLL'S OWN SUBJECT and not drawn from the sex model: this is a militia enrollment list, and the 1832 Illinois muster enrolled men. It is the one attribute the document settles, and no age is written beside it because the same document settles nothing about that."
+   },
+   "basis": {
+    "kind": "rule",
+    "id": "underdocumented_r6_company_roll_names_the_man",
+    "note": "Enrolled at Chicago in 1832 in the company the Black Hawk War roll heads INDIAN, with no 1835 corroboration and no card. The licence is R3's — the same roll, the same year, the same page — and the twenty men of Kercheval's company the town already carries were re-admitted under it."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a second independent source naming this person at Chicago inside the window, or any source that states his nation, band or family — either would carry the card past what the roll alone can hold"
+   },
+   "reconstruction": {
+    "stage": "underdocumented",
+    "sub_stage": "native_and_metis",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "native",
+    "review_required": true,
+    "touches_removal": true
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "No source records an occupation for this person. A militia enrollment is not a trade."
+   },
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "note": "CARDED FROM THE BORDERLINE ROSTER'S R6 (T-1376, stage `underdocumented`). Enrolled at Chicago in 1832 in the company the Black Hawk War roll heads INDIAN, with no 1835 corroboration and no card. The licence is R3's — the same roll, the same year, the same page — and the twenty men of Kercheval's company the town already carries were re-admitted under it. The roll prints him as `PAT E QUEE`, company `INDIAN`, enrolled at `CHICAGO`. The research READ this name and WITHHELD it, and that refusal is not overturned: this record is a reconstruction of what the town looks like if the name is admitted at the limit of its own evidence, and it says so on its face. The reading, the source and the refusal stand at `civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_084#0` in data/reconstruction/1835_borderline_roster.json. REVIEW REQUIRED: this card is a record of a Native person at Chicago in the three years of the removal, and AGENTS.md's standing constraint holds it for review by Native scholars or community organisations before any scene carrying it may be marked released. No figure is drawn (L1).",
+   "resident_subtype": "underdocumented_resident"
+  }
+ ],
+ "touches_removal": true,
+ "review_required": true,
+ "research_note": "WRITTEN BY tools/reconstruct_underdocumented.py (T-1376), the `native_and_metis` half of the `underdocumented` stage of the 1835 resident reconstruction programme, under the owner's ruling of 2026-09-17 recorded in AGENTS.md. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a card written here lives beside the re-admissions and is overlaid onto the scene by tools/compile_scene.py. REVIEW REQUIRED AND TOUCHES REMOVAL, both true, for the subject this record is about: a Native man at Chicago in 1832, three years before the removal of the Potawatomi from this place, inside the project's first target year. The review AGENTS.md commits to has not been held; until it is, no scene carrying this card may be marked released. docs/RESEARCH/native_and_metis_1835.md lists every source read and what is still owed. docs/LIBERTIES.md carries the invention."
+}

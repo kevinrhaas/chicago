@@ -1,0 +1,3479 @@
+{
+  "$schema_note": "DERIVED, and re-derived by the gate. Every number in this file is computed by tools/cut_school_section_tier.py from committed inputs — the block grid in data/traces/vectors/school_section_blocks_1834.json, the October 1833 register in data/research/land_sales/entries.json, and the committed heightfield — and nothing in it is authored. tools/cut_school_section_tier.py --check fails if the committed file is not what those inputs re-derive.",
+  "id": "school_section_tier_lots_1834",
+  "plat": "wright_1834_school_section",
+  "ticket": "T-1477",
+  "parent_ticket": "T-1456",
+  "generated_by": "tools/cut_school_section_tier.py",
+  "reads": [
+    "data/traces/vectors/school_section_blocks_1834.json",
+    "data/research/land_sales/entries.json",
+    "data/traces/vectors/school_section_tier_skew_1834.json",
+    "data/terrain/epochs/e1834_harbor_cut"
+  ],
+  "what_the_tier_is": "The row of thirteen blocks between MADISON and MONROE, the northernmost of the School Section's twelve. Madison is the Town of Chicago's own south line, so this tier is the ground a visitor standing at the south edge of the town looks across. It is the only tier of Section 16 a 1835 scene reaches, which is why it is cut first and alone.",
+  "why_this_file_and_not_thompson_lots": "tools/generate_plat_lots.py cuts a block between two committed STREET centrelines. The School Section's faces are not streets of that table: they are the ruled lines of Wright's 1834 grid, seated by tools/generate_school_section_grid.py and anchored on the PLSS section rather than on any of this project's corridors. The block boundaries are already committed by that module and are quoted here unchanged, so this cut divides ground it does not draw.",
+  "where_the_lot_count_comes_from": {
+    "source": "data/research/land_sales/entries.json",
+    "record": "the Illinois State Archives' tract register of the October 1833 school-section sale, 337 rows of type_of_sale SC in section 16 of T39N R14E",
+    "read_as": "the highest lot number the register prints in each block, after refusing any block whose witnessed numbers are not a contiguous run from 1",
+    "blocks_the_register_cuts_into_eight": [
+      24,
+      25,
+      48,
+      49,
+      81,
+      94,
+      95,
+      118,
+      119
+    ],
+    "blocks_the_register_cuts_into_four": [
+      72,
+      80
+    ],
+    "blocks_the_register_never_names": [
+      1,
+      142
+    ],
+    "the_four_lot_blocks_are_the_river_s": "Blocks 72 and 80 are the two of this tier nearest the South Branch, and they are the two the register cuts into four rather than eight. The committed heightfield agrees about which ground that is without sharing any arithmetic with the register: block 80 is the only block of the thirteen with a lattice sample below datum, and nearly half of it is. This file records the agreement; it does not claim to know the seller's reason."
+  },
+  "module": {
+    "module": "original_town_thompson_1830, carried",
+    "division": "two rows of lots either side of a mid-block east-west alley, fronting Madison on the north and Monroe on the south",
+    "alley_ft": 18.0,
+    "lots_per_face": [
+      2,
+      4
+    ],
+    "lot_frontage_ft": {
+      "min": 75.4,
+      "max": 146.8
+    },
+    "lot_depth_ft": {
+      "min": 175.4,
+      "max": 175.4
+    },
+    "why_this_module": "Wright rules the section into blocks and letters their numbers; he does not rule lot lines inside them. So the division cannot be read off the sheet, and what is applied instead is the module this project already cuts the Original Town on — an 18 ft alley centred in the block, lots fronting the east-west streets. It is the town's own practice, half a mile away and five years earlier, and it is `inferred` for exactly that reason.",
+    "lot_numbering": "conjectural, and a grade below the North Division tier's. Nothing places a School Section lot number on the ground: the register prints numbers and no positions, and the sheet letters none. The run adopted is the one block of the Original Town whose lot numerals ARE read — block 18, north row 4 3 2 and south row 5 6 7, docs/RESEARCH/clark_reach_bulge_1834.md section 8 — so the north row runs 4-3-2-1 west to east and the south row 5-6-7-8 west to east. A convention carried from another plat."
+  },
+  "level_because_the_tilt_is_the_frame_s": {
+    "ew_median_skew_deg": 0.573,
+    "is_a_rigid_rotation": false,
+    "why": "The tier is drawn level because the committed block grid draws it level, and T-0959's re-measurement is the reason that stands: it found Section 16's own PLSS boundaries — lines that run true east-west on the ground by definition — tilting with the interior ones. A tilt the cardinal control carries belongs to the registered frame and not to Wright's survey, so it is not put into the lots."
+  },
+  "acreage": {
+    "blocks_with_a_whole_block_acreage": 74,
+    "register_over_derived_median": 1.2077,
+    "register_over_derived_min": 0.7209,
+    "register_over_derived_max": 3.2612,
+    "within_five_per_cent": 9,
+    "not_used": "The cut takes the register's COUNT and not its acreage. A column that runs from three quarters of a block to three and a quarter of one is not measuring what this grid draws, and reading it as if it were would make the grid look checked when it is not."
+  },
+  "blocks": [
+    {
+      "id": "blk_school_section_tier_1",
+      "school_section_block_number": 1,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -531.25
+        ],
+        [
+          -657.13,
+          -531.25
+        ],
+        [
+          -657.13,
+          -643.64
+        ],
+        [
+          -757.43,
+          -643.64
+        ]
+      ],
+      "area_m2": 11272.7,
+      "area_acres": 2.79,
+      "frontage_m": 100.3,
+      "frontage_ft": 329.1,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 440,
+        "off_the_modelled_field": 220,
+        "below_datum": 0,
+        "min_m": 1.31,
+        "max_m": 1.31,
+        "mean_m": 1.31,
+        "reading": "0 sample(s) below datum and 220 off the modelled field"
+      },
+      "lots_per_face": 0,
+      "lots": [],
+      "subdivision_withheld": "The sheet letters *Reserved* across this block and the October 1833 sale never names it — the two records agree, and neither of them cuts it into lots. It is carried here whole, because the tier's ground is the tier's ground whether it sold or not, and a reserved block that vanished from the file would read as ground nobody has looked at.",
+      "confidence": {
+        "boundary": "inferred",
+        "lot_lines": "none — the block is not divided",
+        "lot_numbers": "none — the block is not divided"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_24",
+      "school_section_block_number": 24,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -531.25
+        ],
+        [
+          -516.51,
+          -531.25
+        ],
+        [
+          -516.51,
+          -643.64
+        ],
+        [
+          -637.02,
+          -643.64
+        ]
+      ],
+      "area_m2": 13544.1,
+      "area_acres": 3.35,
+      "frontage_m": 120.51,
+      "frontage_ft": 395.4,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 528,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 1.31,
+        "max_m": 1.31,
+        "mean_m": 1.31,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 4,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          -637.02,
+          -584.7
+        ],
+        [
+          -516.51,
+          -584.7
+        ],
+        [
+          -516.51,
+          -590.19
+        ],
+        [
+          -637.02,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 4,
+          "frontage_m": 30.13,
+          "frontage_ft": 98.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.398,
+          "polygon": [
+            [
+              -637.02,
+              -531.25
+            ],
+            [
+              -606.89,
+              -531.25
+            ],
+            [
+              -606.89,
+              -584.7
+            ],
+            [
+              -637.02,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 5,
+          "frontage_m": 30.13,
+          "frontage_ft": 98.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.398,
+          "polygon": [
+            [
+              -637.02,
+              -590.19
+            ],
+            [
+              -606.89,
+              -590.19
+            ],
+            [
+              -606.89,
+              -643.64
+            ],
+            [
+              -637.02,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 3,
+          "frontage_m": 30.13,
+          "frontage_ft": 98.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.398,
+          "polygon": [
+            [
+              -606.89,
+              -531.25
+            ],
+            [
+              -576.76,
+              -531.25
+            ],
+            [
+              -576.76,
+              -584.7
+            ],
+            [
+              -606.89,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 6,
+          "frontage_m": 30.13,
+          "frontage_ft": 98.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.398,
+          "polygon": [
+            [
+              -606.89,
+              -590.19
+            ],
+            [
+              -576.76,
+              -590.19
+            ],
+            [
+              -576.76,
+              -643.64
+            ],
+            [
+              -606.89,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 30.13,
+          "frontage_ft": 98.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.398,
+          "polygon": [
+            [
+              -576.76,
+              -531.25
+            ],
+            [
+              -546.64,
+              -531.25
+            ],
+            [
+              -546.64,
+              -584.7
+            ],
+            [
+              -576.76,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 7,
+          "frontage_m": 30.13,
+          "frontage_ft": 98.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.398,
+          "polygon": [
+            [
+              -576.76,
+              -590.19
+            ],
+            [
+              -546.64,
+              -590.19
+            ],
+            [
+              -546.64,
+              -643.64
+            ],
+            [
+              -576.76,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 30.13,
+          "frontage_ft": 98.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.398,
+          "polygon": [
+            [
+              -546.64,
+              -531.25
+            ],
+            [
+              -516.51,
+              -531.25
+            ],
+            [
+              -516.51,
+              -584.7
+            ],
+            [
+              -546.64,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 8,
+          "frontage_m": 30.13,
+          "frontage_ft": 98.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.398,
+          "polygon": [
+            [
+              -546.64,
+              -590.19
+            ],
+            [
+              -516.51,
+              -590.19
+            ],
+            [
+              -516.51,
+              -643.64
+            ],
+            [
+              -546.64,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "count": 8,
+        "note": "The October 1833 register prints lots 1-8 in block 24 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_25",
+      "school_section_block_number": 25,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -531.25
+        ],
+        [
+          -390.04,
+          -531.25
+        ],
+        [
+          -390.04,
+          -643.64
+        ],
+        [
+          -496.4,
+          -643.64
+        ]
+      ],
+      "area_m2": 11953.8,
+      "area_acres": 2.95,
+      "frontage_m": 106.36,
+      "frontage_ft": 349.0,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 462,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 1.31,
+        "max_m": 1.31,
+        "mean_m": 1.31,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 4,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          -496.4,
+          -584.7
+        ],
+        [
+          -390.04,
+          -584.7
+        ],
+        [
+          -390.04,
+          -590.19
+        ],
+        [
+          -496.4,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 4,
+          "frontage_m": 26.59,
+          "frontage_ft": 87.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.351,
+          "polygon": [
+            [
+              -496.4,
+              -531.25
+            ],
+            [
+              -469.81,
+              -531.25
+            ],
+            [
+              -469.81,
+              -584.7
+            ],
+            [
+              -496.4,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 5,
+          "frontage_m": 26.59,
+          "frontage_ft": 87.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.351,
+          "polygon": [
+            [
+              -496.4,
+              -590.19
+            ],
+            [
+              -469.81,
+              -590.19
+            ],
+            [
+              -469.81,
+              -643.64
+            ],
+            [
+              -496.4,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 3,
+          "frontage_m": 26.59,
+          "frontage_ft": 87.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.351,
+          "polygon": [
+            [
+              -469.81,
+              -531.25
+            ],
+            [
+              -443.22,
+              -531.25
+            ],
+            [
+              -443.22,
+              -584.7
+            ],
+            [
+              -469.81,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 6,
+          "frontage_m": 26.59,
+          "frontage_ft": 87.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.351,
+          "polygon": [
+            [
+              -469.81,
+              -590.19
+            ],
+            [
+              -443.22,
+              -590.19
+            ],
+            [
+              -443.22,
+              -643.64
+            ],
+            [
+              -469.81,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 26.59,
+          "frontage_ft": 87.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.351,
+          "polygon": [
+            [
+              -443.22,
+              -531.25
+            ],
+            [
+              -416.63,
+              -531.25
+            ],
+            [
+              -416.63,
+              -584.7
+            ],
+            [
+              -443.22,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 7,
+          "frontage_m": 26.59,
+          "frontage_ft": 87.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.351,
+          "polygon": [
+            [
+              -443.22,
+              -590.19
+            ],
+            [
+              -416.63,
+              -590.19
+            ],
+            [
+              -416.63,
+              -643.64
+            ],
+            [
+              -443.22,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 26.59,
+          "frontage_ft": 87.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.351,
+          "polygon": [
+            [
+              -416.63,
+              -531.25
+            ],
+            [
+              -390.04,
+              -531.25
+            ],
+            [
+              -390.04,
+              -584.7
+            ],
+            [
+              -416.63,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 8,
+          "frontage_m": 26.59,
+          "frontage_ft": 87.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.351,
+          "polygon": [
+            [
+              -416.63,
+              -590.19
+            ],
+            [
+              -390.04,
+              -590.19
+            ],
+            [
+              -390.04,
+              -643.64
+            ],
+            [
+              -416.63,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "count": 8,
+        "note": "The October 1833 register prints lots 1-8 in block 25 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_48",
+      "school_section_block_number": 48,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -531.25
+        ],
+        [
+          -277.96,
+          -531.25
+        ],
+        [
+          -277.96,
+          -643.64
+        ],
+        [
+          -369.92,
+          -643.64
+        ]
+      ],
+      "area_m2": 10335.4,
+      "area_acres": 2.55,
+      "frontage_m": 91.96,
+      "frontage_ft": 301.7,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 396,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 1.24,
+        "max_m": 1.31,
+        "mean_m": 1.29,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 4,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          -369.92,
+          -584.7
+        ],
+        [
+          -277.96,
+          -584.7
+        ],
+        [
+          -277.96,
+          -590.19
+        ],
+        [
+          -369.92,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 4,
+          "frontage_m": 22.99,
+          "frontage_ft": 75.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.304,
+          "polygon": [
+            [
+              -369.92,
+              -531.25
+            ],
+            [
+              -346.93,
+              -531.25
+            ],
+            [
+              -346.93,
+              -584.7
+            ],
+            [
+              -369.92,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 5,
+          "frontage_m": 22.99,
+          "frontage_ft": 75.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.304,
+          "polygon": [
+            [
+              -369.92,
+              -590.19
+            ],
+            [
+              -346.93,
+              -590.19
+            ],
+            [
+              -346.93,
+              -643.64
+            ],
+            [
+              -369.92,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 3,
+          "frontage_m": 22.99,
+          "frontage_ft": 75.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.304,
+          "polygon": [
+            [
+              -346.93,
+              -531.25
+            ],
+            [
+              -323.94,
+              -531.25
+            ],
+            [
+              -323.94,
+              -584.7
+            ],
+            [
+              -346.93,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 6,
+          "frontage_m": 22.99,
+          "frontage_ft": 75.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.304,
+          "polygon": [
+            [
+              -346.93,
+              -590.19
+            ],
+            [
+              -323.94,
+              -590.19
+            ],
+            [
+              -323.94,
+              -643.64
+            ],
+            [
+              -346.93,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 22.99,
+          "frontage_ft": 75.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.304,
+          "polygon": [
+            [
+              -323.94,
+              -531.25
+            ],
+            [
+              -300.95,
+              -531.25
+            ],
+            [
+              -300.95,
+              -584.7
+            ],
+            [
+              -323.94,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 7,
+          "frontage_m": 22.99,
+          "frontage_ft": 75.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.304,
+          "polygon": [
+            [
+              -323.94,
+              -590.19
+            ],
+            [
+              -300.95,
+              -590.19
+            ],
+            [
+              -300.95,
+              -643.64
+            ],
+            [
+              -323.94,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 22.99,
+          "frontage_ft": 75.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.304,
+          "polygon": [
+            [
+              -300.95,
+              -531.25
+            ],
+            [
+              -277.96,
+              -531.25
+            ],
+            [
+              -277.96,
+              -584.7
+            ],
+            [
+              -300.95,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 8,
+          "frontage_m": 22.99,
+          "frontage_ft": 75.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.304,
+          "polygon": [
+            [
+              -300.95,
+              -590.19
+            ],
+            [
+              -277.96,
+              -590.19
+            ],
+            [
+              -277.96,
+              -643.64
+            ],
+            [
+              -300.95,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "count": 8,
+        "note": "The October 1833 register prints lots 1-8 in block 48 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_49",
+      "school_section_block_number": 49,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -531.25
+        ],
+        [
+          -154.92,
+          -531.25
+        ],
+        [
+          -154.92,
+          -643.64
+        ],
+        [
+          -257.84,
+          -643.64
+        ]
+      ],
+      "area_m2": 11567.2,
+      "area_acres": 2.86,
+      "frontage_m": 102.92,
+      "frontage_ft": 337.7,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 462,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 1.1,
+        "max_m": 1.22,
+        "mean_m": 1.16,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 4,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          -257.84,
+          -584.7
+        ],
+        [
+          -154.92,
+          -584.7
+        ],
+        [
+          -154.92,
+          -590.19
+        ],
+        [
+          -257.84,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 4,
+          "frontage_m": 25.73,
+          "frontage_ft": 84.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.34,
+          "polygon": [
+            [
+              -257.84,
+              -531.25
+            ],
+            [
+              -232.11,
+              -531.25
+            ],
+            [
+              -232.11,
+              -584.7
+            ],
+            [
+              -257.84,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 5,
+          "frontage_m": 25.73,
+          "frontage_ft": 84.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.34,
+          "polygon": [
+            [
+              -257.84,
+              -590.19
+            ],
+            [
+              -232.11,
+              -590.19
+            ],
+            [
+              -232.11,
+              -643.64
+            ],
+            [
+              -257.84,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 3,
+          "frontage_m": 25.73,
+          "frontage_ft": 84.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.34,
+          "polygon": [
+            [
+              -232.11,
+              -531.25
+            ],
+            [
+              -206.38,
+              -531.25
+            ],
+            [
+              -206.38,
+              -584.7
+            ],
+            [
+              -232.11,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 6,
+          "frontage_m": 25.73,
+          "frontage_ft": 84.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.34,
+          "polygon": [
+            [
+              -232.11,
+              -590.19
+            ],
+            [
+              -206.38,
+              -590.19
+            ],
+            [
+              -206.38,
+              -643.64
+            ],
+            [
+              -232.11,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 25.73,
+          "frontage_ft": 84.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.34,
+          "polygon": [
+            [
+              -206.38,
+              -531.25
+            ],
+            [
+              -180.65,
+              -531.25
+            ],
+            [
+              -180.65,
+              -584.7
+            ],
+            [
+              -206.38,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 7,
+          "frontage_m": 25.73,
+          "frontage_ft": 84.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.34,
+          "polygon": [
+            [
+              -206.38,
+              -590.19
+            ],
+            [
+              -180.65,
+              -590.19
+            ],
+            [
+              -180.65,
+              -643.64
+            ],
+            [
+              -206.38,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 25.73,
+          "frontage_ft": 84.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.34,
+          "polygon": [
+            [
+              -180.65,
+              -531.25
+            ],
+            [
+              -154.92,
+              -531.25
+            ],
+            [
+              -154.92,
+              -584.7
+            ],
+            [
+              -180.65,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 8,
+          "frontage_m": 25.73,
+          "frontage_ft": 84.4,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.34,
+          "polygon": [
+            [
+              -180.65,
+              -590.19
+            ],
+            [
+              -154.92,
+              -590.19
+            ],
+            [
+              -154.92,
+              -643.64
+            ],
+            [
+              -180.65,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "count": 8,
+        "note": "The October 1833 register prints lots 1-8 in block 49 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_72",
+      "school_section_block_number": 72,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -531.25
+        ],
+        [
+          -48.35,
+          -531.25
+        ],
+        [
+          -48.35,
+          -643.64
+        ],
+        [
+          -134.8,
+          -643.64
+        ]
+      ],
+      "area_m2": 9716.1,
+      "area_acres": 2.4,
+      "frontage_m": 86.45,
+      "frontage_ft": 283.6,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 374,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 0.98,
+        "max_m": 1.08,
+        "mean_m": 1.04,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 2,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          -134.8,
+          -584.7
+        ],
+        [
+          -48.35,
+          -584.7
+        ],
+        [
+          -48.35,
+          -590.19
+        ],
+        [
+          -134.8,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 43.23,
+          "frontage_ft": 141.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.571,
+          "polygon": [
+            [
+              -134.8,
+              -531.25
+            ],
+            [
+              -91.58,
+              -531.25
+            ],
+            [
+              -91.58,
+              -584.7
+            ],
+            [
+              -134.8,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 3,
+          "frontage_m": 43.23,
+          "frontage_ft": 141.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.571,
+          "polygon": [
+            [
+              -134.8,
+              -590.19
+            ],
+            [
+              -91.58,
+              -590.19
+            ],
+            [
+              -91.58,
+              -643.64
+            ],
+            [
+              -134.8,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 43.23,
+          "frontage_ft": 141.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.571,
+          "polygon": [
+            [
+              -91.58,
+              -531.25
+            ],
+            [
+              -48.35,
+              -531.25
+            ],
+            [
+              -48.35,
+              -584.7
+            ],
+            [
+              -91.58,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 4,
+          "frontage_m": 43.23,
+          "frontage_ft": 141.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.571,
+          "polygon": [
+            [
+              -91.58,
+              -590.19
+            ],
+            [
+              -48.35,
+              -590.19
+            ],
+            [
+              -48.35,
+              -643.64
+            ],
+            [
+              -91.58,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "count": 4,
+        "note": "The October 1833 register prints lots 1-4 in block 72 of section 16 and never a lot 5. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_80",
+      "school_section_block_number": 80,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_6",
+        "east": "market_school_section"
+      },
+      "boundary_local_enu_m": [
+        [
+          -28.23,
+          -531.25
+        ],
+        [
+          61.28,
+          -531.25
+        ],
+        [
+          61.28,
+          -643.64
+        ],
+        [
+          -28.23,
+          -643.64
+        ]
+      ],
+      "area_m2": 10060.0,
+      "area_acres": 2.49,
+      "frontage_m": 89.51,
+      "frontage_ft": 293.7,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 396,
+        "off_the_modelled_field": 0,
+        "below_datum": 187,
+        "min_m": -1.97,
+        "max_m": 0.8,
+        "mean_m": -0.26,
+        "reading": "187 sample(s) below datum and 0 off the modelled field"
+      },
+      "lots_per_face": 2,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          -28.23,
+          -584.7
+        ],
+        [
+          61.28,
+          -584.7
+        ],
+        [
+          61.28,
+          -590.19
+        ],
+        [
+          -28.23,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 44.76,
+          "frontage_ft": 146.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.591,
+          "polygon": [
+            [
+              -28.23,
+              -531.25
+            ],
+            [
+              16.53,
+              -531.25
+            ],
+            [
+              16.53,
+              -584.7
+            ],
+            [
+              -28.23,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 3,
+          "frontage_m": 44.76,
+          "frontage_ft": 146.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.591,
+          "polygon": [
+            [
+              -28.23,
+              -590.19
+            ],
+            [
+              16.53,
+              -590.19
+            ],
+            [
+              16.53,
+              -643.64
+            ],
+            [
+              -28.23,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 44.75,
+          "frontage_ft": 146.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.591,
+          "polygon": [
+            [
+              16.53,
+              -531.25
+            ],
+            [
+              61.28,
+              -531.25
+            ],
+            [
+              61.28,
+              -584.7
+            ],
+            [
+              16.53,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 4,
+          "frontage_m": 44.75,
+          "frontage_ft": 146.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.591,
+          "polygon": [
+            [
+              16.53,
+              -590.19
+            ],
+            [
+              61.28,
+              -590.19
+            ],
+            [
+              61.28,
+              -643.64
+            ],
+            [
+              16.53,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "count": 4,
+        "note": "The October 1833 register prints lots 1-4 in block 80 of section 16 and never a lot 5. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      },
+      "wet_ground": "187 of 396 lattice samples inside this block stand below datum on the committed heightfield — the only block of the thirteen that has one. It is also one of the two the register cuts into four lots instead of eight. The block is cut anyway: the sale sold it and the register says into how many pieces. What can stand on the wet part is a placement question and this record is where it will be asked."
+    },
+    {
+      "id": "blk_school_section_tier_81",
+      "school_section_block_number": 81,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "market_school_section",
+        "east": "school_section_line_8"
+      },
+      "boundary_local_enu_m": [
+        [
+          81.4,
+          -531.25
+        ],
+        [
+          198.32,
+          -531.25
+        ],
+        [
+          198.32,
+          -643.64
+        ],
+        [
+          81.4,
+          -643.64
+        ]
+      ],
+      "area_m2": 13140.6,
+      "area_acres": 3.25,
+      "frontage_m": 116.92,
+      "frontage_ft": 383.6,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 506,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 0.77,
+        "max_m": 0.82,
+        "mean_m": 0.79,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 4,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          81.4,
+          -584.7
+        ],
+        [
+          198.32,
+          -584.7
+        ],
+        [
+          198.32,
+          -590.19
+        ],
+        [
+          81.4,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 4,
+          "frontage_m": 29.23,
+          "frontage_ft": 95.9,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.386,
+          "polygon": [
+            [
+              81.4,
+              -531.25
+            ],
+            [
+              110.63,
+              -531.25
+            ],
+            [
+              110.63,
+              -584.7
+            ],
+            [
+              81.4,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 5,
+          "frontage_m": 29.23,
+          "frontage_ft": 95.9,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.386,
+          "polygon": [
+            [
+              81.4,
+              -590.19
+            ],
+            [
+              110.63,
+              -590.19
+            ],
+            [
+              110.63,
+              -643.64
+            ],
+            [
+              81.4,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 3,
+          "frontage_m": 29.23,
+          "frontage_ft": 95.9,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.386,
+          "polygon": [
+            [
+              110.63,
+              -531.25
+            ],
+            [
+              139.86,
+              -531.25
+            ],
+            [
+              139.86,
+              -584.7
+            ],
+            [
+              110.63,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 6,
+          "frontage_m": 29.23,
+          "frontage_ft": 95.9,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.386,
+          "polygon": [
+            [
+              110.63,
+              -590.19
+            ],
+            [
+              139.86,
+              -590.19
+            ],
+            [
+              139.86,
+              -643.64
+            ],
+            [
+              110.63,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 29.23,
+          "frontage_ft": 95.9,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.386,
+          "polygon": [
+            [
+              139.86,
+              -531.25
+            ],
+            [
+              169.09,
+              -531.25
+            ],
+            [
+              169.09,
+              -584.7
+            ],
+            [
+              139.86,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 7,
+          "frontage_m": 29.23,
+          "frontage_ft": 95.9,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.386,
+          "polygon": [
+            [
+              139.86,
+              -590.19
+            ],
+            [
+              169.09,
+              -590.19
+            ],
+            [
+              169.09,
+              -643.64
+            ],
+            [
+              139.86,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 29.23,
+          "frontage_ft": 95.9,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.386,
+          "polygon": [
+            [
+              169.09,
+              -531.25
+            ],
+            [
+              198.32,
+              -531.25
+            ],
+            [
+              198.32,
+              -584.7
+            ],
+            [
+              169.09,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 8,
+          "frontage_m": 29.23,
+          "frontage_ft": 95.9,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.386,
+          "polygon": [
+            [
+              169.09,
+              -590.19
+            ],
+            [
+              198.32,
+              -590.19
+            ],
+            [
+              198.32,
+              -643.64
+            ],
+            [
+              169.09,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "count": 8,
+        "note": "The October 1833 register prints lots 1-8 in block 81 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_94",
+      "school_section_block_number": 94,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -531.25
+        ],
+        [
+          341.34,
+          -531.25
+        ],
+        [
+          341.34,
+          -643.64
+        ],
+        [
+          218.44,
+          -643.64
+        ]
+      ],
+      "area_m2": 13812.7,
+      "area_acres": 3.41,
+      "frontage_m": 122.9,
+      "frontage_ft": 403.2,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 550,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 0.83,
+        "max_m": 0.89,
+        "mean_m": 0.86,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 4,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          218.44,
+          -584.7
+        ],
+        [
+          341.34,
+          -584.7
+        ],
+        [
+          341.34,
+          -590.19
+        ],
+        [
+          218.44,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 4,
+          "frontage_m": 30.72,
+          "frontage_ft": 100.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.406,
+          "polygon": [
+            [
+              218.44,
+              -531.25
+            ],
+            [
+              249.16,
+              -531.25
+            ],
+            [
+              249.16,
+              -584.7
+            ],
+            [
+              218.44,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 5,
+          "frontage_m": 30.72,
+          "frontage_ft": 100.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.406,
+          "polygon": [
+            [
+              218.44,
+              -590.19
+            ],
+            [
+              249.16,
+              -590.19
+            ],
+            [
+              249.16,
+              -643.64
+            ],
+            [
+              218.44,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 3,
+          "frontage_m": 30.72,
+          "frontage_ft": 100.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.406,
+          "polygon": [
+            [
+              249.16,
+              -531.25
+            ],
+            [
+              279.89,
+              -531.25
+            ],
+            [
+              279.89,
+              -584.7
+            ],
+            [
+              249.16,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 6,
+          "frontage_m": 30.72,
+          "frontage_ft": 100.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.406,
+          "polygon": [
+            [
+              249.16,
+              -590.19
+            ],
+            [
+              279.89,
+              -590.19
+            ],
+            [
+              279.89,
+              -643.64
+            ],
+            [
+              249.16,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 30.73,
+          "frontage_ft": 100.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.406,
+          "polygon": [
+            [
+              279.89,
+              -531.25
+            ],
+            [
+              310.62,
+              -531.25
+            ],
+            [
+              310.62,
+              -584.7
+            ],
+            [
+              279.89,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 7,
+          "frontage_m": 30.73,
+          "frontage_ft": 100.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.406,
+          "polygon": [
+            [
+              279.89,
+              -590.19
+            ],
+            [
+              310.62,
+              -590.19
+            ],
+            [
+              310.62,
+              -643.64
+            ],
+            [
+              279.89,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 30.72,
+          "frontage_ft": 100.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.406,
+          "polygon": [
+            [
+              310.62,
+              -531.25
+            ],
+            [
+              341.34,
+              -531.25
+            ],
+            [
+              341.34,
+              -584.7
+            ],
+            [
+              310.62,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 8,
+          "frontage_m": 30.72,
+          "frontage_ft": 100.8,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.406,
+          "polygon": [
+            [
+              310.62,
+              -590.19
+            ],
+            [
+              341.34,
+              -590.19
+            ],
+            [
+              341.34,
+              -643.64
+            ],
+            [
+              310.62,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "count": 8,
+        "note": "The October 1833 register prints lots 1-8 in block 94 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_95",
+      "school_section_block_number": 95,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -531.25
+        ],
+        [
+          455.02,
+          -531.25
+        ],
+        [
+          455.02,
+          -643.64
+        ],
+        [
+          361.46,
+          -643.64
+        ]
+      ],
+      "area_m2": 10515.2,
+      "area_acres": 2.6,
+      "frontage_m": 93.56,
+      "frontage_ft": 307.0,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 418,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 0.89,
+        "max_m": 0.89,
+        "mean_m": 0.89,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 4,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          361.46,
+          -584.7
+        ],
+        [
+          455.02,
+          -584.7
+        ],
+        [
+          455.02,
+          -590.19
+        ],
+        [
+          361.46,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 4,
+          "frontage_m": 23.39,
+          "frontage_ft": 76.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.309,
+          "polygon": [
+            [
+              361.46,
+              -531.25
+            ],
+            [
+              384.85,
+              -531.25
+            ],
+            [
+              384.85,
+              -584.7
+            ],
+            [
+              361.46,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 5,
+          "frontage_m": 23.39,
+          "frontage_ft": 76.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.309,
+          "polygon": [
+            [
+              361.46,
+              -590.19
+            ],
+            [
+              384.85,
+              -590.19
+            ],
+            [
+              384.85,
+              -643.64
+            ],
+            [
+              361.46,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 3,
+          "frontage_m": 23.39,
+          "frontage_ft": 76.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.309,
+          "polygon": [
+            [
+              384.85,
+              -531.25
+            ],
+            [
+              408.24,
+              -531.25
+            ],
+            [
+              408.24,
+              -584.7
+            ],
+            [
+              384.85,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 6,
+          "frontage_m": 23.39,
+          "frontage_ft": 76.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.309,
+          "polygon": [
+            [
+              384.85,
+              -590.19
+            ],
+            [
+              408.24,
+              -590.19
+            ],
+            [
+              408.24,
+              -643.64
+            ],
+            [
+              384.85,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 23.39,
+          "frontage_ft": 76.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.309,
+          "polygon": [
+            [
+              408.24,
+              -531.25
+            ],
+            [
+              431.63,
+              -531.25
+            ],
+            [
+              431.63,
+              -584.7
+            ],
+            [
+              408.24,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 7,
+          "frontage_m": 23.39,
+          "frontage_ft": 76.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.309,
+          "polygon": [
+            [
+              408.24,
+              -590.19
+            ],
+            [
+              431.63,
+              -590.19
+            ],
+            [
+              431.63,
+              -643.64
+            ],
+            [
+              408.24,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 23.39,
+          "frontage_ft": 76.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.309,
+          "polygon": [
+            [
+              431.63,
+              -531.25
+            ],
+            [
+              455.02,
+              -531.25
+            ],
+            [
+              455.02,
+              -584.7
+            ],
+            [
+              431.63,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 8,
+          "frontage_m": 23.39,
+          "frontage_ft": 76.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.309,
+          "polygon": [
+            [
+              431.63,
+              -590.19
+            ],
+            [
+              455.02,
+              -590.19
+            ],
+            [
+              455.02,
+              -643.64
+            ],
+            [
+              431.63,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "count": 8,
+        "note": "The October 1833 register prints lots 1-8 in block 95 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_118",
+      "school_section_block_number": 118,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -531.25
+        ],
+        [
+          573.48,
+          -531.25
+        ],
+        [
+          573.48,
+          -643.64
+        ],
+        [
+          475.14,
+          -643.64
+        ]
+      ],
+      "area_m2": 11052.4,
+      "area_acres": 2.73,
+      "frontage_m": 98.34,
+      "frontage_ft": 322.6,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 418,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 0.89,
+        "max_m": 0.89,
+        "mean_m": 0.89,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 4,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          475.14,
+          -584.7
+        ],
+        [
+          573.48,
+          -584.7
+        ],
+        [
+          573.48,
+          -590.19
+        ],
+        [
+          475.14,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 4,
+          "frontage_m": 24.59,
+          "frontage_ft": 80.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.325,
+          "polygon": [
+            [
+              475.14,
+              -531.25
+            ],
+            [
+              499.73,
+              -531.25
+            ],
+            [
+              499.73,
+              -584.7
+            ],
+            [
+              475.14,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 5,
+          "frontage_m": 24.59,
+          "frontage_ft": 80.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.325,
+          "polygon": [
+            [
+              475.14,
+              -590.19
+            ],
+            [
+              499.73,
+              -590.19
+            ],
+            [
+              499.73,
+              -643.64
+            ],
+            [
+              475.14,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 3,
+          "frontage_m": 24.58,
+          "frontage_ft": 80.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.325,
+          "polygon": [
+            [
+              499.73,
+              -531.25
+            ],
+            [
+              524.31,
+              -531.25
+            ],
+            [
+              524.31,
+              -584.7
+            ],
+            [
+              499.73,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 6,
+          "frontage_m": 24.58,
+          "frontage_ft": 80.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.325,
+          "polygon": [
+            [
+              499.73,
+              -590.19
+            ],
+            [
+              524.31,
+              -590.19
+            ],
+            [
+              524.31,
+              -643.64
+            ],
+            [
+              499.73,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 24.59,
+          "frontage_ft": 80.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.325,
+          "polygon": [
+            [
+              524.31,
+              -531.25
+            ],
+            [
+              548.89,
+              -531.25
+            ],
+            [
+              548.89,
+              -584.7
+            ],
+            [
+              524.31,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 7,
+          "frontage_m": 24.59,
+          "frontage_ft": 80.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.325,
+          "polygon": [
+            [
+              524.31,
+              -590.19
+            ],
+            [
+              548.89,
+              -590.19
+            ],
+            [
+              548.89,
+              -643.64
+            ],
+            [
+              524.31,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 24.59,
+          "frontage_ft": 80.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.325,
+          "polygon": [
+            [
+              548.89,
+              -531.25
+            ],
+            [
+              573.48,
+              -531.25
+            ],
+            [
+              573.48,
+              -584.7
+            ],
+            [
+              548.89,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 8,
+          "frontage_m": 24.59,
+          "frontage_ft": 80.7,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.325,
+          "polygon": [
+            [
+              548.89,
+              -590.19
+            ],
+            [
+              573.48,
+              -590.19
+            ],
+            [
+              573.48,
+              -643.64
+            ],
+            [
+              548.89,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "count": 8,
+        "note": "The October 1833 register prints lots 1-8 in block 118 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_119",
+      "school_section_block_number": 119,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -531.25
+        ],
+        [
+          695.06,
+          -531.25
+        ],
+        [
+          695.06,
+          -643.64
+        ],
+        [
+          593.59,
+          -643.64
+        ]
+      ],
+      "area_m2": 11404.2,
+      "area_acres": 2.82,
+      "frontage_m": 101.47,
+      "frontage_ft": 332.9,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 462,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 0.89,
+        "max_m": 0.89,
+        "mean_m": 0.89,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 4,
+      "rows": {
+        "row_depth_m": 53.45,
+        "row_depth_ft": 175.4,
+        "alley_m": 5.49,
+        "alley_ft": 18.0,
+        "alley_runs": "east-west, mid-block — the Original Town's module, centred"
+      },
+      "alley_local_enu_m": [
+        [
+          593.59,
+          -584.7
+        ],
+        [
+          695.06,
+          -584.7
+        ],
+        [
+          695.06,
+          -590.19
+        ],
+        [
+          593.59,
+          -590.19
+        ]
+      ],
+      "lots": [
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 4,
+          "frontage_m": 25.37,
+          "frontage_ft": 83.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.335,
+          "polygon": [
+            [
+              593.59,
+              -531.25
+            ],
+            [
+              618.96,
+              -531.25
+            ],
+            [
+              618.96,
+              -584.7
+            ],
+            [
+              593.59,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 5,
+          "frontage_m": 25.37,
+          "frontage_ft": 83.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.335,
+          "polygon": [
+            [
+              593.59,
+              -590.19
+            ],
+            [
+              618.96,
+              -590.19
+            ],
+            [
+              618.96,
+              -643.64
+            ],
+            [
+              593.59,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 3,
+          "frontage_m": 25.37,
+          "frontage_ft": 83.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.335,
+          "polygon": [
+            [
+              618.96,
+              -531.25
+            ],
+            [
+              644.33,
+              -531.25
+            ],
+            [
+              644.33,
+              -584.7
+            ],
+            [
+              618.96,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 6,
+          "frontage_m": 25.37,
+          "frontage_ft": 83.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.335,
+          "polygon": [
+            [
+              618.96,
+              -590.19
+            ],
+            [
+              644.33,
+              -590.19
+            ],
+            [
+              644.33,
+              -643.64
+            ],
+            [
+              618.96,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 2,
+          "frontage_m": 25.37,
+          "frontage_ft": 83.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.335,
+          "polygon": [
+            [
+              644.33,
+              -531.25
+            ],
+            [
+              669.69,
+              -531.25
+            ],
+            [
+              669.69,
+              -584.7
+            ],
+            [
+              644.33,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 7,
+          "frontage_m": 25.37,
+          "frontage_ft": 83.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.335,
+          "polygon": [
+            [
+              644.33,
+              -590.19
+            ],
+            [
+              669.69,
+              -590.19
+            ],
+            [
+              669.69,
+              -643.64
+            ],
+            [
+              644.33,
+              -643.64
+            ]
+          ]
+        },
+        {
+          "face": "north",
+          "fronts": "madison",
+          "lot": 1,
+          "frontage_m": 25.37,
+          "frontage_ft": 83.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.335,
+          "polygon": [
+            [
+              669.69,
+              -531.25
+            ],
+            [
+              695.06,
+              -531.25
+            ],
+            [
+              695.06,
+              -584.7
+            ],
+            [
+              669.69,
+              -584.7
+            ]
+          ]
+        },
+        {
+          "face": "south",
+          "fronts": "monroe",
+          "lot": 8,
+          "frontage_m": 25.37,
+          "frontage_ft": 83.2,
+          "depth_m": 53.45,
+          "depth_ft": 175.4,
+          "area_acres": 0.335,
+          "polygon": [
+            [
+              669.69,
+              -590.19
+            ],
+            [
+              695.06,
+              -590.19
+            ],
+            [
+              695.06,
+              -643.64
+            ],
+            [
+              669.69,
+              -643.64
+            ]
+          ]
+        }
+      ],
+      "witnessed_by_the_sale": {
+        "lots_witnessed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "count": 8,
+        "note": "The October 1833 register prints lots 1-8 in block 119 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+      },
+      "confidence": {
+        "boundary": "inferred",
+        "lot_count": "documented",
+        "lot_lines": "inferred",
+        "lot_numbers": "conjectural"
+      }
+    },
+    {
+      "id": "blk_school_section_tier_142",
+      "school_section_block_number": 142,
+      "grid": "school_section_tier",
+      "plat": "wright_1834_school_section",
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -531.25
+        ],
+        [
+          831.8,
+          -531.25
+        ],
+        [
+          831.8,
+          -643.64
+        ],
+        [
+          715.18,
+          -643.64
+        ]
+      ],
+      "area_m2": 13106.9,
+      "area_acres": 3.24,
+      "frontage_m": 116.62,
+      "frontage_ft": 382.6,
+      "depth_m": 112.39,
+      "depth_ft": 368.7,
+      "ground": {
+        "epoch": "e1834_harbor_cut",
+        "sampled_every_m": 5.0,
+        "samples": 506,
+        "off_the_modelled_field": 0,
+        "below_datum": 0,
+        "min_m": 0.89,
+        "max_m": 1.6,
+        "mean_m": 1.06,
+        "reading": "dry: every sample stands above datum on the modelled field"
+      },
+      "lots_per_face": 0,
+      "lots": [],
+      "subdivision_withheld": "The sheet letters *Reserved* across this block and the October 1833 sale never names it — the two records agree, and neither of them cuts it into lots. It is carried here whole, because the tier's ground is the tier's ground whether it sold or not, and a reserved block that vanished from the file would read as ground nobody has looked at.",
+      "confidence": {
+        "boundary": "inferred",
+        "lot_lines": "none — the block is not divided",
+        "lot_numbers": "none — the block is not divided"
+      }
+    }
+  ],
+  "counts": {
+    "blocks": 13,
+    "blocks_divided": 11,
+    "blocks_left_whole": 2,
+    "lots": 80,
+    "tier_ground_m2": 151481.3,
+    "tier_ground_acres": 37.4,
+    "lot_ground_acres": 29.9,
+    "blocks_with_ground_below_datum": [
+      80
+    ],
+    "blocks_reaching_off_the_modelled_field": [
+      1
+    ]
+  },
+  "what_this_does_not_say": "NOTHING ABOUT WHO BUILT HERE. The school section in 1835 was ground that had been sold, and mostly empty ground at that; this file says where the lots were, not that anything stood on them. It seats no structure, names no purchaser onto a lot — the register's buyers are a research question the resident rulings own — and re-grades no street. It also says nothing about the other eleven tiers of the section, which are drawn as blocks and remain undivided."
+}

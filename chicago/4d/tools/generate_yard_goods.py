@@ -189,7 +189,7 @@ TRADE_GRADES = {"attested", "documented", "inferred"}
 
 # Clause 5. Federal ground inside the palisade. The corporation's ordinance is the whole
 # evidence on this record and it did not reach these two doors.
-FORT_TRADES = {"provision store", "sutler's store"}
+FORT_TRADES = {"provision_store", "sutlers_store"}   # the vocabulary's terms since T-1311
 
 # --------------------------------------------------------------------------- #
 # THE MARKS (T-0065)                                                           #

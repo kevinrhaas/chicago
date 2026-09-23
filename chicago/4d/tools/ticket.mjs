@@ -79,7 +79,7 @@ const JSON_OUT = path.join(DIR, 'tickets.json');
  *  - `check` pins the copy line in publish.sh, below, so the destination cannot
  *    drift into two disagreeing copies of one fact.
  */
-const MIRROR = path.resolve(ROOT, '../../site/4d/tickets.json');
+const MIRROR = path.resolve(ROOT, '../../site/chicago/4d/tickets.json');
 /** The line in publish.sh this mirror is the twin of. `check` asserts it survives. */
 const PUBLISH_SH = path.join(ROOT, 'tools/publish.sh');
 const PUBLISH_PIN = 'cp -f tickets/tickets.json "$SITE/tickets.json"';
@@ -89,18 +89,7 @@ const PUBLISH_PIN = 'cp -f tickets/tickets.json "$SITE/tickets.json"';
 const CLOSED_AT_SINCE = '2026-09-04';
 
 /** This repository on GitHub — the board links its PRs, and `inflight` its pulls page. */
-const REPO = 'kevinrhaas/chicago';
-const REPO_URL = `https://github.com/${REPO}`;
-// THE PROJECT MOVED REPOSITORIES ON 2026-09-23 (it was a tenant of kevinrhaas/custom).
-// Every `pr:` a ticket recorded before then is a kevinrhaas/custom pull request, and
-// the numbers restart here — so a pre-move ticket's receipt must keep pointing at the
-// repository that actually holds it, or #1630 would link to some unrelated new PR.
-const LEGACY_REPO_URL = 'https://github.com/kevinrhaas/custom';
-const MOVED_AT = '2026-09-23T00:00:00Z';
-export function prUrl(t) {
-  const legacy = t.closed_at ? t.closed_at < MOVED_AT : (t.closed ? t.closed < MOVED_AT.slice(0, 10) : false);
-  return `${legacy ? LEGACY_REPO_URL : REPO_URL}/pull/${t.pr}`;
-}
+const REPO_URL = 'https://github.com/kevinrhaas/custom';
 
 const STATES = ['open', 'claimed', 'review', 'done', 'blocked-owner', 'blocked-tech',
   'withdrawn', 'split'];
@@ -536,6 +525,31 @@ function prTicketIds(title) {
   return [...new Set(out)];
 }
 
+/**
+ * A pull request cut down to the fields the joins actually read — six pages of whole
+ * PR objects is tens of megabytes held for no reason.
+ *
+ * IT IS A NAMED FUNCTION AND NOT AN INLINE `.map` BECAUSE THE FIXTURES MUST GO THROUGH
+ * IT TOO (T-1427). The projection used to drop `head.ref`, and `inflight`'s
+ * "a branch that ever HAD a pull request was never invisible" guard reads exactly that
+ * field — so against the live API the guard was an empty set and could never fire,
+ * while `test_ticket_inflight.mjs` supplied `head.ref` in its own fixture rows and the
+ * gate went green. A check dead in production and green in the gate is worse than no
+ * check, and the cure is that the fixture and the API arrive by one road.
+ *
+ * `labels` is flattened to names, which is how `inflight` says `hold` out loud.
+ */
+function normalizePull(p) {
+  return {
+    number: p?.number, title: p?.title,
+    state: p?.state ?? null,
+    merged_at: p?.merged_at ?? null, created_at: p?.created_at ?? null,
+    labels: Array.isArray(p?.labels)
+      ? p.labels.map((l) => (typeof l === 'string' ? l : l?.name)).filter(Boolean) : [],
+    head: { ref: p?.head?.ref ?? null },
+  };
+}
+
 /** A REST GET that returns parsed JSON, or null — `gh api` if the runner has it
  *  authenticated, else plain `curl`. Both synchronous, both time-boxed, both silent
  *  on failure. REST only: the GraphQL bucket is a separate hourly quota the fleet
@@ -560,18 +574,23 @@ function restGet(pathAndQuery) {
       // A rate-limit answer is a well-formed OBJECT, not the array we asked for.
       // Treating it as zero results would report "nothing landed" from a refusal.
       if (!Array.isArray(body)) continue;
-      // Keep only the four fields the join reads — six pages of whole PR objects is
-      // tens of megabytes held for no reason.
-      return body.map((p) => ({ number: p.number, title: p.title,
-        merged_at: p.merged_at ?? null, created_at: p.created_at ?? null }));
+      return body.map(normalizePull);
     } catch { /* not JSON — try the next transport */ }
   }
   return null;
 }
 
 /**
- * Closed pull requests, newest-created first, far enough back to cover the oldest
- * ticket we are asking about.
+ * Pull requests, OPEN AND CLOSED, newest-created first, far enough back to cover the
+ * oldest ticket we are asking about.
+ *
+ * It asked for `state=closed` until T-1427, and the open half is the half that stops a
+ * run from rebuilding work: PR #1533 was open on `steward/t-1191-north-corridors` and
+ * deliberately labelled `hold`, and `inflight` — unable to see it — printed the branch
+ * under "carrying work NOBODY CAN SEE ... no PR ever carried this branch". The reading
+ * that exists to prevent a duplicate rebuild was inviting one, at the owner's own parked
+ * work. `landedFindings` filters on `merged_at`, so the merged-PR reconciliation is
+ * unchanged by the wider ask.
  *
  * Paging is bounded two ways: it stops once a page's oldest `created_at` predates
  * every ticket in question (no PR can name a ticket that did not exist yet), and it
@@ -579,12 +598,12 @@ function restGet(pathAndQuery) {
  * ticket older than the horizon is one this check did not actually cover, and rule 2
  * says we do not get to call that clean.
  */
-function closedPulls({ since = null, maxPages = 6, perPage = 100 } = {}) {
+function recentPulls({ since = null, maxPages = 6, perPage = 100 } = {}) {
   const pulls = [];
   let pages = 0;
   let horizon = null;
   for (let page = 1; page <= maxPages; page += 1) {
-    const batch = restGet(`repos/${REPO}/pulls?state=closed&sort=created`
+    const batch = restGet(`repos/kevinrhaas/custom/pulls?state=all&sort=created`
       + `&direction=desc&per_page=${perPage}&page=${page}`);
     if (batch === null) return { ok: pages > 0, pulls, pages, horizon, truncated: true };
     pages += 1;
@@ -628,7 +647,7 @@ function coverage(fetched, since) {
   const gap = fetched.truncated && since && fetched.horizon && day(fetched.horizon) > day(since)
     ? ` — which does NOT reach the oldest workable ticket (opened ${day(since)}), so anything older than the horizon is simply unexamined`
     : '';
-  return `Read ${fetched.pages} page(s) of closed PRs, ${reach}${gap}.`;
+  return `Read ${fetched.pages} page(s) of pull requests (open and closed), ${reach}${gap}.`;
 }
 
 /** Prints the report. Returns nothing and throws nothing: every caller is a run on
@@ -649,8 +668,8 @@ function collectLanded(tickets, { fixture = null, maxPages = 6 } = {}) {
   const asked = tickets.filter((t) => t.id && asksAbout(t));
   const since = asked.map((t) => t.opened).filter(Boolean).sort()[0] ?? null;
   const fetched = fixture
-    ? { ok: true, pulls: fixture, pages: 0, horizon: null, truncated: false }
-    : closedPulls({ since, maxPages });
+    ? { ok: true, pulls: fixture.map(normalizePull), pages: 0, horizon: null, truncated: false }
+    : recentPulls({ since, maxPages });
   return {
     ok: fetched.ok,
     found: fetched.ok ? landedFindings(asked, fetched.pulls) : [],
@@ -885,6 +904,81 @@ function releaseClaimLock(id) {
   return r.ok;
 }
 
+// ---------------------------------------------------------------------------
+// T-1287. AN ID IS RESERVED ON THE REMOTE BEFORE IT IS USED, NOT SCANNED FOR.
+//
+// `nextIdNum` reads the highest id on every origin ref and adds one. That scan
+// works — measured 2026-09-18, 1,066 refs in 8 s, and it correctly reports ids
+// sitting on other runs' branches. It is still not enough, and the reason is not
+// that it misses anything:
+//
+//   A MINTED ID IS INVISIBLE TO EVERY OTHER RUN UNTIL THE BRANCH IS PUSHED.
+//
+// Measured the same day. This session renumbered a ticket to T-1324 and pushed
+// twenty minutes later; #1455 minted AND MERGED its own T-1324 inside that
+// window. No scan could have seen the first — it existed only on one disk. Five
+// collisions that day, and the fifth was created by a careful attempt to dodge
+// the fourth by picking an id above everything visible. "Above everything
+// visible" is read-then-write, and any run minting in between wins the race.
+//
+// So minting takes a lock, exactly as claiming a ticket does (T-1145's marker
+// branches, which are a real compare-and-swap and have held since). Push an
+// empty commit to `refs/heads/idlock/t-NNNN` with a lease saying THE REF MUST
+// NOT EXIST; git rejects the loser atomically, and the loser tries the next
+// number. Two runs minting in the same second get different ids, whatever either
+// of them can see.
+//
+// OFFLINE STILL MINTS. A sandbox with no remote, and the test suite, must be able
+// to file a ticket — so an unreachable origin falls back to the scan with a
+// warning that says exactly what was given up. A REJECTION is different from an
+// unreachable remote and is never treated as one.
+const idLockBranch = (id) => `idlock/${id.toLowerCase()}`;
+
+function reserveIdNum(startAt, count = 1) {
+  const taken = [];
+  let n = startAt;
+  let attempts = 0;
+  while (taken.length < count && attempts < 40) {
+    attempts += 1;
+    const id = idOf(n);
+    const ref = `refs/heads/${idLockBranch(id)}`;
+    const commit = claimCommit(id, 'mint', null);
+    if (!commit) { return { ids: null, why: 'could not write a lock commit' }; }
+    const push = gitTry(['push', 'origin', `${commit}:${ref}`, `--force-with-lease=${ref}:`]);
+    // A PUSH THAT CHANGED NOTHING NEVER RESERVED ANYTHING, whatever its exit status —
+    // the same guard `takeClaimLock` carries, and for a worse failure. Two runs that
+    // build a parentless empty-tree commit with the same forced identity in the same
+    // second produce the SAME SHA, and git answers the second `Everything up-to-date`,
+    // exit 0. `claimCommit`'s nonce should make that unreachable; the guard stays
+    // because if it ever is reached the loser is told it holds an id another run holds
+    // too, which is exactly the collision this whole mechanism exists to stop.
+    if (push.ok && /Everything up-to-date/i.test(push.err || '')) {
+      return { ids: null, why: 'the reservation push changed nothing' };
+    }
+    if (push.ok) { taken.push(id); n += 1; continue; }
+    if (isRefRejection(push.err)) { n += 1; continue; }   // somebody holds it — step past
+    return { ids: null, why: (push.err || '').trim().split('\n').filter(Boolean).pop() || 'push failed' };
+  }
+  if (taken.length < count) return { ids: null, why: `no free id found in ${attempts} attempts` };
+  return { ids: taken };
+}
+
+/**
+ * `count` consecutive-ish ids, reserved on the remote where another run can see
+ * them. Falls back to the local+remote scan when the remote cannot be reached,
+ * and says so, because a mint that fails is worse than a mint that races.
+ */
+function mintIds(tickets, count = 1) {
+  const start = nextIdNum(tickets);
+  const got = reserveIdNum(start, count);
+  if (got.ids) return got.ids;
+  console.warn(`  NOTE: the id lock could not be taken — ${got.why}.`);
+  console.warn('        Falling back to the highest id this clone can SEE, which is a race:');
+  console.warn('        another run minting right now cannot see this id until the branch is');
+  console.warn('        pushed, and may take it too (T-1287). Push early if you can.');
+  return Array.from({ length: count }, (_, i) => idOf(start + i));
+}
+
 function find(tickets, id) {
   const t = tickets.find((x) => x.id === id);
   if (!t) { console.error(`no ticket ${id}`); process.exit(1); }
@@ -1036,7 +1130,7 @@ function generateBoard(tickets) {
     + sec(`Finished, newest first${finished.length > shown.length
       ? ` — ${shown.length} of ${finished.length}; the older ones are in the ticket files` : ''}`,
     shown, (t) => `${row(t)} · ${t.closed_at ? ctFmt(t.closed_at) : t.closed}`
-      + `${t.pr ? ` · [PR #${t.pr}](${prUrl(t)})` : ''}`);
+      + `${t.pr ? ` · [PR #${t.pr}](${REPO_URL}/pull/${t.pr})` : ''}`);
   // Idempotent on purpose: only touch the files when the CONTENT changed, so a
   // regenerated-but-identical board stays byte-stable and the published mirror
   // (check_published.mjs compares it verbatim) does not go stale merely because
@@ -1065,7 +1159,7 @@ function generateBoard(tickets) {
 }
 
 /**
- * Carry tickets.json to `site/4d/tickets.json`, the verbatim copy
+ * Carry tickets.json to `site/chicago/4d/tickets.json`, the verbatim copy
  * `tools/publish.sh` makes and `tools/check_published.mjs` compares byte for
  * byte. Returns true when it moved bytes, so the caller can say so.
  */
@@ -1074,7 +1168,7 @@ function mirrorTickets() {
   const src = readFileSync(JSON_OUT);
   if (existsSync(MIRROR) && readFileSync(MIRROR).equals(src)) return false;
   writeFileSync(MIRROR, src);
-  console.log('   tickets.json mirrored to site/4d/ (T-0154)');
+  console.log('   tickets.json mirrored to site/chicago/4d/ (T-0154)');
   return true;
 }
 
@@ -1184,6 +1278,51 @@ function check(tickets) {
   const dupQ = q.filter((id, i) => q.indexOf(id) !== i);
   for (const id of new Set(dupQ)) problems.push(`QUEUE.md lists ${id} twice`);
 
+  // T-1518. A BLOCKED TICKET IS VISIBLE OR IT IS LOST, and for a month thirteen of
+  // them were lost. `blocked-owner` and `blocked-tech` are deliberately outside
+  // WORKABLE — they must not be offered as work — and the consequence was never
+  // decided: QUEUE.md carries the workable states, so a block dropped the ticket out
+  // of the file altogether. Measured on dev 2026-09-21: NINETEEN live tickets in no
+  // band at all, thirteen of them waiting on an owner ruling, the oldest opened
+  // 2026-08-21. The one class that most needs the owner's eyes was the one class the
+  // owner could not see.
+  //
+  // Band 8b carries them as COMMENTED lines, the way band 8's HOLD list does, so they
+  // are visible to a reader and still invisible to the parser. This asks both
+  // directions, because either alone rots: a blocked ticket missing from the band is
+  // the fault itself returning, and a band line for a ticket that has since unblocked
+  // is the band describing a queue that no longer exists.
+  // THE TEST IS "NAMED ANYWHERE IN THE FILE", not "carries my prefix". Band 8's HOLD
+  // list already holds seven blocked-tech tickets and has since long before this, and
+  // a first cut that demanded `# BLOCKED-TECH` reported every one of them as invisible
+  // while they sat two screens up in plain sight. A gate that would force a migration
+  // to satisfy itself is measuring its own convention rather than the thing it is for.
+  const queueSrc = readFileSync(QUEUE, 'utf8');
+  const named = new Set([...queueSrc.matchAll(/\bT-\d{3,5}\b/g)].map((m) => m[0]));
+  for (const t of tickets) {
+    if (!t.state?.startsWith('blocked')) continue;
+    if (!named.has(t.id)) {
+      problems.push(`${t.id} is ${t.state} and is named nowhere in QUEUE.md — add it to `
+        + '`--- 8b. BLOCKED AND WAITING` as a commented `# BLOCKED-OWNER`/`# BLOCKED-TECH` '
+        + 'line (or to band 8s HOLD list where it belongs there). A block nobody can see '
+        + 'is an abandonment with a state on it.');
+    }
+  }
+  // …AND THE OTHER DIRECTION, scoped to band 8b's own lines, because those are the ones
+  // this file writes and is therefore answerable for. A line saying a ticket waits on
+  // the owner, for a ticket that has since unblocked, is worse than no line: it is read
+  // as current.
+  for (const m of queueSrc.matchAll(/^#\s*BLOCKED-(?:OWNER|TECH)\s+(T-\d+)/gm)) {
+    const t = ledger.get(m[1]);
+    if (!t) {
+      problems.push(`QUEUE.md band 8b lists ${m[1]}, which no ticket file carries`);
+    } else if (!t.state?.startsWith('blocked')) {
+      problems.push(`QUEUE.md band 8b lists ${m[1]} as blocked, but it is ${t.state} — `
+        + 'take the line out; a band that describes a queue which has moved on is read '
+        + 'as current.');
+    }
+  }
+
   // THE LABEL HAS TO NAME THE TICKET (T-0217). Every gate above reads the id and
   // nothing else, so a line carrying one ticket's id and another's title passes
   // all of them: both ids are real, both are open, neither is duplicated. That is
@@ -1238,6 +1377,42 @@ const [cmd, ...args] = process.argv.slice(2);
 const flag = (name) => { const i = args.indexOf(`--${name}`); return i < 0 ? null : (args[i + 1] ?? true); };
 const has = (name) => args.includes(`--${name}`);
 const tickets = loadAll();
+
+// CLOSING THE LAST CHILD OF A SPLIT KILLS THE PARENT, AND NOTHING SAID SO.
+//
+// A split parent counts as live work only while a child is still open (`split_live`);
+// close the last one and the parent is spent, and every research unit that defers to
+// it by id is stranded exactly as it would be behind a done ticket (T-1237). The
+// ledger refuses those units, so the re-derivation fails — but it fails on the
+// MERGE, in a tool the closing PR never runs, long after the author has stopped
+// looking. The author cannot see it on their own branch either: there the parent
+// still has an open child, which is the one they are closing.
+//
+// Three times on 2026-09-18: #1452 closed T-1313 and stranded nine units on T-1170;
+// #1454 closed T-1311 and stranded seven on T-1180. Each cost a full re-derive to
+// discover and a merge round to repair.
+//
+// This does not refuse the close — the close is usually right, and what the stranded
+// units need is a new owner, which is a judgement. It says so at the moment the
+// author can still act on it, and names what to look for.
+function warnIfThisClosedASplit(closed, all) {
+  const parentId = closed.parent;
+  if (!parentId) return;
+  const parent = all.find((t) => t.id === parentId);
+  if (!parent || parent.state !== 'split') return;
+  const siblings = all.filter((t) => t.parent === parentId);
+  const live = siblings.filter((t) => WORKABLE.includes(t.state));
+  if (live.length) return;
+  console.log('');
+  console.log(`  NOTE: ${closed.id} was the last open child of ${parentId}, which is `
+    + `\`split\`. A split parent whose children have all closed is SPENT WORK, and any`);
+  console.log('  research unit that defers to it by id is now stranded (T-1237). That fails');
+  console.log('  the re-derivation, in a tool this PR does not run — so check it here:');
+  console.log('');
+  console.log(`      grep -rn '"${parentId}"' chicago/4d/tools/*.py chicago/4d/data/research/spend_rulings.json`);
+  console.log('');
+  console.log('  Anything that hands units to it needs a LIVE owner before this merges.');
+}
 
 switch (cmd) {
   /**
@@ -1308,7 +1483,7 @@ switch (cmd) {
       console.error('also clears the ceiling, and `prune` drops any line whose work has finished.');
       process.exit(1);
     }
-    const id = idOf(nextIdNum(tickets));
+    const [id] = mintIds(tickets);
     const t = {
       file: path.join(DIR, `${id}-${slugOf(title)}.md`),
       id, title, state: 'open',
@@ -1414,8 +1589,34 @@ switch (cmd) {
     t.state = 'done'; t.closed = today(); t.closed_at = nowIso(); t.pr = flag('pr');
     if (!t.pr) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
     writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
-    releaseClaimLock(t.id);
+    // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
+    // back here. The reasoning left behind by T-1145 — which moved `split` off the
+    // handback for the same fault — said why `done` was left alone: "`done` and
+    // `withdraw` end a run: rule 7 has its PR merging minutes later, so the window
+    // where `dev` disagrees is short."
+    //
+    // THE WINDOW IS NOT SHORT WHEN THE PR CANNOT MERGE, and on 2026-09-18 that cost
+    // two runs on T-1333:
+    //
+    //   21:02:57  run 35389718070 claims T-1333, works it, runs `done --pr 1477`,
+    //             and the release here deletes claim/t-1333 while #1477 is unmerged
+    //   22:10     #1477 opens and cannot gate — it is `dirty`, and GitHub builds no
+    //             merge commit for a conflicted PR, so no check ever runs
+    //   22:45:27  run 35402702816 reads `dev`, where T-1333 is still `open` because
+    //             #1477 has not landed, finds no lock, and claims the same ticket
+    //   23:15     #1480 opens: a second, independent implementation of one acceptance
+    //
+    // Both claims were legitimate — 1h42m apart, well inside RUN_HOURS — and both runs
+    // were correct by every rule as written. A run cannot know when its PR merges, so
+    // any handback here is a bet on that interval, and it is lost exactly when the
+    // queue is congested and a duplicate is most expensive.
+    //
+    // So the marker outlives the run and `claims --sweep` collects it by age, which is
+    // what RUN_HOURS is for and where `split` has stood since T-1145. The cost is
+    // stated rather than hidden: an abandoned PR holds its ticket for up to three
+    // hours instead of being re-offered at once.
     console.log(`${t.id} done (PR #${t.pr}) — removed from QUEUE`);
+    warnIfThisClosedASplit(t, loadAll());
     break;
   }
   case 'block': {
@@ -1424,7 +1625,32 @@ switch (cmd) {
     t.blocked_on = flag('on');
     if (!t.blocked_on) { console.error('block needs --on "the question or the missing thing"'); process.exit(1); }
     writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
-    releaseClaimLock(t.id);
+    // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
+    // back here. The reasoning left behind by T-1145 — which moved `split` off the
+    // handback for the same fault — said why `done` was left alone: "`done` and
+    // `withdraw` end a run: rule 7 has its PR merging minutes later, so the window
+    // where `dev` disagrees is short."
+    //
+    // THE WINDOW IS NOT SHORT WHEN THE PR CANNOT MERGE, and on 2026-09-18 that cost
+    // two runs on T-1333:
+    //
+    //   21:02:57  run 35389718070 claims T-1333, works it, runs `done --pr 1477`,
+    //             and the release here deletes claim/t-1333 while #1477 is unmerged
+    //   22:10     #1477 opens and cannot gate — it is `dirty`, and GitHub builds no
+    //             merge commit for a conflicted PR, so no check ever runs
+    //   22:45:27  run 35402702816 reads `dev`, where T-1333 is still `open` because
+    //             #1477 has not landed, finds no lock, and claims the same ticket
+    //   23:15     #1480 opens: a second, independent implementation of one acceptance
+    //
+    // Both claims were legitimate — 1h42m apart, well inside RUN_HOURS — and both runs
+    // were correct by every rule as written. A run cannot know when its PR merges, so
+    // any handback here is a bet on that interval, and it is lost exactly when the
+    // queue is congested and a duplicate is most expensive.
+    //
+    // So the marker outlives the run and `claims --sweep` collects it by age, which is
+    // what RUN_HOURS is for and where `split` has stood since T-1145. The cost is
+    // stated rather than hidden: an abandoned PR holds its ticket for up to three
+    // hours instead of being re-offered at once.
     console.log(`${t.id} → ${t.state}`);
     break;
   }
@@ -1439,7 +1665,32 @@ switch (cmd) {
     const t = find(tickets, args[0]);
     t.state = 'withdrawn'; t.closed = today(); t.closed_at = nowIso(); t.blocked_on = flag('why') ?? t.blocked_on;
     writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
-    releaseClaimLock(t.id);
+    // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
+    // back here. The reasoning left behind by T-1145 — which moved `split` off the
+    // handback for the same fault — said why `done` was left alone: "`done` and
+    // `withdraw` end a run: rule 7 has its PR merging minutes later, so the window
+    // where `dev` disagrees is short."
+    //
+    // THE WINDOW IS NOT SHORT WHEN THE PR CANNOT MERGE, and on 2026-09-18 that cost
+    // two runs on T-1333:
+    //
+    //   21:02:57  run 35389718070 claims T-1333, works it, runs `done --pr 1477`,
+    //             and the release here deletes claim/t-1333 while #1477 is unmerged
+    //   22:10     #1477 opens and cannot gate — it is `dirty`, and GitHub builds no
+    //             merge commit for a conflicted PR, so no check ever runs
+    //   22:45:27  run 35402702816 reads `dev`, where T-1333 is still `open` because
+    //             #1477 has not landed, finds no lock, and claims the same ticket
+    //   23:15     #1480 opens: a second, independent implementation of one acceptance
+    //
+    // Both claims were legitimate — 1h42m apart, well inside RUN_HOURS — and both runs
+    // were correct by every rule as written. A run cannot know when its PR merges, so
+    // any handback here is a bet on that interval, and it is lost exactly when the
+    // queue is congested and a duplicate is most expensive.
+    //
+    // So the marker outlives the run and `claims --sweep` collects it by age, which is
+    // what RUN_HOURS is for and where `split` has stood since T-1145. The cost is
+    // stated rather than hidden: an abandoned PR holds its ticket for up to three
+    // hours instead of being re-offered at once.
     console.log(`${t.id} withdrawn`);
     break;
   }
@@ -1467,7 +1718,7 @@ switch (cmd) {
     // owner had ranked higher (T-0217). `queueIndexOf` resolves the line by id
     // AND label, so the line that moves is the one written from THIS file.
     const { i: line, byLabel } = queueIndexOf(old, t.title);
-    t.id = idOf(nextIdNum(tickets));
+    [t.id] = mintIds(tickets);
     const dest = path.join(DIR, `${t.id}-${slugOf(t.title)}.md`);
     writeTicket(t); renameSync(t.file, dest); t.file = dest;
     if (line >= 0) queueReplaceAt(line, [`${t.id} — ${t.title}`]);
@@ -1493,11 +1744,44 @@ switch (cmd) {
       console.error(`usage: ticket.mjs split ${t.id} "first piece" "second piece" [...]`);
       process.exit(1);
     }
-    let next = nextIdNum(tickets) - 1;
+
+    // A SPLIT IS NOT REPEATABLE (T-1481, 2026-09-21). There was no guard on the
+    // parent's own state, so a ticket that already carried children could be split
+    // a SECOND time — and on 2026-09-20 T-1452 was, four hours apart:
+    //
+    //   13:48  run 35529393603 claims T-1452 and splits it into T-1480/T-1481/T-1482
+    //   17:52  run 35542539851 reads T-1452, finds it splittable, and splits it AGAIN
+    //          into T-1494/T-1495/T-1496 — the same twenty-six roofs, renumbered
+    //
+    // Six tickets and six queue rows for one parcel of work, in pairs that read as
+    // unrelated rows: T-1481/T-1494 (the South parcel's eleven roofs), T-1495 against
+    // T-1480's live child T-1484 (the North parcel's nine), T-1482/T-1496 (the three
+    // platted blocks' six). T-1494 migrated the South eleven and merged as #1600; its
+    // twin T-1481 was still `open` at the head of `list --workable` the next morning,
+    // and two slices were working T-1482 while T-1496 waited below it for a third.
+    //
+    // THE CLAIM LOCK CANNOT CATCH THIS. Both runs claimed legitimately, hours apart,
+    // and the duplicate is minted by the split itself — the lock guards the parent
+    // for one run's lifetime, not for the life of the children it leaves behind.
+    // The children ARE the ticket once the split lands, so a parent that is still
+    // too big is split one level DOWN: that is what T-1480 -> T-1483/T-1484 did.
+    if (t.state === 'split') {
+      const kids = tickets.filter((k) => k.parent === t.id);
+      console.error(`${t.id} is already split — splitting it again mints a duplicate of every piece.`);
+      console.error(`Its children carry the work${kids.length ? ':' : '.'}`);
+      for (const k of kids) console.error(`  ${k.id}  ${String(k.state).padEnd(10)} ${k.title}`);
+      console.error(`Split one of THOSE if a piece is still more than one run's demonstration.`);
+      process.exit(1);
+    }
+    if (['done', 'withdrawn'].includes(t.state)) {
+      console.error(`${t.id} is ${t.state} — a finished ticket has no work left to split.`);
+      console.error(`File what remains with \`ticket.mjs new\` instead.`);
+      process.exit(1);
+    }
+    const minted = mintIds(tickets, titles.length);
     const rows = [];
     titles.forEach((title, n) => {
-      next += 1;
-      const id = idOf(next);
+      const id = minted[n];
       const child = {
         file: path.join(DIR, `${id}-${slugOf(title)}.md`),
         id, title, state: 'open', epic: t.epic, requested_by: t.requested_by,
@@ -1655,10 +1939,28 @@ switch (cmd) {
     const mineIds = new Set(mine.map(queueId).filter(Boolean));
     const out = [...mine];
     const restored = [];
+    const skipped = [];
+    // …AND A LINE THE BRANCH CLOSED IS NOT A LINE THE BRANCH LOST.
+    //
+    // The base's queue is the base's view of what is open. A branch that CLOSES a
+    // ticket removes its line, and to this reconcile that is indistinguishable from
+    // the loss it exists to repair — so it put the line back, and `check` then failed
+    // the branch for queueing a ticket the same branch had marked done. Measured on
+    // #1454 (T-1311): reconcile restored two lines, one genuinely lost and one the PR
+    // had just closed. The branch's own ticket files are the authority on state here,
+    // exactly as they are for `check`, so a base line whose ticket is no longer
+    // workable is reported and left out rather than restored.
+    const workable = new Set(tickets.filter((t) => WORKABLE.includes(t.state)).map((t) => t.id));
     let prev = null;
     for (const line of baseLines) {
       const id = queueId(line);
       if (!id) continue;
+      if (!mineIds.has(id) && !workable.has(id)) {
+        const t = tickets.find((x) => x.id === id);
+        skipped.push(`${id} (${t ? t.state : 'no ticket file'})`);
+        prev = id;
+        continue;
+      }
       if (!mineIds.has(id)) {
         const at = prev === null ? -1 : out.findIndex((l) => queueId(l) === prev);
         if (at >= 0) { out.splice(at + 1, 0, line); restored.push(`${id} (after ${prev})`); }
@@ -1671,6 +1973,11 @@ switch (cmd) {
       prev = id;
     }
     const lost = restored.length;
+    if (skipped.length) {
+      console.log(`queue reconcile: ${skipped.length} line(s) of the base were NOT restored — `
+        + 'this branch closed them:');
+      for (const row of skipped) console.log(`  ${row}`);
+    }
 
     // AND THE LABEL FOLLOWS THE TICKET, because `check` already rules that it does:
     // "the ticket wins; rewrite the line as …". A title edited on the base while a branch
@@ -1764,17 +2071,32 @@ switch (cmd) {
         });
       } catch { return null; }                       // rule 3: never stop a run
     })();
+    // THE OPEN PULL REQUESTS, BY THE BRANCH THEY SIT ON (T-1427). An open PR is the
+    // loudest statement there is that a branch's work is visible and somebody's, and
+    // until now it was the one thing this report could not see: the fetch asked for
+    // closed PRs only, and the projection dropped `head.ref` besides.
+    const openPrByRef = new Map();
+    for (const pr of (landed?.ok ? landed.pulls : null) ?? []) {
+      const ref = pr?.head?.ref;
+      if (!ref || pr.merged_at || pr.state !== 'open') continue;
+      const prev = openPrByRef.get(ref);
+      if (!prev || Number(pr.number) > Number(prev.number)) openPrByRef.set(ref, pr);
+    }
     if (landed?.ok) {
       const landedIds = new Set(landed.found.map(({ t }) => t.id));
       // A branch that ever HAD a pull request was never invisible, whatever became of
-      // it, so it is not what this reading is for. Open PRs are not in this collection
-      // (it reads closed ones), and the report says so rather than implying otherwise.
+      // it, so it is not what this reading is for.
       const hadPr = new Set((landed.pulls ?? [])
         .map((pr) => pr?.head?.ref).filter(Boolean));
       for (const r of rows) {
         if (r.how !== 'cold') continue;
         if (!WORKABLE.includes(r.t.state)) continue;
         if (isClaimMarker(r.b)) continue;            // a lock is not work
+        // AN OPEN PULL REQUEST OUTRANKS EVERY AGE HEURISTIC HERE. The work is on the
+        // remote and readable, so it is not lost; and the cold list's own advice —
+        // `git push origin --delete` — would shut somebody's pull request. Neither
+        // existing reading is true about it, so it gets its own.
+        if (openPrByRef.has(r.b)) { r.how = 'open_pr'; continue; }
         if (landedIds.has(r.t.id) || hadPr.has(r.b)) continue;
         r.how = 'recoverable';
       }
@@ -1782,7 +2104,7 @@ switch (cmd) {
 
     // Live work first, then the claims that outlived the window, then work nobody can
     // see, then the cold.
-    const RANK = { live: 0, held: 1, recoverable: 2, cold: 3 };
+    const RANK = { live: 0, held: 1, open_pr: 2, recoverable: 3, cold: 4 };
     rows.sort((a, b) => RANK[a.how] - RANK[b.how] || a.t.id.localeCompare(b.t.id));
 
     if (!branches.length) {
@@ -1791,17 +2113,27 @@ switch (cmd) {
     }
     const live = rows.filter((r) => r.how === 'live');
     const held = rows.filter((r) => r.how === 'held');
+    const openPr = rows.filter((r) => r.how === 'open_pr');
     const recoverable = rows.filter((r) => r.how === 'recoverable');
     const cold = rows.filter((r) => r.how === 'cold');
     const age = (r) => ageWords(r.age);
+    // Said on every line that has one, not only in the section below: a run reading
+    // this list wants the PR number at the branch, not two lists to cross-reference.
+    const prNote = (branch) => {
+      const pr = openPrByRef.get(branch);
+      if (!pr) return '';
+      const labels = (pr.labels ?? []).length ? ` · ${pr.labels.join(', ')}` : '';
+      return `   · PR #${pr.number} OPEN${labels}`;
+    };
     const say = (r) => {
       console.log(`  ${r.t.id}  ${String(r.t.state).padEnd(9)} ${r.t.requested_by === 'owner' ? 'OWNER ' : '      '}${r.t.title}`);
-      console.log(`          ↳ ${r.b}${isClaimMarker(r.b) ? '   (claim lock — claimed, nothing pushed yet)' : ''}${r.b === here ? '   ← you are here' : ''}   ${age(r)}\n`);
+      console.log(`          ↳ ${r.b}${isClaimMarker(r.b) ? '   (claim lock — claimed, nothing pushed yet)' : ''}${r.b === here ? '   ← you are here' : ''}   ${age(r)}${prNote(r.b)}\n`);
     };
 
     if (has('json')) {
       console.log(JSON.stringify(rows.map((r) => ({
         id: r.t.id, state: r.t.state, branch: r.b, age_hours: r.age, reading: r.how,
+        open_pr: openPrByRef.get(r.b)?.number ?? null,
       })), null, 2));
       break;
     }
@@ -1823,6 +2155,25 @@ switch (cmd) {
     console.log('so a merged branch never becomes an ancestor of dev. The PR list is the truth:');
     console.log(`  ${REPO_URL}/pulls\n`);
 
+    if (openPr.length) {
+      console.log(`OPEN PULL REQUESTS — ${openPr.length} branch(es) whose work is already up for review:\n`);
+      for (const r of openPr) {
+        const pr = openPrByRef.get(r.b);
+        const labels = (pr.labels ?? []);
+        console.log(`  ${r.t.id}  ${String(r.t.state).padEnd(9)} ${r.t.requested_by === 'owner' ? 'OWNER ' : '      '}${r.t.title}`);
+        console.log(`          ↳ ${r.b}   ${age(r)}`);
+        console.log(`          PR #${pr.number} is OPEN${labels.length ? ` and labelled ${labels.join(', ')}` : ''}: ${REPO_URL}/pull/${pr.number}`);
+        if (labels.includes('hold')) {
+          console.log(`          \`hold\` means a run PARKED it for the owner on purpose. Do not rebuild it,`);
+          console.log(`          do not take the ticket, and do not delete the branch.`);
+        }
+        console.log('');
+      }
+      console.log('The branch is older than a run, so every age reading here calls it cold — but the');
+      console.log('work is visible, somebody put it up, and deleting the branch would shut the pull');
+      console.log('request. Read the PR before you touch the ticket.\n');
+    }
+
     if (recoverable.length) {
       console.log(`RECOVERABLE — ${recoverable.length} branch(es) carrying work NOBODY CAN SEE:\n`);
       for (const r of recoverable) {
@@ -1835,7 +2186,7 @@ switch (cmd) {
       console.log('request — the shape of a run cancelled before it could open one (T-1155). The');
       console.log('queue still offers the ticket, so the next run rebuilds the work unless somebody');
       console.log('reads the branch first. Open its PR, or take its reasoning into your own and');
-      console.log('delete it; an OPEN PR would not appear here, so check the list above too.\n');
+      console.log('delete it. A branch with an OPEN pull request is not here — it is listed above.\n');
     }
 
     if (cold.length) {
@@ -1929,6 +2280,47 @@ switch (cmd) {
       if (!stale.length) console.log('\nnothing stale to sweep');
     } else if (stale.length) {
       console.log(`\n${stale.length} older than ${RUN_HOURS}h — \`ticket.mjs claims --sweep\` deletes those.`);
+    }
+
+    // T-1287's id locks are a different animal and are swept by a different rule.
+    // A claim is a LEASE — it expires with the run, and age is what makes it stale.
+    // An id reservation is not a lease: it says an id is spoken for, and it has to
+    // hold from the minute a run mints until the ticket reaches `dev`, which may be
+    // hours and several merges later. Age would delete it exactly when it is still
+    // doing its job. So the rule is possession: once the ticket IS on the base, the
+    // ticket file is the reservation and the marker is litter.
+    const idLocks = remoteBranches().filter((b) => /^idlock\/t-\d{4}$/.test(b.name));
+    if (idLocks.length) {
+      // TWO WAYS A RESERVATION STOPS BEING ONE, and only the first was obvious.
+      //
+      //   landed    — the tree carries the ticket, so the ticket file IS the
+      //               reservation and the marker is litter.
+      //   abandoned — no tree anywhere carries it and the marker is older than a
+      //               run. The mint never became a ticket: a run died between
+      //               reserving and writing, or somebody probed the mechanism.
+      //               Swept by AGE here because possession can never arrive —
+      //               without this an abandoned lock is litter for ever, and it
+      //               also burns the id, since the next mint steps past a held ref.
+      const idOfLock = (b) => b.name.replace(/^idlock\//, '').toUpperCase();
+      const landed = idLocks.filter((b) => tickets.some((t) => t.id === idOfLock(b)));
+      const abandoned = idLocks.filter((b) => {
+        if (tickets.some((t) => t.id === idOfLock(b))) return false;
+        const age = branchAgeHours(b.sha);
+        return age !== null && age > RUN_HOURS;
+      });
+      console.log(`\nID LOCKS — ${idLocks.length} held, ${landed.length} landed, ${abandoned.length} abandoned`);
+      if (has('sweep')) {
+        for (const b of [...landed, ...abandoned]) {
+          const ok = gitTry(['push', 'origin', '--delete', b.name]).ok;
+          console.log(`  ${ok ? 'deleted' : 'could not delete'} ${b.name}`);
+        }
+        if (!landed.length && !abandoned.length) {
+          console.log('  nothing to sweep — every reservation is still in flight');
+        }
+      } else if (landed.length || abandoned.length) {
+        console.log(`  \`ticket.mjs claims --sweep\` deletes the ${landed.length + abandoned.length} `
+          + 'that are no longer reserving anything.');
+      }
     }
     break;
   }

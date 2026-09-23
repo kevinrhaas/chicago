@@ -53,4 +53,4 @@ stood retracted-but-unbuilt for eighteen days.
 - `docs/LIBERTIES.md` carries the invention: the footprint, and the choice of lot within
   "near Wells".
 - Every gate green — `tools/check.sh` and the renderer smoke — the GLB baked from the
-  record rather than hand-authored, and `site/4d/` republished.
+  record rather than hand-authored, and `site/chicago/4d/` republished.

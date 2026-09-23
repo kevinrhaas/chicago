@@ -825,9 +825,11 @@ def record(kind: str, runs, openings, refused, fenced, counts, owners, prose) ->
                 f"and each is named in `refused` below with the measurement that refused it. "
                 f"THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: "
                 f"the continuous street-lining fences at the road edge are T-0069's half of "
-                f"it, and the lots outside the 19 platted blocks — the West Division beyond "
-                f"the plat, the reservation, the North Division — have no committed lot "
-                f"geometry to derive a line from at all."
+                f"it, and ground outside the {counts['blocks_with_lots']} platted blocks "
+                f"that carry lot lines — the reservation, Kinzie's Addition, the West "
+                f"Division blocks whose own sheet prints no dimension to divide them by, "
+                f"the country places outside the plat — has no committed lot geometry to "
+                f"derive a line from at all."
             ),
         },
         "refused": refused,
@@ -857,10 +859,16 @@ def main() -> int:
     args = ap.parse_args()
     entries, sidecars = survey()
     runs, openings, refused, fenced = build(entries, sidecars)
+    # Counted rather than written down, since T-1455: the note below used to say "the 19
+    # platted blocks" and the number was a literal, so the day the grid grew a block the
+    # prose went quietly wrong. It is the blocks with lot LINES in them that a per-lot
+    # rule can reach, which is not the same as the blocks on the grid.
     counts = {
         "improved": len(entries),
         "refused": len(refused),
         "fenced": sum(len(v) for v in fenced.values()),
+        "blocks_with_lots": sum(1 for b in json.loads(
+            LOTS_PATH.read_text(encoding="utf-8"))["blocks"] if b.get("lots")),
     }
     failed = 0
     total_runs = 0

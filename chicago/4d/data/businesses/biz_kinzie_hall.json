@@ -1,0 +1,83 @@
+{
+  "id": "biz_kinzie_hall",
+  "register_id": "business_kinzie_hall",
+  "name": "Kinzie & Hall",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "dry goods, hardware and groceries",
+  "occupation": "dry_goods_merchant",
+  "goods": [
+    "Dry Goods",
+    "Groceries",
+    "Hardware"
+  ],
+  "firm_styles": [
+    "Kinzie & Hall"
+  ],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": "lake",
+      "face": null,
+      "primary": true,
+      "from": "1834-06-25",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. A crossing of two platted streets: canal and lake.",
+      "limit_reason": "The register places this house against canal+lake and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "corner",
+        "id": null,
+        "title": "Canal Street and Lake Street",
+        "streets": [
+          "canal",
+          "lake"
+        ]
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1834-06-25",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-06-25, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-06-25",
+    "last_issue": "1834-06-25",
+    "copy_dates": [
+      "1834-06-24"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_06_25#c004"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

@@ -65,3 +65,22 @@ repairing: `brown_boarding_house` (H1) stands at 2.9 m rather than 2.5 — still
 band, and invisible to `band_claims_baseline.json` because that record carries no
 `reconstruction.family` — and `temple_lake_st_building` (C3) stands at 5.05 m rather than
 3.25. The override is not the repair; it is one building each.
+
+**A repair available here, found from T-1444 (2026-09-21).** `generate_inferred_households.py:762`
+deals a loft on `family in ("W2", "W5", "A1", "A2")`. **W5 is authored `levels: '1'`** in the
+crosswalk — sawmill, boat-repair or riverside shop, a single storey — so a W5 record must not
+carry one. This is the drift T-0179 found in the roof literal, still sitting in the loft literal;
+`generate_west_infill.py` had the same set plus W3 and it put `west_rec_036` in front of the band
+gate.
+
+That parcel's fix is already written and shared: **`family_bands.admits_loft(family)`** asks the
+crosswalk instead of a list, using `measure_band_claims.py`'s own rule (a loft is worth half a
+level; a family admits one when its band reaches `lo + 0.5`), so the generator and the gate cannot
+disagree. Swapping the literal here for that call is a one-line change.
+
+It is a REPAIR rather than a new offender: `inf_sawpit_shed:levels — loft = true` is a committed
+row in `tools/band_claims_baseline.json`, and this removes it. It was NOT done on the T-1444 branch
+because a loft is a half storey and changing it re-bakes this parcel's meshes — the same re-bake
+wall docs/ROADMAP.md names for K25(b) and T-V1(b). Do it in the same slice as the next bake this
+parcel takes, and re-run `measure_band_claims.py --write-baseline` in that commit to record the
+repair.

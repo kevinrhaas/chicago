@@ -30,43 +30,61 @@ own reconciliation credits a non-dwelling family, and where they stand is a meas
 Per family letter, over the documented layer, by the traffic class the committed street
 hierarchy authors in `data/streets/1835.json` for the street each building stands nearest:
 
-    C  stores        15 records — 10 principal   5 ordinary   0 light
-    F  warehouses     9 records —  9 principal   0 ordinary   0 light
-    W  workshops      7 records —  2 principal   5 ordinary   0 light
-    T  lodging        8 records —  3 principal   4 ordinary   1 light
-    I  institutions   9 records —  1 principal   4 ordinary   4 light
+    C  stores        14 records —  9 principal   5 ordinary   0 light
+    F  warehouses     3 records —  3 principal   0 ordinary   0 light
+    W  workshops      6 records —  0 principal   5 ordinary   1 light
+    T  lodging        7 records —  3 principal   4 ordinary   0 light
+    I  institutions   5 records —  0 principal   3 ordinary   2 light
 
 Run this module with no arguments and the table above is what it prints, from the tree
-rather than from this docstring. **Not one documented store, warehouse or workshop in this
-town stands on a light street**, and that zero is the load-bearing figure: it is what makes
+rather than from this docstring. **Not one documented store or warehouse in this town
+stands on a light street**, and that zero is the load-bearing figure: it is what makes
 "a store takes the better face" a reading of the record rather than a preference about
 frontage. It is a zero across the stores and the warehouses, two of the three letters a
 block parcel may actually be dealt.
 
-The letters that are not zero are stated rather than trimmed away. **W's one** arrived on
-2026-09-06 with T-0883: `fort_dearborn_shop`, the garrison workshop the 1830 Harrison plan
-letters on Fort Dearborn's outer ground, which this table puts **381 m** from the State
-Street centreline — further off than T's, and for a harder reason than distance. The
-military reservation was UNPLATTED in 1835 and no street crossed it (see
-`data/reconstruction/1835_no_build_ground.json`), so a building inside the fort's fence has
-no street frontage to take a better or a worse face of. The zero it breaks is a statement
-about buildings that front streets, and this one does not front one. **T's one** is the
-Steamboat Hotel, which this table puts 287 m from the State Street centreline: it does not
-front State, State is simply the nearest committed line in a division that has almost no
-street control yet, and the same artefact accounts for most of the invented residual at the
-bottom of the printout. **I's four** are the lighthouse, the council house, St Mary's and
-the Watkins school house — and `tools/generate_block_infill.py` refuses the institutional
-families to a block parcel BY NAME anyway (L93, ROADMAP T-I3), so no rule about frontage
-ever reaches them. The assertion below reads this table rather than a list typed beside it,
-so it asserts nothing about a letter the record does not put a zero on.
+### The counted set is the roofs that FRONT the street they are nearest
+
+The table above does not count all 48. A building is assigned here to the corridor it
+stands NEAREST, and for a good number of this town's documented roofs the nearest corridor
+is not a frontage at all: a brickyard is seated by its clay, a forwarding warehouse and
+the north-bank freight sheds by the water, the fort's shop by a fence no street crossed,
+the Wolf Point houses by the forks and the ferry. This project does not decide that here.
+`data/reconstruction/1835_placement_policy.json` already records, per record and with the
+reasoning assertion 3 refuses to let rot, which documented roofs stand against every clause
+of their own letter and what they are seated by instead — and `not_a_frontage()` reads that
+file. **Seventeen roofs are left out on that ground and the reason for each is in the
+policy, not here.** Nothing is trimmed to make a zero: the exclusions are the policy's own
+outliers, they were authored before this module read them, and the printout still lists
+every excluded roof in its residual block at the bottom.
+
+That distinction became load-bearing on 2026-09-20. Until T-1191 the north bank had no
+committed corridors, so its documented warehouses, sheds, school and tannery were all
+measured against South Water's or State's line ACROSS THE RIVER — a principal or ordinary
+class none of them takes. T-1191 put the north bank's own lines in the reading, those roofs
+came onto the light back streets they actually stand near, and a witness counting nearest
+corridors alone would have read six warehouses and a store onto light streets overnight and
+quietly retired assertion 1 for the only two letters it bites on. The zero is unchanged
+because the reading is unchanged; what changed is that it is now a statement about
+frontage rather than about which corridors happened to be committed.
+
+The letters that are not zero are stated rather than trimmed away. **W's one** is
+`miller_tannery`, the settlement's first factory on the north bank, 60.79 m off Market
+Street's corridor — the noxious trades stand on the branch ground and the placement policy
+allows it there, so it is a conforming record and it is counted. **I's two** are St Mary's
+and the Watkins school house, and `tools/generate_block_infill.py` refuses the
+institutional families to a block parcel BY NAME anyway (L93, ROADMAP T-I3), so no rule
+about frontage ever reaches them. The assertion below reads this table rather than a list
+typed beside it, so it asserts nothing about a letter the record does not put a zero on.
 
 The second reading is the SETBACK, and it is what the word "functional" in T-A15's
 sentence actually buys. Thirteen of the fifteen documented stores stand ON the street
 line — inside `measure_frontage_fabric.STREET_LINE_M`, the band that module derives from
 the empty gap in the town's own setback distribution. The two that do not are both off the
-platted grid: Robert Kinzie's store at Wolf Point, 27 m from the Lake Street line, and the
-Miller house 138 m from South Water's. **Every documented store standing on a platted
-street stands on its line.** A dwelling stands back at a typology setback of 4.0 to 7.5 m.
+platted grid and both are policy outliers: Robert Kinzie's store at Wolf Point, 27 m from
+the Lake Street line, and the Miller house at the forks, 60.66 m off Market Street's
+north-bank corridor since T-1191 and 138 m off South Water's across the river before it.
+**Every documented store standing on a platted street stands on its line.** A dwelling stands back at a typology setback of 4.0 to 7.5 m.
 A store does not.
 
 ## What is asserted, and the scope is the rule's own
@@ -115,12 +133,16 @@ sys.path.insert(0, str(ROOT / "tools"))
 from measure_frontage_fabric import (  # noqa: E402
     STREET_LINE_M, census, documented_families, street_traffic,
 )
+from placement_policy_1835 import constant, outliers as policy_outliers  # noqa: E402
 
 # The family letters that are not a dwelling. `A` is excluded on purpose: a yard building
 # is placed by the ancillary clause — off the block alley, behind its own principal roof —
 # which is a rule about the LOT and not about the street, and it long predates this one.
-NON_DWELLING = "CFTWI"
-COMMERCIAL = "C"
+# Both letters are held by `data/reconstruction/1835_placement_policy.json` since T-1195,
+# which is also where the clause each one serves is written down; its assertion 5 reads
+# these two lines and fails if either takes a literal back.
+NON_DWELLING = "".join(constant("non_dwelling_letters"))
+COMMERCIAL = constant("commercial_letter")
 CLASSES = ("principal", "ordinary", "light")
 
 # The block parcels' own prefix. The face rule is their rule; see the docstring.
@@ -154,11 +176,38 @@ def reading() -> dict:
     return {"rows": rows}
 
 
+_OUTLIERS: set[str] | None = None
+
+
+def not_a_frontage() -> set[str]:
+    """The documented roofs `data/reconstruction/1835_placement_policy.json` says do not
+    take the face of the street they stand nearest, each with its authored reason.
+
+    Read rather than typed. The witness below is a statement about where a building
+    FRONTS, and the nearest committed centreline is not always one: a brickyard is seated
+    by its clay, a forwarding warehouse by the water, a roof inside the military
+    reservation by a fence no street crossed. The placement policy already holds that
+    judgement, per record, with the reasoning assertion 3 refuses to let rot — so this
+    reads that file instead of keeping a second list of exceptions beside it.
+    """
+    global _OUTLIERS
+    if _OUTLIERS is None:
+        _OUTLIERS = {row["id"] for row in policy_outliers()}
+    return _OUTLIERS
+
+
 def documented_classes(rows: list[dict]) -> dict[str, dict[str, int]]:
-    """letter -> {traffic class: how many DOCUMENTED buildings of it stand there}."""
+    """letter -> {traffic class: how many DOCUMENTED buildings of it stand there}.
+
+    Counted over the documented roofs that front the street they are nearest; the ones
+    the placement policy records as standing against every clause of their letter, with
+    a reason saying what they are seated by instead, are not a reading of frontage and
+    are left out. See `not_a_frontage`.
+    """
+    excluded = not_a_frontage()
     out: dict[str, dict[str, int]] = {}
     for row in rows:
-        if row["layer"] != "research":
+        if row["layer"] != "research" or row["id"] in excluded:
             continue
         out.setdefault(row["letter"], {k: 0 for k in CLASSES})
         if row["class"] in CLASSES:

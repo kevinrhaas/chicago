@@ -62,7 +62,7 @@ const YEAR = process.env.SMOKE_YEAR || '1835';
 const JSON_OUT = process.argv.includes('--json');
 const GATE = process.argv.includes('--gate');
 const SOURCE = process.argv.includes('--source');
-const ROOT = SOURCE ? path.resolve(HERE, '..') : path.resolve(HERE, '../../../site/4d');
+const ROOT = SOURCE ? path.resolve(HERE, '..') : path.resolve(HERE, '../../../site/chicago/4d');
 const ENTRY = SOURCE ? '/renderers/web/index.html' : '/walk/';
 
 /** 2 cm: the probe L178 quoted, and fine enough that the 0.30 m2 it reported at

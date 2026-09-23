@@ -18,6 +18,7 @@ import * as THREE from 'three';
 const H_FOV_DEG = 76;
 const DEG = Math.PI / 180;
 
+import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
 import { loadScene, resolveBases } from './scene-loader.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
@@ -46,15 +47,17 @@ import { createBoats } from './boats.js';
 import { createWells } from './wells.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
+import { mountOrderBook } from './orderbook.js';
 import { mountFauna } from './fauna.js';
 import { mountPlants } from './plants.js';
 import { mountResidents } from './residents.js';
 import { mountGround } from './ground.js';
-import { mountGateCensus } from './census.js';
+import { mountCityCensus } from './census.js';
 import { mountLiberties } from './liberties.js';
 import { createRouter } from './route.js';
 import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
+import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
 
 const VERSION = '0.1.0';
@@ -760,15 +763,7 @@ function readDetailPreference() {
 }
 
 const params = new URLSearchParams(location.search);
-/**
- * The year a visitor asked for. `?year=` wins; otherwise the page's own path
- * names it — chicago.polecat.live/4d/1812/ and /4d/dev/1880/ are front doors that
- * `tools/write_entry_pages.mjs` writes for each year — and a bare /4d/ opens on
- * the target date. Other state (a structure to open, a camera) belongs in further
- * query parameters beside `year`, never in more path segments.
- */
-const PATH_YEAR = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [])[1];
-const YEAR = (params.get('year') || PATH_YEAR || '1835').replace(/[^0-9a-z_-]/gi, '');
+const YEAR = (params.get('year') || '1835').replace(/[^0-9a-z_-]/gi, '');
 const DEBUG = params.get('debug') === '1';
 
 const canvas = document.getElementById('view');
@@ -810,32 +805,39 @@ const api = {
             altitude: 0, flying: false },
   problems,
   budget: BUDGET,
-  // The town's own two numbers, as the gate showed them (T-0036). Null until the
-  // census resolves, and null forever if it could not be read — the smoke asserts
-  // the DISPLAYED figures against this, so a silent failure reads as one.
+  // The town's two City ladders (T-0036/T-1292). Null until Evidence first opens,
+  // and null forever if it could not be read — the smoke asserts the displayed
+  // figures against this, so a silent failure reads as one.
   census: null,
   // T-1126: the town's roll call — indexed, expected to draw, and actually
   // standing, with every absentee named. Null until the buildings are batched.
   roll: null,
 };
 window.__chicago4d = api;
+let bootStorage;
+try { bootStorage = window.localStorage; } catch { /* private mode */ }
+const bootController = createBoot({
+  device: prefersTouch() ? 'mobile' : 'desktop',
+  detail: DETAIL[readDetailPreference()] ? readDetailPreference() : (prefersTouch() ? 'light' : 'full'),
+  build: document.getElementById('gate-build')?.textContent || VERSION,
+  storage: bootStorage, problems, present: progress,
+});
+api.boot = bootController;
+const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
+  const active = bootController.phases.find(phase => phase.essential && phase.startedAt !== null && phase.endedAt === null);
+  bootController.fail(active?.id || 'scene', err);
   api.error = String(err?.message || err);
   problems.push(`boot: ${api.error}`);
-  // A year with no scene yet (a door such as /4d/1812/ that is ahead of the data)
-  // is not a broken build, and should not read like one.
-  const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`);
-  if (gateSub) {
-    gateSub.textContent = unbuilt
-      ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.`
-      : `Could not load the scene — ${api.error}`;
-  }
+  if (gateSub) gateSub.textContent = `Could not load the scene — ${api.error}`;
   if (gateBtn) gateBtn.textContent = 'Failed to load';
   console.error('[4D Chicago] boot failed', err);
 });
 
 async function boot() {
+  bootController.start('scene');
+  await yieldToPaint();
   const bases = resolveBases();
   const coarse = prefersTouch();
 
@@ -907,18 +909,12 @@ async function boot() {
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
 
-  progress(8, 'Reading the scene…');
-  // The gate's two numbers (T-0036). Started here and NOT awaited: it is one
-  // small JSON beside a scene load that fetches hundreds of files, and the row
-  // it fills sits above the progress bar — a visitor should be reading how big
-  // the town is while the town loads, not after. It fails soft to a hidden row,
-  // so nothing downstream depends on it and no rejection reaches the boot chain.
-  const census = mountGateCensus({ dataBase: bases.dataBase }).then((c) => {
-    api.census = c;
-    return c;
-  }).catch(() => null);
-  const loaded = await loadScene(YEAR, bases);
-  progress(30, 'Placing the buildings…');
+  const loaded = await loadScene(YEAR, bases, {
+    onProgress: (done, total) => bootController.progress('scene', done, total),
+  });
+  bootController.end('scene');
+  bootController.start('terrain');
+  await yieldToPaint();
   problems.push(...loaded.problems);
   api.scene = loaded.scene;
   api.datum = loaded.datum;
@@ -948,16 +944,24 @@ async function boot() {
     confidence,
     problems,
   });
+  if (!terrain.loaded) throw new Error('Terrain heightfield did not load');
   scene3d.add(terrain.group);
   // T-1154 — the ground's reach, set from the fog the world just made rather
   // than from a literal here, so a scene that changes its haze moves the reach
   // with it and the two can never drift apart. See terrain.js hazeReachM().
   terrain.setGroundReach(hazeReachM(scene3d.fog?.density ?? 0));
-  progress(55, 'Laying the ground and the river…');
-
-  const buildings = createBuildings({ registry: loaded.registry, confidence, terrain });
+  bootController.end('terrain');
+  bootController.start('buildings', loaded.registry.size);
+  await yieldToPaint();
+  const buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
+    checkpoint: bootCheckpoint,
+    onProgress: (done, total) => bootController.progress('buildings', done, total),
+  });
   problems.push(...buildings.problems);
   scene3d.add(buildings.group);
+  bootController.end('buildings');
+  bootController.start('ground');
+  await yieldToPaint();
 
   /**
    * T-1126 — FURNITURE FOLLOWS ITS HOST, and the failure is SAID OUT LOUD.
@@ -1178,7 +1182,9 @@ async function boot() {
   // structure record to carry `placement.walk_surface_m`, and the height is the
   // one that layer drew the slab at (T-0058; see the header of `wharves.js`).
   decks.push(...wharves.decks);
-  progress(68, 'Planting the prairie…');
+  bootController.end('ground');
+  bootController.start('flora');
+  await yieldToPaint();
 
   // ---- vegetation ------------------------------------------------------- //
   // Awaited, like the terrain and for the same reason: the sward is what the
@@ -1395,13 +1401,26 @@ async function boot() {
    */
   const swardBlocked = (e, n) => streets.blocksGrowth(e, n) || yards.suppressesSward(e, n);
 
+  let floraUnits = 0, floraDone = 0, treeDone = 0;
+  const plantingProgress = (done, total) => {
+    if (done === 0) floraUnits += total;
+    else floraDone++;
+    bootController.progress('flora', floraDone, floraUnits);
+  };
   let flora = await createFlora({
+    checkpoint: bootCheckpoint,
     dataBase: bases.dataBase, terrain, footprints: planting,
     growthBlocked: swardBlocked,
     confidence, problems, ...detailOpts(),
   });
   scene3d.add(flora.group);
   let trees = await createTrees({
+    checkpoint: bootCheckpoint,
+    onProgress: (done, total) => {
+      if (done === 0 && treeDone === 0) floraUnits = total;
+      floraDone += done - treeDone; treeDone = done;
+      bootController.progress('flora', floraDone, floraUnits);
+    },
     dataBase: bases.dataBase, terrain, footprints: planting,
     growthBlocked: streets.blocksGrowth,
     confidence, problems, pixelsPerRadian, streetRecords: loaded.index?.streets ?? [],
@@ -1414,6 +1433,10 @@ async function boot() {
     ...detailOpts(),
   });
   scene3d.add(trees.group);
+  await flora.prepare?.(camera, bootCheckpoint, plantingProgress);
+  bootController.end('flora');
+  bootController.start('interaction');
+  await yieldToPaint();
 
   /**
    * Rebuild the two layers that scale, in place. Both are planted from a FIXED
@@ -1475,7 +1498,11 @@ async function boot() {
   // tier, because the relative one resolved only in the source tree — the tree
   // nobody visits — and 404'd on the deployed site and its preview alike
   // (ROADMAP K26, popup.js DOSSIER_BASE).
-  const popup = createPopup(popupRoot);
+  // …and one hook out of it: a firm named on a building card opens the firm's
+  // own card in the drawer (T-1325). Late-bound on purpose — `openBusiness` is
+  // declared with the business index, several hundred lines below, and only ever
+  // runs on a tap.
+  const popup = createPopup(popupRoot, { onBusiness: (id) => openBusiness(id) });
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets,
   });
@@ -1486,12 +1513,13 @@ async function boot() {
   // Absent (an older mirror, a failed fetch) degrades to "no people listed";
   // it never takes the scene down.
   let people = null;
+  bootController.start('people');
   try {
     const res = await fetch(new URL(`sidecars/${loaded.scene.id ?? YEAR}/people.json`, bases.dataBase), { cache: 'no-cache' });
     if (res.ok) people = await res.json();
-    else problems.push(`people: sidecars/${loaded.scene.id ?? YEAR}/people.json ${res.status} — nobody is listed in Go to or People`);
+    else throw new Error(`sidecars/${loaded.scene.id ?? YEAR}/people.json ${res.status} — nobody is listed in Go to or People`);
   } catch (err) {
-    problems.push(`people: ${err.message} — nobody is listed in Go to or People`);
+    bootController.fail('people', err);
   }
 
   /** A structure's ground position in local ENU metres — footprint centroid where
@@ -1614,8 +1642,26 @@ async function boot() {
     root: hudRoot.querySelector('[data-panel="evidence"]'),
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
   });
+  // The town summary used to be part of the loader. It now costs nothing on a
+  // cold boot: the first visit to Evidence starts it, once, and the hub's
+  // MutationObserver replaces the City tile's ellipsis when both files paint.
+  let cityCensusPromise = null;
+  const ensureCityCensus = () => {
+    if (!cityCensusPromise) {
+      cityCensusPromise = mountCityCensus({
+        dataBase: bases.dataBase,
+        root: document.getElementById('city'),
+        buildStamp: document.getElementById('gate-build')?.textContent.trim() || `build ${VERSION}`,
+        onError: err => problems.push(`city census: ${err?.message || err}`),
+      }).then((c) => { api.census = c; return c; });
+    }
+    return cityCensusPromise;
+  };
   hud.onTabChange((tab) => {
-    if (tab === 'evidence') api.evidenceHub?.showHub?.({ keep: true });
+    if (tab === 'evidence') {
+      void ensureCityCensus();
+      api.evidenceHub?.showHub?.({ keep: true });
+    }
     if (tab === 'goto') hud.goTo?.refreshDistances?.();
   });
 
@@ -1672,9 +1718,34 @@ async function boot() {
     sceneId: loaded.scene.id ?? YEAR,
     problems,
   });
+  // The town's FIRMS, read BEFORE the two directories that now cross-reference
+  // them (T-1325). The index is one file and the crosswalk is one fold of it; a
+  // person's card and a building's card both ask it the same two questions, so
+  // neither is allowed to fold 196 rows for itself.
+  api.businessIndex = await (async () => {
+    try {
+      const res = await fetch(new URL('businesses/index.json', bases.dataBase), { cache: 'no-cache' });
+      if (res.ok) return res.json();
+      problems.push(`businesses: businesses/index.json ${res.status} — no firm is listed in Businesses`);
+    } catch (err) {
+      problems.push(`businesses: ${err.message} — no firm is listed in Businesses`);
+    }
+    return null;
+  })();
+  const firms = firmCrosswalk(api.businessIndex);
+  // A firm chip on a building card opens the firm in the drawer. Declared once
+  // here, used by the popup and by both directories, so every route into a
+  // business card lands the same way.
+  const openBusiness = (businessId) => {
+    hud.setPanel(true);
+    hud.selectTab('businesses');
+    api.businesses?.open?.(businessId);
+  };
+  popup.setBusinesses(firms.byStructure);
+
   // …and the same people as a DIRECTORY: one row a person, searchable and
   // filterable, with the way to the building they lived or worked at.
-  api.people = await mountPeople({
+  try { api.people = await mountPeople({
     mount: document.getElementById('people-directory'),
     people,
     registry: loaded.registry,
@@ -1682,6 +1753,39 @@ async function boot() {
     sceneId: loaded.scene.id ?? YEAR,
     onGoTo: (target) => { hud.setPanel(false); goToTarget(target); },
     // The drawer's head shows the person's name with a back control while a card is open.
+    onTitle: (text, onBack) => hud.setTitle(text, onBack),
+    // …and the firms the register puts them in, which the business layer knew
+    // about them and their own card never said (T-1325).
+    firmsByPerson: firms.byPerson,
+    onBusiness: openBusiness,
+    problems,
+  });
+  bootController.end('people');
+  } catch (err) { bootController.fail('people', err); }
+
+  // …and the town's FIRMS, which until now reached a visitor only through the
+  // roof they stood in. 166 of the 196 the register knows have no roof here — 26
+  // reach a landmark, 61 a street and no further, 79 could be placed nowhere at
+  // all — and the one
+  // thing this project will not do to make them visible is invent a building for
+  // them. So they get a directory and a card: every firm findable by trade,
+  // street, grade and how far the record could place it, and every limit printed.
+  api.businesses = await mountBusinesses({
+    mount: document.getElementById('businesses-directory'),
+    index: api.businessIndex,
+    registry: loaded.registry,
+    dataBase: bases.dataBase,
+    // The scene id the resident join is cached under: the business card reads the
+    // SAME address book the person card does (T-1493), so it must ask for it by
+    // the same key or fetch a megabyte twice.
+    sceneId: loaded.scene.id ?? YEAR,
+    onGoTo: (target) => { hud.setPanel(false); goToTarget(target); },
+    // A proprietor the town holds a card for is one tap from their firm: the
+    // People view already knows how to open them, so this only has to ask.
+    onPerson: (personId) => {
+      hud.selectTab('people');
+      api.people?.open?.(personId);
+    },
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
     problems,
   });
@@ -1744,6 +1848,18 @@ async function boot() {
   api.population = await mountPopulation({
     mount: document.getElementById('population'),
     noteMount: document.getElementById('population-note'),
+    dataBase: bases.dataBase,
+    problems,
+  });
+
+  // …and the other half of the same question (T-1166). The profile says who the
+  // sources name; the order book says how many people, households, businesses and
+  // roofs the models say were here and the sources cannot, which ticket owes each
+  // bucket, and how much of it has been built. It is the progress view of the three
+  // reconstruction bands, filled by their own builds rather than by hand.
+  api.orderBook = await mountOrderBook({
+    mount: document.getElementById('order-book'),
+    noteMount: document.getElementById('order-book-note'),
     dataBase: bases.dataBase,
     problems,
   });
@@ -1876,7 +1992,11 @@ async function boot() {
     const board = signage.pickAt(ndc, camera);
     if (board && (!hit || board.distance < hit.distance)) {
       const record = loaded.registry.get(board.id);
-      if (record) hit = { ...board, record };
+      // `fromSign` rides along so the card can lead with the firm the board
+      // advertises rather than the roof behind it (T-1325). A later layer that
+      // wins the ray — the goods at the door, the walk underfoot — replaces the
+      // hit and the flag with it, which is right: that aim was not at the board.
+      if (record) hit = { ...board, record, fromSign: true };
     }
     /**
      * And so can a barrel at a shop door, which is where a visitor's crosshair
@@ -1940,7 +2060,7 @@ async function boot() {
       hud.say('Nothing there — aim at a building');
       return null;
     }
-    popup.show(hit.record);
+    popup.show(hit.record, { fromSign: !!hit.fromSign });
     return hit;
   }
 
@@ -2150,6 +2270,8 @@ async function boot() {
 
   // ---- loop ------------------------------------------------------------- //
 
+  let resolveFirstFrame, rejectFirstFrame;
+  const firstFrame = new Promise((resolve, reject) => { resolveFirstFrame = resolve; rejectFirstFrame = reject; });
   const clock = new THREE.Clock();
   let frames = 0;
   let fpsMark = performance.now();
@@ -2226,6 +2348,8 @@ async function boot() {
     trees.update(dt, camera);
 
     renderer.render(scene3d, camera);
+    bootController.frameRendered();
+    resolveFirstFrame();
 
     // Read back inside the frame that drew it. Outside the loop the drawing
     // buffer has already been composited and cleared, and readPixels quietly
@@ -2260,7 +2384,23 @@ async function boot() {
       fpsMark = now;
     }
   }
-  renderer.setAnimationLoop(tick);
+  // Compile programs while the gate can still repaint, before the first draw.
+  // The horizon creates its initial geometry on update, so include that too.
+  trees.update(0, camera);
+  await yieldToPaint();
+  for (const layer of scene3d.children) {
+    if (layer.isLight) continue; // targetScene already supplies the lights
+    await renderer.compileAsync(layer, camera, scene3d);
+    const pause = bootCheckpoint(); if (pause) await pause;
+  }
+  await yieldToPaint();
+  renderer.setAnimationLoop(() => {
+    try { tick(); } catch (err) {
+      renderer.setAnimationLoop(null);
+      if (bootController.readyAt === null) rejectFirstFrame(err);
+      else throw err;
+    }
+  });
 
   // ---- harness ---------------------------------------------------------- //
 
@@ -2531,16 +2671,16 @@ async function boot() {
     facadeWeathering: { get: () => buildings.weathering, enumerable: true },
   });
 
-  // Settle the gate census before declaring ready. It was started before the
-  // scene load and has had every one of those seconds; awaiting it here means
-  // `api.census` is either the document or null by the time anything — a gate,
-  // a visitor, the smoke — asks, rather than being a race the harness would
-  // have to poll around.
-  await census;
-
-  progress(100, 'Ready');
-  api.ready = true;
+  // Optional census work may finish later; it cannot hold the street closed.
+  await firstFrame;
+  bootController.end('interaction');
   if (gateBtn) { gateBtn.disabled = false; gateBtn.textContent = 'Tap to walk'; }
+  api.ready = true;
+  if (!bootController.finish()) {
+    api.ready = false;
+    if (gateBtn) gateBtn.disabled = true;
+    throw new Error('Boot readiness barrier failed');
+  }
   if (gateSub) {
     // T-0782: the count that used to open this line was `registry.size` — every
     // RECORD in the scene, bridges and the pier and the palisade and the parade

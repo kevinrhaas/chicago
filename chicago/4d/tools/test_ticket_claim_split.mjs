@@ -344,6 +344,94 @@ const markers = (bare) =>
   }
 }
 
+// T-1287. TWO RUNS MINTING AT THE SAME MOMENT MUST GET DIFFERENT IDS, and the only
+// honest way to assert it is two clones of one bare remote — the situation the bug
+// describes. Run A mints and does NOT push its branch, which is precisely the window
+// that defeated the id scan: A's ticket exists on one disk and nowhere else.
+{
+  const { tmp, APP, bare } = sandbox();
+  try {
+    const second = path.join(tmp, 'runB');
+    spawnSync('git', ['clone', '-q', bare, second]);
+    const APPB = path.join(second, 'chicago', '4d');
+    cpSync(path.join(APP, 'tools'), path.join(APPB, 'tools'), { recursive: true });
+    cpSync(path.join(APP, 'tickets'), path.join(APPB, 'tickets'), { recursive: true });
+
+    const a = run(APP, 'new', 'run A files something', '--after', 'T-4000');
+    const b = run(APPB, 'new', 'run B files something else', '--after', 'T-4000');
+    const idOfRun = (out) => (/(T-\d{4}) created/.exec(out) ?? [])[1] ?? null;
+    const idA = idOfRun(a.out); const idB = idOfRun(b.out);
+    check('21. two clones minting against one remote get DIFFERENT ids',
+      idA !== null && idB !== null && idA !== idB, `A=${idA} B=${idB}`);
+
+    const locks = spawnSync('git', ['-C', bare, 'for-each-ref', '--format=%(refname:short)',
+      'refs/heads/idlock/'], { encoding: 'utf8' }).stdout.trim().split('\n').filter(Boolean);
+    check('22. …and each id is reserved on the remote, where the other run can see it',
+      locks.length >= 2, locks.join(',') || 'no id locks');
+    check('23. …the reservation happens BEFORE the branch is pushed, which is the whole bug',
+      locks.includes(`idlock/${String(idA).toLowerCase()}`)
+      && locks.includes(`idlock/${String(idB).toLowerCase()}`), locks.join(','));
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
+/* ------------------------------------ split: a parent already split cannot be split again */
+
+/**
+ * THE DUPLICATE THE LOCK CANNOT REACH (T-1481, 2026-09-21). `split` checked that it
+ * had two titles and nothing else — not the state of the ticket it was splitting. So
+ * a parent that already carried children could be split a second time, and on
+ * 2026-09-20 T-1452 was, four hours apart:
+ *
+ *   13:48  run 35529393603 claims T-1452 and splits it into T-1480/T-1481/T-1482
+ *   17:52  run 35542539851 reads T-1452 and splits it AGAIN into T-1494/T-1495/T-1496
+ *
+ * Twenty-six roofs, six tickets, six queue rows, in pairs that read as unrelated work:
+ * T-1481 and T-1494 are both "the phase-one South parcel's eleven refamilied roofs",
+ * and T-1482 and T-1496 are both literally "Piece 3 of 3 of T-1452". T-1494 merged as
+ * #1600 and its twin T-1481 was still `open` at the head of `list --workable` the next
+ * morning; T-1496 sat below its live twin T-1482 waiting for a third run.
+ *
+ * The claim lock is the wrong instrument: both claims were legitimate and hours apart,
+ * and the duplicate is minted by the split, not by the claim. The children ARE the
+ * ticket once a split lands, so a piece that is still too big is split one level DOWN
+ * (T-1480 -> T-1483/T-1484 did exactly that, and must keep working).
+ */
+{
+  const { tmp, APP } = sandbox();
+  try {
+    console.log('\n  a parent that has already been split once');
+    const first = run(APP, 'split', 'T-1145', 'first piece', 'second piece');
+    const mintedFirst = [...first.out.matchAll(/(T-\d{4})\s/g)].map((m) => m[1]);
+    check('24. the first split mints its children', first.status === 0 && mintedFirst.length >= 2,
+      mintedFirst.join(',') || first.out.trim());
+
+    const before = readdirSync(path.join(APP, 'tickets')).filter((f) => /^T-\d+/.test(f)).length;
+    const again = run(APP, 'split', 'T-1145', 'third piece', 'fourth piece');
+    const after = readdirSync(path.join(APP, 'tickets')).filter((f) => /^T-\d+/.test(f)).length;
+    check('25. THE FIX: splitting it a second time is refused', again.status !== 0,
+      again.out.trim().split('\n')[0] || `status ${again.status}`);
+    check('   …no duplicate piece is minted', before === after, `${before} ticket files before, ${after} after`);
+    check('   …and the refusal names the children that already carry the work',
+      mintedFirst.every((id) => again.out.includes(id)), again.out.trim());
+
+    // One level DOWN is still the remedy: a child that is more than one run splits.
+    const child = run(APP, 'split', mintedFirst[0], 'smaller piece', 'other smaller piece');
+    check('26. …while splitting a CHILD still works, which is how a big piece is cut',
+      child.status === 0, child.out.trim().split('\n').pop() || `status ${child.status}`);
+
+    // And a finished ticket has nothing left to cut.
+    writeFileSync(path.join(APP, 'tickets', 'T-2100-fixture.md'),
+      ticketFile('T-2100', 'already delivered', 'done'));
+    const doneSplit = run(APP, 'split', 'T-2100', 'a piece', 'another piece');
+    check('27. …and a `done` ticket cannot be split at all', doneSplit.status !== 0
+      && /no work left/i.test(doneSplit.out), doneSplit.out.trim().split('\n')[0]);
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
 console.log(failures
   ? `\n  ${failures} failure(s)\n`
   : '\n  a split keeps its lock, and the queue drops only finished work and regains what a merge lost\n');

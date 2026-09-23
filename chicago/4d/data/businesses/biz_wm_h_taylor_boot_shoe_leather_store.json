@@ -1,0 +1,100 @@
+{
+  "id": "biz_wm_h_taylor_boot_shoe_leather_store",
+  "register_id": "business_wm_h_taylor_boot_shoe_leather_store",
+  "name": "Wm. H. Taylor, Boot, Shoe & Leather Store",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "boot, shoe and leather store",
+  "occupation": "shoemaker",
+  "goods": [
+    "boots",
+    "children's boots and shoes",
+    "infant's bootees",
+    "ladies' gaiter, prunella and morocco boots",
+    "shoes",
+    "sole leather",
+    "upper leather"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Taylor, Wm. H.",
+      "person_id": "taylor_william_h",
+      "register_person_id": "person_taylor_wm_h",
+      "role": "proprietor",
+      "from": "1835-08-05",
+      "to": "1835-08-05",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card taylor_william_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1835_08_05#c024"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "dearborn",
+      "face": null,
+      "primary": true,
+      "from": "1835-08-05",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor \"Newberry & Dole's Store\" names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-08",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The paper announces the opening: chicago_democrat_1835_08_05#c024 (1834-07-08)."
+  },
+  "evidence": {
+    "first_issue": "1835-08-05",
+    "last_issue": "1835-08-05",
+    "copy_dates": [
+      "1834-07-08"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Taylor, Wm. H. (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "taylor_william_h",
+        "name": "Taylor, Wm. H.",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_08_05#c024"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}
