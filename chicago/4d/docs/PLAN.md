@@ -17,7 +17,7 @@ Eight research agents swept the repos and the historical record this session; th
 
 ## Decisions locked with Kevin
 
-1. **Home**: `kevinrhaas/custom` → **`chicago/4d/`** (matches the existing 4D schema-spec concept; renameable pre-scaffold), published at `site/chicago/4d/` (walk app at `site/chicago/4d/walk/?year=1835`) via the repo's site/-only Pages pattern.
+1. **Home**: `kevinrhaas/custom` → **`chicago/4d/`** (matches the existing 4D schema-spec concept; renameable pre-scaffold), published at `site/4d/` (walk app at `site/4d/walk/?year=1835`) via the repo's site/-only Pages pattern.
 2. **Temporal model**: `target_date` lives in scene files; terrain versioned per epoch; structures carry phases with ranges.
 3. **Generators**: Blender bpy with Kevin's amended split — fast no-Blender `check.sh` per commit; pinned-Blender `bake.sh` on demand + nightly; agents consume committed GLBs; params engine-neutral (contract = glTF + JSON sidecar); authored hero assets allowed, tagged, same provenance rules.
 4. **This session after approval**: commit plan + dossiers → scaffold → Milestone 0 start → pre-fire viewer photo/map update.
@@ -64,7 +64,7 @@ chicago/4d/
            ROADMAP.md · STATUS.md (honest state)
 ```
 
-Publish: `site/chicago/4d/` = landing `index.html` + `js/changelog.js` (fleet format, from commit one) + `walk/` (byte-copy of renderers/web) + `data/` (scenes, compiled sidecars, `assets/web` copies, terrain glb + heightfield.bin). `publish.sh` byte-copies; `check.sh` verifies `diff -rq` sync and a **≤25 MB published budget**. Plain binaries, **no LFS** (Pages can't serve LFS objects). Every URL-targeted directory gets an `index.html` (also fixing the existing `site/chicago/pre-fire/` bare-path 404). One new app card on `site/chicago/index.html`.
+Publish: `site/4d/` = landing `index.html` + `js/changelog.js` (fleet format, from commit one) + `walk/` (byte-copy of renderers/web) + `data/` (scenes, compiled sidecars, `assets/web` copies, terrain glb + heightfield.bin). `publish.sh` byte-copies; `check.sh` verifies `diff -rq` sync and a **≤25 MB published budget**. Plain binaries, **no LFS** (Pages can't serve LFS objects). Every URL-targeted directory gets an `index.html` (also fixing the existing `site/pre-fire/` bare-path 404). One new app card on `site/index.html`.
 
 ## Data model (minimal evolution of the shipped schema)
 
@@ -139,7 +139,7 @@ S2 ──► S6 flora/fauna ──► S7 polish/perf/audio ──► release swe
 2. `media.csv` rows with the existing caution pattern: `representation_type` retrospective_chromolithograph / retrospective_map_engraving; `accuracy_note` "1880s–90s retrospective, not an eyewitness record"; PD rights; source_url re-pointed at holding-institution scans where locatable.
 3. `media_buildings.csv`: the Kurz & Allison 15-vignette sheet links to multiple existing records via its printed key — Sauganash (panel 14), Green Tree (11), Kinzie Mansion (12), Wolf Point (9), Fort Dearborn (1/5/15) — panel numbers in notes.
 4. **The 1940 Nelson/Winters "Old Chicago" map does NOT publish** until a Stanford Renewal Database check clears its 1940 copyright; it stays in `reference/`. (Design-review correction.)
-5. Regenerate `viewer/data.json` (add a small `tools/build_data_json.py` so the join stops being hand-maintained), bump cache-bust `?v=5`, byte-copy to `site/chicago/pre-fire/`, add the missing bare-path `index.html` stub, smoke it.
+5. Regenerate `viewer/data.json` (add a small `tools/build_data_json.py` so the join stops being hand-maintained), bump cache-bust `?v=5`, byte-copy to `site/pre-fire/`, add the missing bare-path `index.html` stub, smoke it.
 6. Cross-link: 4d records carry `xref.pre_fire_v1_building_id`; pre-fire rows whose id appears in the 4d-published `walkable.json` get a "Walk 1835" button → `../../4d/walk/?year=1835`.
 
 ## Verification

@@ -22,10 +22,10 @@ BOARD.md opens with **Claimed — being worked now** (who holds what, and a link
 the run holding it) and closes with **Finished, newest first** — the last 100
 tickets in the order they actually finished, each with the instant and its PR.
 `tickets.json` is the machine copy of the same facts, published at
-`custom.polecat.live/chicago/4d/dev/tickets.json`, which is what Manager reads.
+`chicago.polecat.live/4d/dev/tickets.json`, which is what Manager reads.
 
 **Neither is tracked (T-0937).** `BOARD.md`, `tickets.json` and the published
-`site/chicago/4d/tickets.json` are in `.gitignore`, so they never appear in a diff and
+`site/4d/tickets.json` are in `.gitignore`, so they never appear in a diff and
 they can never conflict. They were the repository's worst conflict source precisely
 because they are generated: a run's first act is `ticket.mjs claim`, which rewrites all
 three, so two branches collided before either had done any work — and GitHub's merge

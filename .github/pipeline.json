@@ -4,7 +4,7 @@
   "_doc_tiers": "TWO tiers, not three. The pilot has a stage tier because it promotes on a nightly cron and needs somewhere for a candidate to sit; production here moves only when the owner dispatches it, so a middle tier would be a queue with nobody in it. Manager measures each tier against the NEXT one in this order, so with two tiers the dev row reads 'N ahead' of main.",
   "tiers": ["dev", "main"],
 
-  "_doc_paths": "Where each tier publishes, relative to this project's site root (Manager's project record for kevinrhaas/custom: https://kevinrhaas.github.io/custom/chicago/4d/). The pilot's app owns a domain root and needs no override; this one is a subtree of a monorepo of unrelated tenants — CAD, print models, a game, a landing site — and the pipeline covers chicago/4d and nothing else. ?year=1835 is the target date the walkthrough reconstructs; without it the app opens on its default year, which is not what the card is claiming to link to.",
+  "_doc_paths": "Where each tier publishes, relative to this project's site root (Manager's project record for kevinrhaas/custom: https://chicago.polecat.live/4d/). The pilot's app owns a domain root and needs no override; this one is a subtree of a monorepo of unrelated tenants — CAD, print models, a game, a landing site — and the pipeline covers chicago/4d and nothing else. ?year=1835 is the target date the walkthrough reconstructs; without it the app opens on its default year, which is not what the card is claiming to link to.",
   "paths": {
     "dev": "/dev/walk/?year=1835",
     "main": "/walk/?year=1835"

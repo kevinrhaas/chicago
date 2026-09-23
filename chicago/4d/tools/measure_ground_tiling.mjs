@@ -228,7 +228,7 @@ const TYPES = {
 };
 const ANCHOR = 'if (!(spanX > 0) || !(spanZ > 0)) return { cols: 1, rows: 1 };';
 
-const ROOT = wantSource ? ROOT4D : path.resolve(ROOT4D, '../../site/chicago/4d');
+const ROOT = wantSource ? ROOT4D : path.resolve(ROOT4D, '../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 if (!wantSource && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
   console.error(`no published mirror at ${ROOT} — run tools/publish.sh first`);

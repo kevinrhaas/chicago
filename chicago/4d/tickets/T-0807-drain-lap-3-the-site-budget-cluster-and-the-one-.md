@@ -36,7 +36,7 @@ its own at 17:24Z**, 82 commits behind and touching `data/streets/1835.json` —
 look at what landed: this ticket flagged it as the most dangerous merge in the lap.
 
 **#834 and #835 look enormous and are mostly not.** The bulk on both sides is
-`site/chicago/4d/data/residents/households/*.json`, which is the PUBLISHED MIRROR —
+`site/4d/data/residents/households/*.json`, which is the PUBLISHED MIRROR —
 regenerated wholesale by `publish.sh`, never hand-merged. Strip those and #834's real tail
 is `register_1835.json`, `sidecars/1835/people.json`, `tools/check.sh` and a ticket file;
 #835's is `identity_master.json`, `synthesis_2026_09_02.json`, two tools, and the
@@ -103,7 +103,7 @@ the work — but the cheaper route was the one the lane took, and re-cutting bea
    filed twice, four hours apart, and dev has since answered it twice over:
    - [#836](https://github.com/kevinrhaas/custom/pull/836) took the duplicated changelog
      out of the mirror and committed `docs/SITE-BUDGET.md`, the by-kind census T-0722's
-     ask 1 said "has never been printed". `site/chicago/4d/walk/js/changelog.js` is now
+     ask 1 said "has never been printed". `site/4d/walk/js/changelog.js` is now
      an 898-byte re-export beside the single 1.48 MiB copy.
    - [#823](https://github.com/kevinrhaas/custom/pull/823) re-budgeted 32 -> 36 MB as a
      third conscious re-budget, with the reasoning T-0803 demanded written into

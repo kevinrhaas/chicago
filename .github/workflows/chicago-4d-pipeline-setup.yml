@@ -3,7 +3,7 @@ name: Chicago 4D — pipeline setup (create the dev branch)
 # One-button activation for the 4D app's dev → main promotion pipeline
 # (chicago/4d/docs/PIPELINE.md). Idempotent: creates the long-lived `dev` branch
 # from the current main if — and only if — it does not exist yet, then dispatches
-# a deploy so the /chicago/4d/dev/ preview goes live.
+# a deploy so the /4d/dev/ preview goes live.
 #
 # Until this is dispatched the pipeline is inert: deploy.yml skips the preview
 # step and the promotion workflow refuses. Merging the pipeline PR activates

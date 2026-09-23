@@ -24,7 +24,7 @@ The publish budget has 944 bytes left, and 2.8 MB of it is changelog.js kept twi
 
 Measured 2026-09-05 on `dev` at `06a0a9ec`, by the run that tripped it (T-0511).
 
-`tools/validate.py`'s `run_site_check` fails the gate when `site/chicago/4d/` exceeds
+`tools/validate.py`'s `run_site_check` fails the gate when `site/4d/` exceeds
 `SITE_BUDGET_MB = 32`, because GitHub Pages cannot serve Git LFS objects. On `dev` the tree
 is **33,553,488 bytes** — 31.9989 MB, **944 bytes under the ceiling**. The note the gate
 prints, `site check: published tree 32.00 MB of 32 MB budget`, rounds the headroom out of
@@ -35,7 +35,7 @@ gate, whatever it is about. T-0511 hit it twice in one run:
 
 - a single changelog entry costs 1,632 bytes and `publish.sh` mirrors it to two paths, so
   **3,264** — the entry was dropped, and **the project cannot ship a changelog entry**;
-- `tools/ticket.mjs` mirrors `tickets.json` to `site/chicago/4d/tickets.json` (T-0154), so
+- `tools/ticket.mjs` mirrors `tickets.json` to `site/4d/tickets.json` (T-0154), so
   **filing a ticket costs about 645 published bytes**. T-0511 found two things worth a
   ticket and could afford one. The second is written at the foot of this file for want of
   room to give it its own.
@@ -47,8 +47,8 @@ are each larger than the remaining headroom. That is the urgency.
 
 | path | bytes | who reads it |
 |---|---:|---|
-| `site/chicago/4d/js/changelog.js` | ~1.4 MB | Manager's ingest and the launcher — the fleet contract path, must not move |
-| `site/chicago/4d/walk/js/changelog.js` | ~1.4 MB | the walkthrough's What's-new tab, which imports it |
+| `site/4d/js/changelog.js` | ~1.4 MB | Manager's ingest and the launcher — the fleet contract path, must not move |
+| `site/4d/walk/js/changelog.js` | ~1.4 MB | the walkthrough's What's-new tab, which imports it |
 
 They are byte-identical. **2.8 MB of a 32 MB budget is one file kept twice**, and it grows by
 an entry on every merge, so the headroom shrinks twice as fast as the changelog does.

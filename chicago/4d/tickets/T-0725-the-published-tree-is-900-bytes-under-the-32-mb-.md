@@ -18,7 +18,7 @@ closed_at: 2026-09-05T20:03:55.145Z
 claimed_run: null
 ---
 **Measured 2026-09-04 while gating PR #827 (T-0692).** `validate.py`'s `run_site_check`
-sums every file under `site/chicago/4d/` against a hard 32 MB ceiling, and reports over-budget
+sums every file under `site/4d/` against a hard 32 MB ceiling, and reports over-budget
 as an **error**, so `check.sh` fails and the dev gate stops the PR.
 
 | tree | bytes | of 32 MB |

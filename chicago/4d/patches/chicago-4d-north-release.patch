@@ -320,8 +320,8 @@ Subject: [PATCH] feat(4d): adopt audited North Division infill
  ...on_1835_north_w1_018__recommended_1835.glb |  Bin 0 -> 4956 bytes
  ...on_1835_north_w2_005__recommended_1835.glb |  Bin 0 -> 4932 bytes
  ...on_1835_north_w5_040__recommended_1835.glb |  Bin 0 -> 4908 bytes
- site/chicago/4d/data/liberties.json           | 1179 ++++++++++++++++-
- site/chicago/4d/data/sidecars/1835/index.json |  360 +++++
+ site/4d/data/liberties.json           | 1179 ++++++++++++++++-
+ site/4d/data/sidecars/1835/index.json |  360 +++++
  .../1835/recon_1835_north_a1_008.json         |  172 +++
  .../1835/recon_1835_north_a1_032.json         |  172 +++
  .../1835/recon_1835_north_a1_036.json         |  172 +++
@@ -382,8 +382,8 @@ Subject: [PATCH] feat(4d): adopt audited North Division infill
  .../1835/recon_1835_north_w1_018.json         |  171 +++
  .../1835/recon_1835_north_w2_005.json         |  171 +++
  .../1835/recon_1835_north_w5_040.json         |  171 +++
- site/chicago/4d/js/changelog.js               |    7 +
- site/chicago/4d/walk/js/changelog.js          |    7 +
+ site/4d/js/changelog.js               |    7 +
+ site/4d/walk/js/changelog.js          |    7 +
  380 files changed, 33976 insertions(+), 13 deletions(-)
  create mode 100644 chicago/4d/assets/gltf/recon_1835_north_a1_008__recommended_1835.glb
  create mode 100644 chicago/4d/assets/gltf/recon_1835_north_a1_032__recommended_1835.glb
@@ -630,126 +630,126 @@ Subject: [PATCH] feat(4d): adopt audited North Division infill
  create mode 100644 chicago/4d/docs/RESEARCH/1835_existing_roof_reconciliation.md
  create mode 100644 chicago/4d/docs/RESEARCH/1835_family_archetype_crosswalk.md
  create mode 100644 chicago/4d/tools/generate_north_infill.py
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a1_008__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a1_032__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a1_036__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a1_050__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a2_033__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a2_048__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a2_059__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a3_009__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a3_034__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a3_051__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a4_010__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a4_035__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a4_052__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a5_011__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_a5_049__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_c1_020__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_c1_047__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_c2_027__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d1_001__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d1_013__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d1_023__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d1_053__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d1_054__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d1_060__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d2_003__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d2_014__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d2_029__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d2_046__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d3_002__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d3_006__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d3_016__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d3_024__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d3_038__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d3_042__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d3_055__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d4_004__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d4_012__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d4_017__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d4_025__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d4_039__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d4_043__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d4_056__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d5_019__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d5_026__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d5_037__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d5_041__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d5_057__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d6_021__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d6_044__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d6_058__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_d7_031__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_f1_022__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_h1_007__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_h2_030__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_h3_045__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_i2_015__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_t1_028__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_w1_018__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_w2_005__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/gltf/recon_1835_north_w5_040__recommended_1835.glb
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_008.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_032.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_036.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_050.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_033.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_048.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_059.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_009.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_034.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_051.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_010.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_035.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_052.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a5_011.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_a5_049.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_c1_020.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_c1_047.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_c2_027.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_001.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_013.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_023.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_053.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_054.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_060.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_003.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_014.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_029.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_046.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_002.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_006.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_016.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_024.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_038.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_042.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_055.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_004.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_012.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_017.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_025.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_039.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_043.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_056.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_019.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_026.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_037.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_041.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_057.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_021.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_044.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_058.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_d7_031.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_f1_022.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_h1_007.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_h2_030.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_h3_045.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_i2_015.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_t1_028.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_w1_018.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_w2_005.json
- create mode 100644 site/chicago/4d/data/sidecars/1835/recon_1835_north_w5_040.json
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a1_008__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a1_032__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a1_036__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a1_050__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a2_033__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a2_048__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a2_059__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a3_009__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a3_034__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a3_051__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a4_010__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a4_035__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a4_052__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a5_011__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_a5_049__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_c1_020__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_c1_047__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_c2_027__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d1_001__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d1_013__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d1_023__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d1_053__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d1_054__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d1_060__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d2_003__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d2_014__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d2_029__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d2_046__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d3_002__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d3_006__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d3_016__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d3_024__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d3_038__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d3_042__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d3_055__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d4_004__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d4_012__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d4_017__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d4_025__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d4_039__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d4_043__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d4_056__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d5_019__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d5_026__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d5_037__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d5_041__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d5_057__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d6_021__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d6_044__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d6_058__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_d7_031__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_f1_022__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_h1_007__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_h2_030__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_h3_045__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_i2_015__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_t1_028__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_w1_018__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_w2_005__recommended_1835.glb
+ create mode 100644 site/4d/data/gltf/recon_1835_north_w5_040__recommended_1835.glb
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a1_008.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a1_032.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a1_036.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a1_050.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a2_033.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a2_048.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a2_059.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a3_009.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a3_034.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a3_051.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a4_010.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a4_035.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a4_052.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a5_011.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_a5_049.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_c1_020.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_c1_047.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_c2_027.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d1_001.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d1_013.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d1_023.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d1_053.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d1_054.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d1_060.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d2_003.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d2_014.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d2_029.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d2_046.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d3_002.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d3_006.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d3_016.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d3_024.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d3_038.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d3_042.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d3_055.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d4_004.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d4_012.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d4_017.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d4_025.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d4_039.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d4_043.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d4_056.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d5_019.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d5_026.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d5_037.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d5_041.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d5_057.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d6_021.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d6_044.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d6_058.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_d7_031.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_f1_022.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_h1_007.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_h2_030.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_h3_045.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_i2_015.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_t1_028.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_w1_018.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_w2_005.json
+ create mode 100644 site/4d/data/sidecars/1835/recon_1835_north_w5_040.json
 
 diff --git a/chicago/4d/assets/gltf/recon_1835_north_a1_008__recommended_1835.glb b/chicago/4d/assets/gltf/recon_1835_north_a1_008__recommended_1835.glb
 new file mode 100644
@@ -28404,7 +28404,7 @@ index 0000000..8538ff8
 +
 +if __name__ == "__main__":
 +    raise SystemExit(main())
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a1_008__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a1_008__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a1_008__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a1_008__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..349596b22cdf7e5ef8a276c2bd8f3e1bfb1051d9
 GIT binary patch
@@ -28439,7 +28439,7 @@ WwV@WXC%4~djsEBUa`j!dpZ@_r=^n%Y
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a1_032__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a1_032__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a1_032__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a1_032__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..126e5228a6a7934249be5e0f6cea21eb8bfb0593
 GIT binary patch
@@ -28474,7 +28474,7 @@ Wr#94L_T=^(t<nG7U#`B(_VYhzKpwaN
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a1_036__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a1_036__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a1_036__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a1_036__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..250932c97a74cb5a092c9500e7bcc64b2f7fbee4
 GIT binary patch
@@ -28509,7 +28509,7 @@ bIeQU?^`|z}V)o?r8`kK5?k`v0Mf>?5W=J4z
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a1_050__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a1_050__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a1_050__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a1_050__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..dd4f01eeff8bcbdd136703d0fdc49efcb75049ae
 GIT binary patch
@@ -28544,7 +28544,7 @@ cTCkVJ@czt(TFjopexo(|pZlxTciDda2dgI^;{X5v
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a2_033__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a2_033__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a2_033__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a2_033__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..d568fd8008bde1a39d90a1598de6871895947f4a
 GIT binary patch
@@ -28579,7 +28579,7 @@ L?PB$vcb@+R(%c;@
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a2_048__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a2_048__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a2_048__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a2_048__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..5e344a77dd9176b4b5c48be727fdcde24dbb2f88
 GIT binary patch
@@ -28614,7 +28614,7 @@ NJ^!~|uD<j3^MB&a9Bu#r
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a2_059__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a2_059__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a2_059__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a2_059__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..c8fddb6f14bf1f41962961ba93e242518826c84b
 GIT binary patch
@@ -28649,7 +28649,7 @@ Yx834i#rh5(%rSfZZ@XN5XYJ?z0NOSkF#rGn
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a3_009__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a3_009__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a3_009__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a3_009__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..2aa9ace183f4cecd86cc692b99f79f5357d64926
 GIT binary patch
@@ -28682,7 +28682,7 @@ F{135!fTaKc
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a3_034__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a3_034__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a3_034__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a3_034__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..692b3aa8cbe8c0c4d353ba95fdc44d2188712105
 GIT binary patch
@@ -28715,7 +28715,7 @@ IWi`)#0nPV-^8f$<
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a3_051__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a3_051__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a3_051__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a3_051__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..592113661e0a814e256c17165114fe995c0a5ad8
 GIT binary patch
@@ -28748,7 +28748,7 @@ SWmU@>$gjB?-?3K~^ZXYEq=0__
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a4_010__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a4_010__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a4_010__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a4_010__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..8e1517db218b8092bb07dd88e659da3d7594046f
 GIT binary patch
@@ -28781,7 +28781,7 @@ J`e0)X{{^f(YDxeA
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a4_035__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a4_035__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a4_035__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a4_035__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..0aae6a23b140db9cc470c9fd301e062afe0eccce
 GIT binary patch
@@ -28814,7 +28814,7 @@ V4b)d{WWA8F8_MTFeXzEM{{kGkYJLC!
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a4_052__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a4_052__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a4_052__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a4_052__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..73555d2804255497dc23c91cf5970bed4c41d8a0
 GIT binary patch
@@ -28847,7 +28847,7 @@ K?$rltYxpm79%|hH
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a5_011__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a5_011__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a5_011__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a5_011__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..5331d0dd6ca99290e6f8ef16c77efa815ff178af
 GIT binary patch
@@ -28880,7 +28880,7 @@ K2lc_q8vY9^7*`7b
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_a5_049__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_a5_049__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_a5_049__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_a5_049__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..d18d7514fcabf8348b89c76bc1a8d3a5a880408e
 GIT binary patch
@@ -28913,7 +28913,7 @@ AQ2+n{
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_c1_020__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_c1_020__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_c1_020__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_c1_020__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..923b91db7c0bf246175653aefe6ee2ad7aecb5f5
 GIT binary patch
@@ -28953,7 +28953,7 @@ F{~yrFw1ofw
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_c1_047__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_c1_047__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_c1_047__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_c1_047__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..dd735081a7df6d3fba506eb9bfba81e95a056b4a
 GIT binary patch
@@ -28993,7 +28993,7 @@ Hw`~4D3Lmpl
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_c2_027__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_c2_027__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_c2_027__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_c2_027__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..f80e8f758ea2122ff49a4deab3e5457d8513c60e
 GIT binary patch
@@ -29033,7 +29033,7 @@ P^T_Rd*6FnMTh;$BuL6-$
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d1_001__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d1_001__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d1_001__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d1_001__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..e1241233533c667e3955fad0e301784dd1678a3e
 GIT binary patch
@@ -29073,7 +29073,7 @@ C?bPQ0
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d1_013__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d1_013__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d1_013__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d1_013__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..6ddb9870be3f3e1408ff8fd5354329c5c5712802
 GIT binary patch
@@ -29113,7 +29113,7 @@ KTGqc+{r>@!G}k-;
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d1_023__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d1_023__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d1_023__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d1_023__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..7c14069cc380f0a9aad3637f509455664baa317a
 GIT binary patch
@@ -29153,7 +29153,7 @@ L_G!`nEt~%j)%w(N
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d1_053__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d1_053__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d1_053__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d1_053__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..b782221150654e015b3f14829c513a64851132c4
 GIT binary patch
@@ -29193,7 +29193,7 @@ Kw5)%t`u_tH>eoyF
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d1_054__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d1_054__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d1_054__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d1_054__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..8dcb501b801830b72223eb7d7fb44a87725f4389
 GIT binary patch
@@ -29233,7 +29233,7 @@ HTQ&b57_`zg
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d1_060__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d1_060__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d1_060__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d1_060__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..6d6cc8791ee5f280a2950293764df87689f754e6
 GIT binary patch
@@ -29273,7 +29273,7 @@ I{;it-4`0{S%m4rY
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d2_003__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d2_003__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d2_003__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d2_003__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..f2380e4894bef9fa11fc44ff8d15d7fb3a365663
 GIT binary patch
@@ -29307,7 +29307,7 @@ kCfn;A=ig7-bMi79QO{-U&iuJiUkd&Hyx=UZW7*#SAE(pTcmMzZ
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d2_014__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d2_014__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d2_014__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d2_014__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..4205ec84d93e96bb86089bdfcdec43c05dcce0bd
 GIT binary patch
@@ -29341,7 +29341,7 @@ XdM;ykX3vfKQt0>R1!s93%l7{NL1xs*
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d2_029__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d2_029__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d2_029__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d2_029__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..d9af357ac8e05e6d46690f8b0ac0579045fe015e
 GIT binary patch
@@ -29375,7 +29375,7 @@ cPF`js>bZ>FnLoGcOQGMN7o5d)EZh74158QT`v3p{
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d2_046__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d2_046__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d2_046__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d2_046__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..c5e7c1a4e4e0a53c1728a39936059544e8a719b2
 GIT binary patch
@@ -29409,7 +29409,7 @@ XdM;ykX3vfKQt0>R1!s93%l7{NjC<7F
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d3_002__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d3_002__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d3_002__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d3_002__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..964109d049d530a2b1ab3b1c4a1f42740f017733
 GIT binary patch
@@ -29449,7 +29449,7 @@ Q`i^Oz&OV*Be~bG61%j^h{r~^~
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d3_006__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d3_006__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d3_006__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d3_006__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..a47ce576c122b46ca11ef9ad35ed0dcb0499dea6
 GIT binary patch
@@ -29489,7 +29489,7 @@ W<IEi6T^IEo(mtMhI_v)C^*;mq)bBw6
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d3_016__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d3_016__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d3_016__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d3_016__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..d2c1a953e9f3fa0aedb300dffda36265ce410f72
 GIT binary patch
@@ -29529,7 +29529,7 @@ LKApCIi~9cq6y@{h
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d3_024__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d3_024__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d3_024__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d3_024__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..996ba0ff699369287ed52217f608bb431470f089
 GIT binary patch
@@ -29569,7 +29569,7 @@ LIh}TXi~9cqwCMBW
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d3_038__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d3_038__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d3_038__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d3_038__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..1a03fb118984bf11e0020a056b9cba2b2a8efedc
 GIT binary patch
@@ -29609,7 +29609,7 @@ NPiLRb+P_8p{{g4s@%jJ&
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d3_042__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d3_042__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d3_042__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d3_042__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..d2cdc27a94dabca1cb9c6b157b515bbdd671f08c
 GIT binary patch
@@ -29649,7 +29649,7 @@ Q`i^Oz&OV*Be~bG61p?&t4gdfE
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d3_055__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d3_055__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d3_055__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d3_055__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..b3f69f3676dd57e4bb076a9b0160ab4cb3fbd848
 GIT binary patch
@@ -29689,7 +29689,7 @@ Rby435?X%gZ)Anys|9_yM^g;jt
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d4_004__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d4_004__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d4_004__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d4_004__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..21b2bf79d6681fe7ec071665230633b0fc9f7eff
 GIT binary patch
@@ -29729,7 +29729,7 @@ I^>1GPztytUwg3PC
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d4_012__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d4_012__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d4_012__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d4_012__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..8413377a8f1f32ed80b3c87ebdac0f5de67c3d5d
 GIT binary patch
@@ -29769,7 +29769,7 @@ I^>1GPzjn0MvH$=8
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d4_017__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d4_017__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d4_017__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d4_017__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..8c8686af3acce754939cd36108828fe173a37a9e
 GIT binary patch
@@ -29809,7 +29809,7 @@ B)b#)W
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d4_025__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d4_025__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d4_025__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d4_025__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..40bd1e76b4257ac87d34acf4f835bf5946e4d781
 GIT binary patch
@@ -29849,7 +29849,7 @@ B)bRiS
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d4_039__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d4_039__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d4_039__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d4_039__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..001d17df821461d0d6b6b4c86f8fbb6b89f653d1
 GIT binary patch
@@ -29889,7 +29889,7 @@ J*1viE&j9MX)PDc~
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d4_043__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d4_043__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d4_043__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d4_043__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..77ba387f4bf4fd9cf0b88568518fa993b7fbf038
 GIT binary patch
@@ -29929,7 +29929,7 @@ O4rw1xpHA!Fy#8mXR@B!3
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d4_056__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d4_056__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d4_056__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d4_056__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..ea66d4f8432fa343a0920b593e94549c0bdb85c3
 GIT binary patch
@@ -29969,7 +29969,7 @@ C%hW6Y
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d5_019__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d5_019__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d5_019__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d5_019__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..d74807f7035063560191ecb5c8cc26d218818463
 GIT binary patch
@@ -30009,7 +30009,7 @@ T@na&clZfqP&grD{o7ew8V2SyK
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d5_026__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d5_026__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d5_026__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d5_026__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..3ac2217d10738d4c7f4b9454f22da9ed2851be98
 GIT binary patch
@@ -30049,7 +30049,7 @@ I`!}!ue}iTDWdHyG
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d5_037__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d5_037__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d5_037__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d5_037__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..cd8fd0bfc9c02df1c3900c201635401d593f7ded
 GIT binary patch
@@ -30089,7 +30089,7 @@ L)2HM5H>>}DgC+Z5
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d5_041__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d5_041__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d5_041__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d5_041__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..b579eb1b059c52e0cfc16f9ced193b0db7e64c23
 GIT binary patch
@@ -30129,7 +30129,7 @@ D{e$@f
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d5_057__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d5_057__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d5_057__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d5_057__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..e6ccc6a7155cfe8a451a5e65c5a0026973e600e6
 GIT binary patch
@@ -30169,7 +30169,7 @@ DoC5hD
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d6_021__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d6_021__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d6_021__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d6_021__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..546fb5cfcf63b86e9d53f0760c580654b96132ae
 GIT binary patch
@@ -30209,7 +30209,7 @@ Rby43D?UU)#N&Q>Y{~wmE_1ypf
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d6_044__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d6_044__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d6_044__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d6_044__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..2bc3c032fc9c8934710d28e9ca7c4a110662d37c
 GIT binary patch
@@ -30249,7 +30249,7 @@ T1bbc7cSQSS`gBtNmi7M!i~{s|
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d6_058__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d6_058__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d6_058__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d6_058__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..1e2ca7d60d69cd9c5a5a2d84fb3e395aaa71b042
 GIT binary patch
@@ -30289,7 +30289,7 @@ Q>pP--GJQI!f6My+0~^Wo5&!@I
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_d7_031__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_d7_031__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_d7_031__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_d7_031__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..46a5effe36a6ab562c9baccb67229752530f02c8
 GIT binary patch
@@ -30331,7 +30331,7 @@ dpXu$FJp3Q~>QT`#$jl+0MR_?ZU_V;@<X_;T+}i*E
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_f1_022__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_f1_022__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_f1_022__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_f1_022__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..b581348f03772392206857156fcc3caf850ddb47
 GIT binary patch
@@ -30366,7 +30366,7 @@ R?%Rs@;3lsvR^LVU`F}u_R5kzr
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_h1_007__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_h1_007__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_h1_007__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_h1_007__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..bf6863cc568f5d8aff273701d4533c9d7fd0e395
 GIT binary patch
@@ -30408,7 +30408,7 @@ DMA6{m
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_h2_030__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_h2_030__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_h2_030__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_h2_030__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..ca34a57b51bdf7c9e36363253f6bd5a20b91e2b5
 GIT binary patch
@@ -30451,7 +30451,7 @@ H&i8)-P>8l;
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_h3_045__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_h3_045__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_h3_045__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_h3_045__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..4e2afbb827c8ee86bea13dfceeee487cbd48c97c
 GIT binary patch
@@ -30494,7 +30494,7 @@ Ny#5>S*(ddW{}<)FUa<fG
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_i2_015__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_i2_015__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_i2_015__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_i2_015__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..8bbbdd2c28900b8a29e711b5b468039322d8b17e
 GIT binary patch
@@ -30534,7 +30534,7 @@ Qvc41AXVa&%`ZufpKft)y;s5{u
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_t1_028__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_t1_028__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_t1_028__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_t1_028__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..cd83f92f38ce02378f3b1f41f1eab1abe8262782
 GIT binary patch
@@ -30577,7 +30577,7 @@ Qs{3`c?$gJ8U+3lj5C6kqi2wiq
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_w1_018__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_w1_018__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_w1_018__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_w1_018__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..3a9dac3b78513bb298fd9bdfc3c37e507940f936
 GIT binary patch
@@ -30612,7 +30612,7 @@ mh8529-nUOu_AE@&&uzZju5hnneMe7f5C6~peD$5RpZ^1<a6^Rv
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_w2_005__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_w2_005__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_w2_005__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_w2_005__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..61276307632fe0cfae62f2e790650180c6cd299f
 GIT binary patch
@@ -30647,7 +30647,7 @@ cn6#hUe7D`=Ud8$*&)6RRpZ)pjJ8M7x2hqeh6aWAK
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/gltf/recon_1835_north_w5_040__recommended_1835.glb b/site/chicago/4d/data/gltf/recon_1835_north_w5_040__recommended_1835.glb
+diff --git a/site/4d/data/gltf/recon_1835_north_w5_040__recommended_1835.glb b/site/4d/data/gltf/recon_1835_north_w5_040__recommended_1835.glb
 new file mode 100644
 index 0000000000000000000000000000000000000000..c4f78bed75f743e5a0ab22957b84250d76c2b614
 GIT binary patch
@@ -30682,10 +30682,10 @@ Snf*5BKDf$ri`949e*Pb34rp)y
 literal 0
 HcmV?d00001
 
-diff --git a/site/chicago/4d/data/liberties.json b/site/chicago/4d/data/liberties.json
+diff --git a/site/4d/data/liberties.json b/site/4d/data/liberties.json
 index d372c8f..52f6a3c 100644
---- a/site/chicago/4d/data/liberties.json
-+++ b/site/chicago/4d/data/liberties.json
+--- a/site/4d/data/liberties.json
++++ b/site/4d/data/liberties.json
 @@ -3,7 +3,7 @@
    "source": "docs/LIBERTIES.md",
    "standard": "A visitor should be able to tell you which parts we made up.",
@@ -31879,10 +31879,10 @@ index d372c8f..52f6a3c 100644
      {
        "id": "L40",
        "title": "Two thirds of the town stands on ground that has not been built",
-diff --git a/site/chicago/4d/data/sidecars/1835/index.json b/site/chicago/4d/data/sidecars/1835/index.json
+diff --git a/site/4d/data/sidecars/1835/index.json b/site/4d/data/sidecars/1835/index.json
 index 629f25c..98a2e56 100644
---- a/site/chicago/4d/data/sidecars/1835/index.json
-+++ b/site/chicago/4d/data/sidecars/1835/index.json
+--- a/site/4d/data/sidecars/1835/index.json
++++ b/site/4d/data/sidecars/1835/index.json
 @@ -2052,6 +2052,366 @@
        "sidecar": "sidecars/1835/pruyne_kimball_drugstore.json",
        "asset": "gltf/pruyne_kimball_drugstore__frame_1830s.glb"
@@ -32250,11 +32250,11 @@ index 629f25c..98a2e56 100644
      {
        "id": "recon_1835_south_a1_046",
        "name": "Recommended A1 stable #046",
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_008.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_008.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a1_008.json b/site/4d/data/sidecars/1835/recon_1835_north_a1_008.json
 new file mode 100644
 index 0000000..28d4fcf
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_008.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a1_008.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a1_008",
@@ -32428,11 +32428,11 @@ index 0000000..28d4fcf
 +    "yard_group": "nw_d1_001_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_032.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_032.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a1_032.json b/site/4d/data/sidecars/1835/recon_1835_north_a1_032.json
 new file mode 100644
 index 0000000..2051c8a
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_032.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a1_032.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a1_032",
@@ -32606,11 +32606,11 @@ index 0000000..2051c8a
 +    "yard_group": "wk_d3_016_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_036.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_036.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a1_036.json b/site/4d/data/sidecars/1835/recon_1835_north_a1_036.json
 new file mode 100644
 index 0000000..dc1a81d
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_036.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a1_036.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a1_036",
@@ -32784,11 +32784,11 @@ index 0000000..dc1a81d
 +    "yard_group": "km_d1_023_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_050.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_050.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a1_050.json b/site/4d/data/sidecars/1835/recon_1835_north_a1_050.json
 new file mode 100644
 index 0000000..8a23422
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a1_050.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a1_050.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a1_050",
@@ -32962,11 +32962,11 @@ index 0000000..8a23422
 +    "yard_group": "re_d5_041_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_033.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_033.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a2_033.json b/site/4d/data/sidecars/1835/recon_1835_north_a2_033.json
 new file mode 100644
 index 0000000..83d4c4b
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_033.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a2_033.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a2_033",
@@ -33140,11 +33140,11 @@ index 0000000..83d4c4b
 +    "yard_group": "wk_d4_017_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_048.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_048.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a2_048.json b/site/4d/data/sidecars/1835/recon_1835_north_a2_048.json
 new file mode 100644
 index 0000000..1eaff2f
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_048.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a2_048.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a2_048",
@@ -33318,11 +33318,11 @@ index 0000000..1eaff2f
 +    "yard_group": "re_d4_039_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_059.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_059.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a2_059.json b/site/4d/data/sidecars/1835/recon_1835_north_a2_059.json
 new file mode 100644
 index 0000000..014f3c5
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a2_059.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a2_059.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a2_059",
@@ -33496,11 +33496,11 @@ index 0000000..014f3c5
 +    "yard_group": "km_d1_054_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_009.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_009.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a3_009.json b/site/4d/data/sidecars/1835/recon_1835_north_a3_009.json
 new file mode 100644
 index 0000000..5bdfca3
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_009.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a3_009.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a3_009",
@@ -33674,11 +33674,11 @@ index 0000000..5bdfca3
 +    "yard_group": "nw_d3_002_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_034.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_034.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a3_034.json b/site/4d/data/sidecars/1835/recon_1835_north_a3_034.json
 new file mode 100644
 index 0000000..f6f842c
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_034.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a3_034.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a3_034",
@@ -33852,11 +33852,11 @@ index 0000000..f6f842c
 +    "yard_group": "wk_d5_019_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_051.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_051.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a3_051.json b/site/4d/data/sidecars/1835/recon_1835_north_a3_051.json
 new file mode 100644
 index 0000000..eb2f1ce
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a3_051.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a3_051.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a3_051",
@@ -34030,11 +34030,11 @@ index 0000000..eb2f1ce
 +    "yard_group": "re_d6_044_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_010.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_010.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a4_010.json b/site/4d/data/sidecars/1835/recon_1835_north_a4_010.json
 new file mode 100644
 index 0000000..241f9f2
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_010.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a4_010.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a4_010",
@@ -34208,11 +34208,11 @@ index 0000000..241f9f2
 +    "yard_group": "nw_d4_004_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_035.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_035.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a4_035.json b/site/4d/data/sidecars/1835/recon_1835_north_a4_035.json
 new file mode 100644
 index 0000000..9ec8591
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_035.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a4_035.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a4_035",
@@ -34386,11 +34386,11 @@ index 0000000..9ec8591
 +    "yard_group": "wk_w1_018_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_052.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_052.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a4_052.json b/site/4d/data/sidecars/1835/recon_1835_north_a4_052.json
 new file mode 100644
 index 0000000..68096e3
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a4_052.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a4_052.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a4_052",
@@ -34564,11 +34564,11 @@ index 0000000..68096e3
 +    "yard_group": "re_d4_043_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a5_011.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a5_011.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a5_011.json b/site/4d/data/sidecars/1835/recon_1835_north_a5_011.json
 new file mode 100644
 index 0000000..e050b95
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a5_011.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a5_011.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a5_011",
@@ -34742,11 +34742,11 @@ index 0000000..e050b95
 +    "yard_group": "nw_w2_005_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_a5_049.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a5_049.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_a5_049.json b/site/4d/data/sidecars/1835/recon_1835_north_a5_049.json
 new file mode 100644
 index 0000000..b179bb2
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_a5_049.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_a5_049.json
 @@ -0,0 +1,172 @@
 +{
 +  "id": "recon_1835_north_a5_049",
@@ -34920,11 +34920,11 @@ index 0000000..b179bb2
 +    "yard_group": "re_c1_047_yard"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_c1_020.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_c1_020.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_c1_020.json b/site/4d/data/sidecars/1835/recon_1835_north_c1_020.json
 new file mode 100644
 index 0000000..c95efe0
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_c1_020.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_c1_020.json
 @@ -0,0 +1,203 @@
 +{
 +  "id": "recon_1835_north_c1_020",
@@ -35129,11 +35129,11 @@ index 0000000..c95efe0
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_c1_047.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_c1_047.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_c1_047.json b/site/4d/data/sidecars/1835/recon_1835_north_c1_047.json
 new file mode 100644
 index 0000000..4204aef
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_c1_047.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_c1_047.json
 @@ -0,0 +1,203 @@
 +{
 +  "id": "recon_1835_north_c1_047",
@@ -35338,11 +35338,11 @@ index 0000000..4204aef
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_c2_027.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_c2_027.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_c2_027.json b/site/4d/data/sidecars/1835/recon_1835_north_c2_027.json
 new file mode 100644
 index 0000000..03e1b22
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_c2_027.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_c2_027.json
 @@ -0,0 +1,203 @@
 +{
 +  "id": "recon_1835_north_c2_027",
@@ -35547,11 +35547,11 @@ index 0000000..03e1b22
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_001.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_001.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d1_001.json b/site/4d/data/sidecars/1835/recon_1835_north_d1_001.json
 new file mode 100644
 index 0000000..e46d73d
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_001.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d1_001.json
 @@ -0,0 +1,155 @@
 +{
 +  "id": "recon_1835_north_d1_001",
@@ -35708,11 +35708,11 @@ index 0000000..e46d73d
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_013.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_013.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d1_013.json b/site/4d/data/sidecars/1835/recon_1835_north_d1_013.json
 new file mode 100644
 index 0000000..0ed2f6e
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_013.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d1_013.json
 @@ -0,0 +1,155 @@
 +{
 +  "id": "recon_1835_north_d1_013",
@@ -35869,11 +35869,11 @@ index 0000000..0ed2f6e
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_023.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_023.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d1_023.json b/site/4d/data/sidecars/1835/recon_1835_north_d1_023.json
 new file mode 100644
 index 0000000..54c2ad0
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_023.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d1_023.json
 @@ -0,0 +1,155 @@
 +{
 +  "id": "recon_1835_north_d1_023",
@@ -36030,11 +36030,11 @@ index 0000000..54c2ad0
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_053.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_053.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d1_053.json b/site/4d/data/sidecars/1835/recon_1835_north_d1_053.json
 new file mode 100644
 index 0000000..c96a1b5
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_053.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d1_053.json
 @@ -0,0 +1,155 @@
 +{
 +  "id": "recon_1835_north_d1_053",
@@ -36191,11 +36191,11 @@ index 0000000..c96a1b5
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_054.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_054.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d1_054.json b/site/4d/data/sidecars/1835/recon_1835_north_d1_054.json
 new file mode 100644
 index 0000000..d551fe2
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_054.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d1_054.json
 @@ -0,0 +1,155 @@
 +{
 +  "id": "recon_1835_north_d1_054",
@@ -36352,11 +36352,11 @@ index 0000000..d551fe2
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_060.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_060.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d1_060.json b/site/4d/data/sidecars/1835/recon_1835_north_d1_060.json
 new file mode 100644
 index 0000000..a7ac82b
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d1_060.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d1_060.json
 @@ -0,0 +1,155 @@
 +{
 +  "id": "recon_1835_north_d1_060",
@@ -36513,11 +36513,11 @@ index 0000000..a7ac82b
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_003.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_003.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d2_003.json b/site/4d/data/sidecars/1835/recon_1835_north_d2_003.json
 new file mode 100644
 index 0000000..3b3699d
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_003.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d2_003.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d2_003",
@@ -36690,11 +36690,11 @@ index 0000000..3b3699d
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_014.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_014.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d2_014.json b/site/4d/data/sidecars/1835/recon_1835_north_d2_014.json
 new file mode 100644
 index 0000000..199b5f0
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_014.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d2_014.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d2_014",
@@ -36867,11 +36867,11 @@ index 0000000..199b5f0
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_029.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_029.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d2_029.json b/site/4d/data/sidecars/1835/recon_1835_north_d2_029.json
 new file mode 100644
 index 0000000..3e37474
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_029.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d2_029.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d2_029",
@@ -37044,11 +37044,11 @@ index 0000000..3e37474
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_046.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_046.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d2_046.json b/site/4d/data/sidecars/1835/recon_1835_north_d2_046.json
 new file mode 100644
 index 0000000..af3b389
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d2_046.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d2_046.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d2_046",
@@ -37221,11 +37221,11 @@ index 0000000..af3b389
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_002.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_002.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d3_002.json b/site/4d/data/sidecars/1835/recon_1835_north_d3_002.json
 new file mode 100644
 index 0000000..3e98ec1
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_002.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d3_002.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d3_002",
@@ -37398,11 +37398,11 @@ index 0000000..3e98ec1
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_006.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_006.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d3_006.json b/site/4d/data/sidecars/1835/recon_1835_north_d3_006.json
 new file mode 100644
 index 0000000..948bf62
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_006.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d3_006.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d3_006",
@@ -37575,11 +37575,11 @@ index 0000000..948bf62
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_016.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_016.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d3_016.json b/site/4d/data/sidecars/1835/recon_1835_north_d3_016.json
 new file mode 100644
 index 0000000..81ed108
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_016.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d3_016.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d3_016",
@@ -37752,11 +37752,11 @@ index 0000000..81ed108
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_024.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_024.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d3_024.json b/site/4d/data/sidecars/1835/recon_1835_north_d3_024.json
 new file mode 100644
 index 0000000..ef95adb
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_024.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d3_024.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d3_024",
@@ -37929,11 +37929,11 @@ index 0000000..ef95adb
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_038.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_038.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d3_038.json b/site/4d/data/sidecars/1835/recon_1835_north_d3_038.json
 new file mode 100644
 index 0000000..039399e
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_038.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d3_038.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d3_038",
@@ -38106,11 +38106,11 @@ index 0000000..039399e
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_042.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_042.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d3_042.json b/site/4d/data/sidecars/1835/recon_1835_north_d3_042.json
 new file mode 100644
 index 0000000..02b018a
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_042.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d3_042.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d3_042",
@@ -38283,11 +38283,11 @@ index 0000000..02b018a
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_055.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_055.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d3_055.json b/site/4d/data/sidecars/1835/recon_1835_north_d3_055.json
 new file mode 100644
 index 0000000..20ae572
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d3_055.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d3_055.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d3_055",
@@ -38460,11 +38460,11 @@ index 0000000..20ae572
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_004.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_004.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d4_004.json b/site/4d/data/sidecars/1835/recon_1835_north_d4_004.json
 new file mode 100644
 index 0000000..a72aaef
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_004.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d4_004.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d4_004",
@@ -38637,11 +38637,11 @@ index 0000000..a72aaef
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_012.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_012.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d4_012.json b/site/4d/data/sidecars/1835/recon_1835_north_d4_012.json
 new file mode 100644
 index 0000000..6cb50fb
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_012.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d4_012.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d4_012",
@@ -38814,11 +38814,11 @@ index 0000000..6cb50fb
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_017.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_017.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d4_017.json b/site/4d/data/sidecars/1835/recon_1835_north_d4_017.json
 new file mode 100644
 index 0000000..49c02ea
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_017.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d4_017.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d4_017",
@@ -38991,11 +38991,11 @@ index 0000000..49c02ea
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_025.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_025.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d4_025.json b/site/4d/data/sidecars/1835/recon_1835_north_d4_025.json
 new file mode 100644
 index 0000000..147d04b
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_025.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d4_025.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d4_025",
@@ -39168,11 +39168,11 @@ index 0000000..147d04b
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_039.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_039.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d4_039.json b/site/4d/data/sidecars/1835/recon_1835_north_d4_039.json
 new file mode 100644
 index 0000000..eb13a98
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_039.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d4_039.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d4_039",
@@ -39345,11 +39345,11 @@ index 0000000..eb13a98
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_043.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_043.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d4_043.json b/site/4d/data/sidecars/1835/recon_1835_north_d4_043.json
 new file mode 100644
 index 0000000..be8a4cf
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_043.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d4_043.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d4_043",
@@ -39522,11 +39522,11 @@ index 0000000..be8a4cf
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_056.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_056.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d4_056.json b/site/4d/data/sidecars/1835/recon_1835_north_d4_056.json
 new file mode 100644
 index 0000000..6a7a3c1
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d4_056.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d4_056.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d4_056",
@@ -39699,11 +39699,11 @@ index 0000000..6a7a3c1
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_019.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_019.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d5_019.json b/site/4d/data/sidecars/1835/recon_1835_north_d5_019.json
 new file mode 100644
 index 0000000..474f88d
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_019.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d5_019.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d5_019",
@@ -39876,11 +39876,11 @@ index 0000000..474f88d
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_026.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_026.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d5_026.json b/site/4d/data/sidecars/1835/recon_1835_north_d5_026.json
 new file mode 100644
 index 0000000..4884514
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_026.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d5_026.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d5_026",
@@ -40053,11 +40053,11 @@ index 0000000..4884514
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_037.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_037.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d5_037.json b/site/4d/data/sidecars/1835/recon_1835_north_d5_037.json
 new file mode 100644
 index 0000000..fda35f0
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_037.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d5_037.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d5_037",
@@ -40230,11 +40230,11 @@ index 0000000..fda35f0
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_041.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_041.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d5_041.json b/site/4d/data/sidecars/1835/recon_1835_north_d5_041.json
 new file mode 100644
 index 0000000..cfc1088
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_041.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d5_041.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d5_041",
@@ -40407,11 +40407,11 @@ index 0000000..cfc1088
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_057.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_057.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d5_057.json b/site/4d/data/sidecars/1835/recon_1835_north_d5_057.json
 new file mode 100644
 index 0000000..47f6f77
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d5_057.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d5_057.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d5_057",
@@ -40584,11 +40584,11 @@ index 0000000..47f6f77
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_021.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_021.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d6_021.json b/site/4d/data/sidecars/1835/recon_1835_north_d6_021.json
 new file mode 100644
 index 0000000..5a9fa63
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_021.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d6_021.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d6_021",
@@ -40761,11 +40761,11 @@ index 0000000..5a9fa63
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_044.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_044.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d6_044.json b/site/4d/data/sidecars/1835/recon_1835_north_d6_044.json
 new file mode 100644
 index 0000000..27f8947
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_044.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d6_044.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d6_044",
@@ -40938,11 +40938,11 @@ index 0000000..27f8947
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_058.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_058.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d6_058.json b/site/4d/data/sidecars/1835/recon_1835_north_d6_058.json
 new file mode 100644
 index 0000000..2e90ba2
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d6_058.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d6_058.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d6_058",
@@ -41115,11 +41115,11 @@ index 0000000..2e90ba2
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_d7_031.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d7_031.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_d7_031.json b/site/4d/data/sidecars/1835/recon_1835_north_d7_031.json
 new file mode 100644
 index 0000000..a272993
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_d7_031.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_d7_031.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_d7_031",
@@ -41292,11 +41292,11 @@ index 0000000..a272993
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_f1_022.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_f1_022.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_f1_022.json b/site/4d/data/sidecars/1835/recon_1835_north_f1_022.json
 new file mode 100644
 index 0000000..81bde06
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_f1_022.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_f1_022.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_f1_022",
@@ -41469,11 +41469,11 @@ index 0000000..81bde06
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_h1_007.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_h1_007.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_h1_007.json b/site/4d/data/sidecars/1835/recon_1835_north_h1_007.json
 new file mode 100644
 index 0000000..77c0efc
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_h1_007.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_h1_007.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_h1_007",
@@ -41646,11 +41646,11 @@ index 0000000..77c0efc
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_h2_030.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_h2_030.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_h2_030.json b/site/4d/data/sidecars/1835/recon_1835_north_h2_030.json
 new file mode 100644
 index 0000000..51fc37b
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_h2_030.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_h2_030.json
 @@ -0,0 +1,163 @@
 +{
 +  "id": "recon_1835_north_h2_030",
@@ -41815,11 +41815,11 @@ index 0000000..51fc37b
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_h3_045.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_h3_045.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_h3_045.json b/site/4d/data/sidecars/1835/recon_1835_north_h3_045.json
 new file mode 100644
 index 0000000..ca94726
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_h3_045.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_h3_045.json
 @@ -0,0 +1,163 @@
 +{
 +  "id": "recon_1835_north_h3_045",
@@ -41984,11 +41984,11 @@ index 0000000..ca94726
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_i2_015.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_i2_015.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_i2_015.json b/site/4d/data/sidecars/1835/recon_1835_north_i2_015.json
 new file mode 100644
 index 0000000..3b844c5
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_i2_015.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_i2_015.json
 @@ -0,0 +1,163 @@
 +{
 +  "id": "recon_1835_north_i2_015",
@@ -42153,11 +42153,11 @@ index 0000000..3b844c5
 +    "age_state": "older_frontier"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_t1_028.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_t1_028.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_t1_028.json b/site/4d/data/sidecars/1835/recon_1835_north_t1_028.json
 new file mode 100644
 index 0000000..ce25cd2
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_t1_028.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_t1_028.json
 @@ -0,0 +1,163 @@
 +{
 +  "id": "recon_1835_north_t1_028",
@@ -42322,11 +42322,11 @@ index 0000000..ce25cd2
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_w1_018.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_w1_018.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_w1_018.json b/site/4d/data/sidecars/1835/recon_1835_north_w1_018.json
 new file mode 100644
 index 0000000..04abccc
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_w1_018.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_w1_018.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_w1_018",
@@ -42499,11 +42499,11 @@ index 0000000..04abccc
 +    "age_state": "established"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_w2_005.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_w2_005.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_w2_005.json b/site/4d/data/sidecars/1835/recon_1835_north_w2_005.json
 new file mode 100644
 index 0000000..93a69f1
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_w2_005.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_w2_005.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_w2_005",
@@ -42676,11 +42676,11 @@ index 0000000..93a69f1
 +    "age_state": "recent"
 +  }
 +}
-diff --git a/site/chicago/4d/data/sidecars/1835/recon_1835_north_w5_040.json b/site/chicago/4d/data/sidecars/1835/recon_1835_north_w5_040.json
+diff --git a/site/4d/data/sidecars/1835/recon_1835_north_w5_040.json b/site/4d/data/sidecars/1835/recon_1835_north_w5_040.json
 new file mode 100644
 index 0000000..ec1067c
 --- /dev/null
-+++ b/site/chicago/4d/data/sidecars/1835/recon_1835_north_w5_040.json
++++ b/site/4d/data/sidecars/1835/recon_1835_north_w5_040.json
 @@ -0,0 +1,171 @@
 +{
 +  "id": "recon_1835_north_w5_040",
@@ -42853,10 +42853,10 @@ index 0000000..ec1067c
 +    "age_state": "new"
 +  }
 +}
-diff --git a/site/chicago/4d/js/changelog.js b/site/chicago/4d/js/changelog.js
+diff --git a/site/4d/js/changelog.js b/site/4d/js/changelog.js
 index a99af01..54e41c9 100644
---- a/site/chicago/4d/js/changelog.js
-+++ b/site/chicago/4d/js/changelog.js
+--- a/site/4d/js/changelog.js
++++ b/site/4d/js/changelog.js
 @@ -1,4 +1,11 @@
  export const CHANGELOG = [ // newest first
 +  { v: 58, title: 'Sixty North Division roofs join an audited town', kind: 'feature', ts: '2026-08-12T05:15:32.432Z', date: 'Aug 12, 2026, 12:15 AM CT',
@@ -42869,10 +42869,10 @@ index a99af01..54e41c9 100644
    { v: 57, title: 'The town begins to fill in—and the river is water again', kind: 'feature', ts: '2026-08-12T04:12:24.330Z', date: 'Aug 11, 2026, 11:12 PM CT',
      items: [
        'A quantitative July 1835 building programme now anchors the expansion: 665 roofs in all, split into 511 principal or functional roofs and 154 ancillary roofs, with independently reconcilable targets by district, use group and thirty-five architectural families. The source is a modern owner-supplied reconstruction specification, so the aggregate is treated as a production constraint rather than a surviving census.',
-diff --git a/site/chicago/4d/walk/js/changelog.js b/site/chicago/4d/walk/js/changelog.js
+diff --git a/site/4d/walk/js/changelog.js b/site/4d/walk/js/changelog.js
 index a99af01..54e41c9 100644
---- a/site/chicago/4d/walk/js/changelog.js
-+++ b/site/chicago/4d/walk/js/changelog.js
+--- a/site/4d/walk/js/changelog.js
++++ b/site/4d/walk/js/changelog.js
 @@ -1,4 +1,11 @@
  export const CHANGELOG = [ // newest first
 +  { v: 58, title: 'Sixty North Division roofs join an audited town', kind: 'feature', ts: '2026-08-12T05:15:32.432Z', date: 'Aug 12, 2026, 12:15 AM CT',

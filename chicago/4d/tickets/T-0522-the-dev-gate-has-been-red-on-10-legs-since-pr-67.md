@@ -52,7 +52,7 @@ Three root causes are visible without digging:
    of them fails the layer-reads gate with "wire it up, or bank it with `--update` in this
    commit and say why a figure nobody builds is shipped to a browser". The merge did
    neither.
-3. **The mirror was never published.** `site/chicago/4d/` does not match its source, so
+3. **The mirror was never published.** `site/4d/` does not match its source, so
    whatever did land is invisible on the live site.
 
 **Why this is worth ranking rather than leaving at the bottom of the queue: it blocks

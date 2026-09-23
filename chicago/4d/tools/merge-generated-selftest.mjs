@@ -57,7 +57,7 @@ console.log('\nmerge-generated (the five build products)');
     'BOARD.md is told to regenerate with ticket.mjs board');
 }
 {
-  const r = run(GENERATED, 'b\n', 'o\n', 't\n', 'site/chicago/4d/build.json');
+  const r = run(GENERATED, 'b\n', 'o\n', 't\n', 'site/4d/build.json');
   ok(/publish\.sh/.test(r.log), 'build.json is told to regenerate with publish.sh');
 }
 {

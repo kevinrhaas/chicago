@@ -58,7 +58,7 @@ gated.
 makes an undeclared page an honest "not yet" and a declared empty one a fault.
 
 **This is research, not payload.** Nothing under `data/research/` reaches
-`site/chicago/4d/`.
+`site/4d/`.
 
 ---
 

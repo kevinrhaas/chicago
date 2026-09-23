@@ -54,7 +54,7 @@ const jsonAt = process.argv.indexOf('--json');
 const jsonOut = jsonAt >= 0 ? process.argv[jsonAt + 1] : null;
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/chicago/4d');
+  : path.resolve(HERE, '../../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.FURNITURE_PORT || 4197);
 const YEAR = process.env.FURNITURE_YEAR || '1835';

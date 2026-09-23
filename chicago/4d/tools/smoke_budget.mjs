@@ -197,7 +197,7 @@ const COVERAGE = [
   ['renderers/web/css/', ALL, 'the chrome every panel check clicks'],
   ['data/reconstruction/', ALL, 'the infill programme the records are expanded from'],
 
-  // --- AND NO ROW FOR site/chicago/4d/ ANY MORE (T-0938). The published mirror had six
+  // --- AND NO ROW FOR site/4d/ ANY MORE (T-0938). The published mirror had six
   // rows here, and every one of them existed to price a path that could appear in a diff.
   // The mirror is untracked and generated now, so it cannot: `--for-diff` below reads
   // `git diff --name-only` and an ignored tree is never in it. That deletes the hazard the
@@ -605,7 +605,7 @@ function selfTest() {
       seen.add(p);
     }
     if (!why) fails.push(`${pat}: no reason given`);
-    // `site/chicago/4d/` is the published mirror and lives at the repo root;
+    // `site/4d/` is the published mirror and lives at the repo root;
     // every other pattern is relative to chicago/4d/.
     const target = pat.startsWith('site/') ? path.join(REPO, pat) : path.join(APP, pat);
     if (!fs.existsSync(target)) fails.push(`${pat}: no such path in the tree — the map has rotted`);
@@ -619,9 +619,9 @@ function selfTest() {
   // the whole gate — and both are replaced by this one, which holds the precondition
   // they rested on. If the mirror is ever tracked again this fails and the rows come back.
   {
-    const tracked = execFileSync('git', ['ls-files', '--', 'site/chicago/4d'],
+    const tracked = execFileSync('git', ['ls-files', '--', 'site/4d'],
       { cwd: REPO, encoding: 'utf8' }).trim();
-    if (tracked) fails.push('site/chicago/4d is tracked again — the published mirror is back on the '
+    if (tracked) fails.push('site/4d is tracked again — the published mirror is back on the '
       + 'PR surface, so it can appear in a diff and this map needs its rows back (T-0938)');
   }
 

@@ -26,14 +26,14 @@ Found while landing T-0798, which had to run `./tools/publish.sh` and then rever
 files to keep `tools/check.sh` green.
 
 `tools/synthesize_resident_research.py` writes into BOTH `chicago/4d/data` and
-`site/chicago/4d/data`, and its drift ratchet (T-0838) compares the committed bytes of
+`site/4d/data`, and its drift ratchet (T-0838) compares the committed bytes of
 both against a fresh run of the writer. `./tools/publish.sh` also writes the mirror, and
 it MINIFIES. For four files the two disagree:
 
-    site/chicago/4d/data/residents/households/hh_adams_william_h.json
-    site/chicago/4d/data/residents/households/hh_miller_john.json
-    site/chicago/4d/data/residents/households/hh_murphy_john.json
-    site/chicago/4d/data/residents/index.json
+    site/4d/data/residents/households/hh_adams_william_h.json
+    site/4d/data/residents/households/hh_miller_john.json
+    site/4d/data/residents/households/hh_murphy_john.json
+    site/4d/data/residents/index.json
 
 On `dev` those four are committed in the writer's pretty form while the other 1,335
 household mirrors are minified, so the ratchet is green today. Run `publish.sh` and they

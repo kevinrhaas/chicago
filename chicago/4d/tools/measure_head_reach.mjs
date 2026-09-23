@@ -32,7 +32,7 @@ import { fileURLToPath } from 'node:url';
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE = process.argv.includes('--source');
 const ROOT = SOURCE ? path.join(APP, 'renderers/web')
-  : path.resolve(APP, '../../site/chicago/4d');
+  : path.resolve(APP, '../../site/4d');
 const PORT = Number(process.env.HEAD_REACH_PORT || 4291);
 
 /** The eye height the walker stands at, and this file's own field of view, both

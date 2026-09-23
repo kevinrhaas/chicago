@@ -4,7 +4,7 @@
 # uncompressed GLB masters, the research dossiers and the raw dataset all stay
 # in the repo and out of the payload.
 #
-# THIS SCRIPT IS THE ONE WRITER OF site/chicago/4d/. The mirror is generated and
+# THIS SCRIPT IS THE ONE WRITER OF site/4d/. The mirror is generated and
 # untracked (T-0938), and the residents layer is shipped MINIFIED here and nowhere
 # else, so no other tool may write those paths. When synthesize_resident_research.py
 # wrote them too — pretty-printed — whichever ran last decided whether the gate was
@@ -65,7 +65,7 @@ if ! python3 tools/measure_web_derivatives.py --gate --quiet; then
   exit 1
 fi
 
-SITE="../../site/chicago/4d"
+SITE="../../site/4d"
 mkdir -p "$SITE/data/gltf" "$SITE/data/sidecars"
 
 # renderer
@@ -116,7 +116,7 @@ fi
 # GitHub's merge runs no driver to reconcile them (T-0857). So a fresh clone has
 # neither file, and the old `[ -f ]` guard would have published nothing at all and
 # said nothing about it. `board` is a pure function of tickets/*.md and costs
-# milliseconds; running it here is what keeps /chicago/4d/tickets.json a real URL.
+# milliseconds; running it here is what keeps /4d/tickets.json a real URL.
 node tools/ticket.mjs board >/dev/null
 cp -f tickets/tickets.json "$SITE/tickets.json"
 
@@ -317,7 +317,7 @@ fi
 # .github/chicago-4d-dev-preview.mjs marks every preview page by regex — a robots
 # meta after <head>, the DEV PREVIEW banner before </body> — and an opener with
 # no <head> or </body> at all slipped past all three markings (measured 2026-09-16
-# by T-0968's URL smoke: /chicago/4d/dev/ returned 200 unmarked). Structure is
+# by T-0968's URL smoke: /4d/dev/ returned 200 unmarked). Structure is
 # what makes the preview honest at the door.
 [ -f "$SITE/index.html" ] || cat > "$SITE/index.html" <<'HTML'
 <!doctype html>

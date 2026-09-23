@@ -142,7 +142,7 @@ issue the `-2` text is visibly worse; 1835-07-15 survives only as a `-2`, and
 ## This is research, not payload
 
 `tools/publish.sh` copies named subdirectories of `data/` and this is not one of them.
-The gate asserts that nothing under `data/research/` has reached `site/chicago/4d/`,
+The gate asserts that nothing under `data/research/` has reached `site/4d/`,
 so the corpus can grow without spending the published tree's size budget.
 
 ## Rebuilding

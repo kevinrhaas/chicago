@@ -36,7 +36,7 @@ can be stopped.
 | `acquisition_list.json` | `tools/rule_newberry_leads.py --write` | the Chicago and Cook County cards whose citation the works table could not read — books, not leads |
 
 This is research, not payload. `tools/publish.sh` does not copy `data/research/`, and
-`tools/newspaper_corpus.py --check` asserts it stays out of `site/chicago/4d/`.
+`tools/newspaper_corpus.py --check` asserts it stays out of `site/4d/`.
 
 ## How the volumes are read
 

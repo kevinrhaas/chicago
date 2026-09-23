@@ -115,7 +115,7 @@ const nsArg = process.argv.indexOf('--near-scale');
 const NEAR_SCALE = nsArg > -1 ? Number(process.argv[nsArg + 1]) : 0;
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/chicago/4d');
+  : path.resolve(HERE, '../../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.TIE_PORT || 4194);
 const YEAR = process.env.TIE_YEAR || '1835';

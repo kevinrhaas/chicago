@@ -35,7 +35,7 @@ Measured on 2026-08-28, on a clean branch off `origin/dev`:
 `./tools/check.sh` on unmodified `origin/dev` is **CHECK PASS**. The 23 reds all come
 from the merge, and they come from ONE thing: commit `0d97621e` ("Add Chicago
 newspaper transcriptions and reference docs") also committed **sixty Finder-duplicate
-files** under `site/chicago/4d/data/` — `recon_1835_north_d4_043 2.json`,
+files** under `site/4d/data/` — `recon_1835_north_d4_043 2.json`,
 `recon_1835_north_w5_040__recommended_1835 2.glb`, and fifty-eight more of the same
 shape. They are on `main` and not on `dev`. They break the publish-mirror gates
 (`sidecars derived from data/`, `published mirror matches its source`, `the shipped
@@ -48,7 +48,7 @@ re-imports them.
 ## Whose call the cleanup is
 
 Deleting sixty files from `site/` on `main` is outside a steward run's lane
-(`chicago/4d/` and `site/chicago/4d/` — and this is the second of those, but they are
+(`chicago/4d/` and `site/4d/` — and this is the second of those, but they are
 files no 4D process authored and no 4D record names). **The owner should confirm the
 sixty are junk before anything deletes them**, which is a one-look question: they are
 byte-duplicates of files that already exist without the ` 2` suffix.

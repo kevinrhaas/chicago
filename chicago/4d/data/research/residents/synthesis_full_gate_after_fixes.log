@@ -656,7 +656,7 @@ FAIL — 1 check(s) failed: the committed dataset validates clean
 [31m   ^ validator self-tests failed[0m
 
 [1m== no committed file carries a conflict marker[0m
-  ok    no conflict marker in any of 5527 tracked file(s) under chicago/4d and site/chicago/4d
+  ok    no conflict marker in any of 5527 tracked file(s) under chicago/4d and site/4d
 
 [1m== …and its own assertions still fire when broken[0m
 
@@ -1865,7 +1865,7 @@ scene 1835: 372 sidecar(s), 23 researched exclusion(s), 42 ground claim(s), 7 fa
 [31m   ^ sidecars derived from data/ failed[0m
 
 [1m== every dossier link a card offers resolves[0m
-   base: https://github.com/kevinrhaas/custom/blob/main/chicago/4d/
+   base: https://github.com/kevinrhaas/chicago/blob/main/chicago/4d/
    330 card(s) link a dossier, all resolving; 37 link none
    no dossier written for 37 record(s):
      1835/beaubien_barn
@@ -1931,7 +1931,7 @@ GATE: PASS
 changelog contract OK — 440 entries (440 in the literal), latest v440
 
 [1m== ticket queue[0m
-   tickets.json mirrored to site/chicago/4d/ (T-0154)
+   tickets.json mirrored to site/4d/ (T-0154)
 ticket queue FAILED:
   - T-0426-a-shop-addressed-on-a-cross-street-improves-the-.md: DUPLICATE id T-0426 (also T-0426-a-shop-addressed-on-a-cross-street-improves-the- 2.md) — two branches each assigned it. `node tools/ticket.mjs restamp <file>` renumbers the younger one
   - T-0442-deep-research-pilot-for-75-real-named-residents.md: DUPLICATE id T-0442 (also T-0442-deep-research-pilot-for-75-real-named-residents 2.md) — two branches each assigned it. `node tools/ticket.mjs restamp <file>` renumbers the younger one
@@ -2062,7 +2062,7 @@ ticket mirror OK
 changelog mirror — sandbox at /tmp/c4d-changelog-mirror-wPyBx4
   ok    a freshly published sandbox passes the mirror gate
   ok    stamping after publish.sh leaves both published mirrors fresh — no remembered publish.sh needed
-  ok    …and the stamper said which paths it carried —    changelog.js mirrored to site/chicago/4d/js/changelog.js (T-0155);    changelog.js mirrored to site/chicago/4d/walk/js/changelog.js (T-0155)
+  ok    …and the stamper said which paths it carried —    changelog.js mirrored to site/4d/js/changelog.js (T-0155);    changelog.js mirrored to site/4d/walk/js/changelog.js (T-0155)
   ok    …and the mirrors really are the stamped file, not the unstamped one — 369 bytes, v2 stamped
   ok    a hand-staled mirror still fails the gate — and it names changelog.js
   ok    a no-op re-stamp does NOT launder that stale mirror — still red

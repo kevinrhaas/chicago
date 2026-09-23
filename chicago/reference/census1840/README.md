@@ -115,7 +115,7 @@ The deposit and its derivatives are repository-only. Two gates hold that:
 - `tools/check.sh` → step **“the newspaper corpus resolves, and nothing under `data/research/`
   is published”** (`python3 tools/newspaper_corpus.py --check`) — the absolute assertion that
   no file under `chicago/4d/data/research/` appears in the published mirror.
-- `tools/publish.sh` copies a named payload to `site/chicago/4d/`; neither
+- `tools/publish.sh` copies a named payload to `site/4d/`; neither
   `chicago/reference/` nor `chicago/4d/data/research/` is in it, and
   `tools/check_published.mjs` re-derives the mirror from its source, so an extra file in the
   mirror is a red gate rather than a silent publication.

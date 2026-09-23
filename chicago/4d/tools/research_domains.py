@@ -39,7 +39,7 @@ gate binds, because they are the two whose text this repo commits.
 `data/research/` IS RESEARCH, NOT PAYLOAD, and this subtree inherits that: nothing
 here is published, `tools/publish.sh` does not copy it, and
 `tools/newspaper_corpus.py --check` already asserts the whole of `data/research/`
-stays out of `site/chicago/4d/`.
+stays out of `site/4d/`.
 
 NOTHING IN HERE AUTHORS A READING. --build writes empty scaffolds and a manifest;
 the claims and the records are hand-authored, one ticket at a time, by the runs

@@ -33,7 +33,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(HERE, '../../../site/chicago/4d');
+const ROOT = path.resolve(HERE, '../../../site/4d');
 const PORT = 8129;
 const YEAR = process.env.SMOKE_YEAR || '1835';
 const TYPES = {

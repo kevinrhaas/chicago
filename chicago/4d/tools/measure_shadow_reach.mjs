@@ -90,7 +90,7 @@ const VIEWPORT = (process.env.SMOKE_VIEWPORT || 'desktop') === 'mobile'
   ? { width: 390, height: 780 } : { width: 1280, height: 800 };
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/chicago/4d');
+  : path.resolve(HERE, '../../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.SHADOW_PORT || 4197);
 const YEAR = process.env.SHADOW_YEAR || '1835';

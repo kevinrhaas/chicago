@@ -19,7 +19,7 @@ source "$_check_tools/check_harness.sh"
 
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #
-# `site/chicago/4d/` used to be committed, so every step below could assume it was
+# `site/4d/` used to be committed, so every step below could assume it was
 # simply there — and `check_published.mjs` ran under an `if [ -d ]` guard that made a
 # fresh checkout skip the gate silently. It is untracked and .gitignored now (see
 # /.gitignore for the measurement), which turns that assumption into an absence: a
@@ -35,7 +35,7 @@ source "$_check_tools/check_harness.sh"
 # It costs about a second (measured: 1.0 s on a warm tree), and it is a REAL publish
 # rather than a `--dry-run`, so publish.sh's own refusals — a derivative that no longer
 # answers for its master — fail the gate here rather than at deploy time.
-step "publish the mirror the gate measures (site/chicago/4d/ is generated, T-0938)" \
+step "publish the mirror the gate measures (site/4d/ is generated, T-0938)" \
   bash tools/publish.sh
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by

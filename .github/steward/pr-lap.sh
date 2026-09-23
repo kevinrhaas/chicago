@@ -67,11 +67,11 @@ chicago/4d/tickets/tickets.json
 chicago/4d/tickets/QUEUE.md
 chicago/4d/tools/dev-smoke-state.json
 chicago/4d/renderers/web/js/changelog.js
-site/chicago/4d/build.json
-site/chicago/4d/tickets.json
-site/chicago/4d/js/changelog.js
-site/chicago/4d/walk/index.html
-site/chicago/4d/walk/js/changelog.js
+site/4d/build.json
+site/4d/tickets.json
+site/4d/js/changelog.js
+site/4d/walk/index.html
+site/4d/walk/js/changelog.js
 '
 
 # ...AND THE THREE OF THOSE THAT ARE NO LONGER TRACKED AT ALL (T-0937).
@@ -91,7 +91,7 @@ site/chicago/4d/walk/js/changelog.js
 UNTRACKED_GENERATED='
 chicago/4d/tickets/BOARD.md
 chicago/4d/tickets/tickets.json
-site/chicago/4d/tickets.json
+site/4d/tickets.json
 '
 
 say() { printf '%s\n' "$*"; }

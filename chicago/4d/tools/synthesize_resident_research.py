@@ -5,7 +5,7 @@ T-0487..T-0490.  Write with no arguments; `--check` validates the committed
 invariants.  The 1840 census is retained as later evidence and never silently
 back-projected into the 1835 scene.
 
-THIS WRITER DOES NOT OWN THE PUBLISHED MIRROR.  `site/chicago/4d/` is generated and
+THIS WRITER DOES NOT OWN THE PUBLISHED MIRROR.  `site/4d/` is generated and
 untracked, and it has exactly one writer, `tools/publish.sh`, which ships the residents
 layer minified.  This writer emits the tracked, diff-readable form under
 `data/residents/` and nothing else.  Two writers of the same four paths, disagreeing
@@ -613,7 +613,7 @@ def summary(before,after,ledger,stats):
 # on the list that stops drifting fails too, so the list can only shrink and a spend has
 # to shrink it in its own commit.  New invisible drift is what this makes impossible.
 #
-# `site/chicago/4d/data` WAS A THIRD ROOT AND IS NOT ONE ANY MORE (T-0938, and it is
+# `site/4d/data` WAS A THIRD ROOT AND IS NOT ONE ANY MORE (T-0938, and it is
 # the fix for T-0933).  The published mirror is untracked and generated now, so it is
 # not part of "the committed tree" this ratchet compares a fresh writer run against —
 # and the copytree below would raise on a clone that has not published.  It was also
@@ -745,7 +745,7 @@ def round_trip_problems():
     The fault this guards is not a value in a file, so re-running the round trip here
     would not catch it — it is STRUCTURAL, and it came back twice in two shapes:
 
-    1.  A SECOND WRITER.  `site/chicago/4d/data` was a DRIFT_ROOT while `publish.sh`
+    1.  A SECOND WRITER.  `site/4d/data` was a DRIFT_ROOT while `publish.sh`
         minified what this writer pretty-printed, so publishing turned the ratchet red
         on four resident files whose parsed values were identical, and the two honest
         answers to a red gate — regenerate, or baseline it — were both wrong.  A
@@ -984,7 +984,7 @@ def main():
     after=snapshot(index); ledger["before"]=before; ledger["after"]=after; ledger["retirement"]=stats; dump(LEDGER,ledger,2); SUMMARY.write_text(summary(before,after,ledger,stats),encoding="utf-8")
     programme=load(PROGRAMME); programme["resident_population_active"]=False; programme["resident_population_status"]="Retired from resident list by owner ruling 2026-09-02; building stock may remain anonymous until a later explicit reconstructed-population pass."; dump(PROGRAMME,programme,2)
     # THIS WRITER DOES NOT WRITE THE PUBLISHED MIRROR (T-0938).  It used to keep
-    # `site/chicago/4d/data/residents/` and the changed structure records in step
+    # `site/4d/data/residents/` and the changed structure records in step
     # itself, back when the mirror was committed and a stale one was a red gate on the
     # branch that made it stale.  The mirror is untracked and generated now: it has one
     # writer, `tools/publish.sh`, which `tools/check.sh` runs before it asks

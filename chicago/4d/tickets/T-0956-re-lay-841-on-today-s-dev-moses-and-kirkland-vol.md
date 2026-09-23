@@ -31,7 +31,7 @@ regenerating files that today's `dev` no longer tracks at all:
 
 - `tickets/tickets.json` and `tickets/BOARD.md` came off the PR surface in
   **T-0937** (#1022) — generated, never committed.
-- `site/chicago/4d/` came off it in **T-0938** (v663) — generated, untracked,
+- `site/4d/` came off it in **T-0938** (v663) — generated, untracked,
   `.gitignore`d, and `tools/publish.sh` is its one writer.
 
 Between them those are 800+ lines of the branch's diff and every one of them is a

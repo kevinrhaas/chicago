@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copy the parts of pre_fire_v1 the published viewer needs into site/chicago/pre-fire/.
+# Copy the parts of pre_fire_v1 the published viewer needs into site/pre-fire/.
 #
 # The mirror used to be a hand copy with no script behind it, which is how it
 # came to hold 14 map images to the source's 15 for four months (T-0801). What
@@ -10,14 +10,14 @@
 #   tools/publish.sh           copy
 #   tools/publish.sh --check   fail if the mirror differs from a fresh copy
 #
-# site/chicago/pre-fire/index.html is the mirror's own bare-path redirect and
+# site/pre-fire/index.html is the mirror's own bare-path redirect and
 # has no counterpart in the source, so it is left alone either way.
 #
 # Run from the pre_fire_v1 directory.
 set -euo pipefail
 
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-DEST="$(cd "$SRC/../.." && pwd)/site/chicago/pre-fire"
+DEST="$(cd "$SRC/../.." && pwd)/site/pre-fire"
 CHECK=${1:-}
 
 [ -d "$DEST" ] || { echo "no mirror at $DEST" >&2; exit 1; }
@@ -51,11 +51,11 @@ if [ "$CHECK" = "--check" ]; then
   drift=$(diff -r --brief "$tmp" "$DEST" 2>&1 | grep -v "^Only in $DEST: index\.html$" || true)
   if [ -n "$drift" ]; then
     echo "$drift"
-    echo "STALE: site/chicago/pre-fire differs from the source. Run tools/publish.sh." >&2
+    echo "STALE: site/pre-fire differs from the source. Run tools/publish.sh." >&2
     exit 1
   fi
-  echo "site/chicago/pre-fire is current"
+  echo "site/pre-fire is current"
 else
   copy "$DEST"
-  echo "published ${#IMAGES[@]} map images + viewer + media to site/chicago/pre-fire"
+  echo "published ${#IMAGES[@]} map images + viewer + media to site/pre-fire"
 fi

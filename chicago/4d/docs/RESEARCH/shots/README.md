@@ -17,4 +17,4 @@ record of a change, not a gallery.
 
 Reproduce either with, from `chicago/4d/`:
 
-    node tools/shoot.mjs ../../site/chicago/4d /walk/index.html /tmp/shots --at 126,-110,225,pose
+    node tools/shoot.mjs ../../site/4d /walk/index.html /tmp/shots --at 126,-110,225,pose

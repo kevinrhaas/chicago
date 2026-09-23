@@ -66,7 +66,7 @@ next run inherits the reasoning rather than re-litigating which bracket shapes a
 > coverage and spend, the civic mint and its regrade, the research synthesis,
 > the town cards, the nine crosswalks and six research spends that key on
 > resident cards, the Newberry parse, the scene sidecars, town census, register
-> and the resident audit; site/chicago/4d republished.
+> and the resident audit; site/4d republished.
 
 **The branch is not worth merging and is not the recovery.** It is three commits ahead of `dev`
 and six behind, and an in-memory merge conflicts on 31 files — every one of them a generated

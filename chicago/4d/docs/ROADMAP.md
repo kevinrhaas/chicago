@@ -1335,7 +1335,7 @@ and gets a `docs/LIBERTIES.md` entry, exactly as the nine flower archetypes did.
 
 **Files:** `renderers/web/js/flora.js` (a `shrubGeometry` archetype, a set beside `rosetteSet`, a
 `placeShrub`) · `data/liberties.json` + `docs/LIBERTIES.md` · the flora gates' baselines if a read
-moves · `renderers/web/js/changelog.js` · `site/chicago/4d/` · `docs/STATUS.md`.
+moves · `renderers/web/js/changelog.js` · `site/4d/` · `docs/STATUS.md`.
 
 **WHAT SHIPPED.** `shrubGeometry()` — four woody stems from one root, sixteen leaf sprays over
 them, 40 triangles against the forb's 12 — on its own instanced set `flora-shrub`, dealt from the
@@ -2232,7 +2232,7 @@ amendment** — RENDERING §4 W1 still reads as written and the owner may prefer
 fill from `scene.userData.chiSkyFill`, because a Lambert material cannot see
 `scene.environment` and the sward would otherwise have kept a fill the town no longer has) ·
 `tools/light_probe.mjs` (new) · `tools/critic_shots.mjs` (`--stations`) ·
-`renderers/web/js/changelog.js` · `site/chicago/4d/` · `docs/`
+`renderers/web/js/changelog.js` · `site/4d/` · `docs/`
 
 **Phase:** RENDERING §4 W1 · **Runner:** improve-runner · **Effort:** M · **After:** R-G0
 
@@ -2762,7 +2762,7 @@ having an instance in that frame; it is not worth chasing now that the term is z
 **Phase:** RENDERING §4 W5 + §4 W3 · **Runner:** improve-runner · **Files:**
 `renderers/web/js/buildings.js` (`roughnessAttribute`, `perVertexRoughness`, `materialKey`) ·
 `renderers/web/js/world.js` (`SHADOW_REACH_M`, the shadow block) · `tools/smoke_renderer.mjs`
-(four new assertions) · `docs/evidence/r-w5a2-{before,after}.png` · `site/chicago/4d/**`.
+(four new assertions) · `docs/evidence/r-w5a2-{before,after}.png` · `site/4d/**`.
 
 **It was taken as ONE parcel on purpose.** R-W5a2 alone is UNSEEN by its own row and the visible-
 progress cap forbade a second invisible run in four (v161 is the one). But R-W3b(a), six hours
@@ -3414,7 +3414,7 @@ counts, two arguments) · `tools/measure_adoption_tests.py` (the `pair housed` c
 `data/residents/households/*.json` · `data/residents/index.json` · `data/structures/recon_1835_blk_randolph_dearborn_{d1_04,d3_01}.json`
 (occupancy only, via the generators) · `data/sidecars/1835/` · `assets/manifest.json` ·
 `docs/LIBERTIES.md` (L109) · `docs/ROADMAP.md` · `docs/STATUS.md` ·
-`renderers/web/js/changelog.js` · `site/chicago/4d/` (publish mirror)
+`renderers/web/js/changelog.js` · `site/4d/` (publish mirror)
 
 ### K20 — the invented-name allocator is not stable under insertion · **DONE 2026-08-16**
 
@@ -3993,7 +3993,7 @@ no data record, no renderer file, no geometry, no bake
 
 The geometry a visitor downloads reaches them along four links:
 
-    data/  ->  assets/gltf/  ->  assets/web/  ->  site/chicago/4d/assets/web/
+    data/  ->  assets/gltf/  ->  assets/web/  ->  site/4d/assets/web/
 
 Link 1 is gated — `validate.py --stale` recomputes every master's input hash. Link 3 is gated —
 `check_published.mjs` asserts the mirror is byte-identical to its source, and exists because
@@ -4663,7 +4663,7 @@ here: `species[].confidence`, which the confidence view tints each plant by.
 **FINDING 2 — `data/fauna` has no reader, and three separate documents imply it does.** **139
 species records across 10 habitat zones**, 30 figures, **zero reads** — and the strong form of
 that is not a field scan but a directory one: **no file under `renderers/` names the layer**,
-and `tools/publish.sh` does not copy it, so `site/chicago/4d/data/` has no `fauna/` in it and a
+and `tools/publish.sh` does not copy it, so `site/4d/data/` has no `fauna/` in it and a
 browser has never been offered the layer. Against that: `data/scenes/1835.json` lists `fauna`
 in its `layers`; `docs/LIBERTIES.md` L2 describes the July soundscape as shipped; and
 `tools/validate.py` demanded eight vocabulary blocks on the ground that *"a renderer reads this

@@ -161,7 +161,7 @@ async function loadPlaywright() {
 }
 const { chromium } = await loadPlaywright();
 
-const ROOT = SOURCE ? APP : path.resolve(APP, '../../site/chicago/4d');
+const ROOT = SOURCE ? APP : path.resolve(APP, '../../site/4d');
 const ENTRY = SOURCE ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.FAR_BLOOM_PORT || 4397);
 const YEAR = process.env.FAR_BLOOM_YEAR || '1835';

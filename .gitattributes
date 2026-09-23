@@ -92,7 +92,7 @@ chicago/4d/tickets/QUEUE.md merge=queue
 # the case union got silently wrong, and it is rare enough not to automate.
 #
 # ONE PATH, NOT THREE (T-0938). The two published mirrors of this file used to be
-# listed here too. `site/chicago/4d/` is untracked now — it is a build product that
+# listed here too. `site/4d/` is untracked now — it is a build product that
 # `tools/publish.sh` writes and `tools/check.sh` re-derives and checks — so there is
 # no mirror in the index for a driver to reconcile. The authored file is the only
 # tracked changelog, which is also the only one anybody edits.
@@ -126,7 +126,7 @@ chicago/4d/renderers/web/js/changelog.js merge=changelog
 #
 # So the build products were taken off the PR surface instead. `tickets/BOARD.md` and
 # `tickets/tickets.json` first (T-0937), then the whole published mirror
-# `site/chicago/4d/**` (T-0938) — which is where `build.json` and `walk/index.html`,
+# `site/4d/**` (T-0938) — which is where `build.json` and `walk/index.html`,
 # the two the driver was still holding, went. All of it is UNTRACKED and .gitignored;
 # the reasoning is in /.gitignore beside the rules. A file that is not tracked cannot
 # conflict, in a clone or on the server, so no driver is needed for any of them and
@@ -137,8 +137,8 @@ chicago/4d/renderers/web/js/changelog.js merge=changelog
 # the whole mirror, `tools/check.sh` runs publish.sh and then gates what it produced,
 # `deploy.yml` publishes both the production tree and the dev-preview worktree before
 # the Pages upload, and `chicago-4d-bake.yml` publishes before it uploads the mirror the
-# smoke runs against. So /chicago/4d/walk/, /chicago/4d/js/changelog.js and
-# /chicago/4d/tickets.json still ship.
+# smoke runs against. So /4d/, /4d/js/changelog.js and
+# /4d/tickets.json still ship.
 #
 # `merge=generated` therefore names no path any more. The driver and its self-test stay
 # in the tree: they are the record of what was tried, and `tools/merge-generated-

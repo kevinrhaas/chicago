@@ -27,10 +27,10 @@ publish.sh minifies four resident mirror files that synthesize_resident_research
 `./tools/publish.sh` rewrote four files in the published mirror that no part of that
 unit changed:
 
-    site/chicago/4d/data/residents/index.json
-    site/chicago/4d/data/residents/households/hh_adams_william_h.json
-    site/chicago/4d/data/residents/households/hh_miller_john.json
-    site/chicago/4d/data/residents/households/hh_murphy_john.json
+    site/4d/data/residents/index.json
+    site/4d/data/residents/households/hh_adams_william_h.json
+    site/4d/data/residents/households/hh_miller_john.json
+    site/4d/data/residents/households/hh_murphy_john.json
 
 It **minified** them — the JSON compares equal on all four, only the whitespace moves.
 `tools/synthesize_resident_research.py --drift` then failed all four as new drift off

@@ -1014,7 +1014,7 @@ function selectPopTab(root, id) {
  * therefore links to a page that appears when the promotion lands — the same lag
  * the rest of the tier carries, rather than a second one.
  */
-export const DOSSIER_BASE = 'https://github.com/kevinrhaas/custom/blob/main/chicago/4d/';
+export const DOSSIER_BASE = 'https://github.com/kevinrhaas/chicago/blob/main/chicago/4d/';
 
 /**
  * @param {HTMLElement} root  the <aside> to render into

@@ -37,7 +37,7 @@
  * T-0813 wrote the rule as "refuses on any conflict outside the BUILD PRODUCTS",
  * because when it was filed the six conflicting files were generated artifacts.
  * They are not any more: T-0937 and T-0938 took `tickets/BOARD.md`,
- * `tickets/tickets.json` and the whole `site/chicago/4d/**` mirror OUT of the
+ * `tickets/tickets.json` and the whole `site/4d/**` mirror OUT of the
  * tree — untracked and .gitignored — on the reasoning that a file that is not
  * tracked cannot conflict, in a clone or on a server. `merge=generated` names no
  * path today. So the set that remains is the DRIVER-COVERED set, and the rule is

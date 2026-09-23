@@ -17,7 +17,7 @@ on:
     branches: [dev]
     paths:
       - 'chicago/4d/**'
-      - 'site/chicago/4d/**'
+      - 'site/4d/**'
   workflow_dispatch:
     inputs:
       only:

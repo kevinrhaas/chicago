@@ -115,4 +115,4 @@ outranks a `transcription_mediated` one. Register hands are hard; say which you
 did.
 
 **This is research, not payload.** Nothing under `data/research/` reaches
-`site/chicago/4d/`.
+`site/4d/`.
