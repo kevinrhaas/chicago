@@ -57,6 +57,14 @@ jobs:
           npm install -g playwright@1.56.1
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
 
+      # THE MIRROR IS GENERATED (T-0938), so it has to be built here before the smoke
+      # can serve it. Without this step every run died in its first second with "no
+      # published mirror at …/site/4d — run tools/publish.sh first" (first seen on
+      # kevinrhaas/chicago's import push, 2026-09-23; the same gap was latent in custom).
+      - name: Publish the mirror the smoke serves (site/4d/ is generated)
+        working-directory: chicago/4d
+        run: bash tools/publish.sh
+
       # --published: the gate that matters runs against the mirror that ships,
       # compressed derivatives and visitor layout, not the source masters.
       - name: Run the smoke against the published mirror
